@@ -6,40 +6,24 @@ log-level: info
 proxies:
 - name: 🇿🇦 ZA 01 - xiaohe
   type: ss
-  server: 102.133.165.160
-  port: 16233
-  cipher: chacha20-ietf-poly1305
-  password: Xsy8Ox4yOV3xLlpxtjzs3X
-  udp: true
-- name: 🇿🇦 ZA 02 - xiaohe
-  type: ss
   server: 102.37.156.224
   port: 443
   cipher: chacha20-ietf-poly1305
   password: aduB9HGxQHjA2SBMRjkHX6
   udp: true
-- name: 🇿🇦 ZA 03 - xiaohe
-  type: vmess
-  server: za-a-zzy.glnyhlgc.com
-  port: 443
-  uuid: 5583af50-f464-4df6-e2ef-34592311e5c6
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: za-a-zzy.glnyhlgc.com
-  network: ws
-  ws-opts:
-    path: /about/7678
-    headers:
-      Host: za-a-zzy.glnyhlgc.com
-- name: 🇿🇦 ZA 04 - xiaohe
+- name: 🇿🇦 ZA 02 - xiaohe
   type: ss
   server: 139.84.247.164
   port: 8388
   cipher: chacha20-ietf-poly1305
   password: tfAcRikawhNoZAhu
+  udp: true
+- name: 🇿🇦 ZA 03 - xiaohe
+  type: ss
+  server: 102.133.165.160
+  port: 16233
+  cipher: chacha20-ietf-poly1305
+  password: Xsy8Ox4yOV3xLlpxtjzs3X
   udp: true
 proxy-groups:
 - name: PROXIES
@@ -49,7 +33,6 @@ proxy-groups:
   - 🇿🇦 ZA 01 - xiaohe
   - 🇿🇦 ZA 02 - xiaohe
   - 🇿🇦 ZA 03 - xiaohe
-  - 🇿🇦 ZA 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -58,6 +41,5 @@ proxy-groups:
   - 🇿🇦 ZA 01 - xiaohe
   - 🇿🇦 ZA 02 - xiaohe
   - 🇿🇦 ZA 03 - xiaohe
-  - 🇿🇦 ZA 04 - xiaohe
 rules:
 - MATCH,PROXIES

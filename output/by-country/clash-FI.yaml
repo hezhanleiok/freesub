@@ -20,31 +20,17 @@ proxies:
       Host: c12.com
 - name: 🇫🇮 FI 02 - xiaohe
   type: vless
-  server: 84.22.150.39
-  port: 7443
-  uuid: 5cc814de-2bbb-4409-ad8c-ee841ca7bad1
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
-  network: ws
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
-- name: 🇫🇮 FI 03 - xiaohe
-  type: vless
-  server: 65.109.181.40
-  port: 2511
-  uuid: 36fb0222-0a1a-43d6-980e-eb484f1ebebd
+  server: 2.26.122.101
+  port: 8443
+  uuid: 758f49d3-5f5f-47e7-bfa4-4ce96faf800d
   udp: true
   tls: true
   skip-cert-verify: true
   reality-opts:
-    public-key: 8jZsR1H0IF8ztPU3wrD1LRRGS_TELWuwHPSdCS1dpms
-  servername: amd.com
-  client-fingerprint: chrome
-- name: 🇫🇮 FI 04 - xiaohe
+    public-key: NI5Rkfn6zO_gF-UC1nuvJwu4SDakCXh3ygJOKU1EITU
+  servername: cdn.shopify.com
+  client-fingerprint: firefox
+- name: 🇫🇮 FI 03 - xiaohe
   type: vless
   server: 185.79.138.71
   port: 448
@@ -56,18 +42,6 @@ proxies:
     public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
   servername: www.samsung.com
   client-fingerprint: chrome
-- name: 🇫🇮 FI 05 - xiaohe
-  type: vless
-  server: 2.26.122.101
-  port: 8443
-  uuid: 758f49d3-5f5f-47e7-bfa4-4ce96faf800d
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: NI5Rkfn6zO_gF-UC1nuvJwu4SDakCXh3ygJOKU1EITU
-  servername: cdn.shopify.com
-  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -76,8 +50,6 @@ proxy-groups:
   - 🇫🇮 FI 01 - xiaohe
   - 🇫🇮 FI 02 - xiaohe
   - 🇫🇮 FI 03 - xiaohe
-  - 🇫🇮 FI 04 - xiaohe
-  - 🇫🇮 FI 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -86,7 +58,5 @@ proxy-groups:
   - 🇫🇮 FI 01 - xiaohe
   - 🇫🇮 FI 02 - xiaohe
   - 🇫🇮 FI 03 - xiaohe
-  - 🇫🇮 FI 04 - xiaohe
-  - 🇫🇮 FI 05 - xiaohe
 rules:
 - MATCH,PROXIES
