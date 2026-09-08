@@ -139,3 +139,21 @@ export default {
    - **Clash / Clash Verge / Mihomo Party**：直接复制上方表格中的 **Clash 专属订阅** 链接。
    - **v2rayN / v2rayNG**：直接复制上方表格中的 **V2RayN 专属订阅** 链接。
    - **sing-box**：直接使用上方 **sing-box 专属订阅** 链接。
+
+
+
+# 合规声明 / Compliance Notice
+
+本项目仅用于 **个人学习与研究网络代理技术**，不提供任何形式的商业服务。  
+请注意以下事项：
+
+- 本项目仅限 **个人自用**，例如访问公开网站、学习网络协议。  
+- 本项目 **不得用于非法用途**，包括但不限于欺诈、攻击、绕过监管或侵犯他人权益。  
+- 本仓库项目拥有者不对任何第三方使用本项目造成的后果负责。  
+- 使用者需自行确保符合所在国家或地区的法律法规。  
+
+By using this project, you agree:
+- This project is for **educational and personal use only**.  
+- It must **not be used for illegal activities**, including fraud, abuse, or bypassing restrictions.  
+- The author is **not responsible** for misuse by third parties.  
+- Users must comply with all applicable laws and regulations in their jurisdiction.
