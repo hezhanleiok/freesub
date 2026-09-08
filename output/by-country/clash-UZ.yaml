@@ -1,0 +1,49 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇺🇿 UZ 01 - xiaohe
+  type: vless
+  server: 189.74.97.47
+  port: 2087
+  uuid: 894fe9f0-b998-49c0-8003-a5007de921e1
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /755276b33b6f
+    headers:
+      Host: 189.74.97.47
+- name: 🇺🇿 UZ 02 - xiaohe
+  type: vless
+  server: 104.18.80.149
+  port: 443
+  uuid: 50414e45-4c5f-5a45-5553-4017ea8bea78
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: zeus-panel-mvtum1.mahdiharchegani.workers.dev
+  network: ws
+  ws-opts:
+    path: /stream/PANEL_ZEUS/4017ea8bea78/loc-4
+    headers:
+      Host: zeus-panel-mvtum1.mahdiharchegani.workers.dev
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇺🇿 UZ 01 - xiaohe
+  - 🇺🇿 UZ 02 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇺🇿 UZ 01 - xiaohe
+  - 🇺🇿 UZ 02 - xiaohe
+rules:
+- MATCH,PROXIES

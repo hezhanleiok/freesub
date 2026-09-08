@@ -19,12 +19,19 @@ proxies:
     headers:
       Host: cf2.rumedia-cdn.com
 - name: 🇸🇪 SE 02 - xiaohe
-  type: ss
-  server: 70.34.212.124
-  port: 8388
-  cipher: aes-256-gcm
-  password: AxIYWtskJWIIaefW
+  type: vless
+  server: 104.18.21.69
+  port: 443
+  uuid: 7b1897ec-afb5-425c-afbf-d79634b6b317
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: se-sto.xhs152.shop
+  network: ws
+  ws-opts:
+    path: /announcement?ed=2048
+    headers:
+      Host: se-sto.xhs152.shop
 proxy-groups:
 - name: PROXIES
   type: select
