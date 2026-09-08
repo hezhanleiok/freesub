@@ -5,6 +5,60 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇷 韩国 (South Korea) 01 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 5498
+  cipher: aes-256-gcm
+  password: lGqs95QkFHo2NV
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 02 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 8888
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 7002
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 6679
+  cipher: aes-256-gcm
+  password: TEzjfAYq2IjtuoS
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
+  type: vless
+  server: 151.245.106.49
+  port: 2053
+  uuid: 579ac5bd-a43d-49d4-b83e-a9e3ddd1f706
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: k9narlSK7fUqy94_p0rrqKl52W35QLNsp3W8xaGq_Go
+  servername: www.apple.com
+  client-fingerprint: random
+- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 2376
+  cipher: aes-256-gcm
+  password: faBAoD54k87UJG7
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 8119
+  cipher: aes-256-gcm
+  password: cdBIDV42DCwnfIN
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
   type: vless
   server: 151.245.106.49
   port: 2053
@@ -16,24 +70,35 @@ proxies:
     public-key: k9narlSK7fUqy94_p0rrqKl52W35QLNsp3W8xaGq_Go
   servername: www.apple.com
   client-fingerprint: firefox
-- name: 🇰🇷 韩国 (South Korea) 02 - xiaohe
-  type: vmess
-  server: 140.238.2.250
-  port: 443
-  uuid: 41a7089a-040b-4538-8b8d-010902405bde
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 09 - xiaohe
   type: ss
   server: 141.164.45.187
   port: 9090
   cipher: aes-256-gcm
   password: Y6R9pAtvxxzmGC
   udp: true
-- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 10 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 9101
+  cipher: aes-256-gcm
+  password: e4FCWrgpkji3QY
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 11 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 8008
+  cipher: aes-256-gcm
+  password: XKFKl2rULjIp74
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 12 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 6697
+  cipher: aes-256-gcm
+  password: TEzjfAYq2IjtuoS
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 13 - xiaohe
   type: vless
   server: 130.94.29.111
   port: 2087
@@ -46,7 +111,7 @@ proxies:
     path: /e17586a75123
     headers:
       Host: 130.94.29.111
-- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 14 - xiaohe
   type: vless
   server: 130.94.29.111
   port: 2087
@@ -69,6 +134,15 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 03 - xiaohe
   - 🇰🇷 韩国 (South Korea) 04 - xiaohe
   - 🇰🇷 韩国 (South Korea) 05 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 06 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 07 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 08 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 09 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 10 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 11 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 12 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 13 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 14 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -79,5 +153,14 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 03 - xiaohe
   - 🇰🇷 韩国 (South Korea) 04 - xiaohe
   - 🇰🇷 韩国 (South Korea) 05 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 06 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 07 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 08 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 09 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 10 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 11 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 12 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 13 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 14 - xiaohe
 rules:
 - MATCH,PROXIES
