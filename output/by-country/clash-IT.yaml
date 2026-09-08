@@ -4,22 +4,14 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇮🇹 意大利 (Italy) 01 - xiaohe
+- name: 🇮🇹 意大利 (Italy) 01 - wangyu
   type: ss
   server: 57.131.48.45
   port: 8388
   cipher: aes-256-gcm
   password: itzvpn@321
   udp: true
-- name: 🇮🇹 意大利 (Italy) 02 - xiaohe
-  type: vless
-  server: 204.216.216.23
-  port: 10086
-  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇮🇹 意大利 (Italy) 03 - xiaohe
+- name: 🇮🇹 意大利 (Italy) 02 - wangyu
   type: vless
   server: 57.131.32.191
   port: 80
@@ -32,21 +24,38 @@ proxies:
     path: /vless/
     headers:
       Host: ov-italy1.09vpn.com
-- name: 🇮🇹 意大利 (Italy) 04 - xiaohe
+- name: 🇮🇹 意大利 (Italy) 03 - wangyu
   type: vless
-  server: milan.adaspoloandco.com
-  port: 8443
-  uuid: 69ac162b-1643-4acb-9f49-09d8b0fad609
+  server: 204.216.216.23
+  port: 10086
+  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: milan.adaspoloandco.com
-  network: ws
-  ws-opts:
-    path: /RoBeRt
-    headers:
-      Host: milan.adaspoloandco.com
-- name: 🇮🇹 意大利 (Italy) 05 - xiaohe
+- name: 🇮🇹 意大利 (Italy) 04 - wangyu
+  type: ss
+  server: 57.131.48.45
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
+  udp: true
+- name: 🇮🇹 意大利 (Italy) 05 - wangyu
+  type: vless
+  server: 204.216.216.23
+  port: 10086
+  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇮🇹 意大利 (Italy) 06 - wangyu
+  type: vless
+  server: 204.216.216.23
+  port: 10086
+  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇮🇹 意大利 (Italy) 07 - wangyu
   type: vless
   server: 57.131.32.191
   port: 80
@@ -59,15 +68,7 @@ proxies:
     path: /vless/
     headers:
       Host: ov-italy1.09vpn.com
-- name: 🇮🇹 意大利 (Italy) 06 - xiaohe
-  type: vless
-  server: 204.216.216.23
-  port: 10086
-  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇮🇹 意大利 (Italy) 07 - xiaohe
+- name: 🇮🇹 意大利 (Italy) 08 - wangyu
   type: vless
   server: 57.131.32.191
   port: 80
@@ -80,40 +81,7 @@ proxies:
     path: /vless/
     headers:
       Host: 57.131.32.191
-- name: 🇮🇹 意大利 (Italy) 08 - xiaohe
-  type: vless
-  server: milan.adaspoloandco.com
-  port: 8443
-  uuid: 69ac162b-1643-4acb-9f49-09d8b0fad609
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: milan.adaspoloandco.com
-  network: ws
-  ws-opts:
-    path: /RoBeRt
-    headers:
-      Host: milan.adaspoloandco.com
-- name: 🇮🇹 意大利 (Italy) 09 - xiaohe
-  type: vless
-  server: 57.131.38.163
-  port: 2053
-  uuid: d4b08cd6-0903-411a-9dac-45dbdf5c9712
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: Ej2H5ucT7qKegYcT8wODdlxa-cLHr7F4hDVUHzAhcnc
-  servername: www.apple.com
-  client-fingerprint: edge
-- name: 🇮🇹 意大利 (Italy) 10 - xiaohe
-  type: ss
-  server: 57.131.48.45
-  port: 8388
-  cipher: aes-256-gcm
-  password: itzvpn@321
-  udp: true
-- name: 🇮🇹 意大利 (Italy) 11 - xiaohe
+- name: 🇮🇹 意大利 (Italy) 09 - wangyu
   type: vless
   server: 57.131.32.191
   port: 80
@@ -126,7 +94,7 @@ proxies:
     path: /vless/
     headers:
       Host: 57.131.32.191
-- name: 🇮🇹 意大利 (Italy) 12 - xiaohe
+- name: 🇮🇹 意大利 (Italy) 10 - wangyu
   type: vless
   server: 57.131.32.191
   port: 80
@@ -139,54 +107,35 @@ proxies:
     path: /vless/
     headers:
       Host: ov-italy1.09vpn.com
-- name: 🇮🇹 意大利 (Italy) 13 - xiaohe
-  type: vless
-  server: ov-italy1.09vpn.com
-  port: 80
-  uuid: 049e56d8-0ba0-49e3-b764-ee04122b9f00
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vless/
-    headers:
-      Host: OV-Italy1.09vpn.com
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇮🇹 意大利 (Italy) 01 - xiaohe
-  - 🇮🇹 意大利 (Italy) 02 - xiaohe
-  - 🇮🇹 意大利 (Italy) 03 - xiaohe
-  - 🇮🇹 意大利 (Italy) 04 - xiaohe
-  - 🇮🇹 意大利 (Italy) 05 - xiaohe
-  - 🇮🇹 意大利 (Italy) 06 - xiaohe
-  - 🇮🇹 意大利 (Italy) 07 - xiaohe
-  - 🇮🇹 意大利 (Italy) 08 - xiaohe
-  - 🇮🇹 意大利 (Italy) 09 - xiaohe
-  - 🇮🇹 意大利 (Italy) 10 - xiaohe
-  - 🇮🇹 意大利 (Italy) 11 - xiaohe
-  - 🇮🇹 意大利 (Italy) 12 - xiaohe
-  - 🇮🇹 意大利 (Italy) 13 - xiaohe
+  - 🇮🇹 意大利 (Italy) 01 - wangyu
+  - 🇮🇹 意大利 (Italy) 02 - wangyu
+  - 🇮🇹 意大利 (Italy) 03 - wangyu
+  - 🇮🇹 意大利 (Italy) 04 - wangyu
+  - 🇮🇹 意大利 (Italy) 05 - wangyu
+  - 🇮🇹 意大利 (Italy) 06 - wangyu
+  - 🇮🇹 意大利 (Italy) 07 - wangyu
+  - 🇮🇹 意大利 (Italy) 08 - wangyu
+  - 🇮🇹 意大利 (Italy) 09 - wangyu
+  - 🇮🇹 意大利 (Italy) 10 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇮🇹 意大利 (Italy) 01 - xiaohe
-  - 🇮🇹 意大利 (Italy) 02 - xiaohe
-  - 🇮🇹 意大利 (Italy) 03 - xiaohe
-  - 🇮🇹 意大利 (Italy) 04 - xiaohe
-  - 🇮🇹 意大利 (Italy) 05 - xiaohe
-  - 🇮🇹 意大利 (Italy) 06 - xiaohe
-  - 🇮🇹 意大利 (Italy) 07 - xiaohe
-  - 🇮🇹 意大利 (Italy) 08 - xiaohe
-  - 🇮🇹 意大利 (Italy) 09 - xiaohe
-  - 🇮🇹 意大利 (Italy) 10 - xiaohe
-  - 🇮🇹 意大利 (Italy) 11 - xiaohe
-  - 🇮🇹 意大利 (Italy) 12 - xiaohe
-  - 🇮🇹 意大利 (Italy) 13 - xiaohe
+  - 🇮🇹 意大利 (Italy) 01 - wangyu
+  - 🇮🇹 意大利 (Italy) 02 - wangyu
+  - 🇮🇹 意大利 (Italy) 03 - wangyu
+  - 🇮🇹 意大利 (Italy) 04 - wangyu
+  - 🇮🇹 意大利 (Italy) 05 - wangyu
+  - 🇮🇹 意大利 (Italy) 06 - wangyu
+  - 🇮🇹 意大利 (Italy) 07 - wangyu
+  - 🇮🇹 意大利 (Italy) 08 - wangyu
+  - 🇮🇹 意大利 (Italy) 09 - wangyu
+  - 🇮🇹 意大利 (Italy) 10 - wangyu
 rules:
 - MATCH,PROXIES

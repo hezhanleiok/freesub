@@ -4,14 +4,14 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇵🇱 PL 01 - xiaohe
+- name: 🇵🇱 PL 01 - wangyu
   type: ss
   server: 64.176.73.160
   port: 8388
   cipher: chacha20-ietf-poly1305
   password: VJtsgllDDJfNmaTe
   udp: true
-- name: 🇵🇱 PL 02 - xiaohe
+- name: 🇵🇱 PL 02 - wangyu
   type: vless
   server: 2.26.224.233
   port: 8443
@@ -23,14 +23,20 @@ proxies:
     public-key: NI5Rkfn6zO_gF-UC1nuvJwu4SDakCXh3ygJOKU1EITU
   servername: cdn.shopify.com
   client-fingerprint: firefox
-- name: 🇵🇱 PL 03 - xiaohe
-  type: ss
-  server: 194.61.121.93
-  port: 7538
-  cipher: chacha20-ietf-poly1305
-  password: U9YAoqBgg5VyGBc6vQv1sN
+- name: 🇵🇱 PL 03 - wangyu
+  type: vless
+  server: 94.183.209.58
+  port: 443
+  uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
   udp: true
-- name: 🇵🇱 PL 04 - xiaohe
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: pl2.lckdwn.ru
+- name: 🇵🇱 PL 04 - wangyu
   type: vless
   server: 94.183.209.43
   port: 443
@@ -43,33 +49,14 @@ proxies:
     path: /
     headers:
       Host: 94.183.209.43
-- name: 🇵🇱 PL 05 - xiaohe
-  type: vless
-  server: 94.183.209.58
-  port: 443
-  uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
+- name: 🇵🇱 PL 05 - wangyu
+  type: ss
+  server: 194.61.121.93
+  port: 7538
+  cipher: chacha20-ietf-poly1305
+  password: U9YAoqBgg5VyGBc6vQv1sN
   udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: pl2.lckdwn.ru
-- name: 🇵🇱 PL 06 - xiaohe
-  type: vless
-  server: 94.183.209.58
-  port: 443
-  uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: pl2.lckdwn.ru
-- name: 🇵🇱 PL 07 - xiaohe
+- name: 🇵🇱 PL 06 - wangyu
   type: vless
   server: 94.183.209.59
   port: 443
@@ -82,29 +69,42 @@ proxies:
     path: /
     headers:
       Host: 94.183.209.59
+- name: 🇵🇱 PL 07 - wangyu
+  type: vless
+  server: 94.183.209.58
+  port: 443
+  uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: pl2.lckdwn.ru
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇵🇱 PL 01 - xiaohe
-  - 🇵🇱 PL 02 - xiaohe
-  - 🇵🇱 PL 03 - xiaohe
-  - 🇵🇱 PL 04 - xiaohe
-  - 🇵🇱 PL 05 - xiaohe
-  - 🇵🇱 PL 06 - xiaohe
-  - 🇵🇱 PL 07 - xiaohe
+  - 🇵🇱 PL 01 - wangyu
+  - 🇵🇱 PL 02 - wangyu
+  - 🇵🇱 PL 03 - wangyu
+  - 🇵🇱 PL 04 - wangyu
+  - 🇵🇱 PL 05 - wangyu
+  - 🇵🇱 PL 06 - wangyu
+  - 🇵🇱 PL 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇵🇱 PL 01 - xiaohe
-  - 🇵🇱 PL 02 - xiaohe
-  - 🇵🇱 PL 03 - xiaohe
-  - 🇵🇱 PL 04 - xiaohe
-  - 🇵🇱 PL 05 - xiaohe
-  - 🇵🇱 PL 06 - xiaohe
-  - 🇵🇱 PL 07 - xiaohe
+  - 🇵🇱 PL 01 - wangyu
+  - 🇵🇱 PL 02 - wangyu
+  - 🇵🇱 PL 03 - wangyu
+  - 🇵🇱 PL 04 - wangyu
+  - 🇵🇱 PL 05 - wangyu
+  - 🇵🇱 PL 06 - wangyu
+  - 🇵🇱 PL 07 - wangyu
 rules:
 - MATCH,PROXIES

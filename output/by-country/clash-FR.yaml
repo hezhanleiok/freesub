@@ -4,7 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇫🇷 法国 (France) 01 - xiaohe
+- name: 🇫🇷 法国 (France) 01 - wangyu
+  type: vmess
+  server: 162.19.204.71
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
+- name: 🇫🇷 法国 (France) 02 - wangyu
+  type: vless
+  server: 54.37.136.194
+  port: 2053
+  uuid: 2211972b-a45a-4951-a640-6173d573e637
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 3nFTPdoFnfcwN1xnLwegJmBycLqRH6TRsrbD2XnQbjM
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇫🇷 法国 (France) 03 - wangyu
   type: vless
   server: 51.77.217.70
   port: 2053
@@ -16,7 +39,19 @@ proxies:
     public-key: UKvonm_uE7TSwksQIVQuNYgYwmcidr_g4lDIE2JW_Ag
   servername: www.google.com
   client-fingerprint: chrome
-- name: 🇫🇷 法国 (France) 02 - xiaohe
+- name: 🇫🇷 法国 (France) 04 - wangyu
+  type: vless
+  server: 51.38.82.1
+  port: 443
+  uuid: 9343f183-7a16-4bdd-9c65-b0c21feca40b
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: YRKpNLfduSsOl3l-CCUkhZDEjvcKytnuELqnWjLZI1M
+  servername: play.google.com
+  client-fingerprint: chrome
+- name: 🇫🇷 法国 (France) 05 - wangyu
   type: vless
   server: 45.144.28.39
   port: 2096
@@ -28,8 +63,69 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 45.144.28.39
-- name: 🇫🇷 法国 (France) 03 - xiaohe
+      Host: usejh2.neobo-tooth.ru
+- name: 🇫🇷 法国 (France) 06 - wangyu
+  type: vless
+  server: 149.202.58.99
+  port: 443
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: bab-6.site
+  network: ws
+  ws-opts:
+    path: /vws/
+    headers:
+      Host: 149.202.58.99
+- name: 🇫🇷 法国 (France) 07 - wangyu
+  type: vless
+  server: 51.77.217.70
+  port: 2053
+  uuid: c543f005-59f7-40c1-9ae6-37505691d5be
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: UKvonm_uE7TSwksQIVQuNYgYwmcidr_g4lDIE2JW_Ag
+  servername: www.google.com
+  client-fingerprint: chrome
+- name: 🇫🇷 法国 (France) 08 - wangyu
+  type: vless
+  server: gr068.techinyab.ir
+  port: 443
+  uuid: 9343f183-7a16-4bdd-9c65-b0c21feca40b
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: YRKpNLfduSsOl3l-CCUkhZDEjvcKytnuELqnWjLZI1M
+  servername: play.google.com
+  client-fingerprint: random
+- name: 🇫🇷 法国 (France) 09 - wangyu
+  type: vless
+  server: 51.77.217.70
+  port: 2053
+  uuid: c543f005-59f7-40c1-9ae6-37505691d5be
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: UKvonm_uE7TSwksQIVQuNYgYwmcidr_g4lDIE2JW_Ag
+  servername: www.google.com
+  client-fingerprint: firefox
+- name: 🇫🇷 法国 (France) 10 - wangyu
+  type: vmess
+  server: 162.19.204.71
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
+- name: 🇫🇷 法国 (France) 11 - wangyu
   type: vless
   server: usejh2.neobo-tooth.ru
   port: 2096
@@ -42,7 +138,48 @@ proxies:
     path: /
     headers:
       Host: usejh2.neobo-tooth.ru
-- name: 🇫🇷 法国 (France) 04 - xiaohe
+- name: 🇫🇷 法国 (France) 12 - wangyu
+  type: vless
+  server: 146.59.35.134
+  port: 8443
+  uuid: f798a2c4-c51b-409d-b349-ca8455b36796
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: chopin.adaspoloandco.com
+  network: ws
+  ws-opts:
+    path: /download.php
+    headers:
+      Host: chopin.adaspoloandco.com
+- name: 🇫🇷 法国 (France) 13 - wangyu
+  type: vless
+  server: 149.202.58.99
+  port: 443
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: bab-6.site
+  network: ws
+  ws-opts:
+    path: /vws/
+    headers:
+      Host: 149.202.58.99
+- name: 🇫🇷 法国 (France) 14 - wangyu
+  type: vless
+  server: usejh2.neobo-tooth.ru
+  port: 2096
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: usejh2.neobo-tooth.ru
+- name: 🇫🇷 法国 (France) 15 - wangyu
   type: vless
   server: 45.144.28.39
   port: 2096
@@ -55,7 +192,47 @@ proxies:
     path: /
     headers:
       Host: usejh2.neobo-tooth.ru
-- name: 🇫🇷 法国 (France) 05 - xiaohe
+- name: 🇫🇷 法国 (France) 16 - wangyu
+  type: vless
+  server: 146.59.35.134
+  port: 8443
+  uuid: f798a2c4-c51b-409d-b349-ca8455b36796
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: chopin.adaspoloandco.com
+  network: ws
+  ws-opts:
+    path: /download.php
+    headers:
+      Host: chopin.adaspoloandco.com
+- name: 🇫🇷 法国 (France) 17 - wangyu
+  type: vless
+  server: 54.37.136.194
+  port: 2053
+  uuid: 2211972b-a45a-4951-a640-6173d573e637
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 3nFTPdoFnfcwN1xnLwegJmBycLqRH6TRsrbD2XnQbjM
+  servername: www.cloudflare.com
+  client-fingerprint: random
+- name: 🇫🇷 法国 (France) 18 - wangyu
+  type: vless
+  server: 149.202.58.99
+  port: 443
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: bab-6.site
+  network: ws
+  ws-opts:
+    path: /vws/
+    headers:
+      Host: bab-6.site
+- name: 🇫🇷 法国 (France) 19 - wangyu
   type: vless
   server: 152.228.162.19
   port: 80
@@ -68,73 +245,25 @@ proxies:
     path: /vless/
     headers:
       Host: 152.228.162.19
-- name: 🇫🇷 法国 (France) 06 - xiaohe
+- name: 🇫🇷 法国 (France) 20 - wangyu
   type: vless
-  server: 51.77.217.70
-  port: 2053
-  uuid: c543f005-59f7-40c1-9ae6-37505691d5be
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: UKvonm_uE7TSwksQIVQuNYgYwmcidr_g4lDIE2JW_Ag
-  servername: www.google.com
-  client-fingerprint: firefox
-- name: 🇫🇷 法国 (France) 07 - xiaohe
-  type: vless
-  server: 146.59.35.134
-  port: 8443
-  uuid: f798a2c4-c51b-409d-b349-ca8455b36796
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: chopin.adaspoloandco.com
-  network: ws
-  ws-opts:
-    path: /download.php
-    headers:
-      Host: chopin.adaspoloandco.com
-- name: 🇫🇷 法国 (France) 08 - xiaohe
-  type: vless
-  server: 213.136.92.67
+  server: 149.202.58.99
   port: 443
-  uuid: af348651-1624-4710-b55f-0307a22d891f
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: jvJPfOHtnr2sH79qG-rEtJHFbr36_7Ag7ARsUmtSDQo
-  servername: status.play.google.com
-  client-fingerprint: chrome
-- name: 🇫🇷 法国 (France) 09 - xiaohe
-  type: vless
-  server: 45.144.28.39
-  port: 2096
-  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
-  udp: true
-  tls: false
-  skip-cert-verify: true
+  servername: bab-6.site
   network: ws
   ws-opts:
-    path: /
+    path: /vws/
     headers:
-      Host: usejh2.neobo-tooth.ru
-- name: 🇫🇷 法国 (France) 10 - xiaohe
-  type: vmess
-  server: 162.19.204.71
-  port: 1234
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ''
-- name: 🇫🇷 法国 (France) 11 - xiaohe
+      Host: 149.202.58.99
+- name: 🇫🇷 法国 (France) 21 - wangyu
   type: vless
   server: 152.228.162.19
   port: 80
-  uuid: 5ce84688-f535-46ad-a512-37b17becf6ea
+  uuid: 25f86cb1-2140-4085-abcb-c3a0ea7a4be0
   udp: true
   tls: false
   skip-cert-verify: true
@@ -142,62 +271,38 @@ proxies:
   ws-opts:
     path: /vless/
     headers:
-      Host: akamaized.net
-- name: 🇫🇷 法国 (France) 12 - xiaohe
+      Host: 152.228.162.19
+- name: 🇫🇷 法国 (France) 22 - wangyu
+  type: ss
+  server: 51.255.13.232
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: BqnqToih0PbU
+  udp: true
+- name: 🇫🇷 法国 (France) 23 - wangyu
+  type: vless
+  server: 81.95.4.189
+  port: 443
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: bab-6.site
+  network: ws
+  ws-opts:
+    path: /vws/
+    headers:
+      Host: bab-6.site
+- name: 🇫🇷 法国 (France) 24 - wangyu
   type: ss
   server: 51.83.192.80
   port: 8388
   cipher: aes-256-gcm
   password: itzvpn@321
   udp: true
-- name: 🇫🇷 法国 (France) 13 - xiaohe
+- name: 🇫🇷 法国 (France) 25 - wangyu
   type: vless
-  server: 54.37.136.194
-  port: 2053
-  uuid: 2211972b-a45a-4951-a640-6173d573e637
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: 3nFTPdoFnfcwN1xnLwegJmBycLqRH6TRsrbD2XnQbjM
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇫🇷 法国 (France) 14 - xiaohe
-  type: vless
-  server: 54.37.136.194
-  port: 2053
-  uuid: 2211972b-a45a-4951-a640-6173d573e637
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: 3nFTPdoFnfcwN1xnLwegJmBycLqRH6TRsrbD2XnQbjM
-  servername: www.cloudflare.com
-  client-fingerprint: firefox
-- name: 🇫🇷 法国 (France) 15 - xiaohe
-  type: vless
-  server: 45.144.28.39
-  port: 2096
-  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 45.144.28.39
-- name: 🇫🇷 法国 (France) 16 - xiaohe
-  type: vless
-  server: 13.39.171.238
-  port: 22224
-  uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇫🇷 法国 (France) 17 - xiaohe
-  type: vless
-  server: 146.59.35.134
+  server: chopin.adaspoloandco.com
   port: 8443
   uuid: f798a2c4-c51b-409d-b349-ca8455b36796
   udp: true
@@ -209,34 +314,7 @@ proxies:
     path: /download.php
     headers:
       Host: chopin.adaspoloandco.com
-- name: 🇫🇷 法国 (France) 18 - xiaohe
-  type: vless
-  server: gr068.techinyab.ir
-  port: 443
-  uuid: 9343f183-7a16-4bdd-9c65-b0c21feca40b
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: YRKpNLfduSsOl3l-CCUkhZDEjvcKytnuELqnWjLZI1M
-  servername: play.google.com
-  client-fingerprint: random
-- name: 🇫🇷 法国 (France) 19 - xiaohe
-  type: ss
-  server: 51.255.13.232
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: BqnqToih0PbU
-  udp: true
-- name: 🇫🇷 法国 (France) 20 - xiaohe
-  type: vless
-  server: 15.224.49.52
-  port: 22222
-  uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇫🇷 法国 (France) 21 - xiaohe
+- name: 🇫🇷 法国 (France) 26 - wangyu
   type: vless
   server: 158.180.231.216
   port: 443
@@ -250,26 +328,7 @@ proxies:
     path: /vws/
     headers:
       Host: bab-6.site
-- name: 🇫🇷 法国 (France) 22 - xiaohe
-  type: ss
-  server: 51.83.192.80
-  port: 8388
-  cipher: aes-256-gcm
-  password: itzvpn@321
-  udp: true
-- name: 🇫🇷 法国 (France) 23 - xiaohe
-  type: vless
-  server: 51.77.217.70
-  port: 2053
-  uuid: c543f005-59f7-40c1-9ae6-37505691d5be
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: UKvonm_uE7TSwksQIVQuNYgYwmcidr_g4lDIE2JW_Ag
-  servername: www.google.com
-  client-fingerprint: chrome
-- name: 🇫🇷 法国 (France) 24 - xiaohe
+- name: 🇫🇷 法国 (France) 27 - wangyu
   type: vless
   server: 149.202.58.99
   port: 443
@@ -283,106 +342,7 @@ proxies:
     path: /vws/
     headers:
       Host: 149.202.58.99
-- name: 🇫🇷 法国 (France) 25 - xiaohe
-  type: vless
-  server: 149.202.58.99
-  port: 443
-  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: bab-6.site
-  network: ws
-  ws-opts:
-    path: /vws/
-    headers:
-      Host: 149.202.58.99
-- name: 🇫🇷 法国 (France) 26 - xiaohe
-  type: vless
-  server: 149.202.58.99
-  port: 443
-  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: bab-6.site
-  network: ws
-  ws-opts:
-    path: /vws/
-    headers:
-      Host: bab-6.site
-- name: 🇫🇷 法国 (France) 27 - xiaohe
-  type: vmess
-  server: 162.19.204.71
-  port: 1234
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ''
-- name: 🇫🇷 法国 (France) 28 - xiaohe
-  type: vless
-  server: 152.228.162.19
-  port: 80
-  uuid: 25f86cb1-2140-4085-abcb-c3a0ea7a4be0
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vless/
-    headers:
-      Host: 152.228.162.19
-- name: 🇫🇷 法国 (France) 29 - xiaohe
-  type: vless
-  server: 146.59.35.134
-  port: 8443
-  uuid: f798a2c4-c51b-409d-b349-ca8455b36796
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: chopin.adaspoloandco.com
-  network: ws
-  ws-opts:
-    path: /download.php
-    headers:
-      Host: chopin.adaspoloandco.com
-- name: 🇫🇷 法国 (France) 30 - xiaohe
-  type: vless
-  server: 149.202.58.99
-  port: 443
-  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: bab-6.site
-  network: ws
-  ws-opts:
-    path: /vws/
-    headers:
-      Host: 149.202.58.99
-- name: 🇫🇷 法国 (France) 31 - xiaohe
-  type: vless
-  server: 51.77.217.70
-  port: 2053
-  uuid: c543f005-59f7-40c1-9ae6-37505691d5be
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: UKvonm_uE7TSwksQIVQuNYgYwmcidr_g4lDIE2JW_Ag
-  servername: www.google.com
-  client-fingerprint: chrome
-- name: 🇫🇷 法国 (France) 32 - xiaohe
-  type: ss
-  server: 51.255.13.232
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: BqnqToih0PbU
-  udp: true
-- name: 🇫🇷 法国 (France) 33 - xiaohe
+- name: 🇫🇷 法国 (France) 28 - wangyu
   type: vless
   server: 45.144.28.39
   port: 2096
@@ -395,9 +355,34 @@ proxies:
     path: /
     headers:
       Host: usejh2.neobo-tooth.ru
-- name: 🇫🇷 法国 (France) 34 - xiaohe
+- name: 🇫🇷 法国 (France) 29 - wangyu
   type: vless
-  server: usejh2.neobo-tooth.ru
+  server: 152.228.162.19
+  port: 80
+  uuid: 5ce84688-f535-46ad-a512-37b17becf6ea
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless/
+    headers:
+      Host: akamaized.net
+- name: 🇫🇷 法国 (France) 30 - wangyu
+  type: vless
+  server: 51.77.217.70
+  port: 2053
+  uuid: c543f005-59f7-40c1-9ae6-37505691d5be
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: UKvonm_uE7TSwksQIVQuNYgYwmcidr_g4lDIE2JW_Ag
+  servername: www.google.com
+  client-fingerprint: chrome
+- name: 🇫🇷 法国 (France) 31 - wangyu
+  type: vless
+  server: 45.144.28.39
   port: 2096
   uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
   udp: true
@@ -407,39 +392,31 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: usejh2.neobo-tooth.ru
-- name: 🇫🇷 法国 (France) 35 - xiaohe
+      Host: 45.144.28.39
+- name: 🇫🇷 法国 (France) 32 - wangyu
   type: vless
-  server: 149.202.58.99
-  port: 443
-  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  server: 51.77.217.70
+  port: 2053
+  uuid: c543f005-59f7-40c1-9ae6-37505691d5be
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: bab-6.site
-  network: ws
-  ws-opts:
-    path: /vws/
-    headers:
-      Host: 149.202.58.99
-- name: 🇫🇷 法国 (France) 36 - xiaohe
-  type: vless
-  server: 108.162.198.178
-  port: 2086
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  reality-opts:
+    public-key: UKvonm_uE7TSwksQIVQuNYgYwmcidr_g4lDIE2JW_Ag
+  servername: www.google.com
+  client-fingerprint: chrome
+- name: 🇫🇷 法国 (France) 33 - wangyu
+  type: ss
+  server: 51.255.13.232
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: BqnqToih0PbU
   udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /?ed=2560security=tls
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇫🇷 法国 (France) 37 - xiaohe
+- name: 🇫🇷 法国 (France) 34 - wangyu
   type: vless
-  server: 108.162.198.178
-  port: 8080
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  server: 45.144.28.39
+  port: 2096
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
   udp: true
   tls: false
   skip-cert-verify: true
@@ -447,90 +424,107 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+      Host: 45.144.28.39
+- name: 🇫🇷 法国 (France) 35 - wangyu
+  type: ss
+  server: 51.83.192.80
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
+  udp: true
+- name: 🇫🇷 法国 (France) 36 - wangyu
+  type: vless
+  server: 54.37.136.194
+  port: 2053
+  uuid: 2211972b-a45a-4951-a640-6173d573e637
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 3nFTPdoFnfcwN1xnLwegJmBycLqRH6TRsrbD2XnQbjM
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇫🇷 法国 (France) 01 - xiaohe
-  - 🇫🇷 法国 (France) 02 - xiaohe
-  - 🇫🇷 法国 (France) 03 - xiaohe
-  - 🇫🇷 法国 (France) 04 - xiaohe
-  - 🇫🇷 法国 (France) 05 - xiaohe
-  - 🇫🇷 法国 (France) 06 - xiaohe
-  - 🇫🇷 法国 (France) 07 - xiaohe
-  - 🇫🇷 法国 (France) 08 - xiaohe
-  - 🇫🇷 法国 (France) 09 - xiaohe
-  - 🇫🇷 法国 (France) 10 - xiaohe
-  - 🇫🇷 法国 (France) 11 - xiaohe
-  - 🇫🇷 法国 (France) 12 - xiaohe
-  - 🇫🇷 法国 (France) 13 - xiaohe
-  - 🇫🇷 法国 (France) 14 - xiaohe
-  - 🇫🇷 法国 (France) 15 - xiaohe
-  - 🇫🇷 法国 (France) 16 - xiaohe
-  - 🇫🇷 法国 (France) 17 - xiaohe
-  - 🇫🇷 法国 (France) 18 - xiaohe
-  - 🇫🇷 法国 (France) 19 - xiaohe
-  - 🇫🇷 法国 (France) 20 - xiaohe
-  - 🇫🇷 法国 (France) 21 - xiaohe
-  - 🇫🇷 法国 (France) 22 - xiaohe
-  - 🇫🇷 法国 (France) 23 - xiaohe
-  - 🇫🇷 法国 (France) 24 - xiaohe
-  - 🇫🇷 法国 (France) 25 - xiaohe
-  - 🇫🇷 法国 (France) 26 - xiaohe
-  - 🇫🇷 法国 (France) 27 - xiaohe
-  - 🇫🇷 法国 (France) 28 - xiaohe
-  - 🇫🇷 法国 (France) 29 - xiaohe
-  - 🇫🇷 法国 (France) 30 - xiaohe
-  - 🇫🇷 法国 (France) 31 - xiaohe
-  - 🇫🇷 法国 (France) 32 - xiaohe
-  - 🇫🇷 法国 (France) 33 - xiaohe
-  - 🇫🇷 法国 (France) 34 - xiaohe
-  - 🇫🇷 法国 (France) 35 - xiaohe
-  - 🇫🇷 法国 (France) 36 - xiaohe
-  - 🇫🇷 法国 (France) 37 - xiaohe
+  - 🇫🇷 法国 (France) 01 - wangyu
+  - 🇫🇷 法国 (France) 02 - wangyu
+  - 🇫🇷 法国 (France) 03 - wangyu
+  - 🇫🇷 法国 (France) 04 - wangyu
+  - 🇫🇷 法国 (France) 05 - wangyu
+  - 🇫🇷 法国 (France) 06 - wangyu
+  - 🇫🇷 法国 (France) 07 - wangyu
+  - 🇫🇷 法国 (France) 08 - wangyu
+  - 🇫🇷 法国 (France) 09 - wangyu
+  - 🇫🇷 法国 (France) 10 - wangyu
+  - 🇫🇷 法国 (France) 11 - wangyu
+  - 🇫🇷 法国 (France) 12 - wangyu
+  - 🇫🇷 法国 (France) 13 - wangyu
+  - 🇫🇷 法国 (France) 14 - wangyu
+  - 🇫🇷 法国 (France) 15 - wangyu
+  - 🇫🇷 法国 (France) 16 - wangyu
+  - 🇫🇷 法国 (France) 17 - wangyu
+  - 🇫🇷 法国 (France) 18 - wangyu
+  - 🇫🇷 法国 (France) 19 - wangyu
+  - 🇫🇷 法国 (France) 20 - wangyu
+  - 🇫🇷 法国 (France) 21 - wangyu
+  - 🇫🇷 法国 (France) 22 - wangyu
+  - 🇫🇷 法国 (France) 23 - wangyu
+  - 🇫🇷 法国 (France) 24 - wangyu
+  - 🇫🇷 法国 (France) 25 - wangyu
+  - 🇫🇷 法国 (France) 26 - wangyu
+  - 🇫🇷 法国 (France) 27 - wangyu
+  - 🇫🇷 法国 (France) 28 - wangyu
+  - 🇫🇷 法国 (France) 29 - wangyu
+  - 🇫🇷 法国 (France) 30 - wangyu
+  - 🇫🇷 法国 (France) 31 - wangyu
+  - 🇫🇷 法国 (France) 32 - wangyu
+  - 🇫🇷 法国 (France) 33 - wangyu
+  - 🇫🇷 法国 (France) 34 - wangyu
+  - 🇫🇷 法国 (France) 35 - wangyu
+  - 🇫🇷 法国 (France) 36 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇫🇷 法国 (France) 01 - xiaohe
-  - 🇫🇷 法国 (France) 02 - xiaohe
-  - 🇫🇷 法国 (France) 03 - xiaohe
-  - 🇫🇷 法国 (France) 04 - xiaohe
-  - 🇫🇷 法国 (France) 05 - xiaohe
-  - 🇫🇷 法国 (France) 06 - xiaohe
-  - 🇫🇷 法国 (France) 07 - xiaohe
-  - 🇫🇷 法国 (France) 08 - xiaohe
-  - 🇫🇷 法国 (France) 09 - xiaohe
-  - 🇫🇷 法国 (France) 10 - xiaohe
-  - 🇫🇷 法国 (France) 11 - xiaohe
-  - 🇫🇷 法国 (France) 12 - xiaohe
-  - 🇫🇷 法国 (France) 13 - xiaohe
-  - 🇫🇷 法国 (France) 14 - xiaohe
-  - 🇫🇷 法国 (France) 15 - xiaohe
-  - 🇫🇷 法国 (France) 16 - xiaohe
-  - 🇫🇷 法国 (France) 17 - xiaohe
-  - 🇫🇷 法国 (France) 18 - xiaohe
-  - 🇫🇷 法国 (France) 19 - xiaohe
-  - 🇫🇷 法国 (France) 20 - xiaohe
-  - 🇫🇷 法国 (France) 21 - xiaohe
-  - 🇫🇷 法国 (France) 22 - xiaohe
-  - 🇫🇷 法国 (France) 23 - xiaohe
-  - 🇫🇷 法国 (France) 24 - xiaohe
-  - 🇫🇷 法国 (France) 25 - xiaohe
-  - 🇫🇷 法国 (France) 26 - xiaohe
-  - 🇫🇷 法国 (France) 27 - xiaohe
-  - 🇫🇷 法国 (France) 28 - xiaohe
-  - 🇫🇷 法国 (France) 29 - xiaohe
-  - 🇫🇷 法国 (France) 30 - xiaohe
-  - 🇫🇷 法国 (France) 31 - xiaohe
-  - 🇫🇷 法国 (France) 32 - xiaohe
-  - 🇫🇷 法国 (France) 33 - xiaohe
-  - 🇫🇷 法国 (France) 34 - xiaohe
-  - 🇫🇷 法国 (France) 35 - xiaohe
-  - 🇫🇷 法国 (France) 36 - xiaohe
-  - 🇫🇷 法国 (France) 37 - xiaohe
+  - 🇫🇷 法国 (France) 01 - wangyu
+  - 🇫🇷 法国 (France) 02 - wangyu
+  - 🇫🇷 法国 (France) 03 - wangyu
+  - 🇫🇷 法国 (France) 04 - wangyu
+  - 🇫🇷 法国 (France) 05 - wangyu
+  - 🇫🇷 法国 (France) 06 - wangyu
+  - 🇫🇷 法国 (France) 07 - wangyu
+  - 🇫🇷 法国 (France) 08 - wangyu
+  - 🇫🇷 法国 (France) 09 - wangyu
+  - 🇫🇷 法国 (France) 10 - wangyu
+  - 🇫🇷 法国 (France) 11 - wangyu
+  - 🇫🇷 法国 (France) 12 - wangyu
+  - 🇫🇷 法国 (France) 13 - wangyu
+  - 🇫🇷 法国 (France) 14 - wangyu
+  - 🇫🇷 法国 (France) 15 - wangyu
+  - 🇫🇷 法国 (France) 16 - wangyu
+  - 🇫🇷 法国 (France) 17 - wangyu
+  - 🇫🇷 法国 (France) 18 - wangyu
+  - 🇫🇷 法国 (France) 19 - wangyu
+  - 🇫🇷 法国 (France) 20 - wangyu
+  - 🇫🇷 法国 (France) 21 - wangyu
+  - 🇫🇷 法国 (France) 22 - wangyu
+  - 🇫🇷 法国 (France) 23 - wangyu
+  - 🇫🇷 法国 (France) 24 - wangyu
+  - 🇫🇷 法国 (France) 25 - wangyu
+  - 🇫🇷 法国 (France) 26 - wangyu
+  - 🇫🇷 法国 (France) 27 - wangyu
+  - 🇫🇷 法国 (France) 28 - wangyu
+  - 🇫🇷 法国 (France) 29 - wangyu
+  - 🇫🇷 法国 (France) 30 - wangyu
+  - 🇫🇷 法国 (France) 31 - wangyu
+  - 🇫🇷 法国 (France) 32 - wangyu
+  - 🇫🇷 法国 (France) 33 - wangyu
+  - 🇫🇷 法国 (France) 34 - wangyu
+  - 🇫🇷 法国 (France) 35 - wangyu
+  - 🇫🇷 法国 (France) 36 - wangyu
 rules:
 - MATCH,PROXIES

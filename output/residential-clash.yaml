@@ -4,21 +4,11 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe
-  type: vmess
-  server: dog-hk.kunlun01dns.com
-  port: 21019
-  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe
+- name: 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
   type: vless
   server: 58.153.148.126
   port: 443
-  uuid: 6d56436c-150d-11f0-b0c8-f23c913c8d2b
+  uuid: 4729b4c8-1790-11eb-8684-f23c913c8d2b
   udp: true
   tls: true
   skip-cert-verify: true
@@ -26,39 +16,14 @@ proxies:
     public-key: bE6ws6dFPflj8WVJMGwtso0WOaiSmBOHM2muQO2Uul4
   servername: updates.cdn-apple.com
   client-fingerprint: chrome
-- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
+- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
   type: ss
-  server: R3MRCG00129437X.cybervena.com
+  server: R3MRCG001287H3P.cybervena.com
   port: 50099
   cipher: chacha20-ietf-poly1305
   password: b1ae0fce-9340-4f2e-882d-fdb2218e2e2b
   udp: true
-- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
-  type: vless
-  server: 118.167.200.67
-  port: 24215
-  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
-  servername: addons.mozilla.org
-  client-fingerprint: firefox
-- name: 🇰🇷 韩国 (South Korea) 05 (家宽) - xiaohe
-  type: vless
-  server: 104.21.23.72
-  port: 8880
-  uuid: 25844c02-a1fe-43ec-a6b9-44e3bf375b83
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /pyip=ProxyIP.KR.CMLiussss.net
-    headers:
-      Host: dark-breeze-a59a.494.workers.dev
-- name: 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - xiaohe
+- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
   type: vless
   server: 60.248.219.52
   port: 443
@@ -72,45 +37,65 @@ proxies:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
       Host: 60.248.219.52
-- name: 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - xiaohe
+- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
+  type: ss
+  server: 36.224.151.80
+  port: 50099
+  cipher: chacha20-ietf-poly1305
+  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+  udp: true
+- name: 🇭🇰 中国香港 (Hong Kong) 05 (家宽) - wangyu
+  type: vmess
+  server: dog-hk.kunlun01dns.com
+  port: 21021
+  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - wangyu
   type: ss
   server: 36.224.147.226
   port: 50099
   cipher: chacha20-ietf-poly1305
   password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
   udp: true
-- name: 🇹🇼 中国台湾 (Taiwan) 08 (家宽) - xiaohe
-  type: ss
-  server: 36.224.152.189
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: b1ae0fce-9340-4f2e-882d-fdb2218e2e2b
+- name: 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - wangyu
+  type: vless
+  server: 118.167.200.67
+  port: 24215
+  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
   udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
+  servername: addons.mozilla.org
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
-  - 🇰🇷 韩国 (South Korea) 05 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 08 (家宽) - xiaohe
+  - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 05 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
-  - 🇰🇷 韩国 (South Korea) 05 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 08 (家宽) - xiaohe
+  - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 05 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

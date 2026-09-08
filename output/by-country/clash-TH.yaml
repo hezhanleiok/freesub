@@ -4,7 +4,7 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇹🇭 TH 01 - xiaohe
+- name: 🇹🇭 TH 01 - wangyu
   type: vless
   server: 43.133.110.81
   port: 443
@@ -18,17 +18,32 @@ proxies:
     path: /?TELEGRAM-MARAMBASHI_MARAMBASHI?ed=512
     headers:
       Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
+- name: 🇹🇭 TH 02 - wangyu
+  type: vless
+  server: 18.239.134.69
+  port: 80
+  uuid: de27291c-15a9-4256-9ba7-ad517569877e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇹🇭 TH 01 - xiaohe
+  - 🇹🇭 TH 01 - wangyu
+  - 🇹🇭 TH 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇹🇭 TH 01 - xiaohe
+  - 🇹🇭 TH 01 - wangyu
+  - 🇹🇭 TH 02 - wangyu
 rules:
 - MATCH,PROXIES
