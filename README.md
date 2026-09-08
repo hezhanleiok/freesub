@@ -155,5 +155,5 @@ export default {
 By using this project, you agree:
 - This project is for **educational and personal use only**.  
 - It must **not be used for illegal activities**, including fraud, abuse, or bypassing restrictions.  
-- The author is **not responsible** for misuse by third parties.  
+- The owner of this project is not responsible for any consequences arising from the use of this project by any third party.  
 - Users must comply with all applicable laws and regulations in their jurisdiction.
