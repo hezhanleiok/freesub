@@ -6,39 +6,27 @@ log-level: info
 proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
   type: vless
-  server: 58.153.148.126
+  server: 547c2c7e-tl4g00-tqruo0-1pqhp.hk3.hyhuawei.com
   port: 443
-  uuid: 4729b4c8-1790-11eb-8684-f23c913c8d2b
+  uuid: b02327ac-a49a-11ef-a673-f23c913c8d2b
   udp: true
   tls: true
   skip-cert-verify: true
   reality-opts:
     public-key: bE6ws6dFPflj8WVJMGwtso0WOaiSmBOHM2muQO2Uul4
   servername: updates.cdn-apple.com
-  client-fingerprint: chrome
-- name: 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
-  type: vmess
-  server: dog-hk.kunlun01dns.com
-  port: 21021
-  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
+  client-fingerprint: safari
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

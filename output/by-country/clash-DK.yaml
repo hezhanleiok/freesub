@@ -4,24 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇷🇴 RO 01 - wangyu
+- name: 🇩🇰 DK 01 - wangyu
   type: ss
-  server: 154.46.31.106
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: QFWzCw2uX9B9i6qAYeFBIE
+  server: 38.180.214.110
+  port: 5600
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
   udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇷🇴 RO 01 - wangyu
+  - 🇩🇰 DK 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇷🇴 RO 01 - wangyu
+  - 🇩🇰 DK 01 - wangyu
 rules:
 - MATCH,PROXIES

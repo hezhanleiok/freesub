@@ -6,18 +6,6 @@ log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - wangyu
   type: vless
-  server: 2.26.122.101
-  port: 8443
-  uuid: 758f49d3-5f5f-47e7-bfa4-4ce96faf800d
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: NI5Rkfn6zO_gF-UC1nuvJwu4SDakCXh3ygJOKU1EITU
-  servername: cdn.shopify.com
-  client-fingerprint: firefox
-- name: 🇫🇮 FI 02 - wangyu
-  type: vless
   server: 185.79.138.71
   port: 448
   uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
@@ -34,13 +22,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇫🇮 FI 01 - wangyu
-  - 🇫🇮 FI 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇫🇮 FI 01 - wangyu
-  - 🇫🇮 FI 02 - wangyu
 rules:
 - MATCH,PROXIES

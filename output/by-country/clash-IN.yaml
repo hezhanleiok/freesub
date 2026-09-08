@@ -6,52 +6,63 @@ log-level: info
 proxies:
 - name: 🇮🇳 印度 (India) 01 - wangyu
   type: vless
-  server: 188.114.97.6
-  port: 8880
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  server: 194.61.31.126
+  port: 2053
+  uuid: 50ddfd92-dc79-4777-a256-41e34d56836e
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+  reality-opts:
+    public-key: R06_DTSjzQI9DswvRz9OqSBECfSwlpCMPR4DCc9oXyw
+  servername: www.apple.com
+  client-fingerprint: random
 - name: 🇮🇳 印度 (India) 02 - wangyu
   type: vless
-  server: 188.114.97.6
-  port: 8880
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  server: 104.18.2.67
+  port: 443
+  uuid: 65c56e1f-5c41-40bc-b0b5-9346772476ca
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: in.520782.xyz
   network: ws
   ws-opts:
-    path: /?ed=2560+
+    path: /cdn/packages/runtime-core.tar.gz
     headers:
-      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+      Host: in.520782.xyz
 - name: 🇮🇳 印度 (India) 03 - wangyu
-  type: ss
-  server: 172.105.39.124
-  port: 7002
-  cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
+  type: vless
+  server: 194.61.31.126
+  port: 2053
+  uuid: 50ddfd92-dc79-4777-a256-41e34d56836e
   udp: true
-- name: 🇮🇳 印度 (India) 04 - wangyu
-  type: vmess
-  server: 152.67.8.205
-  port: 80
-  uuid: 9db4c708-aef8-4359-821b-38e47990be0d
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  reality-opts:
+    public-key: R06_DTSjzQI9DswvRz9OqSBECfSwlpCMPR4DCc9oXyw
+  servername: www.apple.com
+  client-fingerprint: firefox
+- name: 🇮🇳 印度 (India) 04 - wangyu
+  type: vless
+  server: 104.18.3.67
+  port: 443
+  uuid: 65c56e1f-5c41-40bc-b0b5-9346772476ca
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: in.520782.xyz
   network: ws
   ws-opts:
-    path: /
+    path: /cdn/packages/runtime-core.tar.gz
     headers:
-      Host: ''
+      Host: in.520782.xyz
+- name: 🇮🇳 印度 (India) 05 - wangyu
+  type: ss
+  server: 139.84.166.47
+  port: 8388
+  cipher: aes-256-gcm
+  password: GEdoeeqLZtkJRgSa
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -61,6 +72,7 @@ proxy-groups:
   - 🇮🇳 印度 (India) 02 - wangyu
   - 🇮🇳 印度 (India) 03 - wangyu
   - 🇮🇳 印度 (India) 04 - wangyu
+  - 🇮🇳 印度 (India) 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -70,5 +82,6 @@ proxy-groups:
   - 🇮🇳 印度 (India) 02 - wangyu
   - 🇮🇳 印度 (India) 03 - wangyu
   - 🇮🇳 印度 (India) 04 - wangyu
+  - 🇮🇳 印度 (India) 05 - wangyu
 rules:
 - MATCH,PROXIES
