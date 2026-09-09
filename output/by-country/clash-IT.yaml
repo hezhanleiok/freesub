@@ -6,19 +6,6 @@ log-level: info
 proxies:
 - name: 🇮🇹 意大利 (Italy) 01 - xiaohe
   type: vless
-  server: 57.131.32.191
-  port: 80
-  uuid: 1e280316-0408-47c4-b058-05b8f1f17f02
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vless/
-    headers:
-      Host: 57.131.32.191
-- name: 🇮🇹 意大利 (Italy) 02 - xiaohe
-  type: vless
   server: 158.180.231.216
   port: 443
   uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
@@ -31,7 +18,7 @@ proxies:
     path: /vws/
     headers:
       Host: bab-6.site
-- name: 🇮🇹 意大利 (Italy) 03 - xiaohe
+- name: 🇮🇹 意大利 (Italy) 02 - xiaohe
   type: vless
   server: 57.131.32.191
   port: 80
@@ -44,13 +31,26 @@ proxies:
     path: /vless/
     headers:
       Host: ov-italy1.09vpn.com
-- name: 🇮🇹 意大利 (Italy) 04 - xiaohe
+- name: 🇮🇹 意大利 (Italy) 03 - xiaohe
   type: ss
   server: 57.131.48.45
   port: 8388
   cipher: aes-256-gcm
   password: itzvpn@321
   udp: true
+- name: 🇮🇹 意大利 (Italy) 04 - xiaohe
+  type: vless
+  server: 57.131.32.191
+  port: 80
+  uuid: 1e280316-0408-47c4-b058-05b8f1f17f02
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless/
+    headers:
+      Host: 57.131.32.191
 - name: 🇮🇹 意大利 (Italy) 05 - xiaohe
   type: vless
   server: 57.131.32.191
@@ -65,26 +65,13 @@ proxies:
     headers:
       Host: 57.131.32.191
 - name: 🇮🇹 意大利 (Italy) 06 - xiaohe
-  type: vless
-  server: 57.131.32.191
-  port: 80
-  uuid: 049e56d8-0ba0-49e3-b764-ee04122b9f00
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vless/
-    headers:
-      Host: ov-italy1.09vpn.com
-- name: 🇮🇹 意大利 (Italy) 07 - xiaohe
   type: ss
   server: 57.131.48.45
   port: 8388
   cipher: aes-256-gcm
   password: itzvpn@321
   udp: true
-- name: 🇮🇹 意大利 (Italy) 08 - xiaohe
+- name: 🇮🇹 意大利 (Italy) 07 - xiaohe
   type: vless
   server: 57.131.32.191
   port: 80
@@ -97,7 +84,7 @@ proxies:
     path: /vless/
     headers:
       Host: 57.131.32.191
-- name: 🇮🇹 意大利 (Italy) 09 - xiaohe
+- name: 🇮🇹 意大利 (Italy) 08 - xiaohe
   type: vless
   server: 204.216.216.23
   port: 10086
@@ -105,6 +92,47 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
+- name: 🇮🇹 意大利 (Italy) 09 - xiaohe
+  type: vless
+  server: 57.131.32.191
+  port: 80
+  uuid: 1e280316-0408-47c4-b058-05b8f1f17f02
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless/
+    headers:
+      Host: OV-Italy1.09vpn.com
+- name: 🇮🇹 意大利 (Italy) 10 - xiaohe
+  type: vless
+  server: 57.131.32.191
+  port: 80
+  uuid: 049e56d8-0ba0-49e3-b764-ee04122b9f00
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless/
+    headers:
+      Host: ov-italy1.09vpn.com
+- name: 🇮🇹 意大利 (Italy) 11 - xiaohe
+  type: vless
+  server: 204.216.216.23
+  port: 10086
+  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇮🇹 意大利 (Italy) 12 - xiaohe
+  type: ss
+  server: 66.245.207.70
+  port: 8388
+  cipher: aes-256-gcm
+  password: qMvJmCbMduKUoeHq
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -119,6 +147,9 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 07 - xiaohe
   - 🇮🇹 意大利 (Italy) 08 - xiaohe
   - 🇮🇹 意大利 (Italy) 09 - xiaohe
+  - 🇮🇹 意大利 (Italy) 10 - xiaohe
+  - 🇮🇹 意大利 (Italy) 11 - xiaohe
+  - 🇮🇹 意大利 (Italy) 12 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -133,5 +164,8 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 07 - xiaohe
   - 🇮🇹 意大利 (Italy) 08 - xiaohe
   - 🇮🇹 意大利 (Italy) 09 - xiaohe
+  - 🇮🇹 意大利 (Italy) 10 - xiaohe
+  - 🇮🇹 意大利 (Italy) 11 - xiaohe
+  - 🇮🇹 意大利 (Italy) 12 - xiaohe
 rules:
 - MATCH,PROXIES

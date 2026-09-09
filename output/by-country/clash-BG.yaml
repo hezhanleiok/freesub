@@ -25,15 +25,6 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: neth9.lunariai.ru
-- name: 🇧🇬 BG 03 - xiaohe
-  type: vless
-  server: neth9.lunariai.ru
-  port: 8443
-  uuid: 9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: neth9.lunariai.ru
 proxy-groups:
 - name: PROXIES
   type: select
@@ -41,7 +32,6 @@ proxy-groups:
   - AUTO
   - 🇧🇬 BG 01 - xiaohe
   - 🇧🇬 BG 02 - xiaohe
-  - 🇧🇬 BG 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -49,6 +39,5 @@ proxy-groups:
   proxies:
   - 🇧🇬 BG 01 - xiaohe
   - 🇧🇬 BG 02 - xiaohe
-  - 🇧🇬 BG 03 - xiaohe
 rules:
 - MATCH,PROXIES

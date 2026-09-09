@@ -6,16 +6,16 @@ log-level: info
 proxies:
 - name: 🇰🇿 KZ 01 - xiaohe
   type: vless
-  server: 83.222.23.81
-  port: 38065
-  uuid: 4b9063e0-3288-44e9-9aac-80fbfce323a0
+  server: 178.236.16.98
+  port: 35728
+  uuid: a00d89f6-ab7e-4e30-a5e5-54c701d62c93
   udp: true
   tls: true
   skip-cert-verify: true
   reality-opts:
-    public-key: dSSDPTK6AHfAdRAXD9i4rzqcNIY65RxlF25UyCKdiyo
+    public-key: vhUFNoFcvtZAVMo8y5K5eU2V43m5q6yjmWIhp5RkFng
   servername: yahoo.com
-  client-fingerprint: edge
+  client-fingerprint: chrome
 - name: 🇰🇿 KZ 02 - xiaohe
   type: vless
   server: 83.222.23.81
@@ -28,6 +28,50 @@ proxies:
     public-key: dSSDPTK6AHfAdRAXD9i4rzqcNIY65RxlF25UyCKdiyo
   servername: yahoo.com
   client-fingerprint: chrome
+- name: 🇰🇿 KZ 03 - xiaohe
+  type: vless
+  server: 185.176.26.50
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: vms.lifetime06.workers.dev
+- name: 🇰🇿 KZ 04 - xiaohe
+  type: ss
+  server: 94.198.220.183
+  port: 64674
+  cipher: chacha20-ietf-poly1305
+  password: s8LbJCgUiGXeCKVc63tHJP
+  udp: true
+- name: 🇰🇿 KZ 05 - xiaohe
+  type: vless
+  server: 77.73.232.61
+  port: 19747
+  uuid: 2a9ed01e-5455-44b4-a66a-76ee8165f0ac
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: ZO9dTeg1slvTXgVsBsaJ1BDvz_YUImTLJjbHs-GdVyM
+  servername: yahoo.com
+  client-fingerprint: chrome
+- name: 🇰🇿 KZ 06 - xiaohe
+  type: vless
+  server: 77.73.232.61
+  port: 19747
+  uuid: 2a9ed01e-5455-44b4-a66a-76ee8165f0ac
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: ZO9dTeg1slvTXgVsBsaJ1BDvz_YUImTLJjbHs-GdVyM
+  servername: yahoo.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -35,6 +79,10 @@ proxy-groups:
   - AUTO
   - 🇰🇿 KZ 01 - xiaohe
   - 🇰🇿 KZ 02 - xiaohe
+  - 🇰🇿 KZ 03 - xiaohe
+  - 🇰🇿 KZ 04 - xiaohe
+  - 🇰🇿 KZ 05 - xiaohe
+  - 🇰🇿 KZ 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -42,5 +90,9 @@ proxy-groups:
   proxies:
   - 🇰🇿 KZ 01 - xiaohe
   - 🇰🇿 KZ 02 - xiaohe
+  - 🇰🇿 KZ 03 - xiaohe
+  - 🇰🇿 KZ 04 - xiaohe
+  - 🇰🇿 KZ 05 - xiaohe
+  - 🇰🇿 KZ 06 - xiaohe
 rules:
 - MATCH,PROXIES

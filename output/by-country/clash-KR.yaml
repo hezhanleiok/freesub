@@ -5,60 +5,23 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇷 韩国 (South Korea) 01 - xiaohe
-  type: ss
-  server: 141.164.45.187
-  port: 5498
-  cipher: aes-256-gcm
-  password: lGqs95QkFHo2NV
+  type: vmess
+  server: 140.238.2.250
+  port: 443
+  uuid: 41a7089a-040b-4538-8b8d-010902405bde
+  alterId: 0
+  cipher: auto
   udp: true
+  tls: false
+  skip-cert-verify: true
 - name: 🇰🇷 韩国 (South Korea) 02 - xiaohe
   type: ss
   server: 141.164.45.187
-  port: 8888
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
-  udp: true
-- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
-  type: ss
-  server: 141.164.45.187
-  port: 7002
-  cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
-  udp: true
-- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
-  type: ss
-  server: 141.164.45.187
-  port: 6679
+  port: 6697
   cipher: aes-256-gcm
   password: TEzjfAYq2IjtuoS
   udp: true
-- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
-  type: vless
-  server: 151.245.106.49
-  port: 2053
-  uuid: 579ac5bd-a43d-49d4-b83e-a9e3ddd1f706
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: k9narlSK7fUqy94_p0rrqKl52W35QLNsp3W8xaGq_Go
-  servername: www.apple.com
-  client-fingerprint: random
-- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
-  type: ss
-  server: 141.164.45.187
-  port: 2376
-  cipher: aes-256-gcm
-  password: faBAoD54k87UJG7
-  udp: true
-- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
-  type: ss
-  server: 141.164.45.187
-  port: 8119
-  cipher: aes-256-gcm
-  password: cdBIDV42DCwnfIN
-  udp: true
-- name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
   type: vless
   server: 151.245.106.49
   port: 2053
@@ -70,35 +33,200 @@ proxies:
     public-key: k9narlSK7fUqy94_p0rrqKl52W35QLNsp3W8xaGq_Go
   servername: www.apple.com
   client-fingerprint: firefox
+- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
+  type: vless
+  server: 172.64.88.251
+  port: 8880
+  uuid: 7e3cd2f1-0de5-4717-9002-64d8597bc577
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: dry-credit-fc26.203-d8c.workers.dev
+- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
+  type: vless
+  server: nexusmods.com
+  port: 443
+  uuid: 49b5c5d1-8fb0-4fd2-8129-01bd2178e8d1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: gy-cffc2-node-31z7yxejlog9qfu0.lancelot.dpdns.org
+  network: ws
+  ws-opts:
+    path: /playlist/go.html/source/proxyip=ProxyIP.KR.CMLiussss.net?ed=2560
+    headers:
+      Host: gy-cffc2-node-31z7yxejlog9qfu0.lancelot.dpdns.org
+- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
+  type: vless
+  server: 104.18.47.164
+  port: 443
+  uuid: 49b5c5d1-8fb0-4fd2-8129-01bd2178e8d1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: gy-cffc5-node-31z7yxejlog9qfu0.lancelot.dpdns.org
+  network: ws
+  ws-opts:
+    path: /download/proxyip=ProxyIP.KR.CMLiussss.net?ed=2560
+    headers:
+      Host: gy-cffc5-node-31z7yxejlog9qfu0.lancelot.dpdns.org
+- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 7002
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
+  type: vless
+  server: 104.18.111.238
+  port: 443
+  uuid: 49b5c5d1-8fb0-4fd2-8129-01bd2178e8d1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: gy-cffc5-node-31z7yxejlog9qfu0.lancelot.dpdns.org
+  network: ws
+  ws-opts:
+    path: /index/document/proxyip=ProxyIP.KR.CMLiussss.net?ed=2560
+    headers:
+      Host: gy-cffc5-node-31z7yxejlog9qfu0.lancelot.dpdns.org
 - name: 🇰🇷 韩国 (South Korea) 09 - xiaohe
+  type: vless
+  server: 104.18.34.245
+  port: 8880
+  uuid: f3d7ebbc-03a1-40f9-a911-ae8628d3927a
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: dawn-waterfall-6052.360-001.workers.dev
+- name: 🇰🇷 韩国 (South Korea) 10 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 8888
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 11 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 6679
+  cipher: aes-256-gcm
+  password: TEzjfAYq2IjtuoS
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 12 - xiaohe
   type: ss
   server: 141.164.45.187
   port: 9090
   cipher: aes-256-gcm
   password: Y6R9pAtvxxzmGC
   udp: true
-- name: 🇰🇷 韩国 (South Korea) 10 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 13 - xiaohe
+  type: vless
+  server: 104.19.7.50
+  port: 443
+  uuid: 49b5c5d1-8fb0-4fd2-8129-01bd2178e8d1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: gy-cffc5-node-31z7yxejlog9qfu0.lancelot.dpdns.org
+  network: ws
+  ws-opts:
+    path: /share/team/api/proxyip=ProxyIP.KR.CMLiussss.net?ed=2560
+    headers:
+      Host: gy-cffc5-node-31z7yxejlog9qfu0.lancelot.dpdns.org
+- name: 🇰🇷 韩国 (South Korea) 14 - xiaohe
+  type: vless
+  server: 66.235.200.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime47.workers.dev
+- name: 🇰🇷 韩国 (South Korea) 15 - xiaohe
+  type: vless
+  server: 172.64.88.251
+  port: 8880
+  uuid: 87a5d3eb-afd4-4193-9787-c54ef7c26c8c
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: patient-cake-39c7.44-e7a.workers.dev
+- name: 🇰🇷 韩国 (South Korea) 16 - xiaohe
+  type: vless
+  server: 151.245.106.49
+  port: 2053
+  uuid: 579ac5bd-a43d-49d4-b83e-a9e3ddd1f706
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: k9narlSK7fUqy94_p0rrqKl52W35QLNsp3W8xaGq_Go
+  servername: www.apple.com
+  client-fingerprint: random
+- name: 🇰🇷 韩国 (South Korea) 17 - xiaohe
+  type: vless
+  server: 104.18.81.218
+  port: 443
+  uuid: 49b5c5d1-8fb0-4fd2-8129-01bd2178e8d1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: gy-cffc3-node-31z7yxejlog9qfu0.lancelot.dpdns.org
+  network: ws
+  ws-opts:
+    path: /images/proxyip=ProxyIP.KR.CMLiussss.net?ed=2560
+    headers:
+      Host: gy-cffc3-node-31z7yxejlog9qfu0.lancelot.dpdns.org
+- name: 🇰🇷 韩国 (South Korea) 18 - xiaohe
+  type: vmess
+  server: 140.238.2.250
+  port: 443
+  uuid: 41a7089a-040b-4538-8b8d-010902405bde
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇰🇷 韩国 (South Korea) 19 - xiaohe
   type: ss
   server: 141.164.45.187
-  port: 9101
+  port: 8119
   cipher: aes-256-gcm
-  password: e4FCWrgpkji3QY
+  password: cdBIDV42DCwnfIN
   udp: true
-- name: 🇰🇷 韩国 (South Korea) 11 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 20 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 8091
+  cipher: aes-256-gcm
+  password: PCnnH6SQSnfoS27
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 21 - xiaohe
   type: ss
   server: 141.164.45.187
   port: 8008
   cipher: aes-256-gcm
   password: XKFKl2rULjIp74
   udp: true
-- name: 🇰🇷 韩国 (South Korea) 12 - xiaohe
-  type: ss
-  server: 141.164.45.187
-  port: 6697
-  cipher: aes-256-gcm
-  password: TEzjfAYq2IjtuoS
-  udp: true
-- name: 🇰🇷 韩国 (South Korea) 13 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 22 - xiaohe
   type: vless
   server: 130.94.29.111
   port: 2087
@@ -111,7 +239,7 @@ proxies:
     path: /e17586a75123
     headers:
       Host: 130.94.29.111
-- name: 🇰🇷 韩国 (South Korea) 14 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 23 - xiaohe
   type: vless
   server: 130.94.29.111
   port: 2087
@@ -143,6 +271,15 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 12 - xiaohe
   - 🇰🇷 韩国 (South Korea) 13 - xiaohe
   - 🇰🇷 韩国 (South Korea) 14 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 15 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 16 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 17 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 18 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 19 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 20 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 21 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 22 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 23 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -162,5 +299,14 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 12 - xiaohe
   - 🇰🇷 韩国 (South Korea) 13 - xiaohe
   - 🇰🇷 韩国 (South Korea) 14 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 15 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 16 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 17 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 18 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 19 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 20 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 21 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 22 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 23 - xiaohe
 rules:
 - MATCH,PROXIES
