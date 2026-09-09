@@ -17,8 +17,27 @@ proxies:
   ws-opts:
     path: /websocket
     headers:
-      Host: ru05.abvpn.ru
+      Host: 45.9.15.206
 - name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  type: vless
+  server: 45.12.75.242
+  port: 26424
+  uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
+  servername: ya.ru
+  client-fingerprint: chrome
+- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
+  type: ss
+  server: 130.49.189.158
+  port: 43558
+  cipher: chacha20-ietf-poly1305
+  password: /63vp7pdl1GXaTpa6kkWd2+3tq3/szSAWueVKo26xM8=
+  udp: true
+- name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
   type: vless
   server: 45.9.15.206
   port: 443
@@ -31,33 +50,7 @@ proxies:
   ws-opts:
     path: /websocket
     headers:
-      Host: 45.9.15.206
-- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
-  type: vless
-  server: 45.12.75.242
-  port: 26424
-  uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
-  servername: ya.ru
-  client-fingerprint: chrome
-- name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
-  type: ss
-  server: 130.49.189.158
-  port: 43558
-  cipher: chacha20-ietf-poly1305
-  password: /63vp7pdl1GXaTpa6kkWd2+3tq3/szSAWueVKo26xM8=
-  udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 05 - wangyu
-  type: ss
-  server: 138.124.68.88
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: Y2ZlN
-  udp: true
+      Host: ru05.abvpn.ru
 proxy-groups:
 - name: PROXIES
   type: select
@@ -67,7 +60,6 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -77,6 +69,5 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
 rules:
 - MATCH,PROXIES

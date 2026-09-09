@@ -6,7 +6,52 @@ log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 - wangyu
   type: vless
-  server: hinet1.2yly.com
+  server: 60.248.219.53
+  port: 443
+  uuid: f1d247db-d7ce-4eb8-9c0d-7b10603cd0b4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ty986gfazs.cainiaohub.xyz
+  network: ws
+  ws-opts:
+    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
+    headers:
+      Host: ty986gfazs.cainiaohub.xyz
+- name: 🇹🇼 中国台湾 (Taiwan) 02 - wangyu
+  type: vmess
+  server: 165.154.195.38
+  port: 35034
+  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇹🇼 中国台湾 (Taiwan) 03 - wangyu
+  type: ss
+  server: 36.224.152.189
+  port: 50099
+  cipher: chacha20-ietf-poly1305
+  password: b1ae0fce-9340-4f2e-882d-fdb2218e2e2b
+  udp: true
+- name: 🇹🇼 中国台湾 (Taiwan) 04 - wangyu
+  type: vless
+  server: 60.248.219.78
+  port: 443
+  uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ty986gfazs.cainiaohub.xyz
+  network: ws
+  ws-opts:
+    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
+    headers:
+      Host: ty986gfazs.cainiaohub.xyz
+- name: 🇹🇼 中国台湾 (Taiwan) 05 - wangyu
+  type: vless
+  server: 118.167.200.67
   port: 24215
   uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
   udp: true
@@ -15,15 +60,8 @@ proxies:
   reality-opts:
     public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
   servername: addons.mozilla.org
-  client-fingerprint: qq
-- name: 🇹🇼 中国台湾 (Taiwan) 02 - wangyu
-  type: ss
-  server: namrcg001640lrm.cybervena.com
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: 7b56aeaa-8e2d-4bdf-b1d7-233ecca15f56
-  udp: true
-- name: 🇹🇼 中国台湾 (Taiwan) 03 - wangyu
+  client-fingerprint: chrome
+- name: 🇹🇼 中国台湾 (Taiwan) 06 - wangyu
   type: vless
   server: 60.248.219.78
   port: 443
@@ -37,57 +75,7 @@ proxies:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
       Host: 60.248.219.78
-- name: 🇹🇼 中国台湾 (Taiwan) 04 - wangyu
-  type: vless
-  server: 118.167.200.67
-  port: 24215
-  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-- name: 🇹🇼 中国台湾 (Taiwan) 05 - wangyu
-  type: vless
-  server: hinet1.2yly.com
-  port: 24215
-  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-- name: 🇹🇼 中国台湾 (Taiwan) 06 - wangyu
-  type: ss
-  server: 36.224.151.80
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: b1ae0fce-9340-4f2e-882d-fdb2218e2e2b
-  udp: true
 - name: 🇹🇼 中国台湾 (Taiwan) 07 - wangyu
-  type: vless
-  server: 118.167.200.67
-  port: 24215
-  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-- name: 🇹🇼 中国台湾 (Taiwan) 08 - wangyu
-  type: ss
-  server: 36.224.151.80
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-  udp: true
-- name: 🇹🇼 中国台湾 (Taiwan) 09 - wangyu
   type: vless
   server: 60.248.219.52
   port: 443
@@ -101,37 +89,56 @@ proxies:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
       Host: 60.248.219.52
+- name: 🇹🇼 中国台湾 (Taiwan) 08 - wangyu
+  type: vless
+  server: 118.167.200.67
+  port: 24215
+  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
+  servername: addons.mozilla.org
+  client-fingerprint: chrome
+- name: 🇹🇼 中国台湾 (Taiwan) 09 - wangyu
+  type: vless
+  server: 118.167.200.67
+  port: 24215
+  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
+  servername: addons.mozilla.org
+  client-fingerprint: qq
 - name: 🇹🇼 中国台湾 (Taiwan) 10 - wangyu
+  type: ss
+  server: R3MRCG001287H3P.cybervena.com
+  port: 50099
+  cipher: chacha20-ietf-poly1305
+  password: b1ae0fce-9340-4f2e-882d-fdb2218e2e2b
+  udp: true
+- name: 🇹🇼 中国台湾 (Taiwan) 11 - wangyu
+  type: vless
+  server: hinet1.2yly.com
+  port: 24215
+  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
+  servername: addons.mozilla.org
+  client-fingerprint: chrome
+- name: 🇹🇼 中国台湾 (Taiwan) 12 - wangyu
   type: ss
   server: r3mrcg001287h3p.cybervena.com
   port: 50099
   cipher: chacha20-ietf-poly1305
   password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
   udp: true
-- name: 🇹🇼 中国台湾 (Taiwan) 11 - wangyu
-  type: vless
-  server: 59.125.69.19
-  port: 443
-  uuid: f1d247db-d7ce-4eb8-9c0d-7b10603cd0b4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ty986gfazs.cainiaohub.xyz
-  network: ws
-  ws-opts:
-    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
-    headers:
-      Host: 59.125.69.19
-- name: 🇹🇼 中国台湾 (Taiwan) 12 - wangyu
-  type: vmess
-  server: 165.154.195.38
-  port: 35034
-  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
 - name: 🇹🇼 中国台湾 (Taiwan) 13 - wangyu
   type: vmess
   server: 165.154.195.38
@@ -162,6 +169,46 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
+- name: 🇹🇼 中国台湾 (Taiwan) 16 - wangyu
+  type: vmess
+  server: 165.154.195.38
+  port: 35034
+  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇹🇼 中国台湾 (Taiwan) 17 - wangyu
+  type: vmess
+  server: 165.154.195.38
+  port: 35034
+  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇹🇼 中国台湾 (Taiwan) 18 - wangyu
+  type: vmess
+  server: 165.154.195.38
+  port: 35034
+  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇹🇼 中国台湾 (Taiwan) 19 - wangyu
+  type: vmess
+  server: 165.154.195.38
+  port: 35034
+  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -182,6 +229,10 @@ proxy-groups:
   - 🇹🇼 中国台湾 (Taiwan) 13 - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 14 - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 15 - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 16 - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 17 - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 18 - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 19 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -202,5 +253,9 @@ proxy-groups:
   - 🇹🇼 中国台湾 (Taiwan) 13 - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 14 - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 15 - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 16 - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 17 - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 18 - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 19 - wangyu
 rules:
 - MATCH,PROXIES

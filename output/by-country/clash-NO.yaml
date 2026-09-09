@@ -5,12 +5,17 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇳🇴 NO 01 - wangyu
-  type: ss
-  server: 185.213.23.63
-  port: 990
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+  type: vless
+  server: 151.242.168.125
+  port: 390
+  uuid: b02ff150-ee30-46e0-9ea1-adbfd7762a06
   udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 5RCgAVjaT7hwdVIKAEULswXGqR127ZOZV6X17nEhYk8
+  servername: bowandbead.com
+  client-fingerprint: ios
 - name: 🇳🇴 NO 02 - wangyu
   type: vless
   server: 151.242.168.125
@@ -39,14 +44,26 @@ proxies:
   type: vless
   server: 151.242.168.125
   port: 390
-  uuid: b02ff150-ee30-46e0-9ea1-adbfd7762a06
+  uuid: 7b363f9c-3df9-4b60-a789-9cd36be0bdfe
   udp: true
   tls: true
   skip-cert-verify: true
   reality-opts:
     public-key: 5RCgAVjaT7hwdVIKAEULswXGqR127ZOZV6X17nEhYk8
   servername: bowandbead.com
-  client-fingerprint: ios
+  client-fingerprint: edge
+- name: 🇳🇴 NO 05 - wangyu
+  type: vless
+  server: 151.242.168.125
+  port: 390
+  uuid: 7b363f9c-3df9-4b60-a789-9cd36be0bdfe
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 5RCgAVjaT7hwdVIKAEULswXGqR127ZOZV6X17nEhYk8
+  servername: bowandbead.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -56,6 +73,7 @@ proxy-groups:
   - 🇳🇴 NO 02 - wangyu
   - 🇳🇴 NO 03 - wangyu
   - 🇳🇴 NO 04 - wangyu
+  - 🇳🇴 NO 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -65,5 +83,6 @@ proxy-groups:
   - 🇳🇴 NO 02 - wangyu
   - 🇳🇴 NO 03 - wangyu
   - 🇳🇴 NO 04 - wangyu
+  - 🇳🇴 NO 05 - wangyu
 rules:
 - MATCH,PROXIES
