@@ -27,25 +27,6 @@ proxies:
   reality-opts:
     public-key: R06_DTSjzQI9DswvRz9OqSBECfSwlpCMPR4DCc9oXyw
   servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇮🇳 印度 (India) 03 - xiaohe
-  type: ss
-  server: 139.84.166.47
-  port: 8388
-  cipher: aes-256-gcm
-  password: GEdoeeqLZtkJRgSa
-  udp: true
-- name: 🇮🇳 印度 (India) 04 - xiaohe
-  type: vless
-  server: 194.61.31.126
-  port: 2053
-  uuid: 50ddfd92-dc79-4777-a256-41e34d56836e
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: R06_DTSjzQI9DswvRz9OqSBECfSwlpCMPR4DCc9oXyw
-  servername: www.apple.com
   client-fingerprint: random
 proxy-groups:
 - name: PROXIES
@@ -54,8 +35,6 @@ proxy-groups:
   - AUTO
   - 🇮🇳 印度 (India) 01 - xiaohe
   - 🇮🇳 印度 (India) 02 - xiaohe
-  - 🇮🇳 印度 (India) 03 - xiaohe
-  - 🇮🇳 印度 (India) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -63,7 +42,5 @@ proxy-groups:
   proxies:
   - 🇮🇳 印度 (India) 01 - xiaohe
   - 🇮🇳 印度 (India) 02 - xiaohe
-  - 🇮🇳 印度 (India) 03 - xiaohe
-  - 🇮🇳 印度 (India) 04 - xiaohe
 rules:
 - MATCH,PROXIES
