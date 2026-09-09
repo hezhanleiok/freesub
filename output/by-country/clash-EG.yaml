@@ -4,45 +4,45 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇺🇿 UZ 01 - xiaohe
+- name: 🇪🇬 EG 01 - xiaohe
   type: vless
-  server: 189.74.97.47
+  server: 38.54.59.209
   port: 2087
-  uuid: 894fe9f0-b998-49c0-8003-a5007de921e1
+  uuid: cd842ef8-9577-47f3-83ca-627147ed291b
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /755276b33b6f
+    path: /d1000b16fe76
     headers:
-      Host: 189.74.97.47
-- name: 🇺🇿 UZ 02 - xiaohe
+      Host: 38.54.59.209
+- name: 🇪🇬 EG 02 - xiaohe
   type: vless
-  server: 189.74.97.47
+  server: 38.54.59.209
   port: 2087
-  uuid: 894fe9f0-b998-49c0-8003-a5007de921e1
+  uuid: cd842ef8-9577-47f3-83ca-627147ed291b
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /755276b33b6f
+    path: /d1000b16fe76
     headers:
-      Host: 189.74.97.47
+      Host: telegram-leviko_v2ray
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇺🇿 UZ 01 - xiaohe
-  - 🇺🇿 UZ 02 - xiaohe
+  - 🇪🇬 EG 01 - xiaohe
+  - 🇪🇬 EG 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇺🇿 UZ 01 - xiaohe
-  - 🇺🇿 UZ 02 - xiaohe
+  - 🇪🇬 EG 01 - xiaohe
+  - 🇪🇬 EG 02 - xiaohe
 rules:
 - MATCH,PROXIES
