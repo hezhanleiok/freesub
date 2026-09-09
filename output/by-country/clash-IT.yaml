@@ -8,7 +8,7 @@ proxies:
   type: vless
   server: 57.131.32.191
   port: 80
-  uuid: 1e280316-0408-47c4-b058-05b8f1f17f02
+  uuid: 049e56d8-0ba0-49e3-b764-ee04122b9f00
   udp: true
   tls: false
   skip-cert-verify: true
@@ -16,30 +16,8 @@ proxies:
   ws-opts:
     path: /vless/
     headers:
-      Host: OV-Italy1.09vpn.com
+      Host: 57.131.32.191
 - name: 🇮🇹 意大利 (Italy) 02 - wangyu
-  type: ss
-  server: 57.131.48.45
-  port: 8388
-  cipher: aes-256-gcm
-  password: itzvpn@321
-  udp: true
-- name: 🇮🇹 意大利 (Italy) 03 - wangyu
-  type: vless
-  server: 204.216.216.23
-  port: 10086
-  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇮🇹 意大利 (Italy) 04 - wangyu
-  type: ss
-  server: 57.131.48.45
-  port: 8388
-  cipher: aes-256-gcm
-  password: itzvpn@321
-  udp: true
-- name: 🇮🇹 意大利 (Italy) 05 - wangyu
   type: vless
   server: 57.131.32.191
   port: 80
@@ -52,27 +30,53 @@ proxies:
     path: /vless/
     headers:
       Host: ov-italy1.09vpn.com
-- name: 🇮🇹 意大利 (Italy) 06 - wangyu
-  type: vmess
-  server: 57.131.32.191
-  port: 8443
-  uuid: 848af33c-81f2-40c9-93b2-4681d056936b
-  alterId: 0
-  cipher: auto
+- name: 🇮🇹 意大利 (Italy) 03 - wangyu
+  type: vless
+  server: 204.216.216.23
+  port: 10086
+  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇮🇹 意大利 (Italy) 04 - wangyu
+  type: vless
+  server: 158.180.231.216
+  port: 443
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: OV-Italy1.09vpn.com
+  servername: bab-6.site
   network: ws
   ws-opts:
-    path: /vmess/
+    path: /vws/
+    headers:
+      Host: bab-6.site
+- name: 🇮🇹 意大利 (Italy) 05 - wangyu
+  type: vless
+  server: 57.131.32.191
+  port: 80
+  uuid: 1e280316-0408-47c4-b058-05b8f1f17f02
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless/
     headers:
       Host: OV-Italy1.09vpn.com
+- name: 🇮🇹 意大利 (Italy) 06 - wangyu
+  type: ss
+  server: 57.131.48.45
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
+  udp: true
 - name: 🇮🇹 意大利 (Italy) 07 - wangyu
   type: vless
   server: 57.131.32.191
   port: 80
-  uuid: 049e56d8-0ba0-49e3-b764-ee04122b9f00
+  uuid: 1e280316-0408-47c4-b058-05b8f1f17f02
   udp: true
   tls: false
   skip-cert-verify: true
@@ -85,7 +89,7 @@ proxies:
   type: vless
   server: 57.131.32.191
   port: 80
-  uuid: b3051b10-716d-455b-9811-aefcce3d633e
+  uuid: 1e280316-0408-47c4-b058-05b8f1f17f02
   udp: true
   tls: false
   skip-cert-verify: true
@@ -93,8 +97,22 @@ proxies:
   ws-opts:
     path: /vless/
     headers:
-      Host: 57.131.32.191
+      Host: ov-italy1.09vpn.com
 - name: 🇮🇹 意大利 (Italy) 09 - wangyu
+  type: vless
+  server: 158.180.231.216
+  port: 443
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: bab-6.site
+  network: ws
+  ws-opts:
+    path: /vws/
+    headers:
+      Host: bab-6.site
+- name: 🇮🇹 意大利 (Italy) 10 - wangyu
   type: vless
   server: 57.131.32.191
   port: 80
@@ -107,25 +125,18 @@ proxies:
     path: /vless/
     headers:
       Host: ov-italy1.09vpn.com
-- name: 🇮🇹 意大利 (Italy) 10 - wangyu
-  type: vless
-  server: 158.180.231.216
-  port: 443
-  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: bab-6.site
-  network: ws
-  ws-opts:
-    path: /vws/
-    headers:
-      Host: bab-6.site
 - name: 🇮🇹 意大利 (Italy) 11 - wangyu
+  type: ss
+  server: 57.131.48.45
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
+  udp: true
+- name: 🇮🇹 意大利 (Italy) 12 - wangyu
   type: vless
   server: 57.131.32.191
   port: 80
-  uuid: 1e280316-0408-47c4-b058-05b8f1f17f02
+  uuid: b3051b10-716d-455b-9811-aefcce3d633e
   udp: true
   tls: false
   skip-cert-verify: true
@@ -134,42 +145,6 @@ proxies:
     path: /vless/
     headers:
       Host: 57.131.32.191
-- name: 🇮🇹 意大利 (Italy) 12 - wangyu
-  type: vless
-  server: 158.180.231.216
-  port: 443
-  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: bab-6.site
-  network: ws
-  ws-opts:
-    path: /vws/
-    headers:
-      Host: bab-6.site
-- name: 🇮🇹 意大利 (Italy) 13 - wangyu
-  type: vless
-  server: milan.adaspoloandco.com
-  port: 8443
-  uuid: 69ac162b-1643-4acb-9f49-09d8b0fad609
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: milan.adaspoloandco.com
-  network: ws
-  ws-opts:
-    path: /RoBeRt
-    headers:
-      Host: milan.adaspoloandco.com
-- name: 🇮🇹 意大利 (Italy) 14 - wangyu
-  type: vless
-  server: 204.216.216.23
-  port: 10086
-  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
-  udp: true
-  tls: false
-  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -187,8 +162,6 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 10 - wangyu
   - 🇮🇹 意大利 (Italy) 11 - wangyu
   - 🇮🇹 意大利 (Italy) 12 - wangyu
-  - 🇮🇹 意大利 (Italy) 13 - wangyu
-  - 🇮🇹 意大利 (Italy) 14 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -206,7 +179,5 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 10 - wangyu
   - 🇮🇹 意大利 (Italy) 11 - wangyu
   - 🇮🇹 意大利 (Italy) 12 - wangyu
-  - 🇮🇹 意大利 (Italy) 13 - wangyu
-  - 🇮🇹 意大利 (Italy) 14 - wangyu
 rules:
 - MATCH,PROXIES

@@ -6,30 +6,6 @@ log-level: info
 proxies:
 - name: 🇰🇿 KZ 01 - wangyu
   type: vless
-  server: 77.73.232.61
-  port: 19747
-  uuid: 2a9ed01e-5455-44b4-a66a-76ee8165f0ac
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: ZO9dTeg1slvTXgVsBsaJ1BDvz_YUImTLJjbHs-GdVyM
-  servername: yahoo.com
-  client-fingerprint: chrome
-- name: 🇰🇿 KZ 02 - wangyu
-  type: vless
-  server: 77.73.232.61
-  port: 19747
-  uuid: 2a9ed01e-5455-44b4-a66a-76ee8165f0ac
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: ZO9dTeg1slvTXgVsBsaJ1BDvz_YUImTLJjbHs-GdVyM
-  servername: yahoo.com
-  client-fingerprint: chrome
-- name: 🇰🇿 KZ 03 - wangyu
-  type: vless
   server: 178.236.16.98
   port: 35728
   uuid: a00d89f6-ab7e-4e30-a5e5-54c701d62c93
@@ -40,7 +16,7 @@ proxies:
     public-key: vhUFNoFcvtZAVMo8y5K5eU2V43m5q6yjmWIhp5RkFng
   servername: yahoo.com
   client-fingerprint: chrome
-- name: 🇰🇿 KZ 04 - wangyu
+- name: 🇰🇿 KZ 02 - wangyu
   type: vless
   server: 83.222.23.81
   port: 38065
@@ -52,6 +28,37 @@ proxies:
     public-key: dSSDPTK6AHfAdRAXD9i4rzqcNIY65RxlF25UyCKdiyo
   servername: yahoo.com
   client-fingerprint: chrome
+- name: 🇰🇿 KZ 03 - wangyu
+  type: vless
+  server: 77.73.232.61
+  port: 19747
+  uuid: 2a9ed01e-5455-44b4-a66a-76ee8165f0ac
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: ZO9dTeg1slvTXgVsBsaJ1BDvz_YUImTLJjbHs-GdVyM
+  servername: yahoo.com
+  client-fingerprint: chrome
+- name: 🇰🇿 KZ 04 - wangyu
+  type: vless
+  server: 77.73.232.61
+  port: 19747
+  uuid: 2a9ed01e-5455-44b4-a66a-76ee8165f0ac
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: ZO9dTeg1slvTXgVsBsaJ1BDvz_YUImTLJjbHs-GdVyM
+  servername: yahoo.com
+  client-fingerprint: chrome
+- name: 🇰🇿 KZ 05 - wangyu
+  type: ss
+  server: 94.198.220.183
+  port: 64674
+  cipher: chacha20-ietf-poly1305
+  password: s8LbJCgUiGXeCKVc63tHJP
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -61,6 +68,7 @@ proxy-groups:
   - 🇰🇿 KZ 02 - wangyu
   - 🇰🇿 KZ 03 - wangyu
   - 🇰🇿 KZ 04 - wangyu
+  - 🇰🇿 KZ 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -70,5 +78,6 @@ proxy-groups:
   - 🇰🇿 KZ 02 - wangyu
   - 🇰🇿 KZ 03 - wangyu
   - 🇰🇿 KZ 04 - wangyu
+  - 🇰🇿 KZ 05 - wangyu
 rules:
 - MATCH,PROXIES
