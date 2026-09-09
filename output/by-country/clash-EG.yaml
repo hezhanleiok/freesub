@@ -4,45 +4,45 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇲🇾 MY 01 - wangyu
+- name: 🇪🇬 EG 01 - wangyu
   type: vless
-  server: 38.60.168.98
+  server: 38.54.59.209
   port: 2087
-  uuid: 8a346b7c-5b95-4845-affa-0e5d9929e9ae
+  uuid: cd842ef8-9577-47f3-83ca-627147ed291b
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /db55c40bbc75
+    path: /d1000b16fe76
     headers:
-      Host: 38.60.168.98
-- name: 🇲🇾 MY 02 - wangyu
+      Host: telegram-leviko_v2ray
+- name: 🇪🇬 EG 02 - wangyu
   type: vless
-  server: 38.60.168.98
+  server: 38.54.59.209
   port: 2087
-  uuid: 8a346b7c-5b95-4845-affa-0e5d9929e9ae
+  uuid: cd842ef8-9577-47f3-83ca-627147ed291b
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /db55c40bbc75
+    path: /d1000b16fe76
     headers:
-      Host: 38.60.168.98
+      Host: 38.54.59.209
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇲🇾 MY 01 - wangyu
-  - 🇲🇾 MY 02 - wangyu
+  - 🇪🇬 EG 01 - wangyu
+  - 🇪🇬 EG 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇲🇾 MY 01 - wangyu
-  - 🇲🇾 MY 02 - wangyu
+  - 🇪🇬 EG 01 - wangyu
+  - 🇪🇬 EG 02 - wangyu
 rules:
 - MATCH,PROXIES

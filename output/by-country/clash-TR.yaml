@@ -5,15 +5,14 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - wangyu
-  type: vmess
-  server: pori.cjlife.ir
-  port: 110
-  uuid: 0accd97e-a16c-4d4f-b19a-883f7ea0f484
-  alterId: 0
-  cipher: auto
+  type: vless
+  server: 195.162.69.203
+  port: 8443
+  uuid: 953358cb-82ba-4296-960d-6d2ec3468f4c
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: 195-162-69-203.sslip.io
 - name: 🇹🇷 土耳其 (Turkey) 02 - wangyu
   type: vless
   server: 151.241.226.201
@@ -25,18 +24,31 @@ proxies:
   reality-opts:
     public-key: k5COjpopVNGzEuMb457zCrrZegSdBX-d8bg0G6HDsE4
   servername: www.apple.com
-  client-fingerprint: chrome
+  client-fingerprint: firefox
 - name: 🇹🇷 土耳其 (Turkey) 03 - wangyu
-  type: vless
-  server: 195.162.69.203
-  port: 8443
-  uuid: 953358cb-82ba-4296-960d-6d2ec3468f4c
+  type: vmess
+  server: pori.cjlife.ir
+  port: 110
+  uuid: 0accd97e-a16c-4d4f-b19a-883f7ea0f484
+  alterId: 0
+  cipher: auto
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: 195-162-69-203.sslip.io
 - name: 🇹🇷 土耳其 (Turkey) 04 - wangyu
   type: vless
+  server: trkqountl.ramcalshoping.ir
+  port: 57391
+  uuid: ff1dcb64-f13d-4ccd-a3c6-055218f7490b
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: tcBtbA2x1XDB6Rkn3oF61zuTZUgbq3rrgDn0z1GqdRo
+  servername: amp-api-edge.apps.apple.com
+  client-fingerprint: firefox
+- name: 🇹🇷 土耳其 (Turkey) 05 - wangyu
+  type: vless
   server: 195.162.69.203
   port: 8443
   uuid: 953358cb-82ba-4296-960d-6d2ec3468f4c
@@ -44,7 +56,17 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: 195-162-69-203.sslip.io
-- name: 🇹🇷 土耳其 (Turkey) 05 - wangyu
+- name: 🇹🇷 土耳其 (Turkey) 06 - wangyu
+  type: vmess
+  server: pori.cjlife.ir
+  port: 110
+  uuid: 0accd97e-a16c-4d4f-b19a-883f7ea0f484
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇹🇷 土耳其 (Turkey) 07 - wangyu
   type: vless
   server: 45.74.158.180
   port: 443
@@ -66,6 +88,8 @@ proxy-groups:
   - 🇹🇷 土耳其 (Turkey) 03 - wangyu
   - 🇹🇷 土耳其 (Turkey) 04 - wangyu
   - 🇹🇷 土耳其 (Turkey) 05 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 06 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -76,5 +100,7 @@ proxy-groups:
   - 🇹🇷 土耳其 (Turkey) 03 - wangyu
   - 🇹🇷 土耳其 (Turkey) 04 - wangyu
   - 🇹🇷 土耳其 (Turkey) 05 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 06 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 07 - wangyu
 rules:
 - MATCH,PROXIES
