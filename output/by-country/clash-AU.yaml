@@ -6,6 +6,34 @@ log-level: info
 proxies:
 - name: 🇦🇺 澳大利亚 (Australia) 01 - wangyu
   type: vless
+  server: 208.103.161.5
+  port: 443
+  uuid: d042a74a-c305-4eec-a89f-39a348022c92
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: dry-butterfly-8eb9.tmpgnacio83.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: dry-butterfly-8eb9.tmpgnacio83.workers.dev
+- name: 🇦🇺 澳大利亚 (Australia) 02 - wangyu
+  type: vless
+  server: 208.103.161.5
+  port: 443
+  uuid: d042a74a-c305-4eec-a89f-39a348022c92
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: dry-butterfly-8eb9.tmpgnacio83.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: dry-butterfly-8eb9.tmpgnacio83.workers.dev
+- name: 🇦🇺 澳大利亚 (Australia) 03 - wangyu
+  type: vless
   server: 103.75.119.126
   port: 2087
   uuid: 731f177e-00aa-480c-b935-661456139a32
@@ -17,7 +45,20 @@ proxies:
     path: /7586c69d3dc9
     headers:
       Host: 103.75.119.126
-- name: 🇦🇺 澳大利亚 (Australia) 02 - wangyu
+- name: 🇦🇺 澳大利亚 (Australia) 04 - wangyu
+  type: vless
+  server: 192.65.217.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime37.workers.dev
+- name: 🇦🇺 澳大利亚 (Australia) 05 - wangyu
   type: vless
   server: 103.75.119.126
   port: 2087
@@ -37,6 +78,9 @@ proxy-groups:
   - AUTO
   - 🇦🇺 澳大利亚 (Australia) 01 - wangyu
   - 🇦🇺 澳大利亚 (Australia) 02 - wangyu
+  - 🇦🇺 澳大利亚 (Australia) 03 - wangyu
+  - 🇦🇺 澳大利亚 (Australia) 04 - wangyu
+  - 🇦🇺 澳大利亚 (Australia) 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -44,5 +88,8 @@ proxy-groups:
   proxies:
   - 🇦🇺 澳大利亚 (Australia) 01 - wangyu
   - 🇦🇺 澳大利亚 (Australia) 02 - wangyu
+  - 🇦🇺 澳大利亚 (Australia) 03 - wangyu
+  - 🇦🇺 澳大利亚 (Australia) 04 - wangyu
+  - 🇦🇺 澳大利亚 (Australia) 05 - wangyu
 rules:
 - MATCH,PROXIES

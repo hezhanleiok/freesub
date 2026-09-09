@@ -6,37 +6,37 @@ log-level: info
 proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
   type: vless
-  server: 547c2c7e-tl4g00-tqruo0-1pqhp.hk3.hyhuawei.com
+  server: 58.153.148.126
   port: 443
-  uuid: b02327ac-a49a-11ef-a673-f23c913c8d2b
+  uuid: 91df5a86-fcdd-11ef-94aa-f23c913c8d2b
   udp: true
   tls: true
   skip-cert-verify: true
   reality-opts:
     public-key: bE6ws6dFPflj8WVJMGwtso0WOaiSmBOHM2muQO2Uul4
   servername: updates.cdn-apple.com
-  client-fingerprint: safari
+  client-fingerprint: chrome
 - name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  type: vless
+  server: 60.248.219.52
+  port: 443
+  uuid: f265b49a-70a3-407a-b17b-e45dfb9f255c
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ty986gfazs.cainiaohub.xyz
+  network: ws
+  ws-opts:
+    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
+    headers:
+      Host: 60.248.219.52
+- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
   type: ss
-  server: 36.224.152.189
+  server: r3mrcg00129437x.cybervena.com
   port: 50099
   cipher: chacha20-ietf-poly1305
   password: b1ae0fce-9340-4f2e-882d-fdb2218e2e2b
   udp: true
-- name: 🇰🇷 韩国 (South Korea) 03 (家宽) - wangyu
-  type: vless
-  server: 172.64.147.104
-  port: 2087
-  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
 - name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
   type: vless
   server: 118.167.200.67
@@ -48,58 +48,24 @@ proxies:
   reality-opts:
     public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
   servername: addons.mozilla.org
-  client-fingerprint: ios
-- name: 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - wangyu
+  client-fingerprint: firefox
+- name: 🇰🇷 韩国 (South Korea) 05 (家宽) - wangyu
   type: vless
-  server: 60.248.219.78
-  port: 443
-  uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ty986gfazs.cainiaohub.xyz
-  network: ws
-  ws-opts:
-    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
-    headers:
-      Host: 60.248.219.78
-- name: 🇺🇸 美国 (United States) 06 (家宽) - wangyu
-  type: vless
-  server: 162.159.24.131
-  port: 2082
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /?ed=2560security=tls
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - wangyu
-  type: ss
-  server: R3MRCG00129437X.cybervena.com
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: b1ae0fce-9340-4f2e-882d-fdb2218e2e2b
-  udp: true
-- name: 🇰🇷 韩国 (South Korea) 08 (家宽) - wangyu
-  type: vless
-  server: 104.18.38.47
+  server: 188.114.97.6
   port: 2087
   uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: fx3l5i2wdfxln0.fx6hsv0.ccwu.cc
+  servername: fx3h2kf8xn.fx6hsv0.ccwu.cc
   network: ws
   ws-opts:
     path: /?ed=2560
     headers:
-      Host: fx3l5i2wdfxln0.fx6hsv0.ccwu.cc
-- name: 🇹🇼 中国台湾 (Taiwan) 09 (家宽) - wangyu
+      Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
+- name: 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - wangyu
   type: ss
-  server: r3mrcg001286ek2.cybervena.com
+  server: 36.224.152.189
   port: 50099
   cipher: chacha20-ietf-poly1305
   password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
@@ -111,13 +77,10 @@ proxy-groups:
   - AUTO
   - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 03 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - wangyu
-  - 🇺🇸 美国 (United States) 06 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 08 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 09 (家宽) - wangyu
+  - 🇰🇷 韩国 (South Korea) 05 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -125,12 +88,9 @@ proxy-groups:
   proxies:
   - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 03 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - wangyu
-  - 🇺🇸 美国 (United States) 06 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 08 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 09 (家宽) - wangyu
+  - 🇰🇷 韩国 (South Korea) 05 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

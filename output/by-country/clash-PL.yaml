@@ -18,25 +18,31 @@ proxies:
     headers:
       Host: 94.183.209.59
 - name: 🇵🇱 PL 02 - wangyu
-  type: ss
-  server: 5.75.149.156
-  port: 30
-  cipher: chacha20-ietf-poly1305
-  password: k-ql8IYNIvKjF3Txqp9_s3UKIFN1Xjfz
-  udp: true
-- name: 🇵🇱 PL 03 - wangyu
   type: vless
-  server: 178.95.170.115
-  port: 2087
-  uuid: bf443e4a-aa9e-4509-abf0-d0f6828d57be
+  server: 94.183.209.58
+  port: 443
+  uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /4bc027a44532
+    path: /
     headers:
-      Host: Telegram-Leviko_v2ray
+      Host: pl2.lckdwn.ru
+- name: 🇵🇱 PL 03 - wangyu
+  type: vless
+  server: 94.183.209.58
+  port: 443
+  uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: pl2.lckdwn.ru
 - name: 🇵🇱 PL 04 - wangyu
   type: vless
   server: 94.183.209.43
@@ -51,39 +57,13 @@ proxies:
     headers:
       Host: 94.183.209.43
 - name: 🇵🇱 PL 05 - wangyu
-  type: vless
-  server: 178.95.170.83
-  port: 2087
-  uuid: bf443e4a-aa9e-4509-abf0-d0f6828d57be
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /4bc027a44532
-    headers:
-      Host: 178.95.170.83
-- name: 🇵🇱 PL 06 - wangyu
   type: ss
   server: 194.61.121.93
   port: 7538
   cipher: chacha20-ietf-poly1305
   password: U9YAoqBgg5VyGBc6vQv1sN
   udp: true
-- name: 🇵🇱 PL 07 - wangyu
-  type: vless
-  server: 94.183.209.58
-  port: 443
-  uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: pl2.lckdwn.ru
-- name: 🇵🇱 PL 08 - wangyu
+- name: 🇵🇱 PL 06 - wangyu
   type: vless
   server: 2.26.224.233
   port: 8443
@@ -95,31 +75,13 @@ proxies:
     public-key: NI5Rkfn6zO_gF-UC1nuvJwu4SDakCXh3ygJOKU1EITU
   servername: cdn.shopify.com
   client-fingerprint: firefox
-- name: 🇵🇱 PL 09 - wangyu
-  type: vless
-  server: 94.183.209.58
-  port: 443
-  uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
+- name: 🇵🇱 PL 07 - wangyu
+  type: ss
+  server: 64.176.73.160
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: VJtsgllDDJfNmaTe
   udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: pl2.lckdwn.ru
-- name: 🇵🇱 PL 10 - wangyu
-  type: vless
-  server: plll.banibus.ir
-  port: 8118
-  uuid: 8b54a46a-e66b-48cc-bf5a-88f0855a3598
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: LjAkLizwkZf35ObrUMFZ22UHXTEJzpgcTvHk9AuzcUM
-  servername: play.googleapis.com
-  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -132,9 +94,6 @@ proxy-groups:
   - 🇵🇱 PL 05 - wangyu
   - 🇵🇱 PL 06 - wangyu
   - 🇵🇱 PL 07 - wangyu
-  - 🇵🇱 PL 08 - wangyu
-  - 🇵🇱 PL 09 - wangyu
-  - 🇵🇱 PL 10 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -147,8 +106,5 @@ proxy-groups:
   - 🇵🇱 PL 05 - wangyu
   - 🇵🇱 PL 06 - wangyu
   - 🇵🇱 PL 07 - wangyu
-  - 🇵🇱 PL 08 - wangyu
-  - 🇵🇱 PL 09 - wangyu
-  - 🇵🇱 PL 10 - wangyu
 rules:
 - MATCH,PROXIES
