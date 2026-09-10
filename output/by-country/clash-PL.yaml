@@ -5,10 +5,17 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇵🇱 PL 01 - xiaohe
+  type: ss
+  server: 64.176.73.160
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: VJtsgllDDJfNmaTe
+  udp: true
+- name: 🇵🇱 PL 02 - xiaohe
   type: vless
-  server: 94.183.209.58
+  server: 94.183.209.59
   port: 443
-  uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
+  uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
   udp: true
   tls: false
   skip-cert-verify: true
@@ -16,8 +23,41 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: pl2.lckdwn.ru
-- name: 🇵🇱 PL 02 - xiaohe
+      Host: 94.183.209.59
+- name: 🇵🇱 PL 03 - xiaohe
+  type: vless
+  server: 94.183.209.59
+  port: 443
+  uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 94.183.209.59
+- name: 🇵🇱 PL 04 - xiaohe
+  type: ss
+  server: 194.61.121.93
+  port: 7538
+  cipher: chacha20-ietf-poly1305
+  password: U9YAoqBgg5VyGBc6vQv1sN
+  udp: true
+- name: 🇵🇱 PL 05 - xiaohe
+  type: vless
+  server: 178.95.170.98
+  port: 2087
+  uuid: bf443e4a-aa9e-4509-abf0-d0f6828d57be
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /4bc027a44532
+    headers:
+      Host: 178.95.170.98
+- name: 🇵🇱 PL 06 - xiaohe
   type: vless
   server: 94.183.209.43
   port: 443
@@ -30,48 +70,6 @@ proxies:
     path: /
     headers:
       Host: 94.183.209.43
-- name: 🇵🇱 PL 03 - xiaohe
-  type: ss
-  server: 64.176.73.160
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: VJtsgllDDJfNmaTe
-  udp: true
-- name: 🇵🇱 PL 04 - xiaohe
-  type: ss
-  server: 194.61.121.93
-  port: 7538
-  cipher: chacha20-ietf-poly1305
-  password: U9YAoqBgg5VyGBc6vQv1sN
-  udp: true
-- name: 🇵🇱 PL 05 - xiaohe
-  type: vless
-  server: 104.25.22.24
-  port: 443
-  uuid: e6cc4788-3c45-4df1-94f3-8303504a65bf
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: khoda.ak-khoda.workers.dev
-  network: ws
-  ws-opts:
-    path: /sync
-    headers:
-      Host: khoda.ak-khoda.workers.dev
-- name: 🇵🇱 PL 06 - xiaohe
-  type: vless
-  server: 104.25.146.77
-  port: 443
-  uuid: e6cc4788-3c45-4df1-94f3-8303504a65bf
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: khoda.ak-khoda.workers.dev
-  network: ws
-  ws-opts:
-    path: /sync
-    headers:
-      Host: khoda.ak-khoda.workers.dev
 - name: 🇵🇱 PL 07 - xiaohe
   type: vless
   server: 94.183.209.59
@@ -100,9 +98,9 @@ proxies:
       Host: pl2.lckdwn.ru
 - name: 🇵🇱 PL 09 - xiaohe
   type: vless
-  server: 94.183.209.59
+  server: 94.183.209.58
   port: 443
-  uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
+  uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
   udp: true
   tls: false
   skip-cert-verify: true
@@ -110,7 +108,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 94.183.209.59
+      Host: pl2.lckdwn.ru
 - name: 🇵🇱 PL 10 - xiaohe
   type: vless
   server: 2.26.224.233
@@ -125,44 +123,30 @@ proxies:
   client-fingerprint: firefox
 - name: 🇵🇱 PL 11 - xiaohe
   type: vless
-  server: 94.183.209.59
-  port: 443
-  uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
+  server: 178.95.170.98
+  port: 2087
+  uuid: bf443e4a-aa9e-4509-abf0-d0f6828d57be
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /
+    path: /4bc027a44532
     headers:
-      Host: 94.183.209.59
+      Host: 178.95.170.98
 - name: 🇵🇱 PL 12 - xiaohe
   type: vless
-  server: 104.17.247.68
-  port: 443
-  uuid: e6cc4788-3c45-4df1-94f3-8303504a65bf
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: khoda.ak-khoda.workers.dev
-  network: ws
-  ws-opts:
-    path: /sync
-    headers:
-      Host: khoda.ak-khoda.workers.dev
-- name: 🇵🇱 PL 13 - xiaohe
-  type: vless
-  server: 94.183.209.59
-  port: 443
-  uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
+  server: 178.95.170.83
+  port: 2087
+  uuid: bf443e4a-aa9e-4509-abf0-d0f6828d57be
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /
+    path: /4bc027a44532
     headers:
-      Host: 94.183.209.59
+      Host: 178.95.170.83
 proxy-groups:
 - name: PROXIES
   type: select
@@ -180,7 +164,6 @@ proxy-groups:
   - 🇵🇱 PL 10 - xiaohe
   - 🇵🇱 PL 11 - xiaohe
   - 🇵🇱 PL 12 - xiaohe
-  - 🇵🇱 PL 13 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -198,6 +181,5 @@ proxy-groups:
   - 🇵🇱 PL 10 - xiaohe
   - 🇵🇱 PL 11 - xiaohe
   - 🇵🇱 PL 12 - xiaohe
-  - 🇵🇱 PL 13 - xiaohe
 rules:
 - MATCH,PROXIES

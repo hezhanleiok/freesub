@@ -31,6 +31,21 @@ proxies:
     headers:
       Host: 38.60.168.98
 - name: 🇲🇾 MY 03 - xiaohe
+  type: vmess
+  server: 47.250.45.234
+  port: 43063
+  uuid: c77f48f5-4be3-4461-b52b-49998e7b897b
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /arki?ed=2048
+    headers:
+      Host: ''
+- name: 🇲🇾 MY 04 - xiaohe
   type: vless
   server: 38.60.168.98
   port: 2087
@@ -51,6 +66,7 @@ proxy-groups:
   - 🇲🇾 MY 01 - xiaohe
   - 🇲🇾 MY 02 - xiaohe
   - 🇲🇾 MY 03 - xiaohe
+  - 🇲🇾 MY 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -59,5 +75,6 @@ proxy-groups:
   - 🇲🇾 MY 01 - xiaohe
   - 🇲🇾 MY 02 - xiaohe
   - 🇲🇾 MY 03 - xiaohe
+  - 🇲🇾 MY 04 - xiaohe
 rules:
 - MATCH,PROXIES
