@@ -6,27 +6,17 @@ log-level: info
 proxies:
 - name: 🇪🇸 西班牙 (Spain) 01 - wangyu
   type: ss
-  server: 140.174.184.5
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: qItG8SueYQcP
-  udp: true
-- name: 🇪🇸 西班牙 (Spain) 02 - wangyu
-  type: vmess
-  server: 85.90.217.42
-  port: 22324
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇪🇸 西班牙 (Spain) 03 - wangyu
-  type: ss
   server: 108.181.121.226
   port: 8388
   cipher: chacha20-ietf-poly1305
   password: WSyL4XTwNsdv
+  udp: true
+- name: 🇪🇸 西班牙 (Spain) 02 - wangyu
+  type: ss
+  server: 140.174.184.5
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: qItG8SueYQcP
   udp: true
 proxy-groups:
 - name: PROXIES
@@ -35,7 +25,6 @@ proxy-groups:
   - AUTO
   - 🇪🇸 西班牙 (Spain) 01 - wangyu
   - 🇪🇸 西班牙 (Spain) 02 - wangyu
-  - 🇪🇸 西班牙 (Spain) 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -43,6 +32,5 @@ proxy-groups:
   proxies:
   - 🇪🇸 西班牙 (Spain) 01 - wangyu
   - 🇪🇸 西班牙 (Spain) 02 - wangyu
-  - 🇪🇸 西班牙 (Spain) 03 - wangyu
 rules:
 - MATCH,PROXIES

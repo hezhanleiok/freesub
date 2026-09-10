@@ -6,15 +6,15 @@ log-level: info
 proxies:
 - name: 🇳🇴 NO 01 - wangyu
   type: vless
-  server: 151.242.168.125
-  port: 390
-  uuid: 7b363f9c-3df9-4b60-a789-9cd36be0bdfe
+  server: 46.29.238.88
+  port: 40443
+  uuid: db320947-adfb-400d-b60b-383b8324bffe
   udp: true
   tls: true
   skip-cert-verify: true
   reality-opts:
-    public-key: 5RCgAVjaT7hwdVIKAEULswXGqR127ZOZV6X17nEhYk8
-  servername: bowandbead.com
+    public-key: aZOpodpnifoxDqTzWgxJRffgsiGnG9-h-EZd4SvOImc
+  servername: deepl.com
   client-fingerprint: qq
 - name: 🇳🇴 NO 02 - wangyu
   type: vless
@@ -47,6 +47,42 @@ proxies:
     public-key: 5RCgAVjaT7hwdVIKAEULswXGqR127ZOZV6X17nEhYk8
   servername: bowandbead.com
   client-fingerprint: qq
+- name: 🇳🇴 NO 05 - wangyu
+  type: vless
+  server: 151.242.168.125
+  port: 390
+  uuid: 7b363f9c-3df9-4b60-a789-9cd36be0bdfe
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 5RCgAVjaT7hwdVIKAEULswXGqR127ZOZV6X17nEhYk8
+  servername: bowandbead.com
+  client-fingerprint: qq
+- name: 🇳🇴 NO 06 - wangyu
+  type: vless
+  server: 46.29.238.88
+  port: 40443
+  uuid: db320947-adfb-400d-b60b-383b8324bffe
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: aZOpodpnifoxDqTzWgxJRffgsiGnG9-h-EZd4SvOImc
+  servername: deepl.com
+  client-fingerprint: chrome
+- name: 🇳🇴 NO 07 - wangyu
+  type: vless
+  server: 151.242.168.125
+  port: 390
+  uuid: 7b363f9c-3df9-4b60-a789-9cd36be0bdfe
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 5RCgAVjaT7hwdVIKAEULswXGqR127ZOZV6X17nEhYk8
+  servername: bowandbead.com
+  client-fingerprint: qq
 proxy-groups:
 - name: PROXIES
   type: select
@@ -56,6 +92,9 @@ proxy-groups:
   - 🇳🇴 NO 02 - wangyu
   - 🇳🇴 NO 03 - wangyu
   - 🇳🇴 NO 04 - wangyu
+  - 🇳🇴 NO 05 - wangyu
+  - 🇳🇴 NO 06 - wangyu
+  - 🇳🇴 NO 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -65,5 +104,8 @@ proxy-groups:
   - 🇳🇴 NO 02 - wangyu
   - 🇳🇴 NO 03 - wangyu
   - 🇳🇴 NO 04 - wangyu
+  - 🇳🇴 NO 05 - wangyu
+  - 🇳🇴 NO 06 - wangyu
+  - 🇳🇴 NO 07 - wangyu
 rules:
 - MATCH,PROXIES
