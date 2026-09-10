@@ -42,7 +42,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 89.36.161.222
+      Host: laoye.in-gect.fun
 - name: 🇱🇻 LV 04 - xiaohe
   type: vless
   server: 89.36.161.222
@@ -69,6 +69,19 @@ proxies:
     path: /
     headers:
       Host: laoye.in-gect.fun
+- name: 🇱🇻 LV 06 - xiaohe
+  type: vless
+  server: 89.36.161.222
+  port: 2096
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 89.36.161.222
 proxy-groups:
 - name: PROXIES
   type: select
@@ -79,6 +92,7 @@ proxy-groups:
   - 🇱🇻 LV 03 - xiaohe
   - 🇱🇻 LV 04 - xiaohe
   - 🇱🇻 LV 05 - xiaohe
+  - 🇱🇻 LV 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -89,5 +103,6 @@ proxy-groups:
   - 🇱🇻 LV 03 - xiaohe
   - 🇱🇻 LV 04 - xiaohe
   - 🇱🇻 LV 05 - xiaohe
+  - 🇱🇻 LV 06 - xiaohe
 rules:
 - MATCH,PROXIES

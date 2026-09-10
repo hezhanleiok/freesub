@@ -18,6 +18,18 @@ proxies:
   client-fingerprint: chrome
 - name: 🇰🇿 KZ 02 - xiaohe
   type: vless
+  server: 77.73.232.61
+  port: 19747
+  uuid: 2a9ed01e-5455-44b4-a66a-76ee8165f0ac
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: ZO9dTeg1slvTXgVsBsaJ1BDvz_YUImTLJjbHs-GdVyM
+  servername: yahoo.com
+  client-fingerprint: chrome
+- name: 🇰🇿 KZ 03 - xiaohe
+  type: vless
   server: 111.88.143.139
   port: 51940
   uuid: 03464802-b517-404b-b15c-7750ffc5e78f
@@ -28,7 +40,7 @@ proxies:
     public-key: uPHvFb_vZ3DKL-8Et_e9OliZskdSV5U1NZ66tHfC-2Y
   servername: yahoo.com
   client-fingerprint: chrome
-- name: 🇰🇿 KZ 03 - xiaohe
+- name: 🇰🇿 KZ 04 - xiaohe
   type: vless
   server: 77.73.232.61
   port: 19747
@@ -48,6 +60,7 @@ proxy-groups:
   - 🇰🇿 KZ 01 - xiaohe
   - 🇰🇿 KZ 02 - xiaohe
   - 🇰🇿 KZ 03 - xiaohe
+  - 🇰🇿 KZ 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -56,5 +69,6 @@ proxy-groups:
   - 🇰🇿 KZ 01 - xiaohe
   - 🇰🇿 KZ 02 - xiaohe
   - 🇰🇿 KZ 03 - xiaohe
+  - 🇰🇿 KZ 04 - xiaohe
 rules:
 - MATCH,PROXIES

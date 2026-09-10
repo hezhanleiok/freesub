@@ -1,0 +1,36 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇧🇷 BR 01 - xiaohe
+  type: ss
+  server: 216.128.168.190
+  port: 8388
+  cipher: aes-256-gcm
+  password: owVdNnQcdPgthSyX
+  udp: true
+- name: 🇧🇷 BR 02 - xiaohe
+  type: ss
+  server: 216.128.168.190
+  port: 8388
+  cipher: aes-256-gcm
+  password: owVdNnQcdPgthSyX
+  udp: true
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇧🇷 BR 01 - xiaohe
+  - 🇧🇷 BR 02 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇧🇷 BR 01 - xiaohe
+  - 🇧🇷 BR 02 - xiaohe
+rules:
+- MATCH,PROXIES
