@@ -16,21 +16,8 @@ proxies:
   ws-opts:
     path: /d1000b16fe76
     headers:
-      Host: telegram-leviko_v2ray
+      Host: Telegram-Leviko_v2ray
 - name: 🇪🇬 EG 02 - wangyu
-  type: vless
-  server: 38.54.59.209
-  port: 2087
-  uuid: cd842ef8-9577-47f3-83ca-627147ed291b
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /d1000b16fe76
-    headers:
-      Host: 38.54.59.209
-- name: 🇪🇬 EG 03 - wangyu
   type: vless
   server: 38.54.59.209
   port: 2087
@@ -50,7 +37,6 @@ proxy-groups:
   - AUTO
   - 🇪🇬 EG 01 - wangyu
   - 🇪🇬 EG 02 - wangyu
-  - 🇪🇬 EG 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -58,6 +44,5 @@ proxy-groups:
   proxies:
   - 🇪🇬 EG 01 - wangyu
   - 🇪🇬 EG 02 - wangyu
-  - 🇪🇬 EG 03 - wangyu
 rules:
 - MATCH,PROXIES

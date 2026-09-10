@@ -6,6 +6,20 @@ log-level: info
 proxies:
 - name: 🇺🇿 UZ 01 - wangyu
   type: vless
+  server: 172.67.67.178
+  port: 443
+  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: rayan-007.nastaran.dpdns.org
+- name: 🇺🇿 UZ 02 - wangyu
+  type: vless
   server: 189.74.97.47
   port: 2087
   uuid: 894fe9f0-b998-49c0-8003-a5007de921e1
@@ -23,11 +37,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇺🇿 UZ 01 - wangyu
+  - 🇺🇿 UZ 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇺🇿 UZ 01 - wangyu
+  - 🇺🇿 UZ 02 - wangyu
 rules:
 - MATCH,PROXIES
