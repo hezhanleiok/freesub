@@ -722,7 +722,7 @@ def format_node_group(nodes_list, res_tag_force=False):
         
         is_res = item["is_residential"] or res_tag_force
         tag = " (家宽)" if is_res else ""
-        node_name = f"{flag} {c_name} {idx:02d}{tag} - xiaohe"
+        node_name = f"{flag} {c_name} {idx:02d}{tag} - Cloudfree"
         
         new_proxy = dict(item["clash_proxy"])
         new_proxy["name"] = node_name
