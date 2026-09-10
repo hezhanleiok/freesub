@@ -94,7 +94,7 @@ export default {
 
     const url = new URL(request.url);
     const filePath = "output" + url.pathname;
-    const ghUrl = "[https://raw.githubusercontent.com/](https://raw.githubusercontent.com/)" + OWNER + "/" + REPO + "/" + BRANCH + "/" + filePath;
+    const ghUrl = "https://raw.githubusercontent.com/" + OWNER + "/" + REPO + "/" + BRANCH + "/" + filePath;
     
     const res = await fetch(ghUrl, {
       headers: {
