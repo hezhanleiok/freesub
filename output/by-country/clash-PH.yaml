@@ -4,31 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇲🇽 MX 01 - xiaohe
+- name: 🇵🇭 PH 01 - xiaohe
   type: vless
-  server: ul-mexico1.09vpn.com
-  port: 8443
-  uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+  server: 149.104.109.17
+  port: 2087
+  uuid: 9ed3dcb3-b71a-4ae1-8210-95e33615d7e6
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: ul-mexico1.09vpn.com
   network: ws
   ws-opts:
-    path: /vless/
+    path: /04461917b179
     headers:
-      Host: ul-mexico1.09vpn.com
+      Host: 149.104.109.17
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇲🇽 MX 01 - xiaohe
+  - 🇵🇭 PH 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇲🇽 MX 01 - xiaohe
+  - 🇵🇭 PH 01 - xiaohe
 rules:
 - MATCH,PROXIES

@@ -17,17 +17,47 @@ proxies:
     path: /db55c40bbc75
     headers:
       Host: 38.60.168.98
+- name: 🇲🇾 MY 02 - xiaohe
+  type: vless
+  server: 38.60.168.98
+  port: 2087
+  uuid: 8a346b7c-5b95-4845-affa-0e5d9929e9ae
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /db55c40bbc75
+    headers:
+      Host: 38.60.168.98
+- name: 🇲🇾 MY 03 - xiaohe
+  type: vless
+  server: 38.60.168.98
+  port: 2087
+  uuid: 8a346b7c-5b95-4845-affa-0e5d9929e9ae
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /db55c40bbc75
+    headers:
+      Host: 38.60.168.98
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇲🇾 MY 01 - xiaohe
+  - 🇲🇾 MY 02 - xiaohe
+  - 🇲🇾 MY 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇲🇾 MY 01 - xiaohe
+  - 🇲🇾 MY 02 - xiaohe
+  - 🇲🇾 MY 03 - xiaohe
 rules:
 - MATCH,PROXIES
