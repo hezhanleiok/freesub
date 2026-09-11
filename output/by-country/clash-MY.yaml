@@ -18,6 +18,21 @@ proxies:
     headers:
       Host: 38.60.168.98
 - name: 🇲🇾 MY 02 - wangyu
+  type: vmess
+  server: 47.250.45.234
+  port: 8613
+  uuid: 80039b4d-bac0-4f89-82c7-54fad3b0a1ea
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /arki?ed=2048
+    headers:
+      Host: ''
+- name: 🇲🇾 MY 03 - wangyu
   type: vless
   server: 38.60.168.98
   port: 2087
@@ -37,6 +52,7 @@ proxy-groups:
   - AUTO
   - 🇲🇾 MY 01 - wangyu
   - 🇲🇾 MY 02 - wangyu
+  - 🇲🇾 MY 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -44,5 +60,6 @@ proxy-groups:
   proxies:
   - 🇲🇾 MY 01 - wangyu
   - 🇲🇾 MY 02 - wangyu
+  - 🇲🇾 MY 03 - wangyu
 rules:
 - MATCH,PROXIES

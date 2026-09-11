@@ -5,6 +5,42 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇦 加拿大 (Canada) 01 - wangyu
+  type: vmess
+  server: 134.195.196.211
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇨🇦 加拿大 (Canada) 02 - wangyu
+  type: ss
+  server: ca225.vpnbook.com
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: 3ssumf2
+  udp: true
+- name: 🇨🇦 加拿大 (Canada) 03 - wangyu
+  type: vmess
+  server: 134.195.196.211
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇨🇦 加拿大 (Canada) 04 - wangyu
+  type: vless
+  server: 184.107.106.68
+  port: 443
+  uuid: 716426fa-bcb7-4eb9-b460-36399ebf740d
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: lizca2.footballfantasyforum.com
+- name: 🇨🇦 加拿大 (Canada) 05 - wangyu
   type: vless
   server: 66.70.179.198
   port: 2053
@@ -16,21 +52,58 @@ proxies:
     public-key: wA5Vklw2gN0kMwC7JEmudiPbsKyTeSfbZNvpLiDUBEU
   servername: www.apple.com
   client-fingerprint: chrome
-- name: 🇨🇦 加拿大 (Canada) 02 - wangyu
+- name: 🇨🇦 加拿大 (Canada) 06 - wangyu
+  type: vless
+  server: lizca2.footballfantasyforum.com
+  port: 443
+  uuid: 716426fa-bcb7-4eb9-b460-36399ebf740d
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: lizca2.footballfantasyforum.com
+- name: 🇨🇦 加拿大 (Canada) 07 - wangyu
+  type: ss
+  server: 51.79.49.116
+  port: 8882
+  cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
+  udp: true
+- name: 🇨🇦 加拿大 (Canada) 08 - wangyu
+  type: vless
+  server: fq.jp188.dpdns.org
+  port: 443
+  uuid: 42c62a5a-cd31-4551-80ef-908732370287
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: fq.jp188.dpdns.org
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: fq.jp188.dpdns.org
+- name: 🇨🇦 加拿大 (Canada) 09 - wangyu
   type: ss
   server: 51.222.141.125
   port: 445
   cipher: aes-256-gcm
   password: zDNVedRFPQexG9v
   udp: true
-- name: 🇨🇦 加拿大 (Canada) 03 - wangyu
-  type: ss
-  server: 51.79.85.185
-  port: 8118
-  cipher: aes-256-gcm
-  password: cdBIDV42DCwnfIN
+- name: 🇨🇦 加拿大 (Canada) 10 - wangyu
+  type: vless
+  server: fq.jp188.dpdns.org
+  port: 443
+  uuid: 42c62a5a-cd31-4551-80ef-908732370287
   udp: true
-- name: 🇨🇦 加拿大 (Canada) 04 - wangyu
+  tls: true
+  skip-cert-verify: true
+  servername: fq.jp188.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: fq.jp188.dpdns.org
+- name: 🇨🇦 加拿大 (Canada) 11 - wangyu
   type: vless
   server: 66.70.179.198
   port: 2053
@@ -41,78 +114,17 @@ proxies:
   reality-opts:
     public-key: wA5Vklw2gN0kMwC7JEmudiPbsKyTeSfbZNvpLiDUBEU
   servername: www.apple.com
-  client-fingerprint: random
-- name: 🇨🇦 加拿大 (Canada) 05 - wangyu
-  type: ss
-  server: ca225.vpnbook.com
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: 3ssumf2
-  udp: true
-- name: 🇨🇦 加拿大 (Canada) 06 - wangyu
-  type: vmess
-  server: 134.195.196.211
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇨🇦 加拿大 (Canada) 07 - wangyu
-  type: vmess
-  server: 134.195.196.211
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇨🇦 加拿大 (Canada) 08 - wangyu
-  type: ss
-  server: 51.79.49.116
-  port: 8882
-  cipher: aes-256-gcm
-  password: kDWvXYZoTBcGkC4
-  udp: true
-- name: 🇨🇦 加拿大 (Canada) 09 - wangyu
+  client-fingerprint: chrome
+- name: 🇨🇦 加拿大 (Canada) 12 - wangyu
   type: ss
   server: 149.22.95.183
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
-- name: 🇨🇦 加拿大 (Canada) 10 - wangyu
-  type: ss
-  server: 51.222.155.113
-  port: 5601
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
-  udp: true
-- name: 🇨🇦 加拿大 (Canada) 11 - wangyu
-  type: vmess
-  server: 134.195.196.211
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇨🇦 加拿大 (Canada) 12 - wangyu
-  type: vmess
-  server: 23.162.200.198
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
 - name: 🇨🇦 加拿大 (Canada) 13 - wangyu
   type: vmess
-  server: 23.162.200.198
+  server: 134.195.196.211
   port: 18000
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
   alterId: 0
@@ -121,32 +133,41 @@ proxies:
   tls: false
   skip-cert-verify: true
 - name: 🇨🇦 加拿大 (Canada) 14 - wangyu
-  type: ss
-  server: 166.88.130.218
-  port: 30111
-  cipher: aes-256-gcm
-  password: fbcec76953a2d173
+  type: vless
+  server: 188.114.97.6
+  port: 2086
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
 - name: 🇨🇦 加拿大 (Canada) 15 - wangyu
-  type: ss
-  server: 51.79.64.198
-  port: 8119
-  cipher: aes-256-gcm
-  password: cdBIDV42DCwnfIN
-  udp: true
-- name: 🇨🇦 加拿大 (Canada) 16 - wangyu
-  type: ss
-  server: 51.222.200.165
-  port: 5000
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
-  udp: true
-- name: 🇨🇦 加拿大 (Canada) 17 - wangyu
   type: ss
   server: 15.235.75.71
   port: 8388
   cipher: chacha20-ietf-poly1305
   password: FD3rCuOsxOay
+  udp: true
+- name: 🇨🇦 加拿大 (Canada) 16 - wangyu
+  type: vmess
+  server: 23.162.200.198
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇨🇦 加拿大 (Canada) 17 - wangyu
+  type: ss
+  server: 51.222.200.165
+  port: 5000
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
   udp: true
 - name: 🇨🇦 加拿大 (Canada) 18 - wangyu
   type: ss
@@ -157,6 +178,33 @@ proxies:
   udp: true
 - name: 🇨🇦 加拿大 (Canada) 19 - wangyu
   type: vless
+  server: 188.114.97.6
+  port: 8080
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+- name: 🇨🇦 加拿大 (Canada) 20 - wangyu
+  type: vless
+  server: fq.jp188.dpdns.org
+  port: 443
+  uuid: 42c62a5a-cd31-4551-80ef-908732370287
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: fq.jp188.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: fq.jp188.dpdns.org
+- name: 🇨🇦 加拿大 (Canada) 21 - wangyu
+  type: vless
   server: 184.107.106.68
   port: 443
   uuid: 716426fa-bcb7-4eb9-b460-36399ebf740d
@@ -164,7 +212,21 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: lizca2.footballfantasyforum.com
-- name: 🇨🇦 加拿大 (Canada) 20 - wangyu
+- name: 🇨🇦 加拿大 (Canada) 22 - wangyu
+  type: ss
+  server: 51.222.155.113
+  port: 5601
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
+  udp: true
+- name: 🇨🇦 加拿大 (Canada) 23 - wangyu
+  type: ss
+  server: 149.22.95.183
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: 🇨🇦 加拿大 (Canada) 24 - wangyu
   type: vmess
   server: 134.195.196.211
   port: 18000
@@ -174,23 +236,7 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇨🇦 加拿大 (Canada) 21 - wangyu
-  type: vless
-  server: lizca2.footballfantasyforum.com
-  port: 443
-  uuid: 716426fa-bcb7-4eb9-b460-36399ebf740d
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: lizca2.footballfantasyforum.com
-- name: 🇨🇦 加拿大 (Canada) 22 - wangyu
-  type: ss
-  server: 51.222.12.127
-  port: 445
-  cipher: aes-256-gcm
-  password: zDNVedRFPQexG9v
-  udp: true
-- name: 🇨🇦 加拿大 (Canada) 23 - wangyu
+- name: 🇨🇦 加拿大 (Canada) 25 - wangyu
   type: vless
   server: 66.70.179.198
   port: 2053
@@ -201,23 +247,7 @@ proxies:
   reality-opts:
     public-key: wA5Vklw2gN0kMwC7JEmudiPbsKyTeSfbZNvpLiDUBEU
   servername: www.apple.com
-  client-fingerprint: chrome
-- name: 🇨🇦 加拿大 (Canada) 24 - wangyu
-  type: ss
-  server: 51.222.155.113
-  port: 5601
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
-  udp: true
-- name: 🇨🇦 加拿大 (Canada) 25 - wangyu
-  type: vless
-  server: 184.107.106.68
-  port: 443
-  uuid: 716426fa-bcb7-4eb9-b460-36399ebf740d
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 184.107.106.68
+  client-fingerprint: firefox
 - name: 🇨🇦 加拿大 (Canada) 26 - wangyu
   type: vmess
   server: 23.162.200.198
@@ -239,6 +269,53 @@ proxies:
   tls: false
   skip-cert-verify: true
 - name: 🇨🇦 加拿大 (Canada) 28 - wangyu
+  type: ss
+  server: 51.222.12.127
+  port: 445
+  cipher: aes-256-gcm
+  password: zDNVedRFPQexG9v
+  udp: true
+- name: 🇨🇦 加拿大 (Canada) 29 - wangyu
+  type: vless
+  server: 188.114.97.6
+  port: 2052
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+- name: 🇨🇦 加拿大 (Canada) 30 - wangyu
+  type: ss
+  server: 142.4.216.225
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: 3ssumf2
+  udp: true
+- name: 🇨🇦 加拿大 (Canada) 31 - wangyu
+  type: vmess
+  server: 23.162.200.198
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇨🇦 加拿大 (Canada) 32 - wangyu
+  type: vmess
+  server: 134.195.196.211
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇨🇦 加拿大 (Canada) 33 - wangyu
   type: vless
   server: 66.70.179.198
   port: 2053
@@ -249,27 +326,8 @@ proxies:
   reality-opts:
     public-key: wA5Vklw2gN0kMwC7JEmudiPbsKyTeSfbZNvpLiDUBEU
   servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇨🇦 加拿大 (Canada) 29 - wangyu
-  type: vmess
-  server: 134.195.196.211
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇨🇦 加拿大 (Canada) 30 - wangyu
-  type: vless
-  server: 184.107.106.68
-  port: 443
-  uuid: 716426fa-bcb7-4eb9-b460-36399ebf740d
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: lizca2.footballfantasyforum.com
-- name: 🇨🇦 加拿大 (Canada) 31 - wangyu
+  client-fingerprint: random
+- name: 🇨🇦 加拿大 (Canada) 34 - wangyu
   type: vless
   server: 148.113.196.75
   port: 8443
@@ -283,6 +341,19 @@ proxies:
     path: /vless/
     headers:
       Host: 148.113.196.75
+- name: 🇨🇦 加拿大 (Canada) 35 - wangyu
+  type: vless
+  server: 188.114.97.6
+  port: 2082
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
 proxy-groups:
 - name: PROXIES
   type: select
@@ -319,6 +390,10 @@ proxy-groups:
   - 🇨🇦 加拿大 (Canada) 29 - wangyu
   - 🇨🇦 加拿大 (Canada) 30 - wangyu
   - 🇨🇦 加拿大 (Canada) 31 - wangyu
+  - 🇨🇦 加拿大 (Canada) 32 - wangyu
+  - 🇨🇦 加拿大 (Canada) 33 - wangyu
+  - 🇨🇦 加拿大 (Canada) 34 - wangyu
+  - 🇨🇦 加拿大 (Canada) 35 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -355,5 +430,9 @@ proxy-groups:
   - 🇨🇦 加拿大 (Canada) 29 - wangyu
   - 🇨🇦 加拿大 (Canada) 30 - wangyu
   - 🇨🇦 加拿大 (Canada) 31 - wangyu
+  - 🇨🇦 加拿大 (Canada) 32 - wangyu
+  - 🇨🇦 加拿大 (Canada) 33 - wangyu
+  - 🇨🇦 加拿大 (Canada) 34 - wangyu
+  - 🇨🇦 加拿大 (Canada) 35 - wangyu
 rules:
 - MATCH,PROXIES
