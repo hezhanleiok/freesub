@@ -6,30 +6,24 @@ log-level: info
 proxies:
 - name: 🇵🇱 PL 01 - xiaohe
   type: vless
-  server: 94.183.209.58
-  port: 443
-  uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
+  server: 178.95.170.83
+  port: 2087
+  uuid: bf443e4a-aa9e-4509-abf0-d0f6828d57be
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /
+    path: /4bc027a44532
     headers:
-      Host: pl2.lckdwn.ru
+      Host: 178.95.170.83
 - name: 🇵🇱 PL 02 - xiaohe
-  type: vless
-  server: 94.183.209.59
-  port: 443
-  uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
+  type: ss
+  server: 194.61.121.93
+  port: 7538
+  cipher: chacha20-ietf-poly1305
+  password: U9YAoqBgg5VyGBc6vQv1sN
   udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 94.183.209.59
 - name: 🇵🇱 PL 03 - xiaohe
   type: ss
   server: 64.176.73.160
@@ -39,26 +33,6 @@ proxies:
   udp: true
 - name: 🇵🇱 PL 04 - xiaohe
   type: vless
-  server: 94.183.209.59
-  port: 443
-  uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 94.183.209.59
-- name: 🇵🇱 PL 05 - xiaohe
-  type: ss
-  server: 194.61.121.93
-  port: 7538
-  cipher: chacha20-ietf-poly1305
-  password: U9YAoqBgg5VyGBc6vQv1sN
-  udp: true
-- name: 🇵🇱 PL 06 - xiaohe
-  type: vless
   server: 94.183.209.58
   port: 443
   uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
@@ -70,7 +44,20 @@ proxies:
     path: /
     headers:
       Host: pl2.lckdwn.ru
-- name: 🇵🇱 PL 07 - xiaohe
+- name: 🇵🇱 PL 05 - xiaohe
+  type: vless
+  server: 178.95.170.98
+  port: 2087
+  uuid: bf443e4a-aa9e-4509-abf0-d0f6828d57be
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /4bc027a44532
+    headers:
+      Host: 178.95.170.98
+- name: 🇵🇱 PL 06 - xiaohe
   type: vless
   server: 94.183.209.59
   port: 443
@@ -94,7 +81,6 @@ proxy-groups:
   - 🇵🇱 PL 04 - xiaohe
   - 🇵🇱 PL 05 - xiaohe
   - 🇵🇱 PL 06 - xiaohe
-  - 🇵🇱 PL 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -106,6 +92,5 @@ proxy-groups:
   - 🇵🇱 PL 04 - xiaohe
   - 🇵🇱 PL 05 - xiaohe
   - 🇵🇱 PL 06 - xiaohe
-  - 🇵🇱 PL 07 - xiaohe
 rules:
 - MATCH,PROXIES
