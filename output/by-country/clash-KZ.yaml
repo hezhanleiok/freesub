@@ -11,17 +11,77 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: s8LbJCgUiGXeCKVc63tHJP
   udp: true
+- name: 🇰🇿 KZ 02 - wangyu
+  type: vless
+  server: 109.248.170.119
+  port: 13447
+  uuid: b573cefb-7bc7-4a42-b407-b8b534e66773
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: _0wM2ep44eAcrgf5PflKaBivknCWT6kMvQBQUoScCkE
+  servername: yahoo.com
+  client-fingerprint: edge
+- name: 🇰🇿 KZ 03 - wangyu
+  type: vless
+  server: 198.71.189.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime04.workers.dev
+- name: 🇰🇿 KZ 04 - wangyu
+  type: vless
+  server: 185.176.26.50
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: vms.lifetime06.workers.dev
+- name: 🇰🇿 KZ 05 - wangyu
+  type: vless
+  server: 194.59.5.46
+  port: 2096
+  uuid: 8525fe74-67e6-4a55-8a26-95f227bd1384
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: wild-sky-f384.alvlirm3737.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: wild-sky-f384.alvlirm3737.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇰🇿 KZ 01 - wangyu
+  - 🇰🇿 KZ 02 - wangyu
+  - 🇰🇿 KZ 03 - wangyu
+  - 🇰🇿 KZ 04 - wangyu
+  - 🇰🇿 KZ 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇰🇿 KZ 01 - wangyu
+  - 🇰🇿 KZ 02 - wangyu
+  - 🇰🇿 KZ 03 - wangyu
+  - 🇰🇿 KZ 04 - wangyu
+  - 🇰🇿 KZ 05 - wangyu
 rules:
 - MATCH,PROXIES
