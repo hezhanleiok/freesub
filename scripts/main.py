@@ -20,6 +20,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 SOURCE_URLS = [
     "https://wild-cloud-9893.heleimail.workers.dev",
+    "https://www.vpngate.net/api/iphone/",
     "https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/by-country/v2ray-base64-TW.txt",
     "https://raw.githubusercontent.com/ShatakVPN/ConfigForge-V2Ray/main/configs/all.txt",
     "https://raw.githubusercontent.com/10ium/HiN-VPN/main/subscription/base64/mix",
