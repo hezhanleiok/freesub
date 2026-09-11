@@ -5,96 +5,46 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - wangyu
-  type: vless
-  server: 46.8.200.91
-  port: 443
-  uuid: 0a2dde28-70da-4863-a06f-35d007d94d35
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: cf3.rumedia-cdn.com
-  network: ws
-  ws-opts:
-    path: /casc
-    headers:
-      Host: cf3.rumedia-cdn.com
-- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
-  type: vmess
-  server: 5.188.26.85
-  port: 443
-  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: renderer-stream-2-62.mirra.now
-  network: ws
-  ws-opts:
-    path: /api/v1/gpu-stream/socket
-    headers:
-      Host: renderer-stream-2-62.mirra.now
-- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   type: ss
   server: 130.49.189.158
   port: 43558
   cipher: chacha20-ietf-poly1305
   password: /63vp7pdl1GXaTpa6kkWd2+3tq3/szSAWueVKo26xM8=
   udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
+- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  type: vless
+  server: pr-media.pepro.site
+  port: 14443
+  uuid: fb67fd37-8d41-43a9-a093-c0b807fc5299
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: pr-media.pepro.site
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: pr-media.pepro.site
+- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   type: ss
-  server: 195.58.48.137
+  server: 46.17.40.234
   port: 30111
   cipher: aes-256-gcm
-  password: 8ad9d72a5571df86
+  password: bdb313adf74c2ede
   udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 05 - wangyu
+- name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
   type: ss
   server: 195.133.23.200
   port: 30111
   cipher: aes-256-gcm
   password: 81a20429165df87e
   udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 06 - wangyu
-  type: vless
-  server: 212.67.9.113
-  port: 2200
-  uuid: 2aa7f4b1-e859-46d0-b8ac-8587811ab7b1
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /v1
-    headers:
-      Host: 212.67.9.113
-- name: 🇷🇺 俄罗斯 (Russia) 07 - wangyu
+- name: 🇷🇺 俄罗斯 (Russia) 05 - wangyu
   type: ss
-  server: 138.124.68.88
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: Y2ZlN
-  udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 08 - wangyu
-  type: ss
-  server: 46.17.42.166
-  port: 10661
-  cipher: aes-256-gcm
-  password: 6b39ae3234dfd68b
-  udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 09 - wangyu
-  type: ss
-  server: 195.133.5.102
-  port: 3011
-  cipher: aes-256-gcm
-  password: 895b4b796a357570
-  udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 10 - wangyu
-  type: ss
-  server: 194.87.196.13
+  server: 195.58.48.137
   port: 30111
   cipher: aes-256-gcm
-  password: 4938e975724d0ed1
+  password: 8ad9d72a5571df86
   udp: true
 proxy-groups:
 - name: PROXIES
@@ -106,11 +56,6 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 06 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 07 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 08 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 09 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 10 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -121,10 +66,5 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 06 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 07 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 08 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 09 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 10 - wangyu
 rules:
 - MATCH,PROXIES

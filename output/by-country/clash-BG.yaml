@@ -7,35 +7,13 @@ proxies:
 - name: 🇧🇬 BG 01 - wangyu
   type: vless
   server: 192.145.31.5
-  port: 443
+  port: 8443
   uuid: 9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: neth9.lunariai.ru
+  servername: neth9.lunariai.ru
 - name: 🇧🇬 BG 02 - wangyu
-  type: vless
-  server: 192.145.31.5
-  port: 8443
-  uuid: 9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: neth9.lunariai.ru
-- name: 🇧🇬 BG 03 - wangyu
-  type: vless
-  server: 192.145.31.5
-  port: 8443
-  uuid: 9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: neth9.lunariai.ru
-- name: 🇧🇬 BG 04 - wangyu
   type: vless
   server: 192.145.31.5
   port: 8443
@@ -51,8 +29,6 @@ proxy-groups:
   - AUTO
   - 🇧🇬 BG 01 - wangyu
   - 🇧🇬 BG 02 - wangyu
-  - 🇧🇬 BG 03 - wangyu
-  - 🇧🇬 BG 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -60,7 +36,5 @@ proxy-groups:
   proxies:
   - 🇧🇬 BG 01 - wangyu
   - 🇧🇬 BG 02 - wangyu
-  - 🇧🇬 BG 03 - wangyu
-  - 🇧🇬 BG 04 - wangyu
 rules:
 - MATCH,PROXIES

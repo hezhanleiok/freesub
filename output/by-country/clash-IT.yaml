@@ -6,17 +6,16 @@ log-level: info
 proxies:
 - name: 🇮🇹 意大利 (Italy) 01 - wangyu
   type: vless
-  server: 57.131.32.191
-  port: 80
-  uuid: 1e280316-0408-47c4-b058-05b8f1f17f02
+  server: 57.131.38.163
+  port: 2053
+  uuid: d4b08cd6-0903-411a-9dac-45dbdf5c9712
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vless/
-    headers:
-      Host: ov-italy1.09vpn.com
+  reality-opts:
+    public-key: Ej2H5ucT7qKegYcT8wODdlxa-cLHr7F4hDVUHzAhcnc
+  servername: www.apple.com
+  client-fingerprint: chrome
 - name: 🇮🇹 意大利 (Italy) 02 - wangyu
   type: ss
   server: 57.131.48.45
@@ -33,26 +32,25 @@ proxies:
   udp: true
 - name: 🇮🇹 意大利 (Italy) 04 - wangyu
   type: vless
-  server: milan.adaspoloandco.com
-  port: 8443
-  uuid: 69ac162b-1643-4acb-9f49-09d8b0fad609
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: milan.adaspoloandco.com
-  network: ws
-  ws-opts:
-    path: /RoBeRt
-    headers:
-      Host: milan.adaspoloandco.com
-- name: 🇮🇹 意大利 (Italy) 05 - wangyu
-  type: vless
   server: 204.216.216.23
   port: 10086
   uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
   udp: true
   tls: false
   skip-cert-verify: true
+- name: 🇮🇹 意大利 (Italy) 05 - wangyu
+  type: vless
+  server: 57.131.32.191
+  port: 80
+  uuid: 1e280316-0408-47c4-b058-05b8f1f17f02
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless/
+    headers:
+      Host: ov-italy1.09vpn.com
 proxy-groups:
 - name: PROXIES
   type: select
