@@ -5,18 +5,12 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇵🇱 PL 01 - wangyu
-  type: vless
-  server: 94.183.209.59
-  port: 443
-  uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
+  type: ss
+  server: 194.61.121.93
+  port: 7538
+  cipher: chacha20-ietf-poly1305
+  password: U9YAoqBgg5VyGBc6vQv1sN
   udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 94.183.209.59
 - name: 🇵🇱 PL 02 - wangyu
   type: vless
   server: 178.95.170.83
@@ -29,12 +23,12 @@ proxies:
   ws-opts:
     path: /4bc027a44532
     headers:
-      Host: 178.95.170.83
+      Host: telegram-leviko_v2ray
 - name: 🇵🇱 PL 03 - wangyu
   type: vless
-  server: 94.183.209.43
+  server: 94.183.209.59
   port: 443
-  uuid: 5e7ecc47-e424-4653-876e-c7515a2c82b4
+  uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
   udp: true
   tls: false
   skip-cert-verify: true
@@ -42,13 +36,13 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 94.183.209.43
+      Host: 94.183.209.59
 - name: 🇵🇱 PL 04 - wangyu
   type: ss
-  server: 194.61.121.93
-  port: 7538
+  server: 64.176.73.160
+  port: 8388
   cipher: chacha20-ietf-poly1305
-  password: U9YAoqBgg5VyGBc6vQv1sN
+  password: VJtsgllDDJfNmaTe
   udp: true
 - name: 🇵🇱 PL 05 - wangyu
   type: vless
@@ -64,35 +58,6 @@ proxies:
     headers:
       Host: pl2.lckdwn.ru
 - name: 🇵🇱 PL 06 - wangyu
-  type: vmess
-  server: 145.63.134.175
-  port: 443
-  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: renderer-stream-2-62.mirra.now
-  network: ws
-  ws-opts:
-    path: /api/v1/gpu-stream/socket
-    headers:
-      Host: renderer-stream-2-62.mirra.now
-- name: 🇵🇱 PL 07 - wangyu
-  type: vless
-  server: 94.183.209.58
-  port: 443
-  uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 94.183.209.58
-- name: 🇵🇱 PL 08 - wangyu
   type: vless
   server: 94.183.209.59
   port: 443
@@ -105,13 +70,32 @@ proxies:
     path: /
     headers:
       Host: 94.183.209.59
-- name: 🇵🇱 PL 09 - wangyu
-  type: ss
-  server: 64.176.73.160
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: VJtsgllDDJfNmaTe
+- name: 🇵🇱 PL 07 - wangyu
+  type: vless
+  server: 94.183.209.43
+  port: 443
+  uuid: 5e7ecc47-e424-4653-876e-c7515a2c82b4
   udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 94.183.209.43
+- name: 🇵🇱 PL 08 - wangyu
+  type: vless
+  server: 94.183.209.58
+  port: 443
+  uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 94.183.209.58
 proxy-groups:
 - name: PROXIES
   type: select
@@ -125,7 +109,6 @@ proxy-groups:
   - 🇵🇱 PL 06 - wangyu
   - 🇵🇱 PL 07 - wangyu
   - 🇵🇱 PL 08 - wangyu
-  - 🇵🇱 PL 09 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -139,6 +122,5 @@ proxy-groups:
   - 🇵🇱 PL 06 - wangyu
   - 🇵🇱 PL 07 - wangyu
   - 🇵🇱 PL 08 - wangyu
-  - 🇵🇱 PL 09 - wangyu
 rules:
 - MATCH,PROXIES

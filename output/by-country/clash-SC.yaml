@@ -6,20 +6,20 @@ log-level: info
 proxies:
 - name: 🇸🇨 SC 01 - wangyu
   type: vless
-  server: 108.162.198.178
-  port: 80
+  server: 172.64.52.6
+  port: 2095
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /
+    path: /?ed=2560security=tls
     headers:
       Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 - name: 🇸🇨 SC 02 - wangyu
   type: vless
-  server: 188.114.97.6
+  server: 162.159.39.218
   port: 8880
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
@@ -27,9 +27,9 @@ proxies:
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /?ed=2560
+    path: /?ed=2560security=tls
     headers:
-      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 - name: 🇸🇨 SC 03 - wangyu
   type: vmess
   server: 156.226.183.181
@@ -40,6 +40,81 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
+- name: 🇸🇨 SC 04 - wangyu
+  type: vless
+  server: 188.114.97.6
+  port: 2052
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+- name: 🇸🇨 SC 05 - wangyu
+  type: vless
+  server: 104.18.46.234
+  port: 2095
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇸🇨 SC 06 - wangyu
+  type: vless
+  server: 172.64.158.146
+  port: 8880
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇸🇨 SC 07 - wangyu
+  type: vless
+  server: 162.159.0.169
+  port: 2095
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇸🇨 SC 08 - wangyu
+  type: vmess
+  server: 156.226.183.181
+  port: 54321
+  uuid: d3bcc1f1-6294-4f68-bcf3-c3bcb2001520
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇨 SC 09 - wangyu
+  type: vless
+  server: 162.159.24.131
+  port: 2052
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 proxy-groups:
 - name: PROXIES
   type: select
@@ -48,6 +123,12 @@ proxy-groups:
   - 🇸🇨 SC 01 - wangyu
   - 🇸🇨 SC 02 - wangyu
   - 🇸🇨 SC 03 - wangyu
+  - 🇸🇨 SC 04 - wangyu
+  - 🇸🇨 SC 05 - wangyu
+  - 🇸🇨 SC 06 - wangyu
+  - 🇸🇨 SC 07 - wangyu
+  - 🇸🇨 SC 08 - wangyu
+  - 🇸🇨 SC 09 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -56,5 +137,11 @@ proxy-groups:
   - 🇸🇨 SC 01 - wangyu
   - 🇸🇨 SC 02 - wangyu
   - 🇸🇨 SC 03 - wangyu
+  - 🇸🇨 SC 04 - wangyu
+  - 🇸🇨 SC 05 - wangyu
+  - 🇸🇨 SC 06 - wangyu
+  - 🇸🇨 SC 07 - wangyu
+  - 🇸🇨 SC 08 - wangyu
+  - 🇸🇨 SC 09 - wangyu
 rules:
 - MATCH,PROXIES
