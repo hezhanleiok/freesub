@@ -4,57 +4,57 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇰🇿 KZ 01 - xiaohe
+- name: 🇰🇿 KZ 01 - Cloudfree
   type: vless
-  server: 111.88.143.139
-  port: 51940
-  uuid: 03464802-b517-404b-b15c-7750ffc5e78f
+  server: 194.59.5.46
+  port: 2096
+  uuid: 8525fe74-67e6-4a55-8a26-95f227bd1384
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: uPHvFb_vZ3DKL-8Et_e9OliZskdSV5U1NZ66tHfC-2Y
-  servername: yahoo.com
-  client-fingerprint: chrome
-- name: 🇰🇿 KZ 02 - xiaohe
-  type: vless
-  server: 83.222.23.81
-  port: 38065
-  uuid: 4b9063e0-3288-44e9-9aac-80fbfce323a0
+  servername: wild-sky-f384.alvlirm3737.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: wild-sky-f384.alvlirm3737.workers.dev
+- name: 🇰🇿 KZ 02 - Cloudfree
+  type: vmess
+  server: 38.107.234.57
+  port: 80
+  uuid: 567f4be5-12ab-42e1-b8d9-db6fd1fdd31c
+  alterId: 0
+  cipher: auto
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  reality-opts:
-    public-key: dSSDPTK6AHfAdRAXD9i4rzqcNIY65RxlF25UyCKdiyo
-  servername: yahoo.com
-  client-fingerprint: chrome
-- name: 🇰🇿 KZ 03 - xiaohe
-  type: vless
-  server: 77.73.232.61
-  port: 19747
-  uuid: 2a9ed01e-5455-44b4-a66a-76ee8165f0ac
+  network: ws
+  ws-opts:
+    path: /vmess/
+    headers:
+      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
+- name: 🇰🇿 KZ 03 - Cloudfree
+  type: ss
+  server: 94.198.220.183
+  port: 64674
+  cipher: chacha20-ietf-poly1305
+  password: s8LbJCgUiGXeCKVc63tHJP
   udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: ZO9dTeg1slvTXgVsBsaJ1BDvz_YUImTLJjbHs-GdVyM
-  servername: yahoo.com
-  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇰🇿 KZ 01 - xiaohe
-  - 🇰🇿 KZ 02 - xiaohe
-  - 🇰🇿 KZ 03 - xiaohe
+  - 🇰🇿 KZ 01 - Cloudfree
+  - 🇰🇿 KZ 02 - Cloudfree
+  - 🇰🇿 KZ 03 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇰🇿 KZ 01 - xiaohe
-  - 🇰🇿 KZ 02 - xiaohe
-  - 🇰🇿 KZ 03 - xiaohe
+  - 🇰🇿 KZ 01 - Cloudfree
+  - 🇰🇿 KZ 02 - Cloudfree
+  - 🇰🇿 KZ 03 - Cloudfree
 rules:
 - MATCH,PROXIES

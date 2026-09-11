@@ -4,14 +4,23 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇨🇾 CY 01 - xiaohe
+- name: 🇨🇾 CY 01 - Cloudfree
   type: ss
   server: 132.243.255.3
-  port: 20111
+  port: 30111
   cipher: aes-256-gcm
   password: 78235e7dc55e9ad1
   udp: true
-- name: 🇨🇾 CY 02 - xiaohe
+- name: 🇨🇾 CY 02 - Cloudfree
+  type: vless
+  server: 45.9.2.171
+  port: 8443
+  uuid: 167610e4-bcaf-4074-bc2d-0c08dc4ea294
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: torr.wlrus.cfd
+- name: 🇨🇾 CY 03 - Cloudfree
   type: vless
   server: 194.76.154.31
   port: 40443
@@ -23,7 +32,31 @@ proxies:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
   servername: deepl.com
   client-fingerprint: chrome
-- name: 🇨🇾 CY 03 - xiaohe
+- name: 🇨🇾 CY 04 - Cloudfree
+  type: vless
+  server: 194.76.154.31
+  port: 40443
+  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
+  servername: deepl.com
+  client-fingerprint: random
+- name: 🇨🇾 CY 05 - Cloudfree
+  type: vless
+  server: 194.76.154.31
+  port: 40443
+  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
+  servername: deepl.com
+  client-fingerprint: qq
+- name: 🇨🇾 CY 06 - Cloudfree
   type: vless
   server: 45.9.2.171
   port: 8443
@@ -37,16 +70,22 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇨🇾 CY 01 - xiaohe
-  - 🇨🇾 CY 02 - xiaohe
-  - 🇨🇾 CY 03 - xiaohe
+  - 🇨🇾 CY 01 - Cloudfree
+  - 🇨🇾 CY 02 - Cloudfree
+  - 🇨🇾 CY 03 - Cloudfree
+  - 🇨🇾 CY 04 - Cloudfree
+  - 🇨🇾 CY 05 - Cloudfree
+  - 🇨🇾 CY 06 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇨🇾 CY 01 - xiaohe
-  - 🇨🇾 CY 02 - xiaohe
-  - 🇨🇾 CY 03 - xiaohe
+  - 🇨🇾 CY 01 - Cloudfree
+  - 🇨🇾 CY 02 - Cloudfree
+  - 🇨🇾 CY 03 - Cloudfree
+  - 🇨🇾 CY 04 - Cloudfree
+  - 🇨🇾 CY 05 - Cloudfree
+  - 🇨🇾 CY 06 - Cloudfree
 rules:
 - MATCH,PROXIES
