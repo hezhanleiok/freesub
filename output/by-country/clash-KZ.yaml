@@ -5,35 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇿 KZ 01 - Cloudfree
-  type: vless
-  server: 194.59.5.46
-  port: 2096
-  uuid: 8525fe74-67e6-4a55-8a26-95f227bd1384
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: wild-sky-f384.alvlirm3737.workers.dev
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: wild-sky-f384.alvlirm3737.workers.dev
-- name: 🇰🇿 KZ 02 - Cloudfree
-  type: vmess
-  server: 38.107.234.57
-  port: 80
-  uuid: 567f4be5-12ab-42e1-b8d9-db6fd1fdd31c
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vmess/
-    headers:
-      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
-- name: 🇰🇿 KZ 03 - Cloudfree
   type: ss
   server: 94.198.220.183
   port: 64674
@@ -46,15 +17,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇰🇿 KZ 01 - Cloudfree
-  - 🇰🇿 KZ 02 - Cloudfree
-  - 🇰🇿 KZ 03 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇰🇿 KZ 01 - Cloudfree
-  - 🇰🇿 KZ 02 - Cloudfree
-  - 🇰🇿 KZ 03 - Cloudfree
 rules:
 - MATCH,PROXIES

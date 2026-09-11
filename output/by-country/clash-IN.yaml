@@ -15,35 +15,15 @@ proxies:
   reality-opts:
     public-key: R06_DTSjzQI9DswvRz9OqSBECfSwlpCMPR4DCc9oXyw
   servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇮🇳 印度 (India) 02 - Cloudfree
-  type: vless
-  server: 194.61.31.126
-  port: 2053
-  uuid: 50ddfd92-dc79-4777-a256-41e34d56836e
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: R06_DTSjzQI9DswvRz9OqSBECfSwlpCMPR4DCc9oXyw
-  servername: www.apple.com
   client-fingerprint: chrome
-- name: 🇮🇳 印度 (India) 03 - Cloudfree
-  type: vmess
-  server: 152.67.8.205
-  port: 80
-  uuid: 9db4c708-aef8-4359-821b-38e47990be0d
-  alterId: 0
-  cipher: auto
+- name: 🇮🇳 印度 (India) 02 - Cloudfree
+  type: ss
+  server: 139.84.166.47
+  port: 8388
+  cipher: aes-256-gcm
+  password: GEdoeeqLZtkJRgSa
   udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ''
-- name: 🇮🇳 印度 (India) 04 - Cloudfree
+- name: 🇮🇳 印度 (India) 03 - Cloudfree
   type: vless
   server: 194.61.31.126
   port: 2053
@@ -55,6 +35,30 @@ proxies:
     public-key: R06_DTSjzQI9DswvRz9OqSBECfSwlpCMPR4DCc9oXyw
   servername: www.apple.com
   client-fingerprint: random
+- name: 🇮🇳 印度 (India) 04 - Cloudfree
+  type: vless
+  server: 194.61.31.126
+  port: 2053
+  uuid: 50ddfd92-dc79-4777-a256-41e34d56836e
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: R06_DTSjzQI9DswvRz9OqSBECfSwlpCMPR4DCc9oXyw
+  servername: www.apple.com
+  client-fingerprint: firefox
+- name: 🇮🇳 印度 (India) 05 - Cloudfree
+  type: vless
+  server: 194.61.31.126
+  port: 2053
+  uuid: 50ddfd92-dc79-4777-a256-41e34d56836e
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: R06_DTSjzQI9DswvRz9OqSBECfSwlpCMPR4DCc9oXyw
+  servername: www.apple.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -64,6 +68,7 @@ proxy-groups:
   - 🇮🇳 印度 (India) 02 - Cloudfree
   - 🇮🇳 印度 (India) 03 - Cloudfree
   - 🇮🇳 印度 (India) 04 - Cloudfree
+  - 🇮🇳 印度 (India) 05 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -73,5 +78,6 @@ proxy-groups:
   - 🇮🇳 印度 (India) 02 - Cloudfree
   - 🇮🇳 印度 (India) 03 - Cloudfree
   - 🇮🇳 印度 (India) 04 - Cloudfree
+  - 🇮🇳 印度 (India) 05 - Cloudfree
 rules:
 - MATCH,PROXIES

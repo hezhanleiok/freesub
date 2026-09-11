@@ -5,27 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇷 法国 (France) 01 - Cloudfree
-  type: ss
-  server: 51.255.13.232
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: BqnqToih0PbU
-  udp: true
-- name: 🇫🇷 法国 (France) 02 - Cloudfree
-  type: ss
-  server: 2.56.126.121
-  port: 2
-  cipher: chacha20-ietf-poly1305
-  password: hcPtVDnxZHumuyqGtiOGtA
-  udp: true
-- name: 🇫🇷 法国 (France) 03 - Cloudfree
-  type: ss
-  server: 51.83.192.80
-  port: 8388
-  cipher: aes-256-gcm
-  password: itzvpn@321
-  udp: true
-- name: 🇫🇷 法国 (France) 04 - Cloudfree
   type: vless
   server: 149.202.58.99
   port: 443
@@ -39,6 +18,39 @@ proxies:
     path: /vws/
     headers:
       Host: 149.202.58.99
+- name: 🇫🇷 法国 (France) 02 - Cloudfree
+  type: ss
+  server: 51.83.192.80
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
+  udp: true
+- name: 🇫🇷 法国 (France) 03 - Cloudfree
+  type: vless
+  server: 45.144.28.39
+  port: 2096
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: usejh2.neobo-tooth.ru
+- name: 🇫🇷 法国 (France) 04 - Cloudfree
+  type: vless
+  server: 45.144.28.39
+  port: 2096
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 45.144.28.39
 - name: 🇫🇷 法国 (France) 05 - Cloudfree
   type: vless
   server: 149.202.58.99
@@ -52,35 +64,85 @@ proxies:
   ws-opts:
     path: /vws/
     headers:
-      Host: bab-6.site
+      Host: 149.202.58.99
 - name: 🇫🇷 法国 (France) 06 - Cloudfree
-  type: vless
-  server: 104.21.70.21
-  port: 8080
-  uuid: 50414e45-4c5f-5a45-5553-ef859652a80e
+  type: ss
+  server: 51.255.13.232
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: BqnqToih0PbU
   udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /stream/TrexBridge/ef859652a80e
-    headers:
-      Host: trex-panel-nubj0s.samifakor.workers.dev
 - name: 🇫🇷 法国 (France) 07 - Cloudfree
-  type: vless
-  server: 45.144.28.39
-  port: 2096
-  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  type: vmess
+  server: 162.19.204.71
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 45.144.28.39
+  servername: ''
 - name: 🇫🇷 法国 (France) 08 - Cloudfree
   type: vless
+  server: 51.77.217.70
+  port: 2053
+  uuid: c543f005-59f7-40c1-9ae6-37505691d5be
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: UKvonm_uE7TSwksQIVQuNYgYwmcidr_g4lDIE2JW_Ag
+  servername: www.google.com
+  client-fingerprint: chrome
+- name: 🇫🇷 法国 (France) 09 - Cloudfree
+  type: ss
+  server: 83.171.225.55
+  port: 1443
+  cipher: chacha20-ietf-poly1305
+  password: ZjAxZ
+  udp: true
+- name: 🇫🇷 法国 (France) 10 - Cloudfree
+  type: vless
+  server: 54.37.136.194
+  port: 2053
+  uuid: 2211972b-a45a-4951-a640-6173d573e637
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 3nFTPdoFnfcwN1xnLwegJmBycLqRH6TRsrbD2XnQbjM
+  servername: www.cloudflare.com
+  client-fingerprint: random
+- name: 🇫🇷 法国 (France) 11 - Cloudfree
+  type: ss
+  server: 51.255.13.232
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: BqnqToih0PbU
+  udp: true
+- name: 🇫🇷 法国 (France) 12 - Cloudfree
+  type: vless
+  server: 152.228.162.19
+  port: 80
+  uuid: 5ce84688-f535-46ad-a512-37b17becf6ea
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless/
+    headers:
+      Host: akamaized.net
+- name: 🇫🇷 法国 (France) 13 - Cloudfree
+  type: ss
+  server: 51.83.192.80
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
+  udp: true
+- name: 🇫🇷 法国 (France) 14 - Cloudfree
+  type: vless
   server: 45.144.28.39
   port: 2096
   uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
@@ -92,7 +154,7 @@ proxies:
     path: /
     headers:
       Host: 45.144.28.39
-- name: 🇫🇷 法国 (France) 09 - Cloudfree
+- name: 🇫🇷 法国 (France) 15 - Cloudfree
   type: vless
   server: 149.202.58.99
   port: 443
@@ -105,48 +167,7 @@ proxies:
   ws-opts:
     path: /vws/
     headers:
-      Host: 149.202.58.99
-- name: 🇫🇷 法国 (France) 10 - Cloudfree
-  type: vless
-  server: 45.144.28.39
-  port: 2096
-  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: usejh2.neobo-tooth.ru
-- name: 🇫🇷 法国 (France) 11 - Cloudfree
-  type: vless
-  server: 154.9.227.100
-  port: 443
-  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: bab-6.site
-  network: ws
-  ws-opts:
-    path: /vws/
-    headers:
       Host: bab-6.site
-- name: 🇫🇷 法国 (France) 12 - Cloudfree
-  type: ss
-  server: 51.255.13.232
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: BqnqToih0PbU
-  udp: true
-- name: 🇫🇷 法国 (France) 13 - Cloudfree
-  type: ss
-  server: 51.83.192.80
-  port: 8388
-  cipher: aes-256-gcm
-  password: itzvpn@321
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -165,6 +186,8 @@ proxy-groups:
   - 🇫🇷 法国 (France) 11 - Cloudfree
   - 🇫🇷 法国 (France) 12 - Cloudfree
   - 🇫🇷 法国 (France) 13 - Cloudfree
+  - 🇫🇷 法国 (France) 14 - Cloudfree
+  - 🇫🇷 法国 (France) 15 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -183,5 +206,7 @@ proxy-groups:
   - 🇫🇷 法国 (France) 11 - Cloudfree
   - 🇫🇷 法国 (France) 12 - Cloudfree
   - 🇫🇷 法国 (France) 13 - Cloudfree
+  - 🇫🇷 法国 (France) 14 - Cloudfree
+  - 🇫🇷 法国 (France) 15 - Cloudfree
 rules:
 - MATCH,PROXIES
