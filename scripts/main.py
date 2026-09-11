@@ -29,6 +29,23 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/freefq/free/master/v2",
     "https://open.heleimail.workers.dev/",
     "https://www.ermao.net/sub/v2ray/ermao.net",
+    "https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml",
+    "https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml",
+    "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt",
+    "https://raw.githubusercontent.com/shaoyouvip/free/refs/heads/main/base64.txt",
+    "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml",
+    "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml",
+    "https://cdn.jsdelivr.net/gh/vxiaov/free_proxies@main/clash/clash.provider.yaml",
+    "https://freenode.openrunner.net/uploads/20240617-clash.yaml",
+    "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Sub1.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Sub2.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Sub3.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Sub4.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Sub5.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Sub6.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Sub7.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Sub8.txt",
+
 ]
 
 OUTPUT_DIR = "output"
