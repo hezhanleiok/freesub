@@ -25,6 +25,13 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: aduB9HGxQHjA2SBMRjkHX6
   udp: true
+- name: 🇿🇦 ZA 04 - Cloudfree
+  type: ss
+  server: 20.87.212.20
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: IbtRX4cOSjfd8YoI
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -33,6 +40,7 @@ proxy-groups:
   - 🇿🇦 ZA 01 - Cloudfree
   - 🇿🇦 ZA 02 - Cloudfree
   - 🇿🇦 ZA 03 - Cloudfree
+  - 🇿🇦 ZA 04 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -41,5 +49,6 @@ proxy-groups:
   - 🇿🇦 ZA 01 - Cloudfree
   - 🇿🇦 ZA 02 - Cloudfree
   - 🇿🇦 ZA 03 - Cloudfree
+  - 🇿🇦 ZA 04 - Cloudfree
 rules:
 - MATCH,PROXIES
