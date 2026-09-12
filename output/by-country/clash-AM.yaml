@@ -4,25 +4,29 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇹🇷 土耳其 (Turkey) 01 - Cloudfree
+- name: 🇦🇲 AM 01 - Cloudfree
   type: vless
-  server: app.life-pro.ir
-  port: 8082
-  uuid: 79f98593-6a21-4783-a425-3d5609a79df1
+  server: 77.91.68.70
+  port: 55983
+  uuid: f667a096-5231-4cfb-8759-92bb32473139
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  reality-opts:
+    public-key: nWQ7b9l9X6N3PrXLgIzOvMM8iSYrqjVHEb9ikWxqYSg
+  servername: yahoo.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇹🇷 土耳其 (Turkey) 01 - Cloudfree
+  - 🇦🇲 AM 01 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇹🇷 土耳其 (Turkey) 01 - Cloudfree
+  - 🇦🇲 AM 01 - Cloudfree
 rules:
 - MATCH,PROXIES

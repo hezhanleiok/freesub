@@ -1,0 +1,48 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇫🇮 FI 01 - Cloudfree
+  type: vless
+  server: 151.101.56.6
+  port: 443
+  uuid: 88b44962-7f99-4846-9113-6b0624b5a6a4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: c12.com
+- name: 🇫🇮 FI 02 - Cloudfree
+  type: vless
+  server: 185.79.138.71
+  port: 448
+  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
+  servername: www.samsung.com
+  client-fingerprint: chrome
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇫🇮 FI 01 - Cloudfree
+  - 🇫🇮 FI 02 - Cloudfree
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇫🇮 FI 01 - Cloudfree
+  - 🇫🇮 FI 02 - Cloudfree
+rules:
+- MATCH,PROXIES
