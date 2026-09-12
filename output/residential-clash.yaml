@@ -5,44 +5,24 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
-  server: 216.36.124.176
-  port: 29513
+  server: 104.18.47.113
+  port: 8080
   udp: true
   type: vless
-  uuid: f618d6e9-c6af-40b8-bc7a-bbf450586784
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: rSI9mgtOco9D39xdbX64nv2J2BRBGQpgCOi4opw8mCo
-    short-id: 6ba85179e30d4fc2
-  servername: addons.mozilla.org
-  client-fingerprint: random
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 - name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
   server: 36.224.152.189
   port: 50099
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: b1ae0fce-9340-4f2e-882d-fdb2218e2e2b
-- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
-  server: 36.224.174.174
-  port: 50099
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
   password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
-  server: hinet1.2yly.com
-  port: 24215
-  udp: true
-  type: vless
-  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
-  tls: true
-  reality-opts:
-    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-- name: 🇷🇴 罗马尼亚 (Romania) 05 (家宽) - xiaohe
+- name: 🇷🇴 罗马尼亚 (Romania) 03 (家宽) - xiaohe
   server: roma2.moritech.net
   port: 443
   udp: true
@@ -53,6 +33,17 @@ proxies:
   servername: roma2.moritech.net
   skip-cert-verify: false
   client-fingerprint: edge
+- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
+  server: 118.167.209.5
+  port: 24215
+  udp: true
+  type: vless
+  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
+  tls: true
+  reality-opts:
+    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
+  servername: addons.mozilla.org
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -60,9 +51,8 @@ proxy-groups:
   - AUTO
   - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
+  - 🇷🇴 罗马尼亚 (Romania) 03 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
-  - 🇷🇴 罗马尼亚 (Romania) 05 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -70,8 +60,7 @@ proxy-groups:
   proxies:
   - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
+  - 🇷🇴 罗马尼亚 (Romania) 03 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
-  - 🇷🇴 罗马尼亚 (Romania) 05 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES

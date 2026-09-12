@@ -5,31 +5,44 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
-  server: 111.88.143.139
-  port: 51940
+  server: 172.64.32.108
+  port: 8880
   udp: true
   type: vless
-  uuid: 03464802-b517-404b-b15c-7750ffc5e78f
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
+  server: 91.224.87.22
+  port: 9882
+  udp: true
+  type: vless
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
   tls: true
   reality-opts:
-    public-key: uPHvFb_vZ3DKL-8Et_e9OliZskdSV5U1NZ66tHfC-2Y
-    short-id: fd7f
-  servername: yahoo.com
-  client-fingerprint: chrome
+    public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+    short-id: aa
+  servername: dl.google.com
+  client-fingerprint: firefox
   network: grpc
   grpc-opts:
-    grpc-service-name: ''
+    grpc-service-name: grpc-tunnel
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
+  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
+  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
 rules:
 - MATCH,PROXIES

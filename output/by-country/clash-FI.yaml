@@ -5,25 +5,25 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 芬兰 (Finland) 01 - xiaohe
+  server: 31.77.199.182
+  port: 443
+  udp: true
+  type: vless
+  uuid: c09cfd91-b234-4998-9bed-a0211b7f5c3c
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: -qLezG1nUEtvOJi-Ra7WRYv-aHkv3PSefEuXpWV2G04
+    short-id: abcd1234
+  servername: fi2.yservice.help
+  client-fingerprint: firefox
+- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
   server: 2.28.225.166
   port: 33
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
   password: nmpyTs_5vKsSKeD_AWJpaqyOhtWEP4B5
-- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  server: fin.pinkmoon.pro
-  port: 443
-  udp: true
-  type: vless
-  uuid: 827a0eb0-21bf-4bce-96ef-0a7bac5d68f5
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: DS9mX6cMb5wvwFzga8yN2NLbs7soXM7038_P23yPKwk
-    short-id: 8ffa160e608bf539
-  servername: fin.pinkmoon.pro
-  client-fingerprint: qq
 proxy-groups:
 - name: PROXIES
   type: select
