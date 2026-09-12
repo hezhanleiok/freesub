@@ -4,31 +4,25 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇫🇮 FI 01 - wangyu
+- name: 🇨🇴 CO 01 - wangyu
   type: vless
-  server: 151.101.56.6
-  port: 443
-  uuid: 88b44962-7f99-4846-9113-6b0624b5a6a4
+  server: 157.137.209.135
+  port: 62145
+  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: ssl.fastly.com
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: c12.com
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇫🇮 FI 01 - wangyu
+  - 🇨🇴 CO 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇫🇮 FI 01 - wangyu
+  - 🇨🇴 CO 01 - wangyu
 rules:
 - MATCH,PROXIES
