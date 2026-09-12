@@ -6,6 +6,34 @@ log-level: info
 proxies:
 - name: 🇪🇪 EE 01 - xiaohe
   type: vless
+  server: 104.24.30.89
+  port: 443
+  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: rayan-007.nastaran.dpdns.org
+- name: 🇪🇪 EE 02 - xiaohe
+  type: vless
+  server: 172.67.67.178
+  port: 443
+  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: rayan-007.nastaran.dpdns.org
+- name: 🇪🇪 EE 03 - xiaohe
+  type: vless
   server: 94.183.170.135
   port: 8443
   uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
@@ -19,11 +47,15 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇪🇪 EE 01 - xiaohe
+  - 🇪🇪 EE 02 - xiaohe
+  - 🇪🇪 EE 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇪🇪 EE 01 - xiaohe
+  - 🇪🇪 EE 02 - xiaohe
+  - 🇪🇪 EE 03 - xiaohe
 rules:
 - MATCH,PROXIES
