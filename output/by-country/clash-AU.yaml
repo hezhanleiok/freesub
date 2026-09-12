@@ -6,13 +6,18 @@ log-level: info
 proxies:
 - name: 🇦🇺 澳大利亚 (Australia) 01 - Cloudfree
   type: vless
-  server: 172.105.169.70
+  server: 208.103.161.5
   port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  uuid: d042a74a-c305-4eec-a89f-39a348022c92
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: 172.105.169.70
+  servername: dry-butterfly-8eb9.tmpgnacio83.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: dry-butterfly-8eb9.tmpgnacio83.workers.dev
 - name: 🇦🇺 澳大利亚 (Australia) 02 - Cloudfree
   type: vless
   server: 103.75.119.126
@@ -39,6 +44,15 @@ proxies:
     path: /7586c69d3dc9
     headers:
       Host: 103.75.119.126
+- name: 🇦🇺 澳大利亚 (Australia) 04 - Cloudfree
+  type: vless
+  server: 172.105.169.70
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 172.105.169.70
 proxy-groups:
 - name: PROXIES
   type: select
@@ -47,6 +61,7 @@ proxy-groups:
   - 🇦🇺 澳大利亚 (Australia) 01 - Cloudfree
   - 🇦🇺 澳大利亚 (Australia) 02 - Cloudfree
   - 🇦🇺 澳大利亚 (Australia) 03 - Cloudfree
+  - 🇦🇺 澳大利亚 (Australia) 04 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -55,5 +70,6 @@ proxy-groups:
   - 🇦🇺 澳大利亚 (Australia) 01 - Cloudfree
   - 🇦🇺 澳大利亚 (Australia) 02 - Cloudfree
   - 🇦🇺 澳大利亚 (Australia) 03 - Cloudfree
+  - 🇦🇺 澳大利亚 (Australia) 04 - Cloudfree
 rules:
 - MATCH,PROXIES

@@ -5,12 +5,21 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇹 意大利 (Italy) 01 - Cloudfree
-  type: ss
-  server: 57.131.48.45
-  port: 8388
-  cipher: aes-256-gcm
-  password: itzvpn@321
+  type: vmess
+  server: 57.131.32.191
+  port: 8443
+  uuid: 848af33c-81f2-40c9-93b2-4681d056936b
+  alterId: 0
+  cipher: auto
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: OV-Italy1.09vpn.com
+  network: ws
+  ws-opts:
+    path: /vmess/
+    headers:
+      Host: OV-Italy1.09vpn.com
 - name: 🇮🇹 意大利 (Italy) 02 - Cloudfree
   type: vless
   server: 57.131.32.191
@@ -39,6 +48,13 @@ proxies:
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
 - name: 🇮🇹 意大利 (Italy) 05 - Cloudfree
+  type: ss
+  server: 57.131.48.45
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
+  udp: true
+- name: 🇮🇹 意大利 (Italy) 06 - Cloudfree
   type: vless
   server: 204.216.216.23
   port: 10086
@@ -46,18 +62,33 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇮🇹 意大利 (Italy) 06 - Cloudfree
+- name: 🇮🇹 意大利 (Italy) 07 - Cloudfree
   type: vless
-  server: 57.131.38.163
-  port: 2053
-  uuid: d4b08cd6-0903-411a-9dac-45dbdf5c9712
+  server: milan.adaspoloandco.com
+  port: 8443
+  uuid: 69ac162b-1643-4acb-9f49-09d8b0fad609
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: Ej2H5ucT7qKegYcT8wODdlxa-cLHr7F4hDVUHzAhcnc
-  servername: www.apple.com
-  client-fingerprint: random
+  servername: milan.adaspoloandco.com
+  network: ws
+  ws-opts:
+    path: /RoBeRt
+    headers:
+      Host: milan.adaspoloandco.com
+- name: 🇮🇹 意大利 (Italy) 08 - Cloudfree
+  type: vless
+  server: 45.40.145.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime35.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
@@ -69,6 +100,8 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 04 - Cloudfree
   - 🇮🇹 意大利 (Italy) 05 - Cloudfree
   - 🇮🇹 意大利 (Italy) 06 - Cloudfree
+  - 🇮🇹 意大利 (Italy) 07 - Cloudfree
+  - 🇮🇹 意大利 (Italy) 08 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -80,5 +113,7 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 04 - Cloudfree
   - 🇮🇹 意大利 (Italy) 05 - Cloudfree
   - 🇮🇹 意大利 (Italy) 06 - Cloudfree
+  - 🇮🇹 意大利 (Italy) 07 - Cloudfree
+  - 🇮🇹 意大利 (Italy) 08 - Cloudfree
 rules:
 - MATCH,PROXIES
