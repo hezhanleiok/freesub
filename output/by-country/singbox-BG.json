@@ -4,28 +4,49 @@
   },
   "outbounds": [
     {
-      "type": "vless",
+      "type": "shadowsocks",
       "tag": "🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe",
-      "server": "192.145.31.5",
-      "server_port": 8443,
-      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a",
+      "server": "213.183.63.60",
+      "server_port": 9028,
+      "method": "aes-256-cfb",
+      "password": "9eeJ2fwnZA5Fxgz8"
+    },
+    {
+      "type": "vless",
+      "tag": "🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe",
+      "server": "193.148.59.178",
+      "server_port": 443,
+      "uuid": "20d7c485-5d24-49b5-a5cc-bb7a7daf9908",
+      "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "neth9.lunariai.ru",
-        "insecure": false,
-        "alpn": [
-          "h2",
-          "http/1.1"
-        ],
+        "server_name": "www.apple.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "random"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "-GMpCber8qtrKzJbwvpLcwlIhOy-5zS66u_x9lLvIjE",
+          "short_id": "e3daad69"
         }
       }
     },
     {
       "type": "vless",
-      "tag": "🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe",
+      "tag": "🇧🇬 保加利亚 (Bulgaria) 03 - xiaohe",
+      "server": "neth9.lunariai.ru",
+      "server_port": 8443,
+      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a",
+      "tls": {
+        "enabled": true,
+        "server_name": "neth9.lunariai.ru",
+        "insecure": false
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇧🇬 保加利亚 (Bulgaria) 04 - xiaohe",
       "server": "prep.wwwinternetvideo.click",
       "server_port": 443,
       "uuid": "1c332eae-7e02-4acd-996d-4eb3e652401c",
@@ -50,7 +71,9 @@
       "outbounds": [
         "auto",
         "🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe",
-        "🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe"
+        "🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe",
+        "🇧🇬 保加利亚 (Bulgaria) 03 - xiaohe",
+        "🇧🇬 保加利亚 (Bulgaria) 04 - xiaohe"
       ]
     },
     {
@@ -58,7 +81,9 @@
       "tag": "auto",
       "outbounds": [
         "🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe",
-        "🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe"
+        "🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe",
+        "🇧🇬 保加利亚 (Bulgaria) 03 - xiaohe",
+        "🇧🇬 保加利亚 (Bulgaria) 04 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

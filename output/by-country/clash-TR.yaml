@@ -17,47 +17,17 @@ proxies:
     short-id: 5606d4a25c99e7af
   servername: sync-bridge.org
   client-fingerprint: chrome
-- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  server: 170.168.97.8
-  port: 8443
-  udp: true
-  type: vless
-  uuid: 96b44347-cac5-cfae-383b-1724ae9b5aec
-  tls: true
-  reality-opts:
-    public-key: D2SXHZRRYM0WcFChGWd57XB-U73aIsGfMpe2-Gq5XSs
-  servername: download.nvidia.com
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-service-name: TunService
-- name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
-  server: de31.rockblack.site
-  port: 8443
-  udp: true
-  type: vless
-  uuid: 6be01e14-b937-4ed5-9d2c-074a0da22ffc
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: n0i4qSfWa7-oiLBfY2QBW6UK8JX68tULpkINVm4Hv0Q
-  servername: xn--80ajghhoc2aj1c8b.xn--p1ai
-  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
 rules:
 - MATCH,PROXIES

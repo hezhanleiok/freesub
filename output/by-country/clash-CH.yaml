@@ -5,6 +5,27 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
+  server: 45.90.59.15
+  port: 443
+  udp: true
+  type: vless
+  uuid: 3950b45e-740d-4dca-ac95-505ec8534592
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: P7S4UPFlQbmiBr4txyy8NZIMTrmO3UdxyH16WBU-YzY
+    short-id: 19253fae84102271
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
+- name: 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
+  server: 104.165.205.42
+  port: 8443
+  udp: true
+  type: hysteria2
+  password: 54d2f622-fd71-4f5f-8813-832b68f4ca3b
+  sni: speedtestmark.com
+  skip-cert-verify: false
+- name: 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
   server: 151.242.2.81
   port: 443
   udp: true
@@ -25,11 +46,15 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
+  - 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
+  - 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
+  - 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
+  - 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
 rules:
 - MATCH,PROXIES

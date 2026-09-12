@@ -1,0 +1,43 @@
+{
+  "log": {
+    "level": "warn"
+  },
+  "outbounds": [
+    {
+      "type": "trojan",
+      "tag": "🇲🇲 缅甸 (Myanmar) 01 - xiaohe",
+      "server": "z-sg2.6send.com",
+      "server_port": 10046,
+      "password": "ultra@kWZdAzt_IH593eGLRjdxnBZ0",
+      "tls": {
+        "enabled": true,
+        "server_name": "z-sg2.6send.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇲🇲 缅甸 (Myanmar) 01 - xiaohe"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇲🇲 缅甸 (Myanmar) 01 - xiaohe"
+      ],
+      "url": "https://www.gstatic.com/generate_204"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}

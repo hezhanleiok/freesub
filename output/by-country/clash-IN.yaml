@@ -17,19 +17,6 @@ proxies:
   servername: www.apple.com
   client-fingerprint: firefox
 - name: 🇮🇳 印度 (India) 02 - xiaohe
-  server: 5.253.42.163
-  port: 40443
-  udp: true
-  type: vless
-  uuid: 15fd22d1-8931-4d41-af37-8ba6711e93fe
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: d1gJntekIStCHyAwgJCuv-N4_BBx5dDQ7K6CeWmpMRo
-    short-id: 84fc
-  servername: deepl.com
-  client-fingerprint: random
-- name: 🇮🇳 印度 (India) 03 - xiaohe
   server: vpn-in-001.fastervpn.world
   port: 443
   udp: true
@@ -37,6 +24,17 @@ proxies:
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   sni: vpn-in-001.fastervpn.world
   skip-cert-verify: true
+- name: 🇮🇳 印度 (India) 03 - xiaohe
+  server: 152.67.8.205
+  port: 80
+  udp: true
+  type: vmess
+  uuid: 9db4c708-aef8-4359-821b-38e47990be0d
+  alterId: 0
+  cipher: auto
+  network: ws
+  ws-opts:
+    path: /
 proxy-groups:
 - name: PROXIES
   type: select

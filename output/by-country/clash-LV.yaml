@@ -5,6 +5,19 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
+  server: 195.123.213.28
+  port: 443
+  udp: true
+  type: vless
+  uuid: 02fcc1a4-ee90-4970-8bbb-4ffaa8109d24
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: NMgy1XgCSXExOg6Tg8xG9lCWttMF6sjdpB41lZy6FWo
+    short-id: 5c256336e3b673fa
+  servername: www.cloudflare.com
+  client-fingerprint: random
+- name: 🇱🇻 拉脱维亚 (Latvia) 02 - xiaohe
   server: 138.124.180.137
   port: 443
   udp: true
@@ -23,11 +36,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
+  - 🇱🇻 拉脱维亚 (Latvia) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
+  - 🇱🇻 拉脱维亚 (Latvia) 02 - xiaohe
 rules:
 - MATCH,PROXIES
