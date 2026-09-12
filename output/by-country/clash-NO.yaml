@@ -5,37 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇳🇴 NO 01 - xiaohe
-  type: ss
-  server: 185.213.23.63
-  port: 990
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  udp: true
-- name: 🇳🇴 NO 02 - xiaohe
-  type: vless
-  server: 151.242.168.125
-  port: 390
-  uuid: 7b363f9c-3df9-4b60-a789-9cd36be0bdfe
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: 5RCgAVjaT7hwdVIKAEULswXGqR127ZOZV6X17nEhYk8
-  servername: bowandbead.com
-  client-fingerprint: qq
-- name: 🇳🇴 NO 03 - xiaohe
-  type: vless
-  server: 151.242.168.125
-  port: 390
-  uuid: 7b363f9c-3df9-4b60-a789-9cd36be0bdfe
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: 5RCgAVjaT7hwdVIKAEULswXGqR127ZOZV6X17nEhYk8
-  servername: bowandbead.com
-  client-fingerprint: chrome
-- name: 🇳🇴 NO 04 - xiaohe
   type: vless
   server: 46.29.238.88
   port: 40443
@@ -47,7 +16,19 @@ proxies:
     public-key: aZOpodpnifoxDqTzWgxJRffgsiGnG9-h-EZd4SvOImc
   servername: deepl.com
   client-fingerprint: chrome
-- name: 🇳🇴 NO 05 - xiaohe
+- name: 🇳🇴 NO 02 - xiaohe
+  type: vless
+  server: aldebaran.yokkastars.com
+  port: 40443
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+  servername: deepl.com
+  client-fingerprint: chrome
+- name: 🇳🇴 NO 03 - xiaohe
   type: ss
   server: 185.213.23.63
   port: 990
@@ -62,8 +43,6 @@ proxy-groups:
   - 🇳🇴 NO 01 - xiaohe
   - 🇳🇴 NO 02 - xiaohe
   - 🇳🇴 NO 03 - xiaohe
-  - 🇳🇴 NO 04 - xiaohe
-  - 🇳🇴 NO 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -72,7 +51,5 @@ proxy-groups:
   - 🇳🇴 NO 01 - xiaohe
   - 🇳🇴 NO 02 - xiaohe
   - 🇳🇴 NO 03 - xiaohe
-  - 🇳🇴 NO 04 - xiaohe
-  - 🇳🇴 NO 05 - xiaohe
 rules:
 - MATCH,PROXIES

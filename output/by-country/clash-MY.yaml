@@ -29,22 +29,9 @@ proxies:
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /arki?ed=2048
+    path: /arki
     headers:
-      Host: ''
-- name: 🇲🇾 MY 03 - xiaohe
-  type: vless
-  server: 38.60.168.98
-  port: 2087
-  uuid: 8a346b7c-5b95-4845-affa-0e5d9929e9ae
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /db55c40bbc75
-    headers:
-      Host: 38.60.168.98
+      Host: 47.250.45.234
 proxy-groups:
 - name: PROXIES
   type: select
@@ -52,7 +39,6 @@ proxy-groups:
   - AUTO
   - 🇲🇾 MY 01 - xiaohe
   - 🇲🇾 MY 02 - xiaohe
-  - 🇲🇾 MY 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -60,6 +46,5 @@ proxy-groups:
   proxies:
   - 🇲🇾 MY 01 - xiaohe
   - 🇲🇾 MY 02 - xiaohe
-  - 🇲🇾 MY 03 - xiaohe
 rules:
 - MATCH,PROXIES

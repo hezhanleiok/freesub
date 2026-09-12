@@ -4,29 +4,25 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇸🇦 SA 01 - xiaohe
+- name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   type: vless
-  server: 81.208.170.142
-  port: 1500
-  uuid: e332f028-d343-5b44-8016-b3130f39e133
+  server: app.life-pro.ir
+  port: 8082
+  uuid: 79f98593-6a21-4783-a425-3d5609a79df1
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  reality-opts:
-    public-key: VQxVgczORkbSNdDrkNOYs6zMBINpViztTKDuWCeQsVE
-  servername: www.ebay.com
-  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇸🇦 SA 01 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇸🇦 SA 01 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
 rules:
 - MATCH,PROXIES

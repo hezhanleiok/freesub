@@ -20,8 +20,8 @@ proxies:
       Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
 - name: 🇫🇮 FI 02 - xiaohe
   type: vless
-  server: 172.64.145.93
-  port: 2087
+  server: 172.67.217.240
+  port: 443
   uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
   udp: true
   tls: true
@@ -33,19 +33,26 @@ proxies:
     headers:
       Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
 - name: 🇫🇮 FI 03 - xiaohe
+  type: ss
+  server: 2.28.225.166
+  port: 33
+  cipher: chacha20-ietf-poly1305
+  password: nmpyTs_5vKsSKeD_AWJpaqyOhtWEP4B5
+  udp: true
+- name: 🇫🇮 FI 04 - xiaohe
   type: vless
-  server: 151.101.56.6
-  port: 443
-  uuid: cc4a473a-2e15-4fc6-ec54-47c3aa5cec09
+  server: 104.16.150.108
+  port: 2087
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ssl.fastly.com
+  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
   network: ws
   ws-opts:
-    path: /
+    path: /?ed=2560
     headers:
-      Host: c12.com
+      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
 proxy-groups:
 - name: PROXIES
   type: select
@@ -54,6 +61,7 @@ proxy-groups:
   - 🇫🇮 FI 01 - xiaohe
   - 🇫🇮 FI 02 - xiaohe
   - 🇫🇮 FI 03 - xiaohe
+  - 🇫🇮 FI 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -62,5 +70,6 @@ proxy-groups:
   - 🇫🇮 FI 01 - xiaohe
   - 🇫🇮 FI 02 - xiaohe
   - 🇫🇮 FI 03 - xiaohe
+  - 🇫🇮 FI 04 - xiaohe
 rules:
 - MATCH,PROXIES
