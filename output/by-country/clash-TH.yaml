@@ -6,6 +6,19 @@ log-level: info
 proxies:
 - name: 🇹🇭 TH 01 - wangyu
   type: vless
+  server: 103.86.49.57
+  port: 80
+  uuid: 3c52e091-6714-4915-949f-2149fe69951b
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: aIs.SpEeDtEsT.nEt
+- name: 🇹🇭 TH 02 - wangyu
+  type: vless
   server: 43.133.110.81
   port: 443
   uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
@@ -18,19 +31,20 @@ proxies:
     path: /?TELEGRAM-MARAMBASHI_MARAMBASHI?ed=512
     headers:
       Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
-- name: 🇹🇭 TH 02 - wangyu
+- name: 🇹🇭 TH 03 - wangyu
   type: vless
-  server: 103.86.49.57
-  port: 80
-  uuid: 3c52e091-6714-4915-949f-2149fe69951b
+  server: 43.133.110.81
+  port: 443
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
   network: ws
   ws-opts:
-    path: /ws
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI?ed=512
     headers:
-      Host: aIs.SpEeDtEsT.nEt
+      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
 proxy-groups:
 - name: PROXIES
   type: select
@@ -38,6 +52,7 @@ proxy-groups:
   - AUTO
   - 🇹🇭 TH 01 - wangyu
   - 🇹🇭 TH 02 - wangyu
+  - 🇹🇭 TH 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -45,5 +60,6 @@ proxy-groups:
   proxies:
   - 🇹🇭 TH 01 - wangyu
   - 🇹🇭 TH 02 - wangyu
+  - 🇹🇭 TH 03 - wangyu
 rules:
 - MATCH,PROXIES

@@ -5,13 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇵🇱 PL 01 - wangyu
-  type: ss
-  server: 194.61.121.93
-  port: 7538
-  cipher: chacha20-ietf-poly1305
-  password: U9YAoqBgg5VyGBc6vQv1sN
-  udp: true
-- name: 🇵🇱 PL 02 - wangyu
   type: vless
   server: 178.95.170.115
   port: 2087
@@ -24,6 +17,13 @@ proxies:
     path: /4bc027a44532
     headers:
       Host: 178.95.170.115
+- name: 🇵🇱 PL 02 - wangyu
+  type: ss
+  server: 194.61.121.93
+  port: 7538
+  cipher: chacha20-ietf-poly1305
+  password: U9YAoqBgg5VyGBc6vQv1sN
+  udp: true
 - name: 🇵🇱 PL 03 - wangyu
   type: vless
   server: 178.95.170.83
@@ -39,17 +39,17 @@ proxies:
       Host: 178.95.170.83
 - name: 🇵🇱 PL 04 - wangyu
   type: vless
-  server: 178.95.170.83
-  port: 2087
-  uuid: bf443e4a-aa9e-4509-abf0-d0f6828d57be
+  server: 94.183.209.58
+  port: 443
+  uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /4bc027a44532
+    path: /
     headers:
-      Host: 178.95.170.83
+      Host: pl2.lckdwn.ru
 - name: 🇵🇱 PL 05 - wangyu
   type: vless
   server: 94.183.209.59
@@ -75,7 +75,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: pl2.lckdwn.ru
+      Host: 94.183.209.58
 proxy-groups:
 - name: PROXIES
   type: select
