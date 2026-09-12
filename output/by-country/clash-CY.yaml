@@ -18,6 +18,30 @@ proxies:
   client-fingerprint: chrome
 - name: 🇨🇾 CY 02 - Cloudfree
   type: vless
+  server: cassiopeia.yokkastars.com
+  port: 40443
+  uuid: e4371581-c418-4770-b09a-d630f18290a6
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: WFvn-RRJzpt2qV4xwj_R93gDr6dduIjkQKO3De3Y2Hc
+  servername: deepl.com
+  client-fingerprint: qq
+- name: 🇨🇾 CY 03 - Cloudfree
+  type: vless
+  server: 194.76.154.31
+  port: 40443
+  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
+  servername: deepl.com
+  client-fingerprint: qq
+- name: 🇨🇾 CY 04 - Cloudfree
+  type: vless
   server: 194.76.154.31
   port: 40443
   uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
@@ -28,7 +52,7 @@ proxies:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
   servername: deepl.com
   client-fingerprint: random
-- name: 🇨🇾 CY 03 - Cloudfree
+- name: 🇨🇾 CY 05 - Cloudfree
   type: vless
   server: 45.9.2.171
   port: 8443
@@ -37,6 +61,18 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: torr.wlrus.cfd
+- name: 🇨🇾 CY 06 - Cloudfree
+  type: vless
+  server: 194.76.154.31
+  port: 40443
+  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
+  servername: deepl.com
+  client-fingerprint: qq
 proxy-groups:
 - name: PROXIES
   type: select
@@ -45,6 +81,9 @@ proxy-groups:
   - 🇨🇾 CY 01 - Cloudfree
   - 🇨🇾 CY 02 - Cloudfree
   - 🇨🇾 CY 03 - Cloudfree
+  - 🇨🇾 CY 04 - Cloudfree
+  - 🇨🇾 CY 05 - Cloudfree
+  - 🇨🇾 CY 06 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -53,5 +92,8 @@ proxy-groups:
   - 🇨🇾 CY 01 - Cloudfree
   - 🇨🇾 CY 02 - Cloudfree
   - 🇨🇾 CY 03 - Cloudfree
+  - 🇨🇾 CY 04 - Cloudfree
+  - 🇨🇾 CY 05 - Cloudfree
+  - 🇨🇾 CY 06 - Cloudfree
 rules:
 - MATCH,PROXIES

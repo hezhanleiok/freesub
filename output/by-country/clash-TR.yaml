@@ -6,72 +6,23 @@ log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - Cloudfree
   type: vless
-  server: connect3.nyxserver.ir
-  port: 8444
-  uuid: 0b39a009-2a2a-4035-ba87-cc82894f8e21
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: connect3.nyxserver.ir
-- name: 🇹🇷 土耳其 (Turkey) 02 - Cloudfree
-  type: vless
   server: app.life-pro.ir
   port: 8082
   uuid: 79f98593-6a21-4783-a425-3d5609a79df1
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇹🇷 土耳其 (Turkey) 03 - Cloudfree
-  type: vless
-  server: 195.162.69.203
-  port: 8443
-  uuid: 953358cb-82ba-4296-960d-6d2ec3468f4c
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 195-162-69-203.sslip.io
-- name: 🇹🇷 土耳其 (Turkey) 04 - Cloudfree
-  type: vless
-  server: connect3.nyxserver.ir
-  port: 8444
-  uuid: 0b39a009-2a2a-4035-ba87-cc82894f8e21
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: connect3.nyxserver.ir
-- name: 🇹🇷 土耳其 (Turkey) 05 - Cloudfree
-  type: vless
-  server: 104.21.238.93
-  port: 443
-  uuid: 50414e45-4c5f-5a45-5553-44890b90d17e
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: afzoybehu2ws.vtzv4xe1un6s.workers.dev
-  network: ws
-  ws-opts:
-    path: /stream/PANEL_ZEUS/44890b90d17e/loc-0
-    headers:
-      Host: afzoybehu2ws.vtzv4xe1un6s.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 - Cloudfree
-  - 🇹🇷 土耳其 (Turkey) 02 - Cloudfree
-  - 🇹🇷 土耳其 (Turkey) 03 - Cloudfree
-  - 🇹🇷 土耳其 (Turkey) 04 - Cloudfree
-  - 🇹🇷 土耳其 (Turkey) 05 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 - Cloudfree
-  - 🇹🇷 土耳其 (Turkey) 02 - Cloudfree
-  - 🇹🇷 土耳其 (Turkey) 03 - Cloudfree
-  - 🇹🇷 土耳其 (Turkey) 04 - Cloudfree
-  - 🇹🇷 土耳其 (Turkey) 05 - Cloudfree
 rules:
 - MATCH,PROXIES
