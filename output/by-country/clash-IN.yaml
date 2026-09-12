@@ -5,6 +5,20 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇳 印度 (India) 01 - wangyu
+  type: ss
+  server: 139.84.166.47
+  port: 8388
+  cipher: aes-256-gcm
+  password: GEdoeeqLZtkJRgSa
+  udp: true
+- name: 🇮🇳 印度 (India) 02 - wangyu
+  type: ss
+  server: 172.105.39.124
+  port: 7002
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
+  udp: true
+- name: 🇮🇳 印度 (India) 03 - wangyu
   type: vless
   server: 194.61.31.126
   port: 2053
@@ -22,11 +36,15 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇮🇳 印度 (India) 01 - wangyu
+  - 🇮🇳 印度 (India) 02 - wangyu
+  - 🇮🇳 印度 (India) 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇮🇳 印度 (India) 01 - wangyu
+  - 🇮🇳 印度 (India) 02 - wangyu
+  - 🇮🇳 印度 (India) 03 - wangyu
 rules:
 - MATCH,PROXIES

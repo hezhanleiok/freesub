@@ -16,26 +16,17 @@ proxies:
     public-key: uPHvFb_vZ3DKL-8Et_e9OliZskdSV5U1NZ66tHfC-2Y
   servername: yahoo.com
   client-fingerprint: chrome
-- name: 🇰🇿 KZ 02 - wangyu
-  type: ss
-  server: 94.198.220.183
-  port: 64674
-  cipher: chacha20-ietf-poly1305
-  password: s8LbJCgUiGXeCKVc63tHJP
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇰🇿 KZ 01 - wangyu
-  - 🇰🇿 KZ 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇰🇿 KZ 01 - wangyu
-  - 🇰🇿 KZ 02 - wangyu
 rules:
 - MATCH,PROXIES
