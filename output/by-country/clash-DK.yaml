@@ -4,24 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇫🇮 FI 01 - Cloudfree
+- name: 🇩🇰 DK 01 - Cloudfree
   type: ss
-  server: 138.124.15.120
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: ZjQ1N
+  server: 38.180.214.110
+  port: 5600
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
   udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇫🇮 FI 01 - Cloudfree
+  - 🇩🇰 DK 01 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇫🇮 FI 01 - Cloudfree
+  - 🇩🇰 DK 01 - Cloudfree
 rules:
 - MATCH,PROXIES

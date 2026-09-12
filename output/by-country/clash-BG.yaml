@@ -6,6 +6,19 @@ log-level: info
 proxies:
 - name: 🇧🇬 BG 01 - Cloudfree
   type: vless
+  server: 135.84.72.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime06.workers.dev
+- name: 🇧🇬 BG 02 - Cloudfree
+  type: vless
   server: 192.145.31.5
   port: 8443
   uuid: 9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a
@@ -13,16 +26,25 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: neth9.lunariai.ru
-- name: 🇧🇬 BG 02 - Cloudfree
+- name: 🇧🇬 BG 03 - Cloudfree
   type: vless
-  server: neth9.lunariai.ru
+  server: 192.145.31.5
   port: 8443
   uuid: 9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a
   udp: true
   tls: true
   skip-cert-verify: true
   servername: neth9.lunariai.ru
-- name: 🇧🇬 BG 03 - Cloudfree
+- name: 🇧🇬 BG 04 - Cloudfree
+  type: vless
+  server: 192.145.31.5
+  port: 8443
+  uuid: 9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: neth9.lunariai.ru
+- name: 🇧🇬 BG 05 - Cloudfree
   type: vless
   server: 192.145.31.5
   port: 8443
@@ -39,6 +61,8 @@ proxy-groups:
   - 🇧🇬 BG 01 - Cloudfree
   - 🇧🇬 BG 02 - Cloudfree
   - 🇧🇬 BG 03 - Cloudfree
+  - 🇧🇬 BG 04 - Cloudfree
+  - 🇧🇬 BG 05 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -47,5 +71,7 @@ proxy-groups:
   - 🇧🇬 BG 01 - Cloudfree
   - 🇧🇬 BG 02 - Cloudfree
   - 🇧🇬 BG 03 - Cloudfree
+  - 🇧🇬 BG 04 - Cloudfree
+  - 🇧🇬 BG 05 - Cloudfree
 rules:
 - MATCH,PROXIES

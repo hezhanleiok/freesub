@@ -5,53 +5,37 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇬🇧 英国 (United Kingdom) 01 - Cloudfree
-  type: ss
-  server: 141.98.101.181
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
+  type: vmess
+  server: 66.163.117.58
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
   udp: true
+  tls: false
+  skip-cert-verify: true
 - name: 🇬🇧 英国 (United Kingdom) 02 - Cloudfree
   type: ss
-  server: 149.102.132.184
-  port: 443
-  cipher: aes-256-gcm
-  password: g5h5jleTRSyO3Rk4
+  server: 158.173.221.214
+  port: 11001
+  cipher: chacha20-ietf-poly1305
+  password: c58d16e593d44f42
   udp: true
 - name: 🇬🇧 英国 (United Kingdom) 03 - Cloudfree
   type: vless
-  server: 46.250.250.149
-  port: 2053
-  uuid: 59bf58d9-ddaf-42cd-a0ca-db3559ad8714
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: eUjgCl7-ujbXq11kaSLe-8q1LJJfSueB5Vkh24wKgk8
-  servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇬🇧 英国 (United Kingdom) 04 - Cloudfree
-  type: ss
-  server: 149.102.132.184
-  port: 80
-  cipher: aes-256-gcm
-  password: g5h5jleTRSyO3Rk4
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 05 - Cloudfree
-  type: vless
-  server: 89.106.206.57
+  server: 129.121.95.159
   port: 443
-  uuid: f081b5e2-f3a0-4ef5-833b-1ea59e0797b6
+  uuid: f6190ff2-864c-46cf-ac16-93908c069b75
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: fcs013.getdcz.me
+  servername: 129.121.95.159
   network: ws
   ws-opts:
-    path: /6d2fed050b30
+    path: /connect
     headers:
-      Host: fcs013.getdcz.me
-- name: 🇬🇧 英国 (United Kingdom) 06 - Cloudfree
+      Host: 129.121.95.159
+- name: 🇬🇧 英国 (United Kingdom) 04 - Cloudfree
   type: vless
   server: 91.193.58.207
   port: 2087
@@ -65,12 +49,26 @@ proxies:
     path: /proxyip=154.3.33.43
     headers:
       Host: mianfei-73q.pages.dev
+- name: 🇬🇧 英国 (United Kingdom) 05 - Cloudfree
+  type: ss
+  server: 149.102.132.184
+  port: 80
+  cipher: aes-256-gcm
+  password: g5h5jleTRSyO3Rk4
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 06 - Cloudfree
+  type: ss
+  server: 94.156.250.148
+  port: 7001
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
+  udp: true
 - name: 🇬🇧 英国 (United Kingdom) 07 - Cloudfree
   type: ss
-  server: 51.77.225.200
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: zRZNBszYyWo5
+  server: 51.38.71.51
+  port: 2083
+  cipher: 2022-blake3-aes-256-gcm
+  password: cOiC+3JhAXMwdGV5exnrMSorJU0Rl5qlLCbCAuDlWY4=:2tFqykGqZ101XW11f6iRiERnPycFAjjYq0y2zUYhKho=
   udp: true
 - name: 🇬🇧 英国 (United Kingdom) 08 - Cloudfree
   type: vless
@@ -85,34 +83,51 @@ proxies:
   servername: play.google.com
   client-fingerprint: random
 - name: 🇬🇧 英国 (United Kingdom) 09 - Cloudfree
-  type: vless
-  server: 91.193.58.130
-  port: 2087
-  uuid: 8666ab45-8e3d-4988-841b-2561d91e32d5
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: mianfei-73q.pages.dev
-  network: ws
-  ws-opts:
-    path: /proxyip=154.3.33.43
-    headers:
-      Host: mianfei-73q.pages.dev
-- name: 🇬🇧 英国 (United Kingdom) 10 - Cloudfree
   type: ss
   server: 149.102.149.207
   port: 80
   cipher: aes-256-gcm
   password: LXchLsIwtCeUAUgu
   udp: true
-- name: 🇬🇧 英国 (United Kingdom) 11 - Cloudfree
+- name: 🇬🇧 英国 (United Kingdom) 10 - Cloudfree
   type: ss
-  server: 149.102.149.207
+  server: 141.98.101.181
   port: 443
-  cipher: aes-256-gcm
-  password: LXchLsIwtCeUAUgu
+  cipher: aes-128-gcm
+  password: shadowsocks
   udp: true
+- name: 🇬🇧 英国 (United Kingdom) 11 - Cloudfree
+  type: vmess
+  server: 66.163.117.58
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
 - name: 🇬🇧 英国 (United Kingdom) 12 - Cloudfree
+  type: vless
+  server: 91.193.58.141
+  port: 443
+  uuid: 9419f782-b18e-4c4b-ae95-a7a279fd021f
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: jamph131-1228.pages.dev
+  network: ws
+  ws-opts:
+    path: Telegram-WangCai2🇨🇳
+    headers:
+      Host: jamph131-1228.pages.dev
+- name: 🇬🇧 英国 (United Kingdom) 13 - Cloudfree
+  type: ss
+  server: 134.65.57.209
+  port: 61312
+  cipher: 2022-blake3-chacha20-poly1305
+  password: wzbgRLlSeDwxHX6xLVVxKk93K5k5N8k+7rncQXn80XA=
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 14 - Cloudfree
   type: vless
   server: 89.106.206.57
   port: 443
@@ -126,87 +141,55 @@ proxies:
     path: /6d2fed050b30
     headers:
       Host: fcs013.getdcz.me
-- name: 🇬🇧 英国 (United Kingdom) 13 - Cloudfree
+- name: 🇬🇧 英国 (United Kingdom) 15 - Cloudfree
   type: ss
-  server: 158.173.221.214
-  port: 11001
-  cipher: chacha20-ietf-poly1305
-  password: c58d16e593d44f42
+  server: 149.102.149.207
+  port: 443
+  cipher: aes-256-gcm
+  password: LXchLsIwtCeUAUgu
   udp: true
-- name: 🇬🇧 英国 (United Kingdom) 14 - Cloudfree
+- name: 🇬🇧 英国 (United Kingdom) 16 - Cloudfree
+  type: ss
+  server: 149.102.132.184
+  port: 443
+  cipher: aes-256-gcm
+  password: g5h5jleTRSyO3Rk4
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 17 - Cloudfree
   type: vless
-  server: 51.89.194.151
-  port: 2053
-  uuid: a8444f42-8aa2-4ef2-8755-2b0d82415fc6
+  server: 91.193.58.117
+  port: 443
+  uuid: 9419f782-b18e-4c4b-ae95-a7a279fd021f
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: T10K4VspJ7ZIptzXTqFL0k-lgV2a8ekf7RedogymJzo
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇬🇧 英国 (United Kingdom) 15 - Cloudfree
+  servername: jamph131-1228.pages.dev
+  network: ws
+  ws-opts:
+    path: Telegram-WangCai2🇨🇳
+    headers:
+      Host: jamph131-1228.pages.dev
+- name: 🇬🇧 英国 (United Kingdom) 18 - Cloudfree
+  type: vless
+  server: 188.114.97.6
+  port: 8080
+  uuid: b9ede7a5-5b4b-4aee-ac37-2c307e587e47
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoidVkzQm1ROUg4dyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: courses.mftplus.qzz.io
+- name: 🇬🇧 英国 (United Kingdom) 19 - Cloudfree
   type: ss
   server: 158.173.24.73
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
-- name: 🇬🇧 英国 (United Kingdom) 16 - Cloudfree
-  type: ss
-  server: 141.98.101.181
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 17 - Cloudfree
-  type: ss
-  server: 51.38.71.51
-  port: 2083
-  cipher: 2022-blake3-aes-256-gcm
-  password: cOiC+3JhAXMwdGV5exnrMSorJU0Rl5qlLCbCAuDlWY4=:2tFqykGqZ101XW11f6iRiERnPycFAjjYq0y2zUYhKho=
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 18 - Cloudfree
-  type: vless
-  server: 129.121.95.159
-  port: 443
-  uuid: f6190ff2-864c-46cf-ac16-93908c069b75
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 129.121.95.159
-  network: ws
-  ws-opts:
-    path: /connect
-    headers:
-      Host: 129.121.95.159
-- name: 🇬🇧 英国 (United Kingdom) 19 - Cloudfree
-  type: vless
-  server: 51.89.194.151
-  port: 2053
-  uuid: a8444f42-8aa2-4ef2-8755-2b0d82415fc6
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: T10K4VspJ7ZIptzXTqFL0k-lgV2a8ekf7RedogymJzo
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
 - name: 🇬🇧 英国 (United Kingdom) 20 - Cloudfree
-  type: ss
-  server: 82.38.31.190
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 21 - Cloudfree
-  type: ss
-  server: 94.156.250.148
-  port: 7001
-  cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 22 - Cloudfree
   type: vless
   server: 57.129.132.223
   port: 80
@@ -219,6 +202,34 @@ proxies:
     path: /vless/
     headers:
       Host: google.com
+- name: 🇬🇧 英国 (United Kingdom) 21 - Cloudfree
+  type: vless
+  server: 91.193.58.130
+  port: 2087
+  uuid: 8666ab45-8e3d-4988-841b-2561d91e32d5
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: mianfei-73q.pages.dev
+  network: ws
+  ws-opts:
+    path: /proxyip=154.3.33.43
+    headers:
+      Host: mianfei-73q.pages.dev
+- name: 🇬🇧 英国 (United Kingdom) 22 - Cloudfree
+  type: vless
+  server: 89.106.206.57
+  port: 443
+  uuid: f081b5e2-f3a0-4ef5-833b-1ea59e0797b6
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: fcs013.getdcz.me
+  network: ws
+  ws-opts:
+    path: /6d2fed050b30
+    headers:
+      Host: fcs013.getdcz.me
 - name: 🇬🇧 英国 (United Kingdom) 23 - Cloudfree
   type: vmess
   server: 66.163.117.58
@@ -230,29 +241,25 @@ proxies:
   tls: false
   skip-cert-verify: true
 - name: 🇬🇧 英国 (United Kingdom) 24 - Cloudfree
-  type: vless
-  server: 51.89.194.151
-  port: 2053
-  uuid: a8444f42-8aa2-4ef2-8755-2b0d82415fc6
+  type: vmess
+  server: 66.163.117.58
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  reality-opts:
-    public-key: T10K4VspJ7ZIptzXTqFL0k-lgV2a8ekf7RedogymJzo
-  servername: www.cloudflare.com
-  client-fingerprint: random
 - name: 🇬🇧 英国 (United Kingdom) 25 - Cloudfree
-  type: vless
-  server: 78.129.208.44
-  port: 421
-  uuid: a3c861cb-e1e7-4ad6-8be2-7c2314ec6f18
+  type: vmess
+  server: 66.163.117.58
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  reality-opts:
-    public-key: zUdAvpr07q1Yd0Om-jc4-Vu4Un5tVird8FGoN-7W9Tg
-  servername: chistomat.dry.care
-  client-fingerprint: random
 proxy-groups:
 - name: PROXIES
   type: select

@@ -6,35 +6,21 @@ log-level: info
 proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 - Cloudfree
   type: vmess
-  server: 47.244.120.197
-  port: 23026
-  uuid: b9de1bc9-baa7-41ac-86f7-ccd59695cb21
+  server: ce0gedpxwou6cqon.v.3dns.vip
+  port: 443
+  uuid: f23bb427c1f94373876c2f43e9f790f3
   alterId: 0
   cipher: auto
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: ce0gedpxwou6cqon.v.3dns.vip
   network: ws
   ws-opts:
-    path: /arki
+    path: /ws-vmess
     headers:
-      Host: ''
+      Host: ce0gedpxwou6cqon.v.3dns.vip
 - name: 🇭🇰 中国香港 (Hong Kong) 02 - Cloudfree
-  type: vmess
-  server: 156.245.232.239
-  port: 35043
-  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 🇭🇰 中国香港 (Hong Kong) 03 - Cloudfree
   type: vmess
   server: 47.83.19.148
   port: 443
@@ -50,54 +36,36 @@ proxies:
     path: /ws-vmess
     headers:
       Host: 6JDvArazgU3qQR6Q.v.3dns.vip
+- name: 🇭🇰 中国香港 (Hong Kong) 03 - Cloudfree
+  type: vmess
+  server: 156.245.232.239
+  port: 35043
+  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: ''
+    headers:
+      Host: ''
 - name: 🇭🇰 中国香港 (Hong Kong) 04 - Cloudfree
   type: vmess
-  server: 47.243.92.155
-  port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
+  server: 156.245.232.239
+  port: 35043
+  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
   alterId: 0
   cipher: auto
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: mTCKUNDiGePwU3uP.v.3dns.vip
   network: ws
   ws-opts:
-    path: /ws-vmess
+    path: /
     headers:
-      Host: mTCKUNDiGePwU3uP.v.3dns.vip
-- name: 🇭🇰 中国香港 (Hong Kong) 05 - Cloudfree
-  type: vmess
-  server: lcv8v9l7oyamxxfz.v.3dns.vip
-  port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: lcv8v9l7OyamxxfZ.v.3dns.vip
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: lcv8v9l7OyamxxfZ.v.3dns.vip
-- name: 🇭🇰 中国香港 (Hong Kong) 06 - Cloudfree
-  type: vmess
-  server: ejomsxptp19apygl.v.3dns.vip
-  port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ejomsxptp19apygl.v.3dns.vip
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: ejomsxptp19apygl.v.3dns.vip
+      Host: www.pubgmobile.com
 proxy-groups:
 - name: PROXIES
   type: select
@@ -107,8 +75,6 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 02 - Cloudfree
   - 🇭🇰 中国香港 (Hong Kong) 03 - Cloudfree
   - 🇭🇰 中国香港 (Hong Kong) 04 - Cloudfree
-  - 🇭🇰 中国香港 (Hong Kong) 05 - Cloudfree
-  - 🇭🇰 中国香港 (Hong Kong) 06 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -118,7 +84,5 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 02 - Cloudfree
   - 🇭🇰 中国香港 (Hong Kong) 03 - Cloudfree
   - 🇭🇰 中国香港 (Hong Kong) 04 - Cloudfree
-  - 🇭🇰 中国香港 (Hong Kong) 05 - Cloudfree
-  - 🇭🇰 中国香港 (Hong Kong) 06 - Cloudfree
 rules:
 - MATCH,PROXIES

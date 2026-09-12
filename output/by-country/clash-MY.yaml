@@ -18,23 +18,10 @@ proxies:
     headers:
       Host: 38.60.168.98
 - name: 🇲🇾 MY 02 - Cloudfree
-  type: vless
-  server: 38.60.168.98
-  port: 2087
-  uuid: 8a346b7c-5b95-4845-affa-0e5d9929e9ae
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /db55c40bbc75
-    headers:
-      Host: 38.60.168.98
-- name: 🇲🇾 MY 03 - Cloudfree
   type: vmess
   server: 47.250.45.234
-  port: 8613
-  uuid: 80039b4d-bac0-4f89-82c7-54fad3b0a1ea
+  port: 43063
+  uuid: c77f48f5-4be3-4461-b52b-49998e7b897b
   alterId: 0
   cipher: auto
   udp: true
@@ -44,8 +31,8 @@ proxies:
   ws-opts:
     path: /arki?ed=2048
     headers:
-      Host: 47.250.45.234
-- name: 🇲🇾 MY 04 - Cloudfree
+      Host: ''
+- name: 🇲🇾 MY 03 - Cloudfree
   type: vless
   server: 38.60.168.98
   port: 2087
@@ -66,7 +53,6 @@ proxy-groups:
   - 🇲🇾 MY 01 - Cloudfree
   - 🇲🇾 MY 02 - Cloudfree
   - 🇲🇾 MY 03 - Cloudfree
-  - 🇲🇾 MY 04 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -75,6 +61,5 @@ proxy-groups:
   - 🇲🇾 MY 01 - Cloudfree
   - 🇲🇾 MY 02 - Cloudfree
   - 🇲🇾 MY 03 - Cloudfree
-  - 🇲🇾 MY 04 - Cloudfree
 rules:
 - MATCH,PROXIES

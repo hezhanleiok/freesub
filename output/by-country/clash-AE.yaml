@@ -5,19 +5,26 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇪 阿联酋 (UAE) 01 - Cloudfree
+  type: ss
+  server: 188.208.110.58
+  port: 8444
+  cipher: chacha20-ietf-poly1305
+  password: tunnel-astrovpn_official
+  udp: true
+- name: 🇦🇪 阿联酋 (UAE) 02 - Cloudfree
   type: vless
-  server: uae.unixzone.us
-  port: 22573
-  uuid: 39947382-3212-41c9-bc3a-589574ac8b23
+  server: 45.130.125.201
+  port: 80
+  uuid: dc8a9493-c54a-459e-d060-81a700000001
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /
+    path: /sync
     headers:
-      Host: uae.unixzone.us
-- name: 🇦🇪 阿联酋 (UAE) 02 - Cloudfree
+      Host: nahan-core.netizo09.workers.dev
+- name: 🇦🇪 阿联酋 (UAE) 03 - Cloudfree
   type: vless
   server: uae.unixzone.us
   port: 22573
@@ -37,6 +44,7 @@ proxy-groups:
   - AUTO
   - 🇦🇪 阿联酋 (UAE) 01 - Cloudfree
   - 🇦🇪 阿联酋 (UAE) 02 - Cloudfree
+  - 🇦🇪 阿联酋 (UAE) 03 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -44,5 +52,6 @@ proxy-groups:
   proxies:
   - 🇦🇪 阿联酋 (UAE) 01 - Cloudfree
   - 🇦🇪 阿联酋 (UAE) 02 - Cloudfree
+  - 🇦🇪 阿联酋 (UAE) 03 - Cloudfree
 rules:
 - MATCH,PROXIES

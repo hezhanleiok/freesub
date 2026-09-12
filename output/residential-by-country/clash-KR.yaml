@@ -18,17 +18,32 @@ proxies:
     path: /?ed=2560
     headers:
       Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
+- name: 🇰🇷 韩国 (South Korea) 02 (家宽) - Cloudfree
+  type: vless
+  server: 172.66.170.53
+  port: 8880
+  uuid: 38ede46b-d237-4c76-9de1-a10738642adc
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: summer-hat-ba5c.430.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇰🇷 韩国 (South Korea) 01 (家宽) - Cloudfree
+  - 🇰🇷 韩国 (South Korea) 02 (家宽) - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇰🇷 韩国 (South Korea) 01 (家宽) - Cloudfree
+  - 🇰🇷 韩国 (South Korea) 02 (家宽) - Cloudfree
 rules:
 - MATCH,PROXIES
