@@ -4,24 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇫🇮 FI 01 - wangyu
+- name: 🇰🇿 KZ 01 - wangyu
   type: ss
-  server: 65.109.215.118
-  port: 1080
+  server: 94.198.220.183
+  port: 64674
   cipher: chacha20-ietf-poly1305
-  password: rSeYcig_XBy8q3k33NpK3A
+  password: s8LbJCgUiGXeCKVc63tHJP
   udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇫🇮 FI 01 - wangyu
+  - 🇰🇿 KZ 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇫🇮 FI 01 - wangyu
+  - 🇰🇿 KZ 01 - wangyu
 rules:
 - MATCH,PROXIES
