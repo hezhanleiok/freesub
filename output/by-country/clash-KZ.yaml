@@ -5,29 +5,25 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
-  server: 172.66.47.45
-  port: 2083
+  server: 172.64.154.8
+  port: 8080
   udp: true
   type: vless
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  tls: true
-  servername: wk1.f1w.de5.net
-  skip-cert-verify: false
-  client-fingerprint: chrome
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   network: ws
   ws-opts:
-    path: /
+    path: /?ed=2560security=tls
     headers:
-      Host: wk1.f1w.de5.net
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 - name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
-  server: 104.18.34.14
+  server: 172.64.154.8
   port: 8880
   udp: true
   type: vless
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   network: ws
   ws-opts:
-    path: '/?ed=2560security=tls '
+    path: /
     headers:
       Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 - name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 03 - xiaohe
@@ -40,25 +36,10 @@ proxies:
   reality-opts:
     public-key: oHaUPZiESTQQ89DMd4uIcPWgsyeFFy58iZYX_8mbvWk
   servername: dl.dell.com
-  client-fingerprint: chrome
+  client-fingerprint: ios
   network: grpc
   grpc-opts:
     grpc-service-name: TunService
-- name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 04 - xiaohe
-  server: 141.101.113.100
-  port: 443
-  udp: true
-  type: vless
-  uuid: 3bb6fd82-3a15-eaea-6168-4dac2b70079e
-  tls: true
-  servername: nahan-fog-af01.dfghttr2012.workers.dev
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /sync
-    headers:
-      Host: nahan-fog-af01.dfghttr2012.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
@@ -67,7 +48,6 @@ proxy-groups:
   - 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
   - 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
   - 🇰🇿 哈萨克斯坦 (Kazakhstan) 03 - xiaohe
-  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -76,6 +56,5 @@ proxy-groups:
   - 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
   - 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
   - 🇰🇿 哈萨克斯坦 (Kazakhstan) 03 - xiaohe
-  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 04 - xiaohe
 rules:
 - MATCH,PROXIES
