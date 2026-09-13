@@ -11,28 +11,17 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: rSeYcig_XBy8q3k33NpK3A
   udp: true
-- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  type: vless
-  server: connect3.nyxserver.ir
-  port: 8444
-  uuid: 0b39a009-2a2a-4035-ba87-cc82894f8e21
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: connect3.nyxserver.ir
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
 rules:
 - MATCH,PROXIES
