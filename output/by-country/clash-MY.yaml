@@ -5,6 +5,14 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
+  server: 47.250.84.25
+  port: 443
+  udp: true
+  type: trojan
+  password: 5931134d1cde66bf83a54acdfebe7ab2
+  sni: 47.250.84.25
+  skip-cert-verify: true
+- name: 🇲🇾 马来西亚 (Malaysia) 02 - xiaohe
   server: 38.60.168.98
   port: 2087
   udp: true
@@ -13,17 +21,29 @@ proxies:
   network: ws
   ws-opts:
     path: /db55c40bbc75
+- name: 🇲🇾 马来西亚 (Malaysia) 03 - xiaohe
+  server: mszz.mangshe.xyz
+  port: 20563
+  udp: true
+  type: hysteria2
+  password: 5d0a6445-a30d-4522-bb1f-94f1d3ad63be
+  sni: mlxy.mangshe.xyz
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
+  - 🇲🇾 马来西亚 (Malaysia) 02 - xiaohe
+  - 🇲🇾 马来西亚 (Malaysia) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
+  - 🇲🇾 马来西亚 (Malaysia) 02 - xiaohe
+  - 🇲🇾 马来西亚 (Malaysia) 03 - xiaohe
 rules:
 - MATCH,PROXIES

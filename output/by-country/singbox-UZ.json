@@ -1,0 +1,67 @@
+{
+  "log": {
+    "level": "warn"
+  },
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "🇺🇿 乌兹别克斯坦 (Uzbekistan) 01 - xiaohe",
+      "server": "189.74.97.47",
+      "server_port": 2087,
+      "uuid": "894fe9f0-b998-49c0-8003-a5007de921e1",
+      "transport": {
+        "type": "ws",
+        "path": "/755276b33b6f"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇿 乌兹别克斯坦 (Uzbekistan) 02 - xiaohe",
+      "server": "104.24.143.217",
+      "server_port": 443,
+      "uuid": "50414e45-4c5f-5a45-5553-4eef5adc237a",
+      "tls": {
+        "enabled": true,
+        "server_name": "r5zenrelur2s.pqzdileiu8es.workers.dev",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/stream/PANEL_ZEUS/4eef5adc237a/loc-1",
+        "headers": {
+          "Host": "r5zenrelur2s.pqzdileiu8es.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇺🇿 乌兹别克斯坦 (Uzbekistan) 01 - xiaohe",
+        "🇺🇿 乌兹别克斯坦 (Uzbekistan) 02 - xiaohe"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇺🇿 乌兹别克斯坦 (Uzbekistan) 01 - xiaohe",
+        "🇺🇿 乌兹别克斯坦 (Uzbekistan) 02 - xiaohe"
+      ],
+      "url": "https://www.gstatic.com/generate_204"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}
