@@ -11,7 +11,10 @@
       "uuid": "06c4e938-2954-478f-a870-ca1b163e30e9",
       "transport": {
         "type": "ws",
-        "path": "/"
+        "path": "/",
+        "headers": {
+          "Host": "estproxy4.lockdwn.com"
+        }
       }
     },
     {
@@ -23,7 +26,11 @@
       "tls": {
         "enabled": true,
         "server_name": "estproxy4.lockdwn.com",
-        "insecure": false
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
       }
     },
     {

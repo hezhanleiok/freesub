@@ -9,7 +9,7 @@ proxies:
   port: 8443
   udp: true
   type: vless
-  uuid: 1e3b5752-e720-4347-b8e9-384697d0ce38
+  uuid: c4783cc5-aeec-4473-855b-1c98965949dd
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
@@ -40,15 +40,27 @@ proxies:
   obfs: salamander
   obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
 - name: 🇦🇪 阿联酋 (UAE) 04 - xiaohe
-  server: 85.204.107.181
+  server: upload.tbotapi.ru
+  port: 443
+  udp: true
+  type: vless
+  uuid: 624208cf-54e0-4341-823b-1bee6595fce9
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: nDUrcIPWyCo7gAOVPfjAneLz17NdCrUMCIvdJsTRsD4
+  servername: upload.tbotapi.ru
+  client-fingerprint: firefox
+- name: 🇦🇪 阿联酋 (UAE) 05 - xiaohe
+  server: 85.204.107.183
   port: 8080
   udp: true
   type: hysteria2
   password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
   sni: hopp-romania-new.roxa.org
-  skip-cert-verify: false
-- name: 🇦🇪 阿联酋 (UAE) 05 - xiaohe
-  server: 84.235.244.108
+  skip-cert-verify: true
+- name: 🇦🇪 阿联酋 (UAE) 06 - xiaohe
+  server: uae.unixzone.us
   port: 22573
   udp: true
   type: vless
@@ -58,14 +70,18 @@ proxies:
     path: /
     headers:
       Host: uae.unixzone.us
-- name: 🇦🇪 阿联酋 (UAE) 06 - xiaohe
-  server: av-b-networkbalancer.cdnnow.xyz
+- name: 🇦🇪 阿联酋 (UAE) 07 - xiaohe
+  server: 45.135.128.5
   port: 443
   udp: true
-  type: hysteria2
-  password: vPKrpyaWUQ7NL1Hs5ooFEWvWuHgWoa8t
-  sni: av-b-networkbalancer.cdnnow.xyz
-  skip-cert-verify: false
+  type: vless
+  uuid: 624208cf-54e0-4341-823b-1bee6595fce9
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: nDUrcIPWyCo7gAOVPfjAneLz17NdCrUMCIvdJsTRsD4
+  servername: upload.tbotapi.ru
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -77,6 +93,7 @@ proxy-groups:
   - 🇦🇪 阿联酋 (UAE) 04 - xiaohe
   - 🇦🇪 阿联酋 (UAE) 05 - xiaohe
   - 🇦🇪 阿联酋 (UAE) 06 - xiaohe
+  - 🇦🇪 阿联酋 (UAE) 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -88,5 +105,6 @@ proxy-groups:
   - 🇦🇪 阿联酋 (UAE) 04 - xiaohe
   - 🇦🇪 阿联酋 (UAE) 05 - xiaohe
   - 🇦🇪 阿联酋 (UAE) 06 - xiaohe
+  - 🇦🇪 阿联酋 (UAE) 07 - xiaohe
 rules:
 - MATCH,PROXIES
