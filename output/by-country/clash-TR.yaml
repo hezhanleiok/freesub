@@ -5,12 +5,11 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
-  server: 188.132.174.236
-  port: 1080
+  server: 188.132.237.20
+  port: 2095
   udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: rSeYcig_XBy8q3k33NpK3A
+  type: vless
+  uuid: 3b9e513e-30d9-4ca8-8340-8f33fc6710de
 - name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
   server: 156.67.63.231
   port: 443
@@ -24,6 +23,13 @@ proxies:
     short-id: 5606d4a25c99e7af
   servername: sync-bridge.org
   client-fingerprint: chrome
+- name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
+  server: 188.132.174.236
+  port: 1080
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: rSeYcig_XBy8q3k33NpK3A
 proxy-groups:
 - name: PROXIES
   type: select
@@ -31,6 +37,7 @@ proxy-groups:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -38,5 +45,6 @@ proxy-groups:
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
 rules:
 - MATCH,PROXIES

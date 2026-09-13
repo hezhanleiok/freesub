@@ -5,62 +5,102 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇷 法国 (France) 01 - xiaohe
-  server: 15.237.218.241
-  port: 443
+  server: 104.18.46.234
+  port: 80
   udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
+  type: vless
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 - name: 🇫🇷 法国 (France) 02 - xiaohe
+  server: 162.159.43.187
+  port: 2095
+  udp: true
+  type: vless
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  ws-opts:
+    path: '/?ed=2560security=tls '
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇫🇷 法国 (France) 03 - xiaohe
+  server: 188.114.97.6
+  port: 2086
+  udp: true
+  type: vless
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+- name: 🇫🇷 法国 (France) 04 - xiaohe
+  server: 104.18.34.14
+  port: 2095
+  udp: true
+  type: vless
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇫🇷 法国 (France) 05 - xiaohe
+  server: 172.64.229.170
+  port: 2095
+  udp: true
+  type: vless
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  ws-opts:
+    path: '/?ed=2560security=tls '
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇫🇷 法国 (France) 06 - xiaohe
+  server: 104.18.46.46
+  port: 2052
+  udp: true
+  type: vless
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  ws-opts:
+    path: '/?ed=2560security=tls '
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇫🇷 法国 (France) 07 - xiaohe
+  server: 104.18.46.234
+  port: 8080
+  udp: true
+  type: vless
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇫🇷 法国 (France) 08 - xiaohe
   server: 51.83.192.80
   port: 8388
   udp: true
   type: ss
   cipher: aes-256-gcm
   password: itzvpn@321
-- name: 🇫🇷 法国 (France) 03 - xiaohe
-  server: 62.210.91.2
-  port: 23576
+- name: 🇫🇷 法国 (France) 09 - xiaohe
+  server: 45.144.28.39
+  port: 2083
   udp: true
   type: vless
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  flow: xtls-rprx-vision
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
   tls: true
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  servername: fuck.rkn
-  client-fingerprint: chrome
-- name: 🇫🇷 法国 (France) 04 - xiaohe
-  server: 51.255.13.232
-  port: 8388
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: BqnqToih0PbU
-- name: 🇫🇷 法国 (France) 05 - xiaohe
-  server: 172.64.150.28
-  port: 443
-  udp: true
-  type: trojan
-  password: humanity
-  sni: www.calmlunch.com
+  servername: usejh2.neobo-tooth.ru
   skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /assignment
-- name: 🇫🇷 法国 (France) 06 - xiaohe
-  server: 162.19.10.99
-  port: 443
-  udp: true
-  type: vless
-  uuid: e8b1500b-e9e8-5492-8312-f4eadf7d0767
-  flow: xtls-rprx-vision
-  tls: true
-  servername: nasnet-162191099-direct.mbghalibaf.com
-  skip-cert-verify: false
-  client-fingerprint: chrome
-- name: 🇫🇷 法国 (France) 07 - xiaohe
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc
+- name: 🇫🇷 法国 (France) 10 - xiaohe
   server: 62.210.91.10
   port: 23576
   udp: true
@@ -73,30 +113,69 @@ proxies:
     short-id: '01'
   servername: fuck.rkn
   client-fingerprint: chrome
-- name: 🇫🇷 法国 (France) 08 - xiaohe
-  server: 45.144.28.39
-  port: 2083
+- name: 🇫🇷 法国 (France) 11 - xiaohe
+  server: 162.19.10.99
+  port: 443
   udp: true
   type: vless
-  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  uuid: e8b1500b-e9e8-5492-8312-f4eadf7d0767
+  flow: xtls-rprx-vision
   tls: true
-  servername: usejh2.neobo-tooth.ru
+  servername: nasnet-162191099-direct.mbghalibaf.com
   skip-cert-verify: false
-  network: grpc
-  grpc-opts:
-    grpc-service-name: grpc
-- name: 🇫🇷 法国 (France) 09 - xiaohe
-  server: 45.144.28.39
-  port: 2096
+  client-fingerprint: chrome
+- name: 🇫🇷 法国 (France) 12 - xiaohe
+  server: 62.210.124.146
+  port: 22000
+  udp: true
+  type: hysteria2
+  password: dongtaiwang.com
+  sni: www.microsoft.com
+  skip-cert-verify: true
+- name: 🇫🇷 法国 (France) 13 - xiaohe
+  server: 152.228.162.19
+  port: 80
   udp: true
   type: vless
-  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  uuid: 5ce84688-f535-46ad-a512-37b17becf6ea
   network: ws
   ws-opts:
-    path: /
+    path: /vless/
     headers:
-      Host: usejh2.neobo-tooth.ru
-- name: 🇫🇷 法国 (France) 10 - xiaohe
+      Host: akamaized.net
+- name: 🇫🇷 法国 (France) 14 - xiaohe
+  server: 62.210.91.2
+  port: 23576
+  udp: true
+  type: vless
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  servername: fuck.rkn
+  client-fingerprint: ''
+- name: 🇫🇷 法国 (France) 15 - xiaohe
+  server: 45.130.125.75
+  port: 443
+  udp: true
+  type: trojan
+  password: humanity
+  sni: www.calmlunch.com
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 🇫🇷 法国 (France) 16 - xiaohe
+  server: 151.247.197.253
+  port: 36723
+  udp: true
+  type: hysteria2
+  password: Krab9Hyst2_Rk7pQ2xL
+  sni: www.cloudflare.com
+  skip-cert-verify: true
+- name: 🇫🇷 法国 (France) 17 - xiaohe
   server: 51.38.82.1
   port: 443
   udp: true
@@ -107,42 +186,7 @@ proxies:
     public-key: YRKpNLfduSsOl3l-CCUkhZDEjvcKytnuELqnWjLZI1M
     short-id: 98fa0b00d09419f7
   servername: play.google.com
-  client-fingerprint: random
-- name: 🇫🇷 法国 (France) 11 - xiaohe
-  server: 35.181.166.40
-  port: 443
-  udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: vpn-fr-002.fastervpn.world
-  skip-cert-verify: true
-- name: 🇫🇷 法国 (France) 12 - xiaohe
-  server: 151.247.197.253
-  port: 36723
-  udp: true
-  type: hysteria2
-  password: Krab9Hyst2_Rk7pQ2xL
-  sni: 151.247.197.253
-  skip-cert-verify: true
-- name: 🇫🇷 法国 (France) 13 - xiaohe
-  server: 185.114.72.31
-  port: 2053
-  udp: true
-  type: trojan
-  password: humanity
-  sni: www.calmlunch.com
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /assignment
-- name: 🇫🇷 法国 (France) 14 - xiaohe
-  server: 62.210.7.139
-  port: 60111
-  udp: true
-  type: hysteria2
-  password: github.com/Alvin9999-newpac/fanqiang
-  sni: t.me
-  skip-cert-verify: true
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -162,6 +206,9 @@ proxy-groups:
   - 🇫🇷 法国 (France) 12 - xiaohe
   - 🇫🇷 法国 (France) 13 - xiaohe
   - 🇫🇷 法国 (France) 14 - xiaohe
+  - 🇫🇷 法国 (France) 15 - xiaohe
+  - 🇫🇷 法国 (France) 16 - xiaohe
+  - 🇫🇷 法国 (France) 17 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -181,5 +228,8 @@ proxy-groups:
   - 🇫🇷 法国 (France) 12 - xiaohe
   - 🇫🇷 法国 (France) 13 - xiaohe
   - 🇫🇷 法国 (France) 14 - xiaohe
+  - 🇫🇷 法国 (France) 15 - xiaohe
+  - 🇫🇷 法国 (France) 16 - xiaohe
+  - 🇫🇷 法国 (France) 17 - xiaohe
 rules:
 - MATCH,PROXIES

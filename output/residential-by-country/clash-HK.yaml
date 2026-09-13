@@ -17,27 +17,17 @@ proxies:
     short-id: 747a75eb5ecef8
   servername: www.apple.com
   client-fingerprint: chrome
-- name: 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe
-  server: hk02.xn--9kq85xcu6b.com
-  port: 65534
-  udp: true
-  type: hysteria2
-  password: 45dae7e6-4573-4e6b-a1f3-57b3bbaf990d
-  sni: hk02.xn--9kq85xcu6b.com
-  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES
