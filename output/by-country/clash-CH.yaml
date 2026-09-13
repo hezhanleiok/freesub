@@ -27,16 +27,6 @@ proxies:
     path: /cdn/v3/live
     headers:
       Host: cf9.rumedia-cdn.com
-- name: 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
-  server: it.kanzelo.ir
-  port: 8443
-  udp: true
-  type: vless
-  uuid: 0ecf2aa4-0ae7-1a4f-5455-b116c864542d
-  network: h2
-  h2-opts:
-    host: []
-    path: /
 proxy-groups:
 - name: PROXIES
   type: select
@@ -44,7 +34,6 @@ proxy-groups:
   - AUTO
   - 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
-  - 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -52,6 +41,5 @@ proxy-groups:
   proxies:
   - 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
-  - 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
 rules:
 - MATCH,PROXIES
