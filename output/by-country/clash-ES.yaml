@@ -5,69 +5,21 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇸 西班牙 (Spain) 01 - xiaohe
+  server: 85.90.217.42
+  port: 22324
+  udp: true
+  type: vmess
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
   server: 140.174.184.5
   port: 8388
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
   password: qItG8SueYQcP
-- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
-  server: 108.181.121.226
-  port: 8388
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: WSyL4XTwNsdv
 - name: 🇪🇸 西班牙 (Spain) 03 - xiaohe
-  server: 212.227.235.66
-  port: 2053
-  udp: true
-  type: vless
-  uuid: ead0dd61-d398-40ad-80d6-a0e1e516d7d3
-  tls: true
-  reality-opts:
-    public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
-    short-id: 29e8dcd2b37aaa7f
-  servername: www.apple.com
-  client-fingerprint: chrome
-- name: 🇪🇸 西班牙 (Spain) 04 - xiaohe
-  server: 185.254.205.79
-  port: 19842
-  udp: true
-  type: vless
-  uuid: 43c23116-1115-4af4-a0f0-56f02841a605
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: sfOfuQeJBlKfDnPL_EMWUxMIiFAN8BNKjtWDUvlsjzM
-    short-id: 25ebc9e0a912
-  servername: www.tesla.com
-  client-fingerprint: safari
-- name: 🇪🇸 西班牙 (Spain) 05 - xiaohe
-  server: 185.114.72.31
-  port: 2053
-  udp: true
-  type: trojan
-  password: humanity
-  sni: www.calmlunch.com
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /assignment
-- name: 🇪🇸 西班牙 (Spain) 06 - xiaohe
-  server: 46.28.71.247
-  port: 443
-  udp: true
-  type: vless
-  uuid: 12c53e32-e589-47d6-b857-e4132294f767
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: v4MuZIvFrTPT5GHMSaPryUAbIZlLstmsUTzmC1E-JTE
-    short-id: 0dfc23fe80778c00
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇪🇸 西班牙 (Spain) 07 - xiaohe
   server: 93.189.94.67
   port: 48296
   udp: true
@@ -80,6 +32,25 @@ proxies:
     short-id: 109657bb2dbe99
   servername: www.sony.com
   client-fingerprint: firefox
+- name: 🇪🇸 西班牙 (Spain) 04 - xiaohe
+  server: 108.181.121.226
+  port: 8388
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: WSyL4XTwNsdv
+- name: 🇪🇸 西班牙 (Spain) 05 - xiaohe
+  server: 212.227.235.66
+  port: 2053
+  udp: true
+  type: vless
+  uuid: ead0dd61-d398-40ad-80d6-a0e1e516d7d3
+  tls: true
+  reality-opts:
+    public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
+    short-id: 29e8dcd2b37aaa7f
+  servername: www.apple.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -90,8 +61,6 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 03 - xiaohe
   - 🇪🇸 西班牙 (Spain) 04 - xiaohe
   - 🇪🇸 西班牙 (Spain) 05 - xiaohe
-  - 🇪🇸 西班牙 (Spain) 06 - xiaohe
-  - 🇪🇸 西班牙 (Spain) 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -102,7 +71,5 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 03 - xiaohe
   - 🇪🇸 西班牙 (Spain) 04 - xiaohe
   - 🇪🇸 西班牙 (Spain) 05 - xiaohe
-  - 🇪🇸 西班牙 (Spain) 06 - xiaohe
-  - 🇪🇸 西班牙 (Spain) 07 - xiaohe
 rules:
 - MATCH,PROXIES

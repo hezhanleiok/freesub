@@ -5,39 +5,49 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
-  server: 104.18.34.14
-  port: 80
+  server: 172.66.47.45
+  port: 2083
   udp: true
   type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  tls: true
+  servername: wk1.f1w.de5.net
+  skip-cert-verify: false
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: '/?ed=2560security=tls '
+    path: /
     headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+      Host: wk1.f1w.de5.net
 - name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
-  server: 188.114.97.6
-  port: 2082
+  server: 172.67.148.26
+  port: 2053
   udp: true
   type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  uuid: 95de071f-747c-dc07-36ac-5c0854a9e50e
+  tls: true
+  servername: restless-boat-ebf2.moha102030.workers.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /?ed=2560
+    path: /sync
     headers:
-      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+      Host: restless-boat-ebf2.moha102030.workers.dev
 - name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 03 - xiaohe
-  server: 178.236.16.98
-  port: 35728
+  server: 62.233.39.9
+  port: 8443
   udp: true
   type: vless
-  uuid: a00d89f6-ab7e-4e30-a5e5-54c701d62c93
+  uuid: 4350213a-b4e7-262a-0bd7-bd16957cf71a
   tls: true
   reality-opts:
-    public-key: vhUFNoFcvtZAVMo8y5K5eU2V43m5q6yjmWIhp5RkFng
-    short-id: 69a2
-  servername: yahoo.com
+    public-key: oHaUPZiESTQQ89DMd4uIcPWgsyeFFy58iZYX_8mbvWk
+  servername: dl.dell.com
   client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: TunService
 proxy-groups:
 - name: PROXIES
   type: select

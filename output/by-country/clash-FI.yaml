@@ -5,30 +5,65 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 芬兰 (Finland) 01 - xiaohe
-  server: 185.79.138.71
-  port: 448
+  server: 204.168.195.30
+  port: 51185
   udp: true
   type: vless
-  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
-  tls: true
-  reality-opts:
-    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
-    short-id: cd21e552537c7c0b
-  servername: www.samsung.com
-  client-fingerprint: chrome
-- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  server: 31.77.199.182
-  port: 443
-  udp: true
-  type: vless
-  uuid: c09cfd91-b234-4998-9bed-a0211b7f5c3c
+  uuid: 12af43c3-84b4-4248-878b-b75f35835487
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: -qLezG1nUEtvOJi-Ra7WRYv-aHkv3PSefEuXpWV2G04
-    short-id: abcd1234
-  servername: fi2.yservice.help
+    public-key: VFDbAJQdqzKl7hL6SmUrhHHEORtILSsJHYWF67an1HU
+    short-id: 55a464180d3b1f7e
+  servername: amp-api-edge.apps.apple.com
   client-fingerprint: chrome
+- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
+  server: 31.76.21.179
+  port: 443
+  udp: true
+  type: vless
+  uuid: 827a0eb0-21bf-4bce-96ef-0a7bac5d68f5
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: DS9mX6cMb5wvwFzga8yN2NLbs7soXM7038_P23yPKwk
+    short-id: 8ffa160e608bf539
+  servername: fin.pinkmoon.pro
+  client-fingerprint: firefox
+- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  server: fin.pinkmoon.pro
+  port: 443
+  udp: true
+  type: vless
+  uuid: 827a0eb0-21bf-4bce-96ef-0a7bac5d68f5
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: DS9mX6cMb5wvwFzga8yN2NLbs7soXM7038_P23yPKwk
+    short-id: 8ffa160e608bf539
+  servername: fin.pinkmoon.pro
+  client-fingerprint: qq
+- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
+  server: 171.22.129.56
+  port: 2053
+  udp: true
+  type: vless
+  uuid: b2744db0-1c64-4218-a93b-9eba0e5f811f
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: AKUQO-fKsD19FFBxNq5XTFCRXWDZfes4zJjRINY1KUI
+    short-id: beff3ff061a64cfd
+  servername: fi-one.quiet-rogue.site
+  client-fingerprint: firefox
+- name: 🇫🇮 芬兰 (Finland) 05 - xiaohe
+  server: fr.vpn.legendaah.xyz
+  port: 36723
+  udp: true
+  type: hysteria2
+  password: Krab9Hyst2_Rk7pQ2xL
+  sni: 127.0.0.1
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -36,6 +71,9 @@ proxy-groups:
   - AUTO
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 04 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -43,5 +81,8 @@ proxy-groups:
   proxies:
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 04 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 05 - xiaohe
 rules:
 - MATCH,PROXIES

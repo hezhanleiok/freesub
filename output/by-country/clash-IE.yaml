@@ -5,6 +5,19 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
+  server: 3.9.135.156
+  port: 51847
+  udp: true
+  type: vless
+  uuid: 391a01e9-b664-407b-9158-610fab3f5920
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: S6noV0L8eNASnTe1gXLutLZNdfENsvKMsOJiGQYi6nc
+    short-id: 0eec442e7b34d2f2
+  servername: www.tesla.com
+  client-fingerprint: random
+- name: 🇮🇪 爱尔兰 (Ireland) 02 - xiaohe
   server: ir-new1.failspace.top
   port: 443
   udp: true
@@ -14,17 +27,20 @@ proxies:
   tls: true
   servername: ir-new1.failspace.top
   skip-cert-verify: false
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
+  - 🇮🇪 爱尔兰 (Ireland) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
+  - 🇮🇪 爱尔兰 (Ireland) 02 - xiaohe
 rules:
 - MATCH,PROXIES
