@@ -4,24 +4,25 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇨🇱 CL 01 - wangyu
-  type: ss
-  server: 64.176.2.21
-  port: 8388
-  cipher: aes-256-gcm
-  password: xBStBEVqvGwHPocc
+- name: 🇦🇿 AZ 01 - wangyu
+  type: vless
+  server: basalam.horqen.ir
+  port: 21289
+  uuid: c12db015-a63c-43e5-a744-6398a90373b5
   udp: true
+  tls: false
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇨🇱 CL 01 - wangyu
+  - 🇦🇿 AZ 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇨🇱 CL 01 - wangyu
+  - 🇦🇿 AZ 01 - wangyu
 rules:
 - MATCH,PROXIES
