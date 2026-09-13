@@ -5,17 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
-  server: 162.159.0.53
-  port: 8880
-  udp: true
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  network: ws
-  ws-opts:
-    path: /?ed=2560security=tls
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇸🇨 塞舌尔 (Seychelles) 02 - xiaohe
   server: 64.49.38.3
   port: 8443
   udp: true
@@ -29,15 +18,15 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: TunService
-- name: 🇸🇨 塞舌尔 (Seychelles) 03 - xiaohe
-  server: 185.79.138.71
+- name: 🇸🇨 塞舌尔 (Seychelles) 02 - xiaohe
+  server: 138.124.0.168
   port: 8080
   udp: true
   type: hysteria2
   password: h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT
   sni: hopp-legend-se.roxa.org
-  skip-cert-verify: true
-- name: 🇸🇨 塞舌尔 (Seychelles) 04 - xiaohe
+  skip-cert-verify: false
+- name: 🇸🇨 塞舌尔 (Seychelles) 03 - xiaohe
   server: 156.226.168.221
   port: 35193
   udp: true
@@ -49,7 +38,7 @@ proxies:
     public-key: d_pn_DMaIxhCkNh80h0Mc7nP94hrlN--I8liOIREDxE
     short-id: e8daed2d
   servername: www.apple.com
-  client-fingerprint: chrome
+  client-fingerprint: safari
 proxy-groups:
 - name: PROXIES
   type: select
@@ -58,7 +47,6 @@ proxy-groups:
   - 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
   - 🇸🇨 塞舌尔 (Seychelles) 02 - xiaohe
   - 🇸🇨 塞舌尔 (Seychelles) 03 - xiaohe
-  - 🇸🇨 塞舌尔 (Seychelles) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -67,6 +55,5 @@ proxy-groups:
   - 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
   - 🇸🇨 塞舌尔 (Seychelles) 02 - xiaohe
   - 🇸🇨 塞舌尔 (Seychelles) 03 - xiaohe
-  - 🇸🇨 塞舌尔 (Seychelles) 04 - xiaohe
 rules:
 - MATCH,PROXIES
