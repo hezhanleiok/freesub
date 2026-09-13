@@ -5,6 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
+  server: 188.132.174.236
+  port: 1080
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: rSeYcig_XBy8q3k33NpK3A
+- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
   server: 156.67.63.231
   port: 443
   udp: true
@@ -17,30 +24,6 @@ proxies:
     short-id: 5606d4a25c99e7af
   servername: sync-bridge.org
   client-fingerprint: chrome
-- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  server: connect3.nyxserver.ir
-  port: 8444
-  udp: true
-  type: vless
-  uuid: 0b39a009-2a2a-4035-ba87-cc82894f8e21
-  tls: true
-  servername: connect3.nyxserver.ir
-  skip-cert-verify: false
-- name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
-  server: 162.159.91.222
-  port: 443
-  udp: true
-  type: vless
-  uuid: 50414e45-4c5f-5a45-5553-723a643df685
-  tls: true
-  servername: n3zaxce7u0es.crzl48eiuses.workers.dev
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /stream/PANEL_ZEUS/723a643df685/loc-0
-    headers:
-      Host: n3zaxce7u0es.crzl48eiuses.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
@@ -48,7 +31,6 @@ proxy-groups:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -56,6 +38,5 @@ proxy-groups:
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
 rules:
 - MATCH,PROXIES
