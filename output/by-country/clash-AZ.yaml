@@ -12,17 +12,27 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
+- name: 🇦🇿 AZ 02 - wangyu
+  type: vless
+  server: basalam.horqen.ir
+  port: 21289
+  uuid: c12db015-a63c-43e5-a744-6398a90373b5
+  udp: true
+  tls: false
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇦🇿 AZ 01 - wangyu
+  - 🇦🇿 AZ 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇦🇿 AZ 01 - wangyu
+  - 🇦🇿 AZ 02 - wangyu
 rules:
 - MATCH,PROXIES

@@ -6,45 +6,58 @@ log-level: info
 proxies:
 - name: 🇨🇿 CZ 01 - wangyu
   type: vless
-  server: 172.67.214.106
+  server: 103.119.18.30
   port: 443
-  uuid: a8890c1b-3622-3106-c4be-d8671be32d2b
+  uuid: 8666ab45-8e3d-4988-841b-2561d91e32d5
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: summer-meadow-af5b.woowoorrrkk.workers.dev
+  servername: mianfei-73q.pages.dev
   network: ws
   ws-opts:
-    path: /sync
+    path: /proxyip=154.3.33.43
     headers:
-      Host: summer-meadow-af5b.woowoorrrkk.workers.dev
+      Host: mianfei-73q.pages.dev
 - name: 🇨🇿 CZ 02 - wangyu
   type: vless
-  server: 162.159.43.187
-  port: 2086
+  server: 104.18.47.113
+  port: 2052
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /?ed=2560security=tls
+    path: /
     headers:
       Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 - name: 🇨🇿 CZ 03 - wangyu
   type: vless
-  server: 172.67.170.140
-  port: 2053
-  uuid: ef23616d-8a9d-4b22-b2f5-9bda864de179
+  server: 103.119.18.30
+  port: 443
+  uuid: 8666ab45-8e3d-4988-841b-2561d91e32d5
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: INDEX.Arcane509.Workers.DEV
+  servername: mianfei-73q.pages.dev
+  network: ws
+  ws-opts:
+    path: /proxyip=154.3.33.43
+    headers:
+      Host: mianfei-73q.pages.dev
+- name: 🇨🇿 CZ 04 - wangyu
+  type: vless
+  server: 108.162.198.178
+  port: 8880
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: index.arcane509.workers.dev
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 proxy-groups:
 - name: PROXIES
   type: select
@@ -53,6 +66,7 @@ proxy-groups:
   - 🇨🇿 CZ 01 - wangyu
   - 🇨🇿 CZ 02 - wangyu
   - 🇨🇿 CZ 03 - wangyu
+  - 🇨🇿 CZ 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -61,5 +75,6 @@ proxy-groups:
   - 🇨🇿 CZ 01 - wangyu
   - 🇨🇿 CZ 02 - wangyu
   - 🇨🇿 CZ 03 - wangyu
+  - 🇨🇿 CZ 04 - wangyu
 rules:
 - MATCH,PROXIES
