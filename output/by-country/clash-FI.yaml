@@ -11,17 +11,49 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: rSeYcig_XBy8q3k33NpK3A
   udp: true
+- name: 🇫🇮 FI 02 - xiaohe
+  type: vless
+  server: 104.16.150.108
+  port: 2087
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
+- name: 🇫🇮 FI 03 - xiaohe
+  type: vless
+  server: 172.67.217.240
+  port: 443
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: fx3h2kf8xn.fx6hsv0.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇫🇮 FI 01 - xiaohe
+  - 🇫🇮 FI 02 - xiaohe
+  - 🇫🇮 FI 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇫🇮 FI 01 - xiaohe
+  - 🇫🇮 FI 02 - xiaohe
+  - 🇫🇮 FI 03 - xiaohe
 rules:
 - MATCH,PROXIES
