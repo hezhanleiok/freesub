@@ -13,6 +13,19 @@ proxies:
   tls: true
   servername: neth9.lunariai.ru
   skip-cert-verify: false
+  client-fingerprint: edge
+- name: 🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe
+  server: prep.wwwinternetvideo.click
+  port: 443
+  udp: true
+  type: vless
+  uuid: 1c332eae-7e02-4acd-996d-4eb3e652401c
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: uitO4Z8t9TplwwYaqwLqh5rfxDh_X8bOBiNuPbzvaEM
+    short-id: bbe46bd8f6b96839
+  servername: yandex.ru
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
@@ -20,11 +33,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe
+  - 🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe
+  - 🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe
 rules:
 - MATCH,PROXIES

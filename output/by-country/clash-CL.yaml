@@ -4,24 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
-  server: 195.238.126.20
-  port: 9045
+- name: 🇨🇱 智利 (Chile) 01 - xiaohe
+  server: 64.176.2.21
+  port: 8388
   udp: true
   type: ss
-  cipher: aes-256-cfb
-  password: Lp27rqyJq72bZsqX
+  cipher: aes-256-gcm
+  password: xBStBEVqvGwHPocc
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
+  - 🇨🇱 智利 (Chile) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
+  - 🇨🇱 智利 (Chile) 01 - xiaohe
 rules:
 - MATCH,PROXIES
