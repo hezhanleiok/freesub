@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
-  server: 82.198.246.37
+  server: 82.198.246.233
   port: 180
   udp: true
   type: vmess
@@ -21,6 +21,19 @@ proxies:
   network: ws
   ws-opts:
     path: /7586c69d3dc9
+- name: 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
+  server: 51.161.204.242
+  port: 443
+  udp: true
+  type: vless
+  uuid: a14b736b-a92a-48d6-a596-5d31f7378ded
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: a2qGjvUPq6Nz5FTbn_MSHp-055q2h8YXqIL5VIJ5zwE
+    short-id: d15c17cef9b2e456
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -28,6 +41,7 @@ proxy-groups:
   - AUTO
   - 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
   - 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
+  - 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -35,5 +49,6 @@ proxy-groups:
   proxies:
   - 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
   - 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
+  - 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
 rules:
 - MATCH,PROXIES
