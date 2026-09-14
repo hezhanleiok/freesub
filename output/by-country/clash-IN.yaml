@@ -5,22 +5,15 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇳 印度 (India) 01 - xiaohe
-  server: 104.21.69.118
+  server: vpn-in-001.fastervpn.world
   port: 443
   udp: true
-  type: vless
-  uuid: 1443b7a1-7ba9-4ec9-b904-2e867367b5d7
-  tls: true
-  servername: odd-violet-5440.asdgrweeee13.workers.dev
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /sync
-    headers:
-      Host: odd-violet-5440.asdgrweeee13.workers.dev
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: vpn-in-001.fastervpn.world
+  skip-cert-verify: true
 - name: 🇮🇳 印度 (India) 02 - xiaohe
-  server: 65.2.178.161
+  server: 65.2.191.73
   port: 443
   udp: true
   type: hysteria2
@@ -28,25 +21,14 @@ proxies:
   sni: vpn-in-001.fastervpn.world
   skip-cert-verify: true
 - name: 🇮🇳 印度 (India) 03 - xiaohe
-  server: vpn-in-001.fastervpn.world
+  server: 65.2.178.161
   port: 443
   udp: true
   type: hysteria2
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: speedtest.tinkoff.ru
+  sni: vpn-in-001.fastervpn.world
   skip-cert-verify: true
 - name: 🇮🇳 印度 (India) 04 - xiaohe
-  server: 152.67.8.205
-  port: 80
-  udp: true
-  type: vmess
-  uuid: 9db4c708-aef8-4359-821b-38e47990be0d
-  alterId: 0
-  cipher: auto
-  network: ws
-  ws-opts:
-    path: /
-- name: 🇮🇳 印度 (India) 05 - xiaohe
   server: 194.61.31.126
   port: 2053
   udp: true
@@ -67,7 +49,6 @@ proxy-groups:
   - 🇮🇳 印度 (India) 02 - xiaohe
   - 🇮🇳 印度 (India) 03 - xiaohe
   - 🇮🇳 印度 (India) 04 - xiaohe
-  - 🇮🇳 印度 (India) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -77,6 +58,5 @@ proxy-groups:
   - 🇮🇳 印度 (India) 02 - xiaohe
   - 🇮🇳 印度 (India) 03 - xiaohe
   - 🇮🇳 印度 (India) 04 - xiaohe
-  - 🇮🇳 印度 (India) 05 - xiaohe
 rules:
 - MATCH,PROXIES

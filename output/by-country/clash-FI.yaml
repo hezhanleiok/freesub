@@ -12,30 +12,18 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: rSeYcig_XBy8q3k33NpK3A
 - name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  server: 185.79.138.71
-  port: 448
-  udp: true
-  type: vless
-  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
-  tls: true
-  reality-opts:
-    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
-    short-id: cd21e552537c7c0b
-  servername: www.samsung.com
-  client-fingerprint: chrome
-- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  server: app-ms-35.ecom-ai-solutions.com
+  server: 144.31.90.65
   port: 443
   udp: true
   type: vless
-  uuid: a71ad164-3b29-4dbe-aa66-24d095ca7b6d
+  uuid: 3a22ca95-bd99-4c6b-a799-f8f73930ea05
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: NA5eMfdHkl_L80S75uxQwUirS9nvZ80V2u1s71KeXkc
-    short-id: 2de63d3fd7261b7e
-  servername: assets-ms-35.ecom-ai-solutions.com
-  client-fingerprint: randomized
+    public-key: 8ZYjmjb0b2QJKCGMrcdhQNV28jZZPCKgIQbIdqChQ0w
+    short-id: 00a61d55a07de885
+  servername: fl.convert-flow.net
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -43,7 +31,6 @@ proxy-groups:
   - AUTO
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -51,6 +38,5 @@ proxy-groups:
   proxies:
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 03 - xiaohe
 rules:
 - MATCH,PROXIES
