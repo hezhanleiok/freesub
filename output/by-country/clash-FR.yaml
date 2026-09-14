@@ -6,29 +6,25 @@ log-level: info
 proxies:
 - name: 🇫🇷 法国 (France) 01 - wangyu
   type: vless
-  server: 51.38.82.1
+  server: 172.67.175.23
   port: 443
-  uuid: 9343f183-7a16-4bdd-9c65-b0c21feca40b
+  uuid: 50414e45-4c5f-5a45-5553-ef859652a80e
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: YRKpNLfduSsOl3l-CCUkhZDEjvcKytnuELqnWjLZI1M
-  servername: play.google.com
-  client-fingerprint: chrome
-- name: 🇫🇷 法国 (France) 02 - wangyu
-  type: vless
-  server: 45.144.28.39
-  port: 2096
-  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
-  udp: true
-  tls: false
-  skip-cert-verify: true
+  servername: trex-panel-nubj0s.samifakor.workers.dev
   network: ws
   ws-opts:
-    path: /
+    path: /stream/TrexBridge/ef859652a80e
     headers:
-      Host: 45.144.28.39
+      Host: trex-panel-nubj0s.samifakor.workers.dev
+- name: 🇫🇷 法国 (France) 02 - wangyu
+  type: ss
+  server: 51.83.192.80
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
+  udp: true
 - name: 🇫🇷 法国 (France) 03 - wangyu
   type: ss
   server: 51.83.192.80
@@ -38,39 +34,70 @@ proxies:
   udp: true
 - name: 🇫🇷 法国 (France) 04 - wangyu
   type: vless
-  server: 152.228.162.19
-  port: 80
-  uuid: 5ce84688-f535-46ad-a512-37b17becf6ea
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vless/
-    headers:
-      Host: akamaized.net
-- name: 🇫🇷 法国 (France) 05 - wangyu
-  type: ss
-  server: 51.83.192.80
-  port: 8388
-  cipher: aes-256-gcm
-  password: itzvpn@321
-  udp: true
-- name: 🇫🇷 法国 (France) 06 - wangyu
-  type: vless
-  server: 51.38.82.1
+  server: 172.67.193.182
   port: 443
-  uuid: 9343f183-7a16-4bdd-9c65-b0c21feca40b
+  uuid: 50414e45-4c5f-5a45-5553-ef859652a80e
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: YRKpNLfduSsOl3l-CCUkhZDEjvcKytnuELqnWjLZI1M
-  servername: play.google.com
-  client-fingerprint: firefox
+  servername: trex-panel-nubj0s.samifakor.workers.dev
+  network: ws
+  ws-opts:
+    path: /stream/TrexBridge/ef859652a80e
+    headers:
+      Host: trex-panel-nubj0s.samifakor.workers.dev
+- name: 🇫🇷 法国 (France) 05 - wangyu
+  type: vless
+  server: 172.67.152.98
+  port: 443
+  uuid: 5934b979-e128-4c90-a600-744b97bffc8c
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 5DKTCUajb2a1jxIX7csNrmEUCg.MAhRADeMAmi.wORkeRs.dEV
+  network: ws
+  ws-opts:
+    path: /vl/Fi3kP8cNjBoo8UPv
+    headers:
+      Host: 5dktcuajb2a1jxix7csnrmeucg.mahrademami.workers.dev
+- name: 🇫🇷 法国 (France) 06 - wangyu
+  type: ss
+  server: 20.111.9.76
+  port: 59380
+  cipher: chacha20-ietf-poly1305
+  password: DdhrBvEX2dHRjaakWHBZUa
+  udp: true
 - name: 🇫🇷 法国 (France) 07 - wangyu
   type: vless
-  server: 45.144.28.39
+  server: 158.180.231.216
+  port: 443
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: bab-6.site
+  network: ws
+  ws-opts:
+    path: /vws/
+    headers:
+      Host: bab-6.site
+- name: 🇫🇷 法国 (France) 08 - wangyu
+  type: vless
+  server: 88.216.69.144
+  port: 443
+  uuid: 50414e45-4c5f-5a45-5553-4d64f1370eeb
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: r5zenrelur2s.pqzdileiu8es.workers.dev
+  network: ws
+  ws-opts:
+    path: /stream/PANEL_ZEUS/4d64f1370eeb/loc-0
+    headers:
+      Host: r5zenrelur2s.pqzdileiu8es.workers.dev
+- name: 🇫🇷 法国 (France) 09 - wangyu
+  type: vless
+  server: usejh2.neobo-tooth.ru
   port: 2096
   uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
   udp: true
@@ -81,7 +108,31 @@ proxies:
     path: /
     headers:
       Host: usejh2.neobo-tooth.ru
-- name: 🇫🇷 法国 (France) 08 - wangyu
+- name: 🇫🇷 法国 (France) 10 - wangyu
+  type: vmess
+  server: 141.95.65.9
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
+- name: 🇫🇷 法国 (France) 11 - wangyu
+  type: vless
+  server: 104.21.70.21
+  port: 8080
+  uuid: 50414e45-4c5f-5a45-5553-ef859652a80e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /stream/TrexBridge/ef859652a80e
+    headers:
+      Host: trex-panel-nubj0s.samifakor.workers.dev
+- name: 🇫🇷 法国 (France) 12 - wangyu
   type: vmess
   server: 162.19.204.71
   port: 1234
@@ -92,65 +143,20 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: ''
-- name: 🇫🇷 法国 (France) 09 - wangyu
-  type: vless
-  server: gr068.techinyab.ir
-  port: 443
-  uuid: 9343f183-7a16-4bdd-9c65-b0c21feca40b
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: YRKpNLfduSsOl3l-CCUkhZDEjvcKytnuELqnWjLZI1M
-  servername: play.google.com
-  client-fingerprint: random
-- name: 🇫🇷 法国 (France) 10 - wangyu
-  type: vless
-  server: 149.202.58.99
-  port: 443
-  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: bab-6.site
-  network: ws
-  ws-opts:
-    path: /vws/
-    headers:
-      Host: 149.202.58.99
-- name: 🇫🇷 法国 (France) 11 - wangyu
-  type: vless
-  server: 149.202.58.99
-  port: 443
-  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: bab-6.site
-  network: ws
-  ws-opts:
-    path: /vws/
-    headers:
-      Host: 149.202.58.99
-- name: 🇫🇷 法国 (France) 12 - wangyu
-  type: vless
-  server: gr068.techinyab.ir
-  port: 443
-  uuid: 9343f183-7a16-4bdd-9c65-b0c21feca40b
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: YRKpNLfduSsOl3l-CCUkhZDEjvcKytnuELqnWjLZI1M
-  servername: play.google.com
-  client-fingerprint: firefox
 - name: 🇫🇷 法国 (France) 13 - wangyu
-  type: ss
-  server: 20.111.9.76
-  port: 59380
-  cipher: chacha20-ietf-poly1305
-  password: DdhrBvEX2dHRjaakWHBZUa
+  type: vless
+  server: 104.21.32.142
+  port: 443
+  uuid: 5934b979-e128-4c90-a600-744b97bffc8c
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 5DKTCUajb2a1jxIX7csNrmEUCg.MAhRADeMAmi.wORkeRs.dEV
+  network: ws
+  ws-opts:
+    path: /vl/Fi3kP8cNjBoo8UPv
+    headers:
+      Host: 5dktcuajb2a1jxix7csnrmeucg.mahrademami.workers.dev
 - name: 🇫🇷 法国 (France) 14 - wangyu
   type: vless
   server: 45.144.28.39
@@ -179,8 +185,49 @@ proxies:
     headers:
       Host: 149.202.58.99
 - name: 🇫🇷 法国 (France) 16 - wangyu
+  type: vless
+  server: 45.144.28.39
+  port: 2096
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: usejh2.neobo-tooth.ru
+- name: 🇫🇷 法国 (France) 17 - wangyu
+  type: vless
+  server: 149.202.58.99
+  port: 443
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: bab-6.site
+  network: ws
+  ws-opts:
+    path: /vws/
+    headers:
+      Host: 149.202.58.99
+- name: 🇫🇷 法国 (France) 18 - wangyu
+  type: vless
+  server: 149.202.58.99
+  port: 443
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: bab-6.site
+  network: ws
+  ws-opts:
+    path: /vws/
+    headers:
+      Host: 149.202.58.99
+- name: 🇫🇷 法国 (France) 19 - wangyu
   type: vmess
-  server: 141.95.65.9
+  server: 162.19.204.71
   port: 1234
   uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
   alterId: 0
@@ -189,11 +236,11 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: ''
-- name: 🇫🇷 法国 (France) 17 - wangyu
+- name: 🇫🇷 法国 (France) 20 - wangyu
   type: vless
-  server: 108.162.198.178
-  port: 80
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  server: 45.144.28.39
+  port: 2096
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
   udp: true
   tls: false
   skip-cert-verify: true
@@ -201,7 +248,77 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+      Host: usejh2.neobo-tooth.ru
+- name: 🇫🇷 法国 (France) 21 - wangyu
+  type: vless
+  server: 104.21.50.143
+  port: 443
+  uuid: 50414e45-4c5f-5a45-5553-5a26a30b00dc
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 4qzsz6e8u00s.tlzw8le6ubhs.workers.dev
+  network: ws
+  ws-opts:
+    path: /stream/PANEL_ZEUS/5a26a30b00dc
+    headers:
+      Host: 4qzsz6e8u00s.tlzw8le6ubhs.workers.dev
+- name: 🇫🇷 法国 (France) 22 - wangyu
+  type: vless
+  server: 104.21.70.21
+  port: 443
+  uuid: 5934b979-e128-4c90-a600-744b97bffc8c
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 5dktcuajb2a1jxix7csnrmeucg.mahrademami.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/Fi3kP8cNjBoo8UPv?ed=2560
+    headers:
+      Host: 5dktcuajb2a1jxix7csnrmeucg.mahrademami.workers.dev
+- name: 🇫🇷 法国 (France) 23 - wangyu
+  type: vless
+  server: 172.67.206.254
+  port: 443
+  uuid: 50414e45-4c5f-5a45-5553-5a26a30b00dc
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 4qzsz6e8u00s.tlzw8le6ubhs.workers.dev
+  network: ws
+  ws-opts:
+    path: /stream/PANEL_ZEUS/5a26a30b00dc
+    headers:
+      Host: 4qzsz6e8u00s.tlzw8le6ubhs.workers.dev
+- name: 🇫🇷 法国 (France) 24 - wangyu
+  type: vless
+  server: 104.16.174.164
+  port: 443
+  uuid: 73796e63-0000-4000-8000-000000000000
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: wireguard.ahmad-kh5716.workers.dev
+  network: ws
+  ws-opts:
+    path: /sync
+    headers:
+      Host: wireguard.ahmad-kh5716.workers.dev
+- name: 🇫🇷 法国 (France) 25 - wangyu
+  type: vless
+  server: 104.21.14.116
+  port: 443
+  uuid: 566c0473-382e-aabb-c62a-f5bb00000000
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ez-4b5fd4.appelidmymat.workers.dev
+  network: ws
+  ws-opts:
+    path: /sync
+    headers:
+      Host: ez-4b5fd4.appelidmymat.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
@@ -224,6 +341,14 @@ proxy-groups:
   - 🇫🇷 法国 (France) 15 - wangyu
   - 🇫🇷 法国 (France) 16 - wangyu
   - 🇫🇷 法国 (France) 17 - wangyu
+  - 🇫🇷 法国 (France) 18 - wangyu
+  - 🇫🇷 法国 (France) 19 - wangyu
+  - 🇫🇷 法国 (France) 20 - wangyu
+  - 🇫🇷 法国 (France) 21 - wangyu
+  - 🇫🇷 法国 (France) 22 - wangyu
+  - 🇫🇷 法国 (France) 23 - wangyu
+  - 🇫🇷 法国 (France) 24 - wangyu
+  - 🇫🇷 法国 (France) 25 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -246,5 +371,13 @@ proxy-groups:
   - 🇫🇷 法国 (France) 15 - wangyu
   - 🇫🇷 法国 (France) 16 - wangyu
   - 🇫🇷 法国 (France) 17 - wangyu
+  - 🇫🇷 法国 (France) 18 - wangyu
+  - 🇫🇷 法国 (France) 19 - wangyu
+  - 🇫🇷 法国 (France) 20 - wangyu
+  - 🇫🇷 法国 (France) 21 - wangyu
+  - 🇫🇷 法国 (France) 22 - wangyu
+  - 🇫🇷 法国 (France) 23 - wangyu
+  - 🇫🇷 法国 (France) 24 - wangyu
+  - 🇫🇷 法国 (France) 25 - wangyu
 rules:
 - MATCH,PROXIES
