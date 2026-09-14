@@ -7,6 +7,16 @@ proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
   type: vmess
   server: dog-hk.kunlun01dns.com
+  port: 21018
+  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
+  type: vmess
+  server: dog-hk.kunlun01dns.com
   port: 21020
   uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
   alterId: 0
@@ -20,11 +30,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

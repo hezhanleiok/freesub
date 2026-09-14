@@ -13,53 +13,19 @@ proxies:
   udp: true
 - name: 🇫🇷 法国 (France) 02 - wangyu
   type: vless
-  server: usejh2.neobo-tooth.ru
-  port: 2096
-  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  server: 81.95.4.189
+  port: 443
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: bab-6.site
   network: ws
   ws-opts:
-    path: /
+    path: /vws/
     headers:
-      Host: usejh2.neobo-tooth.ru
+      Host: bab-6.site
 - name: 🇫🇷 法国 (France) 03 - wangyu
-  type: vless
-  server: 35.181.254.51
-  port: 22222
-  uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇫🇷 法国 (France) 04 - wangyu
-  type: ss
-  server: 51.83.192.80
-  port: 8388
-  cipher: aes-256-gcm
-  password: itzvpn@321
-  udp: true
-- name: 🇫🇷 法国 (France) 05 - wangyu
-  type: ss
-  server: 79.137.207.190
-  port: 2
-  cipher: chacha20-ietf-poly1305
-  password: 9ri2bpxWs4FHXRjlhTFlQQ
-  udp: true
-- name: 🇫🇷 法国 (France) 06 - wangyu
-  type: vless
-  server: 45.144.28.39
-  port: 2096
-  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: usejh2.neobo-tooth.ru
-- name: 🇫🇷 法国 (France) 07 - wangyu
   type: vless
   server: 149.202.58.99
   port: 443
@@ -73,6 +39,52 @@ proxies:
     path: /vws/
     headers:
       Host: 149.202.58.99
+- name: 🇫🇷 法国 (France) 04 - wangyu
+  type: vless
+  server: 149.202.58.99
+  port: 443
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: bab-6.site
+  network: ws
+  ws-opts:
+    path: /vws/
+    headers:
+      Host: bab-6.site
+- name: 🇫🇷 法国 (France) 05 - wangyu
+  type: vmess
+  server: 162.19.204.71
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
+- name: 🇫🇷 法国 (France) 06 - wangyu
+  type: vless
+  server: 13.37.25.107
+  port: 22223
+  uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇫🇷 法国 (France) 07 - wangyu
+  type: vless
+  server: 45.144.28.39
+  port: 2096
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: usejh2.neobo-tooth.ru
 - name: 🇫🇷 法国 (France) 08 - wangyu
   type: vless
   server: 45.144.28.39
@@ -87,44 +99,71 @@ proxies:
     headers:
       Host: 45.144.28.39
 - name: 🇫🇷 法国 (France) 09 - wangyu
-  type: vmess
-  server: 162.19.204.71
-  port: 1234
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ''
-- name: 🇫🇷 法国 (France) 10 - wangyu
   type: vless
-  server: 149.202.58.99
-  port: 443
-  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: bab-6.site
-  network: ws
-  ws-opts:
-    path: /vws/
-    headers:
-      Host: bab-6.site
-- name: 🇫🇷 法国 (France) 11 - wangyu
-  type: vless
-  server: 152.228.162.19
-  port: 80
-  uuid: 25f86cb1-2140-4085-abcb-c3a0ea7a4be0
+  server: 45.144.28.39
+  port: 2096
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /vless/
+    path: /
     headers:
-      Host: 152.228.162.19
+      Host: 45.144.28.39
+- name: 🇫🇷 法国 (France) 10 - wangyu
+  type: vless
+  server: 45.144.28.39
+  port: 2096
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 45.144.28.39
+- name: 🇫🇷 法国 (France) 11 - wangyu
+  type: ss
+  server: 79.137.207.190
+  port: 2
+  cipher: chacha20-ietf-poly1305
+  password: 9ri2bpxWs4FHXRjlhTFlQQ
+  udp: true
 - name: 🇫🇷 法国 (France) 12 - wangyu
+  type: vless
+  server: 51.77.217.70
+  port: 2053
+  uuid: bf16ee0c-8b3c-41e4-ab3a-8b48033c404e
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: g63cT3uI0Y5iUtj3m__RYz7nmR1eIK4AYikdnZCl63w
+  servername: www.apple.com
+  client-fingerprint: chrome
+- name: 🇫🇷 法国 (France) 13 - wangyu
+  type: ss
+  server: 51.83.192.80
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
+  udp: true
+- name: 🇫🇷 法国 (France) 14 - wangyu
+  type: vless
+  server: usejh2.neobo-tooth.ru
+  port: 2096
+  uuid: 70e20b2e-3b1f-4c25-9a3d-9240570391bb
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: usejh2.neobo-tooth.ru
+- name: 🇫🇷 法国 (France) 15 - wangyu
   type: vless
   server: 149.202.58.99
   port: 443
@@ -138,6 +177,17 @@ proxies:
     path: /vws/
     headers:
       Host: 149.202.58.99
+- name: 🇫🇷 法国 (France) 16 - wangyu
+  type: vmess
+  server: 141.95.65.9
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
 proxy-groups:
 - name: PROXIES
   type: select
@@ -155,6 +205,10 @@ proxy-groups:
   - 🇫🇷 法国 (France) 10 - wangyu
   - 🇫🇷 法国 (France) 11 - wangyu
   - 🇫🇷 法国 (France) 12 - wangyu
+  - 🇫🇷 法国 (France) 13 - wangyu
+  - 🇫🇷 法国 (France) 14 - wangyu
+  - 🇫🇷 法国 (France) 15 - wangyu
+  - 🇫🇷 法国 (France) 16 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -172,5 +226,9 @@ proxy-groups:
   - 🇫🇷 法国 (France) 10 - wangyu
   - 🇫🇷 法国 (France) 11 - wangyu
   - 🇫🇷 法国 (France) 12 - wangyu
+  - 🇫🇷 法国 (France) 13 - wangyu
+  - 🇫🇷 法国 (France) 14 - wangyu
+  - 🇫🇷 法国 (France) 15 - wangyu
+  - 🇫🇷 法国 (France) 16 - wangyu
 rules:
 - MATCH,PROXIES
