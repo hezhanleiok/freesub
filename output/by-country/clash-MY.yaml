@@ -30,6 +30,19 @@ proxies:
     path: /db55c40bbc75
     headers:
       Host: 38.60.168.98
+- name: 🇲🇾 MY 03 - wangyu
+  type: vless
+  server: 38.60.168.98
+  port: 2087
+  uuid: 8a346b7c-5b95-4845-affa-0e5d9929e9ae
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /db55c40bbc75
+    headers:
+      Host: 38.60.168.98
 proxy-groups:
 - name: PROXIES
   type: select
@@ -37,6 +50,7 @@ proxy-groups:
   - AUTO
   - 🇲🇾 MY 01 - wangyu
   - 🇲🇾 MY 02 - wangyu
+  - 🇲🇾 MY 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -44,5 +58,6 @@ proxy-groups:
   proxies:
   - 🇲🇾 MY 01 - wangyu
   - 🇲🇾 MY 02 - wangyu
+  - 🇲🇾 MY 03 - wangyu
 rules:
 - MATCH,PROXIES
