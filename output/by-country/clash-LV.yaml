@@ -4,29 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  server: 143.246.193.215
+- name: 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
+  server: 195.123.213.28
   port: 443
   udp: true
   type: vless
-  uuid: 77da6e30-ad4e-11f1-94d5-525400d1d4f7
+  uuid: 02fcc1a4-ee90-4970-8bbb-4ffaa8109d24
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: wSjV1yR_rhDUdoNbM9zIXNGLASLp9RorComnyoayo2c
-  servername: www.blocket.se
+    public-key: NMgy1XgCSXExOg6Tg8xG9lCWttMF6sjdpB41lZy6FWo
+    short-id: 5c256336e3b673fa
+  servername: www.cloudflare.com
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
+  - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
+  - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
 rules:
 - MATCH,PROXIES
