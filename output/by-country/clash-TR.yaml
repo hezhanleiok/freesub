@@ -5,36 +5,18 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
-  server: 144.225.65.173
-  port: 29199
-  udp: true
-  type: vmess
-  uuid: de2afab2-344b-413f-93a9-5e62c8e219d5
-  alterId: 0
-  cipher: auto
-  network: grpc
-  grpc-opts:
-    grpc-service-name: ''
-- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  server: 144.225.65.173
+  server: 107.161.174.26
   port: 443
   udp: true
   type: vless
-  uuid: 35f8b8f4-b64d-4807-85f2-cc9a88d2ab8d
-- name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
-  server: 156.67.63.231
-  port: 443
-  udp: true
-  type: vless
-  uuid: b052df40-d51c-456c-9bd6-57af01a87e4e
+  uuid: 069ba4cf-e8af-4561-b11e-18bd07b0dbd3
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: PTqeBbbr2xJ1L3V1PyYjKjxanMKKqJHU-wtnpYmFQCI
-    short-id: 5606d4a25c99e7af
-  servername: sync-bridge.org
-  client-fingerprint: chrome
-- name: 🇹🇷 土耳其 (Turkey) 04 - xiaohe
+    public-key: N8tPKh6gTyc6L5GOmBn_3wIy707a-5QYB0FrF2HigUc
+  servername: books.blackbigdog.com
+  client-fingerprint: firefox
+- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
   server: 13.143.137.164
   port: 9443
   udp: true
@@ -54,8 +36,6 @@ proxy-groups:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -63,7 +43,5 @@ proxy-groups:
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 04 - xiaohe
 rules:
 - MATCH,PROXIES
