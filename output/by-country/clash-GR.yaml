@@ -16,7 +16,7 @@ proxies:
     public-key: mM33xyzf1GPaU2CQXAGYoGkTuYzEZRYT6S-NngyqfHQ
     short-id: beb4
   servername: deepl.com
-  client-fingerprint: chrome
+  client-fingerprint: edge
 - name: 🇬🇷 希腊 (Greece) 02 - xiaohe
   server: 185.126.238.87
   port: 2083
@@ -26,17 +26,6 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: security.debian.org
-- name: 🇬🇷 希腊 (Greece) 03 - xiaohe
-  server: 91.186.216.100
-  port: 7005
-  udp: true
-  type: vless
-  uuid: ac64aec6-85ee-4fc7-b34b-60a7bcf236ec
-  tls: true
-  reality-opts:
-    public-key: 7aICTN0hv6bhd8bYOjNZniDYSXgD20LunZ3BW6_Zyk4
-  servername: play.googleapis.com
-  client-fingerprint: ios
 proxy-groups:
 - name: PROXIES
   type: select
@@ -44,7 +33,6 @@ proxy-groups:
   - AUTO
   - 🇬🇷 希腊 (Greece) 01 - xiaohe
   - 🇬🇷 希腊 (Greece) 02 - xiaohe
-  - 🇬🇷 希腊 (Greece) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -52,6 +40,5 @@ proxy-groups:
   proxies:
   - 🇬🇷 希腊 (Greece) 01 - xiaohe
   - 🇬🇷 希腊 (Greece) 02 - xiaohe
-  - 🇬🇷 希腊 (Greece) 03 - xiaohe
 rules:
 - MATCH,PROXIES
