@@ -11,35 +11,11 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
   udp: true
-- name: 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
-  type: vmess
-  server: dog-hk.kunlun01dns.com
-  port: 21018
-  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 03 (家宽) - wangyu
+- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
   type: vless
-  server: 104.18.38.47
-  port: 2087
-  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: fx3l5i2wdfxln0.fx6hsv0.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: fx3l5i2wdfxln0.fx6hsv0.ccwu.cc
-- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
-  type: vless
-  server: 59.125.69.19
+  server: 60.248.219.78
   port: 443
-  uuid: f1d247db-d7ce-4eb8-9c0d-7b10603cd0b4
+  uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
   udp: true
   tls: true
   skip-cert-verify: true
@@ -49,19 +25,9 @@ proxies:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
       Host: ty986gfazs.cainiaohub.xyz
-- name: 🇭🇰 中国香港 (Hong Kong) 05 (家宽) - wangyu
-  type: vmess
-  server: dog-hk.kunlun01dns.com
-  port: 21020
-  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 06 (家宽) - wangyu
+- name: 🇰🇷 韩国 (South Korea) 03 (家宽) - wangyu
   type: vless
-  server: 172.64.144.66
+  server: 172.64.52.230
   port: 2087
   uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
   udp: true
@@ -73,7 +39,7 @@ proxies:
     path: /?ed=2560
     headers:
       Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
-- name: 🇰🇷 韩国 (South Korea) 07 (家宽) - wangyu
+- name: 🇰🇷 韩国 (South Korea) 04 (家宽) - wangyu
   type: vless
   server: 172.67.217.240
   port: 443
@@ -87,43 +53,38 @@ proxies:
     path: /?ed=2560
     headers:
       Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
-- name: 🇹🇼 中国台湾 (Taiwan) 08 (家宽) - wangyu
+- name: 🇹🇷 土耳其 (Turkey) 05 (家宽) - wangyu
   type: vless
-  server: hinet1.2yly.com
-  port: 24215
-  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
+  server: 188.114.97.6
+  port: 8080
+  uuid: a22bff60-a40a-4250-bde2-4c660e363b47
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  reality-opts:
-    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /axch1mttbxz2k55y01
+    headers:
+      Host: index.harmonica01.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
   - 🇰🇷 韩国 (South Korea) 03 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 05 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 06 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 07 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 08 (家宽) - wangyu
+  - 🇰🇷 韩国 (South Korea) 04 (家宽) - wangyu
+  - 🇹🇷 土耳其 (Turkey) 05 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
   - 🇰🇷 韩国 (South Korea) 03 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 05 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 06 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 07 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 08 (家宽) - wangyu
+  - 🇰🇷 韩国 (South Korea) 04 (家宽) - wangyu
+  - 🇹🇷 土耳其 (Turkey) 05 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

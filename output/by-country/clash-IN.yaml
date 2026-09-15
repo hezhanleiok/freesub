@@ -17,13 +17,6 @@ proxies:
   servername: www.apple.com
   client-fingerprint: random
 - name: 🇮🇳 印度 (India) 02 - wangyu
-  type: ss
-  server: 172.105.39.124
-  port: 7002
-  cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
-  udp: true
-- name: 🇮🇳 印度 (India) 03 - wangyu
   type: vmess
   server: 152.67.8.205
   port: 80
@@ -38,6 +31,20 @@ proxies:
     path: /
     headers:
       Host: ''
+- name: 🇮🇳 印度 (India) 03 - wangyu
+  type: vless
+  server: 172.67.208.1
+  port: 443
+  uuid: 1443b7a1-7ba9-4ec9-b904-2e867367b5d7
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: odd-violet-5440.asdgrweeee13.workers.dev
+  network: ws
+  ws-opts:
+    path: /sync
+    headers:
+      Host: odd-violet-5440.asdgrweeee13.workers.dev
 - name: 🇮🇳 印度 (India) 04 - wangyu
   type: vless
   server: 194.61.31.126
@@ -50,21 +57,6 @@ proxies:
     public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
   servername: www.apple.com
   client-fingerprint: firefox
-- name: 🇮🇳 印度 (India) 05 - wangyu
-  type: vmess
-  server: 152.67.8.205
-  port: 80
-  uuid: 9db4c708-aef8-4359-821b-38e47990be0d
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
 proxy-groups:
 - name: PROXIES
   type: select
@@ -74,7 +66,6 @@ proxy-groups:
   - 🇮🇳 印度 (India) 02 - wangyu
   - 🇮🇳 印度 (India) 03 - wangyu
   - 🇮🇳 印度 (India) 04 - wangyu
-  - 🇮🇳 印度 (India) 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -84,6 +75,5 @@ proxy-groups:
   - 🇮🇳 印度 (India) 02 - wangyu
   - 🇮🇳 印度 (India) 03 - wangyu
   - 🇮🇳 印度 (India) 04 - wangyu
-  - 🇮🇳 印度 (India) 05 - wangyu
 rules:
 - MATCH,PROXIES
