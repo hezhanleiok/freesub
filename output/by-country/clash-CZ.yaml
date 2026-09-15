@@ -4,31 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇮🇱 IL 01 - wangyu
+- name: 🇨🇿 CZ 01 - wangyu
   type: vless
-  server: 104.24.3.153
+  server: cz1.zuoai.cf
   port: 443
-  uuid: 887f0c24-8b2e-40ce-8df5-27b4cb06ce81
+  uuid: b09dfed1-90fa-4353-8bdf-de1edb2e2d79
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: usER-svc-Ca3845-EdG.PlAtfOrm-37528A.woRkErs.Dev
+  servername: nb.lovecf.ggff.net
   network: ws
   ws-opts:
-    path: /?proxyip=185.239.48.237&ed=2560
+    path: /proxyip=us.xiabibi.cf
     headers:
-      Host: usER-Svc-ca3845-Edg.PlAtforM-37528a.WoRkERS.deV
+      Host: nb.lovecf.ggff.net
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇮🇱 IL 01 - wangyu
+  - 🇨🇿 CZ 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇮🇱 IL 01 - wangyu
+  - 🇨🇿 CZ 01 - wangyu
 rules:
 - MATCH,PROXIES
