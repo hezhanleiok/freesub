@@ -1,0 +1,33 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇲🇩 摩尔多瓦 (Moldova) 01 - xiaohe
+  server: 131.123.25.4
+  port: 443
+  udp: true
+  type: vless
+  uuid: 4360f941-b541-43d4-8507-2de3763e0cfd
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: 8ZYjmjb0b2QJKCGMrcdhQNV28jZZPCKgIQbIdqChQ0w
+    short-id: 00a61d55a07de885
+  servername: fr.convert-flow.net
+  client-fingerprint: random
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇲🇩 摩尔多瓦 (Moldova) 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇲🇩 摩尔多瓦 (Moldova) 01 - xiaohe
+rules:
+- MATCH,PROXIES

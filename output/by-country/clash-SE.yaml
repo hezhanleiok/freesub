@@ -5,37 +5,30 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  server: 143.246.193.215
-  port: 443
+  server: 79.141.174.147
+  port: 33743
   udp: true
   type: vless
-  uuid: 77da6e30-ad4e-11f1-94d5-525400d1d4f7
-  flow: xtls-rprx-vision
+  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
   tls: true
   reality-opts:
-    public-key: wSjV1yR_rhDUdoNbM9zIXNGLASLp9RorComnyoayo2c
-  servername: www.blocket.se
-  client-fingerprint: chrome
-- name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
-  server: 70.34.212.124
-  port: 8388
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: AxIYWtskJWIIaefW
+    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
+  servername: www.google.com
+  client-fingerprint: firefox
+  network: grpc
+  grpc-opts:
+    grpc-service-name: TunService
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
 rules:
 - MATCH,PROXIES
