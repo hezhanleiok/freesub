@@ -5,6 +5,14 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇵🇱 PL 01 - wangyu
+  type: vless
+  server: 64.176.64.194
+  port: 25585
+  uuid: 6eebb521-1844-4c3c-bf54-fb0e19870f80
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇵🇱 PL 02 - wangyu
   type: ss
   server: 194.61.121.93
   port: 7538
@@ -17,11 +25,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇵🇱 PL 01 - wangyu
+  - 🇵🇱 PL 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇵🇱 PL 01 - wangyu
+  - 🇵🇱 PL 02 - wangyu
 rules:
 - MATCH,PROXIES

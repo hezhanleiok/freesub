@@ -1,0 +1,51 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇹🇷 土耳其 (Turkey) 01 - wangyu
+  type: vmess
+  server: 144.225.65.173
+  port: 29199
+  uuid: de2afab2-344b-413f-93a9-5e62c8e219d5
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇹🇷 土耳其 (Turkey) 02 - wangyu
+  type: vless
+  server: 144.225.65.173
+  port: 443
+  uuid: 35f8b8f4-b64d-4807-85f2-cc9a88d2ab8d
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇹🇷 土耳其 (Turkey) 03 - wangyu
+  type: vless
+  server: turkyea.vanguardia.ir
+  port: 33138
+  uuid: 960e6852-9d2b-48bb-b1cf-5cb27ec27473
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: turkyea.vanguardia.ir
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇹🇷 土耳其 (Turkey) 01 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 02 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 03 - wangyu
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇹🇷 土耳其 (Turkey) 01 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 02 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 03 - wangyu
+rules:
+- MATCH,PROXIES
