@@ -4,30 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇺🇿 UZ 01 - xiaohe
+- name: 🇮🇱 IL 01 - xiaohe
   type: vless
-  server: 189.74.97.43
-  port: 2087
-  uuid: 10f7eb2d-d96d-4778-9d36-aff11e9d6629
+  server: 104.24.3.153
+  port: 443
+  uuid: 887f0c24-8b2e-40ce-8df5-27b4cb06ce81
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: usER-svc-Ca3845-EdG.PlAtfOrm-37528A.woRkErs.Dev
   network: ws
   ws-opts:
-    path: /73b6faea2d00
+    path: /?proxyip=185.239.48.237&ed=2560
     headers:
-      Host: 189.74.97.43
+      Host: usER-Svc-ca3845-Edg.PlAtforM-37528a.WoRkERS.deV
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇺🇿 UZ 01 - xiaohe
+  - 🇮🇱 IL 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇺🇿 UZ 01 - xiaohe
+  - 🇮🇱 IL 01 - xiaohe
 rules:
 - MATCH,PROXIES
