@@ -6,53 +6,79 @@ log-level: info
 proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
   type: vmess
-  server: 47.242.79.198
-  port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
+  server: 156.245.232.239
+  port: 35043
+  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
   alterId: 0
   cipher: auto
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: ejOMsxPtP19APyGL.v.3dns.vip
   network: ws
   ws-opts:
-    path: /ws-vmess
+    path: ''
     headers:
-      Host: ejOMsxPtP19APyGL.v.3dns.vip
+      Host: ''
 - name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
   type: vmess
-  server: 8.218.184.4
+  server: 47.83.19.148
   port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
+  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
   alterId: 0
   cipher: auto
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: NYcQg19zkwaCPM1B.v.3dns.vip
+  servername: 6JDvArazgU3qQR6Q.v.3dns.vip
   network: ws
   ws-opts:
     path: /ws-vmess
     headers:
-      Host: NYcQg19zkwaCPM1B.v.3dns.vip
+      Host: 6JDvArazgU3qQR6Q.v.3dns.vip
 - name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
   type: vmess
-  server: 47.86.107.119
-  port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
+  server: 156.245.232.239
+  port: 35043
+  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
   alterId: 0
   cipher: auto
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: lcv8v9l7OyamxxfZ.v.3dns.vip
   network: ws
   ws-opts:
-    path: /ws-vmess
+    path: ''
     headers:
-      Host: lcv8v9l7OyamxxfZ.v.3dns.vip
+      Host: ''
 - name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
+  type: vless
+  server: 45.202.247.198
+  port: 443
+  uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: kkkk-8oc.pages.dev
+  network: ws
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: kkkk-8oc.pages.dev
+- name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
+  type: vless
+  server: www.wto.org
+  port: 443
+  uuid: 65c56e1f-5c41-40bc-b0b5-9346772476ca
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: hk.152568.xyz
+  network: ws
+  ws-opts:
+    path: /cdn/packages/runtime-core.tar.gz
+    headers:
+      Host: hk.152568.xyz
+- name: 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
   type: vmess
   server: 156.245.232.239
   port: 35043
@@ -67,54 +93,6 @@ proxies:
     path: /
     headers:
       Host: ''
-- name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
-  type: vmess
-  server: qtkdr8jxe3wefxjm.v.3dns.vip
-  port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: qTKDR8jXE3wEFxJM.v.3dns.vip
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: qTKDR8jXE3wEFxJM.v.3dns.vip
-- name: 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
-  type: vmess
-  server: www.shopify.com
-  port: 443
-  uuid: 3aa71202-a099-49c1-99fc-6662f3335369
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: yoga-suggesting-recording-calls.trycloudflare.com
-  network: ws
-  ws-opts:
-    path: /3aa71202-a099-49c1-99fc-6662f3335369-vm
-    headers:
-      Host: yoga-suggesting-recording-calls.trycloudflare.com
-- name: 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
-  type: vmess
-  server: 93ucrn4i0pffuabk.v.3dns.vip
-  port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ''
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: ''
 proxy-groups:
 - name: PROXIES
   type: select
@@ -126,7 +104,6 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -138,6 +115,5 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
 rules:
 - MATCH,PROXIES

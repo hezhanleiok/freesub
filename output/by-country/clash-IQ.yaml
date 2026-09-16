@@ -4,31 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇨🇿 CZ 01 - wangyu
+- name: 🇮🇶 IQ 01 - wangyu
   type: vless
-  server: cz1.zuoai.cf
+  server: 172.66.44.124
   port: 443
-  uuid: b09dfed1-90fa-4353-8bdf-de1edb2e2d79
+  uuid: b2f2f9f2-1864-48ea-839b-22815faff1f1
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: nb.lovecf.ggff.net
+  servername: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
   network: ws
   ws-opts:
-    path: /proxyip=us.xiabibi.cf
+    path: /pRXE5ot0RZaQSr7B
     headers:
-      Host: nb.lovecf.ggff.net
+      Host: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇨🇿 CZ 01 - wangyu
+  - 🇮🇶 IQ 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇨🇿 CZ 01 - wangyu
+  - 🇮🇶 IQ 01 - wangyu
 rules:
 - MATCH,PROXIES
