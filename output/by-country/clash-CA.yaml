@@ -6,49 +6,12 @@ log-level: info
 proxies:
 - name: 🇨🇦 加拿大 (Canada) 01 - wangyu
   type: ss
-  server: 51.222.12.127
-  port: 445
+  server: 51.222.200.165
+  port: 5000
   cipher: aes-256-gcm
-  password: zDNVedRFPQexG9v
+  password: Y6R9pAtvxxzmGC
   udp: true
 - name: 🇨🇦 加拿大 (Canada) 02 - wangyu
-  type: vless
-  server: 104.24.0.184
-  port: 443
-  uuid: 44eae030-290b-4083-8102-6f8bab05701b
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: cfvvv-ev1.pages.dev
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: cfvvv-ev1.pages.dev
-- name: 🇨🇦 加拿大 (Canada) 03 - wangyu
-  type: vless
-  server: 104.21.70.21
-  port: 443
-  uuid: efe19c5a-0ea1-4666-8a4c-4a33f4670775
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: bodyshine.help
-  network: ws
-  ws-opts:
-    path: /raccoonwsvless
-    headers:
-      Host: bodyshine.help
-- name: 🇨🇦 加拿大 (Canada) 04 - wangyu
-  type: vless
-  server: 184.107.106.68
-  port: 443
-  uuid: 716426fa-bcb7-4eb9-b460-36399ebf740d
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: lizca2.footballfantasyforum.com
-- name: 🇨🇦 加拿大 (Canada) 05 - wangyu
   type: vless
   server: 66.70.179.198
   port: 2053
@@ -60,6 +23,27 @@ proxies:
     public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
   servername: www.cloudflare.com
   client-fingerprint: chrome
+- name: 🇨🇦 加拿大 (Canada) 03 - wangyu
+  type: ss
+  server: 149.22.95.183
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: 🇨🇦 加拿大 (Canada) 04 - wangyu
+  type: ss
+  server: 149.22.95.183
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: 🇨🇦 加拿大 (Canada) 05 - wangyu
+  type: ss
+  server: 51.222.200.165
+  port: 5000
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
+  udp: true
 - name: 🇨🇦 加拿大 (Canada) 06 - wangyu
   type: vmess
   server: 23.162.200.198
@@ -79,40 +63,33 @@ proxies:
   udp: true
 - name: 🇨🇦 加拿大 (Canada) 08 - wangyu
   type: vless
-  server: 104.24.0.184
-  port: 443
-  uuid: 44eae030-290b-4083-8102-6f8bab05701b
+  server: 66.70.179.198
+  port: 2053
+  uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: cfvvv-ev1.pages.dev
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: cfvvv-ev1.pages.dev
+  reality-opts:
+    public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
+  servername: www.cloudflare.com
+  client-fingerprint: random
 - name: 🇨🇦 加拿大 (Canada) 09 - wangyu
-  type: vless
-  server: 188.114.97.6
-  port: 2082
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  type: ss
+  server: 51.222.155.32
+  port: 5003
+  cipher: aes-256-gcm
+  password: g5MeD6Ft3CWlJId
+  udp: true
+- name: 🇨🇦 加拿大 (Canada) 10 - wangyu
+  type: vmess
+  server: 134.195.196.211
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
   udp: true
   tls: false
   skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
-- name: 🇨🇦 加拿大 (Canada) 10 - wangyu
-  type: vless
-  server: 184.107.106.68
-  port: 443
-  uuid: 716426fa-bcb7-4eb9-b460-36399ebf740d
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: lizca2.footballfantasyforum.com
 - name: 🇨🇦 加拿大 (Canada) 11 - wangyu
   type: vless
   server: 66.70.179.198
@@ -124,14 +101,16 @@ proxies:
   reality-opts:
     public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
   servername: www.cloudflare.com
-  client-fingerprint: random
+  client-fingerprint: chrome
 - name: 🇨🇦 加拿大 (Canada) 12 - wangyu
-  type: ss
-  server: 51.222.200.165
-  port: 5000
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
+  type: vless
+  server: 184.107.106.68
+  port: 443
+  uuid: 716426fa-bcb7-4eb9-b460-36399ebf740d
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: lizca2.footballfantasyforum.com
 - name: 🇨🇦 加拿大 (Canada) 13 - wangyu
   type: vmess
   server: 134.195.196.211
@@ -143,68 +122,14 @@ proxies:
   tls: false
   skip-cert-verify: true
 - name: 🇨🇦 加拿大 (Canada) 14 - wangyu
-  type: ss
-  server: 149.22.95.183
+  type: vless
+  server: 184.107.106.68
   port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
+  uuid: 716426fa-bcb7-4eb9-b460-36399ebf740d
   udp: true
-- name: 🇨🇦 加拿大 (Canada) 15 - wangyu
-  type: vmess
-  server: 134.195.196.211
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
-- name: 🇨🇦 加拿大 (Canada) 16 - wangyu
-  type: vmess
-  server: 23.162.200.198
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇨🇦 加拿大 (Canada) 17 - wangyu
-  type: vmess
-  server: 134.195.196.211
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇨🇦 加拿大 (Canada) 18 - wangyu
-  type: vless
-  server: 188.114.97.6
-  port: 2052
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
-- name: 🇨🇦 加拿大 (Canada) 19 - wangyu
-  type: vless
-  server: 188.114.97.6
-  port: 2082
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+  servername: lizca2.footballfantasyforum.com
 proxy-groups:
 - name: PROXIES
   type: select
@@ -224,11 +149,6 @@ proxy-groups:
   - 🇨🇦 加拿大 (Canada) 12 - wangyu
   - 🇨🇦 加拿大 (Canada) 13 - wangyu
   - 🇨🇦 加拿大 (Canada) 14 - wangyu
-  - 🇨🇦 加拿大 (Canada) 15 - wangyu
-  - 🇨🇦 加拿大 (Canada) 16 - wangyu
-  - 🇨🇦 加拿大 (Canada) 17 - wangyu
-  - 🇨🇦 加拿大 (Canada) 18 - wangyu
-  - 🇨🇦 加拿大 (Canada) 19 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -248,10 +168,5 @@ proxy-groups:
   - 🇨🇦 加拿大 (Canada) 12 - wangyu
   - 🇨🇦 加拿大 (Canada) 13 - wangyu
   - 🇨🇦 加拿大 (Canada) 14 - wangyu
-  - 🇨🇦 加拿大 (Canada) 15 - wangyu
-  - 🇨🇦 加拿大 (Canada) 16 - wangyu
-  - 🇨🇦 加拿大 (Canada) 17 - wangyu
-  - 🇨🇦 加拿大 (Canada) 18 - wangyu
-  - 🇨🇦 加拿大 (Canada) 19 - wangyu
 rules:
 - MATCH,PROXIES

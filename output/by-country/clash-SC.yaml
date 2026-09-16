@@ -4,10 +4,10 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇨🇿 CZ 01 - wangyu
+- name: 🇸🇨 SC 01 - wangyu
   type: vless
-  server: 162.159.0.169
-  port: 8880
+  server: 162.159.45.19
+  port: 2082
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
   tls: false
@@ -17,9 +17,9 @@ proxies:
     path: /?ed=2560security=tls
     headers:
       Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇨🇿 CZ 02 - wangyu
+- name: 🇸🇨 SC 02 - wangyu
   type: vless
-  server: 104.18.39.218
+  server: 104.18.34.14
   port: 2095
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
@@ -27,7 +27,7 @@ proxies:
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /?ed=2560security=tls
+    path: /
     headers:
       Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 proxy-groups:
@@ -35,14 +35,14 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇨🇿 CZ 01 - wangyu
-  - 🇨🇿 CZ 02 - wangyu
+  - 🇸🇨 SC 01 - wangyu
+  - 🇸🇨 SC 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇨🇿 CZ 01 - wangyu
-  - 🇨🇿 CZ 02 - wangyu
+  - 🇸🇨 SC 01 - wangyu
+  - 🇸🇨 SC 02 - wangyu
 rules:
 - MATCH,PROXIES
