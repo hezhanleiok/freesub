@@ -6,20 +6,6 @@ log-level: info
 proxies:
 - name: 🇱🇻 LV 01 - wangyu
   type: vless
-  server: 172.67.67.178
-  port: 443
-  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: rAyAn-007.nAsTaRaN.DpDnS.OrG
-- name: 🇱🇻 LV 02 - wangyu
-  type: vless
   server: atomic-prase23893.my-vm.work
   port: 8088
   uuid: tmp_user
@@ -37,13 +23,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇱🇻 LV 01 - wangyu
-  - 🇱🇻 LV 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇱🇻 LV 01 - wangyu
-  - 🇱🇻 LV 02 - wangyu
 rules:
 - MATCH,PROXIES

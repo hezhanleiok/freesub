@@ -5,29 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - wangyu
-  type: ss
-  server: 65.109.215.118
-  port: 1080
-  cipher: chacha20-ietf-poly1305
-  password: rSeYcig_XBy8q3k33NpK3A
-  udp: true
-- name: 🇫🇮 FI 02 - wangyu
-  type: vmess
-  server: 91.217.76.237
-  port: 443
-  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: renderer-stream-2-62.mirra.now
-  network: ws
-  ws-opts:
-    path: /api/v1/gpu-stream/socket
-    headers:
-      Host: renderer-stream-2-62.mirra.now
-- name: 🇫🇮 FI 03 - wangyu
   type: vless
   server: 151.101.56.6
   port: 443
@@ -38,10 +15,10 @@ proxies:
   servername: ssl.fastly.com
   network: ws
   ws-opts:
-    path: //---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI
+    path: /
     headers:
       Host: c12.com
-- name: 🇫🇮 FI 04 - wangyu
+- name: 🇫🇮 FI 02 - wangyu
   type: vless
   server: k2.cloud--vpn.site
   port: 443
@@ -55,7 +32,14 @@ proxies:
     path: /
     headers:
       Host: c12.com
-- name: 🇫🇮 FI 05 - wangyu
+- name: 🇫🇮 FI 03 - wangyu
+  type: ss
+  server: 65.109.215.118
+  port: 1080
+  cipher: chacha20-ietf-poly1305
+  password: rSeYcig_XBy8q3k33NpK3A
+  udp: true
+- name: 🇫🇮 FI 04 - wangyu
   type: vless
   server: 151.101.56.6
   port: 443
@@ -66,23 +50,21 @@ proxies:
   servername: ssl.fastly.com
   network: ws
   ws-opts:
-    path: /
+    path: //---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI
     headers:
       Host: c12.com
-- name: 🇫🇮 FI 06 - wangyu
+- name: 🇫🇮 FI 05 - wangyu
   type: vless
-  server: 151.101.56.6
-  port: 443
-  uuid: d7282b41-1f2a-47bb-8593-f464fd6b6d78
+  server: 185.79.138.71
+  port: 448
+  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: global.fastly.com
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: kayko.global.ssl.fastly.net
+  reality-opts:
+    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
+  servername: www.samsung.com
+  client-fingerprint: qq
 proxy-groups:
 - name: PROXIES
   type: select
@@ -93,7 +75,6 @@ proxy-groups:
   - 🇫🇮 FI 03 - wangyu
   - 🇫🇮 FI 04 - wangyu
   - 🇫🇮 FI 05 - wangyu
-  - 🇫🇮 FI 06 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -104,6 +85,5 @@ proxy-groups:
   - 🇫🇮 FI 03 - wangyu
   - 🇫🇮 FI 04 - wangyu
   - 🇫🇮 FI 05 - wangyu
-  - 🇫🇮 FI 06 - wangyu
 rules:
 - MATCH,PROXIES

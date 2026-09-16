@@ -5,69 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇵🇱 PL 01 - wangyu
-  type: ss
-  server: 194.61.121.93
-  port: 7538
-  cipher: chacha20-ietf-poly1305
-  password: U9YAoqBgg5VyGBc6vQv1sN
-  udp: true
-- name: 🇵🇱 PL 02 - wangyu
-  type: vless
-  server: 104.25.146.77
-  port: 443
-  uuid: e6cc4788-3c45-4df1-94f3-8303504a65bf
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: khoda.ak-khoda.workers.dev
-  network: ws
-  ws-opts:
-    path: /sync
-    headers:
-      Host: khoda.ak-khoda.workers.dev
-- name: 🇵🇱 PL 03 - wangyu
-  type: vless
-  server: 104.17.247.68
-  port: 443
-  uuid: e6cc4788-3c45-4df1-94f3-8303504a65bf
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: khoda.ak-khoda.workers.dev
-  network: ws
-  ws-opts:
-    path: /sync
-    headers:
-      Host: khoda.ak-khoda.workers.dev
-- name: 🇵🇱 PL 04 - wangyu
-  type: vless
-  server: 103.167.234.26
-  port: 443
-  uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: kkkk-8oc.pages.dev
-  network: ws
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: kkkk-8oc.pages.dev
-- name: 🇵🇱 PL 05 - wangyu
-  type: vless
-  server: 104.24.31.89
-  port: 443
-  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: rayan-007.nastaran.dpdns.org
-- name: 🇵🇱 PL 06 - wangyu
   type: vless
   server: 94.183.157.174
   port: 8090
@@ -81,9 +18,58 @@ proxies:
     path: /ws
     headers:
       Host: askuhgfdsg.space.coupons
-- name: 🇵🇱 PL 07 - wangyu
+- name: 🇵🇱 PL 02 - wangyu
   type: vless
   server: 94.183.157.223
+  port: 8090
+  uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: askuhgfdsg.space.coupons
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: askuhgfdsg.space.coupons
+- name: 🇵🇱 PL 03 - wangyu
+  type: ss
+  server: 194.61.121.93
+  port: 7538
+  cipher: chacha20-ietf-poly1305
+  password: U9YAoqBgg5VyGBc6vQv1sN
+  udp: true
+- name: 🇵🇱 PL 04 - wangyu
+  type: vless
+  server: 94.183.157.223
+  port: 8090
+  uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: askuhgfdsg.space.coupons
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: askuhgfdsg.space.coupons
+- name: 🇵🇱 PL 05 - wangyu
+  type: vless
+  server: 94.183.157.243
+  port: 8090
+  uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: askuhgfdsg.space.coupons
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: askuhgfdsg.space.coupons
+- name: 🇵🇱 PL 06 - wangyu
+  type: vless
+  server: 94.183.157.174
   port: 8090
   uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
   udp: true
@@ -106,7 +92,6 @@ proxy-groups:
   - 🇵🇱 PL 04 - wangyu
   - 🇵🇱 PL 05 - wangyu
   - 🇵🇱 PL 06 - wangyu
-  - 🇵🇱 PL 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -118,6 +103,5 @@ proxy-groups:
   - 🇵🇱 PL 04 - wangyu
   - 🇵🇱 PL 05 - wangyu
   - 🇵🇱 PL 06 - wangyu
-  - 🇵🇱 PL 07 - wangyu
 rules:
 - MATCH,PROXIES
