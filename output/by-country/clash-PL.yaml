@@ -5,103 +5,23 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇵🇱 PL 01 - wangyu
-  type: vless
-  server: 94.183.157.174
-  port: 8090
-  uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: askuhgfdsg.space.coupons
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: askuhgfdsg.space.coupons
-- name: 🇵🇱 PL 02 - wangyu
-  type: vless
-  server: 94.183.157.223
-  port: 8090
-  uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: askuhgfdsg.space.coupons
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: askuhgfdsg.space.coupons
-- name: 🇵🇱 PL 03 - wangyu
   type: ss
   server: 194.61.121.93
   port: 7538
   cipher: chacha20-ietf-poly1305
   password: U9YAoqBgg5VyGBc6vQv1sN
   udp: true
-- name: 🇵🇱 PL 04 - wangyu
-  type: vless
-  server: 94.183.157.223
-  port: 8090
-  uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: askuhgfdsg.space.coupons
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: askuhgfdsg.space.coupons
-- name: 🇵🇱 PL 05 - wangyu
-  type: vless
-  server: 94.183.157.243
-  port: 8090
-  uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: askuhgfdsg.space.coupons
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: askuhgfdsg.space.coupons
-- name: 🇵🇱 PL 06 - wangyu
-  type: vless
-  server: 94.183.157.174
-  port: 8090
-  uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: askuhgfdsg.space.coupons
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: askuhgfdsg.space.coupons
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇵🇱 PL 01 - wangyu
-  - 🇵🇱 PL 02 - wangyu
-  - 🇵🇱 PL 03 - wangyu
-  - 🇵🇱 PL 04 - wangyu
-  - 🇵🇱 PL 05 - wangyu
-  - 🇵🇱 PL 06 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇵🇱 PL 01 - wangyu
-  - 🇵🇱 PL 02 - wangyu
-  - 🇵🇱 PL 03 - wangyu
-  - 🇵🇱 PL 04 - wangyu
-  - 🇵🇱 PL 05 - wangyu
-  - 🇵🇱 PL 06 - wangyu
 rules:
 - MATCH,PROXIES

@@ -6,17 +6,16 @@ log-level: info
 proxies:
 - name: 🇦🇪 阿联酋 (UAE) 01 - wangyu
   type: vless
-  server: cdn.snobvpn.online
-  port: 80
+  server: 89.125.147.199
+  port: 443
   uuid: cabd9303-ae32-4d25-86b9-26b312d0f044
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /snob-ws
-    headers:
-      Host: cdn.snobvpn.online
+  reality-opts:
+    public-key: iQJ8UdFw-lUWa9mXugescYHkmwNH96nuj_z-LAZvfxg
+  servername: maps.apple.com
+  client-fingerprint: random
 - name: 🇦🇪 阿联酋 (UAE) 02 - wangyu
   type: vless
   server: 89.125.147.199
@@ -28,22 +27,8 @@ proxies:
   reality-opts:
     public-key: iQJ8UdFw-lUWa9mXugescYHkmwNH96nuj_z-LAZvfxg
   servername: maps.apple.com
-  client-fingerprint: random
+  client-fingerprint: firefox
 - name: 🇦🇪 阿联酋 (UAE) 03 - wangyu
-  type: vless
-  server: 151.242.160.148
-  port: 8090
-  uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: askuhgfdsg.space.coupons
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: askuhgfdsg.space.coupons
-- name: 🇦🇪 阿联酋 (UAE) 04 - wangyu
   type: vless
   server: 89.125.147.199
   port: 443
@@ -55,7 +40,7 @@ proxies:
     public-key: iQJ8UdFw-lUWa9mXugescYHkmwNH96nuj_z-LAZvfxg
   servername: maps.apple.com
   client-fingerprint: chrome
-- name: 🇦🇪 阿联酋 (UAE) 05 - wangyu
+- name: 🇦🇪 阿联酋 (UAE) 04 - wangyu
   type: vless
   server: 84.235.244.108
   port: 22573
@@ -68,32 +53,6 @@ proxies:
     path: /
     headers:
       Host: uae.unixzone.us
-- name: 🇦🇪 阿联酋 (UAE) 06 - wangyu
-  type: vless
-  server: 151.242.160.148
-  port: 8090
-  uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: askuhgfdsg.space.coupons
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: askuhgfdsg.space.coupons
-- name: 🇦🇪 阿联酋 (UAE) 07 - wangyu
-  type: vless
-  server: 89.125.147.199
-  port: 443
-  uuid: cabd9303-ae32-4d25-86b9-26b312d0f044
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: iQJ8UdFw-lUWa9mXugescYHkmwNH96nuj_z-LAZvfxg
-  servername: maps.apple.com
-  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -103,9 +62,6 @@ proxy-groups:
   - 🇦🇪 阿联酋 (UAE) 02 - wangyu
   - 🇦🇪 阿联酋 (UAE) 03 - wangyu
   - 🇦🇪 阿联酋 (UAE) 04 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 05 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 06 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -115,8 +71,5 @@ proxy-groups:
   - 🇦🇪 阿联酋 (UAE) 02 - wangyu
   - 🇦🇪 阿联酋 (UAE) 03 - wangyu
   - 🇦🇪 阿联酋 (UAE) 04 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 05 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 06 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 07 - wangyu
 rules:
 - MATCH,PROXIES
