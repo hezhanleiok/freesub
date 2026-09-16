@@ -5,29 +5,8 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - xiaohe
-  type: ss
-  server: 65.109.215.118
-  port: 1080
-  cipher: chacha20-ietf-poly1305
-  password: rSeYcig_XBy8q3k33NpK3A
-  udp: true
-- name: 🇫🇮 FI 02 - xiaohe
   type: vless
   server: 151.101.56.6
-  port: 443
-  uuid: d7282b41-1f2a-47bb-8593-f464fd6b6d78
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: global.fastly.com
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: kayko.global.ssl.fastly.net
-- name: 🇫🇮 FI 03 - xiaohe
-  type: vless
-  server: k2.cloud--vpn.site
   port: 443
   uuid: f570779f-bbf7-4ef9-e657-8ebbdef2609b
   udp: true
@@ -39,7 +18,14 @@ proxies:
     path: /
     headers:
       Host: c12.com
-- name: 🇫🇮 FI 04 - xiaohe
+- name: 🇫🇮 FI 02 - xiaohe
+  type: ss
+  server: 65.109.215.118
+  port: 1080
+  cipher: chacha20-ietf-poly1305
+  password: rSeYcig_XBy8q3k33NpK3A
+  udp: true
+- name: 🇫🇮 FI 03 - xiaohe
   type: vless
   server: 151.101.56.6
   port: 443
@@ -53,9 +39,9 @@ proxies:
     path: //---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI---TOOTFFARANGI
     headers:
       Host: c12.com
-- name: 🇫🇮 FI 05 - xiaohe
+- name: 🇫🇮 FI 04 - xiaohe
   type: vless
-  server: 151.101.56.6
+  server: k2.cloud--vpn.site
   port: 443
   uuid: f570779f-bbf7-4ef9-e657-8ebbdef2609b
   udp: true
@@ -67,6 +53,18 @@ proxies:
     path: /
     headers:
       Host: c12.com
+- name: 🇫🇮 FI 05 - xiaohe
+  type: vless
+  server: 185.79.138.71
+  port: 448
+  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
+  servername: www.samsung.com
+  client-fingerprint: qq
 proxy-groups:
 - name: PROXIES
   type: select
