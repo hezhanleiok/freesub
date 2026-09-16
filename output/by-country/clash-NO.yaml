@@ -5,29 +5,37 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇳🇴 挪威 (Norway) 01 - xiaohe
-  server: 151.242.168.125
-  port: 390
+  server: 185.213.23.63
+  port: 990
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🇳🇴 挪威 (Norway) 02 - xiaohe
+  server: aldebaran.yokkastars.com
+  port: 40443
   udp: true
   type: vless
-  uuid: 7b363f9c-3df9-4b60-a789-9cd36be0bdfe
-  flow: xtls-rprx-vision
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
   tls: true
   reality-opts:
-    public-key: 5RCgAVjaT7hwdVIKAEULswXGqR127ZOZV6X17nEhYk8
-    short-id: b545fe8c5e22f92d
-  servername: bowandbead.com
-  client-fingerprint: edge
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+    short-id: '7606'
+  servername: deepl.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇳🇴 挪威 (Norway) 01 - xiaohe
+  - 🇳🇴 挪威 (Norway) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇳🇴 挪威 (Norway) 01 - xiaohe
+  - 🇳🇴 挪威 (Norway) 02 - xiaohe
 rules:
 - MATCH,PROXIES
