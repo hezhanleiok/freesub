@@ -4,8 +4,16 @@
   },
   "outbounds": [
     {
-      "type": "vless",
+      "type": "shadowsocks",
       "tag": "🇮🇪 爱尔兰 (Ireland) 01 - xiaohe",
+      "server": "94.245.88.26",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "p20Y6AFEN1pS7LJX"
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇪 爱尔兰 (Ireland) 02 - xiaohe",
       "server": "ir-new.failspace.top",
       "server_port": 443,
       "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
@@ -28,14 +36,16 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇮🇪 爱尔兰 (Ireland) 01 - xiaohe"
+        "🇮🇪 爱尔兰 (Ireland) 01 - xiaohe",
+        "🇮🇪 爱尔兰 (Ireland) 02 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇮🇪 爱尔兰 (Ireland) 01 - xiaohe"
+        "🇮🇪 爱尔兰 (Ireland) 01 - xiaohe",
+        "🇮🇪 爱尔兰 (Ireland) 02 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },
