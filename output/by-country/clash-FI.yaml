@@ -5,22 +5,24 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 芬兰 (Finland) 01 - xiaohe
-  server: 65.109.206.69
-  port: 56092
-  udp: true
-  type: vless
-  uuid: 9bbe5565-56fa-4935-940d-1442f443fcc8
-  network: h2
-  h2-opts:
-    host: []
-    path: /
-- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
   server: 65.109.215.118
   port: 1080
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
   password: rSeYcig_XBy8q3k33NpK3A
+- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
+  server: 185.79.138.71
+  port: 448
+  udp: true
+  type: vless
+  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+  tls: true
+  reality-opts:
+    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
+    short-id: cd21e552537c7c0b
+  servername: www.samsung.com
+  client-fingerprint: qq
 - name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
   server: 37.143.129.244
   port: 443
@@ -35,21 +37,6 @@ proxies:
   servername: gateway.icloud.com
   client-fingerprint: chrome
 - name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
-  server: 151.101.56.6
-  port: 443
-  udp: true
-  type: vless
-  uuid: d7282b41-1f2a-47bb-8593-f464fd6b6d78
-  tls: true
-  servername: global.fastly.com
-  skip-cert-verify: true
-  client-fingerprint: firefox
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: kayko.global.ssl.fastly.net
-- name: 🇫🇮 芬兰 (Finland) 05 - xiaohe
   server: 212.193.18.183
   port: 8446
   udp: true
@@ -73,7 +60,6 @@ proxy-groups:
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
   - 🇫🇮 芬兰 (Finland) 03 - xiaohe
   - 🇫🇮 芬兰 (Finland) 04 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -83,6 +69,5 @@ proxy-groups:
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
   - 🇫🇮 芬兰 (Finland) 03 - xiaohe
   - 🇫🇮 芬兰 (Finland) 04 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 05 - xiaohe
 rules:
 - MATCH,PROXIES

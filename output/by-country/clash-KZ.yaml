@@ -4,25 +4,28 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇹🇭 泰国 (Thailand) 01 - xiaohe
-  server: 36.133.78.37
-  port: 50017
+- name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
+  server: 3h-kazakhstan1.09vpn.com
+  port: 80
   udp: true
   type: vmess
-  uuid: 9195e0f1-f466-4e69-838f-a95519b5d45e
+  uuid: 567f4be5-12ab-42e1-b8d9-db6fd1fdd31c
   alterId: 0
   cipher: auto
+  network: ws
+  ws-opts:
+    path: /vmess/
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇹🇭 泰国 (Thailand) 01 - xiaohe
+  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇹🇭 泰国 (Thailand) 01 - xiaohe
+  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
 rules:
 - MATCH,PROXIES
