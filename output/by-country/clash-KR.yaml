@@ -5,13 +5,22 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇷 韩国 (South Korea) 01 - xiaohe
-  server: 141.164.45.187
-  port: 8008
+  server: 140.238.2.250
+  port: 443
   udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: XKFKl2rULjIp74
+  type: vmess
+  uuid: 41a7089a-040b-4538-8b8d-010902405bde
+  alterId: 0
+  cipher: auto
 - name: 🇰🇷 韩国 (South Korea) 02 - xiaohe
+  server: 146.56.112.110
+  port: 8888
+  udp: true
+  type: vmess
+  uuid: e7c302f3-90d6-42dd-9d7d-94a3683a3707
+  alterId: 0
+  cipher: auto
+- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
   server: 3.39.4.109
   port: 18967
   udp: true
@@ -23,47 +32,24 @@ proxies:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
   servername: www.apple.com
-  client-fingerprint: edge
-- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
-  server: 3.36.93.74
-  port: 443
-  udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: google.com
-  skip-cert-verify: true
+  client-fingerprint: random
 - name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
-  server: 146.56.112.110
-  port: 8888
-  udp: true
-  type: vmess
-  uuid: e7c302f3-90d6-42dd-9d7d-94a3683a3707
-  alterId: 0
-  cipher: auto
-- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
-  server: 140.238.2.250
-  port: 443
-  udp: true
-  type: vmess
-  uuid: 41a7089a-040b-4538-8b8d-010902405bde
-  alterId: 0
-  cipher: auto
-- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
-  server: 152.67.200.82
-  port: 50160
+  server: 152.70.237.123
+  port: 2053
   udp: true
   type: hysteria2
-  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
-  sni: t.me
+  password: maintell
+  sni: bing.com
   skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
-  server: 141.164.45.187
-  port: 6679
+- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
+  server: vpn-kr-002.fastervpn.world
+  port: 443
   udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: TEzjfAYq2IjtuoS
-- name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ9wR5tF6vB3z
+  sni: vpn-kr-002.fastervpn.world
+  skip-cert-verify: true
+- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
   server: 150-230-252-217.liao.kdns.fr
   port: 50160
   udp: true
@@ -71,7 +57,7 @@ proxies:
   password: 9cfc9458e48c028ec03ff86ebc71c744
   sni: 127.0.0.1
   skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 09 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
   server: 151.245.106.49
   port: 2053
   udp: true
@@ -83,7 +69,7 @@ proxies:
     short-id: 429499c03d4cc8a0
   servername: www.cloudflare.com
   client-fingerprint: random
-- name: 🇰🇷 韩国 (South Korea) 10 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
   server: 3.39.4.109
   port: 13672
   udp: true
@@ -95,35 +81,30 @@ proxies:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
   servername: www.apple.com
-  client-fingerprint: random
-- name: 🇰🇷 韩国 (South Korea) 11 - xiaohe
-  server: 152.70.237.123
-  port: 2053
-  udp: true
-  type: hysteria2
-  password: maintell
-  sni: bing.com
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 12 - xiaohe
-  server: 132.226.226.189
+  client-fingerprint: chrome
+- name: 🇰🇷 韩国 (South Korea) 09 - xiaohe
+  server: 152-69-231-175.liao.kdns.fr
   port: 50160
   udp: true
   type: hysteria2
-  password: 1671a252e2a97dc2bda4e515475931da
-  sni: www.bing.com
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 13 - xiaohe
-  server: 119.28.161.143
-  port: 443
+  password: 1beb216e3f60aea9555dae60d219a5ca
+  sni: 152-69-231-175.liao.kdns.fr
+  skip-cert-verify: false
+- name: 🇰🇷 韩国 (South Korea) 10 - xiaohe
+  server: 141.164.45.187
+  port: 8888
   udp: true
-  type: vless
-  uuid: 1ebb0858-218a-4dee-8746-36a67bc64462
-  tls: true
-  reality-opts:
-    public-key: pR7MPTAA4cZsW9AO-twMzuogiWGMKPiheTg70fcWWWs
-    short-id: 0a427bc3
-  servername: apple.com
-  client-fingerprint: chrome
+  type: ss
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
+- name: 🇰🇷 韩国 (South Korea) 11 - xiaohe
+  server: 152.67.200.82
+  port: 50160
+  udp: true
+  type: hysteria2
+  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
+  sni: google.com
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -140,8 +121,6 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 09 - xiaohe
   - 🇰🇷 韩国 (South Korea) 10 - xiaohe
   - 🇰🇷 韩国 (South Korea) 11 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 12 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 13 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -158,7 +137,5 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 09 - xiaohe
   - 🇰🇷 韩国 (South Korea) 10 - xiaohe
   - 🇰🇷 韩国 (South Korea) 11 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 12 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 13 - xiaohe
 rules:
 - MATCH,PROXIES
