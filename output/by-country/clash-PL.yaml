@@ -5,51 +5,27 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇵🇱 波兰 (Poland) 01 - xiaohe
-  server: 104.17.247.68
-  port: 443
-  udp: true
-  type: vless
-  uuid: e6cc4788-3c45-4df1-94f3-8303504a65bf
-  tls: true
-  servername: khoda.ak-khoda.workers.dev
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /sync
-    headers:
-      Host: khoda.ak-khoda.workers.dev
-- name: 🇵🇱 波兰 (Poland) 02 - xiaohe
-  server: 104.24.31.89
-  port: 443
-  udp: true
-  type: vless
-  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
-  tls: true
-  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: rayan-007.nastaran.dpdns.org
-- name: 🇵🇱 波兰 (Poland) 03 - xiaohe
   server: 217.30.10.44
-  port: 9041
+  port: 9006
   udp: true
   type: ss
   cipher: aes-256-cfb
-  password: U6qnYRhfyDmn8sgn
-- name: 🇵🇱 波兰 (Poland) 04 - xiaohe
-  server: 45.192.12.93
-  port: 443
+  password: FAdUvMJUq5vDgKEq
+- name: 🇵🇱 波兰 (Poland) 02 - xiaohe
+  server: 217.30.10.44
+  port: 9076
   udp: true
-  type: hysteria2
-  password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
-  sni: admin.wwwinternetvideo.click
-  skip-cert-verify: true
-- name: 🇵🇱 波兰 (Poland) 05 - xiaohe
+  type: ss
+  cipher: aes-256-cfb
+  password: S2zDyyPcmZN2h8EC
+- name: 🇵🇱 波兰 (Poland) 03 - xiaohe
+  server: 217.30.10.44
+  port: 9063
+  udp: true
+  type: ss
+  cipher: aes-256-cfb
+  password: aQqJbtwFGcCCaeL3
+- name: 🇵🇱 波兰 (Poland) 04 - xiaohe
   server: 185.223.57.10
   port: 33743
   udp: true
@@ -63,16 +39,45 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: TunService
+- name: 🇵🇱 波兰 (Poland) 05 - xiaohe
+  server: 45.192.12.93
+  port: 443
+  udp: true
+  type: hysteria2
+  password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
+  sni: admin.wwwinternetvideo.click
+  skip-cert-verify: true
 - name: 🇵🇱 波兰 (Poland) 06 - xiaohe
+  server: 144.31.5.64
+  port: 443
+  udp: true
+  type: vless
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  flow: xtls-rprx-vision
+  tls: true
+  servername: pl6.moritech.net
+  skip-cert-verify: false
+- name: 🇵🇱 波兰 (Poland) 07 - xiaohe
+  server: 144.31.2.33
+  port: 443
+  udp: true
+  type: vless
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  flow: xtls-rprx-vision
+  tls: true
+  servername: pl3.moritech.net
+  skip-cert-verify: false
+  client-fingerprint: firefox
+- name: 🇵🇱 波兰 (Poland) 08 - xiaohe
   server: streambox.wwwinternetvideo.click
   port: 443
   udp: true
   type: hysteria2
   password: 865e271f7c97b549b024255c9d02cebe9cc0c2c070a82b1e11bb11b9cd88dd01
   sni: streambox.wwwinternetvideo.click
-  skip-cert-verify: true
-- name: 🇵🇱 波兰 (Poland) 07 - xiaohe
-  server: 94.183.157.174
+  skip-cert-verify: false
+- name: 🇵🇱 波兰 (Poland) 09 - xiaohe
+  server: 94.183.157.243
   port: 8090
   udp: true
   type: vless
@@ -80,20 +85,24 @@ proxies:
   tls: true
   servername: askuhgfdsg.space.coupons
   skip-cert-verify: false
-  client-fingerprint: firefox
+  client-fingerprint: chrome
   network: ws
   ws-opts:
     path: /ws
     headers:
       Host: askuhgfdsg.space.coupons
-- name: 🇵🇱 波兰 (Poland) 08 - xiaohe
-  server: 194.61.121.93
-  port: 7538
+- name: 🇵🇱 波兰 (Poland) 10 - xiaohe
+  server: 144.31.5.3
+  port: 443
   udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: U9YAoqBgg5VyGBc6vQv1sN
-- name: 🇵🇱 波兰 (Poland) 09 - xiaohe
+  type: vless
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  flow: xtls-rprx-vision
+  tls: true
+  servername: pl4.moritech.net
+  skip-cert-verify: false
+  client-fingerprint: chrome
+- name: 🇵🇱 波兰 (Poland) 11 - xiaohe
   server: 94.183.157.223
   port: 8090
   udp: true
@@ -108,43 +117,7 @@ proxies:
     path: /ws
     headers:
       Host: askuhgfdsg.space.coupons
-- name: 🇵🇱 波兰 (Poland) 10 - xiaohe
-  server: 103.167.234.26
-  port: 443
-  udp: true
-  type: vless
-  uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-  tls: true
-  servername: kkkk-8oc.pages.dev
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: kkkk-8oc.pages.dev
-- name: 🇵🇱 波兰 (Poland) 11 - xiaohe
-  server: 144.31.5.64
-  port: 443
-  udp: true
-  type: vless
-  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-  flow: xtls-rprx-vision
-  tls: true
-  servername: pl6.moritech.net
-  skip-cert-verify: false
 - name: 🇵🇱 波兰 (Poland) 12 - xiaohe
-  server: 144.31.5.3
-  port: 443
-  udp: true
-  type: vless
-  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-  flow: xtls-rprx-vision
-  tls: true
-  servername: pl4.moritech.net
-  skip-cert-verify: false
-  client-fingerprint: chrome
-- name: 🇵🇱 波兰 (Poland) 13 - xiaohe
   server: atomic-prase23893.my-vm.work
   port: 8088
   udp: true
@@ -155,17 +128,21 @@ proxies:
     path: /api
     headers:
       Host: queuev4.vk.com
-- name: 🇵🇱 波兰 (Poland) 14 - xiaohe
-  server: 144.31.2.33
-  port: 443
+- name: 🇵🇱 波兰 (Poland) 13 - xiaohe
+  server: 94.183.157.174
+  port: 8090
   udp: true
   type: vless
-  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-  flow: xtls-rprx-vision
+  uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
   tls: true
-  servername: pl3.moritech.net
+  servername: askuhgfdsg.space.coupons
   skip-cert-verify: false
   client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: askuhgfdsg.space.coupons
 proxy-groups:
 - name: PROXIES
   type: select
@@ -184,7 +161,6 @@ proxy-groups:
   - 🇵🇱 波兰 (Poland) 11 - xiaohe
   - 🇵🇱 波兰 (Poland) 12 - xiaohe
   - 🇵🇱 波兰 (Poland) 13 - xiaohe
-  - 🇵🇱 波兰 (Poland) 14 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -203,6 +179,5 @@ proxy-groups:
   - 🇵🇱 波兰 (Poland) 11 - xiaohe
   - 🇵🇱 波兰 (Poland) 12 - xiaohe
   - 🇵🇱 波兰 (Poland) 13 - xiaohe
-  - 🇵🇱 波兰 (Poland) 14 - xiaohe
 rules:
 - MATCH,PROXIES
