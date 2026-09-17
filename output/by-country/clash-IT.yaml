@@ -5,13 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇹 意大利 (Italy) 01 - xiaohe
-  server: 185.164.175.81
-  port: 19999
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇮🇹 意大利 (Italy) 02 - xiaohe
   server: 57.131.48.45
   port: 8388
   udp: true
@@ -24,13 +17,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇮🇹 意大利 (Italy) 01 - xiaohe
-  - 🇮🇹 意大利 (Italy) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇮🇹 意大利 (Italy) 01 - xiaohe
-  - 🇮🇹 意大利 (Italy) 02 - xiaohe
 rules:
 - MATCH,PROXIES
