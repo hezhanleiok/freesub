@@ -6,6 +6,29 @@
     {
       "type": "vless",
       "tag": "🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe",
+      "server": "104.24.30.89",
+      "server_port": 443,
+      "uuid": "aebe5a70-0ca3-46ce-8208-8b5bab1346ce",
+      "tls": {
+        "enabled": true,
+        "server_name": "rAyAn-007.nAsTaRaN.DpDnS.OrG",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "rayan-007.nastaran.dpdns.org"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe",
       "server": "192.145.31.5",
       "server_port": 8443,
       "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a",
@@ -19,7 +42,28 @@
         ],
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "edge"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇧🇬 保加利亚 (Bulgaria) 03 - xiaohe",
+      "server": "144.31.50.236",
+      "server_port": 443,
+      "uuid": "1c332eae-7e02-4acd-996d-4eb3e652401c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "yandex.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "uitO4Z8t9TplwwYaqwLqh5rfxDh_X8bOBiNuPbzvaEM",
+          "short_id": "bbe46bd8f6b96839"
         }
       }
     },
@@ -28,14 +72,18 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe"
+        "🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe",
+        "🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe",
+        "🇧🇬 保加利亚 (Bulgaria) 03 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe"
+        "🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe",
+        "🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe",
+        "🇧🇬 保加利亚 (Bulgaria) 03 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

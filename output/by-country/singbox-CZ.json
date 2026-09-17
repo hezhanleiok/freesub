@@ -1,0 +1,57 @@
+{
+  "log": {
+    "level": "warn"
+  },
+  "outbounds": [
+    {
+      "type": "trojan",
+      "tag": "🇨🇿 捷克 (Czech) 01 - xiaohe",
+      "server": "104.21.4.176",
+      "server_port": 443,
+      "password": "Telegram_healer_config",
+      "tls": {
+        "enabled": true,
+        "server_name": "5Er0m2i2eNS2uLpg7SJd45UGqS.87fcvT2k11501YnO2TXm6yw-miPJ2Kr.worKerS.deV",
+        "insecure": false,
+        "alpn": [
+          "http/1.1"
+        ],
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/tr/5cJhuZZi5ZL6KKmZ5vKVeM?ed=2560",
+        "headers": {
+          "Host": "5er0m2i2ens2ulpg7sjd45ugqs.87fcvt2k11501yno2txm6yw-mipj2kr.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇨🇿 捷克 (Czech) 01 - xiaohe"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇨🇿 捷克 (Czech) 01 - xiaohe"
+      ],
+      "url": "https://www.gstatic.com/generate_204"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}
