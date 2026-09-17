@@ -6,28 +6,25 @@ log-level: info
 proxies:
 - name: 🇵🇱 PL 01 - wangyu
   type: ss
-  server: 178.95.176.16
-  port: 1080
-  cipher: chacha20-ietf-poly1305
-  password: rSeYcig_XBy8q3k33NpK3A
-  udp: true
-- name: 🇵🇱 PL 02 - wangyu
-  type: ss
   server: 194.61.121.93
   port: 7538
   cipher: chacha20-ietf-poly1305
   password: U9YAoqBgg5VyGBc6vQv1sN
   udp: true
-- name: 🇵🇱 PL 03 - wangyu
-  type: vmess
-  server: 178.95.176.16
-  port: 2086
-  uuid: f6361af8-bb8f-4609-bf5d-3fc0f688f47b
-  alterId: 0
-  cipher: auto
+- name: 🇵🇱 PL 02 - wangyu
+  type: vless
+  server: 172.67.67.178
+  port: 443
+  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: rAyAn-007.nAsTaRaN.DpDnS.OrG
 proxy-groups:
 - name: PROXIES
   type: select
@@ -35,7 +32,6 @@ proxy-groups:
   - AUTO
   - 🇵🇱 PL 01 - wangyu
   - 🇵🇱 PL 02 - wangyu
-  - 🇵🇱 PL 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -43,6 +39,5 @@ proxy-groups:
   proxies:
   - 🇵🇱 PL 01 - wangyu
   - 🇵🇱 PL 02 - wangyu
-  - 🇵🇱 PL 03 - wangyu
 rules:
 - MATCH,PROXIES

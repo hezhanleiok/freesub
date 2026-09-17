@@ -5,13 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇾 CY 01 - wangyu
-  type: ss
-  server: 132.243.255.3
-  port: 9011
-  cipher: aes-256-gcm
-  password: 78235e7dc55e9ad1
-  udp: true
-- name: 🇨🇾 CY 02 - wangyu
   type: vless
   server: 45.9.2.171
   port: 8443
@@ -20,7 +13,7 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: torr.wlrus.cfd
-- name: 🇨🇾 CY 03 - wangyu
+- name: 🇨🇾 CY 02 - wangyu
   type: vless
   server: 45.9.2.171
   port: 8443
@@ -36,7 +29,6 @@ proxy-groups:
   - AUTO
   - 🇨🇾 CY 01 - wangyu
   - 🇨🇾 CY 02 - wangyu
-  - 🇨🇾 CY 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -44,6 +36,5 @@ proxy-groups:
   proxies:
   - 🇨🇾 CY 01 - wangyu
   - 🇨🇾 CY 02 - wangyu
-  - 🇨🇾 CY 03 - wangyu
 rules:
 - MATCH,PROXIES

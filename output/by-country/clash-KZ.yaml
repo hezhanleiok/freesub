@@ -6,6 +6,19 @@ log-level: info
 proxies:
 - name: 🇰🇿 KZ 01 - wangyu
   type: vless
+  server: 45.131.209.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime04.workers.dev
+- name: 🇰🇿 KZ 02 - wangyu
+  type: vless
   server: kz3.zuoai.cf
   port: 443
   uuid: b2593749-691c-428c-9481-14979cba3446
@@ -18,17 +31,34 @@ proxies:
     path: /proxyip=us.xiabibi.cf
     headers:
       Host: xi.tbv.ccwu.cc
+- name: 🇰🇿 KZ 03 - wangyu
+  type: vless
+  server: 160.153.138.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime04.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇰🇿 KZ 01 - wangyu
+  - 🇰🇿 KZ 02 - wangyu
+  - 🇰🇿 KZ 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇰🇿 KZ 01 - wangyu
+  - 🇰🇿 KZ 02 - wangyu
+  - 🇰🇿 KZ 03 - wangyu
 rules:
 - MATCH,PROXIES
