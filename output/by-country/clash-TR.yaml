@@ -6,18 +6,31 @@ log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   type: ss
+  server: 153.52.92.81
+  port: 1080
+  cipher: chacha20-ietf-poly1305
+  password: IXa3ylzS_jBOAsQy071tIQ
+  udp: true
+- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
+  type: ss
   server: 139.28.240.68
   port: 1080
   cipher: chacha20-ietf-poly1305
   password: rSeYcig_XBy8q3k33NpK3A
   udp: true
-- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  type: ss
-  server: 206.1.97.61
-  port: 13323
-  cipher: chacha20-ietf-poly1305
-  password: XyodFtypR0xCFHyWW9gxqp15oU78njiX
+- name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
+  type: vless
+  server: max.karmatel.ir
+  port: 55519
+  uuid: a2b9a1b7-f12f-4503-a9f6-c78ec565a6bf
   udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: play-apps-features.googleusercontent.com
 proxy-groups:
 - name: PROXIES
   type: select
@@ -25,6 +38,7 @@ proxy-groups:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -32,5 +46,6 @@ proxy-groups:
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
 rules:
 - MATCH,PROXIES

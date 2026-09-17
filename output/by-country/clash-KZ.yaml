@@ -6,7 +6,7 @@ log-level: info
 proxies:
 - name: 🇰🇿 KZ 01 - xiaohe
   type: vless
-  server: 31.43.179.137
+  server: 31.43.179.200
   port: 443
   uuid: b2593749-691c-428c-9481-14979cba3446
   udp: true
@@ -20,7 +20,7 @@ proxies:
       Host: xi.tbv.ccwu.cc
 - name: 🇰🇿 KZ 02 - xiaohe
   type: vless
-  server: 31.43.179.170
+  server: 31.43.179.36
   port: 443
   uuid: b2593749-691c-428c-9481-14979cba3446
   udp: true
@@ -33,6 +33,20 @@ proxies:
     headers:
       Host: xi.tbv.ccwu.cc
 - name: 🇰🇿 KZ 03 - xiaohe
+  type: vless
+  server: kz3.zuoai.cf
+  port: 443
+  uuid: b2593749-691c-428c-9481-14979cba3446
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: xi.tbv.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /proxyip=us.xiabibi.cf
+    headers:
+      Host: xi.tbv.ccwu.cc
+- name: 🇰🇿 KZ 04 - xiaohe
   type: vless
   server: 31.43.179.109
   port: 443
@@ -54,6 +68,7 @@ proxy-groups:
   - 🇰🇿 KZ 01 - xiaohe
   - 🇰🇿 KZ 02 - xiaohe
   - 🇰🇿 KZ 03 - xiaohe
+  - 🇰🇿 KZ 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -62,5 +77,6 @@ proxy-groups:
   - 🇰🇿 KZ 01 - xiaohe
   - 🇰🇿 KZ 02 - xiaohe
   - 🇰🇿 KZ 03 - xiaohe
+  - 🇰🇿 KZ 04 - xiaohe
 rules:
 - MATCH,PROXIES
