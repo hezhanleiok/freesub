@@ -5,15 +5,22 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - wangyu
-  type: ss
-  server: 82.47.186.18
-  port: 19290
-  cipher: aes-128-gcm
-  password: o2rw2hICwu1blrr_gZAl2Q
+  type: vless
+  server: 212.104.128.152
+  port: 443
+  uuid: b2593749-691c-428c-9481-14979cba3446
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: xi.tbv.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /proxyip=us.xiabibi.cf
+    headers:
+      Host: xi.tbv.ccwu.cc
 - name: 🇫🇮 FI 02 - wangyu
   type: vless
-  server: 212.104.128.139
+  server: 212.104.128.0
   port: 443
   uuid: b2593749-691c-428c-9481-14979cba3446
   udp: true
@@ -27,35 +34,35 @@ proxies:
       Host: xi.tbv.ccwu.cc
 - name: 🇫🇮 FI 03 - wangyu
   type: vless
-  server: a2.arshia-nova.ir
+  server: 212.104.128.27
   port: 443
-  uuid: bd5bbbac-adc3-4b23-d3ac-8506694c0ef9
+  uuid: b2593749-691c-428c-9481-14979cba3446
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ssl.fastly.com
+  servername: xi.tbv.ccwu.cc
   network: ws
   ws-opts:
-    path: /
+    path: /proxyip=us.xiabibi.cf
     headers:
-      Host: c12.com
+      Host: xi.tbv.ccwu.cc
 - name: 🇫🇮 FI 04 - wangyu
   type: vless
-  server: 151.101.56.6
+  server: 212.104.128.244
   port: 443
-  uuid: bd5bbbac-adc3-4b23-d3ac-8506694c0ef9
+  uuid: b2593749-691c-428c-9481-14979cba3446
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ssl.fastly.com
+  servername: xi.tbv.ccwu.cc
   network: ws
   ws-opts:
-    path: /
+    path: /proxyip=us.xiabibi.cf
     headers:
-      Host: c12.com
+      Host: xi.tbv.ccwu.cc
 - name: 🇫🇮 FI 05 - wangyu
   type: vless
-  server: 212.104.128.244
+  server: 212.104.128.217
   port: 443
   uuid: b2593749-691c-428c-9481-14979cba3446
   udp: true

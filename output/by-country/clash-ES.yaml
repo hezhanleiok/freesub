@@ -13,33 +13,17 @@ proxies:
   udp: true
 - name: 🇪🇸 西班牙 (Spain) 02 - wangyu
   type: vless
-  server: 104.18.32.252
-  port: 443
-  uuid: 6dd13cd4-e378-4742-bef1-d8ac54083626
+  server: 212.227.235.66
+  port: 2053
+  uuid: ead0dd61-d398-40ad-80d6-a0e1e516d7d3
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: eb9a7750.69lover.site
-  network: ws
-  ws-opts:
-    path: /api/v2/4ecb1e0e26887759/stream
-    headers:
-      Host: eb9a7750.69lover.site
+  reality-opts:
+    public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
+  servername: www.apple.com
+  client-fingerprint: firefox
 - name: 🇪🇸 西班牙 (Spain) 03 - wangyu
-  type: vless
-  server: 104.18.32.252
-  port: 443
-  uuid: 6dd13cd4-e378-4742-bef1-d8ac54083626
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: eb9a7750.69lover.site
-  network: ws
-  ws-opts:
-    path: /api/v2/4ecb1e0e26887759/stream
-    headers:
-      Host: eb9a7750.69lover.site
-- name: 🇪🇸 西班牙 (Spain) 04 - wangyu
   type: vless
   server: 212.227.235.66
   port: 2053
@@ -51,6 +35,13 @@ proxies:
     public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
   servername: www.apple.com
   client-fingerprint: chrome
+- name: 🇪🇸 西班牙 (Spain) 04 - wangyu
+  type: ss
+  server: 140.174.184.5
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: qItG8SueYQcP
+  udp: true
 - name: 🇪🇸 西班牙 (Spain) 05 - wangyu
   type: vless
   server: 212.227.235.66
@@ -62,14 +53,7 @@ proxies:
   reality-opts:
     public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
   servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇪🇸 西班牙 (Spain) 06 - wangyu
-  type: ss
-  server: 140.174.184.5
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: qItG8SueYQcP
-  udp: true
+  client-fingerprint: random
 proxy-groups:
 - name: PROXIES
   type: select
@@ -80,7 +64,6 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 03 - wangyu
   - 🇪🇸 西班牙 (Spain) 04 - wangyu
   - 🇪🇸 西班牙 (Spain) 05 - wangyu
-  - 🇪🇸 西班牙 (Spain) 06 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -91,6 +74,5 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 03 - wangyu
   - 🇪🇸 西班牙 (Spain) 04 - wangyu
   - 🇪🇸 西班牙 (Spain) 05 - wangyu
-  - 🇪🇸 西班牙 (Spain) 06 - wangyu
 rules:
 - MATCH,PROXIES

@@ -5,80 +5,20 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
-  type: vmess
-  server: 7dba81fc3a0b.oylfmxz.cn
-  port: 443
-  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
-  alterId: 0
-  cipher: auto
+  type: ss
+  server: 36.224.185.143
+  port: 50099
+  cipher: chacha20-ietf-poly1305
+  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ''
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ''
 - name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
-  type: vmess
-  server: 82259754d625.oylfmxz.cn
-  port: 443
-  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ''
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 🇺🇸 美国 (United States) 03 (家宽) - wangyu
   type: ss
-  server: 23.252.104.131
-  port: 54321
-  cipher: aes-256-gcm
-  password: Proxy2024
-  udp: true
-- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
-  type: ss
-  server: R3MRCG00129437X.cybervena.com
+  server: 36.224.185.173
   port: 50099
   cipher: chacha20-ietf-poly1305
   password: b1ae0fce-9340-4f2e-882d-fdb2218e2e2b
   udp: true
-- name: 🇰🇷 韩国 (South Korea) 05 (家宽) - wangyu
-  type: vless
-  server: 104.16.10.185
-  port: 443
-  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: fx3h2kf8xn.fx6hsv0.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
-- name: 🇰🇷 韩国 (South Korea) 06 (家宽) - wangyu
-  type: vless
-  server: 172.64.52.182
-  port: 2087
-  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
-  network: ws
-  ws-opts:
-    path: ?ed=2560
-    headers:
-      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
-- name: 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - wangyu
+- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
   type: vless
   server: 60.248.219.52
   port: 443
@@ -92,26 +32,77 @@ proxies:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
       Host: 60.248.219.52
-- name: 🇺🇸 美国 (United States) 08 (家宽) - wangyu
+- name: 🇰🇷 韩国 (South Korea) 04 (家宽) - wangyu
   type: vless
-  server: 188.114.97.6
-  port: 8880
+  server: 104.16.10.185
+  port: 443
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: fx3h2kf8xn.fx6hsv0.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
+- name: 🇺🇸 美国 (United States) 05 (家宽) - wangyu
+  type: vless
+  server: 162.159.39.218
+  port: 2086
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /?ed=2560+
+    path: /
     headers:
-      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
-- name: 🇹🇼 中国台湾 (Taiwan) 09 (家宽) - wangyu
-  type: ss
-  server: r3mrcg001286ek2.cybervena.com
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - wangyu
+  type: vmess
+  server: 7dba81fc3a0b.oylfmxz.cn
+  port: 443
+  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
+  alterId: 0
+  cipher: auto
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
+  network: ws
+  ws-opts:
+    path: ''
+    headers:
+      Host: ''
+- name: 🇰🇷 韩国 (South Korea) 07 (家宽) - wangyu
+  type: vless
+  server: 172.64.52.182
+  port: 2087
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
+  network: ws
+  ws-opts:
+    path: ?ed=2560
+    headers:
+      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
+- name: 🇰🇷 韩国 (South Korea) 08 (家宽) - wangyu
+  type: vless
+  server: 104.16.10.185
+  port: 443
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: fx3h2kf8xn.fx6hsv0.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
 proxy-groups:
 - name: PROXIES
   type: select
@@ -119,13 +110,12 @@ proxy-groups:
   - AUTO
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
-  - 🇺🇸 美国 (United States) 03 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 05 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 06 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - wangyu
-  - 🇺🇸 美国 (United States) 08 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 09 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
+  - 🇰🇷 韩国 (South Korea) 04 (家宽) - wangyu
+  - 🇺🇸 美国 (United States) 05 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - wangyu
+  - 🇰🇷 韩国 (South Korea) 07 (家宽) - wangyu
+  - 🇰🇷 韩国 (South Korea) 08 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -133,12 +123,11 @@ proxy-groups:
   proxies:
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
-  - 🇺🇸 美国 (United States) 03 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 05 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 06 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - wangyu
-  - 🇺🇸 美国 (United States) 08 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 09 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
+  - 🇰🇷 韩国 (South Korea) 04 (家宽) - wangyu
+  - 🇺🇸 美国 (United States) 05 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - wangyu
+  - 🇰🇷 韩国 (South Korea) 07 (家宽) - wangyu
+  - 🇰🇷 韩国 (South Korea) 08 (家宽) - wangyu
 rules:
 - MATCH,PROXIES
