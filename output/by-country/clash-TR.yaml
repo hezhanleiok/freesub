@@ -4,32 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🌐 其他地区 (Other) 01 - xiaohe
-  server: 104.21.91.129
+- name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
+  server: 172.67.151.109
   port: 443
   udp: true
   type: vless
-  uuid: 91d28760-ecf1-450b-9170-d310111a0e6d
+  uuid: 50414e45-4c5f-5a45-5553-635698a6bb9c
   tls: true
-  servername: edfc774f.69lover.site
+  servername: jdzit4e4urks.xwzohsebujps.workers.dev
   skip-cert-verify: false
-  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /api/v2/63e9687fa53e441c/stream
+    path: /stream/PANEL_ZEUS/635698a6bb9c/loc-0
     headers:
-      Host: edfc774f.69lover.site
+      Host: jdzit4e4urks.xwzohsebujps.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🌐 其他地区 (Other) 01 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🌐 其他地区 (Other) 01 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
 rules:
 - MATCH,PROXIES

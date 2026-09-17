@@ -18,6 +18,21 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: itzvpn@321
+- name: 🇮🇹 意大利 (Italy) 03 - xiaohe
+  server: 116.204.164.27
+  port: 7443
+  udp: true
+  type: vless
+  uuid: c9b314e9-47f1-4d4d-be52-30b538777b14
+  tls: true
+  servername: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
@@ -25,6 +40,7 @@ proxy-groups:
   - AUTO
   - 🇮🇹 意大利 (Italy) 01 - xiaohe
   - 🇮🇹 意大利 (Italy) 02 - xiaohe
+  - 🇮🇹 意大利 (Italy) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -32,5 +48,6 @@ proxy-groups:
   proxies:
   - 🇮🇹 意大利 (Italy) 01 - xiaohe
   - 🇮🇹 意大利 (Italy) 02 - xiaohe
+  - 🇮🇹 意大利 (Italy) 03 - xiaohe
 rules:
 - MATCH,PROXIES
