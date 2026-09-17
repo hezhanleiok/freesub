@@ -5,21 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇷 韩国 (South Korea) 01 - xiaohe
-  server: 141.164.45.187
-  port: 8000
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: KixLvKzwjekG00rm
-- name: 🇰🇷 韩国 (South Korea) 02 - xiaohe
-  server: 140.238.2.250
-  port: 443
-  udp: true
-  type: vmess
-  uuid: 41a7089a-040b-4538-8b8d-010902405bde
-  alterId: 0
-  cipher: auto
-- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
   server: 3.39.4.109
   port: 18967
   udp: true
@@ -31,8 +16,48 @@ proxies:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
   servername: www.apple.com
-  client-fingerprint: edge
+  client-fingerprint: chrome
+- name: 🇰🇷 韩国 (South Korea) 02 - xiaohe
+  server: vpn-kr-002.fastervpn.world
+  port: 443
+  udp: true
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ9wR5tF6vB3z
+  sni: vpn-kr-002.fastervpn.world
+  skip-cert-verify: true
+- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
+  server: 3.36.93.74
+  port: 443
+  udp: true
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: vpn-kr-003.fastervpn.world
+  skip-cert-verify: true
 - name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
+  server: 150-230-252-217.liao.kdns.fr
+  port: 50160
+  udp: true
+  type: hysteria2
+  password: 9cfc9458e48c028ec03ff86ebc71c744
+  sni: 127.0.0.1
+  skip-cert-verify: true
+- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
+  server: 154.90.62.70
+  port: 56127
+  udp: true
+  type: trojan
+  password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
+  sni: 154.90.62.70
+  skip-cert-verify: true
+- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
+  server: 132.226.226.189
+  port: 50160
+  udp: true
+  type: hysteria2
+  password: 1671a252e2a97dc2bda4e515475931da
+  sni: www.bing.com
+  skip-cert-verify: true
+- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
   server: 3.39.4.109
   port: 13672
   udp: true
@@ -45,39 +70,7 @@ proxies:
     short-id: 48050fab
   servername: www.apple.com
   client-fingerprint: chrome
-- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
-  server: 3.36.93.74
-  port: 443
-  udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: 3.36.93.74
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
-  server: 152.70.237.123
-  port: 2053
-  udp: true
-  type: hysteria2
-  password: maintell
-  sni: bing.com
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
-  server: vpn-kr-002.fastervpn.world
-  port: 443
-  udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ9wR5tF6vB3z
-  sni: vpn-kr-002.fastervpn.world
-  skip-cert-verify: true
 - name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
-  server: 132.226.226.189
-  port: 50160
-  udp: true
-  type: hysteria2
-  password: 1671a252e2a97dc2bda4e515475931da
-  sni: www.bing.com
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 09 - xiaohe
   server: 151.245.106.49
   port: 2053
   udp: true
@@ -88,94 +81,30 @@ proxies:
     public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
     short-id: 429499c03d4cc8a0
   servername: www.cloudflare.com
-  client-fingerprint: firefox
-- name: 🇰🇷 韩国 (South Korea) 10 - xiaohe
-  server: 150-230-252-217.liao.kdns.fr
-  port: 50160
-  udp: true
-  type: hysteria2
-  password: 9cfc9458e48c028ec03ff86ebc71c744
-  sni: 127.0.0.1
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 11 - xiaohe
+  client-fingerprint: random
+- name: 🇰🇷 韩国 (South Korea) 09 - xiaohe
   server: 152.67.200.82
   port: 50160
   udp: true
   type: hysteria2
   password: 3d7634af8cb2c6cb4bac1c0efad8b43d
-  sni: 152-67-200-82.liao.kdns.fr
+  sni: t.me
   skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 12 - xiaohe
-  server: 141.164.45.187
-  port: 5498
+- name: 🇰🇷 韩国 (South Korea) 10 - xiaohe
+  server: 140.238.2.250
+  port: 443
   udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: lGqs95QkFHo2NV
-- name: 🇰🇷 韩国 (South Korea) 13 - xiaohe
-  server: 141.164.45.187
-  port: 5498
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: lGqs95QkFHo2NV
-- name: 🇰🇷 韩国 (South Korea) 14 - xiaohe
+  type: vmess
+  uuid: 41a7089a-040b-4538-8b8d-010902405bde
+  alterId: 0
+  cipher: auto
+- name: 🇰🇷 韩国 (South Korea) 11 - xiaohe
   server: 221.139.79.57
   port: 13979
   udp: true
   type: ss
   cipher: aes-256-cfb
   password: qwerREWQ@@
-- name: 🇰🇷 韩国 (South Korea) 15 - xiaohe
-  server: 172.64.159.190
-  port: 443
-  udp: true
-  type: vless
-  uuid: 43e60b75-9920-450a-94ee-8762758ca49c
-  tls: true
-  servername: a860d725.69lover.site
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /api/v2/288cd04559d84d1d/stream
-    headers:
-      Host: a860d725.69lover.site
-- name: 🇰🇷 韩国 (South Korea) 16 - xiaohe
-  server: 141.164.45.187
-  port: 8888
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
-- name: 🇰🇷 韩国 (South Korea) 17 - xiaohe
-  server: 141.164.45.187
-  port: 2376
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: faBAoD54k87UJG7
-- name: 🇰🇷 韩国 (South Korea) 18 - xiaohe
-  server: 141.164.45.187
-  port: 9101
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: e4FCWrgpkji3QY
-- name: 🇰🇷 韩国 (South Korea) 19 - xiaohe
-  server: 141.164.45.187
-  port: 7002
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
-- name: 🇰🇷 韩国 (South Korea) 20 - xiaohe
-  server: 141.164.45.187
-  port: 6697
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: TEzjfAYq2IjtuoS
 proxy-groups:
 - name: PROXIES
   type: select
@@ -192,15 +121,6 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 09 - xiaohe
   - 🇰🇷 韩国 (South Korea) 10 - xiaohe
   - 🇰🇷 韩国 (South Korea) 11 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 12 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 13 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 14 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 15 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 16 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 17 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 18 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 19 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 20 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -217,14 +137,5 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 09 - xiaohe
   - 🇰🇷 韩国 (South Korea) 10 - xiaohe
   - 🇰🇷 韩国 (South Korea) 11 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 12 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 13 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 14 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 15 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 16 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 17 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 18 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 19 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 20 - xiaohe
 rules:
 - MATCH,PROXIES

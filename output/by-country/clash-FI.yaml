@@ -5,12 +5,17 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 芬兰 (Finland) 01 - xiaohe
-  server: 82.47.186.18
-  port: 19290
+  server: 95.216.27.15
+  port: 2053
   udp: true
-  type: ss
-  cipher: aes-128-gcm
-  password: o2rw2hICwu1blrr_gZAl2Q
+  type: vless
+  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
+  tls: true
+  reality-opts:
+    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
+    short-id: d368b94e275ab080
+  servername: www.google.com
+  client-fingerprint: ''
 - name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
   server: 185.79.138.71
   port: 448
@@ -24,18 +29,16 @@ proxies:
   servername: www.samsung.com
   client-fingerprint: chrome
 - name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  server: 31.77.199.147
-  port: 4443
+  server: 150.241.71.148
+  port: 448
   udp: true
-  type: vless
-  uuid: 20dd9433-389e-4573-ba7b-689619cf13da
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: GvkQwcZWiXQBLzEhTVfQkyPpdgo6Opc3RtLsED9sA0A
-    short-id: 7da2eae792187ab9
-  servername: images.unsplash.com
-  client-fingerprint: ''
+  type: trojan
+  password: 6fY77UmuJ6BEK7n0qv433JrPNjCMeZQV
+  sni: kiev.gosgenarchive.com
+  skip-cert-verify: false
+  network: grpc
+  grpc-opts:
+    grpc-service-name: TrojanGRPC
 proxy-groups:
 - name: PROXIES
   type: select

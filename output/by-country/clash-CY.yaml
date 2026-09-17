@@ -5,18 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇾 塞浦路斯 (Cyprus) 01 - xiaohe
-  server: 194.76.154.31
-  port: 40443
-  udp: true
-  type: vless
-  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
-  tls: true
-  reality-opts:
-    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
-    short-id: a8ae
-  servername: deepl.com
-  client-fingerprint: firefox
-- name: 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
   server: 45.9.2.171
   port: 8443
   udp: true
@@ -29,20 +17,7 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: ''
-- name: 🇨🇾 塞浦路斯 (Cyprus) 03 - xiaohe
-  server: carina.yokkastars.com
-  port: 40443
-  udp: true
-  type: vless
-  uuid: 588456a5-f724-46a7-a08b-5d336d9f8f56
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: 3cW_F0us0je_lhnl5xpwSxHyRfTQaKFELxWLr8jRzic
-    short-id: e496c7fe1cefc9ff
-  servername: deepl.com
-  client-fingerprint: random
-- name: 🇨🇾 塞浦路斯 (Cyprus) 04 - xiaohe
+- name: 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
   server: 2.56.124.241
   port: 443
   udp: true
@@ -55,7 +30,7 @@ proxies:
     short-id: 72104d27a0f5f62e
   servername: www.amazon.com
   client-fingerprint: chrome
-- name: 🇨🇾 塞浦路斯 (Cyprus) 05 - xiaohe
+- name: 🇨🇾 塞浦路斯 (Cyprus) 03 - xiaohe
   server: 5.253.42.163
   port: 40443
   udp: true
@@ -67,6 +42,18 @@ proxies:
     public-key: d1gJntekIStCHyAwgJCuv-N4_BBx5dDQ7K6CeWmpMRo
     short-id: 84fc
   servername: deepl.com
+  client-fingerprint: chrome
+- name: 🇨🇾 塞浦路斯 (Cyprus) 04 - xiaohe
+  server: 194.76.154.31
+  port: 40443
+  udp: true
+  type: vless
+  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
+  tls: true
+  reality-opts:
+    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
+    short-id: a8ae
+  servername: deepl.com
   client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
@@ -77,7 +64,6 @@ proxy-groups:
   - 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
   - 🇨🇾 塞浦路斯 (Cyprus) 03 - xiaohe
   - 🇨🇾 塞浦路斯 (Cyprus) 04 - xiaohe
-  - 🇨🇾 塞浦路斯 (Cyprus) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -87,6 +73,5 @@ proxy-groups:
   - 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
   - 🇨🇾 塞浦路斯 (Cyprus) 03 - xiaohe
   - 🇨🇾 塞浦路斯 (Cyprus) 04 - xiaohe
-  - 🇨🇾 塞浦路斯 (Cyprus) 05 - xiaohe
 rules:
 - MATCH,PROXIES
