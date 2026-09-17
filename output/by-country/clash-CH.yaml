@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
-  server: 104.165.205.42
+  server: 104.165.205.40
   port: 8443
   udp: true
   type: hysteria2
@@ -13,6 +13,14 @@ proxies:
   sni: speedtestmark.com
   skip-cert-verify: false
 - name: 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
+  server: 104.165.205.42
+  port: 8443
+  udp: true
+  type: hysteria2
+  password: 54d2f622-fd71-4f5f-8813-832b68f4ca3b
+  sni: 104.165.205.42
+  skip-cert-verify: true
+- name: 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
   server: 151.242.2.81
   port: 443
   udp: true
@@ -26,14 +34,6 @@ proxies:
     path: /cdn/v3/live
     headers:
       Host: cf9.rumedia-cdn.com
-- name: 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
-  server: 140.238.213.114
-  port: 50160
-  udp: true
-  type: hysteria2
-  password: 84a506ca5aca505696a454d828420b3f
-  sni: www.bing.com
-  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
