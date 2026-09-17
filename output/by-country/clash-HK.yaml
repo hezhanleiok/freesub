@@ -5,12 +5,12 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 - xiaohe
-  server: 119.246.1.143
-  port: 443
+  server: 47.240.80.220
+  port: 2052
   udp: true
   type: trojan
-  password: BxceQaOe
-  sni: t.me%2fripaojiedian
+  password: tFjD2X1F6i9FfWp2GDU5Vbi1conuaChDKIYbw9zMFrqvMoSz
+  sni: vpn.12169.top
   skip-cert-verify: true
 - name: 🇭🇰 中国香港 (Hong Kong) 02 - xiaohe
   server: 162.128.157.164
@@ -24,27 +24,22 @@ proxies:
     public-key: TP_bpIPUtjdxxGA9j7mpsHtSDfM2HMSZFNWW9MtDPT0
     short-id: 14156e3ac23212cc
   servername: www.bing.com
-  client-fingerprint: random
+  client-fingerprint: firefox
 - name: 🇭🇰 中国香港 (Hong Kong) 03 - xiaohe
-  server: 34.92.123.152
+  server: 202.146.222.174
   port: 443
   udp: true
-  type: vless
-  uuid: 5d77df4a-0b55-4597-b0e6-ae3ef70a72c0
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: aZfMRLVe6AAcWbF9SpJ0s1RXN-OP5bqdTJ4C74_jTi0
-    short-id: 56c35a22730a22e5
-  servername: www.cloudflare.com
-  client-fingerprint: qq
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: t.me
+  skip-cert-verify: true
 - name: 🇭🇰 中国香港 (Hong Kong) 04 - xiaohe
-  server: 47.240.80.220
-  port: 2052
+  server: 202.146.222.89
+  port: 443
   udp: true
-  type: trojan
-  password: tFjD2X1F6i9FfWp2GDU5Vbi1conuaChDKIYbw9zMFrqvMoSz
-  sni: vpn.12169.top
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: https://t.me/clashv8
   skip-cert-verify: true
 - name: 🇭🇰 中国香港 (Hong Kong) 05 - xiaohe
   server: hk-1.gsafevpnapi.com
@@ -60,45 +55,29 @@ proxies:
   servername: www.yahoo.com
   client-fingerprint: firefox
 - name: 🇭🇰 中国香港 (Hong Kong) 06 - xiaohe
-  server: 202.146.222.89
+  server: 202.146.222.29
   port: 443
   udp: true
   type: hysteria2
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: https://t.me/clashv8
+  sni: "https://t.me/wangcai2ð\x9F\x87ð\x9F\x87"
   skip-cert-verify: true
 - name: 🇭🇰 中国香港 (Hong Kong) 07 - xiaohe
-  server: 202.146.222.174
+  server: 119.246.1.143
   port: 443
   udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: https://t.me/wangcai2
+  type: trojan
+  password: BxceQaOe
+  sni: t.me
   skip-cert-verify: true
 - name: 🇭🇰 中国香港 (Hong Kong) 08 - xiaohe
-  server: nomino.11hi8itbaf.workers.dev
-  port: 443
-  udp: true
-  type: vmess
-  uuid: 3aa71202-a099-49c1-99fc-6662f3335369
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: nomino.11hi8itbaf.workers.dev
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /yoga-suggesting-recording-calls.trycloudflare.com/3aa71202-a099-49c1-99fc-6662f3335369-vm
-    headers:
-      Host: nomino.11hi8itbaf.workers.dev
-- name: 🇭🇰 中国香港 (Hong Kong) 09 - xiaohe
-  server: hk01.kfc-520.com
-  port: 60001
+  server: mz.hkychina.com
+  port: 8443
   udp: true
   type: hysteria2
-  password: 49f7ff21-a176-30cc-ab60-a5988fd85ce0
-  sni: hk01.kfc-520.com
-  skip-cert-verify: true
+  password: HysTeria2026!Proxy
+  sni: mz.hkychina.com
+  skip-cert-verify: false
 proxy-groups:
 - name: PROXIES
   type: select
@@ -112,7 +91,6 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 06 - xiaohe
   - 🇭🇰 中国香港 (Hong Kong) 07 - xiaohe
   - 🇭🇰 中国香港 (Hong Kong) 08 - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 09 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -126,6 +104,5 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 06 - xiaohe
   - 🇭🇰 中国香港 (Hong Kong) 07 - xiaohe
   - 🇭🇰 中国香港 (Hong Kong) 08 - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 09 - xiaohe
 rules:
 - MATCH,PROXIES

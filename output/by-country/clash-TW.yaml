@@ -5,20 +5,20 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 - xiaohe
-  server: 85.237.207.49
-  port: 50160
+  server: vpn-tw-002.fastervpn.world
+  port: 443
   udp: true
   type: hysteria2
-  password: a56619e2bed91121eabb97d20be207c3
-  sni: 85-237-207-49.liao.kdns.fr
-  skip-cert-verify: false
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: google.com
+  skip-cert-verify: true
 - name: 🇹🇼 中国台湾 (Taiwan) 02 - xiaohe
   server: 103.115.109.49
   port: 443
   udp: true
   type: hysteria2
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: https%3a%2f%2ft.me%2fwangcai2
+  sni: https%3a%2f%2ft.me%2foneclickvpnkeys
   skip-cert-verify: true
 - name: 🇹🇼 中国台湾 (Taiwan) 03 - xiaohe
   server: 35.201.230.136
@@ -32,28 +32,18 @@ proxies:
     public-key: Uq9Q8VXK9VkVOJ1M5PfORTqMhjjGoIS40-V0tAG_1FM
     short-id: 5e13a6d43d0644c9
   servername: www.cloudflare.com
-  client-fingerprint: edge
+  client-fingerprint: ios
 - name: 🇹🇼 中国台湾 (Taiwan) 04 - xiaohe
-  server: vpn-tw-002.fastervpn.world
-  port: 443
-  udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: vpn-tw-002.fastervpn.world
-  skip-cert-verify: true
-- name: 🇹🇼 中国台湾 (Taiwan) 05 - xiaohe
-  server: 35.221.158.209
-  port: 32981
+  server: hinet1.2yly.com
+  port: 24215
   udp: true
   type: vless
-  uuid: 41b96ee9-ee5e-455f-9753-187a9dead97a
-  flow: xtls-rprx-vision
+  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
   tls: true
   reality-opts:
-    public-key: JSn0GPz1WOSTUDBxN_XYnhgb2Jpjc2LpfBTzX1j3V2E
-    short-id: 70f4b7a4c40636
-  servername: www.sony.com
-  client-fingerprint: firefox
+    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
+  servername: addons.mozilla.org
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -63,7 +53,6 @@ proxy-groups:
   - 🇹🇼 中国台湾 (Taiwan) 02 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 03 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 04 - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -73,6 +62,5 @@ proxy-groups:
   - 🇹🇼 中国台湾 (Taiwan) 02 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 03 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 04 - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 05 - xiaohe
 rules:
 - MATCH,PROXIES

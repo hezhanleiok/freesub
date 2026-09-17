@@ -5,15 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇺🇿 乌兹别克斯坦 (Uzbekistan) 01 - xiaohe
-  server: 189.74.97.43
-  port: 2087
-  udp: true
-  type: vless
-  uuid: 10f7eb2d-d96d-4778-9d36-aff11e9d6629
-  network: ws
-  ws-opts:
-    path: /73b6faea2d00
-- name: 🇺🇿 乌兹别克斯坦 (Uzbekistan) 02 - xiaohe
   server: 189.74.97.47
   port: 2087
   udp: true
@@ -22,21 +13,15 @@ proxies:
   network: ws
   ws-opts:
     path: /755276b33b6f
-- name: 🇺🇿 乌兹别克斯坦 (Uzbekistan) 03 - xiaohe
-  server: 104.25.155.45
-  port: 443
+- name: 🇺🇿 乌兹别克斯坦 (Uzbekistan) 02 - xiaohe
+  server: 189.74.97.43
+  port: 2087
   udp: true
   type: vless
-  uuid: 50414e45-4c5f-5a45-5553-4eef5adc237a
-  tls: true
-  servername: r5zenrelur2s.pqzdileiu8es.workers.dev
-  skip-cert-verify: false
-  client-fingerprint: chrome
+  uuid: 10f7eb2d-d96d-4778-9d36-aff11e9d6629
   network: ws
   ws-opts:
-    path: /stream/PANEL_ZEUS/4eef5adc237a/loc-1
-    headers:
-      Host: r5zenrelur2s.pqzdileiu8es.workers.dev
+    path: /73b6faea2d00
 proxy-groups:
 - name: PROXIES
   type: select
@@ -44,7 +29,6 @@ proxy-groups:
   - AUTO
   - 🇺🇿 乌兹别克斯坦 (Uzbekistan) 01 - xiaohe
   - 🇺🇿 乌兹别克斯坦 (Uzbekistan) 02 - xiaohe
-  - 🇺🇿 乌兹别克斯坦 (Uzbekistan) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -52,6 +36,5 @@ proxy-groups:
   proxies:
   - 🇺🇿 乌兹别克斯坦 (Uzbekistan) 01 - xiaohe
   - 🇺🇿 乌兹别克斯坦 (Uzbekistan) 02 - xiaohe
-  - 🇺🇿 乌兹别克斯坦 (Uzbekistan) 03 - xiaohe
 rules:
 - MATCH,PROXIES
