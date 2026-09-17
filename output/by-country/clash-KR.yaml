@@ -5,6 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇷 韩国 (South Korea) 01 - wangyu
+  type: ss
+  server: 141.164.45.187
+  port: 9090
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 02 - wangyu
   type: vmess
   server: 140.238.2.250
   port: 443
@@ -14,13 +21,6 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 02 - wangyu
-  type: ss
-  server: 141.164.45.187
-  port: 9090
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
-  udp: true
 - name: 🇰🇷 韩国 (South Korea) 03 - wangyu
   type: vless
   server: 151.245.106.49
@@ -34,13 +34,6 @@ proxies:
   servername: www.cloudflare.com
   client-fingerprint: random
 - name: 🇰🇷 韩国 (South Korea) 04 - wangyu
-  type: ss
-  server: 141.164.45.187
-  port: 5498
-  cipher: aes-256-gcm
-  password: lGqs95QkFHo2NV
-  udp: true
-- name: 🇰🇷 韩国 (South Korea) 05 - wangyu
   type: vless
   server: 151.245.106.49
   port: 2053
@@ -52,20 +45,6 @@ proxies:
     public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
   servername: www.cloudflare.com
   client-fingerprint: firefox
-- name: 🇰🇷 韩国 (South Korea) 06 - wangyu
-  type: vless
-  server: 104.16.10.185
-  port: 443
-  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: fx3h2kf8xn.fx6hsv0.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
 proxy-groups:
 - name: PROXIES
   type: select
@@ -75,8 +54,6 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 02 - wangyu
   - 🇰🇷 韩国 (South Korea) 03 - wangyu
   - 🇰🇷 韩国 (South Korea) 04 - wangyu
-  - 🇰🇷 韩国 (South Korea) 05 - wangyu
-  - 🇰🇷 韩国 (South Korea) 06 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -86,7 +63,5 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 02 - wangyu
   - 🇰🇷 韩国 (South Korea) 03 - wangyu
   - 🇰🇷 韩国 (South Korea) 04 - wangyu
-  - 🇰🇷 韩国 (South Korea) 05 - wangyu
-  - 🇰🇷 韩国 (South Korea) 06 - wangyu
 rules:
 - MATCH,PROXIES

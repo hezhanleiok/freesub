@@ -5,19 +5,20 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - wangyu
-  type: vless
-  server: max.karmatel.ir
-  port: 55519
-  uuid: a2b9a1b7-f12f-4503-a9f6-c78ec565a6bf
+  type: ss
+  server: 139.28.240.68
+  port: 1080
+  cipher: chacha20-ietf-poly1305
+  password: rSeYcig_XBy8q3k33NpK3A
   udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: play-apps-features.googleusercontent.com
 - name: 🇹🇷 土耳其 (Turkey) 02 - wangyu
+  type: ss
+  server: 153.52.92.81
+  port: 1080
+  cipher: chacha20-ietf-poly1305
+  password: IXa3ylzS_jBOAsQy071tIQ
+  udp: true
+- name: 🇹🇷 土耳其 (Turkey) 03 - wangyu
   type: vless
   server: shop.neexbyte.ir
   port: 8443
@@ -31,13 +32,6 @@ proxies:
     path: /
     headers:
       Host: shop.neexbyte.ir
-- name: 🇹🇷 土耳其 (Turkey) 03 - wangyu
-  type: ss
-  server: 153.52.92.81
-  port: 1080
-  cipher: chacha20-ietf-poly1305
-  password: IXa3ylzS_jBOAsQy071tIQ
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select

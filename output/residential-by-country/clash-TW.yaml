@@ -5,34 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
-  type: ss
-  server: 36.224.185.143
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-  udp: true
-- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
-  type: ss
-  server: 36.224.185.173
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: b1ae0fce-9340-4f2e-882d-fdb2218e2e2b
-  udp: true
-- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
-  type: vless
-  server: 60.248.219.52
-  port: 443
-  uuid: f265b49a-70a3-407a-b17b-e45dfb9f255c
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ty986gfazs.cainiaohub.xyz
-  network: ws
-  ws-opts:
-    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
-    headers:
-      Host: 60.248.219.52
-- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
   type: vmess
   server: 7dba81fc3a0b.oylfmxz.cn
   port: 443
@@ -42,29 +14,23 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ''
+  servername: 7dba81fc3a0b.oylfmxz.cn
   network: ws
   ws-opts:
-    path: ''
+    path: /
     headers:
-      Host: ''
+      Host: 7dba81fc3a0b.oylfmxz.cn
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
 rules:
 - MATCH,PROXIES
