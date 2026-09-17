@@ -11,17 +11,32 @@ proxies:
   cipher: aes-256-gcm
   password: Proxy2024
   udp: true
+- name: 🇺🇸 美国 (United States) 02 (家宽) - wangyu
+  type: vless
+  server: 188.114.97.6
+  port: 8880
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /?ed=2560+
+    headers:
+      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇺🇸 美国 (United States) 01 (家宽) - wangyu
+  - 🇺🇸 美国 (United States) 02 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇺🇸 美国 (United States) 01 (家宽) - wangyu
+  - 🇺🇸 美国 (United States) 02 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

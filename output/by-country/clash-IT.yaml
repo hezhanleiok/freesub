@@ -6,17 +6,17 @@ log-level: info
 proxies:
 - name: 🇮🇹 意大利 (Italy) 01 - wangyu
   type: ss
-  server: 57.131.48.45
-  port: 8388
-  cipher: aes-256-gcm
-  password: itzvpn@321
-  udp: true
-- name: 🇮🇹 意大利 (Italy) 02 - wangyu
-  type: ss
   server: 185.164.175.81
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: 🇮🇹 意大利 (Italy) 02 - wangyu
+  type: ss
+  server: 57.131.48.45
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
   udp: true
 - name: 🇮🇹 意大利 (Italy) 03 - wangyu
   type: ss
@@ -26,19 +26,6 @@ proxies:
   password: itzvpn@321
   udp: true
 - name: 🇮🇹 意大利 (Italy) 04 - wangyu
-  type: vless
-  server: 114.129.43.30
-  port: 8880
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: vms.lifetime04.workers.dev
-- name: 🇮🇹 意大利 (Italy) 05 - wangyu
   type: vless
   server: 204.216.216.23
   port: 10086
@@ -55,7 +42,6 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 02 - wangyu
   - 🇮🇹 意大利 (Italy) 03 - wangyu
   - 🇮🇹 意大利 (Italy) 04 - wangyu
-  - 🇮🇹 意大利 (Italy) 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -65,6 +51,5 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 02 - wangyu
   - 🇮🇹 意大利 (Italy) 03 - wangyu
   - 🇮🇹 意大利 (Italy) 04 - wangyu
-  - 🇮🇹 意大利 (Italy) 05 - wangyu
 rules:
 - MATCH,PROXIES
