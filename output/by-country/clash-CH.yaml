@@ -5,6 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇭 CH 01 - wangyu
+  type: ss
+  server: 132.243.175.144
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
+  udp: true
+- name: 🇨🇭 CH 02 - wangyu
   type: vless
   server: 94.26.35.139
   port: 25720
@@ -16,17 +23,34 @@ proxies:
     public-key: OueudVX2rTpyeEb2bNW3Jx3WtgSX4zFERs6yt8Szv0E
   servername: www.samsung.com
   client-fingerprint: firefox
+- name: 🇨🇭 CH 03 - wangyu
+  type: vless
+  server: 188.114.97.6
+  port: 8080
+  uuid: bd9ff08b-d042-3650-48e4-c4b400000000
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN
+    headers:
+      Host: netlivpn2950.bbxff.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇨🇭 CH 01 - wangyu
+  - 🇨🇭 CH 02 - wangyu
+  - 🇨🇭 CH 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇨🇭 CH 01 - wangyu
+  - 🇨🇭 CH 02 - wangyu
+  - 🇨🇭 CH 03 - wangyu
 rules:
 - MATCH,PROXIES

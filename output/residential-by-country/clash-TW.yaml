@@ -20,17 +20,42 @@ proxies:
     path: /
     headers:
       Host: 7dba81fc3a0b.oylfmxz.cn
+- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  type: ss
+  server: 36.224.185.173
+  port: 50099
+  cipher: chacha20-ietf-poly1305
+  password: b1ae0fce-9340-4f2e-882d-fdb2218e2e2b
+  udp: true
+- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
+  type: vless
+  server: 59.125.69.19
+  port: 443
+  uuid: f1d247db-d7ce-4eb8-9c0d-7b10603cd0b4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ty986gfazs.cainiaohub.xyz
+  network: ws
+  ws-opts:
+    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
+    headers:
+      Host: 59.125.69.19
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

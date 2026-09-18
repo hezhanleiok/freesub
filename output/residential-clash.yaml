@@ -4,35 +4,7 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
-  type: vless
-  server: 104.16.10.185
-  port: 443
-  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: fx3h2kf8xn.fx6hsv0.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
-- name: 🇰🇷 韩国 (South Korea) 02 (家宽) - wangyu
-  type: vless
-  server: 104.16.10.185
-  port: 443
-  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: fx3h2kf8xn.fx6hsv0.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
-- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
+- name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
   type: vmess
   server: 7dba81fc3a0b.oylfmxz.cn
   port: 443
@@ -48,7 +20,42 @@ proxies:
     path: /
     headers:
       Host: 7dba81fc3a0b.oylfmxz.cn
-- name: 🇰🇷 韩国 (South Korea) 04 (家宽) - wangyu
+- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  type: ss
+  server: 36.224.185.173
+  port: 50099
+  cipher: chacha20-ietf-poly1305
+  password: b1ae0fce-9340-4f2e-882d-fdb2218e2e2b
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 03 (家宽) - wangyu
+  type: vless
+  server: 104.16.10.185
+  port: 443
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: fx3h2kf8xn.fx6hsv0.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
+- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
+  type: vless
+  server: 59.125.69.19
+  port: 443
+  uuid: f1d247db-d7ce-4eb8-9c0d-7b10603cd0b4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ty986gfazs.cainiaohub.xyz
+  network: ws
+  ws-opts:
+    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
+    headers:
+      Host: 59.125.69.19
+- name: 🇰🇷 韩国 (South Korea) 05 (家宽) - wangyu
   type: vless
   server: 104.16.10.185
   port: 443
@@ -67,18 +74,20 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 02 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 04 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  - 🇰🇷 韩国 (South Korea) 03 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
+  - 🇰🇷 韩国 (South Korea) 05 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 02 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 04 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  - 🇰🇷 韩国 (South Korea) 03 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
+  - 🇰🇷 韩国 (South Korea) 05 (家宽) - wangyu
 rules:
 - MATCH,PROXIES
