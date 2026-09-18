@@ -16,42 +16,17 @@ proxies:
     public-key: OueudVX2rTpyeEb2bNW3Jx3WtgSX4zFERs6yt8Szv0E
   servername: www.samsung.com
   client-fingerprint: firefox
-- name: 🇨🇭 CH 02 - xiaohe
-  type: ss
-  server: 132.243.175.144
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
-  udp: true
-- name: 🇨🇭 CH 03 - xiaohe
-  type: vless
-  server: 104.18.28.234
-  port: 443
-  uuid: f6b5a6a3-f3e1-63ca-bb68-bdc400000000
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: netlivpn5505.ffffdsaaa.workers.dev
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: netlivpn5505.ffffdsaaa.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇨🇭 CH 01 - xiaohe
-  - 🇨🇭 CH 02 - xiaohe
-  - 🇨🇭 CH 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇨🇭 CH 01 - xiaohe
-  - 🇨🇭 CH 02 - xiaohe
-  - 🇨🇭 CH 03 - xiaohe
 rules:
 - MATCH,PROXIES

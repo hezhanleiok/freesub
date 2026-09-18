@@ -6,18 +6,17 @@ log-level: info
 proxies:
 - name: 🇺🇿 UZ 01 - xiaohe
   type: vless
-  server: 172.64.95.237
-  port: 443
-  uuid: 50414e45-4c5f-5a45-5553-565221666bd1
+  server: 189.74.97.47
+  port: 2087
+  uuid: 894fe9f0-b998-49c0-8003-a5007de921e1
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: mczrh5e3u5ps.shoameny.workers.dev
   network: ws
   ws-opts:
-    path: /stream/PANEL_ZEUS/565221666bd1/loc-5
+    path: /755276b33b6f
     headers:
-      Host: mczrh5e3u5ps.shoameny.workers.dev
+      Host: 189.74.97.47
 - name: 🇺🇿 UZ 02 - xiaohe
   type: vless
   server: 189.74.97.43
@@ -31,19 +30,6 @@ proxies:
     path: /73b6faea2d00
     headers:
       Host: 189.74.97.43
-- name: 🇺🇿 UZ 03 - xiaohe
-  type: vless
-  server: 189.74.97.47
-  port: 2087
-  uuid: 894fe9f0-b998-49c0-8003-a5007de921e1
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /755276b33b6f
-    headers:
-      Host: 189.74.97.47
 proxy-groups:
 - name: PROXIES
   type: select
@@ -51,7 +37,6 @@ proxy-groups:
   - AUTO
   - 🇺🇿 UZ 01 - xiaohe
   - 🇺🇿 UZ 02 - xiaohe
-  - 🇺🇿 UZ 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -59,6 +44,5 @@ proxy-groups:
   proxies:
   - 🇺🇿 UZ 01 - xiaohe
   - 🇺🇿 UZ 02 - xiaohe
-  - 🇺🇿 UZ 03 - xiaohe
 rules:
 - MATCH,PROXIES

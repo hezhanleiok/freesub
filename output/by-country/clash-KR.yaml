@@ -5,33 +5,32 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇷 韩国 (South Korea) 01 - xiaohe
-  type: ss
-  server: 141.164.45.187
-  port: 9090
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
-  udp: true
-- name: 🇰🇷 韩国 (South Korea) 02 - xiaohe
   type: vless
-  server: 172.66.170.53
+  server: tiny-lake-c7f3.16-1af.workers.dev
   port: 8880
-  uuid: 38ede46b-d237-4c76-9de1-a10738642adc
+  uuid: ff7390de-ce93-4d7d-b08b-bef8f71a85cf
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /pyip=ProxyIP.KR.CMLiussss.net
+    path: /
     headers:
-      Host: summer-hat-ba5c.430.workers.dev
-- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
-  type: ss
-  server: 141.164.45.187
-  port: 6679
-  cipher: aes-256-gcm
-  password: TEzjfAYq2IjtuoS
+      Host: tiny-lake-c7f3.16-1af.workers.dev
+- name: 🇰🇷 韩国 (South Korea) 02 - xiaohe
+  type: vless
+  server: 172.67.190.141
+  port: 8880
+  uuid: 0787cfdb-9930-4abb-8419-c1b96c3ef628
   udp: true
-- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /+
+    headers:
+      Host: red-snowflake-c399.12-ee1.workers.dev
+- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
   type: vless
   server: 151.245.106.49
   port: 2053
@@ -42,22 +41,74 @@ proxies:
   reality-opts:
     public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
   servername: www.cloudflare.com
-  client-fingerprint: firefox
-- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
+  client-fingerprint: random
+- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
   type: vless
-  server: 188.114.97.6
-  port: 443
-  uuid: 0ed342c3-eb45-4d63-83a1-697252636ca9
+  server: 172.67.174.37
+  port: 8880
+  uuid: 8cc8bedd-5103-4d22-a79c-a88f1160055a
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: yellow-hall-d482.260-d22.workers.dev
   network: ws
   ws-opts:
     path: /pyip=ProxyIP.KR.CMLiussss.net
     headers:
-      Host: yellow-hall-d482.260-d22.workers.dev
+      Host: red-unit-60bc.165-1dd.workers.dev
+- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
+  type: vless
+  server: 172.66.132.196
+  port: 8880
+  uuid: 0787cfdb-9930-4abb-8419-c1b96c3ef628
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: red-snowflake-c399.12-ee1.workers.dev
 - name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
+  type: vless
+  server: solitary-mountain-996f.223-38e.workers.dev
+  port: 8880
+  uuid: 58c1b245-2ea0-40b9-b512-bd2bbe3cbe3f
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: solitary-mountain-996f.223-38e.workers.dev
+- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
+  type: vless
+  server: 172.64.153.3
+  port: 443
+  uuid: e85ca8bc-21a5-418d-a639-00236f0c3d81
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: d9a9ecdf.69lover.site
+  network: ws
+  ws-opts:
+    path: /api/v2/c17245904dc7e388/stream
+    headers:
+      Host: d9a9ecdf.69lover.site
+- name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
+  type: vless
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: 6b89f475-913c-4381-a102-f5e06a129685
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip
+    headers:
+      Host: proud-dawn-56f1.125-85b.workers.dev
+- name: 🇰🇷 韩国 (South Korea) 09 - xiaohe
   type: vmess
   server: 140.238.2.250
   port: 443
@@ -67,14 +118,7 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
-  type: ss
-  server: 141.164.45.187
-  port: 5498
-  cipher: aes-256-gcm
-  password: lGqs95QkFHo2NV
-  udp: true
-- name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 10 - xiaohe
   type: vless
   server: 172.64.88.251
   port: 8880
@@ -87,56 +131,7 @@ proxies:
     path: /pyip=ProxyIP.KR.CMLiussss.net
     headers:
       Host: patient-cake-39c7.44-e7a.workers.dev
-- name: 🇰🇷 韩国 (South Korea) 09 - xiaohe
-  type: vless
-  server: 151.245.106.49
-  port: 2053
-  uuid: a2de9567-9646-45a9-a410-7303a43bdb6c
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
-  servername: www.cloudflare.com
-  client-fingerprint: random
-- name: 🇰🇷 韩国 (South Korea) 10 - xiaohe
-  type: vmess
-  server: 140.238.2.250
-  port: 443
-  uuid: 41a7089a-040b-4538-8b8d-010902405bde
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
 - name: 🇰🇷 韩国 (South Korea) 11 - xiaohe
-  type: vless
-  server: 172.64.88.251
-  port: 8880
-  uuid: 7e3cd2f1-0de5-4717-9002-64d8597bc577
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /pyip=ProxyIP.KR.CMLiussss.net
-    headers:
-      Host: dry-credit-fc26.203-d8c.workers.dev
-- name: 🇰🇷 韩国 (South Korea) 12 - xiaohe
-  type: vless
-  server: 188.114.97.6
-  port: 443
-  uuid: 0ed342c3-eb45-4d63-83a1-697252636ca9
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: yellow-hall-d482.260-d22.workers.dev
-  network: ws
-  ws-opts:
-    path: /pyip=ProxyIP.KR.CMLiussss.net
-    headers:
-      Host: yellow-hall-d482.260-d22.workers.dev
-- name: 🇰🇷 韩国 (South Korea) 13 - xiaohe
   type: vmess
   server: 140.238.2.250
   port: 443
@@ -162,8 +157,6 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 09 - xiaohe
   - 🇰🇷 韩国 (South Korea) 10 - xiaohe
   - 🇰🇷 韩国 (South Korea) 11 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 12 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 13 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -180,7 +173,5 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 09 - xiaohe
   - 🇰🇷 韩国 (South Korea) 10 - xiaohe
   - 🇰🇷 韩国 (South Korea) 11 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 12 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 13 - xiaohe
 rules:
 - MATCH,PROXIES
