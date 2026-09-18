@@ -6,7 +6,7 @@ log-level: info
 proxies:
 - name: 🇨🇿 CZ 01 - wangyu
   type: vless
-  server: 195.85.23.111
+  server: 195.85.23.47
   port: 443
   uuid: b09dfed1-90fa-4353-8bdf-de1edb2e2d79
   udp: true
@@ -20,7 +20,7 @@ proxies:
       Host: nb.lovecf.ggff.net
 - name: 🇨🇿 CZ 02 - wangyu
   type: vless
-  server: 195.85.23.217
+  server: 195.85.23.29
   port: 443
   uuid: b09dfed1-90fa-4353-8bdf-de1edb2e2d79
   udp: true
@@ -34,18 +34,32 @@ proxies:
       Host: nb.lovecf.ggff.net
 - name: 🇨🇿 CZ 03 - wangyu
   type: vless
-  server: 195.85.23.75
+  server: 89.110.66.154
   port: 443
-  uuid: b09dfed1-90fa-4353-8bdf-de1edb2e2d79
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: nb.lovecf.ggff.net
+  servername: cdn8848.776676.xyz
   network: ws
   ws-opts:
-    path: /proxyip=us.xiabibi.cf
+    path: /
     headers:
-      Host: nb.lovecf.ggff.net
+      Host: cdn8848.776676.xyz
+- name: 🇨🇿 CZ 04 - wangyu
+  type: vless
+  server: 129.151.64.169
+  port: 31867
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /files
+    headers:
+      Host: cdn8848.776676.xyz
 proxy-groups:
 - name: PROXIES
   type: select
@@ -54,6 +68,7 @@ proxy-groups:
   - 🇨🇿 CZ 01 - wangyu
   - 🇨🇿 CZ 02 - wangyu
   - 🇨🇿 CZ 03 - wangyu
+  - 🇨🇿 CZ 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -62,5 +77,6 @@ proxy-groups:
   - 🇨🇿 CZ 01 - wangyu
   - 🇨🇿 CZ 02 - wangyu
   - 🇨🇿 CZ 03 - wangyu
+  - 🇨🇿 CZ 04 - wangyu
 rules:
 - MATCH,PROXIES
