@@ -4,19 +4,29 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe
-  server: hg.zhujue.us
-  port: 11000
+- name: 🇯🇵 日本 (Japan) 01 (家宽) - xiaohe
+  server: 80.240.18.227
+  port: 10051
   udp: true
   type: vless
-  uuid: 0e46345c-f33b-4f9b-b8ec-90e7c986af7e
-  flow: xtls-rprx-vision
+  uuid: 73996ef7-544c-45e7-abc0-973218c727e2
   tls: true
-  reality-opts:
-    public-key: sFRyah8EOSGcab8TfIdkq53c5HBSwAVfYQCyvZ0_BG4
-  servername: s0.awsstatic.com
+  servername: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
+  skip-cert-verify: false
   client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
 - name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
+  server: 36.224.185.173
+  port: 50099
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
   server: 7dba81fc3a0b.oylfmxz.cn
   port: 443
   udp: true
@@ -30,21 +40,21 @@ proxies:
   network: ws
   ws-opts:
     path: /
-    headers:
-      Host: 7dba81fc3a0b.oylfmxz.cn
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe
+  - 🇯🇵 日本 (Japan) 01 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe
+  - 🇯🇵 日本 (Japan) 01 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES

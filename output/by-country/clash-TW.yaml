@@ -5,6 +5,22 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 - xiaohe
+  server: 165.154.195.38
+  port: 35034
+  udp: true
+  type: vmess
+  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
+  alterId: 0
+  cipher: auto
+- name: 🇹🇼 中国台湾 (Taiwan) 02 - xiaohe
+  server: 103.115.109.49
+  port: 443
+  udp: true
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: https://t.me/wangcai2
+  skip-cert-verify: true
+- name: 🇹🇼 中国台湾 (Taiwan) 03 - xiaohe
   server: 35.201.230.136
   port: 443
   udp: true
@@ -17,36 +33,7 @@ proxies:
     short-id: 5e13a6d43d0644c9
   servername: www.cloudflare.com
   client-fingerprint: edge
-- name: 🇹🇼 中国台湾 (Taiwan) 02 - xiaohe
-  server: 103.115.109.49
-  port: 443
-  udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: https%3a%2f%2ft.me%2fwangcai2%f0%9f%87%a8%f0%9f%87%b3
-  skip-cert-verify: true
-- name: 🇹🇼 中国台湾 (Taiwan) 03 - xiaohe
-  server: 160.187.100.109
-  port: 443
-  udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: 160.187.100.109
-  skip-cert-verify: true
 - name: 🇹🇼 中国台湾 (Taiwan) 04 - xiaohe
-  server: 104.199.134.231
-  port: 28364
-  udp: true
-  type: vless
-  uuid: 3a62a0c2-ba80-43a9-b757-9aca88b0552e
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: NPhCET0GkjSZuKg4vWsPHLvjYGHW9w99Ucxvavu0-1I
-    short-id: 7241c359c2dfab
-  servername: www.sony.com
-  client-fingerprint: firefox
-- name: 🇹🇼 中国台湾 (Taiwan) 05 - xiaohe
   server: 35.229.136.113
   port: 35412
   udp: true
@@ -58,7 +45,15 @@ proxies:
     public-key: eg6DfbLnWtz7PubkXRYvSuQx6QWIRxUsn4l7QEO3Cg4
     short-id: 0630b874d595
   servername: www.amd.com
-  client-fingerprint: random
+  client-fingerprint: firefox
+- name: 🇹🇼 中国台湾 (Taiwan) 05 - xiaohe
+  server: 160.187.100.109
+  port: 443
+  udp: true
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: 160.187.100.109
+  skip-cert-verify: true
 - name: 🇹🇼 中国台湾 (Taiwan) 06 - xiaohe
   server: 35.221.158.209
   port: 32981
@@ -71,7 +66,7 @@ proxies:
     public-key: JSn0GPz1WOSTUDBxN_XYnhgb2Jpjc2LpfBTzX1j3V2E
     short-id: 70f4b7a4c40636
   servername: www.sony.com
-  client-fingerprint: firefox
+  client-fingerprint: safari
 proxy-groups:
 - name: PROXIES
   type: select
