@@ -5,21 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 - xiaohe
-  server: 36.224.185.173
-  port: 50099
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-- name: 🇹🇼 中国台湾 (Taiwan) 02 - xiaohe
-  server: 160.187.100.109
-  port: 443
-  udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: 127.0.0.1
-  skip-cert-verify: true
-- name: 🇹🇼 中国台湾 (Taiwan) 03 - xiaohe
   server: 35.201.230.136
   port: 443
   udp: true
@@ -32,15 +17,33 @@ proxies:
     short-id: 5e13a6d43d0644c9
   servername: www.cloudflare.com
   client-fingerprint: edge
-- name: 🇹🇼 中国台湾 (Taiwan) 04 - xiaohe
-  server: 103.115.109.49
-  port: 443
+- name: 🇹🇼 中国台湾 (Taiwan) 02 - xiaohe
+  server: 35.201.163.218
+  port: 30837
   udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: https://t.me/oneclickvpnkeys
-  skip-cert-verify: true
-- name: 🇹🇼 中国台湾 (Taiwan) 05 - xiaohe
+  type: vless
+  uuid: 85a6bd94-83a9-4e80-849f-c06d7011d1a4
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: LXPNhrAGxr_QE4YCdJfKE40ebsPNIHnLbydhl6bipCo
+    short-id: 97101ba788915e5a
+  servername: www.sony.com
+  client-fingerprint: qq
+- name: 🇹🇼 中国台湾 (Taiwan) 03 - xiaohe
+  server: 104.199.219.172
+  port: 40800
+  udp: true
+  type: vless
+  uuid: 5859f6a7-cda1-47c2-8353-fcdee281f31d
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: zohUbvPLKVBwzuDmZNsaXXFYZSKA9_xEhdUyURChrgo
+    short-id: 186e4c2732d61a3d
+  servername: www.intel.com
+  client-fingerprint: random
+- name: 🇹🇼 中国台湾 (Taiwan) 04 - xiaohe
   server: 104.199.134.231
   port: 28364
   udp: true
@@ -53,7 +56,33 @@ proxies:
     short-id: 7241c359c2dfab
   servername: www.sony.com
   client-fingerprint: firefox
+- name: 🇹🇼 中国台湾 (Taiwan) 05 - xiaohe
+  server: 35.221.158.209
+  port: 32981
+  udp: true
+  type: vless
+  uuid: 41b96ee9-ee5e-455f-9753-187a9dead97a
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: JSn0GPz1WOSTUDBxN_XYnhgb2Jpjc2LpfBTzX1j3V2E
+    short-id: 70f4b7a4c40636
+  servername: www.sony.com
+  client-fingerprint: ios
 - name: 🇹🇼 中国台湾 (Taiwan) 06 - xiaohe
+  server: 35.229.136.113
+  port: 35412
+  udp: true
+  type: vless
+  uuid: 5d3cbdb2-b82d-4078-82b8-5dd413cca82b
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: eg6DfbLnWtz7PubkXRYvSuQx6QWIRxUsn4l7QEO3Cg4
+    short-id: 0630b874d595
+  servername: www.amd.com
+  client-fingerprint: firefox
+- name: 🇹🇼 中国台湾 (Taiwan) 07 - xiaohe
   server: 35.194.157.16
   port: 43450
   udp: true
@@ -66,19 +95,14 @@ proxies:
     short-id: e65d010354bdad73
   servername: www.amd.com
   client-fingerprint: chrome
-- name: 🇹🇼 中国台湾 (Taiwan) 07 - xiaohe
-  server: 35.221.158.209
-  port: 32981
+- name: 🇹🇼 中国台湾 (Taiwan) 08 - xiaohe
+  server: vpn-tw-002.fastervpn.world
+  port: 443
   udp: true
-  type: vless
-  uuid: 41b96ee9-ee5e-455f-9753-187a9dead97a
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: JSn0GPz1WOSTUDBxN_XYnhgb2Jpjc2LpfBTzX1j3V2E
-    short-id: 70f4b7a4c40636
-  servername: www.sony.com
-  client-fingerprint: random
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: vpn-tw-002.fastervpn.world
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -91,6 +115,7 @@ proxy-groups:
   - 🇹🇼 中国台湾 (Taiwan) 05 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 06 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 07 - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 08 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -103,5 +128,6 @@ proxy-groups:
   - 🇹🇼 中国台湾 (Taiwan) 05 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 06 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 07 - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 08 - xiaohe
 rules:
 - MATCH,PROXIES
