@@ -5,6 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇪 EE 01 - wangyu
+  type: ss
+  server: 212.87.190.124
+  port: 99
+  cipher: chacha20-ietf-poly1305
+  password: 6nQnSKAxCLJSZbg7KA94QA
+  udp: true
+- name: 🇪🇪 EE 02 - wangyu
   type: vless
   server: 94.183.170.135
   port: 8443
@@ -13,20 +20,28 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: estproxy4.lockdwn.com
-- name: 🇪🇪 EE 02 - wangyu
+- name: 🇪🇪 EE 03 - wangyu
   type: vless
-  server: 45.80.108.123
-  port: 443
-  uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
+  server: 94.183.170.135
+  port: 8443
+  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: notls.lukongtou.eu.org
+  servername: estproxy4.lockdwn.com
+- name: 🇪🇪 EE 04 - wangyu
+  type: vless
+  server: 94.183.170.135
+  port: 443
+  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
+  udp: true
+  tls: false
+  skip-cert-verify: true
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: notls.lukongtou.eu.org
+      Host: 94.183.170.135
 proxy-groups:
 - name: PROXIES
   type: select
@@ -34,6 +49,8 @@ proxy-groups:
   - AUTO
   - 🇪🇪 EE 01 - wangyu
   - 🇪🇪 EE 02 - wangyu
+  - 🇪🇪 EE 03 - wangyu
+  - 🇪🇪 EE 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -41,5 +58,7 @@ proxy-groups:
   proxies:
   - 🇪🇪 EE 01 - wangyu
   - 🇪🇪 EE 02 - wangyu
+  - 🇪🇪 EE 03 - wangyu
+  - 🇪🇪 EE 04 - wangyu
 rules:
 - MATCH,PROXIES

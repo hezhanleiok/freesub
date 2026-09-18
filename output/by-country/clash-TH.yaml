@@ -6,20 +6,20 @@ log-level: info
 proxies:
 - name: 🇹🇭 TH 01 - wangyu
   type: vless
-  server: 103.86.49.57
-  port: 80
-  uuid: 3c52e091-6714-4915-949f-2149fe69951b
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: ad85a1ce-3519-4634-9ea1-66c60d3694ba
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /ws
+    path: /pyip=proxyip.sg.cmliussss.net
     headers:
-      Host: aIs.SpEeDtEsT.nEt
+      Host: little-pond-8731.81-68e.workers.dev
 - name: 🇹🇭 TH 02 - wangyu
   type: vless
-  server: 209.33.167.234
+  server: 43.159.4.80
   port: 443
   uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   udp: true
@@ -28,38 +28,9 @@ proxies:
   servername: cdn8848.776676.xyz
   network: ws
   ws-opts:
-    path: /
+    path: /episode/files?ed=2560
     headers:
       Host: cdn8848.776676.xyz
-- name: 🇹🇭 TH 03 - wangyu
-  type: vless
-  server: 43.133.110.81
-  port: 443
-  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI?ed=512
-    headers:
-      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
-- name: 🇹🇭 TH 04 - wangyu
-  type: vmess
-  server: 118.193.57.167
-  port: 49667
-  uuid: d46bf492-45f4-4c33-82d1-ea2a1cb54eb6
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /d46bf492
-    headers:
-      Host: ''
 proxy-groups:
 - name: PROXIES
   type: select
@@ -67,8 +38,6 @@ proxy-groups:
   - AUTO
   - 🇹🇭 TH 01 - wangyu
   - 🇹🇭 TH 02 - wangyu
-  - 🇹🇭 TH 03 - wangyu
-  - 🇹🇭 TH 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -76,7 +45,5 @@ proxy-groups:
   proxies:
   - 🇹🇭 TH 01 - wangyu
   - 🇹🇭 TH 02 - wangyu
-  - 🇹🇭 TH 03 - wangyu
-  - 🇹🇭 TH 04 - wangyu
 rules:
 - MATCH,PROXIES
