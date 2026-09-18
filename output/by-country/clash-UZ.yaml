@@ -1,0 +1,29 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇺🇿 乌兹别克斯坦 (Uzbekistan) 01 - xiaohe
+  server: 189.74.97.47
+  port: 2087
+  udp: true
+  type: vless
+  uuid: 894fe9f0-b998-49c0-8003-a5007de921e1
+  network: ws
+  ws-opts:
+    path: /755276b33b6f
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇺🇿 乌兹别克斯坦 (Uzbekistan) 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇺🇿 乌兹别克斯坦 (Uzbekistan) 01 - xiaohe
+rules:
+- MATCH,PROXIES
