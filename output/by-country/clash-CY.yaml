@@ -5,18 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇾 塞浦路斯 (Cyprus) 01 - xiaohe
-  server: 194.76.154.31
-  port: 40443
-  udp: true
-  type: vless
-  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
-  tls: true
-  reality-opts:
-    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
-    short-id: a8ae
-  servername: deepl.com
-  client-fingerprint: chrome
-- name: 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
   server: 45.9.2.171
   port: 8443
   udp: true
@@ -29,6 +17,18 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: ''
+- name: 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
+  server: 194.76.154.31
+  port: 40443
+  udp: true
+  type: vless
+  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
+  tls: true
+  reality-opts:
+    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
+    short-id: a8ae
+  servername: deepl.com
+  client-fingerprint: qq
 - name: 🇨🇾 塞浦路斯 (Cyprus) 03 - xiaohe
   server: 5.253.42.163
   port: 40443
@@ -41,7 +41,7 @@ proxies:
     public-key: d1gJntekIStCHyAwgJCuv-N4_BBx5dDQ7K6CeWmpMRo
     short-id: 84fc
   servername: deepl.com
-  client-fingerprint: edge
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select

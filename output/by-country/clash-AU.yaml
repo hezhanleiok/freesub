@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
-  server: 82.198.246.37
+  server: 82.198.246.250
   port: 180
   udp: true
   type: vmess
@@ -13,6 +13,31 @@ proxies:
   alterId: 0
   cipher: auto
 - name: 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
+  server: 51.161.204.244
+  port: 443
+  udp: true
+  type: vless
+  uuid: 36e89875-9c53-482b-bc41-d3890e9da176
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: gCAazs5uxNuMZIxfDdw8wPE0nwKY4QfBfBkQveKAkEk
+    short-id: 0ad08b47f498efd2
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
+- name: 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
+  server: 34.87.244.111
+  port: 443
+  udp: true
+  type: vless
+  uuid: 325bc1be-0cb7-4cf7-bd35-a79ded91bbbd
+  tls: true
+  reality-opts:
+    public-key: fsdIMU2apN1C_NbkL7mHTsBKEfhwbDhgCRcB8ICf03E
+    short-id: d725f0dd8cce210f
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇦🇺 澳大利亚 (Australia) 04 - xiaohe
   server: 103.75.119.126
   port: 2087
   udp: true
@@ -28,6 +53,8 @@ proxy-groups:
   - AUTO
   - 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
   - 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
+  - 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
+  - 🇦🇺 澳大利亚 (Australia) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -35,5 +62,7 @@ proxy-groups:
   proxies:
   - 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
   - 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
+  - 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
+  - 🇦🇺 澳大利亚 (Australia) 04 - xiaohe
 rules:
 - MATCH,PROXIES
