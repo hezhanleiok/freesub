@@ -6,6 +6,20 @@ log-level: info
 proxies:
 - name: 🇺🇿 UZ 01 - xiaohe
   type: vless
+  server: 172.64.95.237
+  port: 443
+  uuid: 50414e45-4c5f-5a45-5553-565221666bd1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: mczrh5e3u5ps.shoameny.workers.dev
+  network: ws
+  ws-opts:
+    path: /stream/PANEL_ZEUS/565221666bd1/loc-5
+    headers:
+      Host: mczrh5e3u5ps.shoameny.workers.dev
+- name: 🇺🇿 UZ 02 - xiaohe
+  type: vless
   server: 189.74.97.43
   port: 2087
   uuid: 10f7eb2d-d96d-4778-9d36-aff11e9d6629
@@ -17,7 +31,7 @@ proxies:
     path: /73b6faea2d00
     headers:
       Host: 189.74.97.43
-- name: 🇺🇿 UZ 02 - xiaohe
+- name: 🇺🇿 UZ 03 - xiaohe
   type: vless
   server: 189.74.97.47
   port: 2087
@@ -37,6 +51,7 @@ proxy-groups:
   - AUTO
   - 🇺🇿 UZ 01 - xiaohe
   - 🇺🇿 UZ 02 - xiaohe
+  - 🇺🇿 UZ 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -44,5 +59,6 @@ proxy-groups:
   proxies:
   - 🇺🇿 UZ 01 - xiaohe
   - 🇺🇿 UZ 02 - xiaohe
+  - 🇺🇿 UZ 03 - xiaohe
 rules:
 - MATCH,PROXIES
