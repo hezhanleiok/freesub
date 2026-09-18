@@ -5,14 +5,21 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 - xiaohe
-  server: 165.154.195.38
-  port: 35034
+  server: 36.224.185.173
+  port: 50099
   udp: true
-  type: vmess
-  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
-  alterId: 0
-  cipher: auto
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
 - name: 🇹🇼 中国台湾 (Taiwan) 02 - xiaohe
+  server: 160.187.100.109
+  port: 443
+  udp: true
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: 127.0.0.1
+  skip-cert-verify: true
+- name: 🇹🇼 中国台湾 (Taiwan) 03 - xiaohe
   server: 35.201.230.136
   port: 443
   udp: true
@@ -24,21 +31,21 @@ proxies:
     public-key: Uq9Q8VXK9VkVOJ1M5PfORTqMhjjGoIS40-V0tAG_1FM
     short-id: 5e13a6d43d0644c9
   servername: www.cloudflare.com
-  client-fingerprint: safari
-- name: 🇹🇼 中国台湾 (Taiwan) 03 - xiaohe
-  server: 34.81.129.171
-  port: 34376
+  client-fingerprint: chrome
+- name: 🇹🇼 中国台湾 (Taiwan) 04 - xiaohe
+  server: 104.199.134.231
+  port: 28364
   udp: true
   type: vless
-  uuid: bf8cc771-51a0-4395-810f-1f135325cfc1
+  uuid: 3a62a0c2-ba80-43a9-b757-9aca88b0552e
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: Atq4Fo_Mg48QtKXagBW9jnhaQSDUCiKgnATB2EU6OHU
-    short-id: 8dbafb690450d8a9
+    public-key: NPhCET0GkjSZuKg4vWsPHLvjYGHW9w99Ucxvavu0-1I
+    short-id: 7241c359c2dfab
   servername: www.sony.com
-  client-fingerprint: firefox
-- name: 🇹🇼 中国台湾 (Taiwan) 04 - xiaohe
+  client-fingerprint: random
+- name: 🇹🇼 中国台湾 (Taiwan) 05 - xiaohe
   server: 104.199.219.172
   port: 40800
   udp: true
@@ -50,28 +57,15 @@ proxies:
     public-key: zohUbvPLKVBwzuDmZNsaXXFYZSKA9_xEhdUyURChrgo
     short-id: 186e4c2732d61a3d
   servername: www.intel.com
-  client-fingerprint: chrome
-- name: 🇹🇼 中国台湾 (Taiwan) 05 - xiaohe
-  server: vpn-tw-002.fastervpn.world
+  client-fingerprint: firefox
+- name: 🇹🇼 中国台湾 (Taiwan) 06 - xiaohe
+  server: 103.115.109.49
   port: 443
   udp: true
   type: hysteria2
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: 127.0.0.1
+  sni: 'https:'
   skip-cert-verify: true
-- name: 🇹🇼 中国台湾 (Taiwan) 06 - xiaohe
-  server: 35.194.157.16
-  port: 43450
-  udp: true
-  type: vless
-  uuid: 64d77a12-ad6b-4d85-a349-bd287535af1c
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: HNPJBiUbqYVC3ylvu1GA7fCHLTaHO7S13Bex1nm0O1o
-    short-id: e65d010354bdad73
-  servername: www.amd.com
-  client-fingerprint: random
 proxy-groups:
 - name: PROXIES
   type: select
