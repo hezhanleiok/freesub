@@ -4,23 +4,16 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇰🇿 KZ 01 - xiaohe
-  type: vless
-  server: 31.43.179.36
-  port: 443
-  uuid: b2593749-691c-428c-9481-14979cba3446
+- name: 🇫🇮 FI 01 - xiaohe
+  type: ss
+  server: 82.47.186.18
+  port: 19290
+  cipher: aes-128-gcm
+  password: o2rw2hICwu1blrr_gZAl2Q
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: xi.tbv.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: xi.tbv.ccwu.cc
-- name: 🇰🇿 KZ 02 - xiaohe
+- name: 🇫🇮 FI 02 - xiaohe
   type: vless
-  server: 31.43.179.20
+  server: 212.104.128.45
   port: 443
   uuid: b2593749-691c-428c-9481-14979cba3446
   udp: true
@@ -37,14 +30,14 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇰🇿 KZ 01 - xiaohe
-  - 🇰🇿 KZ 02 - xiaohe
+  - 🇫🇮 FI 01 - xiaohe
+  - 🇫🇮 FI 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇰🇿 KZ 01 - xiaohe
-  - 🇰🇿 KZ 02 - xiaohe
+  - 🇫🇮 FI 01 - xiaohe
+  - 🇫🇮 FI 02 - xiaohe
 rules:
 - MATCH,PROXIES
