@@ -5,13 +5,12 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
-  server: 104.165.205.40
-  port: 8443
+  server: 132.243.175.144
+  port: 8388
   udp: true
-  type: hysteria2
-  password: 54d2f622-fd71-4f5f-8813-832b68f4ca3b
-  sni: speedtestmark.com
-  skip-cert-verify: false
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
 - name: 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
   server: 104.165.205.42
   port: 8443
@@ -35,13 +34,20 @@ proxies:
     headers:
       Host: cf9.rumedia-cdn.com
 - name: 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
-  server: 140.238.213.114
-  port: 50160
+  server: 104.18.28.234
+  port: 443
   udp: true
-  type: hysteria2
-  password: 84a506ca5aca505696a454d828420b3f
-  sni: www.bing.com
-  skip-cert-verify: true
+  type: vless
+  uuid: f6b5a6a3-f3e1-63ca-bb68-bdc400000000
+  tls: true
+  servername: netlivpn5505.ffffdsaaa.workers.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: netlivpn5505.ffffdsaaa.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
