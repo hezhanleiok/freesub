@@ -16,17 +16,31 @@ proxies:
     short-id: d368b94e275ab080
   servername: www.google.com
   client-fingerprint: ''
+- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
+  server: 185.255.179.11
+  port: 9443
+  udp: true
+  type: vless
+  uuid: d9d0f208-d582-41d5-bb7b-742671402810
+  tls: true
+  servername: hub-fi-02.hanvpn.cc
+  skip-cert-verify: false
+  network: grpc
+  grpc-opts:
+    grpc-service-name: fi02-grpc-8e47a
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 02 - xiaohe
 rules:
 - MATCH,PROXIES

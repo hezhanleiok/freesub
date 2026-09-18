@@ -24,18 +24,36 @@
       }
     },
     {
+      "type": "vless",
+      "tag": "🇫🇮 芬兰 (Finland) 02 - xiaohe",
+      "server": "185.255.179.11",
+      "server_port": 9443,
+      "uuid": "d9d0f208-d582-41d5-bb7b-742671402810",
+      "tls": {
+        "enabled": true,
+        "server_name": "hub-fi-02.hanvpn.cc",
+        "insecure": false
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "fi02-grpc-8e47a"
+      }
+    },
+    {
       "type": "selector",
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇫🇮 芬兰 (Finland) 01 - xiaohe"
+        "🇫🇮 芬兰 (Finland) 01 - xiaohe",
+        "🇫🇮 芬兰 (Finland) 02 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇫🇮 芬兰 (Finland) 01 - xiaohe"
+        "🇫🇮 芬兰 (Finland) 01 - xiaohe",
+        "🇫🇮 芬兰 (Finland) 02 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },
