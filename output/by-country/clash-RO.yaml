@@ -4,24 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇹🇷 土耳其 (Turkey) 01 - wangyu
+- name: 🇷🇴 RO 01 - wangyu
   type: ss
-  server: 153.52.92.81
-  port: 1080
+  server: bogging-eyeteeth-fly.freesocks.work
+  port: 443
   cipher: chacha20-ietf-poly1305
-  password: IXa3ylzS_jBOAsQy071tIQ
+  password: QFWzCw2uX9B9i6qAYeFBIE
   udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇹🇷 土耳其 (Turkey) 01 - wangyu
+  - 🇷🇴 RO 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇹🇷 土耳其 (Turkey) 01 - wangyu
+  - 🇷🇴 RO 01 - wangyu
 rules:
 - MATCH,PROXIES

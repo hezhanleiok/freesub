@@ -6,31 +6,46 @@ log-level: info
 proxies:
 - name: 🇹🇭 TH 01 - wangyu
   type: vless
-  server: log.bpminecraft.com
-  port: 8880
-  uuid: ad85a1ce-3519-4634-9ea1-66c60d3694ba
+  server: 104.18.26.90
+  port: 443
+  uuid: 3c52e091-6714-4915-949f-2149fe69951b
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: v2ray.simspeedup.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: v2ray.simspeedup.com
+- name: 🇹🇭 TH 02 - wangyu
+  type: vless
+  server: 103.86.49.57
+  port: 80
+  uuid: 3c52e091-6714-4915-949f-2149fe69951b
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /pyip=proxyip.sg.cmliussss.net
+    path: /ws
     headers:
-      Host: little-pond-8731.81-68e.workers.dev
-- name: 🇹🇭 TH 02 - wangyu
-  type: vless
-  server: 43.159.4.80
-  port: 443
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+      Host: aIs.SpEeDtEsT.nEt
+- name: 🇹🇭 TH 03 - wangyu
+  type: vmess
+  server: 118.193.57.167
+  port: 49667
+  uuid: d46bf492-45f4-4c33-82d1-ea2a1cb54eb6
+  alterId: 0
+  cipher: auto
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: cdn8848.776676.xyz
   network: ws
   ws-opts:
-    path: /episode/files?ed=2560
+    path: /d46bf492
     headers:
-      Host: cdn8848.776676.xyz
+      Host: ''
 proxy-groups:
 - name: PROXIES
   type: select
@@ -38,6 +53,7 @@ proxy-groups:
   - AUTO
   - 🇹🇭 TH 01 - wangyu
   - 🇹🇭 TH 02 - wangyu
+  - 🇹🇭 TH 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -45,5 +61,6 @@ proxy-groups:
   proxies:
   - 🇹🇭 TH 01 - wangyu
   - 🇹🇭 TH 02 - wangyu
+  - 🇹🇭 TH 03 - wangyu
 rules:
 - MATCH,PROXIES
