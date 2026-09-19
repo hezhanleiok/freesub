@@ -18,6 +18,13 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: LB2J8MvTt2SBgD6o
   udp: true
+- name: 🇮🇪 IE 03 - xiaohe
+  type: ss
+  server: 20.238.35.153
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: LB2J8MvTt2SBgD6o
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -25,6 +32,7 @@ proxy-groups:
   - AUTO
   - 🇮🇪 IE 01 - xiaohe
   - 🇮🇪 IE 02 - xiaohe
+  - 🇮🇪 IE 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -32,5 +40,6 @@ proxy-groups:
   proxies:
   - 🇮🇪 IE 01 - xiaohe
   - 🇮🇪 IE 02 - xiaohe
+  - 🇮🇪 IE 03 - xiaohe
 rules:
 - MATCH,PROXIES

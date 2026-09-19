@@ -4,29 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇲🇽 MX 01 - xiaohe
+- name: 🇱🇻 LV 01 - xiaohe
   type: vless
-  server: 34.51.23.2
-  port: 443
-  uuid: 79bc7b01-6e4e-4365-a120-fefac8182bd9
+  server: atomic-prase23893.my-vm.work
+  port: 8088
+  uuid: f7c74a35-1da0-5097-9fa7-a20735610ac1
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  reality-opts:
-    public-key: vFcM44RcbcO5jcrSWHLd_0exXAnnJLhpCNnMrWCwlzI
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /api
+    headers:
+      Host: queuev4.vk.com
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇲🇽 MX 01 - xiaohe
+  - 🇱🇻 LV 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇲🇽 MX 01 - xiaohe
+  - 🇱🇻 LV 01 - xiaohe
 rules:
 - MATCH,PROXIES

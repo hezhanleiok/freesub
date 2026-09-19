@@ -5,15 +5,8 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇯🇵 日本 (Japan) 01 - xiaohe
-  type: ss
-  server: 149.22.87.241
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: 🇯🇵 日本 (Japan) 02 - xiaohe
   type: vless
-  server: 207.148.99.230
+  server: 64.176.60.226
   port: 443
   uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   udp: true
@@ -22,10 +15,62 @@ proxies:
   servername: cdn8848.776676.xyz
   network: ws
   ws-opts:
-    path: /
+    path: /documents?ed=2560fp=chrome
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇯🇵 日本 (Japan) 02 - xiaohe
+  type: vless
+  server: 104.238.148.149
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /about?ed=2560
     headers:
       Host: cdn8848.776676.xyz
 - name: 🇯🇵 日本 (Japan) 03 - xiaohe
+  type: vmess
+  server: 45.32.57.118
+  port: 4433
+  uuid: 35b89832-0a7c-48dd-8d1c-a2891b522195
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇯🇵 日本 (Japan) 04 - xiaohe
+  type: vless
+  server: 64.176.60.226
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /documents?ed=2560fp=chrome
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇯🇵 日本 (Japan) 05 - xiaohe
+  type: vless
+  server: 110.10.178.240
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /albums?ed=2560fp=chrome
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇯🇵 日本 (Japan) 06 - xiaohe
   type: vless
   server: 162.159.254.3
   port: 443
@@ -39,45 +84,10 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 04 - xiaohe
-  type: vless
-  server: 206.251.53.91
-  port: 8443
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: cdn8848.776676.xyz
-  network: ws
-  ws-opts:
-    path: /settings?ed=2560
-    headers:
-      Host: cdn8848.776676.xyz
-- name: 🇯🇵 日本 (Japan) 05 - xiaohe
-  type: vless
-  server: 108.160.136.71
-  port: 443
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: cdn8848.776676.xyz
-  network: ws
-  ws-opts:
-    path: /doc/products/view?ed=2560
-    headers:
-      Host: cdn8848.776676.xyz
-- name: 🇯🇵 日本 (Japan) 06 - xiaohe
-  type: ss
-  server: 84.247.155.196
-  port: 443
-  cipher: aes-256-gcm
-  password: 3eOFeNssde7PYYMv
-  udp: true
 - name: 🇯🇵 日本 (Japan) 07 - xiaohe
   type: vless
-  server: 210.152.85.154
-  port: 19364
+  server: 203.137.165.164
+  port: 57554
   uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   udp: true
   tls: true
@@ -85,12 +95,26 @@ proxies:
   servername: cdn8848.776676.xyz
   network: ws
   ws-opts:
-    path: /collect/user/products?ed=2560
+    path: /
     headers:
       Host: cdn8848.776676.xyz
 - name: 🇯🇵 日本 (Japan) 08 - xiaohe
   type: vless
-  server: 104.21.70.21
+  server: 64.83.39.176
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /seller?ed=2560
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇯🇵 日本 (Japan) 09 - xiaohe
+  type: vless
+  server: 172.67.156.147
   port: 443
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
@@ -102,29 +126,23 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 09 - xiaohe
-  type: vmess
-  server: 168.110.60.104
-  port: 18112
-  uuid: ad45f8f6-0f0a-4cc4-b907-c4582407dc94
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
 - name: 🇯🇵 日本 (Japan) 10 - xiaohe
-  type: vmess
-  server: 45.32.57.118
-  port: 4433
-  uuid: 35b89832-0a7c-48dd-8d1c-a2891b522195
-  alterId: 0
-  cipher: auto
+  type: vless
+  server: 108.160.136.71
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /doc/products/view?ed=2560fp=chrome
+    headers:
+      Host: cdn8848.776676.xyz
 - name: 🇯🇵 日本 (Japan) 11 - xiaohe
   type: vless
-  server: 104.16.10.185
+  server: 188.114.97.6
   port: 443
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
@@ -138,50 +156,8 @@ proxies:
       Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 12 - xiaohe
   type: vless
-  server: 188.114.97.6
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 13 - xiaohe
-  type: vless
-  server: 172.64.153.3
-  port: 443
-  uuid: 8779033b-a16a-4a7b-8767-d1980008d82a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 38973b0f.69lover.site
-  network: ws
-  ws-opts:
-    path: /api/v2/e9182405fa1a6489/stream
-    headers:
-      Host: 38973b0f.69lover.site
-- name: 🇯🇵 日本 (Japan) 14 - xiaohe
-  type: vless
-  server: 108.160.136.71
-  port: 443
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: cdn8848.776676.xyz
-  network: ws
-  ws-opts:
-    path: /doc/products/view?ed=2560fp=chrome
-    headers:
-      Host: cdn8848.776676.xyz
-- name: 🇯🇵 日本 (Japan) 15 - xiaohe
-  type: vless
-  server: 207.148.99.230
-  port: 443
+  server: 206.251.53.91
+  port: 8443
   uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   udp: true
   tls: true
@@ -192,14 +168,62 @@ proxies:
     path: /
     headers:
       Host: cdn8848.776676.xyz
+- name: 🇯🇵 日本 (Japan) 13 - xiaohe
+  type: vless
+  server: 172.67.156.147
+  port: 443
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: jp3.yohototo.top
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
+- name: 🇯🇵 日本 (Japan) 14 - xiaohe
+  type: vless
+  server: 45.8.173.217
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /friend/buy?ed=2560fp=chrome
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇯🇵 日本 (Japan) 15 - xiaohe
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /collect/user/products?ed=2560
+    headers:
+      Host: cdn8848.776676.xyz
 - name: 🇯🇵 日本 (Japan) 16 - xiaohe
   type: vless
-  server: 137.220.221.179
+  server: 172.67.217.240
   port: 443
-  uuid: a16a3336-c9ab-489f-9b85-c973f5e2cfa4
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: jp3.yohototo.top
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 17 - xiaohe
   type: vless
   server: 137.220.221.179
@@ -210,77 +234,13 @@ proxies:
   skip-cert-verify: true
 - name: 🇯🇵 日本 (Japan) 18 - xiaohe
   type: vless
-  server: 64.176.60.226
+  server: 137.220.221.179
   port: 443
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  uuid: a16a3336-c9ab-489f-9b85-c973f5e2cfa4
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: cdn8848.776676.xyz
-  network: ws
-  ws-opts:
-    path: /documents?ed=2560
-    headers:
-      Host: cdn8848.776676.xyz
 - name: 🇯🇵 日本 (Japan) 19 - xiaohe
-  type: vless
-  server: 188.114.97.6
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 20 - xiaohe
-  type: vless
-  server: 172.64.153.3
-  port: 443
-  uuid: 8779033b-a16a-4a7b-8767-d1980008d82a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 38973b0f.69lover.site
-  network: ws
-  ws-opts:
-    path: /api/v2/e9182405fa1a6489/stream
-    headers:
-      Host: 38973b0f.69lover.site
-- name: 🇯🇵 日本 (Japan) 21 - xiaohe
-  type: vless
-  server: 137.220.221.179
-  port: 443
-  uuid: a16a3336-c9ab-489f-9b85-c973f5e2cfa4
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇯🇵 日本 (Japan) 22 - xiaohe
-  type: vless
-  server: 137.220.221.179
-  port: 443
-  uuid: a16a3336-c9ab-489f-9b85-c973f5e2cfa4
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇯🇵 日本 (Japan) 23 - xiaohe
-  type: vless
-  server: 162.159.254.3
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 24 - xiaohe
   type: vless
   server: 108.160.136.71
   port: 443
@@ -294,9 +254,33 @@ proxies:
     path: /doc/products/view?ed=2560fp=chrome
     headers:
       Host: cdn8848.776676.xyz
-- name: 🇯🇵 日本 (Japan) 25 - xiaohe
+- name: 🇯🇵 日本 (Japan) 20 - xiaohe
+  type: vmess
+  server: 45.32.57.118
+  port: 4433
+  uuid: 35b89832-0a7c-48dd-8d1c-a2891b522195
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇯🇵 日本 (Japan) 21 - xiaohe
   type: vless
-  server: 206.251.53.91
+  server: 104.21.70.21
+  port: 443
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: jp3.yohototo.top
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
+- name: 🇯🇵 日本 (Japan) 22 - xiaohe
+  type: vless
+  server: 168.110.112.196
   port: 8443
   uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   udp: true
@@ -305,7 +289,36 @@ proxies:
   servername: cdn8848.776676.xyz
   network: ws
   ws-opts:
-    path: /settings
+    path: /pay/music?ed=2560fp=chrome
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇯🇵 日本 (Japan) 23 - xiaohe
+  type: ss
+  server: 84.247.155.196
+  port: 443
+  cipher: aes-256-gcm
+  password: 3eOFeNssde7PYYMv
+  udp: true
+- name: 🇯🇵 日本 (Japan) 24 - xiaohe
+  type: vless
+  server: 137.220.221.179
+  port: 443
+  uuid: a16a3336-c9ab-489f-9b85-c973f5e2cfa4
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇯🇵 日本 (Japan) 25 - xiaohe
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /collect/user/products?ed=2560
     headers:
       Host: cdn8848.776676.xyz
 - name: 🇯🇵 日本 (Japan) 26 - xiaohe
@@ -324,45 +337,7 @@ proxies:
       Host: cdn8848.776676.xyz
 - name: 🇯🇵 日本 (Japan) 27 - xiaohe
   type: vless
-  server: 172.67.156.147
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 28 - xiaohe
-  type: vmess
-  server: 168.110.60.104
-  port: 18112
-  uuid: ad45f8f6-0f0a-4cc4-b907-c4582407dc94
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇯🇵 日本 (Japan) 29 - xiaohe
-  type: vless
-  server: 104.21.33.59
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 30 - xiaohe
-  type: vless
-  server: 8.222.84.103
+  server: 207.148.99.230
   port: 443
   uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   udp: true
@@ -374,23 +349,23 @@ proxies:
     path: /
     headers:
       Host: cdn8848.776676.xyz
-- name: 🇯🇵 日本 (Japan) 31 - xiaohe
+- name: 🇯🇵 日本 (Japan) 28 - xiaohe
   type: vless
-  server: 162.159.254.3
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  server: 206.251.53.91
+  port: 8443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: jp3.yohototo.top
+  servername: cdn8848.776676.xyz
   network: ws
   ws-opts:
-    path: /tyxyws
+    path: /settings?ed=2560fp=chrome
     headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 32 - xiaohe
+      Host: cdn8848.776676.xyz
+- name: 🇯🇵 日本 (Japan) 29 - xiaohe
   type: vless
-  server: 104.156.238.23
+  server: 108.160.136.71
   port: 443
   uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   udp: true
@@ -399,10 +374,24 @@ proxies:
   servername: cdn8848.776676.xyz
   network: ws
   ws-opts:
-    path: /bt/image/categories?ed=2560
+    path: /
     headers:
       Host: cdn8848.776676.xyz
-- name: 🇯🇵 日本 (Japan) 33 - xiaohe
+- name: 🇯🇵 日本 (Japan) 30 - xiaohe
+  type: vless
+  server: 92.113.124.204
+  port: 18443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /directory/ads/news?ed=2560fp=chrome
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇯🇵 日本 (Japan) 31 - xiaohe
   type: vmess
   server: 45.32.57.118
   port: 4433
@@ -412,85 +401,35 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
+- name: 🇯🇵 日本 (Japan) 32 - xiaohe
+  type: vless
+  server: 45.76.206.46
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /tags/go/groups?ed=2560
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇯🇵 日本 (Japan) 33 - xiaohe
+  type: vless
+  server: 210.152.85.154
+  port: 19364
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /collect/user/products?ed=2560
+    headers:
+      Host: cdn8848.776676.xyz
 - name: 🇯🇵 日本 (Japan) 34 - xiaohe
-  type: vless
-  server: 207.148.94.254
-  port: 443
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: cdn8848.776676.xyz
-  network: ws
-  ws-opts:
-    path: /library?ed=2560
-    headers:
-      Host: cdn8848.776676.xyz
-- name: 🇯🇵 日本 (Japan) 35 - xiaohe
-  type: ss
-  server: 149.22.87.240
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: 🇯🇵 日本 (Japan) 36 - xiaohe
-  type: vless
-  server: 64.176.60.226
-  port: 443
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: cdn8848.776676.xyz
-  network: ws
-  ws-opts:
-    path: /documents?ed=2560fp=chrome
-    headers:
-      Host: cdn8848.776676.xyz
-- name: 🇯🇵 日本 (Japan) 37 - xiaohe
-  type: vless
-  server: 137.220.221.179
-  port: 443
-  uuid: a16a3336-c9ab-489f-9b85-c973f5e2cfa4
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇯🇵 日本 (Japan) 38 - xiaohe
-  type: vless
-  server: 203.137.165.164
-  port: 57554
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: cdn8848.776676.xyz
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: cdn8848.776676.xyz
-- name: 🇯🇵 日本 (Japan) 39 - xiaohe
-  type: ss
-  server: 84.247.155.196
-  port: 80
-  cipher: aes-256-gcm
-  password: 3eOFeNssde7PYYMv
-  udp: true
-- name: 🇯🇵 日本 (Japan) 40 - xiaohe
-  type: vless
-  server: 172.64.153.3
-  port: 443
-  uuid: 8779033b-a16a-4a7b-8767-d1980008d82a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 38973b0f.69lover.site
-  network: ws
-  ws-opts:
-    path: /api/v2/e9182405fa1a6489/stream
-    headers:
-      Host: 38973b0f.69lover.site
-- name: 🇯🇵 日本 (Japan) 41 - xiaohe
   type: vless
   server: 206.251.53.91
   port: 8443
@@ -504,9 +443,16 @@ proxies:
     path: /
     headers:
       Host: cdn8848.776676.xyz
-- name: 🇯🇵 日本 (Japan) 42 - xiaohe
+- name: 🇯🇵 日本 (Japan) 35 - xiaohe
+  type: ss
+  server: 149.22.87.204
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: 🇯🇵 日本 (Japan) 36 - xiaohe
   type: vless
-  server: 172.67.156.147
+  server: 104.16.10.185
   port: 443
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
@@ -518,6 +464,48 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
+- name: 🇯🇵 日本 (Japan) 37 - xiaohe
+  type: vless
+  server: 64.176.60.226
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /documents?ed=2560
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇯🇵 日本 (Japan) 38 - xiaohe
+  type: vless
+  server: 207.148.94.254
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /library?ed=2560
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇯🇵 日本 (Japan) 39 - xiaohe
+  type: vless
+  server: 206.251.53.91
+  port: 8443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /settings?ed=2560
+    headers:
+      Host: cdn8848.776676.xyz
 proxy-groups:
 - name: PROXIES
   type: select
@@ -562,9 +550,6 @@ proxy-groups:
   - 🇯🇵 日本 (Japan) 37 - xiaohe
   - 🇯🇵 日本 (Japan) 38 - xiaohe
   - 🇯🇵 日本 (Japan) 39 - xiaohe
-  - 🇯🇵 日本 (Japan) 40 - xiaohe
-  - 🇯🇵 日本 (Japan) 41 - xiaohe
-  - 🇯🇵 日本 (Japan) 42 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -609,8 +594,5 @@ proxy-groups:
   - 🇯🇵 日本 (Japan) 37 - xiaohe
   - 🇯🇵 日本 (Japan) 38 - xiaohe
   - 🇯🇵 日本 (Japan) 39 - xiaohe
-  - 🇯🇵 日本 (Japan) 40 - xiaohe
-  - 🇯🇵 日本 (Japan) 41 - xiaohe
-  - 🇯🇵 日本 (Japan) 42 - xiaohe
 rules:
 - MATCH,PROXIES

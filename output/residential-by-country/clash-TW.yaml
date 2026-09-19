@@ -5,29 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
-  type: ss
-  server: 36.224.185.143
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-  udp: true
-- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
-  type: vmess
-  server: dee2309db4944c248b6d4672c6641e25.oylfmxz.cn
-  port: 443
-  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ''
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
   type: vless
   server: 60.248.219.53
   port: 443
@@ -41,7 +18,7 @@ proxies:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
       Host: ty986gfazs.cainiaohub.xyz
-- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
+- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
   type: vmess
   server: dee2309db4se3g5s1d65g672c6641e25.oylfmxz.cn
   port: 443
@@ -51,13 +28,13 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: dee2309db4se3g5s1d65g672c6641e25.oylfmxz.cn
+  servername: ''
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: dee2309db4se3g5s1d65g672c6641e25.oylfmxz.cn
-- name: 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe
+      Host: ''
+- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
   type: vless
   server: hinet1.2yly.com
   port: 24215
@@ -69,6 +46,29 @@ proxies:
     public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
   servername: addons.mozilla.org
   client-fingerprint: chrome
+- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
+  type: ss
+  server: 36.224.185.173
+  port: 50099
+  cipher: chacha20-ietf-poly1305
+  password: b1ae0fce-9340-4f2e-882d-fdb2218e2e2b
+  udp: true
+- name: 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe
+  type: vmess
+  server: dee2309db4944c248b6d4672c6641e25.oylfmxz.cn
+  port: 443
+  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ''
 proxy-groups:
 - name: PROXIES
   type: select

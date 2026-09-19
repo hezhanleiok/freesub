@@ -5,42 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇷 韩国 (South Korea) 01 - xiaohe
-  type: vless
-  server: 151.245.106.49
-  port: 2053
-  uuid: a2de9567-9646-45a9-a410-7303a43bdb6c
+  type: ss
+  server: 141.164.45.187
+  port: 9090
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
   udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
-  servername: www.cloudflare.com
-  client-fingerprint: random
 - name: 🇰🇷 韩国 (South Korea) 02 - xiaohe
-  type: vmess
-  server: 140.238.2.250
-  port: 443
-  uuid: 41a7089a-040b-4538-8b8d-010902405bde
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
-  type: vless
-  server: 104.16.10.185
-  port: 443
-  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: fx3h2kf8xn.fx6hsv0.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
-- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
   type: vless
   server: 188.114.97.6
   port: 2087
@@ -54,9 +25,40 @@ proxies:
     path: /?ed=2560
     headers:
       Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
+- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 5498
+  cipher: aes-256-gcm
+  password: lGqs95QkFHo2NV
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
+  type: vless
+  server: 151.245.106.49
+  port: 2053
+  uuid: a2de9567-9646-45a9-a410-7303a43bdb6c
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
+  servername: www.cloudflare.com
+  client-fingerprint: random
 - name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
   type: vless
-  server: 104.16.150.246
+  server: 34.64.149.137
+  port: 443
+  uuid: 700a7a0e-3f27-406c-81d1-aa1abe411af8
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: kqIDhDhYFrXD-1GeurwjzFwbB0zWipgWmcbADXwmyy8
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
+  type: vless
+  server: 104.18.42.54
   port: 2087
   uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
   udp: true
@@ -68,19 +70,34 @@ proxies:
     path: ?ed=2560
     headers:
       Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
-- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
   type: vless
-  server: 104.17.26.45
-  port: 8880
-  uuid: 2e9012a2-7f8c-4233-b78b-5228a9a4951b
+  server: 104.16.10.185
+  port: 443
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: fx3h2kf8xn.fx6hsv0.ccwu.cc
   network: ws
   ws-opts:
-    path: /%2Fpyip%3DProxyIP.KR.CMLiussss.net
+    path: /?ed=2560
     headers:
-      Host: icy-breeze-126c.211-eb3.workers.dev
+      Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
+- name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
+  type: vless
+  server: 104.18.38.47
+  port: 2087
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
+  network: ws
+  ws-opts:
+    path: ?ed=2560
+    headers:
+      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
 proxy-groups:
 - name: PROXIES
   type: select
@@ -92,6 +109,8 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 04 - xiaohe
   - 🇰🇷 韩国 (South Korea) 05 - xiaohe
   - 🇰🇷 韩国 (South Korea) 06 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 07 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 08 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -103,5 +122,7 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 04 - xiaohe
   - 🇰🇷 韩国 (South Korea) 05 - xiaohe
   - 🇰🇷 韩国 (South Korea) 06 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 07 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 08 - xiaohe
 rules:
 - MATCH,PROXIES
