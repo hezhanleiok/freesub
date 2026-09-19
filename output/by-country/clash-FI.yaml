@@ -5,25 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 芬兰 (Finland) 01 - xiaohe
-  server: 185.79.138.71
-  port: 448
-  udp: true
-  type: vless
-  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
-  tls: true
-  reality-opts:
-    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
-    short-id: cd21e552537c7c0b
-  servername: www.samsung.com
-  client-fingerprint: chrome
-- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
   server: 82.47.186.18
   port: 19290
   udp: true
   type: ss
   cipher: aes-128-gcm
   password: o2rw2hICwu1blrr_gZAl2Q
-- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
+- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
   server: 185.255.179.11
   port: 9443
   udp: true
@@ -35,6 +23,17 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: fi02-grpc-8e47a
+- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  server: 150.241.71.148
+  port: 448
+  udp: true
+  type: trojan
+  password: 6fY77UmuJ6BEK7n0qv433JrPNjCMeZQV
+  sni: kiev.gosgenarchive.com
+  skip-cert-verify: false
+  network: grpc
+  grpc-opts:
+    grpc-service-name: TrojanGRPC
 proxy-groups:
 - name: PROXIES
   type: select

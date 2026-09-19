@@ -1,0 +1,46 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇶🇦 卡塔尔 (Qatar) 01 - xiaohe
+  server: 34.18.212.19
+  port: 443
+  udp: true
+  type: vless
+  uuid: b6f775c2-70fd-4247-8d12-82cac46fdd50
+  tls: true
+  reality-opts:
+    public-key: tT6wEOh8ASizQYNRb51QdDlxAksSJbEaBnbQBajc6SQ
+    short-id: c5426331173ca15c
+  servername: www.cloudflare.com
+  client-fingerprint: qq
+- name: 🇶🇦 卡塔尔 (Qatar) 02 - xiaohe
+  server: 34.18.31.5
+  port: 443
+  udp: true
+  type: vless
+  uuid: bd82d5e7-4395-40e1-b34e-2974eb0c8555
+  tls: true
+  reality-opts:
+    public-key: ZRWl48Ahw4vlnPSTMkNs6xcCEDd9Qq4AsChUp-mg7A4
+    short-id: 9c8748aa3f7d4219
+  servername: www.cloudflare.com
+  client-fingerprint: safari
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇶🇦 卡塔尔 (Qatar) 01 - xiaohe
+  - 🇶🇦 卡塔尔 (Qatar) 02 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇶🇦 卡塔尔 (Qatar) 01 - xiaohe
+  - 🇶🇦 卡塔尔 (Qatar) 02 - xiaohe
+rules:
+- MATCH,PROXIES
