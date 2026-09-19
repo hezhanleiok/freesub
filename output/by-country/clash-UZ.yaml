@@ -13,34 +13,17 @@ proxies:
   network: ws
   ws-opts:
     path: /755276b33b6f
-- name: 🇺🇿 乌兹别克斯坦 (Uzbekistan) 02 - xiaohe
-  server: 104.25.155.45
-  port: 443
-  udp: true
-  type: vless
-  uuid: 50414e45-4c5f-5a45-5553-4eef5adc237a
-  tls: true
-  servername: r5zenrelur2s.pqzdileiu8es.workers.dev
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /stream/PANEL_ZEUS/4eef5adc237a/loc-1
-    headers:
-      Host: r5zenrelur2s.pqzdileiu8es.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇺🇿 乌兹别克斯坦 (Uzbekistan) 01 - xiaohe
-  - 🇺🇿 乌兹别克斯坦 (Uzbekistan) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇺🇿 乌兹别克斯坦 (Uzbekistan) 01 - xiaohe
-  - 🇺🇿 乌兹别克斯坦 (Uzbekistan) 02 - xiaohe
 rules:
 - MATCH,PROXIES
