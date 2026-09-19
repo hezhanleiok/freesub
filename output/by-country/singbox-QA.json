@@ -1,0 +1,51 @@
+{
+  "log": {
+    "level": "warn"
+  },
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "🇶🇦 卡塔尔 (Qatar) 01 - xiaohe",
+      "server": "34.18.31.5",
+      "server_port": 443,
+      "uuid": "bd82d5e7-4395-40e1-b34e-2974eb0c8555",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "safari"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "ZRWl48Ahw4vlnPSTMkNs6xcCEDd9Qq4AsChUp-mg7A4",
+          "short_id": "9c8748aa3f7d4219"
+        }
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇶🇦 卡塔尔 (Qatar) 01 - xiaohe"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇶🇦 卡塔尔 (Qatar) 01 - xiaohe"
+      ],
+      "url": "https://www.gstatic.com/generate_204"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}
