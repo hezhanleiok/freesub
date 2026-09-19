@@ -5,16 +5,7 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇬🇷 希腊 (Greece) 01 - xiaohe
-  server: 185.126.238.87
-  port: 2083
-  udp: true
-  type: vless
-  uuid: 7668f678-faee-40cc-9b56-9c39dc773388
-  network: grpc
-  grpc-opts:
-    grpc-service-name: security.debian.org
-- name: 🇬🇷 希腊 (Greece) 02 - xiaohe
-  server: edge.netraidly.ru
+  server: 94.241.174.157
   port: 40443
   udp: true
   type: vless
@@ -25,7 +16,16 @@ proxies:
     public-key: mM33xyzf1GPaU2CQXAGYoGkTuYzEZRYT6S-NngyqfHQ
     short-id: beb4
   servername: deepl.com
-  client-fingerprint: edge
+  client-fingerprint: chrome
+- name: 🇬🇷 希腊 (Greece) 02 - xiaohe
+  server: 185.126.238.87
+  port: 2083
+  udp: true
+  type: vless
+  uuid: 7668f678-faee-40cc-9b56-9c39dc773388
+  network: grpc
+  grpc-opts:
+    grpc-service-name: security.debian.org
 proxy-groups:
 - name: PROXIES
   type: select
