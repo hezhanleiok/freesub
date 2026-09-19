@@ -1,0 +1,130 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇧🇪 BE 01 - wangyu
+  type: vless
+  server: 207.175.190.56
+  port: 443
+  uuid: 51e493d4-b275-45e0-a714-e014f40b3c32
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: nTLhc6e5HMgO-hpD8RUMp0cd2t6p2_RqHLHM0P39_xA
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇧🇪 BE 02 - wangyu
+  type: vless
+  server: 207.175.190.56
+  port: 443
+  uuid: 51e493d4-b275-45e0-a714-e014f40b3c32
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: nTLhc6e5HMgO-hpD8RUMp0cd2t6p2_RqHLHM0P39_xA
+  servername: www.cloudflare.com
+  client-fingerprint: qq
+- name: 🇧🇪 BE 03 - wangyu
+  type: vless
+  server: 35.195.122.169
+  port: 443
+  uuid: e3fb56fe-bdbc-4f0e-b1ed-de2f7c85f254
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: i_UbRo65YEpOFuKkNVa0GEMl7xLDx9B1nmeyeNWyJQs
+  servername: www.cloudflare.com
+  client-fingerprint: safari
+- name: 🇧🇪 BE 04 - wangyu
+  type: vless
+  server: 34.38.82.200
+  port: 443
+  uuid: 6d341f6e-7b9d-4ae3-999b-00333de7bdfb
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: v6QpErcVOVKIYLm53R3bAP8zIKCFr4HAJWW0VwBKtws
+  servername: www.cloudflare.com
+  client-fingerprint: safari
+- name: 🇧🇪 BE 05 - wangyu
+  type: vless
+  server: 35.195.122.169
+  port: 443
+  uuid: e3fb56fe-bdbc-4f0e-b1ed-de2f7c85f254
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: i_UbRo65YEpOFuKkNVa0GEMl7xLDx9B1nmeyeNWyJQs
+  servername: www.cloudflare.com
+  client-fingerprint: qq
+- name: 🇧🇪 BE 06 - wangyu
+  type: vless
+  server: 35.195.122.169
+  port: 443
+  uuid: e3fb56fe-bdbc-4f0e-b1ed-de2f7c85f254
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: i_UbRo65YEpOFuKkNVa0GEMl7xLDx9B1nmeyeNWyJQs
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇧🇪 BE 07 - wangyu
+  type: vless
+  server: 34.38.82.200
+  port: 443
+  uuid: 6d341f6e-7b9d-4ae3-999b-00333de7bdfb
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: v6QpErcVOVKIYLm53R3bAP8zIKCFr4HAJWW0VwBKtws
+  servername: www.cloudflare.com
+  client-fingerprint: qq
+- name: 🇧🇪 BE 08 - wangyu
+  type: vless
+  server: 35.195.122.169
+  port: 443
+  uuid: e3fb56fe-bdbc-4f0e-b1ed-de2f7c85f254
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: i_UbRo65YEpOFuKkNVa0GEMl7xLDx9B1nmeyeNWyJQs
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇧🇪 BE 01 - wangyu
+  - 🇧🇪 BE 02 - wangyu
+  - 🇧🇪 BE 03 - wangyu
+  - 🇧🇪 BE 04 - wangyu
+  - 🇧🇪 BE 05 - wangyu
+  - 🇧🇪 BE 06 - wangyu
+  - 🇧🇪 BE 07 - wangyu
+  - 🇧🇪 BE 08 - wangyu
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇧🇪 BE 01 - wangyu
+  - 🇧🇪 BE 02 - wangyu
+  - 🇧🇪 BE 03 - wangyu
+  - 🇧🇪 BE 04 - wangyu
+  - 🇧🇪 BE 05 - wangyu
+  - 🇧🇪 BE 06 - wangyu
+  - 🇧🇪 BE 07 - wangyu
+  - 🇧🇪 BE 08 - wangyu
+rules:
+- MATCH,PROXIES

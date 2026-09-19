@@ -4,31 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇮🇷 IR 01 - wangyu
+- name: 🇱🇹 LT 01 - wangyu
   type: vless
-  server: 202.181.177.8
-  port: 8443
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  server: 89.116.180.40
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: cdn8848.776676.xyz
   network: ws
   ws-opts:
-    path: /channels/act
+    path: /?ed=2560
     headers:
-      Host: cdn8848.776676.xyz
+      Host: vms.lifetime09.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇮🇷 IR 01 - wangyu
+  - 🇱🇹 LT 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇮🇷 IR 01 - wangyu
+  - 🇱🇹 LT 01 - wangyu
 rules:
 - MATCH,PROXIES

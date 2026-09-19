@@ -6,37 +6,29 @@ log-level: info
 proxies:
 - name: 🇺🇸 美国 (United States) 01 (家宽) - wangyu
   type: vless
-  server: 108.162.198.178
-  port: 2086
+  server: 104.16.105.6
+  port: 443
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: 7bzzv.umtm.n70.hh.vavava.kdns.fr
   network: ws
   ws-opts:
-    path: /?ed=2560security=tls
+    path: /?ed=2560
     headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇺🇸 美国 (United States) 02 (家宽) - wangyu
-  type: ss
-  server: 23.252.104.131
-  port: 54321
-  cipher: aes-256-gcm
-  password: Proxy2024
-  udp: true
+      Host: 7bzzv.umtm.n70.hh.vavava.kdns.fr
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇺🇸 美国 (United States) 01 (家宽) - wangyu
-  - 🇺🇸 美国 (United States) 02 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇺🇸 美国 (United States) 01 (家宽) - wangyu
-  - 🇺🇸 美国 (United States) 02 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

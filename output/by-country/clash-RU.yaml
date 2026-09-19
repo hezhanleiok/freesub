@@ -6,34 +6,8 @@ log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - wangyu
   type: vless
-  server: 108.162.198.178
-  port: 2095
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
-  type: vless
-  server: 188.114.97.6
-  port: 2052
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
-- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
-  type: vless
-  server: 172.64.229.170
-  port: 2082
+  server: 172.64.53.55
+  port: 2086
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
   tls: false
@@ -43,13 +17,102 @@ proxies:
     path: /?ed=2560security=tls
     headers:
       Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  type: vless
+  server: 172.64.229.170
+  port: 2052
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
+  type: vless
+  server: 46.8.200.91
+  port: 443
+  uuid: b8201bab-fa6c-4f6e-b289-b5da660c6f69
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cf3.rumedia-cdn.com
+  network: ws
+  ws-opts:
+    path: /cdn/v3/live
+    headers:
+      Host: cf3.rumedia-cdn.com
 - name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
+  type: vless
+  server: 108.162.198.178
+  port: 80
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇷🇺 俄罗斯 (Russia) 05 - wangyu
+  type: vless
+  server: 104.21.51.145
+  port: 8443
+  uuid: ef23616d-8a9d-4b22-b2f5-9bda864de179
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: INDEX.Arcane509.Workers.DEV
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: index.arcane509.workers.dev
+- name: 🇷🇺 俄罗斯 (Russia) 06 - wangyu
   type: ss
-  server: 195.58.48.137
+  server: 134.0.112.71
+  port: 17517
+  cipher: aes-256-gcm
+  password: 64Kms+G+nD6FlGJjZJfeUNJIGbX/EKrk2o/MH04zApw=
+  udp: true
+- name: 🇷🇺 俄罗斯 (Russia) 07 - wangyu
+  type: vless
+  server: 104.18.189.153
+  port: 443
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 7bzzv.umtm.n70.hh.vavava.kdns.fr
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: 7bzzv.umtm.n70.hh.vavava.kdns.fr
+- name: 🇷🇺 俄罗斯 (Russia) 08 - wangyu
+  type: ss
+  server: 195.133.5.102
   port: 10900
   cipher: aes-256-gcm
-  password: 8ad9d72a5571df86
+  password: 895b4b796a357570
   udp: true
+- name: 🇷🇺 俄罗斯 (Russia) 09 - wangyu
+  type: vless
+  server: 172.67.152.162
+  port: 443
+  uuid: 07f9bc85-613f-4a33-8da1-191973c43c0a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: app-q0zc4t.user-4gfyh5.workers.dev
+  network: ws
+  ws-opts:
+    path: /cmh
+    headers:
+      Host: app-q0zc4t.user-4gfyh5.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
@@ -59,6 +122,11 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 06 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 07 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 08 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 09 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -68,5 +136,10 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 06 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 07 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 08 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 09 - wangyu
 rules:
 - MATCH,PROXIES
