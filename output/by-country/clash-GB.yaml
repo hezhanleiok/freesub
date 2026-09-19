@@ -5,6 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇬🇧 英国 (United Kingdom) 01 - wangyu
+  type: ss
+  server: 134.65.63.122
+  port: 61312
+  cipher: 2022-blake3-chacha20-poly1305
+  password: 9UzSnfj0gy1JNUBD2L3JgpLLlQieW6AfOJ9vptz0iks=
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 02 - wangyu
   type: vmess
   server: 66.163.117.58
   port: 22324
@@ -14,26 +21,7 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇬🇧 英国 (United Kingdom) 02 - wangyu
-  type: ss
-  server: 141.98.101.181
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
 - name: 🇬🇧 英国 (United Kingdom) 03 - wangyu
-  type: vless
-  server: comte.farxmode.ir
-  port: 8080
-  uuid: 23ddda0f-6333-493a-839d-f9c8e561f7e4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: 3WnHdv9A0tNParChTLxPnDteRD841h8thOGR7MBgAhY
-  servername: play-apps-features.googleusercontent.com
-  client-fingerprint: ios
-- name: 🇬🇧 英国 (United Kingdom) 04 - wangyu
   type: vless
   server: 129.121.95.159
   port: 443
@@ -47,17 +35,7 @@ proxies:
     path: /connect
     headers:
       Host: 129.121.95.159
-- name: 🇬🇧 英国 (United Kingdom) 05 - wangyu
-  type: vmess
-  server: 66.163.117.58
-  port: 22324
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇬🇧 英国 (United Kingdom) 06 - wangyu
+- name: 🇬🇧 英国 (United Kingdom) 04 - wangyu
   type: vmess
   server: 57.129.132.223
   port: 80
@@ -72,17 +50,7 @@ proxies:
     path: /vmess/
     headers:
       Host: google.com
-- name: 🇬🇧 英国 (United Kingdom) 07 - wangyu
-  type: vmess
-  server: 66.163.117.58
-  port: 22324
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇬🇧 英国 (United Kingdom) 08 - wangyu
+- name: 🇬🇧 英国 (United Kingdom) 05 - wangyu
   type: vless
   server: 46.250.250.149
   port: 2053
@@ -94,6 +62,30 @@ proxies:
     public-key: hieuCHb3HYdDYHmTDyWw2SGqyfo36AVuA-wSiZMdU1M
   servername: www.apple.com
   client-fingerprint: random
+- name: 🇬🇧 英国 (United Kingdom) 06 - wangyu
+  type: vmess
+  server: 66.163.117.58
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇬🇧 英国 (United Kingdom) 07 - wangyu
+  type: ss
+  server: 51.77.225.200
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: zRZNBszYyWo5
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 08 - wangyu
+  type: ss
+  server: 141.98.101.181
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
 - name: 🇬🇧 英国 (United Kingdom) 09 - wangyu
   type: ss
   server: 129.151.68.65
@@ -101,40 +93,6 @@ proxies:
   cipher: 2022-blake3-chacha20-poly1305
   password: 0N1dYtQFmHnwBeKv53o5MJDkRzbGYY1KkLXnaNkWo3o=
   udp: true
-- name: 🇬🇧 英国 (United Kingdom) 10 - wangyu
-  type: vless
-  server: 46.250.250.149
-  port: 2053
-  uuid: b4caaf57-ad77-4948-a6f5-51b3513799bf
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: hieuCHb3HYdDYHmTDyWw2SGqyfo36AVuA-wSiZMdU1M
-  servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇬🇧 英国 (United Kingdom) 11 - wangyu
-  type: ss
-  server: 51.77.225.200
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: zRZNBszYyWo5
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 12 - wangyu
-  type: vmess
-  server: 57.129.132.223
-  port: 80
-  uuid: a25cbf11-2908-4a1b-a3a8-9a571777dca3
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vmess/
-    headers:
-      Host: viber.com
 proxy-groups:
 - name: PROXIES
   type: select
@@ -149,9 +107,6 @@ proxy-groups:
   - 🇬🇧 英国 (United Kingdom) 07 - wangyu
   - 🇬🇧 英国 (United Kingdom) 08 - wangyu
   - 🇬🇧 英国 (United Kingdom) 09 - wangyu
-  - 🇬🇧 英国 (United Kingdom) 10 - wangyu
-  - 🇬🇧 英国 (United Kingdom) 11 - wangyu
-  - 🇬🇧 英国 (United Kingdom) 12 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -166,8 +121,5 @@ proxy-groups:
   - 🇬🇧 英国 (United Kingdom) 07 - wangyu
   - 🇬🇧 英国 (United Kingdom) 08 - wangyu
   - 🇬🇧 英国 (United Kingdom) 09 - wangyu
-  - 🇬🇧 英国 (United Kingdom) 10 - wangyu
-  - 🇬🇧 英国 (United Kingdom) 11 - wangyu
-  - 🇬🇧 英国 (United Kingdom) 12 - wangyu
 rules:
 - MATCH,PROXIES

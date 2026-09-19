@@ -6,21 +6,9 @@ log-level: info
 proxies:
 - name: 🇦🇪 阿联酋 (UAE) 01 - wangyu
   type: vless
-  server: 89.125.147.199
-  port: 443
-  uuid: 246b101b-4e4a-451f-8e9c-5e8d3b64b4ef
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: iQJ8UdFw-lUWa9mXugescYHkmwNH96nuj_z-LAZvfxg
-  servername: maps.apple.com
-  client-fingerprint: firefox
-- name: 🇦🇪 阿联酋 (UAE) 02 - wangyu
-  type: vless
   server: 31.58.181.88
   port: 8443
-  uuid: 4a64b0c2-de7e-4e32-b931-247be6dc4488
+  uuid: f6329ba3-3326-4f25-95f0-91d48fd45fcf
   udp: true
   tls: true
   skip-cert-verify: true
@@ -28,7 +16,7 @@ proxies:
     public-key: AERbWB2uslqIzm1hSlOZZEH3Y9qg_zlWRRyLfh97kXc
   servername: tradingview.com
   client-fingerprint: firefox
-- name: 🇦🇪 阿联酋 (UAE) 03 - wangyu
+- name: 🇦🇪 阿联酋 (UAE) 02 - wangyu
   type: vless
   server: 89.125.147.199
   port: 443
@@ -40,7 +28,7 @@ proxies:
     public-key: iQJ8UdFw-lUWa9mXugescYHkmwNH96nuj_z-LAZvfxg
   servername: maps.apple.com
   client-fingerprint: chrome
-- name: 🇦🇪 阿联酋 (UAE) 04 - wangyu
+- name: 🇦🇪 阿联酋 (UAE) 03 - wangyu
   type: vless
   server: uae.unixzone.us
   port: 22573
@@ -53,31 +41,19 @@ proxies:
     path: /
     headers:
       Host: uae.unixzone.us
-- name: 🇦🇪 阿联酋 (UAE) 05 - wangyu
+- name: 🇦🇪 阿联酋 (UAE) 04 - wangyu
   type: vless
-  server: cdn.snobvpn.online
-  port: 80
-  uuid: 246b101b-4e4a-451f-8e9c-5e8d3b64b4ef
+  server: 84.235.244.108
+  port: 22573
+  uuid: 39947382-3212-41c9-bc3a-589574ac8b23
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /snob-ws
+    path: /
     headers:
-      Host: cdn.snobvpn.online
-- name: 🇦🇪 阿联酋 (UAE) 06 - wangyu
-  type: vless
-  server: 89.125.147.199
-  port: 443
-  uuid: cabd9303-ae32-4d25-86b9-26b312d0f044
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: iQJ8UdFw-lUWa9mXugescYHkmwNH96nuj_z-LAZvfxg
-  servername: maps.apple.com
-  client-fingerprint: random
+      Host: uae.unixzone.us
 proxy-groups:
 - name: PROXIES
   type: select
@@ -87,8 +63,6 @@ proxy-groups:
   - 🇦🇪 阿联酋 (UAE) 02 - wangyu
   - 🇦🇪 阿联酋 (UAE) 03 - wangyu
   - 🇦🇪 阿联酋 (UAE) 04 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 05 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 06 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -98,7 +72,5 @@ proxy-groups:
   - 🇦🇪 阿联酋 (UAE) 02 - wangyu
   - 🇦🇪 阿联酋 (UAE) 03 - wangyu
   - 🇦🇪 阿联酋 (UAE) 04 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 05 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 06 - wangyu
 rules:
 - MATCH,PROXIES
