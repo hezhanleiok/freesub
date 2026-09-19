@@ -12,18 +12,21 @@ proxies:
   uuid: 9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a
   tls: true
   servername: neth9.lunariai.ru
-  skip-cert-verify: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
 - name: 🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe
-  server: 87.120.196.212
+  server: 193.148.59.178
   port: 443
   udp: true
   type: vless
-  uuid: 5561acfb-0adc-4c76-bfbf-767a76c7cbf0
+  uuid: 20d7c485-5d24-49b5-a5cc-bb7a7daf9908
   flow: xtls-rprx-vision
   tls: true
-  servername: holo-stream.videocactus.xyz
-  skip-cert-verify: false
-  client-fingerprint: firefox
+  reality-opts:
+    public-key: -GMpCber8qtrKzJbwvpLcwlIhOy-5zS66u_x9lLvIjE
+    short-id: e3daad69
+  servername: www.apple.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
