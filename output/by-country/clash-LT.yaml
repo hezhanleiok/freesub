@@ -16,21 +16,8 @@ proxies:
     public-key: H5CXI4RvEWW0TFPvFrnF1iX-05Y57ZYMMngjmkMfv24
     short-id: 711ad7f475c35e5e
   servername: cloud.figmafound.org
-  client-fingerprint: firefox
+  client-fingerprint: edge
 - name: 🇱🇹 立陶宛 (Lithuania) 02 - xiaohe
-  server: 103.139.51.41
-  port: 443
-  udp: true
-  type: vless
-  uuid: 71b91642-93ed-4923-8cab-877e19bfc2d6
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: H5CXI4RvEWW0TFPvFrnF1iX-05Y57ZYMMngjmkMfv24
-    short-id: 711ad7f475c35e5e
-  servername: mail.figmafound.org
-  client-fingerprint: firefox
-- name: 🇱🇹 立陶宛 (Lithuania) 03 - xiaohe
   server: 103.139.51.21
   port: 443
   udp: true
@@ -42,7 +29,7 @@ proxies:
     public-key: H5CXI4RvEWW0TFPvFrnF1iX-05Y57ZYMMngjmkMfv24
     short-id: 711ad7f475c35e5e
   servername: auth.figmafound.org
-  client-fingerprint: firefox
+  client-fingerprint: edge
 proxy-groups:
 - name: PROXIES
   type: select
@@ -50,7 +37,6 @@ proxy-groups:
   - AUTO
   - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
   - 🇱🇹 立陶宛 (Lithuania) 02 - xiaohe
-  - 🇱🇹 立陶宛 (Lithuania) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -58,6 +44,5 @@ proxy-groups:
   proxies:
   - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
   - 🇱🇹 立陶宛 (Lithuania) 02 - xiaohe
-  - 🇱🇹 立陶宛 (Lithuania) 03 - xiaohe
 rules:
 - MATCH,PROXIES
