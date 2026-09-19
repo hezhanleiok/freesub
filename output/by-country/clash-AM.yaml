@@ -5,6 +5,20 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇲 亚美尼亚 (Armenia) 01 - xiaohe
+  server: 64.225.65.116
+  port: 8443
+  udp: true
+  type: vless
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  tls: true
+  servername: cdn8848.776676.xyz
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /bd/pictures
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇦🇲 亚美尼亚 (Armenia) 02 - xiaohe
   server: aotocon.ggisopi.su
   port: 443
   udp: true
@@ -22,11 +36,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇦🇲 亚美尼亚 (Armenia) 01 - xiaohe
+  - 🇦🇲 亚美尼亚 (Armenia) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇦🇲 亚美尼亚 (Armenia) 01 - xiaohe
+  - 🇦🇲 亚美尼亚 (Armenia) 02 - xiaohe
 rules:
 - MATCH,PROXIES
