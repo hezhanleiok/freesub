@@ -22,14 +22,6 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: estproxy4.lockdwn.com
-- name: 🇪🇪 EE 03 - xiaohe
-  type: vless
-  server: 212.87.190.124
-  port: 3
-  uuid: 6049e972-419e-43bc-932c-4032be6d1b5b
-  udp: true
-  tls: false
-  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -37,7 +29,6 @@ proxy-groups:
   - AUTO
   - 🇪🇪 EE 01 - xiaohe
   - 🇪🇪 EE 02 - xiaohe
-  - 🇪🇪 EE 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -45,6 +36,5 @@ proxy-groups:
   proxies:
   - 🇪🇪 EE 01 - xiaohe
   - 🇪🇪 EE 02 - xiaohe
-  - 🇪🇪 EE 03 - xiaohe
 rules:
 - MATCH,PROXIES

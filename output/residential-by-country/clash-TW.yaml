@@ -5,17 +5,10 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
-  type: ss
-  server: 36.224.185.143
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-  udp: true
-- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
   type: vless
-  server: 60.248.219.52
+  server: 60.248.219.78
   port: 443
-  uuid: f265b49a-70a3-407a-b17b-e45dfb9f255c
+  uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
   udp: true
   tls: true
   skip-cert-verify: true
@@ -24,15 +17,15 @@ proxies:
   ws-opts:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
-      Host: 60.248.219.52
-- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
+      Host: 60.248.219.78
+- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
   type: ss
   server: 36.224.185.173
   port: 50099
   cipher: chacha20-ietf-poly1305
   password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
   udp: true
-- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
+- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
   type: vmess
   server: dee2309db4se3g5s1d65g672c6641e25.oylfmxz.cn
   port: 443
@@ -42,12 +35,12 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: dee2309db4se3g5s1d65g672c6641e25.oylfmxz.cn
+  servername: ''
   network: ws
   ws-opts:
-    path: /
+    path: ''
     headers:
-      Host: dee2309db4se3g5s1d65g672c6641e25.oylfmxz.cn
+      Host: ''
 proxy-groups:
 - name: PROXIES
   type: select
@@ -56,7 +49,6 @@ proxy-groups:
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -65,6 +57,5 @@ proxy-groups:
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES

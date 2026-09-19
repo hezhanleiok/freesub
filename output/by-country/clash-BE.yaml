@@ -1,0 +1,74 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇧🇪 BE 01 - xiaohe
+  type: vless
+  server: 34.38.82.200
+  port: 443
+  uuid: 6d341f6e-7b9d-4ae3-999b-00333de7bdfb
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: v6QpErcVOVKIYLm53R3bAP8zIKCFr4HAJWW0VwBKtws
+  servername: www.cloudflare.com
+  client-fingerprint: safari
+- name: 🇧🇪 BE 02 - xiaohe
+  type: vless
+  server: 35.195.122.169
+  port: 443
+  uuid: e3fb56fe-bdbc-4f0e-b1ed-de2f7c85f254
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: i_UbRo65YEpOFuKkNVa0GEMl7xLDx9B1nmeyeNWyJQs
+  servername: www.cloudflare.com
+  client-fingerprint: qq
+- name: 🇧🇪 BE 03 - xiaohe
+  type: vless
+  server: 34.38.82.200
+  port: 443
+  uuid: 6d341f6e-7b9d-4ae3-999b-00333de7bdfb
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: v6QpErcVOVKIYLm53R3bAP8zIKCFr4HAJWW0VwBKtws
+  servername: www.cloudflare.com
+  client-fingerprint: qq
+- name: 🇧🇪 BE 04 - xiaohe
+  type: vless
+  server: 35.195.122.169
+  port: 443
+  uuid: e3fb56fe-bdbc-4f0e-b1ed-de2f7c85f254
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: i_UbRo65YEpOFuKkNVa0GEMl7xLDx9B1nmeyeNWyJQs
+  servername: www.cloudflare.com
+  client-fingerprint: safari
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇧🇪 BE 01 - xiaohe
+  - 🇧🇪 BE 02 - xiaohe
+  - 🇧🇪 BE 03 - xiaohe
+  - 🇧🇪 BE 04 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇧🇪 BE 01 - xiaohe
+  - 🇧🇪 BE 02 - xiaohe
+  - 🇧🇪 BE 03 - xiaohe
+  - 🇧🇪 BE 04 - xiaohe
+rules:
+- MATCH,PROXIES
