@@ -5,6 +5,18 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇳🇴 挪威 (Norway) 01 - xiaohe
+  server: 46.29.238.88
+  port: 40443
+  udp: true
+  type: vless
+  uuid: db320947-adfb-400d-b60b-383b8324bffe
+  tls: true
+  reality-opts:
+    public-key: aZOpodpnifoxDqTzWgxJRffgsiGnG9-h-EZd4SvOImc
+    short-id: f7b2
+  servername: deepl.com
+  client-fingerprint: qq
+- name: 🇳🇴 挪威 (Norway) 02 - xiaohe
   server: 46.8.210.129
   port: 22443
   udp: true
@@ -18,11 +30,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇳🇴 挪威 (Norway) 01 - xiaohe
+  - 🇳🇴 挪威 (Norway) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇳🇴 挪威 (Norway) 01 - xiaohe
+  - 🇳🇴 挪威 (Norway) 02 - xiaohe
 rules:
 - MATCH,PROXIES

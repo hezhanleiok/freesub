@@ -5,44 +5,23 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
-  server: 103.139.51.51
-  port: 443
+  server: 195.238.126.20
+  port: 9012
   udp: true
-  type: vless
-  uuid: 71b91642-93ed-4923-8cab-877e19bfc2d6
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: H5CXI4RvEWW0TFPvFrnF1iX-05Y57ZYMMngjmkMfv24
-    short-id: 711ad7f475c35e5e
-  servername: cloud.figmafound.org
-  client-fingerprint: edge
-- name: 🇱🇹 立陶宛 (Lithuania) 02 - xiaohe
-  server: 103.139.51.21
-  port: 443
-  udp: true
-  type: vless
-  uuid: 71b91642-93ed-4923-8cab-877e19bfc2d6
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: H5CXI4RvEWW0TFPvFrnF1iX-05Y57ZYMMngjmkMfv24
-    short-id: 711ad7f475c35e5e
-  servername: auth.figmafound.org
-  client-fingerprint: firefox
+  type: ss
+  cipher: aes-256-cfb
+  password: xaupMUvhptwxdDUg
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
-  - 🇱🇹 立陶宛 (Lithuania) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
-  - 🇱🇹 立陶宛 (Lithuania) 02 - xiaohe
 rules:
 - MATCH,PROXIES
