@@ -6,29 +6,76 @@ log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - wangyu
   type: vless
-  server: 185.113.223.183
-  port: 8443
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  server: 172.67.151.109
+  port: 443
+  uuid: 50414e45-4c5f-5a45-5553-635698a6bb9c
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: cdn8848.776676.xyz
+  servername: jdzit4e4urks.xwzohsebujps.workers.dev
   network: ws
   ws-opts:
-    path: /channels/act
+    path: /stream/PANEL_ZEUS/635698a6bb9c/loc-0
     headers:
-      Host: cdn8848.776676.xyz
+      Host: jdzit4e4urks.xwzohsebujps.workers.dev
+- name: 🇹🇷 土耳其 (Turkey) 02 - wangyu
+  type: vless
+  server: 172.67.134.170
+  port: 443
+  uuid: 50414e45-4c5f-5a45-5553-635698a6bb9c
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: jdzit4e4urks.xwzohsebujps.workers.dev
+  network: ws
+  ws-opts:
+    path: /stream/PANEL_ZEUS/635698a6bb9c/loc-0
+    headers:
+      Host: jdzit4e4urks.xwzohsebujps.workers.dev
+- name: 🇹🇷 土耳其 (Turkey) 03 - wangyu
+  type: vless
+  server: max.karmatel.ir
+  port: 55519
+  uuid: d10191ad-1671-496e-b0cb-be5a28d0739a
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: play-apps-features.googleusercontent.com
+- name: 🇹🇷 土耳其 (Turkey) 04 - wangyu
+  type: vless
+  server: 172.67.151.109
+  port: 443
+  uuid: 50414e45-4c5f-5a45-5553-635698a6bb9c
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: jdzit4e4urks.xwzohsebujps.workers.dev
+  network: ws
+  ws-opts:
+    path: /stream/PANEL_ZEUS/635698a6bb9c/loc-0
+    headers:
+      Host: jdzit4e4urks.xwzohsebujps.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 02 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 03 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 02 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 03 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 04 - wangyu
 rules:
 - MATCH,PROXIES
