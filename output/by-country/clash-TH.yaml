@@ -15,7 +15,7 @@ proxies:
   reality-opts:
     public-key: LklWoqMQz_TWiuLCUNRwHAKX1adVRSGMhtbo98fbDxw
   servername: www.cloudflare.com
-  client-fingerprint: safari
+  client-fingerprint: random
 - name: 🇹🇭 TH 02 - wangyu
   type: vless
   server: 34.15.162.1
@@ -27,7 +27,7 @@ proxies:
   reality-opts:
     public-key: LklWoqMQz_TWiuLCUNRwHAKX1adVRSGMhtbo98fbDxw
   servername: www.cloudflare.com
-  client-fingerprint: firefox
+  client-fingerprint: chrome
 - name: 🇹🇭 TH 03 - wangyu
   type: vless
   server: 34.15.162.1
@@ -39,7 +39,7 @@ proxies:
   reality-opts:
     public-key: LklWoqMQz_TWiuLCUNRwHAKX1adVRSGMhtbo98fbDxw
   servername: www.cloudflare.com
-  client-fingerprint: chrome
+  client-fingerprint: firefox
 - name: 🇹🇭 TH 04 - wangyu
   type: vless
   server: 34.15.162.1
@@ -51,7 +51,7 @@ proxies:
   reality-opts:
     public-key: LklWoqMQz_TWiuLCUNRwHAKX1adVRSGMhtbo98fbDxw
   servername: www.cloudflare.com
-  client-fingerprint: random
+  client-fingerprint: qq
 - name: 🇹🇭 TH 05 - wangyu
   type: vless
   server: 34.15.162.1
@@ -63,7 +63,7 @@ proxies:
   reality-opts:
     public-key: LklWoqMQz_TWiuLCUNRwHAKX1adVRSGMhtbo98fbDxw
   servername: www.cloudflare.com
-  client-fingerprint: ios
+  client-fingerprint: chrome
 - name: 🇹🇭 TH 06 - wangyu
   type: vless
   server: 34.15.162.1
@@ -75,7 +75,7 @@ proxies:
   reality-opts:
     public-key: LklWoqMQz_TWiuLCUNRwHAKX1adVRSGMhtbo98fbDxw
   servername: www.cloudflare.com
-  client-fingerprint: edge
+  client-fingerprint: safari
 - name: 🇹🇭 TH 07 - wangyu
   type: vless
   server: 34.15.162.1
@@ -99,8 +99,20 @@ proxies:
   reality-opts:
     public-key: LklWoqMQz_TWiuLCUNRwHAKX1adVRSGMhtbo98fbDxw
   servername: www.cloudflare.com
-  client-fingerprint: qq
+  client-fingerprint: edge
 - name: 🇹🇭 TH 09 - wangyu
+  type: vless
+  server: 34.15.162.1
+  port: 443
+  uuid: 2b1d0c2a-9c80-4b72-892e-93d0500b9210
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: LklWoqMQz_TWiuLCUNRwHAKX1adVRSGMhtbo98fbDxw
+  servername: www.cloudflare.com
+  client-fingerprint: ios
+- name: 🇹🇭 TH 10 - wangyu
   type: vless
   server: 103.86.49.57
   port: 80
@@ -113,7 +125,7 @@ proxies:
     path: /ws
     headers:
       Host: aIs.SpEeDtEsT.nEt
-- name: 🇹🇭 TH 10 - wangyu
+- name: 🇹🇭 TH 11 - wangyu
   type: vmess
   server: 118.193.57.167
   port: 49667
@@ -143,6 +155,7 @@ proxy-groups:
   - 🇹🇭 TH 08 - wangyu
   - 🇹🇭 TH 09 - wangyu
   - 🇹🇭 TH 10 - wangyu
+  - 🇹🇭 TH 11 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -158,5 +171,6 @@ proxy-groups:
   - 🇹🇭 TH 08 - wangyu
   - 🇹🇭 TH 09 - wangyu
   - 🇹🇭 TH 10 - wangyu
+  - 🇹🇭 TH 11 - wangyu
 rules:
 - MATCH,PROXIES
