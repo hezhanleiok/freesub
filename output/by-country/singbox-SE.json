@@ -1,0 +1,68 @@
+{
+  "log": {
+    "level": "warn"
+  },
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "🇸🇪 瑞典 (Sweden) 01 - xiaohe",
+      "server": "143.246.195.98",
+      "server_port": 8081,
+      "uuid": "54ee5e59-55a3-4599-83ff-0c67b3f411b2",
+      "transport": {
+        "type": "ws",
+        "path": "/vless-test"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇸🇪 瑞典 (Sweden) 02 - xiaohe",
+      "server": "193.42.39.10",
+      "server_port": 33743,
+      "uuid": "b3a11068-1a7e-4643-85de-7c82cce46943",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.google.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY",
+          "short_id": ""
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "TunService"
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇸🇪 瑞典 (Sweden) 01 - xiaohe",
+        "🇸🇪 瑞典 (Sweden) 02 - xiaohe"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇸🇪 瑞典 (Sweden) 01 - xiaohe",
+        "🇸🇪 瑞典 (Sweden) 02 - xiaohe"
+      ],
+      "url": "https://www.gstatic.com/generate_204"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}

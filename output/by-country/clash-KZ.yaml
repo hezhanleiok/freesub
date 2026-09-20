@@ -1,0 +1,57 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
+  server: 104.18.46.234
+  port: 2052
+  udp: true
+  type: vless
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
+  server: 172.64.53.55
+  port: 8080
+  udp: true
+  type: vless
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 03 - xiaohe
+  server: 151.101.1.194
+  port: 80
+  udp: true
+  type: vless
+  uuid: c19dcd53-1fed-4147-bdb6-b3d318c8d9f3
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: simorghfr.global.ssl.fastly.net
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
+  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
+  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 03 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
+  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
+  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 03 - xiaohe
+rules:
+- MATCH,PROXIES
