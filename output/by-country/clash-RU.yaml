@@ -11,17 +11,58 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: 5dLyPJpSV+QyXFRj+S0dt6xFKHxtcXEkRO/TzJGzryU=
   udp: true
+- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  type: vless
+  server: 202.181.177.8
+  port: 8443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /channels/act
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
+  type: vless
+  server: 157.173.125.214
+  port: 2087
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: '%2Fredirect%2Fchina%2Fview%3Fed%3D2560'
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
+  type: ss
+  server: 46.17.44.112
+  port: 10301
+  cipher: aes-256-gcm
+  password: bdb313adf74c2ede
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
 rules:
 - MATCH,PROXIES
