@@ -4,29 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇨🇿 捷克 (Czech) 01 - xiaohe
-  server: 95.85.230.35
+- name: 🇦🇹 奥地利 (Austria) 01 - xiaohe
+  server: 152.53.1.40
   port: 443
   udp: true
   type: vless
-  uuid: bbfd1f68-ec64-452f-8404-9e2bcf1df951
+  uuid: edde565e-41f5-400e-84ea-7b87a3e84488
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: mJ-0fJDvKp0rhuyUvs1bw4RasRRM-BEOAl9iAZ8gXy0
-  servername: de.oblaco.bet
-  client-fingerprint: ''
+    public-key: 10rVZPoOUP1TlQviIAsQ_jAROX0fRQxH0C92nq_zGQc
+    short-id: 43dcff53849b81e6
+  servername: at.quattro-tech.ru
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇦🇹 奥地利 (Austria) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇦🇹 奥地利 (Austria) 01 - xiaohe
 rules:
 - MATCH,PROXIES

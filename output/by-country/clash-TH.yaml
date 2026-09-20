@@ -15,31 +15,18 @@ proxies:
     public-key: LklWoqMQz_TWiuLCUNRwHAKX1adVRSGMhtbo98fbDxw
     short-id: ca672c53fbbac555
   servername: www.cloudflare.com
-  client-fingerprint: qq
-- name: 🇹🇭 泰国 (Thailand) 02 - xiaohe
-  server: 103.86.49.57
-  port: 80
-  udp: true
-  type: vless
-  uuid: 3c52e091-6714-4915-949f-2149fe69951b
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: aIs.SpEeDtEsT.nEt
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇭 泰国 (Thailand) 01 - xiaohe
-  - 🇹🇭 泰国 (Thailand) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇹🇭 泰国 (Thailand) 01 - xiaohe
-  - 🇹🇭 泰国 (Thailand) 02 - xiaohe
 rules:
 - MATCH,PROXIES
