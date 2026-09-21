@@ -5,21 +5,56 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
-  type: ss
-  server: sth.free-outline.giize.com
-  port: 1081
-  cipher: chacha20-ietf-poly1305
-  password: r6tptrwvddxap6al
+  type: vless
+  server: 195.58.144.56
+  port: 11907
+  uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 195.58.144.56
 - name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
-  type: ss
-  server: sth.free-outline.giize.com
-  port: 1081
-  cipher: chacha20-ietf-poly1305
-  password: wwj19enpp68px8t7
+  type: vmess
+  server: 156.245.232.239
+  port: 35043
+  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
+  alterId: 0
+  cipher: auto
   udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ''
 - name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
   type: vless
+  server: 195.58.144.56
+  port: 11907
+  uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 195.58.144.56
+- name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
+  type: vmess
+  server: ejomsxptp19apygl.v.3dns.vip
+  port: 443
+  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: ''
+- name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
+  type: vless
   server: 47.238.210.5
   port: 13779
   uuid: 928e6cce-8ced-4243-9a48-a6642edd09b0
@@ -29,37 +64,9 @@ proxies:
   reality-opts:
     public-key: llTyp52oRXnJmQ3I9UUrmlwbMA79B-wLCRHCu-8dLGg
   servername: tesla.com
-  client-fingerprint: chrome
-- name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
-  type: vless
-  server: 195.58.144.56
-  port: 11907
-  uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 195.58.144.56
-- name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
-  type: ss
-  server: sth.free-outline.giize.com
-  port: 1081
-  cipher: chacha20-ietf-poly1305
-  password: uez5t2b4575tgkoi
-  udp: true
+  client-fingerprint: ios
 - name: 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
   type: vless
-  server: 47.238.210.5
-  port: 13779
-  uuid: 928e6cce-8ced-4243-9a48-a6642edd09b0
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: llTyp52oRXnJmQ3I9UUrmlwbMA79B-wLCRHCu-8dLGg
-  servername: tesla.com
-  client-fingerprint: firefox
-- name: 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
-  type: vless
   server: 195.58.144.56
   port: 11907
   uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
@@ -67,13 +74,119 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: 195.58.144.56
+- name: 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
+  type: vmess
+  server: ex1ogt73nzpqkac2.v.3dns.vip
+  port: 443
+  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: ''
 - name: 🇭🇰 中国香港 (Hong Kong) 08 - wangyu
+  type: vmess
+  server: 8.217.229.155
+  port: 443
+  uuid: f23bb427c1f94373876c2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: qTKDR8jXE3wEFxJM.v.3dns.vip
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: qTKDR8jXE3wEFxJM.v.3dns.vip
+- name: 🇭🇰 中国香港 (Hong Kong) 09 - wangyu
+  type: vmess
+  server: 47.83.19.148
+  port: 443
+  uuid: f23bb427c1f94373876c2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 6JDvArazgU3qQR6Q.v.3dns.vip
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: 6JDvArazgU3qQR6Q.v.3dns.vip
+- name: 🇭🇰 中国香港 (Hong Kong) 10 - wangyu
   type: ss
   server: 103.136.150.119
   port: 10081
   cipher: aes-256-gcm
   password: 72553320ae6bcc8f
   udp: true
+- name: 🇭🇰 中国香港 (Hong Kong) 11 - wangyu
+  type: vmess
+  server: 47.83.19.148
+  port: 443
+  uuid: f23bb427c1f94373876c2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 6jdvarazgu3qqr6q.v.3dns.vip
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: 6jdvarazgu3qqr6q.v.3dns.vip
+- name: 🇭🇰 中国香港 (Hong Kong) 12 - wangyu
+  type: vless
+  server: 195.58.144.56
+  port: 11907
+  uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 195.58.144.56
+- name: 🇭🇰 中国香港 (Hong Kong) 13 - wangyu
+  type: vmess
+  server: 156.245.232.239
+  port: 35043
+  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 156.245.232.239
+- name: 🇭🇰 中国香港 (Hong Kong) 14 - wangyu
+  type: vless
+  server: 195.58.144.56
+  port: 11907
+  uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 195.58.144.56
+- name: 🇭🇰 中国香港 (Hong Kong) 15 - wangyu
+  type: vless
+  server: 195.58.144.56
+  port: 11907
+  uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 195.58.144.56
 proxy-groups:
 - name: PROXIES
   type: select
@@ -87,6 +200,13 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 08 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 09 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 10 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 11 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 12 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 13 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 14 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 15 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -100,5 +220,12 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 08 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 09 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 10 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 11 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 12 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 13 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 14 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 15 - wangyu
 rules:
 - MATCH,PROXIES
