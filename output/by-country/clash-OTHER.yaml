@@ -4,32 +4,32 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  server: 157.228.142.148
-  port: 8443
+- name: 🌐 其他地区 (Other) 01 - xiaohe
+  server: cf9.danfeng.eu.org
+  port: 2096
   udp: true
   type: vless
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  uuid: 8102891d-7b37-4dc5-8261-9474b59b5c63
   tls: true
-  servername: cdn8848.776676.xyz
+  servername: vip.868068.xyz
   skip-cert-verify: false
-  client-fingerprint: chrome
+  client-fingerprint: random
   network: ws
   ws-opts:
-    path: /act/rank/lang?ed=2560
+    path: /proxyip=us.xiabibi.cf
     headers:
-      Host: cdn8848.776676.xyz
+      Host: vip.868068.xyz
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
+  - 🌐 其他地区 (Other) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
+  - 🌐 其他地区 (Other) 01 - xiaohe
 rules:
 - MATCH,PROXIES

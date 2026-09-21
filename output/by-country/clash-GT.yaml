@@ -4,30 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇮🇱 以色列 (Israel) 01 - xiaohe
-  server: 185.95.231.156
+- name: 🇬🇹 GT 01 - xiaohe
+  server: 185.47.254.251
   port: 443
   udp: true
   type: vless
-  uuid: 1f8cf47a-b66a-4916-979f-26edfcf44eea
+  uuid: 878fb7f7-fc65-465e-a352-17c7216c6f3d
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: 8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To
-    short-id: a3a578ab
-  servername: www.apple.com
-  client-fingerprint: random
+    public-key: 6-_ZidygR8PRt4gtHlGCAW-PPmjEIm7Wn7MZqJU1z1Q
+    short-id: 6c059ecfddf9b179
+  servername: gateway.icloud.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇮🇱 以色列 (Israel) 01 - xiaohe
+  - 🇬🇹 GT 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇮🇱 以色列 (Israel) 01 - xiaohe
+  - 🇬🇹 GT 01 - xiaohe
 rules:
 - MATCH,PROXIES

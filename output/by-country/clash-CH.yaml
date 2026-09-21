@@ -5,43 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
-  server: 82.38.64.229
-  port: 8443
-  udp: true
-  type: hysteria2
-  password: we9_I1893UFj3149xbr1_k8qvJ8734ic_Mx82gH
-  sni: hopp-swizland-new.mysynology.net
-  skip-cert-verify: true
-- name: 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
-  server: 194.154.29.139
-  port: 8443
-  udp: true
-  type: vless
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  tls: true
-  servername: cdn8848.776676.xyz
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /retrieve/txt?ed=2560
-    headers:
-      Host: cdn8848.776676.xyz
-- name: 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
-  server: 151.242.2.81
-  port: 443
-  udp: true
-  type: vless
-  uuid: 0a2dde28-70da-4863-a06f-35d007d94d35
-  tls: true
-  servername: cf9.rumedia-cdn.com
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /cdn/v3/live
-    headers:
-      Host: cf9.rumedia-cdn.com
-- name: 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
   server: 138.124.60.146
   port: 443
   udp: true
@@ -52,7 +15,15 @@ proxies:
   reality-opts:
     public-key: mJ-0fJDvKp0rhuyUvs1bw4RasRRM-BEOAl9iAZ8gXy0
   servername: usa.oblaco.bet
-  client-fingerprint: ''
+  client-fingerprint: chrome
+- name: 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
+  server: 82.38.64.229
+  port: 8443
+  udp: true
+  type: hysteria2
+  password: we9_I1893UFj3149xbr1_k8qvJ8734ic_Mx82gH
+  sni: hopp-swizland-new.mysynology.net
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -60,8 +31,6 @@ proxy-groups:
   - AUTO
   - 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
-  - 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
-  - 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -69,7 +38,5 @@ proxy-groups:
   proxies:
   - 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
-  - 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
-  - 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
 rules:
 - MATCH,PROXIES
