@@ -15,18 +15,29 @@ proxies:
     public-key: 3ekBKAuIIAOjtkKJ0T-qpC7uJsqsY2fVLRB6C70A5hw
     short-id: d7676b6a468a03b3
   servername: www.cloudflare.com
-  client-fingerprint: safari
+  client-fingerprint: chrome
+- name: 🇨🇱 智利 (Chile) 02 - xiaohe
+  server: platform109.golnamakcert.top
+  port: 80
+  udp: true
+  type: vless
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  network: ws
+  ws-opts:
+    path: /platform109
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇨🇱 智利 (Chile) 01 - xiaohe
+  - 🇨🇱 智利 (Chile) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇨🇱 智利 (Chile) 01 - xiaohe
+  - 🇨🇱 智利 (Chile) 02 - xiaohe
 rules:
 - MATCH,PROXIES

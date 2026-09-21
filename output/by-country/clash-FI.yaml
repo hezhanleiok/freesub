@@ -5,7 +5,26 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 芬兰 (Finland) 01 - xiaohe
-  server: 152.233.54.104
+  server: 87.58.148.70
+  port: 443
+  udp: true
+  type: ss
+  cipher: aes-256-gcm
+  password: rg0g3xp9rk9nk9o0
+- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
+  server: 185.79.138.71
+  port: 448
+  udp: true
+  type: vless
+  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+  tls: true
+  reality-opts:
+    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
+    short-id: cd21e552537c7c0b
+  servername: www.samsung.com
+  client-fingerprint: chrome
+- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  server: fi1.cache-4d8a.com
   port: 443
   udp: true
   type: vless
@@ -15,61 +34,37 @@ proxies:
     public-key: V4SeM4OMxXoSKBmmyC5C0kZEhgL33a5vVZBe7ysJ42U
     short-id: 0a30e2aee95a7571
   servername: fi1.cache-4d8a.com
-  client-fingerprint: firefox
+  client-fingerprint: chrome
   network: grpc
   grpc-opts:
     grpc-service-name: grpc
-- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  server: 31.77.199.182
-  port: 443
-  udp: true
-  type: vless
-  uuid: c09cfd91-b234-4998-9bed-a0211b7f5c3c
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: -qLezG1nUEtvOJi-Ra7WRYv-aHkv3PSefEuXpWV2G04
-    short-id: abcd1234
-  servername: fi2.yservice.help
-  client-fingerprint: firefox
-- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  server: 95.216.27.15
-  port: 2053
-  udp: true
-  type: vless
-  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
-  tls: true
-  reality-opts:
-    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
-    short-id: d368b94e275ab080
-  servername: www.google.com
-  client-fingerprint: random
 - name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
-  server: 2.27.48.140
+  server: est1313.ggisopi.su
   port: 443
   udp: true
   type: vless
-  uuid: 7cbc0c1f-9aa1-4a4c-a052-45ccc855df10
+  uuid: d0f0a880-0df1-48c9-bdf1-5669fb9483ce
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: Ax1xKjjBS7afZ94zHY-9iI7hohBmzA-EpS-eRILX2CA
-    short-id: c66279532e2e
-  servername: intel.com
-  client-fingerprint: safari
+    public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
+  servername: est1313.ggisopi.su
+  client-fingerprint: chrome
 - name: 🇫🇮 芬兰 (Finland) 05 - xiaohe
-  server: 62.238.103.54
-  port: 2083
+  server: 202.166.187.132
+  port: 443
   udp: true
   type: vless
-  uuid: d78de562-872e-43dd-be48-e9d7b06c87a3
-  flow: xtls-rprx-vision
+  uuid: 8be20011-59b1-4118-91ed-83e8e6b662cd
   tls: true
-  reality-opts:
-    public-key: tADYkZWWksM_mCqqwlRHCciSCXnP3JMYrPi5eoRHh2s
-    short-id: d059fb98048c5318
-  servername: www.yahoo.com
-  client-fingerprint: chrome
+  servername: f.yoptybla.ru
+  skip-cert-verify: false
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: f.yoptybla.ru
 proxy-groups:
 - name: PROXIES
   type: select

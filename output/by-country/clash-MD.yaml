@@ -4,28 +4,26 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🌐 其他地区 (Other) 01 - xiaohe
-  server: 188.114.97.6
-  port: 2082
+- name: 🇲🇩 摩尔多瓦 (Moldova) 01 - xiaohe
+  server: 143.246.219.51
+  port: 8081
   udp: true
   type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
   network: ws
   ws-opts:
-    path: /
-    headers:
-      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+    path: /vless-test
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🌐 其他地区 (Other) 01 - xiaohe
+  - 🇲🇩 摩尔多瓦 (Moldova) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🌐 其他地区 (Other) 01 - xiaohe
+  - 🇲🇩 摩尔多瓦 (Moldova) 01 - xiaohe
 rules:
 - MATCH,PROXIES

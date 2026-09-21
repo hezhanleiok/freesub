@@ -5,16 +5,23 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe
-  server: 45.9.156.103
+  server: 192.145.31.5
   port: 443
   udp: true
   type: vless
-  uuid: e633de28-bfc0-4aca-aa67-e2e12e2c9e58
-  flow: xtls-rprx-vision
+  uuid: 9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a
+  network: ws
+  ws-opts:
+    path: /
+- name: 🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe
+  server: 192.145.31.5
+  port: 8443
+  udp: true
+  type: vless
+  uuid: 9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a
   tls: true
-  reality-opts:
-    public-key: SARDrN_d46PsugT2k5ILoQAJqaA1eCOZhe1BjKMonj8
-  servername: mzone.bg.3cloudhost.com
+  servername: neth9.lunariai.ru
+  skip-cert-verify: false
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
@@ -22,11 +29,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe
+  - 🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe
+  - 🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe
 rules:
 - MATCH,PROXIES

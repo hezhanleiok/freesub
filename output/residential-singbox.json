@@ -5,21 +5,23 @@
   "outbounds": [
     {
       "type": "vless",
-      "tag": "🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe",
-      "server": "118.167.246.43",
-      "server_port": 24215,
-      "uuid": "19d5a678-8396-4e3b-93da-ece618d0e83a",
+      "tag": "🇯🇵 日本 (Japan) 01 (家宽) - xiaohe",
+      "server": "138.2.59.96",
+      "server_port": 10129,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
       "tls": {
         "enabled": true,
-        "server_name": "addons.mozilla.org",
+        "server_name": "cdn8848.776676.xyz",
+        "insecure": false,
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE",
-          "short_id": ""
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "cdn8848.776676.xyz"
         }
       }
     },
@@ -36,10 +38,7 @@
         "insecure": false
       },
       "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": "dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn"
-        }
+        "type": "ws"
       }
     },
     {
@@ -47,7 +46,7 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe",
+        "🇯🇵 日本 (Japan) 01 (家宽) - xiaohe",
         "🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe"
       ]
     },
@@ -55,7 +54,7 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe",
+        "🇯🇵 日本 (Japan) 01 (家宽) - xiaohe",
         "🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"

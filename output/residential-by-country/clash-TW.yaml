@@ -5,17 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
-  server: 118.167.246.43
-  port: 24215
-  udp: true
-  type: vless
-  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
-  tls: true
-  reality-opts:
-    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
-  servername: addons.mozilla.org
-  client-fingerprint: firefox
-- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
   server: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
   port: 443
   udp: true
@@ -29,21 +18,17 @@ proxies:
   network: ws
   ws-opts:
     path: /
-    headers:
-      Host: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES
