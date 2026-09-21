@@ -4,16 +4,8 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  server: se-node.rumedia-cdn.com
-  port: 25443
-  udp: true
-  type: hysteria2
-  password: 29ffde49-e1d6-4dcd-a135-352920f9f0b8
-  sni: cf2.rumedia-cdn.com
-  skip-cert-verify: true
-- name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
-  server: 157.228.142.148
+- name: 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
+  server: 45.38.139.23
   port: 8443
   udp: true
   type: vless
@@ -24,7 +16,7 @@ proxies:
   client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /act/rank/lang?ed=2560
+    path: /jumping/class/bt?ed=2560
     headers:
       Host: cdn8848.776676.xyz
 proxy-groups:
@@ -32,14 +24,12 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
+  - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
+  - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
 rules:
 - MATCH,PROXIES

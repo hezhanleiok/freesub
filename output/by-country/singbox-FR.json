@@ -4,30 +4,8 @@
   },
   "outbounds": [
     {
-      "type": "vless",
+      "type": "shadowsocks",
       "tag": "🇫🇷 法国 (France) 01 - xiaohe",
-      "server": "172.64.229.170",
-      "server_port": 2052,
-      "uuid": "47fcef29-ab4e-4aa6-932b-d95a18f28a4e",
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2560security=tls",
-        "headers": {
-          "Host": "8nj2r.2k8t.f88.hh.vavava.kdns.fr"
-        }
-      }
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "🇫🇷 法国 (France) 02 - xiaohe",
-      "server": "51.255.13.232",
-      "server_port": 8388,
-      "method": "chacha20-ietf-poly1305",
-      "password": "BqnqToih0PbU"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "🇫🇷 法国 (France) 03 - xiaohe",
       "server": "54.36.174.140",
       "server_port": 443,
       "method": "chacha20-ietf-poly1305",
@@ -35,27 +13,31 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "🇫🇷 法国 (France) 04 - xiaohe",
+      "tag": "🇫🇷 法国 (France) 02 - xiaohe",
       "server": "54.36.174.134",
       "server_port": 443,
       "method": "chacha20-ietf-poly1305",
       "password": "mrs2e9a"
     },
     {
-      "type": "hysteria2",
-      "tag": "🇫🇷 法国 (France) 05 - xiaohe",
-      "server": "62.210.7.139",
-      "server_port": 60111,
-      "password": "github.com/Alvin9999-newpac/fanqiang",
+      "type": "vless",
+      "tag": "🇫🇷 法国 (France) 03 - xiaohe",
+      "server": "151.247.193.190",
+      "server_port": 443,
+      "uuid": "0dca2cfe-98eb-4f9d-9a47-cf87510c558b",
       "tls": {
         "enabled": true,
-        "server_name": "google.com",
-        "insecure": true
+        "server_name": "assets-fra.pleiades.codes",
+        "insecure": false
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "cdn.v1.AssetService"
       }
     },
     {
       "type": "vless",
-      "tag": "🇫🇷 法国 (France) 06 - xiaohe",
+      "tag": "🇫🇷 法国 (France) 04 - xiaohe",
       "server": "62.210.91.2",
       "server_port": 23576,
       "uuid": "48ff2b70-e180-582f-8866-d9a2edeed5f5",
@@ -75,8 +57,93 @@
       }
     },
     {
+      "type": "hysteria2",
+      "tag": "🇫🇷 法国 (France) 05 - xiaohe",
+      "server": "62.210.7.139",
+      "server_port": 60111,
+      "password": "github.com/Alvin9999-newpac/fanqiang",
+      "tls": {
+        "enabled": true,
+        "server_name": "google.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇫🇷 法国 (France) 06 - xiaohe",
+      "server": "34.155.10.226",
+      "server_port": 443,
+      "uuid": "d619964d-26d6-452d-9860-6f058f03ba8e",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "6tH_NDFcxWn60B3s-MgrkBTU2yUUBY42ZG1av50Ywhk",
+          "short_id": "ae682368818bd6c5"
+        }
+      }
+    },
+    {
       "type": "vless",
       "tag": "🇫🇷 法国 (France) 07 - xiaohe",
+      "server": "51.77.217.70",
+      "server_port": 2053,
+      "uuid": "bf16ee0c-8b3c-41e4-ab3a-8b48033c404e",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "g63cT3uI0Y5iUtj3m__RYz7nmR1eIK4AYikdnZCl63w",
+          "short_id": "bfe58beb41f1d09f"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇫🇷 法国 (France) 08 - xiaohe",
+      "server": "62.210.91.10",
+      "server_port": 23576,
+      "uuid": "48ff2b70-e180-582f-8866-d9a2edeed5f5",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "fuck.rkn",
+        "utls": {
+          "enabled": true,
+          "fingerprint": ""
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s",
+          "short_id": "01"
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇷 法国 (France) 09 - xiaohe",
+      "server": "151.247.197.253",
+      "server_port": 36723,
+      "password": "Krab9Hyst2_Rk7pQ2xL",
+      "tls": {
+        "enabled": true,
+        "server_name": "151.247.197.253",
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇫🇷 法国 (France) 10 - xiaohe",
       "server": "57.128.177.218",
       "server_port": 30963,
       "uuid": "aabcb69e-9f17-44bd-aaac-552dd23e9691",
@@ -99,122 +166,49 @@
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "🇫🇷 法国 (France) 08 - xiaohe",
-      "server": "35.181.166.40",
-      "server_port": 443,
-      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
-      "tls": {
-        "enabled": true,
-        "server_name": "35.181.166.40",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇷 法国 (France) 09 - xiaohe",
-      "server": "173.212.201.85",
-      "server_port": 443,
-      "password": "gf1:gfhysteria2024",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.docker.com",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇷 法国 (France) 10 - xiaohe",
-      "server": "151.247.197.253",
-      "server_port": 36723,
-      "password": "Krab9Hyst2_Rk7pQ2xL",
-      "tls": {
-        "enabled": true,
-        "server_name": "151.247.197.253",
-        "insecure": true
-      }
-    },
-    {
       "type": "vless",
       "tag": "🇫🇷 法国 (France) 11 - xiaohe",
-      "server": "62.60.157.56",
+      "server": "162.19.10.99",
       "server_port": 443,
-      "uuid": "78b898d6-fa2c-47af-a342-dcde483301b0",
+      "uuid": "e8b1500b-e9e8-5492-8312-f4eadf7d0767",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "www.uva.nl",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "ZPdVCztKOeffv0v4TpdQ8X5LMGmVNxZe1ZC7BFC8118",
-          "short_id": "940dbf5b"
-        }
+        "server_name": "nasnet-162191099-direct.mbghalibaf.com",
+        "insecure": true
       }
     },
     {
-      "type": "vless",
+      "type": "shadowsocks",
       "tag": "🇫🇷 法国 (France) 12 - xiaohe",
-      "server": "62.210.91.10",
-      "server_port": 23576,
-      "uuid": "48ff2b70-e180-582f-8866-d9a2edeed5f5",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "fuck.rkn",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s",
-          "short_id": "01"
-        }
-      }
+      "server": "51.255.13.232",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "BqnqToih0PbU"
     },
     {
       "type": "vless",
       "tag": "🇫🇷 法国 (France) 13 - xiaohe",
-      "server": "34.155.10.226",
-      "server_port": 443,
-      "uuid": "d619964d-26d6-452d-9860-6f058f03ba8e",
+      "server": "54.37.136.194",
+      "server_port": 2053,
+      "uuid": "e8a432c8-5d84-49a5-b822-67ed761a58f9",
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "random"
         },
         "reality": {
           "enabled": true,
-          "public_key": "6tH_NDFcxWn60B3s-MgrkBTU2yUUBY42ZG1av50Ywhk",
-          "short_id": "ae682368818bd6c5"
+          "public_key": "Vemd9Jjk5xKO8qSC3g8VVagwcb4J1BcTvp86CswQC0A",
+          "short_id": "50ba05992b05c1c3"
         }
       }
     },
     {
       "type": "vless",
       "tag": "🇫🇷 法国 (France) 14 - xiaohe",
-      "server": "assets-fra.pleiades.codes",
-      "server_port": 443,
-      "uuid": "0dca2cfe-98eb-4f9d-9a47-cf87510c558b",
-      "tls": {
-        "enabled": true,
-        "server_name": "assets-fra.pleiades.codes",
-        "insecure": false
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "cdn.v1.AssetService"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇫🇷 法国 (France) 15 - xiaohe",
       "server": "152.228.139.33",
       "server_port": 35108,
       "uuid": "81dc0b61-f9fe-4ad6-8b4e-b8c067b73712",
@@ -238,7 +232,7 @@
     },
     {
       "type": "vmess",
-      "tag": "🇫🇷 法国 (France) 16 - xiaohe",
+      "tag": "🇫🇷 法国 (France) 15 - xiaohe",
       "server": "188.114.96.19",
       "server_port": 80,
       "uuid": "479526cd-5011-43cf-a788-504da95e07c2",
@@ -253,8 +247,48 @@
     },
     {
       "type": "vless",
+      "tag": "🇫🇷 法国 (France) 16 - xiaohe",
+      "server": "45.95.96.236",
+      "server_port": 443,
+      "uuid": "c5694dc5-39fd-4a92-8430-3837baa522a3",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "gesmankos.sadiepinki.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "rCkSHJ7goy7ZvSlau4LfXF-QLloOJMNeMxpeeQtwtVs",
+          "short_id": "4fa44664f6a566d3"
+        }
+      }
+    },
+    {
+      "type": "trojan",
       "tag": "🇫🇷 法国 (France) 17 - xiaohe",
-      "server": "81.95.4.189",
+      "server": "104.16.72.50",
+      "server_port": 443,
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.calmlunch.com",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.calmlunch.com"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇫🇷 法国 (France) 18 - xiaohe",
+      "server": "158.180.231.216",
       "server_port": 443,
       "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3",
       "tls": {
@@ -295,7 +329,8 @@
         "🇫🇷 法国 (France) 14 - xiaohe",
         "🇫🇷 法国 (France) 15 - xiaohe",
         "🇫🇷 法国 (France) 16 - xiaohe",
-        "🇫🇷 法国 (France) 17 - xiaohe"
+        "🇫🇷 法国 (France) 17 - xiaohe",
+        "🇫🇷 法国 (France) 18 - xiaohe"
       ]
     },
     {
@@ -318,7 +353,8 @@
         "🇫🇷 法国 (France) 14 - xiaohe",
         "🇫🇷 法国 (France) 15 - xiaohe",
         "🇫🇷 法国 (France) 16 - xiaohe",
-        "🇫🇷 法国 (France) 17 - xiaohe"
+        "🇫🇷 法国 (France) 17 - xiaohe",
+        "🇫🇷 法国 (France) 18 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

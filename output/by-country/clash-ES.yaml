@@ -11,17 +11,34 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: qItG8SueYQcP
+- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
+  server: es.cache-4d8a.com
+  port: 443
+  udp: true
+  type: vless
+  uuid: ddf09ad0-02dc-485b-9048-1038de5bebf0
+  tls: true
+  reality-opts:
+    public-key: S6t9-gOX2mxWKNGvGSJ8NxDdlJy78d4gN2-wv2d0hFw
+    short-id: 8319913f2e5f5711
+  servername: es.cache-4d8a.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇪🇸 西班牙 (Spain) 01 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇪🇸 西班牙 (Spain) 01 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 02 - xiaohe
 rules:
 - MATCH,PROXIES
