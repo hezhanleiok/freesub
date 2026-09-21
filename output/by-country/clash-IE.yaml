@@ -4,30 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇻🇳 越南 (Vietnam) 01 - xiaohe
-  server: jpzzqqnzdbgwhbhzsrgh.cfooov.xyz
-  port: 48737
+- name: 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
+  server: 3.9.135.156
+  port: 51847
   udp: true
   type: vless
-  uuid: 17ab31f7-c021-4aec-83b2-ab48de8886bd
+  uuid: 391a01e9-b664-407b-9158-610fab3f5920
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: GnLh9Cc0jj9BMW81u6stEYKe1xu6pf8DDpXHI9AmvFk
-    short-id: 545525c503fd5b
-  servername: addons.mozilla.org
+    public-key: S6noV0L8eNASnTe1gXLutLZNdfENsvKMsOJiGQYi6nc
+    short-id: 0eec442e7b34d2f2
+  servername: www.tesla.com
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇻🇳 越南 (Vietnam) 01 - xiaohe
+  - 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇻🇳 越南 (Vietnam) 01 - xiaohe
+  - 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
 rules:
 - MATCH,PROXIES
