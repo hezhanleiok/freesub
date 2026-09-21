@@ -4,8 +4,16 @@
   },
   "outbounds": [
     {
-      "type": "vless",
+      "type": "shadowsocks",
       "tag": "🇫🇮 芬兰 (Finland) 01 - xiaohe",
+      "server": "87.58.148.70",
+      "server_port": 443,
+      "method": "aes-256-gcm",
+      "password": "rg0g3xp9rk9nk9o0"
+    },
+    {
+      "type": "vless",
+      "tag": "🇫🇮 芬兰 (Finland) 02 - xiaohe",
       "server": "152.233.54.104",
       "server_port": 443,
       "uuid": "ddf09ad0-02dc-485b-9048-1038de5bebf0",
@@ -14,7 +22,7 @@
         "server_name": "fi1.cache-4d8a.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": "chrome"
         },
         "reality": {
           "enabled": true,
@@ -29,28 +37,28 @@
     },
     {
       "type": "vless",
-      "tag": "🇫🇮 芬兰 (Finland) 02 - xiaohe",
-      "server": "2.27.48.140",
+      "tag": "🇫🇮 芬兰 (Finland) 03 - xiaohe",
+      "server": "65.108.3.59",
       "server_port": 443,
-      "uuid": "7cbc0c1f-9aa1-4a4c-a052-45ccc855df10",
+      "uuid": "8df2e661-6f46-471b-9133-7fc13a0daa35",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "intel.com",
+        "server_name": "web.eitaa.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "safari"
+          "fingerprint": "firefox"
         },
         "reality": {
           "enabled": true,
-          "public_key": "Ax1xKjjBS7afZ94zHY-9iI7hohBmzA-EpS-eRILX2CA",
-          "short_id": "c66279532e2e"
+          "public_key": "jDoORbrtDrvAlFSo19CJbc99C4ev8SAo1MwczSUt9no",
+          "short_id": "90ec9bba2019"
         }
       }
     },
     {
       "type": "vless",
-      "tag": "🇫🇮 芬兰 (Finland) 03 - xiaohe",
+      "tag": "🇫🇮 芬兰 (Finland) 04 - xiaohe",
       "server": "95.216.27.15",
       "server_port": 2053,
       "uuid": "1c81f6d3-5771-4c5d-9fdd-1655eff50634",
@@ -59,7 +67,7 @@
         "server_name": "www.google.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "random"
+          "fingerprint": "chrome"
         },
         "reality": {
           "enabled": true,
@@ -70,7 +78,30 @@
     },
     {
       "type": "vless",
-      "tag": "🇫🇮 芬兰 (Finland) 04 - xiaohe",
+      "tag": "🇫🇮 芬兰 (Finland) 05 - xiaohe",
+      "server": "202.166.187.132",
+      "server_port": 443,
+      "uuid": "8be20011-59b1-4118-91ed-83e8e6b662cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "f.yoptybla.ru",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "f.yoptybla.ru"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇫🇮 芬兰 (Finland) 06 - xiaohe",
       "server": "31.77.199.182",
       "server_port": 443,
       "uuid": "c09cfd91-b234-4998-9bed-a0211b7f5c3c",
@@ -90,6 +121,47 @@
       }
     },
     {
+      "type": "vless",
+      "tag": "🇫🇮 芬兰 (Finland) 07 - xiaohe",
+      "server": "est1313.ggisopi.su",
+      "server_port": 443,
+      "uuid": "d0f0a880-0df1-48c9-bdf1-5669fb9483ce",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "est1313.ggisopi.su",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I",
+          "short_id": ""
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇫🇮 芬兰 (Finland) 08 - xiaohe",
+      "server": "185.79.138.71",
+      "server_port": 448,
+      "uuid": "0b0915d7-6800-4580-a44b-77d84f105e6a",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.samsung.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8",
+          "short_id": "cd21e552537c7c0b"
+        }
+      }
+    },
+    {
       "type": "selector",
       "tag": "select",
       "outbounds": [
@@ -97,7 +169,11 @@
         "🇫🇮 芬兰 (Finland) 01 - xiaohe",
         "🇫🇮 芬兰 (Finland) 02 - xiaohe",
         "🇫🇮 芬兰 (Finland) 03 - xiaohe",
-        "🇫🇮 芬兰 (Finland) 04 - xiaohe"
+        "🇫🇮 芬兰 (Finland) 04 - xiaohe",
+        "🇫🇮 芬兰 (Finland) 05 - xiaohe",
+        "🇫🇮 芬兰 (Finland) 06 - xiaohe",
+        "🇫🇮 芬兰 (Finland) 07 - xiaohe",
+        "🇫🇮 芬兰 (Finland) 08 - xiaohe"
       ]
     },
     {
@@ -107,7 +183,11 @@
         "🇫🇮 芬兰 (Finland) 01 - xiaohe",
         "🇫🇮 芬兰 (Finland) 02 - xiaohe",
         "🇫🇮 芬兰 (Finland) 03 - xiaohe",
-        "🇫🇮 芬兰 (Finland) 04 - xiaohe"
+        "🇫🇮 芬兰 (Finland) 04 - xiaohe",
+        "🇫🇮 芬兰 (Finland) 05 - xiaohe",
+        "🇫🇮 芬兰 (Finland) 06 - xiaohe",
+        "🇫🇮 芬兰 (Finland) 07 - xiaohe",
+        "🇫🇮 芬兰 (Finland) 08 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

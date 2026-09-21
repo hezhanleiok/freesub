@@ -5,12 +5,16 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇷 法国 (France) 01 - xiaohe
-  server: 54.36.174.140
-  port: 443
+  server: 172.64.229.170
+  port: 2052
   udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: mrs2e9a
+  type: vless
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 - name: 🇫🇷 法国 (France) 02 - xiaohe
   server: 51.255.13.232
   port: 8388
@@ -19,37 +23,27 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: BqnqToih0PbU
 - name: 🇫🇷 法国 (France) 03 - xiaohe
-  server: 185.18.250.245
+  server: 54.36.174.140
   port: 443
   udp: true
-  type: trojan
-  password: humanity
-  sni: www.calmlunch.com
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /assignment
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: mrs2e9a
 - name: 🇫🇷 法国 (France) 04 - xiaohe
+  server: 54.36.174.134
+  port: 443
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: mrs2e9a
+- name: 🇫🇷 法国 (France) 05 - xiaohe
   server: 62.210.7.139
   port: 60111
   udp: true
   type: hysteria2
   password: github.com/Alvin9999-newpac/fanqiang
-  sni: whatsapp.com
+  sni: google.com
   skip-cert-verify: true
-- name: 🇫🇷 法国 (France) 05 - xiaohe
-  server: 62.210.91.10
-  port: 23576
-  udp: true
-  type: vless
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  servername: fuck.rkn
-  client-fingerprint: chrome
 - name: 🇫🇷 法国 (France) 06 - xiaohe
   server: 62.210.91.2
   port: 23576
@@ -62,15 +56,8 @@ proxies:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
   servername: fuck.rkn
-  client-fingerprint: ''
+  client-fingerprint: chrome
 - name: 🇫🇷 法国 (France) 07 - xiaohe
-  server: 54.36.174.134
-  port: 443
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: mrs2e9a
-- name: 🇫🇷 法国 (France) 08 - xiaohe
   server: 57.128.177.218
   port: 30963
   udp: true
@@ -81,17 +68,25 @@ proxies:
     public-key: XxNAqnYJDizM_4_ycJxyaa9xbx29hpDfwAtCv1Wga1M
     short-id: c776352067
   servername: us.vrzn.download.nvidia.com
-  client-fingerprint: edge
+  client-fingerprint: firefox
   network: grpc
   grpc-opts:
     grpc-service-name: grpc_common1
+- name: 🇫🇷 法国 (France) 08 - xiaohe
+  server: 35.181.166.40
+  port: 443
+  udp: true
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: 35.181.166.40
+  skip-cert-verify: true
 - name: 🇫🇷 法国 (France) 09 - xiaohe
   server: 173.212.201.85
   port: 443
   udp: true
   type: hysteria2
   password: gf1:gfhysteria2024
-  sni: 173.212.201.85
+  sni: www.docker.com
   skip-cert-verify: true
 - name: 🇫🇷 法国 (France) 10 - xiaohe
   server: 151.247.197.253
@@ -99,17 +94,47 @@ proxies:
   udp: true
   type: hysteria2
   password: Krab9Hyst2_Rk7pQ2xL
-  sni: www.cloudflare.com
+  sni: 151.247.197.253
   skip-cert-verify: true
 - name: 🇫🇷 法国 (France) 11 - xiaohe
-  server: vpn-fr-002.fastervpn.world
+  server: 62.60.157.56
   port: 443
   udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: vpn-fr-002.fastervpn.world
-  skip-cert-verify: true
+  type: vless
+  uuid: 78b898d6-fa2c-47af-a342-dcde483301b0
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: ZPdVCztKOeffv0v4TpdQ8X5LMGmVNxZe1ZC7BFC8118
+    short-id: 940dbf5b
+  servername: www.uva.nl
+  client-fingerprint: chrome
 - name: 🇫🇷 法国 (France) 12 - xiaohe
+  server: 62.210.91.10
+  port: 23576
+  udp: true
+  type: vless
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  servername: fuck.rkn
+  client-fingerprint: chrome
+- name: 🇫🇷 法国 (France) 13 - xiaohe
+  server: 34.155.10.226
+  port: 443
+  udp: true
+  type: vless
+  uuid: d619964d-26d6-452d-9860-6f058f03ba8e
+  tls: true
+  reality-opts:
+    public-key: 6tH_NDFcxWn60B3s-MgrkBTU2yUUBY42ZG1av50Ywhk
+    short-id: ae682368818bd6c5
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇫🇷 法国 (France) 14 - xiaohe
   server: assets-fra.pleiades.codes
   port: 443
   udp: true
@@ -118,10 +143,52 @@ proxies:
   tls: true
   servername: assets-fra.pleiades.codes
   skip-cert-verify: false
-  client-fingerprint: chrome
   network: grpc
   grpc-opts:
     grpc-service-name: cdn.v1.AssetService
+- name: 🇫🇷 法国 (France) 15 - xiaohe
+  server: 152.228.139.33
+  port: 35108
+  udp: true
+  type: vless
+  uuid: 81dc0b61-f9fe-4ad6-8b4e-b8c067b73712
+  tls: true
+  reality-opts:
+    public-key: X_lOw5Zz4SJBa1cRHV4dAq5msYE-ClY5-WNcBmBWRxg
+    short-id: 52add08b86a5ccea
+  servername: www.nvidia.com
+  client-fingerprint: firefox
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc-common3
+- name: 🇫🇷 法国 (France) 16 - xiaohe
+  server: 188.114.96.19
+  port: 80
+  udp: true
+  type: vmess
+  uuid: 479526cd-5011-43cf-a788-504da95e07c2
+  alterId: 0
+  cipher: auto
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: google.whatsapp.snapp.torob.basalam.fortresshost.ir.
+- name: 🇫🇷 法国 (France) 17 - xiaohe
+  server: 81.95.4.189
+  port: 443
+  udp: true
+  type: vless
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  tls: true
+  servername: bab-6.site
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /vws/
+    headers:
+      Host: bab-6.site
 proxy-groups:
 - name: PROXIES
   type: select
@@ -139,6 +206,11 @@ proxy-groups:
   - 🇫🇷 法国 (France) 10 - xiaohe
   - 🇫🇷 法国 (France) 11 - xiaohe
   - 🇫🇷 法国 (France) 12 - xiaohe
+  - 🇫🇷 法国 (France) 13 - xiaohe
+  - 🇫🇷 法国 (France) 14 - xiaohe
+  - 🇫🇷 法国 (France) 15 - xiaohe
+  - 🇫🇷 法国 (France) 16 - xiaohe
+  - 🇫🇷 法国 (France) 17 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -156,5 +228,10 @@ proxy-groups:
   - 🇫🇷 法国 (France) 10 - xiaohe
   - 🇫🇷 法国 (France) 11 - xiaohe
   - 🇫🇷 法国 (France) 12 - xiaohe
+  - 🇫🇷 法国 (France) 13 - xiaohe
+  - 🇫🇷 法国 (France) 14 - xiaohe
+  - 🇫🇷 法国 (France) 15 - xiaohe
+  - 🇫🇷 法国 (France) 16 - xiaohe
+  - 🇫🇷 法国 (France) 17 - xiaohe
 rules:
 - MATCH,PROXIES
