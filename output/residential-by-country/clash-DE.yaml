@@ -1,0 +1,34 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇩🇪 德国 (Germany) 01 (家宽) - xiaohe
+  type: vless
+  server: 164.92.137.46
+  port: 2083
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: '%2Fbt%2Fstreaming%2Fad%3Fed%3D2560'
+    headers:
+      Host: cdn8848.776676.xyz
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇩🇪 德国 (Germany) 01 (家宽) - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇩🇪 德国 (Germany) 01 (家宽) - xiaohe
+rules:
+- MATCH,PROXIES

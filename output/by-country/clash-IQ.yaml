@@ -6,12 +6,18 @@ log-level: info
 proxies:
 - name: 🇮🇶 IQ 01 - xiaohe
   type: vless
-  server: 81.90.25.152
-  port: 34302
-  uuid: e9a7f2c2-51bd-4a81-de35-26b369e2585b
+  server: 172.67.220.34
+  port: 443
+  uuid: ef23616d-8a9d-4b22-b2f5-9bda864de179
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: INDEX.Arcane509.Workers.DEV
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: index.arcane509.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select

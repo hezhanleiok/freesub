@@ -15,18 +15,33 @@ proxies:
   reality-opts:
     public-key: 3ekBKAuIIAOjtkKJ0T-qpC7uJsqsY2fVLRB6C70A5hw
   servername: www.cloudflare.com
-  client-fingerprint: ios
+  client-fingerprint: chrome
+- name: 🇨🇱 CL 02 - xiaohe
+  type: vless
+  server: platform109.golnamakcert.top
+  port: 80
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /platform109
+    headers:
+      Host: platform109.golnamakcert.top
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇨🇱 CL 01 - xiaohe
+  - 🇨🇱 CL 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇨🇱 CL 01 - xiaohe
+  - 🇨🇱 CL 02 - xiaohe
 rules:
 - MATCH,PROXIES
