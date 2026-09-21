@@ -6,7 +6,7 @@ log-level: info
 proxies:
 - name: 🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe
   type: vless
-  server: 172.64.146.211
+  server: 172.64.53.87
   port: 2087
   uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
   udp: true
@@ -15,12 +15,12 @@ proxies:
   servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
   network: ws
   ws-opts:
-    path: /?ed=2560
+    path: ?ed=2560
     headers:
       Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
 - name: 🇰🇷 韩国 (South Korea) 02 (家宽) - xiaohe
   type: vless
-  server: 104.18.42.54
+  server: 172.64.53.60
   port: 2087
   uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
   udp: true
@@ -33,18 +33,6 @@ proxies:
     headers:
       Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
 - name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
-  type: vless
-  server: 118.167.246.43
-  port: 24215
-  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
   type: vmess
   server: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
   port: 443
@@ -54,12 +42,19 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
+  servername: ''
   network: ws
   ws-opts:
-    path: /
+    path: ''
     headers:
-      Host: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
+      Host: ''
+- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
+  type: ss
+  server: 36.224.141.124
+  port: 50099
+  cipher: chacha20-ietf-poly1305
+  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+  udp: true
 - name: 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe
   type: vless
   server: 60.248.219.78

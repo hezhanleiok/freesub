@@ -4,10 +4,10 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
+- name: 🇻🇳 VN 01 - xiaohe
   type: vless
-  server: 132.243.203.218
-  port: 8443
+  server: 160.25.75.40
+  port: 443
   uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   udp: true
   tls: true
@@ -15,7 +15,7 @@ proxies:
   servername: cdn8848.776676.xyz
   network: ws
   ws-opts:
-    path: '%2Fv%3Fed%3D2560'
+    path: /
     headers:
       Host: cdn8848.776676.xyz
 proxy-groups:
@@ -23,12 +23,12 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
+  - 🇻🇳 VN 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
+  - 🇻🇳 VN 01 - xiaohe
 rules:
 - MATCH,PROXIES

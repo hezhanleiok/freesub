@@ -4,31 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇱🇻 LV 01 - xiaohe
+- name: 🇲🇩 MD 01 - xiaohe
   type: vless
-  server: 45.38.139.23
-  port: 8443
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  server: 143.246.219.51
+  port: 8081
+  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: cdn8848.776676.xyz
   network: ws
   ws-opts:
-    path: '%2Fjumping%2Fclass%2Fbt%3Fed%3D2560'
+    path: /vless-test
     headers:
-      Host: cdn8848.776676.xyz
+      Host: 143.246.219.51
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇱🇻 LV 01 - xiaohe
+  - 🇲🇩 MD 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇱🇻 LV 01 - xiaohe
+  - 🇲🇩 MD 01 - xiaohe
 rules:
 - MATCH,PROXIES

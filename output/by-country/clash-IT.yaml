@@ -6,10 +6,10 @@ log-level: info
 proxies:
 - name: 🇮🇹 意大利 (Italy) 01 - xiaohe
   type: ss
-  server: 185.164.175.81
-  port: 19999
+  server: 57.131.48.45
+  port: 8388
   cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  password: itzvpn@321
   udp: true
 - name: 🇮🇹 意大利 (Italy) 02 - xiaohe
   type: ss
@@ -19,6 +19,39 @@ proxies:
   password: itzvpn@321
   udp: true
 - name: 🇮🇹 意大利 (Italy) 03 - xiaohe
+  type: vmess
+  server: 89.41.172.106
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇮🇹 意大利 (Italy) 04 - xiaohe
+  type: vless
+  server: 140.248.189.57
+  port: 80
+  uuid: 8abb648a-b004-42a4-aa05-49cdc2f94d4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: tazia.global.ssl.fastly.net
+- name: 🇮🇹 意大利 (Italy) 05 - xiaohe
+  type: vmess
+  server: 89.41.172.85
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇮🇹 意大利 (Italy) 06 - xiaohe
   type: vless
   server: 204.216.216.23
   port: 10086
@@ -26,20 +59,6 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇮🇹 意大利 (Italy) 04 - xiaohe
-  type: vless
-  server: 158.180.231.216
-  port: 443
-  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: bab-6.site
-  network: ws
-  ws-opts:
-    path: /vws/
-    headers:
-      Host: bab-6.site
 proxy-groups:
 - name: PROXIES
   type: select
@@ -49,6 +68,8 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 02 - xiaohe
   - 🇮🇹 意大利 (Italy) 03 - xiaohe
   - 🇮🇹 意大利 (Italy) 04 - xiaohe
+  - 🇮🇹 意大利 (Italy) 05 - xiaohe
+  - 🇮🇹 意大利 (Italy) 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -58,5 +79,7 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 02 - xiaohe
   - 🇮🇹 意大利 (Italy) 03 - xiaohe
   - 🇮🇹 意大利 (Italy) 04 - xiaohe
+  - 🇮🇹 意大利 (Italy) 05 - xiaohe
+  - 🇮🇹 意大利 (Italy) 06 - xiaohe
 rules:
 - MATCH,PROXIES
