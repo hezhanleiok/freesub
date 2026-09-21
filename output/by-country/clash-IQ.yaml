@@ -4,32 +4,32 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇮🇷 IR 01 - xiaohe
-  server: 202.181.177.8
-  port: 8443
+- name: 🇮🇶 IQ 01 - xiaohe
+  server: 104.17.148.22
+  port: 443
   udp: true
   type: vless
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  uuid: 4ccf70f9-7632-4b5a-9557-10d2dd347bb2
   tls: true
-  servername: cdn8848.776676.xyz
-  skip-cert-verify: false
+  servername: to6r63-kkchighqm2.vxz0dduq7to7su0cdqf.workers.dev
+  skip-cert-verify: true
   client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /channels/act
+    path: /vl/G4J8aNAVZt9KdOjjcfZDFDRI1Obr5E0?ed=2560
     headers:
-      Host: cdn8848.776676.xyz
+      Host: to6r63-kkchighqm2.vxz0dduq7to7su0cdqf.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇮🇷 IR 01 - xiaohe
+  - 🇮🇶 IQ 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇮🇷 IR 01 - xiaohe
+  - 🇮🇶 IQ 01 - xiaohe
 rules:
 - MATCH,PROXIES
