@@ -4,69 +4,7 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
-  server: 172.64.229.170
-  port: 2086
-  udp: true
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  network: ws
-  ws-opts:
-    path: /?ed=2560security=tls
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇺🇸 美国 (United States) 02 (家宽) - xiaohe
-  server: 108.162.198.178
-  port: 2086
-  udp: true
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇭🇰 中国香港 (Hong Kong) 03 (家宽) - xiaohe
-  server: clhkzzzdbgwxxndnlm.cfooov.xyz
-  port: 41341
-  udp: true
-  type: vless
-  uuid: 17ab31f7-c021-4aec-83b2-ab48de8886bd
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: HGk0MQ7l4mWgJo1-7PctGx5pf88HECBpLRUtBSemkzY
-    short-id: b93f2026953855c5
-  servername: www.apple.com
-  client-fingerprint: chrome
-- name: 🇰🇷 韩国 (South Korea) 04 (家宽) - xiaohe
-  server: clhkzzzdbgwxxndnlm.cfooov.xyz
-  port: 61205
-  udp: true
-  type: vless
-  uuid: 17ab31f7-c021-4aec-83b2-ab48de8886bd
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: PhXLfJ4s8EPauWaeRpzAjSuZibhmMiZFEMr8h8qU6iI
-    short-id: d1f38c0f15ed22
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-- name: 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe
-  server: dee2309db4944c248b6d4372c6641e25.oylfmxz.cn
-  port: 443
-  udp: true
-  type: vmess
-  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: dee2309db4944c248b6d4372c6641e25.oylfmxz.cn
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-- name: 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - xiaohe
+- name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
   server: 118.167.246.43
   port: 24215
   udp: true
@@ -76,8 +14,8 @@ proxies:
   reality-opts:
     public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
   servername: addons.mozilla.org
-  client-fingerprint: firefox
-- name: 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - xiaohe
+  client-fingerprint: chrome
+- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
   server: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
   port: 443
   udp: true
@@ -91,45 +29,19 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🇹🇼 中国台湾 (Taiwan) 08 (家宽) - xiaohe
-  server: dee2309db4se3g5sds35g4s3dg.oylfmxz.cn
-  port: 443
-  udp: true
-  type: vmess
-  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: dee2309db4se3g5sds35g4s3dg.oylfmxz.cn
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
-  - 🇺🇸 美国 (United States) 02 (家宽) - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 03 (家宽) - xiaohe
-  - 🇰🇷 韩国 (South Korea) 04 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 08 (家宽) - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
-  - 🇺🇸 美国 (United States) 02 (家宽) - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 03 (家宽) - xiaohe
-  - 🇰🇷 韩国 (South Korea) 04 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 08 (家宽) - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES
