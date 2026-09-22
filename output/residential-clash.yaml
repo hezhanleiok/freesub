@@ -4,17 +4,17 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
-  server: 138.124.180.137
-  port: 443
+- name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
+  server: ttszhrmghgdssbkqf.cfooov.xyz
+  port: 42241
   udp: true
   type: vless
-  uuid: 5234b2b7-5e07-422c-8159-d62a676c00c6
+  uuid: 55848813-689e-4a39-82cf-00748cbc7289
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: GBdkyDLfr0LIZo_94Xv8ycAKOmkjArYzwJAEMhuXX2c
-    short-id: 33acba1b
+    public-key: lFZuIsmEomT8zwJ2f7wTI-C87oA78R9amDVHgemYmmQ
+    short-id: 1cb574e4d5d8
   servername: www.apple.com
   client-fingerprint: chrome
 proxy-groups:
@@ -22,12 +22,12 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES

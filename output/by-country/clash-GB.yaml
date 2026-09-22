@@ -5,13 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇬🇧 英国 (United Kingdom) 01 - xiaohe
-  server: 158.173.221.214
-  port: 11001
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: c58d16e593d44f42
-- name: 🇬🇧 英国 (United Kingdom) 02 - xiaohe
   server: 66.90.104.42
   port: 2083
   udp: true
@@ -20,47 +13,69 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: vless
-- name: 🇬🇧 英国 (United Kingdom) 03 - xiaohe
+- name: 🇬🇧 英国 (United Kingdom) 02 - xiaohe
   server: 51.77.225.200
   port: 8388
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
   password: zRZNBszYyWo5
-- name: 🇬🇧 英国 (United Kingdom) 04 - xiaohe
-  server: 134.65.59.212
-  port: 61312
+- name: 🇬🇧 英国 (United Kingdom) 03 - xiaohe
+  server: 149.102.132.184
+  port: 80
   udp: true
   type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: Pd3wPrQChdIKBVDeZ9In4vIj5Lq1w4lygpl82gPp4po=
-- name: 🇬🇧 英国 (United Kingdom) 05 - xiaohe
-  server: 141.98.101.181
+  cipher: aes-256-gcm
+  password: g5h5jleTRSyO3Rk4
+- name: 🇬🇧 英国 (United Kingdom) 04 - xiaohe
+  server: 149.102.132.184
   port: 443
   udp: true
   type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-- name: 🇬🇧 英国 (United Kingdom) 06 - xiaohe
-  server: 146.70.61.37
-  port: 8080
+  cipher: aes-256-gcm
+  password: g5h5jleTRSyO3Rk4
+- name: 🇬🇧 英国 (United Kingdom) 05 - xiaohe
+  server: 158.173.221.214
+  port: 11001
   udp: true
   type: ss
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
+  cipher: chacha20-ietf-poly1305
+  password: c58d16e593d44f42
+- name: 🇬🇧 英国 (United Kingdom) 06 - xiaohe
+  server: 57.129.132.223
+  port: 80
+  udp: true
+  type: vmess
+  uuid: a25cbf11-2908-4a1b-a3a8-9a571777dca3
+  alterId: 0
+  cipher: auto
+  network: ws
+  ws-opts:
+    path: /vmess/
+    headers:
+      Host: viber.com
 - name: 🇬🇧 英国 (United Kingdom) 07 - xiaohe
-  server: 46.250.250.149
-  port: 2053
+  server: 194.150.166.227
+  port: 9443
   udp: true
   type: vless
-  uuid: b4caaf57-ad77-4948-a6f5-51b3513799bf
+  uuid: ff6d2dda-7b90-404e-9951-34b3124bfdfa
+  flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: hieuCHb3HYdDYHmTDyWw2SGqyfo36AVuA-wSiZMdU1M
-    short-id: 9922313fffed1c63
-  servername: www.apple.com
-  client-fingerprint: random
+    public-key: M6Ck7wUfOLhQl4582CBnaXwscPEP6SCpdEkUDzoj4Fc
+    short-id: ad20d2ba
+  servername: storage.yandexcloud.net
+  client-fingerprint: safari
 - name: 🇬🇧 英国 (United Kingdom) 08 - xiaohe
+  server: labs.frkn.org
+  port: 443
+  udp: true
+  type: hysteria2
+  password: 3b8c82ed-fe66-472d-915e-034ccb57103f
+  sni: labs.frkn.org
+  skip-cert-verify: true
+- name: 🇬🇧 英国 (United Kingdom) 09 - xiaohe
   server: 31.76.7.154
   port: 7443
   udp: true
@@ -73,7 +88,7 @@ proxies:
     short-id: d2061bb1
   servername: ya.ru
   client-fingerprint: firefox
-- name: 🇬🇧 英国 (United Kingdom) 09 - xiaohe
+- name: 🇬🇧 英国 (United Kingdom) 10 - xiaohe
   server: 31.76.88.10
   port: 443
   udp: true
@@ -88,7 +103,68 @@ proxies:
     path: /cdn/v3/live
     headers:
       Host: cf5.rumedia-cdn.com
-- name: 🇬🇧 英国 (United Kingdom) 10 - xiaohe
+- name: 🇬🇧 英国 (United Kingdom) 11 - xiaohe
+  server: 186.190.211.67
+  port: 443
+  udp: true
+  type: vmess
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: pahobac.org
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: pahobac.org
+- name: 🇬🇧 英国 (United Kingdom) 12 - xiaohe
+  server: 46.250.250.149
+  port: 2053
+  udp: true
+  type: vless
+  uuid: b4caaf57-ad77-4948-a6f5-51b3513799bf
+  tls: true
+  reality-opts:
+    public-key: hieuCHb3HYdDYHmTDyWw2SGqyfo36AVuA-wSiZMdU1M
+    short-id: 9922313fffed1c63
+  servername: www.apple.com
+  client-fingerprint: firefox
+- name: 🇬🇧 英国 (United Kingdom) 13 - xiaohe
+  server: 129.151.72.134
+  port: 61312
+  udp: true
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: JDuG6erD7ug3QCtbLAZ2KCJaOhCmxAXL5C8bFxSsMBw=
+- name: 🇬🇧 英国 (United Kingdom) 14 - xiaohe
+  server: 194.150.166.229
+  port: 9443
+  udp: true
+  type: vless
+  uuid: ff6d2dda-7b90-404e-9951-34b3124bfdfa
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: M6Ck7wUfOLhQl4582CBnaXwscPEP6SCpdEkUDzoj4Fc
+    short-id: ad20d2ba
+  servername: storage.yandexcloud.net
+  client-fingerprint: safari
+- name: 🇬🇧 英国 (United Kingdom) 15 - xiaohe
+  server: clhkzzzdbgwxxndnlm.cfooov.xyz
+  port: 64823
+  udp: true
+  type: vless
+  uuid: 55848813-689e-4a39-82cf-00748cbc7289
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: 1h6RALL3XxV1ycc0Fs-9UWoxscumAUYkakszZMOrz1Q
+    short-id: d3a6bfdaa8c732
+  servername: www.lamer.com.hk
+  client-fingerprint: chrome
+- name: 🇬🇧 英国 (United Kingdom) 16 - xiaohe
   server: 66.163.117.58
   port: 22324
   udp: true
@@ -96,26 +172,6 @@ proxies:
   uuid: 04621bae-ab36-11ec-b909-0242ac120002
   alterId: 0
   cipher: auto
-- name: 🇬🇧 英国 (United Kingdom) 11 - xiaohe
-  server: 193.163.203.170
-  port: 443
-  udp: true
-  type: vless
-  uuid: 11aabba0-5fd1-4f15-8068-74c1a466cefc
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: GCCZ1ZZjB_nj7yxqFi22bIIWWr_G6rnWUzDcssN_40o
-    short-id: b28db60d77c50b4f
-  servername: yandex.ru
-  client-fingerprint: chrome
-- name: 🇬🇧 英国 (United Kingdom) 12 - xiaohe
-  server: 144.24.229.97
-  port: 61312
-  udp: true
-  type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: pfXiuLfaGDAlLQRsBXMGn0JepNmrqAMESQDiMP+neyU=
 proxy-groups:
 - name: PROXIES
   type: select
@@ -133,6 +189,10 @@ proxy-groups:
   - 🇬🇧 英国 (United Kingdom) 10 - xiaohe
   - 🇬🇧 英国 (United Kingdom) 11 - xiaohe
   - 🇬🇧 英国 (United Kingdom) 12 - xiaohe
+  - 🇬🇧 英国 (United Kingdom) 13 - xiaohe
+  - 🇬🇧 英国 (United Kingdom) 14 - xiaohe
+  - 🇬🇧 英国 (United Kingdom) 15 - xiaohe
+  - 🇬🇧 英国 (United Kingdom) 16 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -150,5 +210,9 @@ proxy-groups:
   - 🇬🇧 英国 (United Kingdom) 10 - xiaohe
   - 🇬🇧 英国 (United Kingdom) 11 - xiaohe
   - 🇬🇧 英国 (United Kingdom) 12 - xiaohe
+  - 🇬🇧 英国 (United Kingdom) 13 - xiaohe
+  - 🇬🇧 英国 (United Kingdom) 14 - xiaohe
+  - 🇬🇧 英国 (United Kingdom) 15 - xiaohe
+  - 🇬🇧 英国 (United Kingdom) 16 - xiaohe
 rules:
 - MATCH,PROXIES

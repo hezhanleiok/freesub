@@ -35,7 +35,19 @@ proxies:
     public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
     short-id: 9980e0609b0d3891
   servername: www.apple.com
-  client-fingerprint: firefox
+  client-fingerprint: random
+- name: 🇮🇳 印度 (India) 04 - xiaohe
+  server: 34.93.188.70
+  port: 443
+  udp: true
+  type: vless
+  uuid: 5004e3d7-a9bd-4a7c-a6d5-58aa5e1be9ed
+  tls: true
+  reality-opts:
+    public-key: 97C6O3repofpoaJzvu1d4o7amhJGA8hF_yJls7SNIgU
+    short-id: b9299afa0dcac824
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -44,6 +56,7 @@ proxy-groups:
   - 🇮🇳 印度 (India) 01 - xiaohe
   - 🇮🇳 印度 (India) 02 - xiaohe
   - 🇮🇳 印度 (India) 03 - xiaohe
+  - 🇮🇳 印度 (India) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -52,5 +65,6 @@ proxy-groups:
   - 🇮🇳 印度 (India) 01 - xiaohe
   - 🇮🇳 印度 (India) 02 - xiaohe
   - 🇮🇳 印度 (India) 03 - xiaohe
+  - 🇮🇳 印度 (India) 04 - xiaohe
 rules:
 - MATCH,PROXIES
