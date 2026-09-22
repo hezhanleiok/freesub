@@ -15,38 +15,73 @@ proxies:
   obfs: salamander
   obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
 - name: 🇦🇪 阿联酋 (UAE) 02 - xiaohe
-  server: 85.204.107.172
+  server: 31.58.181.88
+  port: 8443
+  udp: true
+  type: vless
+  uuid: 315adcfd-5eab-4041-b876-f9cc8e2aa6c2
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: AERbWB2uslqIzm1hSlOZZEH3Y9qg_zlWRRyLfh97kXc
+  servername: tradingview.com
+  client-fingerprint: qq
+- name: 🇦🇪 阿联酋 (UAE) 03 - xiaohe
+  server: 85.204.107.181
   port: 8080
   udp: true
   type: hysteria2
   password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
   sni: hopp-romania-new.roxa.org
   skip-cert-verify: true
-- name: 🇦🇪 阿联酋 (UAE) 03 - xiaohe
-  server: 31.58.181.88
-  port: 8443
-  udp: true
-  type: vless
-  uuid: 863ce48d-6b5e-4682-b5d7-0c9b43895841
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: AERbWB2uslqIzm1hSlOZZEH3Y9qg_zlWRRyLfh97kXc
-  servername: tradingview.com
-  client-fingerprint: firefox
 - name: 🇦🇪 阿联酋 (UAE) 04 - xiaohe
-  server: bgr.accessgate.link
-  port: 2443
+  server: 94.183.224.45
+  port: 443
   udp: true
   type: vless
-  uuid: 38eb3e71-4349-4bd6-9baf-9740e1896495
+  uuid: d72f05b0-b182-4783-a6f2-21cecc7d841a
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: c_42sYo1oPuFy6MmGKVkFxnNmDOZ0WoIiFGg8UJ12Aw
-    short-id: b0d8c9a285c70f6f
-  servername: unpkg.com
-  client-fingerprint: edge
+    public-key: SibLV5WBGdljTiUCmKx77KhHQfErCwjDMD_ZLoha3js
+    short-id: a1b2c3d4e5f67890
+  servername: dzen.ru
+  client-fingerprint: firefox
+- name: 🇦🇪 阿联酋 (UAE) 05 - xiaohe
+  server: uae.unixzone.us
+  port: 22573
+  udp: true
+  type: vless
+  uuid: 39947382-3212-41c9-bc3a-589574ac8b23
+  network: ws
+  ws-opts:
+    path: /
+- name: 🇦🇪 阿联酋 (UAE) 06 - xiaohe
+  server: jpzzqqnzdbgwhbhzsrgh.cfooov.xyz
+  port: 48948
+  udp: true
+  type: vless
+  uuid: edc17c6e-bb58-4a98-a4a8-ca37aa8b56d2
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: AzOs0Mh5_Ax-CrvFYTYXAp78syFjgkotED2cKO_kbyw
+    short-id: 461b0192ec23b6
+  servername: www.lamer.com.hk
+  client-fingerprint: chrome
+- name: 🇦🇪 阿联酋 (UAE) 07 - xiaohe
+  server: clhkzzzdbgwxxndnlm.cfooov.xyz
+  port: 45081
+  udp: true
+  type: vless
+  uuid: edc17c6e-bb58-4a98-a4a8-ca37aa8b56d2
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: AzOs0Mh5_Ax-CrvFYTYXAp78syFjgkotED2cKO_kbyw
+    short-id: 461b0192ec23b6
+  servername: www.lamer.com.hk
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -56,6 +91,9 @@ proxy-groups:
   - 🇦🇪 阿联酋 (UAE) 02 - xiaohe
   - 🇦🇪 阿联酋 (UAE) 03 - xiaohe
   - 🇦🇪 阿联酋 (UAE) 04 - xiaohe
+  - 🇦🇪 阿联酋 (UAE) 05 - xiaohe
+  - 🇦🇪 阿联酋 (UAE) 06 - xiaohe
+  - 🇦🇪 阿联酋 (UAE) 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -65,5 +103,8 @@ proxy-groups:
   - 🇦🇪 阿联酋 (UAE) 02 - xiaohe
   - 🇦🇪 阿联酋 (UAE) 03 - xiaohe
   - 🇦🇪 阿联酋 (UAE) 04 - xiaohe
+  - 🇦🇪 阿联酋 (UAE) 05 - xiaohe
+  - 🇦🇪 阿联酋 (UAE) 06 - xiaohe
+  - 🇦🇪 阿联酋 (UAE) 07 - xiaohe
 rules:
 - MATCH,PROXIES
