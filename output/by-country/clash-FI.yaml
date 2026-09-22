@@ -12,7 +12,19 @@ proxies:
   cipher: aes-256-gcm
   password: rg0g3xp9rk9nk9o0
 - name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  server: fi1.cache-4d8a.com
+  server: 95.216.27.15
+  port: 2053
+  udp: true
+  type: vless
+  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
+  tls: true
+  reality-opts:
+    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
+    short-id: d368b94e275ab080
+  servername: www.google.com
+  client-fingerprint: random
+- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  server: 152.233.54.104
   port: 443
   udp: true
   type: vless
@@ -26,45 +38,32 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: grpc
-- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  server: 185.79.138.71
-  port: 448
-  udp: true
-  type: vless
-  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
-  tls: true
-  reality-opts:
-    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
-    short-id: cd21e552537c7c0b
-  servername: www.samsung.com
-  client-fingerprint: chrome
 - name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
-  server: est1313.ggisopi.su
-  port: 443
+  server: 95.217.24.119
+  port: 2087
   udp: true
   type: vless
-  uuid: d0f0a880-0df1-48c9-bdf1-5669fb9483ce
+  uuid: ddc0bc7e-04c6-4ff9-9adb-c68c71606e8f
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
-  servername: est1313.ggisopi.su
+    public-key: _FKzdndiMfCSU5YLVXSBqzk2lIG0W2-DauFpos684Uc
+    short-id: e9fae729e40ae07e
+  servername: 62.238.103.54
   client-fingerprint: chrome
 - name: 🇫🇮 芬兰 (Finland) 05 - xiaohe
-  server: 202.166.187.132
+  server: 65.108.3.59
   port: 443
   udp: true
   type: vless
-  uuid: 8be20011-59b1-4118-91ed-83e8e6b662cd
+  uuid: 8df2e661-6f46-471b-9133-7fc13a0daa35
+  flow: xtls-rprx-vision
   tls: true
-  servername: f.yoptybla.ru
-  skip-cert-verify: false
-  client-fingerprint: firefox
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: f.yoptybla.ru
+  reality-opts:
+    public-key: jDoORbrtDrvAlFSo19CJbc99C4ev8SAo1MwczSUt9no
+    short-id: 90ec9bba2019
+  servername: web.eitaa.com
+  client-fingerprint: random
 proxy-groups:
 - name: PROXIES
   type: select

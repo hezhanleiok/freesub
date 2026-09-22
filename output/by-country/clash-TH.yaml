@@ -28,16 +28,19 @@ proxies:
   servername: www.cloudflare.com
   client-fingerprint: chrome
 - name: 🇹🇭 泰国 (Thailand) 03 - xiaohe
-  server: 118.193.57.167
-  port: 49667
+  server: 104.18.26.90
+  port: 443
   udp: true
-  type: vmess
-  uuid: d46bf492-45f4-4c33-82d1-ea2a1cb54eb6
-  alterId: 0
-  cipher: auto
+  type: vless
+  uuid: 3c52e091-6714-4915-949f-2149fe69951b
+  tls: true
+  servername: v2ray.simspeedup.com
+  skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /d46bf492
+    path: /ws
+    headers:
+      Host: v2ray.simspeedup.com
 proxy-groups:
 - name: PROXIES
   type: select

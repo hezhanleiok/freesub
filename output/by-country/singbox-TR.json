@@ -1,0 +1,63 @@
+{
+  "log": {
+    "level": "warn"
+  },
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "🇹🇷 土耳其 (Turkey) 01 - xiaohe",
+      "server": "104.17.169.13",
+      "server_port": 2053,
+      "uuid": "a22bff60-a40a-4250-bde2-4c660e363b47",
+      "tls": {
+        "enabled": true,
+        "server_name": "inDeX.HaRMONiCA01.WORkers.DeV",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/axch1mttbxz2k55y01",
+        "headers": {
+          "Host": "inDeX.HaRMONiCA01.WORkers.DeV"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇹🇷 土耳其 (Turkey) 02 - xiaohe",
+      "server": "78.135.77.91",
+      "server_port": 25020,
+      "uuid": "nitro_teeam@",
+      "security": "auto",
+      "transport": {
+        "type": "ws"
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇹🇷 土耳其 (Turkey) 01 - xiaohe",
+        "🇹🇷 土耳其 (Turkey) 02 - xiaohe"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇹🇷 土耳其 (Turkey) 01 - xiaohe",
+        "🇹🇷 土耳其 (Turkey) 02 - xiaohe"
+      ],
+      "url": "https://www.gstatic.com/generate_204"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}

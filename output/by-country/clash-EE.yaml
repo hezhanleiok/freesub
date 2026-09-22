@@ -5,23 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇪 爱沙尼亚 (Estonia) 01 - xiaohe
-  server: 94.183.170.135
-  port: 443
-  udp: true
-  type: vless
-  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-  network: ws
-  ws-opts:
-    path: /
-- name: 🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe
-  server: 217.60.182.79
-  port: 443
-  udp: true
-  type: hysteria2
-  password: sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX
-  sni: cabinet.wwwinternetvideo.click
-  skip-cert-verify: true
-- name: 🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe
   server: 94.183.170.147
   port: 8443
   udp: true
@@ -36,6 +19,27 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: 9d30d49278
+- name: 🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe
+  server: 132.243.65.161
+  port: 443
+  udp: true
+  type: vless
+  uuid: 4d08aa81-f729-4857-a2e9-06e48b8b9556
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: RO5YMxxtJmZo2w370qG-seJ41toowHPbz6i2uXJ2gG0
+    short-id: 7a3f9e2b1c8d4f6a
+  servername: ee.global-cdn.org
+  client-fingerprint: safari
+- name: 🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe
+  server: 109.206.241.10
+  port: 449
+  udp: true
+  type: trojan
+  password: oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1
+  sni: 109.206.241.10
+  skip-cert-verify: true
 - name: 🇪🇪 爱沙尼亚 (Estonia) 04 - xiaohe
   server: 94.183.170.135
   port: 8443
@@ -45,13 +49,14 @@ proxies:
   tls: true
   servername: estproxy4.lockdwn.com
   skip-cert-verify: false
+  client-fingerprint: firefox
 - name: 🇪🇪 爱沙尼亚 (Estonia) 05 - xiaohe
-  server: 109.206.241.10
-  port: 449
+  server: 31.76.71.63
+  port: 443
   udp: true
-  type: trojan
-  password: oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1
-  sni: russiapower.accesscam.org
+  type: hysteria2
+  password: sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX
+  sni: cabinet.wwwinternetvideo.click
   skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
