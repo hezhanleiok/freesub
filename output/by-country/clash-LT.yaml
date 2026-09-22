@@ -4,29 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇹🇭 泰国 (Thailand) 01 - xiaohe
-  server: 34.15.162.1
+- name: 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
+  server: 84.32.215.94
   port: 443
   udp: true
   type: vless
-  uuid: 2b1d0c2a-9c80-4b72-892e-93d0500b9210
+  uuid: c5694dc5-39fd-4a92-8430-3837baa522a3
+  flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: LklWoqMQz_TWiuLCUNRwHAKX1adVRSGMhtbo98fbDxw
-    short-id: ca672c53fbbac555
-  servername: www.cloudflare.com
+    public-key: vrcsm8L_tY7sNbnCEdLCEjOthh_w9bdWS3wFPgsIomk
+    short-id: 4fa44664f6a566d3
+  servername: lt.aether-runet.top
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇹🇭 泰国 (Thailand) 01 - xiaohe
+  - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇹🇭 泰国 (Thailand) 01 - xiaohe
+  - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
 rules:
 - MATCH,PROXIES

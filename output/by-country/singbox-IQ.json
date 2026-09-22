@@ -13,14 +13,16 @@
         "enabled": true,
         "server_name": "hub-de-03.hanvpn.cc",
         "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
+        "alpn": [
+          "http/1.1"
+        ]
       },
       "transport": {
-        "type": "grpc",
-        "service_name": "de03-grpc-8e47a"
+        "type": "ws",
+        "path": "/de03-ws-8e47a",
+        "headers": {
+          "Host": "hub-de-03.hanvpn.cc"
+        }
       }
     },
     {
