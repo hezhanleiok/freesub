@@ -5,13 +5,33 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇹 意大利 (Italy) 01 - wangyu
+  type: vmess
+  server: 89.41.172.85
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇮🇹 意大利 (Italy) 02 - wangyu
   type: ss
   server: 57.131.48.45
   port: 8388
   cipher: aes-256-gcm
   password: itzvpn@321
   udp: true
-- name: 🇮🇹 意大利 (Italy) 02 - wangyu
+- name: 🇮🇹 意大利 (Italy) 03 - wangyu
+  type: vmess
+  server: 89.41.172.106
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇮🇹 意大利 (Italy) 04 - wangyu
   type: vless
   server: 204.216.216.23
   port: 10086
@@ -19,14 +39,7 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇮🇹 意大利 (Italy) 03 - wangyu
-  type: ss
-  server: 57.131.48.45
-  port: 8388
-  cipher: aes-256-gcm
-  password: itzvpn@321
-  udp: true
-- name: 🇮🇹 意大利 (Italy) 04 - wangyu
+- name: 🇮🇹 意大利 (Italy) 05 - wangyu
   type: vless
   server: 158.180.231.216
   port: 443
@@ -49,6 +62,7 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 02 - wangyu
   - 🇮🇹 意大利 (Italy) 03 - wangyu
   - 🇮🇹 意大利 (Italy) 04 - wangyu
+  - 🇮🇹 意大利 (Italy) 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -58,5 +72,6 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 02 - wangyu
   - 🇮🇹 意大利 (Italy) 03 - wangyu
   - 🇮🇹 意大利 (Italy) 04 - wangyu
+  - 🇮🇹 意大利 (Italy) 05 - wangyu
 rules:
 - MATCH,PROXIES
