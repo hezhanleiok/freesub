@@ -4,10 +4,10 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇧🇪 BE 01 - xiaohe
+- name: 🇲🇩 MD 01 - xiaohe
   type: vless
-  server: 141.227.186.38
-  port: 2053
+  server: 185.153.198.86
+  port: 443
   uuid: c18b978e-1c4e-415c-8bea-07942b563a64
   udp: true
   tls: true
@@ -18,24 +18,37 @@ proxies:
     path: /
     headers:
       Host: shuma.ccwu.cc
-- name: 🇧🇪 BE 02 - xiaohe
+- name: 🇲🇩 MD 02 - xiaohe
   type: vless
-  server: 141.98.233.6
+  server: 185.153.198.86
   port: 443
-  uuid: b2593749-691c-428c-9481-14979cba3446
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: xi.tbv.ccwu.cc
+  servername: shuma.ccwu.cc
   network: ws
   ws-opts:
-    path: /proxyip=us.xiabibi.cf
+    path: /
     headers:
-      Host: xi.tbv.ccwu.cc
-- name: 🇧🇪 BE 03 - xiaohe
+      Host: shuma.ccwu.cc
+- name: 🇲🇩 MD 03 - xiaohe
   type: vless
-  server: 141.227.137.177
-  port: 2053
+  server: 143.246.219.51
+  port: 8081
+  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless-test
+    headers:
+      Host: 143.246.219.51
+- name: 🇲🇩 MD 04 - xiaohe
+  type: vless
+  server: 185.153.198.86
+  port: 443
   uuid: c18b978e-1c4e-415c-8bea-07942b563a64
   udp: true
   tls: true
@@ -51,16 +64,18 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇧🇪 BE 01 - xiaohe
-  - 🇧🇪 BE 02 - xiaohe
-  - 🇧🇪 BE 03 - xiaohe
+  - 🇲🇩 MD 01 - xiaohe
+  - 🇲🇩 MD 02 - xiaohe
+  - 🇲🇩 MD 03 - xiaohe
+  - 🇲🇩 MD 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇧🇪 BE 01 - xiaohe
-  - 🇧🇪 BE 02 - xiaohe
-  - 🇧🇪 BE 03 - xiaohe
+  - 🇲🇩 MD 01 - xiaohe
+  - 🇲🇩 MD 02 - xiaohe
+  - 🇲🇩 MD 03 - xiaohe
+  - 🇲🇩 MD 04 - xiaohe
 rules:
 - MATCH,PROXIES

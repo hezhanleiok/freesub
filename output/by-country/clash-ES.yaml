@@ -5,58 +5,20 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇸 西班牙 (Spain) 01 - xiaohe
-  type: ss
-  server: 140.174.184.5
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: qItG8SueYQcP
+  type: vless
+  server: 152.114.195.163
+  port: 8443
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: shuma.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shuma.ccwu.cc
 - name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
-  type: vless
-  server: 152.114.195.163
-  port: 8443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇪🇸 西班牙 (Spain) 03 - xiaohe
-  type: vmess
-  server: 66.163.118.73
-  port: 22324
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇪🇸 西班牙 (Spain) 04 - xiaohe
-  type: vless
-  server: 152.114.195.163
-  port: 8443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇪🇸 西班牙 (Spain) 05 - xiaohe
-  type: ss
-  server: 108.181.121.226
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: WSyL4XTwNsdv
-  udp: true
-- name: 🇪🇸 西班牙 (Spain) 06 - xiaohe
   type: vmess
   server: mygptagent.org
   port: 443
@@ -72,7 +34,37 @@ proxies:
     path: /linkvws
     headers:
       Host: mygptagent.org
-- name: 🇪🇸 西班牙 (Spain) 07 - xiaohe
+- name: 🇪🇸 西班牙 (Spain) 03 - xiaohe
+  type: vless
+  server: 152.114.195.163
+  port: 8443
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: shuma.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shuma.ccwu.cc
+- name: 🇪🇸 西班牙 (Spain) 04 - xiaohe
+  type: vmess
+  server: mygptagent.org
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
+  network: ws
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: ''
+- name: 🇪🇸 西班牙 (Spain) 05 - xiaohe
   type: vless
   server: 195.133.92.20
   port: 443
@@ -96,8 +88,6 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 03 - xiaohe
   - 🇪🇸 西班牙 (Spain) 04 - xiaohe
   - 🇪🇸 西班牙 (Spain) 05 - xiaohe
-  - 🇪🇸 西班牙 (Spain) 06 - xiaohe
-  - 🇪🇸 西班牙 (Spain) 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -108,7 +98,5 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 03 - xiaohe
   - 🇪🇸 西班牙 (Spain) 04 - xiaohe
   - 🇪🇸 西班牙 (Spain) 05 - xiaohe
-  - 🇪🇸 西班牙 (Spain) 06 - xiaohe
-  - 🇪🇸 西班牙 (Spain) 07 - xiaohe
 rules:
 - MATCH,PROXIES
