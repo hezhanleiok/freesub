@@ -5,34 +5,19 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇸 西班牙 (Spain) 01 - xiaohe
-  server: 92.118.127.16
-  port: 443
+  server: 140.174.184.5
+  port: 8388
   udp: true
-  type: vless
-  uuid: 72f8e59f-7a0d-44f2-a8db-b4c3e1e36716
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: Rz8XjYinCcpE7NLktJzNFL7eVSUxaFGuV2Zz82p7IRg
-    short-id: 908563a721d9bdcd
-  servername: sp1.extremumnews.com
-  client-fingerprint: safari
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: qItG8SueYQcP
 - name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
-  server: mygptagent.org
-  port: 443
+  server: 108.181.121.226
+  port: 8388
   udp: true
-  type: vmess
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: mygptagent.org
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /linkvws
-    headers:
-      Host: mygptagent.org
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: WSyL4XTwNsdv
 proxy-groups:
 - name: PROXIES
   type: select

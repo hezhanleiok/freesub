@@ -5,12 +5,18 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
-  server: 185.135.86.175
-  port: 9017
+  server: 138.124.180.137
+  port: 443
   udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: HAVAdE3nXhqA5nHp
+  type: vless
+  uuid: 5234b2b7-5e07-422c-8159-d62a676c00c6
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: GBdkyDLfr0LIZo_94Xv8ycAKOmkjArYzwJAEMhuXX2c
+    short-id: 33acba1b
+  servername: www.apple.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select

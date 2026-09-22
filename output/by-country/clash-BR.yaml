@@ -4,24 +4,25 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇿🇦 南非 (South Africa) 01 - xiaohe
-  server: 139.84.247.164
-  port: 8388
+- name: 🇧🇷 巴西 (Brazil) 01 - xiaohe
+  server: 172.233.14.17
+  port: 22324
   udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: tfAcRikawhNoZAhu
+  type: vmess
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇿🇦 南非 (South Africa) 01 - xiaohe
+  - 🇧🇷 巴西 (Brazil) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇿🇦 南非 (South Africa) 01 - xiaohe
+  - 🇧🇷 巴西 (Brazil) 01 - xiaohe
 rules:
 - MATCH,PROXIES

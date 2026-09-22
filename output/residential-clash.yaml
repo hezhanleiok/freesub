@@ -4,23 +4,8 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇯🇵 日本 (Japan) 01 (家宽) - xiaohe
-  server: 45.77.241.190
-  port: 8441
-  udp: true
-  type: vless
-  uuid: b3ddac6f-b2b7-43a6-bd69-413013f30040
-  tls: true
-  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
-- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
-  server: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
+- name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
+  server: 654168416355441.oylfmxz.cn
   port: 443
   udp: true
   type: vmess
@@ -28,7 +13,23 @@ proxies:
   alterId: 0
   cipher: auto
   tls: true
-  servername: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
+  servername: 654168416355441.oylfmxz.cn
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 654168416355441.oylfmxz.cn
+- name: 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe
+  server: dee2309db4944c248b6d4372c6641e7b.oylfmxz.cn
+  port: 443
+  udp: true
+  type: vmess
+  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: dee2309db4944c248b6d4372c6641e7b.oylfmxz.cn
   skip-cert-verify: false
   network: ws
   ws-opts:
@@ -38,14 +39,14 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇯🇵 日本 (Japan) 01 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
+  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇯🇵 日本 (Japan) 01 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
+  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES
