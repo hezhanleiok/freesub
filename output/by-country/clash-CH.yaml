@@ -15,7 +15,7 @@ proxies:
   reality-opts:
     public-key: mJ-0fJDvKp0rhuyUvs1bw4RasRRM-BEOAl9iAZ8gXy0
   servername: usa.oblaco.bet
-  client-fingerprint: ''
+  client-fingerprint: chrome
 - name: 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
   server: 82.38.64.229
   port: 8443
@@ -25,6 +25,21 @@ proxies:
   sni: hopp-swizland-new.mysynology.net
   skip-cert-verify: true
 - name: 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
+  server: 82.38.139.24
+  port: 8445
+  udp: true
+  type: vless
+  uuid: c6f6ecc2-26af-4e2f-95a7-e7018819a716
+  tls: true
+  reality-opts:
+    public-key: _UazRMiBq9RqMaVrHeLsvUuoBkGFo9Gm-A4ivuZ6ZS8
+    short-id: 6ba85179e30d4fc2
+  servername: hetzner.com
+  client-fingerprint: safari
+  network: grpc
+  grpc-opts:
+    grpc-service-name: Google
+- name: 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
   server: 151.242.2.81
   port: 443
   udp: true
@@ -46,6 +61,7 @@ proxy-groups:
   - 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
+  - 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -54,5 +70,6 @@ proxy-groups:
   - 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
+  - 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
 rules:
 - MATCH,PROXIES
