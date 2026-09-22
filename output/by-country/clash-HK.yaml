@@ -5,43 +5,77 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
-  type: ss
-  server: sth.free-outline.giize.com
-  port: 1081
-  cipher: chacha20-ietf-poly1305
-  password: uez5t2b4575tgkoi
-  udp: true
-- name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
-  type: vmess
-  server: dee2309db4944c248b6d4372c6641e7b.oylfmxz.cn
-  port: 443
-  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
-  alterId: 0
-  cipher: auto
+  type: vless
+  server: 104.21.8.201
+  port: 2096
+  uuid: ecb9ab47-31aa-4dd9-92eb-191047b353bd
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ''
+  servername: cdn-hk.skyvora.app
   network: ws
   ws-opts:
-    path: ''
+    path: /f7i3lo6xbs
     headers:
-      Host: ''
+      Host: cdn-hk.skyvora.app
+- name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
+  type: vmess
+  server: 89.223.95.77
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
 - name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
+  type: vless
+  server: 172.67.130.159
+  port: 2096
+  uuid: ecb9ab47-31aa-4dd9-92eb-191047b353bd
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn-hk.skyvora.app
+  network: ws
+  ws-opts:
+    path: /f7i3lo6xbs
+    headers:
+      Host: cdn-hk.skyvora.app
+- name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
+  type: vless
+  server: 47.238.210.5
+  port: 13779
+  uuid: 928e6cce-8ced-4243-9a48-a6642edd09b0
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: llTyp52oRXnJmQ3I9UUrmlwbMA79B-wLCRHCu-8dLGg
+  servername: tesla.com
+  client-fingerprint: ios
+- name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
+  type: vless
+  server: 103.143.81.178
+  port: 443
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: shuma.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shuma.ccwu.cc
+- name: 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
   type: ss
   server: sth.free-outline.giize.com
   port: 1081
   cipher: chacha20-ietf-poly1305
   password: r6tptrwvddxap6al
   udp: true
-- name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
-  type: ss
-  server: sth.free-outline.giize.com
-  port: 1081
-  cipher: chacha20-ietf-poly1305
-  password: wwj19enpp68px8t7
-  udp: true
-- name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
+- name: 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
   type: vmess
   server: 156.245.232.239
   port: 35043
@@ -56,50 +90,25 @@ proxies:
     path: /
     headers:
       Host: ''
-- name: 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
-  type: vless
-  server: 104.21.8.201
-  port: 2096
-  uuid: ecb9ab47-31aa-4dd9-92eb-191047b353bd
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: cdn-hk.skyvora.app
-  network: ws
-  ws-opts:
-    path: /f7i3lo6xbs
-    headers:
-      Host: cdn-hk.skyvora.app
-- name: 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
-  type: vmess
-  server: dee2309db4944c248b6d4372c6641e7b.oylfmxz.cn
-  port: 443
-  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ''
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
 - name: 🇭🇰 中国香港 (Hong Kong) 08 - wangyu
+  type: ss
+  server: sth.free-outline.giize.com
+  port: 1081
+  cipher: chacha20-ietf-poly1305
+  password: uez5t2b4575tgkoi
+  udp: true
+- name: 🇭🇰 中国香港 (Hong Kong) 09 - wangyu
   type: vless
-  server: 104.21.8.201
-  port: 2096
-  uuid: ecb9ab47-31aa-4dd9-92eb-191047b353bd
+  server: 47.238.210.5
+  port: 13779
+  uuid: 928e6cce-8ced-4243-9a48-a6642edd09b0
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: cdn-hk.skyvora.app
-  network: ws
-  ws-opts:
-    path: /f7i3lo6xbs
-    headers:
-      Host: cdn-hk.skyvora.app
+  reality-opts:
+    public-key: llTyp52oRXnJmQ3I9UUrmlwbMA79B-wLCRHCu-8dLGg
+  servername: tesla.com
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -113,6 +122,7 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 08 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 09 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -126,5 +136,6 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 08 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 09 - wangyu
 rules:
 - MATCH,PROXIES

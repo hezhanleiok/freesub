@@ -29,17 +29,10 @@ proxies:
   servername: shuma.ccwu.cc
   network: ws
   ws-opts:
-    path: /fp=chrome
+    path: /
     headers:
       Host: shuma.ccwu.cc
 - name: 🇪🇸 西班牙 (Spain) 03 - wangyu
-  type: ss
-  server: 140.174.184.5
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: qItG8SueYQcP
-  udp: true
-- name: 🇪🇸 西班牙 (Spain) 04 - wangyu
   type: vless
   server: 152.114.195.163
   port: 8443
@@ -50,44 +43,33 @@ proxies:
   servername: shuma.ccwu.cc
   network: ws
   ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇪🇸 西班牙 (Spain) 05 - wangyu
-  type: vless
-  server: 195.133.92.20
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
     path: /
     headers:
       Host: shuma.ccwu.cc
-- name: 🇪🇸 西班牙 (Spain) 06 - wangyu
+- name: 🇪🇸 西班牙 (Spain) 04 - wangyu
   type: ss
   server: 108.181.121.226
   port: 8388
   cipher: chacha20-ietf-poly1305
   password: WSyL4XTwNsdv
   udp: true
-- name: 🇪🇸 西班牙 (Spain) 07 - wangyu
-  type: vless
-  server: 152.114.195.163
-  port: 8443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+- name: 🇪🇸 西班牙 (Spain) 05 - wangyu
+  type: vmess
+  server: 66.163.118.73
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
+- name: 🇪🇸 西班牙 (Spain) 06 - wangyu
+  type: ss
+  server: 140.174.184.5
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: qItG8SueYQcP
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -99,7 +81,6 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 04 - wangyu
   - 🇪🇸 西班牙 (Spain) 05 - wangyu
   - 🇪🇸 西班牙 (Spain) 06 - wangyu
-  - 🇪🇸 西班牙 (Spain) 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -111,6 +92,5 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 04 - wangyu
   - 🇪🇸 西班牙 (Spain) 05 - wangyu
   - 🇪🇸 西班牙 (Spain) 06 - wangyu
-  - 🇪🇸 西班牙 (Spain) 07 - wangyu
 rules:
 - MATCH,PROXIES
