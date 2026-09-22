@@ -6,6 +6,55 @@ log-level: info
 proxies:
 - name: 🇦🇹 AT 01 - wangyu
   type: vless
+  server: 213.111.148.137
+  port: 443
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: shuma.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shuma.ccwu.cc
+- name: 🇦🇹 AT 02 - wangyu
+  type: vless
+  server: 132.243.203.202
+  port: 8443
+  uuid: b2593749-691c-428c-9481-14979cba3446
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: xi.tbv.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: xi.tbv.ccwu.cc
+- name: 🇦🇹 AT 03 - wangyu
+  type: vless
+  server: 103.200.28.113
+  port: 8443
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: shuma.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shuma.ccwu.cc
+- name: 🇦🇹 AT 04 - wangyu
+  type: ss
+  server: 82.110.60.9
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: 🇦🇹 AT 05 - wangyu
+  type: vless
   server: 152.53.1.40
   port: 443
   uuid: edde565e-41f5-400e-84ea-7b87a3e84488
@@ -22,11 +71,19 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇦🇹 AT 01 - wangyu
+  - 🇦🇹 AT 02 - wangyu
+  - 🇦🇹 AT 03 - wangyu
+  - 🇦🇹 AT 04 - wangyu
+  - 🇦🇹 AT 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇦🇹 AT 01 - wangyu
+  - 🇦🇹 AT 02 - wangyu
+  - 🇦🇹 AT 03 - wangyu
+  - 🇦🇹 AT 04 - wangyu
+  - 🇦🇹 AT 05 - wangyu
 rules:
 - MATCH,PROXIES

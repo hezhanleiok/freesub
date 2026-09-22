@@ -18,17 +18,49 @@ proxies:
     path: /
     headers:
       Host: shuma.ccwu.cc
+- name: 🇩🇰 DK 02 - wangyu
+  type: vless
+  server: 193.180.208.169
+  port: 8443
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: shuma.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shuma.ccwu.cc
+- name: 🇩🇰 DK 03 - wangyu
+  type: vless
+  server: 193.180.208.169
+  port: 8443
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: shuma.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shuma.ccwu.cc
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇩🇰 DK 01 - wangyu
+  - 🇩🇰 DK 02 - wangyu
+  - 🇩🇰 DK 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇩🇰 DK 01 - wangyu
+  - 🇩🇰 DK 02 - wangyu
+  - 🇩🇰 DK 03 - wangyu
 rules:
 - MATCH,PROXIES

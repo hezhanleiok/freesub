@@ -6,17 +6,24 @@ log-level: info
 proxies:
 - name: 🇿🇦 ZA 01 - wangyu
   type: ss
+  server: 139.84.247.164
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: tfAcRikawhNoZAhu
+  udp: true
+- name: 🇿🇦 ZA 02 - wangyu
+  type: ss
   server: 4.221.224.246
   port: 443
   cipher: chacha20-ietf-poly1305
   password: 3aN9XUwhvq1ujlsO
   udp: true
-- name: 🇿🇦 ZA 02 - wangyu
+- name: 🇿🇦 ZA 03 - wangyu
   type: ss
-  server: 102.133.165.160
-  port: 16233
+  server: 4.221.224.246
+  port: 443
   cipher: chacha20-ietf-poly1305
-  password: Xsy8Ox4yOV3xLlpxtjzs3X
+  password: 3aN9XUwhvq1ujlsO
   udp: true
 proxy-groups:
 - name: PROXIES
@@ -25,6 +32,7 @@ proxy-groups:
   - AUTO
   - 🇿🇦 ZA 01 - wangyu
   - 🇿🇦 ZA 02 - wangyu
+  - 🇿🇦 ZA 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -32,5 +40,6 @@ proxy-groups:
   proxies:
   - 🇿🇦 ZA 01 - wangyu
   - 🇿🇦 ZA 02 - wangyu
+  - 🇿🇦 ZA 03 - wangyu
 rules:
 - MATCH,PROXIES

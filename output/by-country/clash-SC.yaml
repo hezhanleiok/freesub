@@ -6,20 +6,6 @@ log-level: info
 proxies:
 - name: 🇸🇨 SC 01 - wangyu
   type: vless
-  server: 45.130.125.73
-  port: 443
-  uuid: 50414e45-4c5f-5a45-5553-cea58e4acf49
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: web-app-aug8yr.app-f1qsy1.workers.dev
-  network: ws
-  ws-opts:
-    path: /api/ws
-    headers:
-      Host: web-app-aug8yr.app-f1qsy1.workers.dev
-- name: 🇸🇨 SC 02 - wangyu
-  type: vless
   server: 154.218.15.250
   port: 2083
   uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
@@ -32,50 +18,17 @@ proxies:
     path: /
     headers:
       Host: proxy-1cu.pages.dev
-- name: 🇸🇨 SC 03 - wangyu
-  type: vless
-  server: 194.156.26.45
-  port: 443
-  uuid: 6bef6685-e989-467c-8fea-7fa1c6a0af2c
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: LZc2j8i5PteXj5I7Aq0hFxQadvZcq.wF99sAF201Sfs9.wOrKers.dev
-  network: ws
-  ws-opts:
-    path: /vl/BBj8crirrHMxntD7H3o3z
-    headers:
-      Host: LZc2j8i5PteXj5I7Aq0hFxQadvZcq.wF99sAF201Sfs9.wOrKers.dev
-- name: 🇸🇨 SC 04 - wangyu
-  type: vless
-  server: 154.197.75.40
-  port: 8880
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: vms.lifetime37.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇸🇨 SC 01 - wangyu
-  - 🇸🇨 SC 02 - wangyu
-  - 🇸🇨 SC 03 - wangyu
-  - 🇸🇨 SC 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇸🇨 SC 01 - wangyu
-  - 🇸🇨 SC 02 - wangyu
-  - 🇸🇨 SC 03 - wangyu
-  - 🇸🇨 SC 04 - wangyu
 rules:
 - MATCH,PROXIES
