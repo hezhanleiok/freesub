@@ -18,17 +18,33 @@ proxies:
     path: /
     headers:
       Host: shuma.ccwu.cc
+- name: 🇵🇱 PL 02 - xiaohe
+  type: vless
+  server: 103.167.234.26
+  port: 443
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: shuma.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shuma.ccwu.cc
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇵🇱 PL 01 - xiaohe
+  - 🇵🇱 PL 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇵🇱 PL 01 - xiaohe
+  - 🇵🇱 PL 02 - xiaohe
 rules:
 - MATCH,PROXIES

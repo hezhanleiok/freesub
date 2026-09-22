@@ -5,36 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 - xiaohe
-  type: vmess
-  server: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
-  port: 443
-  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
-- name: 🇹🇼 中国台湾 (Taiwan) 02 - xiaohe
-  type: vless
-  server: 60.248.219.78
-  port: 443
-  uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ty986gfazs.cainiaohub.xyz
-  network: ws
-  ws-opts:
-    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
-    headers:
-      Host: 60.248.219.78
-- name: 🇹🇼 中国台湾 (Taiwan) 03 - xiaohe
   type: vless
   server: 140.235.39.19
   port: 443
@@ -48,7 +18,21 @@ proxies:
     path: /
     headers:
       Host: shuma.ccwu.cc
-- name: 🇹🇼 中国台湾 (Taiwan) 04 - xiaohe
+- name: 🇹🇼 中国台湾 (Taiwan) 02 - xiaohe
+  type: vless
+  server: 140.235.39.19
+  port: 443
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: shuma.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shuma.ccwu.cc
+- name: 🇹🇼 中国台湾 (Taiwan) 03 - xiaohe
   type: vmess
   server: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
   port: 443
@@ -64,7 +48,37 @@ proxies:
     path: /
     headers:
       Host: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
+- name: 🇹🇼 中国台湾 (Taiwan) 04 - xiaohe
+  type: vless
+  server: 140.235.39.19
+  port: 443
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: shuma.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: shuma.ccwu.cc
 - name: 🇹🇼 中国台湾 (Taiwan) 05 - xiaohe
+  type: vmess
+  server: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
+  port: 443
+  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
+- name: 🇹🇼 中国台湾 (Taiwan) 06 - xiaohe
   type: vmess
   server: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
   port: 443
@@ -77,10 +91,10 @@ proxies:
   servername: ''
   network: ws
   ws-opts:
-    path: ''
+    path: /
     headers:
       Host: ''
-- name: 🇹🇼 中国台湾 (Taiwan) 06 - xiaohe
+- name: 🇹🇼 中国台湾 (Taiwan) 07 - xiaohe
   type: vmess
   server: 165.154.195.38
   port: 35034
@@ -101,6 +115,7 @@ proxy-groups:
   - 🇹🇼 中国台湾 (Taiwan) 04 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 05 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 06 - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -112,5 +127,6 @@ proxy-groups:
   - 🇹🇼 中国台湾 (Taiwan) 04 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 05 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 06 - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 07 - xiaohe
 rules:
 - MATCH,PROXIES

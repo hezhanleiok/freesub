@@ -4,10 +4,10 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇩🇰 DK 01 - xiaohe
+- name: 🇮🇪 IE 01 - xiaohe
   type: vless
-  server: 193.180.208.169
-  port: 8443
+  server: 198.55.102.68
+  port: 2083
   uuid: c18b978e-1c4e-415c-8bea-07942b563a64
   udp: true
   tls: true
@@ -18,23 +18,9 @@ proxies:
     path: /
     headers:
       Host: shuma.ccwu.cc
-- name: 🇩🇰 DK 02 - xiaohe
+- name: 🇮🇪 IE 02 - xiaohe
   type: vless
-  server: 193.180.208.169
-  port: 8443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇩🇰 DK 03 - xiaohe
-  type: vless
-  server: 193.180.208.169
+  server: 107.150.20.112
   port: 8443
   uuid: c18b978e-1c4e-415c-8bea-07942b563a64
   udp: true
@@ -51,16 +37,14 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇩🇰 DK 01 - xiaohe
-  - 🇩🇰 DK 02 - xiaohe
-  - 🇩🇰 DK 03 - xiaohe
+  - 🇮🇪 IE 01 - xiaohe
+  - 🇮🇪 IE 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇩🇰 DK 01 - xiaohe
-  - 🇩🇰 DK 02 - xiaohe
-  - 🇩🇰 DK 03 - xiaohe
+  - 🇮🇪 IE 01 - xiaohe
+  - 🇮🇪 IE 02 - xiaohe
 rules:
 - MATCH,PROXIES

@@ -6,17 +6,18 @@ log-level: info
 proxies:
 - name: 🇲🇩 MD 01 - xiaohe
   type: vless
-  server: 143.246.219.51
-  port: 8081
-  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
+  server: 185.153.198.86
+  port: 443
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: shuma.ccwu.cc
   network: ws
   ws-opts:
-    path: /vless-test
+    path: /fp=chrome
     headers:
-      Host: 143.246.219.51
+      Host: shuma.ccwu.cc
 - name: 🇲🇩 MD 02 - xiaohe
   type: vless
   server: 185.153.198.86
@@ -28,7 +29,7 @@ proxies:
   servername: shuma.ccwu.cc
   network: ws
   ws-opts:
-    path: /fp=chrome
+    path: /
     headers:
       Host: shuma.ccwu.cc
 proxy-groups:
