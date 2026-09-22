@@ -1,0 +1,66 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🌐 其他地区 (Other) 01 - xiaohe
+  server: 188.114.97.6
+  port: 443
+  udp: true
+  type: vless
+  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+  tls: true
+  servername: a.cwvps.eu.org
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: a.cwvps.eu.org
+- name: 🌐 其他地区 (Other) 02 - xiaohe
+  server: 188.114.97.6
+  port: 443
+  udp: true
+  type: vless
+  uuid: 44eae030-290b-4083-8102-6f8bab05701b
+  tls: true
+  servername: cfvvv-ev1.pages.dev
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: cfvvv-ev1.pages.dev
+- name: 🌐 其他地区 (Other) 03 - xiaohe
+  server: 188.114.97.6
+  port: 443
+  udp: true
+  type: vless
+  uuid: b2593749-691c-428c-9481-14979cba3446
+  tls: true
+  servername: xi.tbv.ccwu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /proxyip=us.xiabibi.cf
+    headers:
+      Host: xi.tbv.ccwu.cc
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🌐 其他地区 (Other) 01 - xiaohe
+  - 🌐 其他地区 (Other) 02 - xiaohe
+  - 🌐 其他地区 (Other) 03 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🌐 其他地区 (Other) 01 - xiaohe
+  - 🌐 其他地区 (Other) 02 - xiaohe
+  - 🌐 其他地区 (Other) 03 - xiaohe
+rules:
+- MATCH,PROXIES

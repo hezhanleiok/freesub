@@ -5,13 +5,21 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇸 西班牙 (Spain) 01 - xiaohe
+  server: 66.163.118.73
+  port: 22324
+  udp: true
+  type: vmess
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
   server: 140.174.184.5
   port: 8388
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
   password: qItG8SueYQcP
-- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
+- name: 🇪🇸 西班牙 (Spain) 03 - xiaohe
   server: 108.181.121.226
   port: 8388
   udp: true
@@ -25,6 +33,7 @@ proxy-groups:
   - AUTO
   - 🇪🇸 西班牙 (Spain) 01 - xiaohe
   - 🇪🇸 西班牙 (Spain) 02 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -32,5 +41,6 @@ proxy-groups:
   proxies:
   - 🇪🇸 西班牙 (Spain) 01 - xiaohe
   - 🇪🇸 西班牙 (Spain) 02 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 03 - xiaohe
 rules:
 - MATCH,PROXIES

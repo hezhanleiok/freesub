@@ -1,0 +1,92 @@
+{
+  "log": {
+    "level": "warn"
+  },
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "🌐 其他地区 (Other) 01 - xiaohe",
+      "server": "188.114.97.6",
+      "server_port": 443,
+      "uuid": "c4edb87e-8544-4fa4-bd1c-b0cda9a34b46",
+      "tls": {
+        "enabled": true,
+        "server_name": "a.cwvps.eu.org",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "a.cwvps.eu.org"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 其他地区 (Other) 02 - xiaohe",
+      "server": "188.114.97.6",
+      "server_port": 443,
+      "uuid": "44eae030-290b-4083-8102-6f8bab05701b",
+      "tls": {
+        "enabled": true,
+        "server_name": "cfvvv-ev1.pages.dev",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "cfvvv-ev1.pages.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 其他地区 (Other) 03 - xiaohe",
+      "server": "188.114.97.6",
+      "server_port": 443,
+      "uuid": "b2593749-691c-428c-9481-14979cba3446",
+      "tls": {
+        "enabled": true,
+        "server_name": "xi.tbv.ccwu.cc",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/proxyip=us.xiabibi.cf",
+        "headers": {
+          "Host": "xi.tbv.ccwu.cc"
+        }
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🌐 其他地区 (Other) 01 - xiaohe",
+        "🌐 其他地区 (Other) 02 - xiaohe",
+        "🌐 其他地区 (Other) 03 - xiaohe"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🌐 其他地区 (Other) 01 - xiaohe",
+        "🌐 其他地区 (Other) 02 - xiaohe",
+        "🌐 其他地区 (Other) 03 - xiaohe"
+      ],
+      "url": "https://www.gstatic.com/generate_204"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}
