@@ -4,30 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇸🇪 SE 01 - wangyu
+- name: 🇨🇦 加拿大 (Canada) 01 (家宽) - wangyu
   type: vless
-  server: 143.246.195.98
-  port: 8081
-  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
+  server: 188.114.97.6
+  port: 8080
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /vless-test
+    path: ?ed=2560
     headers:
-      Host: 143.246.195.98
+      Host: a0hbm.jvb1.28f.hh.vavava.kdns.fr
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇸🇪 SE 01 - wangyu
+  - 🇨🇦 加拿大 (Canada) 01 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇸🇪 SE 01 - wangyu
+  - 🇨🇦 加拿大 (Canada) 01 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

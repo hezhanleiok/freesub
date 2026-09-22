@@ -4,10 +4,10 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇧🇬 BG 01 - wangyu
+- name: 🇨🇿 CZ 01 - wangyu
   type: vless
-  server: 2.56.204.183
-  port: 443
+  server: 103.200.28.113
+  port: 8443
   uuid: c18b978e-1c4e-415c-8bea-07942b563a64
   udp: true
   tls: true
@@ -23,12 +23,12 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇧🇬 BG 01 - wangyu
+  - 🇨🇿 CZ 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇧🇬 BG 01 - wangyu
+  - 🇨🇿 CZ 01 - wangyu
 rules:
 - MATCH,PROXIES

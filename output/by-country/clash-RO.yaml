@@ -6,49 +6,7 @@ log-level: info
 proxies:
 - name: 🇷🇴 RO 01 - wangyu
   type: vless
-  server: 185.153.198.86
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇷🇴 RO 02 - wangyu
-  type: vless
-  server: 185.153.198.86
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇷🇴 RO 03 - wangyu
-  type: vless
   server: 154.46.31.118
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇷🇴 RO 04 - wangyu
-  type: vless
-  server: 185.153.198.86
   port: 443
   uuid: c18b978e-1c4e-415c-8bea-07942b563a64
   udp: true
@@ -66,17 +24,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇷🇴 RO 01 - wangyu
-  - 🇷🇴 RO 02 - wangyu
-  - 🇷🇴 RO 03 - wangyu
-  - 🇷🇴 RO 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇷🇴 RO 01 - wangyu
-  - 🇷🇴 RO 02 - wangyu
-  - 🇷🇴 RO 03 - wangyu
-  - 🇷🇴 RO 04 - wangyu
 rules:
 - MATCH,PROXIES

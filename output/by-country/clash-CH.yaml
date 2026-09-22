@@ -6,20 +6,6 @@ log-level: info
 proxies:
 - name: 🇨🇭 CH 01 - wangyu
   type: vless
-  server: 103.63.30.73
-  port: 443
-  uuid: b2593749-691c-428c-9481-14979cba3446
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: xi.tbv.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /proxyip=us.xiabibi.cf
-    headers:
-      Host: xi.tbv.ccwu.cc
-- name: 🇨🇭 CH 02 - wangyu
-  type: vless
   server: 107.189.2.206
   port: 8443
   uuid: c18b978e-1c4e-415c-8bea-07942b563a64
@@ -32,6 +18,20 @@ proxies:
     path: /
     headers:
       Host: shuma.ccwu.cc
+- name: 🇨🇭 CH 02 - wangyu
+  type: vless
+  server: 103.63.30.163
+  port: 443
+  uuid: b2593749-691c-428c-9481-14979cba3446
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: xi.tbv.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /proxyip=us.xiabibi.cf
+    headers:
+      Host: xi.tbv.ccwu.cc
 proxy-groups:
 - name: PROXIES
   type: select
