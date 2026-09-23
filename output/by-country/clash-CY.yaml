@@ -5,20 +5,57 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇾 塞浦路斯 (Cyprus) 01 - xiaohe
-  server: 5.253.28.218
+  server: 2.56.122.52
+  port: 8443
+  udp: true
+  type: vless
+  uuid: 5b754a1a-11aa-4df9-a8ba-44af9a579fe1
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: upiiUpzV7q4L6pUmbgzB5r3zL957r17FuFDng3ip7R8
+  servername: usa.b2ai.top
+  client-fingerprint: chrome
+- name: 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
+  server: 194.76.154.31
   port: 40443
   udp: true
   type: vless
-  uuid: 405b964e-a2d2-454f-aaaa-711cc218897c
+  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
+  tls: true
+  reality-opts:
+    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
+    short-id: a8ae
+  servername: deepl.com
+  client-fingerprint: chrome
+- name: 🇨🇾 塞浦路斯 (Cyprus) 03 - xiaohe
+  server: 5.253.30.99
+  port: 40443
+  udp: true
+  type: vless
+  uuid: 511c1563-2cb6-4064-abc6-a59ee49818a8
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
     public-key: cwmcqsfS7klQlkcoUNuATEk0NiPY-NnRb9z8rCJDQw0
     short-id: 88b6
   servername: deepl.com
-  client-fingerprint: random
-- name: 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
-  server: hydra.yokkastars.com
+  client-fingerprint: chrome
+- name: 🇨🇾 塞浦路斯 (Cyprus) 04 - xiaohe
+  server: 5.253.42.164
+  port: 40443
+  udp: true
+  type: vless
+  uuid: e99ba96d-dec8-42eb-be53-19e71eef7cab
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: g77ZJbm18JEotapmVRjaXi133MzkbhkU2lxhVeXx8zw
+    short-id: 68a8
+  servername: deepl.com
+  client-fingerprint: chrome
+- name: 🇨🇾 塞浦路斯 (Cyprus) 05 - xiaohe
+  server: 5.253.28.218
   port: 2443
   udp: true
   type: vless
@@ -28,7 +65,7 @@ proxies:
     public-key: h85e28MxBgNyT9d9cNeOLVtWfHq6cT_1_oxZOTajtTg
     short-id: 92c32de179e5d908
   servername: deepl.com
-  client-fingerprint: qq
+  client-fingerprint: firefox
   network: grpc
   grpc-opts:
     grpc-service-name: rex-eb0bf76b710ce763
@@ -39,6 +76,9 @@ proxy-groups:
   - AUTO
   - 🇨🇾 塞浦路斯 (Cyprus) 01 - xiaohe
   - 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
+  - 🇨🇾 塞浦路斯 (Cyprus) 03 - xiaohe
+  - 🇨🇾 塞浦路斯 (Cyprus) 04 - xiaohe
+  - 🇨🇾 塞浦路斯 (Cyprus) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -46,5 +86,8 @@ proxy-groups:
   proxies:
   - 🇨🇾 塞浦路斯 (Cyprus) 01 - xiaohe
   - 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
+  - 🇨🇾 塞浦路斯 (Cyprus) 03 - xiaohe
+  - 🇨🇾 塞浦路斯 (Cyprus) 04 - xiaohe
+  - 🇨🇾 塞浦路斯 (Cyprus) 05 - xiaohe
 rules:
 - MATCH,PROXIES

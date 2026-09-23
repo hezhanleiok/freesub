@@ -18,19 +18,29 @@ proxies:
   grpc-opts:
     grpc-service-name: cdn.v1.AssetService
 - name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  server: 138.124.183.18
-  port: 9443
+  server: 193.23.201.65
+  port: 5432
   udp: true
   type: vless
-  uuid: d9d0f208-d582-41d5-bb7b-742671402810
+  uuid: e84e0918-68ca-4fcc-a1d1-b566fd9ac7ee
+  flow: xtls-rprx-vision
   tls: true
-  servername: hub-se-03.hanvpn.cc
+  servername: 193.23.201.65
   skip-cert-verify: false
-  client-fingerprint: firefox
-  network: grpc
-  grpc-opts:
-    grpc-service-name: se03-grpc-8e47a
+  client-fingerprint: safari
 - name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  server: 62.60.229.124
+  port: 8443
+  udp: true
+  type: vless
+  uuid: 5b754a1a-11aa-4df9-a8ba-44af9a579fe1
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: MjRaYQ5TjfU2rfHxVQ2Sa4nXRHHvsMvi3DW-x09n8Ts
+  servername: finland.b2ai.top
+  client-fingerprint: chrome
+- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
   server: iq5ny.pleiades.codes
   port: 8443
   udp: true
@@ -38,19 +48,6 @@ proxies:
   password: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
   sni: iq5ny.pleiades.codes
   skip-cert-verify: true
-- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
-  server: 62.238.103.54
-  port: 2083
-  udp: true
-  type: vless
-  uuid: d78de562-872e-43dd-be48-e9d7b06c87a3
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: tADYkZWWksM_mCqqwlRHCciSCXnP3JMYrPi5eoRHh2s
-    short-id: d059fb98048c5318
-  servername: www.yahoo.com
-  client-fingerprint: chrome
 - name: 🇫🇮 芬兰 (Finland) 05 - xiaohe
   server: 31.76.80.230
   port: 8443
@@ -60,17 +57,23 @@ proxies:
   tls: true
   servername: fin.luxes.network
   skip-cert-verify: false
-  client-fingerprint: safari
   network: ws
   ws-opts:
     path: /assets
 - name: 🇫🇮 芬兰 (Finland) 06 - xiaohe
-  server: p1tun3.greewebservices.ir
-  port: 2070
+  server: 92.255.79.246
+  port: 443
   udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ao5znrhEwVqoJy-l7AVvgw
+  type: vless
+  uuid: 8057eabc-921d-0001-9acb-80ccc6b48379
+  tls: true
+  reality-opts:
+    public-key: 8P2rVrZZ8v1q7WpYiRWnZ_nk2UI_4PqpN_DdZP91700
+  servername: supbober.mafioznik.xyz
+  client-fingerprint: firefox
+  network: grpc
+  grpc-opts:
+    grpc-service-name: Lizat
 proxy-groups:
 - name: PROXIES
   type: select
