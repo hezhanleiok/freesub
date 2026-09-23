@@ -4,9 +4,9 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇺🇦 UA 01 - wangyu
+- name: 🇲🇽 MX 01 - wangyu
   type: vless
-  server: 213.111.148.137
+  server: 216.238.79.164
   port: 443
   uuid: c18b978e-1c4e-415c-8bea-07942b563a64
   udp: true
@@ -23,12 +23,12 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇺🇦 UA 01 - wangyu
+  - 🇲🇽 MX 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇺🇦 UA 01 - wangyu
+  - 🇲🇽 MX 01 - wangyu
 rules:
 - MATCH,PROXIES

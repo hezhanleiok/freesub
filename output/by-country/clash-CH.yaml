@@ -20,6 +20,20 @@ proxies:
       Host: xi.tbv.ccwu.cc
 - name: 🇨🇭 CH 02 - wangyu
   type: vless
+  server: 179.255.191.40
+  port: 8443
+  uuid: d544c858-b1ba-45b2-8868-8197daf2a6ee
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: switz.luxes.network
+  network: ws
+  ws-opts:
+    path: /assets
+    headers:
+      Host: 179.255.191.40
+- name: 🇨🇭 CH 03 - wangyu
+  type: vless
   server: 107.189.2.206
   port: 8443
   uuid: c18b978e-1c4e-415c-8bea-07942b563a64
@@ -32,6 +46,20 @@ proxies:
     path: /
     headers:
       Host: shuma.ccwu.cc
+- name: 🇨🇭 CH 04 - wangyu
+  type: vless
+  server: 199.232.249.220
+  port: 443
+  uuid: 8abb648a-b004-42a4-aa05-49cdc2f94d4e
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: global.fastly.com
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: sardach3.global.ssl.fastly.net
 proxy-groups:
 - name: PROXIES
   type: select
@@ -39,6 +67,8 @@ proxy-groups:
   - AUTO
   - 🇨🇭 CH 01 - wangyu
   - 🇨🇭 CH 02 - wangyu
+  - 🇨🇭 CH 03 - wangyu
+  - 🇨🇭 CH 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -46,5 +76,7 @@ proxy-groups:
   proxies:
   - 🇨🇭 CH 01 - wangyu
   - 🇨🇭 CH 02 - wangyu
+  - 🇨🇭 CH 03 - wangyu
+  - 🇨🇭 CH 04 - wangyu
 rules:
 - MATCH,PROXIES

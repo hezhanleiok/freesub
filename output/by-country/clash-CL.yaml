@@ -6,6 +6,18 @@ log-level: info
 proxies:
 - name: 🇨🇱 CL 01 - wangyu
   type: vless
+  server: 34.176.98.128
+  port: 443
+  uuid: 4fe7ceb2-160c-4564-89e6-8f5fd0b05cd5
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 3ekBKAuIIAOjtkKJ0T-qpC7uJsqsY2fVLRB6C70A5hw
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇨🇱 CL 02 - wangyu
+  type: vless
   server: platform113.golnamakcert.top
   port: 80
   uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
@@ -17,19 +29,20 @@ proxies:
     path: /platform113
     headers:
       Host: platform113.halalkhor.info
-- name: 🇨🇱 CL 02 - wangyu
-  type: vless
-  server: 34.176.98.128
-  port: 443
-  uuid: 4fe7ceb2-160c-4564-89e6-8f5fd0b05cd5
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: 3ekBKAuIIAOjtkKJ0T-qpC7uJsqsY2fVLRB6C70A5hw
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
 - name: 🇨🇱 CL 03 - wangyu
+  type: vless
+  server: platform113.golnamakcert.top
+  port: 80
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /platform113
+    headers:
+      Host: platform113.halalkhor.info
+- name: 🇨🇱 CL 04 - wangyu
   type: vless
   server: 34.176.98.128
   port: 443
@@ -49,6 +62,7 @@ proxy-groups:
   - 🇨🇱 CL 01 - wangyu
   - 🇨🇱 CL 02 - wangyu
   - 🇨🇱 CL 03 - wangyu
+  - 🇨🇱 CL 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -57,5 +71,6 @@ proxy-groups:
   - 🇨🇱 CL 01 - wangyu
   - 🇨🇱 CL 02 - wangyu
   - 🇨🇱 CL 03 - wangyu
+  - 🇨🇱 CL 04 - wangyu
 rules:
 - MATCH,PROXIES

@@ -4,32 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇹🇷 土耳其 (Turkey) 01 - wangyu
-  type: vmess
-  server: 206.1.97.212
-  port: 28351
-  uuid: Nitro_Skybot@
-  alterId: 0
-  cipher: auto
+- name: 🇬🇷 GR 01 - wangyu
+  type: vless
+  server: 38.54.29.210
+  port: 2053
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: shuma.ccwu.cc
   network: ws
   ws-opts:
-    path: ''
+    path: /
     headers:
-      Host: ''
+      Host: shuma.ccwu.cc
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇹🇷 土耳其 (Turkey) 01 - wangyu
+  - 🇬🇷 GR 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇹🇷 土耳其 (Turkey) 01 - wangyu
+  - 🇬🇷 GR 01 - wangyu
 rules:
 - MATCH,PROXIES
