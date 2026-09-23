@@ -4,31 +4,28 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇮🇶 IQ 01 - xiaohe
-  server: 185.255.179.11
-  port: 9443
+- name: 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
+  server: 172.64.229.170
+  port: 80
   udp: true
   type: vless
-  uuid: d9d0f208-d582-41d5-bb7b-742671402810
-  tls: true
-  servername: hub-de-03.hanvpn.cc
-  skip-cert-verify: false
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   network: ws
   ws-opts:
-    path: /de03-ws-8e47a
+    path: /?ed=2560security=tls
     headers:
-      Host: hub-de-03.hanvpn.cc
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇮🇶 IQ 01 - xiaohe
+  - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇮🇶 IQ 01 - xiaohe
+  - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES

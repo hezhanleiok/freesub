@@ -5,30 +5,39 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  server: 79.141.174.147
-  port: 33743
+  server: 143.246.194.213
+  port: 443
   udp: true
   type: vless
-  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
+  uuid: dc9e93bc-b53a-11f1-91d3-52540030ba36
+  flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
-  servername: www.google.com
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-service-name: TunService
+    public-key: wSjV1yR_rhDUdoNbM9zIXNGLASLp9RorComnyoayo2c
+  servername: www.ikea.com
+  client-fingerprint: safari
+- name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
+  server: 143.246.194.60
+  port: 8081
+  udp: true
+  type: vless
+  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
+  network: ws
+  ws-opts:
+    path: /vless-test
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
+  - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
+  - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
 rules:
 - MATCH,PROXIES
