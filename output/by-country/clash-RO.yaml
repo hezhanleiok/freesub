@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇴 罗马尼亚 (Romania) 01 - xiaohe
-  server: 85.204.107.181
+  server: 85.204.107.170
   port: 8443
   udp: true
   type: hysteria2
@@ -13,6 +13,17 @@ proxies:
   sni: hopp-romania-new.roxa.org
   skip-cert-verify: true
 - name: 🇷🇴 罗马尼亚 (Romania) 02 - xiaohe
+  server: 167.82.101.251
+  port: 80
+  udp: true
+  type: vless
+  uuid: 0e9f7d2a-2f92-475e-b484-e79568a8a1a2
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Mankiamtr.global.ssl.fastly.net
+- name: 🇷🇴 罗马尼亚 (Romania) 03 - xiaohe
   server: 46.28.67.55
   port: 443
   udp: true
@@ -25,17 +36,6 @@ proxies:
     short-id: d06d78e974491b6e
   servername: www.cloudflare.com
   client-fingerprint: ''
-- name: 🇷🇴 罗马尼亚 (Romania) 03 - xiaohe
-  server: 167.82.101.251
-  port: 80
-  udp: true
-  type: vless
-  uuid: 0e9f7d2a-2f92-475e-b484-e79568a8a1a2
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: Mankiamtr.global.ssl.fastly.net
 proxy-groups:
 - name: PROXIES
   type: select
