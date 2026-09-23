@@ -20,20 +20,6 @@ proxies:
       Host: shuma.ccwu.cc
 - name: 🇧🇪 BE 02 - xiaohe
   type: vless
-  server: 141.98.233.6
-  port: 443
-  uuid: b2593749-691c-428c-9481-14979cba3446
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: xi.tbv.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /proxyip=us.xiabibi.cf
-    headers:
-      Host: xi.tbv.ccwu.cc
-- name: 🇧🇪 BE 03 - xiaohe
-  type: vless
   server: 141.227.137.177
   port: 2053
   uuid: c18b978e-1c4e-415c-8bea-07942b563a64
@@ -53,7 +39,6 @@ proxy-groups:
   - AUTO
   - 🇧🇪 BE 01 - xiaohe
   - 🇧🇪 BE 02 - xiaohe
-  - 🇧🇪 BE 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -61,6 +46,5 @@ proxy-groups:
   proxies:
   - 🇧🇪 BE 01 - xiaohe
   - 🇧🇪 BE 02 - xiaohe
-  - 🇧🇪 BE 03 - xiaohe
 rules:
 - MATCH,PROXIES

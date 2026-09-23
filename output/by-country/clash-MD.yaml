@@ -6,34 +6,6 @@ log-level: info
 proxies:
 - name: 🇲🇩 MD 01 - xiaohe
   type: vless
-  server: 185.153.198.86
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇲🇩 MD 02 - xiaohe
-  type: vless
-  server: 185.153.198.86
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇲🇩 MD 03 - xiaohe
-  type: vless
   server: 143.246.219.51
   port: 8081
   uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
@@ -45,7 +17,7 @@ proxies:
     path: /vless-test
     headers:
       Host: 143.246.219.51
-- name: 🇲🇩 MD 04 - xiaohe
+- name: 🇲🇩 MD 02 - xiaohe
   type: vless
   server: 185.153.198.86
   port: 443
@@ -66,8 +38,6 @@ proxy-groups:
   - AUTO
   - 🇲🇩 MD 01 - xiaohe
   - 🇲🇩 MD 02 - xiaohe
-  - 🇲🇩 MD 03 - xiaohe
-  - 🇲🇩 MD 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -75,7 +45,5 @@ proxy-groups:
   proxies:
   - 🇲🇩 MD 01 - xiaohe
   - 🇲🇩 MD 02 - xiaohe
-  - 🇲🇩 MD 03 - xiaohe
-  - 🇲🇩 MD 04 - xiaohe
 rules:
 - MATCH,PROXIES
