@@ -4,23 +4,28 @@
   },
   "outbounds": [
     {
-      "type": "vless",
-      "tag": "🇮🇶 IQ 01 - xiaohe",
-      "server": "193.8.215.96",
-      "server_port": 9443,
-      "uuid": "d9d0f208-d582-41d5-bb7b-742671402810",
+      "type": "trojan",
+      "tag": "🇧🇪 比利时 (Belgium) 01 - xiaohe",
+      "server": "199.232.78.101",
+      "server_port": 443,
+      "password": "MITIVpN",
       "tls": {
         "enabled": true,
-        "server_name": "hub-de-03.hanvpn.cc",
+        "server_name": "ssl.fastly.com",
         "insecure": false,
+        "alpn": [
+          "http/1.1"
+        ],
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": "chrome"
         }
       },
       "transport": {
-        "type": "grpc",
-        "service_name": "de03-grpc-8e47a"
+        "type": "ws",
+        "headers": {
+          "Host": "mitivpn---ss--s---mitivpn-11e.global.ssl.fastly.net"
+        }
       }
     },
     {
@@ -28,14 +33,14 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇮🇶 IQ 01 - xiaohe"
+        "🇧🇪 比利时 (Belgium) 01 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇮🇶 IQ 01 - xiaohe"
+        "🇧🇪 比利时 (Belgium) 01 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

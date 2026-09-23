@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
-  server: 82.198.246.97
+  server: 82.198.246.37
   port: 180
   udp: true
   type: vmess
@@ -13,30 +13,6 @@ proxies:
   alterId: 0
   cipher: auto
 - name: 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
-  server: 34.87.244.111
-  port: 443
-  udp: true
-  type: vless
-  uuid: 325bc1be-0cb7-4cf7-bd35-a79ded91bbbd
-  tls: true
-  reality-opts:
-    public-key: fsdIMU2apN1C_NbkL7mHTsBKEfhwbDhgCRcB8ICf03E
-    short-id: d725f0dd8cce210f
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
-  server: 34.87.229.148
-  port: 443
-  udp: true
-  type: vless
-  uuid: 4f865f35-cf47-4e7f-a7e6-8882511a1b36
-  tls: true
-  reality-opts:
-    public-key: OgTkmAQdLjipA9oLloxbU5BAX3hPjzbvkEGHF4aZ8z4
-    short-id: 8a7d5e0248cdb1b1
-  servername: www.cloudflare.com
-  client-fingerprint: random
-- name: 🇦🇺 澳大利亚 (Australia) 04 - xiaohe
   server: 51.161.204.244
   port: 443
   udp: true
@@ -49,20 +25,36 @@ proxies:
     short-id: 0ad08b47f498efd2
   servername: www.cloudflare.com
   client-fingerprint: random
-- name: 🇦🇺 澳大利亚 (Australia) 05 - xiaohe
-  server: vpn-au-002.fastervpn.world
+- name: 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
+  server: 34.87.244.111
   port: 443
   udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: whatsapp.com
-  skip-cert-verify: true
-- name: 🇦🇺 澳大利亚 (Australia) 06 - xiaohe
+  type: vless
+  uuid: 325bc1be-0cb7-4cf7-bd35-a79ded91bbbd
+  tls: true
+  reality-opts:
+    public-key: fsdIMU2apN1C_NbkL7mHTsBKEfhwbDhgCRcB8ICf03E
+    short-id: d725f0dd8cce210f
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
+- name: 🇦🇺 澳大利亚 (Australia) 04 - xiaohe
+  server: 34.87.229.148
+  port: 443
+  udp: true
+  type: vless
+  uuid: 4f865f35-cf47-4e7f-a7e6-8882511a1b36
+  tls: true
+  reality-opts:
+    public-key: OgTkmAQdLjipA9oLloxbU5BAX3hPjzbvkEGHF4aZ8z4
+    short-id: 8a7d5e0248cdb1b1
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇦🇺 澳大利亚 (Australia) 05 - xiaohe
   server: au1.gsafevpnapi.com
   port: 20270
   udp: true
   type: vless
-  uuid: 3da32b09-10e5-4ef9-b422-2e476dd72d87
+  uuid: 52e89791-cc65-4cdb-9d3a-7c06df9f6ebd
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
@@ -70,6 +62,21 @@ proxies:
     short-id: e6a5a4a9115456de
   servername: www.yahoo.com
   client-fingerprint: chrome
+- name: 🇦🇺 澳大利亚 (Australia) 06 - xiaohe
+  server: nova.freshnet.ir
+  port: 2082
+  udp: true
+  type: vless
+  uuid: ce2bd817-7fb1-4b94-8125-d6161de31962
+  tls: true
+  servername: nova.freshnet.ir
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /cats/FslNz
+    headers:
+      Host: nova.freshnet.ir
 proxy-groups:
 - name: PROXIES
   type: select
