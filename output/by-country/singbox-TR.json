@@ -5,21 +5,24 @@
   "outbounds": [
     {
       "type": "vless",
-      "tag": "🇳🇴 挪威 (Norway) 01 - xiaohe",
-      "server": "46.29.238.88",
-      "server_port": 40443,
-      "uuid": "db320947-adfb-400d-b60b-383b8324bffe",
+      "tag": "🇹🇷 土耳其 (Turkey) 01 - xiaohe",
+      "server": "146.75.84.3",
+      "server_port": 443,
+      "uuid": "8abb648a-b004-42a4-aa05-49cdc2f94d4e",
       "tls": {
         "enabled": true,
-        "server_name": "deepl.com",
+        "server_name": "ssl.fastly.com",
+        "insecure": false,
         "utls": {
           "enabled": true,
-          "fingerprint": "qq"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "aZOpodpnifoxDqTzWgxJRffgsiGnG9-h-EZd4SvOImc",
-          "short_id": "f7b2"
+          "fingerprint": "firefox"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "BechBad.global.ssl.fastly.net"
         }
       }
     },
@@ -28,14 +31,14 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇳🇴 挪威 (Norway) 01 - xiaohe"
+        "🇹🇷 土耳其 (Turkey) 01 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇳🇴 挪威 (Norway) 01 - xiaohe"
+        "🇹🇷 土耳其 (Turkey) 01 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },
