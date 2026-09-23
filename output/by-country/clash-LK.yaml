@@ -4,31 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇬🇷 GR 01 - xiaohe
+- name: 🇱🇰 LK 01 - xiaohe
   type: vless
-  server: 38.54.29.210
-  port: 2053
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  server: free.sahanwickramasinghe.me
+  port: 80
+  uuid: 684f9a2e-4f96-497f-bfd9-ff1e34637952
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: shuma.ccwu.cc
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: shuma.ccwu.cc
+      Host: free.sahanwickramasinghe.me
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇬🇷 GR 01 - xiaohe
+  - 🇱🇰 LK 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇬🇷 GR 01 - xiaohe
+  - 🇱🇰 LK 01 - xiaohe
 rules:
 - MATCH,PROXIES

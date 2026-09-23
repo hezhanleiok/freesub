@@ -5,115 +5,144 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇩🇪 德国 (Germany) 01 - xiaohe
-  type: vmess
-  server: 216.106.187.60
-  port: 22324
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
+  type: vless
+  server: 34.185.172.52
+  port: 443
+  uuid: 3255d065-119c-4103-a422-ea9d301b0707
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  reality-opts:
+    public-key: -XH2d9x4wRi--KvR6XTcZW9HXbikI2_262zfYDr1uFw
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
 - name: 🇩🇪 德国 (Germany) 02 - xiaohe
   type: vless
-  server: 109.120.138.192
+  server: rubifen.adaspoloandco.com
   port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  uuid: cf39fab0-bb85-42cb-9945-2ad69d78e575
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: shuma.ccwu.cc
+  servername: rubifen.adaspoloandco.com
   network: ws
   ws-opts:
-    path: /
+    path: /GOrbEh
     headers:
-      Host: shuma.ccwu.cc
+      Host: rubifen.adaspoloandco.com
 - name: 🇩🇪 德国 (Germany) 03 - xiaohe
   type: vless
-  server: 138.124.58.31
-  port: 8443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  server: 81.95.4.189
+  port: 443
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: shuma.ccwu.cc
+  servername: bab-6.site
   network: ws
   ws-opts:
-    path: /
+    path: /vws/
     headers:
-      Host: shuma.ccwu.cc
+      Host: bab-6.site
 - name: 🇩🇪 德国 (Germany) 04 - xiaohe
   type: vless
-  server: 163.8.195.241
-  port: 2087
-  uuid: 56ba5d34-ef22-4ba6-8090-4188b807df54
+  server: 172.67.130.159
+  port: 2096
+  uuid: 735b8344-0b95-464c-b687-1c5616138908
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: cdn-de.skyvora.app
   network: ws
   ws-opts:
-    path: /29c8fed7ca22
+    path: /3cagtz3
     headers:
-      Host: 163.8.195.241
+      Host: cdn-de.skyvora.app
 - name: 🇩🇪 德国 (Germany) 05 - xiaohe
-  type: vmess
-  server: 216.106.187.60
+  type: vless
+  server: 81.95.4.189
   port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: kentspark.org
+  servername: bab-6.site
   network: ws
   ws-opts:
-    path: /linkvws
+    path: /vws/
     headers:
-      Host: kentspark.org
+      Host: bab-6.site
 - name: 🇩🇪 德国 (Germany) 06 - xiaohe
-  type: vless
-  server: 103.228.168.182
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  type: ss
+  server: 185.226.172.8
+  port: 8008
+  cipher: aes-256-gcm
+  password: XKFKl2rULjIp74
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
 - name: 🇩🇪 德国 (Germany) 07 - xiaohe
-  type: vless
-  server: 109.120.138.192
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  type: ss
+  server: 51.195.126.38
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: 2YdE4lFOid5a
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
 - name: 🇩🇪 德国 (Germany) 08 - xiaohe
   type: vless
-  server: 172.66.44.124
-  port: 8443
-  uuid: b2f2f9f2-1864-48ea-839b-22815faff1f1
+  server: 199.232.78.159
+  port: 443
+  uuid: 9f714831-a392-429d-b09f-15f0e4653049
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+  servername: ssl.fastly.com
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+      Host: lsjaoijji.global.ssl.fastly.neT
 - name: 🇩🇪 德国 (Germany) 09 - xiaohe
+  type: vless
+  server: 172.67.130.159
+  port: 2096
+  uuid: 735b8344-0b95-464c-b687-1c5616138908
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn-de.skyvora.app
+  network: ws
+  ws-opts:
+    path: /3cagtz3
+    headers:
+      Host: cdn-de.skyvora.app
+- name: 🇩🇪 德国 (Germany) 10 - xiaohe
+  type: ss
+  server: 209.46.102.22
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: 1hhrqrokj3ag
+  udp: true
+- name: 🇩🇪 德国 (Germany) 11 - xiaohe
+  type: vless
+  server: 35.157.240.237
+  port: 443
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: bab-6.site
+  network: ws
+  ws-opts:
+    path: /vws/
+    headers:
+      Host: bab-6.site
+- name: 🇩🇪 德国 (Germany) 12 - xiaohe
+  type: ss
+  server: 130.61.130.205
+  port: 59924
+  cipher: 2022-blake3-chacha20-poly1305
+  password: oez/eAOjbnuo75MPFJBQDnCnLeIfcr4eQ2txjGMLWXs=
+  udp: true
+- name: 🇩🇪 德国 (Germany) 13 - xiaohe
   type: vless
   server: 57.129.41.216
   port: 80
@@ -126,35 +155,21 @@ proxies:
     path: /vless/
     headers:
       Host: OV-Germany1.09vpn.com
-- name: 🇩🇪 德国 (Germany) 10 - xiaohe
+- name: 🇩🇪 德国 (Germany) 14 - xiaohe
   type: vless
-  server: 92.119.126.189
-  port: 8443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇩🇪 德国 (Germany) 11 - xiaohe
-  type: vless
-  server: 149.154.157.213
+  server: 81.95.4.189
   port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: shuma.ccwu.cc
+  servername: bab-6.site
   network: ws
   ws-opts:
-    path: /
+    path: /vws/
     headers:
-      Host: shuma.ccwu.cc
-- name: 🇩🇪 德国 (Germany) 12 - xiaohe
+      Host: bab-6.site
+- name: 🇩🇪 德国 (Germany) 15 - xiaohe
   type: vmess
   server: aidrivercat.org
   port: 443
@@ -170,207 +185,48 @@ proxies:
     path: /linkvws
     headers:
       Host: ''
-- name: 🇩🇪 德国 (Germany) 13 - xiaohe
-  type: vless
-  server: 172.67.130.159
-  port: 2096
-  uuid: 735b8344-0b95-464c-b687-1c5616138908
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: cdn-de.skyvora.app
-  network: ws
-  ws-opts:
-    path: /3cagtz3
-    headers:
-      Host: cdn-de.skyvora.app
-- name: 🇩🇪 德国 (Germany) 14 - xiaohe
-  type: vless
-  server: 172.67.130.159
-  port: 2096
-  uuid: 735b8344-0b95-464c-b687-1c5616138908
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: cdn-de.skyvora.app
-  network: ws
-  ws-opts:
-    path: /3cagtz3
-    headers:
-      Host: cdn-de.skyvora.app
-- name: 🇩🇪 德国 (Germany) 15 - xiaohe
-  type: ss
-  server: 8.209.74.72
-  port: 20001
-  cipher: chacha20-ietf-poly1305
-  password: PWpjPo3tqhPN4yRZ
-  udp: true
 - name: 🇩🇪 德国 (Germany) 16 - xiaohe
-  type: ss
-  server: 185.226.172.8
-  port: 8008
-  cipher: aes-256-gcm
-  password: XKFKl2rULjIp74
+  type: vless
+  server: 82.24.203.20
+  port: 2087
+  uuid: 5fcdc9b7-e70f-4a5c-85c3-e018ad818326
   udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /fd5ba98a3970
+    headers:
+      Host: 82.24.203.20
 - name: 🇩🇪 德国 (Germany) 17 - xiaohe
   type: vless
-  server: 81.95.4.189
-  port: 443
-  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  server: 162.55.242.208
+  port: 2053
+  uuid: 659ffdfa-47d2-47d7-af40-5afe0907eead
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: bab-6.site
-  network: ws
-  ws-opts:
-    path: /vws/
-    headers:
-      Host: bab-6.site
+  reality-opts:
+    public-key: jeS6Zu-p1Gf6GtraIAbpgQoSeT26Xq3GqgqVxccbVhY
+  servername: www.cloudflare.com
+  client-fingerprint: random
 - name: 🇩🇪 德国 (Germany) 18 - xiaohe
   type: vmess
-  server: kentspark.org
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: kentspark.org
-  network: ws
-  ws-opts:
-    path: /linkvws
-    headers:
-      Host: kentspark.org
-- name: 🇩🇪 德国 (Germany) 19 - xiaohe
-  type: vless
-  server: 79.137.202.86
-  port: 8443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇩🇪 德国 (Germany) 20 - xiaohe
-  type: vless
-  server: 164.90.166.120
-  port: 443
-  uuid: 8525fe74-67e6-4a55-8a26-95f227bd1384
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: damp-dawn-3a96.alvlirm123.workers.dev
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: damp-dawn-3a96.alvlirm123.workers.dev
-- name: 🇩🇪 德国 (Germany) 21 - xiaohe
-  type: vless
-  server: 62.60.238.191
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇩🇪 德国 (Germany) 22 - xiaohe
-  type: ss
-  server: 51.195.126.38
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: 2YdE4lFOid5a
-  udp: true
-- name: 🇩🇪 德国 (Germany) 23 - xiaohe
-  type: vmess
-  server: 216.106.187.60
-  port: 22324
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  server: 82.198.246.37
+  port: 180
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   cipher: auto
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇩🇪 德国 (Germany) 24 - xiaohe
-  type: vless
-  server: 109.176.202.20
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+- name: 🇩🇪 德国 (Germany) 19 - xiaohe
+  type: ss
+  server: 130.61.235.137
+  port: 59924
+  cipher: 2022-blake3-chacha20-poly1305
+  password: IJPKybdCWc1qvoGqy0e6tflGkAAKCXe9FaWcBTjgfDs=
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇩🇪 德国 (Germany) 25 - xiaohe
-  type: vless
-  server: 34.185.172.52
-  port: 443
-  uuid: 3255d065-119c-4103-a422-ea9d301b0707
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: -XH2d9x4wRi--KvR6XTcZW9HXbikI2_262zfYDr1uFw
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇩🇪 德国 (Germany) 26 - xiaohe
-  type: vless
-  server: 144.31.217.95
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇩🇪 德国 (Germany) 27 - xiaohe
-  type: vless
-  server: 159.195.82.121
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇩🇪 德国 (Germany) 28 - xiaohe
-  type: vmess
-  server: 216.106.187.60
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: kentspark.org
-  network: ws
-  ws-opts:
-    path: /linkvws
-    headers:
-      Host: kentspark.org
 proxy-groups:
 - name: PROXIES
   type: select
@@ -395,15 +251,6 @@ proxy-groups:
   - 🇩🇪 德国 (Germany) 17 - xiaohe
   - 🇩🇪 德国 (Germany) 18 - xiaohe
   - 🇩🇪 德国 (Germany) 19 - xiaohe
-  - 🇩🇪 德国 (Germany) 20 - xiaohe
-  - 🇩🇪 德国 (Germany) 21 - xiaohe
-  - 🇩🇪 德国 (Germany) 22 - xiaohe
-  - 🇩🇪 德国 (Germany) 23 - xiaohe
-  - 🇩🇪 德国 (Germany) 24 - xiaohe
-  - 🇩🇪 德国 (Germany) 25 - xiaohe
-  - 🇩🇪 德国 (Germany) 26 - xiaohe
-  - 🇩🇪 德国 (Germany) 27 - xiaohe
-  - 🇩🇪 德国 (Germany) 28 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -428,14 +275,5 @@ proxy-groups:
   - 🇩🇪 德国 (Germany) 17 - xiaohe
   - 🇩🇪 德国 (Germany) 18 - xiaohe
   - 🇩🇪 德国 (Germany) 19 - xiaohe
-  - 🇩🇪 德国 (Germany) 20 - xiaohe
-  - 🇩🇪 德国 (Germany) 21 - xiaohe
-  - 🇩🇪 德国 (Germany) 22 - xiaohe
-  - 🇩🇪 德国 (Germany) 23 - xiaohe
-  - 🇩🇪 德国 (Germany) 24 - xiaohe
-  - 🇩🇪 德国 (Germany) 25 - xiaohe
-  - 🇩🇪 德国 (Germany) 26 - xiaohe
-  - 🇩🇪 德国 (Germany) 27 - xiaohe
-  - 🇩🇪 德国 (Germany) 28 - xiaohe
 rules:
 - MATCH,PROXIES

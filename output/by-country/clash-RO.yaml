@@ -6,77 +6,28 @@ log-level: info
 proxies:
 - name: 🇷🇴 RO 01 - xiaohe
   type: vless
-  server: 185.153.198.86
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  server: 167.82.101.251
+  port: 80
+  uuid: 0e9f7d2a-2f92-475e-b484-e79568a8a1a2
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: shuma.ccwu.cc
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: shuma.ccwu.cc
-- name: 🇷🇴 RO 02 - xiaohe
-  type: vless
-  server: 154.46.31.118
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇷🇴 RO 03 - xiaohe
-  type: vless
-  server: 103.126.50.196
-  port: 8443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇷🇴 RO 04 - xiaohe
-  type: vless
-  server: 154.46.31.118
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
+      Host: Mankiamtr.global.ssl.fastly.net
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇷🇴 RO 01 - xiaohe
-  - 🇷🇴 RO 02 - xiaohe
-  - 🇷🇴 RO 03 - xiaohe
-  - 🇷🇴 RO 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇷🇴 RO 01 - xiaohe
-  - 🇷🇴 RO 02 - xiaohe
-  - 🇷🇴 RO 03 - xiaohe
-  - 🇷🇴 RO 04 - xiaohe
 rules:
 - MATCH,PROXIES

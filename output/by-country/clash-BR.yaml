@@ -5,19 +5,15 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇧🇷 BR 01 - xiaohe
-  type: vless
-  server: 157.151.4.93
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  type: vmess
+  server: 172.233.14.17
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
 proxy-groups:
 - name: PROXIES
   type: select

@@ -17,49 +17,17 @@ proxies:
     path: /
     headers:
       Host: 94.183.170.135
-- name: 🇪🇪 EE 02 - xiaohe
-  type: vless
-  server: 93.123.39.203
-  port: 8443
-  uuid: d544c858-b1ba-45b2-8868-8197daf2a6ee
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: est.luxes.network
-  network: ws
-  ws-opts:
-    path: /assets
-    headers:
-      Host: 93.123.39.203
-- name: 🇪🇪 EE 03 - xiaohe
-  type: vless
-  server: 93.123.39.203
-  port: 8443
-  uuid: d544c858-b1ba-45b2-8868-8197daf2a6ee
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: est.luxes.network
-  network: ws
-  ws-opts:
-    path: /assets
-    headers:
-      Host: 93.123.39.203
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇪🇪 EE 01 - xiaohe
-  - 🇪🇪 EE 02 - xiaohe
-  - 🇪🇪 EE 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇪🇪 EE 01 - xiaohe
-  - 🇪🇪 EE 02 - xiaohe
-  - 🇪🇪 EE 03 - xiaohe
 rules:
 - MATCH,PROXIES

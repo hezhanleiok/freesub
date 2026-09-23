@@ -6,20 +6,6 @@ log-level: info
 proxies:
 - name: 🇺🇿 UZ 01 - xiaohe
   type: vless
-  server: 46.8.194.76
-  port: 8443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇺🇿 UZ 02 - xiaohe
-  type: vless
   server: 104.18.80.149
   port: 443
   uuid: 50414e45-4c5f-5a45-5553-4017ea8bea78
@@ -38,13 +24,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇺🇿 UZ 01 - xiaohe
-  - 🇺🇿 UZ 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇺🇿 UZ 01 - xiaohe
-  - 🇺🇿 UZ 02 - xiaohe
 rules:
 - MATCH,PROXIES
