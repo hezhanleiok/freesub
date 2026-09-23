@@ -5,67 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - wangyu
-  type: vless
-  server: 146.75.119.82
-  port: 80
-  uuid: c36d624e-a851-486f-bd87-844b1e4d609d
+  type: ss
+  server: p1tun3.greewebservices.ir
+  port: 2070
+  cipher: chacha20-ietf-poly1305
+  password: LMnotcv4RdaEOBXT-LdtfA
   udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: ws/?ed=2048/@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr@vpnserverrr/?2048
-    headers:
-      Host: rb24.ir
 - name: 🇫🇮 FI 02 - wangyu
-  type: vless
-  server: 185.79.138.71
-  port: 448
-  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
-  servername: www.samsung.com
-  client-fingerprint: firefox
-- name: 🇫🇮 FI 03 - wangyu
-  type: vless
-  server: 185.79.138.71
-  port: 448
-  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
-  servername: www.samsung.com
-  client-fingerprint: chrome
-- name: 🇫🇮 FI 04 - wangyu
-  type: vless
-  server: 185.79.138.71
-  port: 448
-  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
-  servername: www.samsung.com
-  client-fingerprint: chrome
-- name: 🇫🇮 FI 05 - wangyu
-  type: vless
-  server: 185.79.138.71
-  port: 448
-  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
-  servername: www.samsung.com
-  client-fingerprint: chrome
-- name: 🇫🇮 FI 06 - wangyu
   type: vless
   server: 185.79.138.71
   port: 448
@@ -84,10 +30,6 @@ proxy-groups:
   - AUTO
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
-  - 🇫🇮 FI 03 - wangyu
-  - 🇫🇮 FI 04 - wangyu
-  - 🇫🇮 FI 05 - wangyu
-  - 🇫🇮 FI 06 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -95,9 +37,5 @@ proxy-groups:
   proxies:
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
-  - 🇫🇮 FI 03 - wangyu
-  - 🇫🇮 FI 04 - wangyu
-  - 🇫🇮 FI 05 - wangyu
-  - 🇫🇮 FI 06 - wangyu
 rules:
 - MATCH,PROXIES

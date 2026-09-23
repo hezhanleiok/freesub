@@ -17,6 +17,16 @@ proxies:
   servername: www.cloudflare.com
   client-fingerprint: ios
 - name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
+  type: vmess
+  server: 89.223.95.77
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
   type: vless
   server: 34.96.146.210
   port: 443
@@ -28,7 +38,7 @@ proxies:
     public-key: tSBJnEt6E1dy6UgX9gX5wUfvZ2KAXjGWVKsEq886OWM
   servername: www.cloudflare.com
   client-fingerprint: firefox
-- name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
+- name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
   type: vmess
   server: 89.223.95.77
   port: 22324
@@ -38,7 +48,7 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
+- name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
   type: vless
   server: 34.96.146.210
   port: 443
@@ -50,59 +60,30 @@ proxies:
     public-key: tSBJnEt6E1dy6UgX9gX5wUfvZ2KAXjGWVKsEq886OWM
   servername: www.cloudflare.com
   client-fingerprint: chrome
-- name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
+- name: 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
+  type: vmess
+  server: 8.218.184.4
+  port: 443
+  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: NYcQg19zkwaCPM1B.v.3dns.vip
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: NYcQg19zkwaCPM1B.v.3dns.vip
+- name: 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
   type: ss
   server: sth.free-outline.giize.com
   port: 1081
   cipher: chacha20-ietf-poly1305
   password: uez5t2b4575tgkoi
   udp: true
-- name: 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
-  type: ss
-  server: sth.free-outline.giize.com
-  port: 1081
-  cipher: chacha20-ietf-poly1305
-  password: wwj19enpp68px8t7
-  udp: true
-- name: 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
-  type: vless
-  server: 34.96.146.210
-  port: 443
-  uuid: 90153538-ef08-4942-b8e1-41e7c523e659
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: tSBJnEt6E1dy6UgX9gX5wUfvZ2KAXjGWVKsEq886OWM
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
 - name: 🇭🇰 中国香港 (Hong Kong) 08 - wangyu
-  type: vmess
-  server: 89.223.95.77
-  port: 22324
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇭🇰 中国香港 (Hong Kong) 09 - wangyu
-  type: vmess
-  server: 47.243.80.106
-  port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: wwafj5LHl6bI8aU9.v.3dns.vip
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: wwafj5LHl6bI8aU9.v.3dns.vip
-- name: 🇭🇰 中国香港 (Hong Kong) 10 - wangyu
   type: vless
   server: 34.96.146.210
   port: 443
@@ -114,13 +95,41 @@ proxies:
     public-key: tSBJnEt6E1dy6UgX9gX5wUfvZ2KAXjGWVKsEq886OWM
   servername: www.cloudflare.com
   client-fingerprint: ios
-- name: 🇭🇰 中国香港 (Hong Kong) 11 - wangyu
-  type: ss
-  server: 103.136.150.119
-  port: 10090
-  cipher: aes-256-gcm
-  password: 72553320ae6bcc8f
+- name: 🇭🇰 中国香港 (Hong Kong) 09 - wangyu
+  type: vless
+  server: 34.96.146.210
+  port: 443
+  uuid: 90153538-ef08-4942-b8e1-41e7c523e659
   udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: tSBJnEt6E1dy6UgX9gX5wUfvZ2KAXjGWVKsEq886OWM
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇭🇰 中国香港 (Hong Kong) 10 - wangyu
+  type: ss
+  server: sth.free-outline.giize.com
+  port: 1081
+  cipher: chacha20-ietf-poly1305
+  password: r6tptrwvddxap6al
+  udp: true
+- name: 🇭🇰 中国香港 (Hong Kong) 11 - wangyu
+  type: vmess
+  server: 8.218.184.4
+  port: 443
+  uuid: f23bb427c1f94373876c2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: nycqg19zkwacpm1b.v.3dns.vip
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: nycqg19zkwacpm1b.v.3dns.vip
 - name: 🇭🇰 中国香港 (Hong Kong) 12 - wangyu
   type: vmess
   server: 89.223.95.77

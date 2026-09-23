@@ -6,20 +6,6 @@ log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - wangyu
   type: vless
-  server: 46.8.200.91
-  port: 443
-  uuid: b8201bab-fa6c-4f6e-b289-b5da660c6f69
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: cf3.rumedia-cdn.com
-  network: ws
-  ws-opts:
-    path: /cdn/v3/live
-    headers:
-      Host: cf3.rumedia-cdn.com
-- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
-  type: vless
   server: fbsv6.guardora.pro
   port: 443
   uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
@@ -32,19 +18,27 @@ proxies:
     path: /ws
     headers:
       Host: fbsv6.guardora.pro
+- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  type: ss
+  server: 62.113.41.165
+  port: 888
+  cipher: chacha20-ietf-poly1305
+  password: hF-qqin2wYhP7zS47SyR0Q
+  udp: true
 - name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   type: vless
-  server: 104.18.34.14
-  port: 2052
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  server: 46.8.200.91
+  port: 443
+  uuid: b8201bab-fa6c-4f6e-b289-b5da660c6f69
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: cf3.rumedia-cdn.com
   network: ws
   ws-opts:
-    path: /?ed=2560security=tls
+    path: /cdn/v3/live
     headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+      Host: cf3.rumedia-cdn.com
 proxy-groups:
 - name: PROXIES
   type: select
