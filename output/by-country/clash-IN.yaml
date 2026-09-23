@@ -6,28 +6,30 @@ log-level: info
 proxies:
 - name: 🇮🇳 印度 (India) 01 - xiaohe
   type: vless
-  server: 194.61.31.126
-  port: 2053
-  uuid: 1d4e18bd-1f26-4915-b35a-7ace4826e76a
+  server: 139.84.135.130
+  port: 443
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
-  servername: www.apple.com
-  client-fingerprint: chrome
+  servername: shuma.ccwu.cc
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shuma.ccwu.cc
 - name: 🇮🇳 印度 (India) 02 - xiaohe
   type: vless
-  server: 194.61.31.126
-  port: 2053
-  uuid: 1d4e18bd-1f26-4915-b35a-7ace4826e76a
+  server: 34.47.245.203
+  port: 443
+  uuid: 3fed34dc-2fe6-4fe0-86e7-a80213f9b7cc
   udp: true
   tls: true
   skip-cert-verify: true
   reality-opts:
-    public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
-  servername: www.apple.com
-  client-fingerprint: firefox
+    public-key: dB68n-Vyph0_KBtBIe45b5GCB4F1IqpBF_ohlN-KpkY
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
 - name: 🇮🇳 印度 (India) 03 - xiaohe
   type: vless
   server: 13.200.106.232
@@ -43,18 +45,6 @@ proxies:
     headers:
       Host: shuma.ccwu.cc
 - name: 🇮🇳 印度 (India) 04 - xiaohe
-  type: vless
-  server: 34.47.245.203
-  port: 443
-  uuid: 3fed34dc-2fe6-4fe0-86e7-a80213f9b7cc
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: dB68n-Vyph0_KBtBIe45b5GCB4F1IqpBF_ohlN-KpkY
-  servername: www.cloudflare.com
-  client-fingerprint: random
-- name: 🇮🇳 印度 (India) 05 - xiaohe
   type: vmess
   server: 152.67.8.205
   port: 80
@@ -69,7 +59,7 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: 🇮🇳 印度 (India) 06 - xiaohe
+- name: 🇮🇳 印度 (India) 05 - xiaohe
   type: vless
   server: 194.61.31.126
   port: 2053
@@ -81,7 +71,7 @@ proxies:
     public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
   servername: www.apple.com
   client-fingerprint: random
-- name: 🇮🇳 印度 (India) 07 - xiaohe
+- name: 🇮🇳 印度 (India) 06 - xiaohe
   type: vless
   server: 34.47.245.203
   port: 443
@@ -92,22 +82,8 @@ proxies:
   reality-opts:
     public-key: dB68n-Vyph0_KBtBIe45b5GCB4F1IqpBF_ohlN-KpkY
   servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇮🇳 印度 (India) 08 - xiaohe
-  type: vless
-  server: 139.84.135.130
-  port: 443
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shuma.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 🇮🇳 印度 (India) 09 - xiaohe
+  client-fingerprint: random
+- name: 🇮🇳 印度 (India) 07 - xiaohe
   type: vless
   server: 194.61.31.126
   port: 2053
@@ -131,8 +107,6 @@ proxy-groups:
   - 🇮🇳 印度 (India) 05 - xiaohe
   - 🇮🇳 印度 (India) 06 - xiaohe
   - 🇮🇳 印度 (India) 07 - xiaohe
-  - 🇮🇳 印度 (India) 08 - xiaohe
-  - 🇮🇳 印度 (India) 09 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -145,7 +119,5 @@ proxy-groups:
   - 🇮🇳 印度 (India) 05 - xiaohe
   - 🇮🇳 印度 (India) 06 - xiaohe
   - 🇮🇳 印度 (India) 07 - xiaohe
-  - 🇮🇳 印度 (India) 08 - xiaohe
-  - 🇮🇳 印度 (India) 09 - xiaohe
 rules:
 - MATCH,PROXIES

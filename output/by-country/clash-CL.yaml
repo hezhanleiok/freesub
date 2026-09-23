@@ -41,6 +41,19 @@ proxies:
     public-key: 3ekBKAuIIAOjtkKJ0T-qpC7uJsqsY2fVLRB6C70A5hw
   servername: www.cloudflare.com
   client-fingerprint: chrome
+- name: 🇨🇱 CL 04 - xiaohe
+  type: vless
+  server: platform113.golnamakcert.top
+  port: 80
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /platform113
+    headers:
+      Host: platform113.halalkhor.info
 proxy-groups:
 - name: PROXIES
   type: select
@@ -49,6 +62,7 @@ proxy-groups:
   - 🇨🇱 CL 01 - xiaohe
   - 🇨🇱 CL 02 - xiaohe
   - 🇨🇱 CL 03 - xiaohe
+  - 🇨🇱 CL 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -57,5 +71,6 @@ proxy-groups:
   - 🇨🇱 CL 01 - xiaohe
   - 🇨🇱 CL 02 - xiaohe
   - 🇨🇱 CL 03 - xiaohe
+  - 🇨🇱 CL 04 - xiaohe
 rules:
 - MATCH,PROXIES

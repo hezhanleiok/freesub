@@ -6,17 +6,18 @@ log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - xiaohe
   type: vless
-  server: 143.246.194.60
-  port: 8081
-  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
+  server: 103.71.22.133
+  port: 8443
+  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: shuma.ccwu.cc
   network: ws
   ws-opts:
-    path: /vless-test
+    path: /
     headers:
-      Host: 143.246.194.60
+      Host: shuma.ccwu.cc
 proxy-groups:
 - name: PROXIES
   type: select
