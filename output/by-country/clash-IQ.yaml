@@ -4,32 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
-  server: 146.75.84.3
-  port: 443
+- name: 🇮🇶 IQ 01 - xiaohe
+  server: 193.8.215.96
+  port: 9443
   udp: true
   type: vless
-  uuid: 8abb648a-b004-42a4-aa05-49cdc2f94d4e
+  uuid: d9d0f208-d582-41d5-bb7b-742671402810
   tls: true
-  servername: ssl.fastly.com
+  servername: hub-de-03.hanvpn.cc
   skip-cert-verify: false
   client-fingerprint: firefox
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: BechBad.global.ssl.fastly.net
+  network: grpc
+  grpc-opts:
+    grpc-service-name: de03-grpc-8e47a
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
+  - 🇮🇶 IQ 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
+  - 🇮🇶 IQ 01 - xiaohe
 rules:
 - MATCH,PROXIES

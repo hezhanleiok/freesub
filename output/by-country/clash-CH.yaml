@@ -5,25 +5,33 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
-  server: 82.38.64.229
+  server: 179.255.191.40
   port: 8443
   udp: true
-  type: hysteria2
-  password: we9_I1893UFj3149xbr1_k8qvJ8734ic_Mx82gH
-  sni: hopp-swizland-new.mysynology.net
-  skip-cert-verify: true
+  type: vless
+  uuid: d544c858-b1ba-45b2-8868-8197daf2a6ee
+  tls: true
+  servername: switz.luxes.network
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /assets
 - name: 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
-  server: 138.124.60.146
+  server: 199.232.249.220
   port: 443
   udp: true
   type: vless
-  uuid: bbfd1f68-ec64-452f-8404-9e2bcf1df951
-  flow: xtls-rprx-vision
+  uuid: 8abb648a-b004-42a4-aa05-49cdc2f94d4e
   tls: true
-  reality-opts:
-    public-key: mJ-0fJDvKp0rhuyUvs1bw4RasRRM-BEOAl9iAZ8gXy0
-  servername: usa.oblaco.bet
-  client-fingerprint: firefox
+  servername: global.fastly.com
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: sardach3.global.ssl.fastly.net
 - name: 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
   server: 151.242.2.81
   port: 443
