@@ -4,14 +4,12 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇧🇪 比利时 (Belgium) 01 - xiaohe
-  server: 199.232.78.101
-  port: 443
+- name: 🇱🇰 斯里兰卡 (Sri Lanka) 01 - xiaohe
+  server: free.sahanwickramasinghe.me
+  port: 80
   udp: true
-  type: trojan
-  password: MITIVpN
-  sni: ssl.fastly.com
-  skip-cert-verify: false
+  type: vless
+  uuid: 684f9a2e-4f96-497f-bfd9-ff1e34637952
   network: ws
   ws-opts:
     path: /
@@ -20,12 +18,12 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇧🇪 比利时 (Belgium) 01 - xiaohe
+  - 🇱🇰 斯里兰卡 (Sri Lanka) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇧🇪 比利时 (Belgium) 01 - xiaohe
+  - 🇱🇰 斯里兰卡 (Sri Lanka) 01 - xiaohe
 rules:
 - MATCH,PROXIES

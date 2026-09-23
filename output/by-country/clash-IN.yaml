@@ -5,14 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇳 印度 (India) 01 - xiaohe
-  server: 13.207.151.141
-  port: 443
-  udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: vpn-in-001.fastervpn.world
-  skip-cert-verify: true
-- name: 🇮🇳 印度 (India) 02 - xiaohe
   server: 194.61.31.126
   port: 2053
   udp: true
@@ -24,15 +16,15 @@ proxies:
     short-id: 9980e0609b0d3891
   servername: www.apple.com
   client-fingerprint: firefox
-- name: 🇮🇳 印度 (India) 03 - xiaohe
-  server: 35.154.58.87
+- name: 🇮🇳 印度 (India) 02 - xiaohe
+  server: vpn-in-001.fastervpn.world
   port: 443
   udp: true
   type: hysteria2
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: vpn-in-001.fastervpn.world
+  sni: vk.com
   skip-cert-verify: true
-- name: 🇮🇳 印度 (India) 04 - xiaohe
+- name: 🇮🇳 印度 (India) 03 - xiaohe
   server: 34.47.245.203
   port: 443
   udp: true
@@ -42,6 +34,18 @@ proxies:
   reality-opts:
     public-key: dB68n-Vyph0_KBtBIe45b5GCB4F1IqpBF_ohlN-KpkY
     short-id: 50440423703c945f
+  servername: www.cloudflare.com
+  client-fingerprint: random
+- name: 🇮🇳 印度 (India) 04 - xiaohe
+  server: 34.93.188.70
+  port: 443
+  udp: true
+  type: vless
+  uuid: 5004e3d7-a9bd-4a7c-a6d5-58aa5e1be9ed
+  tls: true
+  reality-opts:
+    public-key: 97C6O3repofpoaJzvu1d4o7amhJGA8hF_yJls7SNIgU
+    short-id: b9299afa0dcac824
   servername: www.cloudflare.com
   client-fingerprint: chrome
 proxy-groups:
