@@ -5,6 +5,15 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇪 爱沙尼亚 (Estonia) 01 - xiaohe
+  server: 94.183.170.135
+  port: 443
+  udp: true
+  type: vless
+  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
+  network: ws
+  ws-opts:
+    path: /
+- name: 🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe
   server: 94.183.170.147
   port: 8443
   udp: true
@@ -19,14 +28,6 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: 9d30d49278
-- name: 🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe
-  server: 217.60.182.79
-  port: 443
-  udp: true
-  type: hysteria2
-  password: sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX
-  sni: cabinet.wwwinternetvideo.click
-  skip-cert-verify: false
 - name: 🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe
   server: 94.183.170.135
   port: 8443
@@ -38,14 +39,18 @@ proxies:
   skip-cert-verify: false
   client-fingerprint: firefox
 - name: 🇪🇪 爱沙尼亚 (Estonia) 04 - xiaohe
-  server: 94.183.170.135
+  server: 45.11.27.86
   port: 443
   udp: true
   type: vless
-  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-  network: ws
-  ws-opts:
-    path: /
+  uuid: a2738d8d-ed26-4b13-a4a2-b89c7238cd10
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: IBzFSziv_xISB-Q6X90PocTBde6jb4X6swEvdZQhqzk
+    short-id: d0aae44f
+  servername: 5post-gate.x5.ru
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select

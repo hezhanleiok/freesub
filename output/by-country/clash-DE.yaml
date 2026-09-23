@@ -5,17 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇩🇪 德国 (Germany) 01 - xiaohe
-  server: 104.21.16.123
-  port: 443
-  udp: true
-  type: trojan
-  password: Telegram_healer_config
-  sni: 7x7o3vtq5z6ymu3hv1fh-op9blt.hya6losm6lznoxhm6w3mk.workers.dev
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /tr/qL8YIeH28wNcXfNTPgLCwOhNFEr?ed=2560
-- name: 🇩🇪 德国 (Germany) 02 - xiaohe
   server: 199.232.78.101
   port: 443
   udp: true
@@ -26,14 +15,90 @@ proxies:
   network: ws
   ws-opts:
     path: /
+- name: 🇩🇪 德国 (Germany) 02 - xiaohe
+  server: 31.56.189.27
+  port: 2087
+  udp: true
+  type: vless
+  uuid: df9f5aca-eda0-428f-a752-e53866153d12
+  tls: true
+  servername: srv-21bac9.vless.monster
+  skip-cert-verify: false
+  client-fingerprint: firefox
+  network: grpc
+  grpc-opts:
+    grpc-service-name: freegrpc
 - name: 🇩🇪 德国 (Germany) 03 - xiaohe
+  server: 209.46.102.22
+  port: 8388
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 1hhrqrokj3ag
+- name: 🇩🇪 德国 (Germany) 04 - xiaohe
   server: 51.195.126.38
   port: 8388
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
   password: 2YdE4lFOid5a
-- name: 🇩🇪 德国 (Germany) 04 - xiaohe
+- name: 🇩🇪 德国 (Germany) 05 - xiaohe
+  server: 212.80.7.129
+  port: 6215
+  udp: true
+  type: vless
+  uuid: 2f2ae482-5a3e-455e-aad6-4ac28a82f64f
+  tls: true
+  servername: cdn.astranet.ignorelist.com
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: api.v1.ApiService
+- name: 🇩🇪 德国 (Germany) 06 - xiaohe
+  server: 185.226.172.8
+  port: 8008
+  udp: true
+  type: ss
+  cipher: aes-256-gcm
+  password: XKFKl2rULjIp74
+- name: 🇩🇪 德国 (Germany) 07 - xiaohe
+  server: 144.31.159.86
+  port: 443
+  udp: true
+  type: vless
+  uuid: b5d6221d-e3ad-4453-b5c6-8bf7ccaa7aa5
+  flow: xtls-rprx-vision
+  tls: true
+  servername: de3.duck-proxy.com
+  skip-cert-verify: false
+  client-fingerprint: safari
+- name: 🇩🇪 德国 (Germany) 08 - xiaohe
+  server: 162.55.242.208
+  port: 2053
+  udp: true
+  type: vless
+  uuid: 659ffdfa-47d2-47d7-af40-5afe0907eead
+  tls: true
+  reality-opts:
+    public-key: jeS6Zu-p1Gf6GtraIAbpgQoSeT26Xq3GqgqVxccbVhY
+    short-id: 4d14da19b19cfc8c
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇩🇪 德国 (Germany) 09 - xiaohe
+  server: 185.255.179.11
+  port: 9443
+  udp: true
+  type: vless
+  uuid: d9d0f208-d582-41d5-bb7b-742671402810
+  tls: true
+  servername: hub-de-04.hanvpn.cc
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: de04-grpc-8e47a
+- name: 🇩🇪 德国 (Germany) 10 - xiaohe
   server: 151.101.56.7
   port: 443
   udp: true
@@ -43,60 +108,20 @@ proxies:
   skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /
-- name: 🇩🇪 德国 (Germany) 05 - xiaohe
-  server: 185.226.172.8
-  port: 8008
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: XKFKl2rULjIp74
-- name: 🇩🇪 德国 (Germany) 06 - xiaohe
-  server: 212.80.7.129
-  port: 6215
+    path: /---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/D-e2@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN
+- name: 🇩🇪 德国 (Germany) 11 - xiaohe
+  server: 34.185.172.52
+  port: 443
   udp: true
   type: vless
-  uuid: 2f2ae482-5a3e-455e-aad6-4ac28a82f64f
-  tls: true
-  servername: cdn.astranet.ignorelist.com
-  skip-cert-verify: false
-  client-fingerprint: firefox
-  network: grpc
-  grpc-opts:
-    grpc-service-name: api.v1.ApiService
-- name: 🇩🇪 德国 (Germany) 07 - xiaohe
-  server: 8.209.74.72
-  port: 20001
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: PWpjPo3tqhPN4yRZ
-- name: 🇩🇪 德国 (Germany) 08 - xiaohe
-  server: 185.255.179.11
-  port: 9443
-  udp: true
-  type: vless
-  uuid: d9d0f208-d582-41d5-bb7b-742671402810
-  tls: true
-  servername: hub-de-04.hanvpn.cc
-  skip-cert-verify: false
-  network: grpc
-  grpc-opts:
-    grpc-service-name: de04-grpc-8e47a
-- name: 🇩🇪 德国 (Germany) 09 - xiaohe
-  server: 159.69.103.251
-  port: 2053
-  udp: true
-  type: vless
-  uuid: 6cf6bb53-9785-49d5-9d39-53b4de45ff84
-  flow: xtls-rprx-vision
+  uuid: 3255d065-119c-4103-a422-ea9d301b0707
   tls: true
   reality-opts:
-    public-key: W2V2xk0G3_neYDnTLNhaYxovp_ThMXDw68uweM12W2Y
-    short-id: 5ecb8c5a753a36fc
-  servername: 91.98.44.116
+    public-key: -XH2d9x4wRi--KvR6XTcZW9HXbikI2_262zfYDr1uFw
+    short-id: 690ec9207866c84e
+  servername: www.cloudflare.com
   client-fingerprint: chrome
-- name: 🇩🇪 德国 (Germany) 10 - xiaohe
+- name: 🇩🇪 德国 (Germany) 12 - xiaohe
   server: 82.118.19.153
   port: 443
   udp: true
@@ -109,17 +134,140 @@ proxies:
     short-id: 670ed9f350bd8ee0
   servername: www.cloudflare.com
   client-fingerprint: chrome
-- name: 🇩🇪 德国 (Germany) 11 - xiaohe
-  server: 57.129.96.67
+- name: 🇩🇪 德国 (Germany) 13 - xiaohe
+  server: 159.69.103.251
+  port: 80
+  udp: true
+  type: vless
+  uuid: 1bbef2cd-2851-4f00-b37e-a2478a1e5a70
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: 0Ag8wyoyN-M84yS4cbZ04wtqawZCHAzfKFT1A1xBFms
+    short-id: 253126232f9bb9be
+  servername: www.yahoo.com
+  client-fingerprint: chrome
+- name: 🇩🇪 德国 (Germany) 14 - xiaohe
+  server: 2.26.53.224
+  port: 5432
+  udp: true
+  type: vless
+  uuid: cc01f435-d561-4525-bf1f-7a9876d33207
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 2.26.53.224
+  skip-cert-verify: false
+  client-fingerprint: safari
+- name: 🇩🇪 德国 (Germany) 15 - xiaohe
+  server: 199.232.78.159
   port: 443
   udp: true
   type: vless
-  uuid: e8b1500b-e9e8-5492-8312-f4eadf7d0767
+  uuid: 9f714831-a392-429d-b09f-15f0e4653049
+  tls: true
+  servername: ssl.fastly.com
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: lsjaoijji.global.ssl.fastly.neT
+- name: 🇩🇪 德国 (Germany) 16 - xiaohe
+  server: node8.quaxly.com
+  port: 25040
+  udp: true
+  type: trojan
+  password: Km/pIG4AGCjCOiGWj5FsWA==
+  sni: /gay-anal
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+- name: 🇩🇪 德国 (Germany) 17 - xiaohe
+  server: de-node.rumedia-cdn.com
+  port: 25443
+  udp: true
+  type: hysteria2
+  password: 29ffde49-e1d6-4dcd-a135-352920f9f0b8
+  sni: cf6.rumedia-cdn.com
+  skip-cert-verify: false
+- name: 🇩🇪 德国 (Germany) 18 - xiaohe
+  server: 172.67.130.159
+  port: 2096
+  udp: true
+  type: vless
+  uuid: 735b8344-0b95-464c-b687-1c5616138908
+  tls: true
+  servername: cdn-de.skyvora.app
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /3cagtz3
+    headers:
+      Host: cdn-de.skyvora.app
+- name: 🇩🇪 德国 (Germany) 19 - xiaohe
+  server: 82.24.203.20
+  port: 2087
+  udp: true
+  type: vless
+  uuid: 5fcdc9b7-e70f-4a5c-85c3-e018ad818326
+  network: ws
+  ws-opts:
+    path: /fd5ba98a3970
+- name: 🇩🇪 德国 (Germany) 20 - xiaohe
+  server: 2.27.59.206
+  port: 443
+  udp: true
+  type: hysteria2
+  password: cd74c0a406664a5bc0bac098220a2468
+  sni: de1.sferavpn.pro
+  skip-cert-verify: false
+  obfs: salamander
+  obfs-password: 44f1c1e2f8b99e792ceed574627a1eb0
+- name: 🇩🇪 德国 (Germany) 21 - xiaohe
+  server: 178.215.236.95
+  port: 5432
+  udp: true
+  type: vless
+  uuid: cc01f435-d561-4525-bf1f-7a9876d33207
   flow: xtls-rprx-vision
   tls: true
-  servername: nasnet-571299667-direct.mbghalibaf.com
-  skip-cert-verify: true
-- name: 🇩🇪 德国 (Germany) 12 - xiaohe
+  servername: 178.215.236.95
+  skip-cert-verify: false
+  client-fingerprint: safari
+- name: 🇩🇪 德国 (Germany) 22 - xiaohe
+  server: rubifen.adaspoloandco.com
+  port: 443
+  udp: true
+  type: vless
+  uuid: cf39fab0-bb85-42cb-9945-2ad69d78e575
+  tls: true
+  servername: rubifen.adaspoloandco.com
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /GOrbEh
+- name: 🇩🇪 德国 (Germany) 23 - xiaohe
+  server: 130.61.232.101
+  port: 59924
+  udp: true
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: f+Q/z5EHlXtbRPZBqT8ygy+RUkwnc6kMcd8UY8iyxU8=
+- name: 🇩🇪 德国 (Germany) 24 - xiaohe
+  server: 193.58.121.224
+  port: 5432
+  udp: true
+  type: vless
+  uuid: cc01f435-d561-4525-bf1f-7a9876d33207
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 193.58.121.224
+  skip-cert-verify: false
+  client-fingerprint: safari
+- name: 🇩🇪 德国 (Germany) 25 - xiaohe
   server: 163.8.195.241
   port: 2087
   udp: true
@@ -128,7 +276,7 @@ proxies:
   network: ws
   ws-opts:
     path: /29c8fed7ca22
-- name: 🇩🇪 德国 (Germany) 13 - xiaohe
+- name: 🇩🇪 德国 (Germany) 26 - xiaohe
   server: 216.106.187.60
   port: 443
   udp: true
@@ -144,70 +292,13 @@ proxies:
     path: /linkvws
     headers:
       Host: kentspark.org
-- name: 🇩🇪 德国 (Germany) 14 - xiaohe
-  server: 34.185.172.52
-  port: 443
+- name: 🇩🇪 德国 (Germany) 27 - xiaohe
+  server: 130.61.235.137
+  port: 59924
   udp: true
-  type: vless
-  uuid: 3255d065-119c-4103-a422-ea9d301b0707
-  tls: true
-  reality-opts:
-    public-key: -XH2d9x4wRi--KvR6XTcZW9HXbikI2_262zfYDr1uFw
-    short-id: 690ec9207866c84e
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇩🇪 德国 (Germany) 15 - xiaohe
-  server: de-node.rumedia-cdn.com
-  port: 25443
-  udp: true
-  type: hysteria2
-  password: 29ffde49-e1d6-4dcd-a135-352920f9f0b8
-  sni: cf6.rumedia-cdn.com
-  skip-cert-verify: false
-- name: 🇩🇪 德国 (Germany) 16 - xiaohe
-  server: 172.67.130.159
-  port: 2096
-  udp: true
-  type: vless
-  uuid: 735b8344-0b95-464c-b687-1c5616138908
-  tls: true
-  servername: cdn-de.skyvora.app
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /3cagtz3
-    headers:
-      Host: cdn-de.skyvora.app
-- name: 🇩🇪 德国 (Germany) 17 - xiaohe
-  server: 216.106.187.60
-  port: 22324
-  udp: true
-  type: vmess
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
-- name: 🇩🇪 德国 (Germany) 18 - xiaohe
-  server: 45.32.157.84
-  port: 443
-  udp: true
-  type: trojan
-  password: Tg3RnK7Xp8B1
-  sni: ash.d50f6225-23b4-3a7b-9f15-a0fb2fc16803.kailib.com
-  skip-cert-verify: true
-- name: 🇩🇪 德国 (Germany) 19 - xiaohe
-  server: 31.56.189.27
-  port: 2087
-  udp: true
-  type: vless
-  uuid: df9f5aca-eda0-428f-a752-e53866153d12
-  tls: true
-  servername: srv-21bac9.vless.monster
-  skip-cert-verify: false
-  client-fingerprint: firefox
-  network: grpc
-  grpc-opts:
-    grpc-service-name: freegrpc
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: IJPKybdCWc1qvoGqy0e6tflGkAAKCXe9FaWcBTjgfDs=
 proxy-groups:
 - name: PROXIES
   type: select
@@ -232,6 +323,14 @@ proxy-groups:
   - 🇩🇪 德国 (Germany) 17 - xiaohe
   - 🇩🇪 德国 (Germany) 18 - xiaohe
   - 🇩🇪 德国 (Germany) 19 - xiaohe
+  - 🇩🇪 德国 (Germany) 20 - xiaohe
+  - 🇩🇪 德国 (Germany) 21 - xiaohe
+  - 🇩🇪 德国 (Germany) 22 - xiaohe
+  - 🇩🇪 德国 (Germany) 23 - xiaohe
+  - 🇩🇪 德国 (Germany) 24 - xiaohe
+  - 🇩🇪 德国 (Germany) 25 - xiaohe
+  - 🇩🇪 德国 (Germany) 26 - xiaohe
+  - 🇩🇪 德国 (Germany) 27 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -256,5 +355,13 @@ proxy-groups:
   - 🇩🇪 德国 (Germany) 17 - xiaohe
   - 🇩🇪 德国 (Germany) 18 - xiaohe
   - 🇩🇪 德国 (Germany) 19 - xiaohe
+  - 🇩🇪 德国 (Germany) 20 - xiaohe
+  - 🇩🇪 德国 (Germany) 21 - xiaohe
+  - 🇩🇪 德国 (Germany) 22 - xiaohe
+  - 🇩🇪 德国 (Germany) 23 - xiaohe
+  - 🇩🇪 德国 (Germany) 24 - xiaohe
+  - 🇩🇪 德国 (Germany) 25 - xiaohe
+  - 🇩🇪 德国 (Germany) 26 - xiaohe
+  - 🇩🇪 德国 (Germany) 27 - xiaohe
 rules:
 - MATCH,PROXIES

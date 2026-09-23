@@ -23,16 +23,8 @@ proxies:
     public-key: dB68n-Vyph0_KBtBIe45b5GCB4F1IqpBF_ohlN-KpkY
     short-id: 50440423703c945f
   servername: www.cloudflare.com
-  client-fingerprint: random
+  client-fingerprint: chrome
 - name: 🇮🇳 印度 (India) 03 - xiaohe
-  server: vpn-in-001.fastervpn.world
-  port: 443
-  udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: www.bing.com
-  skip-cert-verify: true
-- name: 🇮🇳 印度 (India) 04 - xiaohe
   server: 194.61.31.126
   port: 2053
   udp: true
@@ -43,18 +35,15 @@ proxies:
     public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
     short-id: 9980e0609b0d3891
   servername: www.apple.com
-  client-fingerprint: random
-- name: 🇮🇳 印度 (India) 05 - xiaohe
-  server: 152.67.8.205
-  port: 80
+  client-fingerprint: firefox
+- name: 🇮🇳 印度 (India) 04 - xiaohe
+  server: 35.154.58.87
+  port: 443
   udp: true
-  type: vmess
-  uuid: 9db4c708-aef8-4359-821b-38e47990be0d
-  alterId: 0
-  cipher: auto
-  network: ws
-  ws-opts:
-    path: /
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: vpn-in-001.fastervpn.world
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -64,7 +53,6 @@ proxy-groups:
   - 🇮🇳 印度 (India) 02 - xiaohe
   - 🇮🇳 印度 (India) 03 - xiaohe
   - 🇮🇳 印度 (India) 04 - xiaohe
-  - 🇮🇳 印度 (India) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -74,6 +62,5 @@ proxy-groups:
   - 🇮🇳 印度 (India) 02 - xiaohe
   - 🇮🇳 印度 (India) 03 - xiaohe
   - 🇮🇳 印度 (India) 04 - xiaohe
-  - 🇮🇳 印度 (India) 05 - xiaohe
 rules:
 - MATCH,PROXIES
