@@ -13,20 +13,18 @@ proxies:
   alterId: 0
   cipher: auto
 - name: 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
-  server: 208.103.161.5
+  server: 51.161.204.244
   port: 443
   udp: true
   type: vless
-  uuid: d042a74a-c305-4eec-a89f-39a348022c92
+  uuid: 36e89875-9c53-482b-bc41-d3890e9da176
+  flow: xtls-rprx-vision
   tls: true
-  servername: dry-butterfly-8eb9.tmpgnacio83.workers.dev
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: dry-butterfly-8eb9.tmpgnacio83.workers.dev
+  reality-opts:
+    public-key: gCAazs5uxNuMZIxfDdw8wPE0nwKY4QfBfBkQveKAkEk
+    short-id: 0ad08b47f498efd2
+  servername: www.cloudflare.com
+  client-fingerprint: random
 - name: 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
   server: 34.87.244.111
   port: 443
@@ -52,24 +50,11 @@ proxies:
   servername: www.cloudflare.com
   client-fingerprint: random
 - name: 🇦🇺 澳大利亚 (Australia) 05 - xiaohe
-  server: 51.161.204.244
-  port: 443
-  udp: true
-  type: vless
-  uuid: 36e89875-9c53-482b-bc41-d3890e9da176
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: gCAazs5uxNuMZIxfDdw8wPE0nwKY4QfBfBkQveKAkEk
-    short-id: 0ad08b47f498efd2
-  servername: www.cloudflare.com
-  client-fingerprint: random
-- name: 🇦🇺 澳大利亚 (Australia) 06 - xiaohe
   server: au1.gsafevpnapi.com
   port: 20270
   udp: true
   type: vless
-  uuid: 38b8e2fb-b9a0-40a6-b42c-335def2765cf
+  uuid: 3da32b09-10e5-4ef9-b422-2e476dd72d87
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
@@ -87,7 +72,6 @@ proxy-groups:
   - 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
   - 🇦🇺 澳大利亚 (Australia) 04 - xiaohe
   - 🇦🇺 澳大利亚 (Australia) 05 - xiaohe
-  - 🇦🇺 澳大利亚 (Australia) 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -98,6 +82,5 @@ proxy-groups:
   - 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
   - 🇦🇺 澳大利亚 (Australia) 04 - xiaohe
   - 🇦🇺 澳大利亚 (Australia) 05 - xiaohe
-  - 🇦🇺 澳大利亚 (Australia) 06 - xiaohe
 rules:
 - MATCH,PROXIES

@@ -5,16 +5,18 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇹 奥地利 (Austria) 01 - xiaohe
-  server: 212.183.88.136
-  port: 443
+  server: 195.74.90.115
+  port: 9443
   udp: true
-  type: trojan
-  password: humanity
-  sni: www.calmlunch.com
+  type: vless
+  uuid: d9d0f208-d582-41d5-bb7b-742671402810
+  tls: true
+  servername: hub-vie-01.hanvpn.cc
   skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /assignment
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vie01-grpc-8e47a
 proxy-groups:
 - name: PROXIES
   type: select

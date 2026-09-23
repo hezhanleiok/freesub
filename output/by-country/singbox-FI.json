@@ -6,40 +6,20 @@
     {
       "type": "vless",
       "tag": "🇫🇮 芬兰 (Finland) 01 - xiaohe",
-      "server": "151.101.56.7",
-      "server_port": 443,
-      "uuid": "8abb648a-b004-42a4-aa05-49cdc2f94d4e",
+      "server": "185.79.138.71",
+      "server_port": 448,
+      "uuid": "0b0915d7-6800-4580-a44b-77d84f105e6a",
       "tls": {
         "enabled": true,
-        "server_name": "global.fastly.com",
-        "insecure": false,
+        "server_name": "www.samsung.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "kayko.global.ssl.fastly.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇫🇮 芬兰 (Finland) 02 - xiaohe",
-      "server": "193.23.201.65",
-      "server_port": 5432,
-      "uuid": "e84e0918-68ca-4fcc-a1d1-b566fd9ac7ee",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "193.23.201.65",
-        "insecure": false,
-        "utls": {
+          "fingerprint": "chrome"
+        },
+        "reality": {
           "enabled": true,
-          "fingerprint": "safari"
+          "public_key": "CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8",
+          "short_id": "cd21e552537c7c0b"
         }
       }
     },
@@ -48,16 +28,14 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇫🇮 芬兰 (Finland) 01 - xiaohe",
-        "🇫🇮 芬兰 (Finland) 02 - xiaohe"
+        "🇫🇮 芬兰 (Finland) 01 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇫🇮 芬兰 (Finland) 01 - xiaohe",
-        "🇫🇮 芬兰 (Finland) 02 - xiaohe"
+        "🇫🇮 芬兰 (Finland) 01 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

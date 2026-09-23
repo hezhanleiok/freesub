@@ -1,0 +1,42 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇧🇷 巴西 (Brazil) 01 - xiaohe
+  server: 172.233.14.17
+  port: 22324
+  udp: true
+  type: vmess
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+- name: 🇧🇷 巴西 (Brazil) 02 - xiaohe
+  server: 35.199.90.53
+  port: 443
+  udp: true
+  type: vless
+  uuid: e9c2ed7f-79ab-40a8-8910-24468f5da712
+  tls: true
+  reality-opts:
+    public-key: 0WXz3PJQnr-KprrwiO5BlKVRdqA4ZS6U5jGHc_aeJnw
+    short-id: 4b414f69a06e1e81
+  servername: www.cloudflare.com
+  client-fingerprint: ios
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇧🇷 巴西 (Brazil) 01 - xiaohe
+  - 🇧🇷 巴西 (Brazil) 02 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇧🇷 巴西 (Brazil) 01 - xiaohe
+  - 🇧🇷 巴西 (Brazil) 02 - xiaohe
+rules:
+- MATCH,PROXIES
