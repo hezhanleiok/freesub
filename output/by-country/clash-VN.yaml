@@ -4,31 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
+- name: 🇻🇳 VN 01 - xiaohe
   type: vless
-  server: 59.125.69.24
+  server: 160.187.1.101
   port: 443
-  uuid: 06e177f7-240d-4687-bd85-235505801a5e
+  uuid: c92e12ca-ea66-4785-8675-652b35134117
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ty986gfazs.cainiaohub.xyz
+  servername: thus-k.netnode.cc.cd
   network: ws
   ws-opts:
-    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
+    path: /t.me/daily_free_vpn
     headers:
-      Host: 59.125.69.24
+      Host: thus-k.netnode.cc.cd
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
+  - 🇻🇳 VN 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
+  - 🇻🇳 VN 01 - xiaohe
 rules:
 - MATCH,PROXIES

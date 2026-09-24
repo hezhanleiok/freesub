@@ -4,11 +4,11 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇱🇰 LK 01 - xiaohe
+- name: 🇪🇪 EE 01 - xiaohe
   type: vless
-  server: free.sahanwickramasinghe.me
-  port: 80
-  uuid: 684f9a2e-4f96-497f-bfd9-ff1e34637952
+  server: 94.183.170.135
+  port: 443
+  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
   udp: true
   tls: false
   skip-cert-verify: true
@@ -16,29 +16,29 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: free.sahanwickramasinghe.me
-- name: 🇱🇰 LK 02 - xiaohe
+      Host: 94.183.170.135
+- name: 🇪🇪 EE 02 - xiaohe
   type: vless
-  server: free.sahanwickramasinghe.me
-  port: 443
-  uuid: 3d08ed67-5a47-42d3-a948-ebc7d2eb21f7
+  server: 94.183.170.135
+  port: 8443
+  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: aka.ms
+  servername: estproxy4.lockdwn.com
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇱🇰 LK 01 - xiaohe
-  - 🇱🇰 LK 02 - xiaohe
+  - 🇪🇪 EE 01 - xiaohe
+  - 🇪🇪 EE 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇱🇰 LK 01 - xiaohe
-  - 🇱🇰 LK 02 - xiaohe
+  - 🇪🇪 EE 01 - xiaohe
+  - 🇪🇪 EE 02 - xiaohe
 rules:
 - MATCH,PROXIES

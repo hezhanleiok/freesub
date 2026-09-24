@@ -8,7 +8,7 @@ proxies:
   type: vless
   server: k2.cloud--vpn.site
   port: 443
-  uuid: 1fac5e18-2ca8-4626-c299-1f3f21c6b55e
+  uuid: 64c2bc5c-7534-4359-9b1e-e1dce5a380cd
   udp: true
   tls: true
   skip-cert-verify: true
@@ -20,23 +20,30 @@ proxies:
       Host: c12.com
 - name: 🇫🇮 FI 02 - xiaohe
   type: vless
-  server: 151.101.56.6
+  server: k2.cloud--vpn.site
   port: 443
-  uuid: 1fac5e18-2ca8-4626-c299-1f3f21c6b55e
+  uuid: 64c2bc5c-7534-4359-9b1e-e1dce5a380cd
   udp: true
   tls: true
   skip-cert-verify: true
   servername: ssl.fastly.com
   network: ws
   ws-opts:
-    path: /?
+    path: /?edTelegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
     headers:
       Host: c12.com
 - name: 🇫🇮 FI 03 - xiaohe
+  type: ss
+  server: p1tun4.greewebservices.ir
+  port: 1080
+  cipher: chacha20-ietf-poly1305
+  password: cVvgP0Bz69hsErPBvqKbwQ
+  udp: true
+- name: 🇫🇮 FI 04 - xiaohe
   type: vless
   server: a2.arshia-nova.ir
   port: 443
-  uuid: 1fac5e18-2ca8-4626-c299-1f3f21c6b55e
+  uuid: 64c2bc5c-7534-4359-9b1e-e1dce5a380cd
   udp: true
   tls: true
   skip-cert-verify: true
@@ -46,18 +53,36 @@ proxies:
     path: /
     headers:
       Host: c12.com
-- name: 🇫🇮 FI 04 - xiaohe
+- name: 🇫🇮 FI 05 - xiaohe
   type: vless
-  server: 185.79.138.71
-  port: 448
-  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+  server: 151.101.56.6
+  port: 443
+  uuid: 64c2bc5c-7534-4359-9b1e-e1dce5a380cd
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
-  servername: www.samsung.com
-  client-fingerprint: chrome
+  servername: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /?TELEGRAM--BYA---@CoonfigCloud---@CoonfigCloud@CoonfigCloud---@CoonfigCloud@CoonfigCloud---@CoonfigCloud@CoonfigCloud---@CoonfigCloud@CoonfigCloud---@CoonfigCloud@CoonfigCloud---@CoonfigCloud@CoonfigCloud---@CoonfigCloud@CoonfigCloud---@CoonfigCloud
+    headers:
+      Host: c12.com
+- name: 🇫🇮 FI 06 - xiaohe
+  type: ss
+  server: p1tun3.greewebservices.ir
+  port: 2070
+  cipher: chacha20-ietf-poly1305
+  password: cVvgP0Bz69hsErPBvqKbwQ
+  udp: true
+- name: 🇫🇮 FI 07 - xiaohe
+  type: vless
+  server: karo.rick313.dpdns.org
+  port: 2087
+  uuid: 2e4e6812-be87-415b-a2e8-b0e17e9f2da7
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: karo.rick313.dpdns.org
 proxy-groups:
 - name: PROXIES
   type: select
@@ -67,6 +92,9 @@ proxy-groups:
   - 🇫🇮 FI 02 - xiaohe
   - 🇫🇮 FI 03 - xiaohe
   - 🇫🇮 FI 04 - xiaohe
+  - 🇫🇮 FI 05 - xiaohe
+  - 🇫🇮 FI 06 - xiaohe
+  - 🇫🇮 FI 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -76,5 +104,8 @@ proxy-groups:
   - 🇫🇮 FI 02 - xiaohe
   - 🇫🇮 FI 03 - xiaohe
   - 🇫🇮 FI 04 - xiaohe
+  - 🇫🇮 FI 05 - xiaohe
+  - 🇫🇮 FI 06 - xiaohe
+  - 🇫🇮 FI 07 - xiaohe
 rules:
 - MATCH,PROXIES

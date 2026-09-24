@@ -4,30 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
+- name: 🇨🇱 CL 01 - xiaohe
   type: vless
-  server: 162.159.43.187
-  port: 2082
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  server: platform108.golnamakcert.top
+  port: 80
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /?ed=2560security=tls
+    path: /platform108
     headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+      Host: platform108.halalkhor.info
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
+  - 🇨🇱 CL 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
+  - 🇨🇱 CL 01 - xiaohe
 rules:
 - MATCH,PROXIES
