@@ -5,24 +5,55 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇸 西班牙 (Spain) 01 - wangyu
-  type: vless
-  server: 196.245.52.147
-  port: 25535
-  uuid: c379d8e4-c67d-42ec-a3ed-ca99d1ad0546
+  type: vmess
+  server: mygptagent.org
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: Jh7CocBJSA55VZcLfXwXwoQ_Hi5pV-L1vv1SY-IrSh4
-  servername: www.microsoft.com
-  client-fingerprint: qq
+  servername: mygptagent.org
+  network: ws
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: mygptagent.org
 - name: 🇪🇸 西班牙 (Spain) 02 - wangyu
+  type: ss
+  server: 108.181.121.226
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: WSyL4XTwNsdv
+  udp: true
+- name: 🇪🇸 西班牙 (Spain) 03 - wangyu
   type: ss
   server: 140.174.184.5
   port: 8388
   cipher: chacha20-ietf-poly1305
   password: qItG8SueYQcP
   udp: true
+- name: 🇪🇸 西班牙 (Spain) 04 - wangyu
+  type: vmess
+  server: 66.163.118.73
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇪🇸 西班牙 (Spain) 05 - wangyu
+  type: vmess
+  server: 66.163.118.73
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -30,6 +61,9 @@ proxy-groups:
   - AUTO
   - 🇪🇸 西班牙 (Spain) 01 - wangyu
   - 🇪🇸 西班牙 (Spain) 02 - wangyu
+  - 🇪🇸 西班牙 (Spain) 03 - wangyu
+  - 🇪🇸 西班牙 (Spain) 04 - wangyu
+  - 🇪🇸 西班牙 (Spain) 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -37,5 +71,8 @@ proxy-groups:
   proxies:
   - 🇪🇸 西班牙 (Spain) 01 - wangyu
   - 🇪🇸 西班牙 (Spain) 02 - wangyu
+  - 🇪🇸 西班牙 (Spain) 03 - wangyu
+  - 🇪🇸 西班牙 (Spain) 04 - wangyu
+  - 🇪🇸 西班牙 (Spain) 05 - wangyu
 rules:
 - MATCH,PROXIES
