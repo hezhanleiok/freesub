@@ -6,23 +6,23 @@ log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - wangyu
   type: vless
-  server: 151.101.56.6
+  server: k2.cloud--vpn.site
   port: 443
-  uuid: 622cd467-ae00-4afe-b7ee-15dca6b9649a
+  uuid: 64c2bc5c-7534-4359-9b1e-e1dce5a380cd
   udp: true
   tls: true
   skip-cert-verify: true
   servername: ssl.fastly.com
   network: ws
   ws-opts:
-    path: /?TELEGRAM--BYA--CHANEL---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN--@JKVPN---@JKVPN---@JKVPN---@JKVPNfp=chrome
+    path: /?edTelegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
     headers:
       Host: c12.com
 - name: 🇫🇮 FI 02 - wangyu
   type: vless
-  server: 151.101.56.6
+  server: k2.cloud--vpn.site
   port: 443
-  uuid: 622cd467-ae00-4afe-b7ee-15dca6b9649a
+  uuid: 64c2bc5c-7534-4359-9b1e-e1dce5a380cd
   udp: true
   tls: true
   skip-cert-verify: true
@@ -34,16 +34,27 @@ proxies:
       Host: c12.com
 - name: 🇫🇮 FI 03 - wangyu
   type: vless
-  server: 185.79.138.71
-  port: 448
-  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+  server: karo.rick313.dpdns.org
+  port: 2087
+  uuid: 2e4e6812-be87-415b-a2e8-b0e17e9f2da7
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
-  servername: www.samsung.com
-  client-fingerprint: chrome
+  servername: karo.rick313.dpdns.org
+- name: 🇫🇮 FI 04 - wangyu
+  type: vless
+  server: a2.arshia-nova.ir
+  port: 443
+  uuid: 64c2bc5c-7534-4359-9b1e-e1dce5a380cd
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: c12.com
 proxy-groups:
 - name: PROXIES
   type: select
@@ -52,6 +63,7 @@ proxy-groups:
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
   - 🇫🇮 FI 03 - wangyu
+  - 🇫🇮 FI 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -60,5 +72,6 @@ proxy-groups:
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
   - 🇫🇮 FI 03 - wangyu
+  - 🇫🇮 FI 04 - wangyu
 rules:
 - MATCH,PROXIES
