@@ -5,14 +5,40 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
-  server: 91.240.86.70
-  port: 22443
+  server: 91.196.32.163
+  port: 443
   udp: true
   type: hysteria2
-  password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
-  sni: hy.quattro-tech.ru
+  password: mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj
+  sni: germany3.h2corp.local
   skip-cert-verify: true
 - name: 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
+  server: 91.196.32.216
+  port: 9543
+  udp: true
+  type: vless
+  uuid: ff6d2dda-7b90-404e-9951-34b3124bfdfa
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: M6Ck7wUfOLhQl4582CBnaXwscPEP6SCpdEkUDzoj4Fc
+    short-id: 123abcdf
+  servername: storage.yandexcloud.net
+  client-fingerprint: chrome
+- name: 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
+  server: 138.124.121.233
+  port: 443
+  udp: true
+  type: vless
+  uuid: 8e826a69-63f6-0001-a67d-4a1958e8b2d2
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: WWeAHWUVD-phmnjNJ823cer0c4CMIbEs08AhsuEZmDc
+    short-id: a696de84963656de
+  servername: amd.com
+  client-fingerprint: firefox
+- name: 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
   server: 217.19.122.65
   port: 443
   udp: true
@@ -27,7 +53,7 @@ proxies:
     path: /ws
     headers:
       Host: fbsv6.guardora.pro
-- name: 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
+- name: 🇷🇺 俄罗斯 (Russia) 05 - xiaohe
   server: 193.151.108.35
   port: 43000
   udp: true
@@ -40,6 +66,20 @@ proxies:
     short-id: 75df7f65ba2a8155
   servername: 193.151.108.35
   client-fingerprint: safari
+- name: 🇷🇺 俄罗斯 (Russia) 06 - xiaohe
+  server: 46.8.200.91
+  port: 443
+  udp: true
+  type: vless
+  uuid: b8201bab-fa6c-4f6e-b289-b5da660c6f69
+  tls: true
+  servername: cf3.rumedia-cdn.com
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /cdn/v3/live
+    headers:
+      Host: cf3.rumedia-cdn.com
 proxy-groups:
 - name: PROXIES
   type: select
@@ -48,6 +88,9 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 05 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -56,5 +99,8 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 05 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 06 - xiaohe
 rules:
 - MATCH,PROXIES
