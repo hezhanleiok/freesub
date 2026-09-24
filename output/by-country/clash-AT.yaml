@@ -5,19 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇹 奥地利 (Austria) 01 - xiaohe
-  server: 45.86.245.107
-  port: 5865
-  udp: true
-  type: vless
-  uuid: ce230b9c-0531-40da-bc3f-f27a8e059db1
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: 1UlHWXQ11dMmBYHq7XYsyKnfPVGTh9UssmiJE_zRnjI
-    short-id: a4f7c2e91b6d8035
-  servername: ru.vkroom-it-service.xyz
-  client-fingerprint: safari
-- name: 🇦🇹 奥地利 (Austria) 02 - xiaohe
   server: 82.110.60.9
   port: 19999
   udp: true
@@ -30,13 +17,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇦🇹 奥地利 (Austria) 01 - xiaohe
-  - 🇦🇹 奥地利 (Austria) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇦🇹 奥地利 (Austria) 01 - xiaohe
-  - 🇦🇹 奥地利 (Austria) 02 - xiaohe
 rules:
 - MATCH,PROXIES
