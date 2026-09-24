@@ -4,26 +4,23 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇱🇰 斯里兰卡 (Sri Lanka) 01 - xiaohe
-  server: free.sahanwickramasinghe.me
-  port: 80
+- name: 🇨🇴 哥伦比亚 (Colombia) 01 - xiaohe
+  server: 157.137.219.244
+  port: 62145
   udp: true
   type: vless
-  uuid: 684f9a2e-4f96-497f-bfd9-ff1e34637952
-  network: ws
-  ws-opts:
-    path: /
+  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇱🇰 斯里兰卡 (Sri Lanka) 01 - xiaohe
+  - 🇨🇴 哥伦比亚 (Colombia) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇱🇰 斯里兰卡 (Sri Lanka) 01 - xiaohe
+  - 🇨🇴 哥伦比亚 (Colombia) 01 - xiaohe
 rules:
 - MATCH,PROXIES
