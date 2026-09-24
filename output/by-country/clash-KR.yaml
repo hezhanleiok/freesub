@@ -5,22 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇷 韩国 (South Korea) 01 - xiaohe
-  server: 132.226.226.189
-  port: 50160
+  server: 211.178.105.134
+  port: 6123
   udp: true
-  type: hysteria2
-  password: 1671a252e2a97dc2bda4e515475931da
-  sni: www.bing.com
-  skip-cert-verify: true
+  type: ss
+  cipher: aes-256-cfb
+  password: qwerREWQ@@
 - name: 🇰🇷 韩国 (South Korea) 02 - xiaohe
-  server: 152.70.237.123
-  port: 2053
-  udp: true
-  type: hysteria2
-  password: maintell
-  sni: bing.com
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
   server: 3.39.4.109
   port: 13672
   udp: true
@@ -33,7 +24,7 @@ proxies:
     short-id: 48050fab
   servername: www.apple.com
   client-fingerprint: chrome
-- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
   server: 3.39.4.109
   port: 18967
   udp: true
@@ -46,7 +37,23 @@ proxies:
     short-id: 48050fab
   servername: www.apple.com
   client-fingerprint: chrome
+- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
+  server: 3.36.93.74
+  port: 443
+  udp: true
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: t.me
+  skip-cert-verify: true
 - name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
+  server: 152.67.200.82
+  port: 50160
+  udp: true
+  type: hysteria2
+  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
+  sni: 152.67.200.82
+  skip-cert-verify: true
+- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
   server: kr2-r.link-t7.com
   port: 10047
   udp: true
@@ -61,7 +68,7 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: update
-- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
   server: 152.69.231.175
   port: 50160
   udp: true
@@ -69,15 +76,15 @@ proxies:
   password: 1beb216e3f60aea9555dae60d219a5ca
   sni: 152-69-231-175.liao.kdns.fr
   skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
-  server: 152.67.200.82
+- name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
+  server: 150-230-252-217.liao.kdns.fr
   port: 50160
   udp: true
   type: hysteria2
-  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
-  sni: 152-67-200-82.liao.kdns.fr
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
+  password: 9cfc9458e48c028ec03ff86ebc71c744
+  sni: 150-230-252-217.liao.kdns.fr
+  skip-cert-verify: false
+- name: 🇰🇷 韩国 (South Korea) 09 - xiaohe
   server: 151.245.106.49
   port: 2053
   udp: true
@@ -88,24 +95,8 @@ proxies:
     public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
     short-id: 429499c03d4cc8a0
   servername: www.cloudflare.com
-  client-fingerprint: random
-- name: 🇰🇷 韩国 (South Korea) 09 - xiaohe
-  server: 3.36.93.74
-  port: 443
-  udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: t.me
-  skip-cert-verify: true
+  client-fingerprint: firefox
 - name: 🇰🇷 韩国 (South Korea) 10 - xiaohe
-  server: 150-230-252-217.liao.kdns.fr
-  port: 50160
-  udp: true
-  type: hysteria2
-  password: 9cfc9458e48c028ec03ff86ebc71c744
-  sni: 150-230-252-217.liao.kdns.fr
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 11 - xiaohe
   server: 154.90.62.70
   port: 56127
   udp: true
@@ -113,26 +104,29 @@ proxies:
   password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
   sni: 154.90.62.70
   skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 12 - xiaohe
-  server: 8mc0z4qk-7n2r-5t9x-0r6p-3a4w8k1d9e2.edge.ccdn3.work
-  port: 20158
+- name: 🇰🇷 韩国 (South Korea) 11 - xiaohe
+  server: 140.238.2.250
+  port: 443
   udp: true
-  type: vless
-  uuid: d09c4ed0-a8bf-11f0-b155-cb2d176add19
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: zYijLoutrnnrwLpLXaL9KAIT9siijcdajF8blOfgSxM
-    short-id: 33f6498052e5cb1a
-  servername: www.bilibili.com
-  client-fingerprint: firefox
+  type: vmess
+  uuid: 41a7089a-040b-4538-8b8d-010902405bde
+  alterId: 0
+  cipher: auto
+- name: 🇰🇷 韩国 (South Korea) 12 - xiaohe
+  server: vpn-kr-002.fastervpn.world
+  port: 443
+  udp: true
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ9wR5tF6vB3z
+  sni: vpn-kr-002.fastervpn.world
+  skip-cert-verify: true
 - name: 🇰🇷 韩国 (South Korea) 13 - xiaohe
   server: 141.164.45.187
-  port: 6679
+  port: 5498
   udp: true
   type: ss
   cipher: aes-256-gcm
-  password: TEzjfAYq2IjtuoS
+  password: lGqs95QkFHo2NV
 proxy-groups:
 - name: PROXIES
   type: select
