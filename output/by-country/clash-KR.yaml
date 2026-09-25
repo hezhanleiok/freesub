@@ -6,23 +6,31 @@ log-level: info
 proxies:
 - name: 🇰🇷 韩国 (South Korea) 01 - xiaohe
   type: vless
-  server: 151.245.106.49
-  port: 2053
-  uuid: a2de9567-9646-45a9-a410-7303a43bdb6c
+  server: 123.111.169.70
+  port: 2096
+  uuid: 3db635e4-f9ec-42d6-8aba-e23df8b0e6da
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
-  servername: www.cloudflare.com
-  client-fingerprint: firefox
+  servername: mia12.pages.dev
+  network: ws
+  ws-opts:
+    path: /TG:@MiaChatChannel
+    headers:
+      Host: mia12.pages.dev
 - name: 🇰🇷 韩国 (South Korea) 02 - xiaohe
-  type: ss
-  server: 141.164.45.187
-  port: 9090
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
+  type: vless
+  server: 172.64.88.251
+  port: 8880
+  uuid: 87a5d3eb-afd4-4193-9787-c54ef7c26c8c
   udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: patient-cake-39c7.44-e7a.workers.dev
 - name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
   type: vless
   server: 151.245.106.49
@@ -35,6 +43,105 @@ proxies:
     public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
   servername: www.cloudflare.com
   client-fingerprint: random
+- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
+  type: vless
+  server: 172.64.88.251
+  port: 8880
+  uuid: 7e3cd2f1-0de5-4717-9002-64d8597bc577
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: dry-credit-fc26.203-d8c.workers.dev
+- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
+  type: vless
+  server: 151.245.106.49
+  port: 2053
+  uuid: a2de9567-9646-45a9-a410-7303a43bdb6c
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
+- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: 0ed342c3-eb45-4d63-83a1-697252636ca9
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: yellow-hall-d482.260-d22.workers.dev
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: yellow-hall-d482.260-d22.workers.dev
+- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
+  type: vless
+  server: 47.80.57.116
+  port: 443
+  uuid: 3db635e4-f9ec-42d6-8aba-e23df8b0e6da
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: mia6.pages.dev
+  network: ws
+  ws-opts:
+    path: /TG:@MiaChatChannel
+    headers:
+      Host: mia6.pages.dev
+- name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
+  type: ss
+  server: 141.164.45.187
+  port: 5498
+  cipher: aes-256-gcm
+  password: lGqs95QkFHo2NV
+  udp: true
+- name: 🇰🇷 韩国 (South Korea) 09 - xiaohe
+  type: vless
+  server: 104.18.11.118
+  port: 8880
+  uuid: 17b2ed22-5fd0-47ad-b5f0-658379379ced
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: black-wildflower-dd92.72-1e8.workers.dev
+- name: 🇰🇷 韩国 (South Korea) 10 - xiaohe
+  type: vless
+  server: 172.66.170.53
+  port: 8880
+  uuid: 38ede46b-d237-4c76-9de1-a10738642adc
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: summer-hat-ba5c.430.workers.dev
+- name: 🇰🇷 韩国 (South Korea) 11 - xiaohe
+  type: vless
+  server: 172.67.174.37
+  port: 8880
+  uuid: b2c879ed-08a2-4a79-9c57-37c7db614e96
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: sweet-cake-1340.474-288.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
@@ -43,6 +150,14 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 01 - xiaohe
   - 🇰🇷 韩国 (South Korea) 02 - xiaohe
   - 🇰🇷 韩国 (South Korea) 03 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 04 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 05 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 06 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 07 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 08 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 09 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 10 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 11 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -51,5 +166,13 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 01 - xiaohe
   - 🇰🇷 韩国 (South Korea) 02 - xiaohe
   - 🇰🇷 韩国 (South Korea) 03 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 04 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 05 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 06 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 07 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 08 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 09 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 10 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 11 - xiaohe
 rules:
 - MATCH,PROXIES
