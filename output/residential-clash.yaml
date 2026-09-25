@@ -4,7 +4,20 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
+- name: 🇺🇸 美国 (United States) 01 (家宽) - wangyu
+  type: vless
+  server: 188.114.97.6
+  port: 2082
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
   type: vless
   server: 59.125.69.24
   port: 443
@@ -18,20 +31,6 @@ proxies:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
       Host: 59.125.69.24
-- name: 🇺🇸 美国 (United States) 02 (家宽) - wangyu
-  type: vless
-  server: 162.159.91.222
-  port: 443
-  uuid: 50414e45-4c5f-5a45-5553-723a643df685
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: n3zaxce7u0es.crzl48eiuses.workers.dev
-  network: ws
-  ws-opts:
-    path: /stream/PANEL_ZEUS/723a643df685/loc-0
-    headers:
-      Host: n3zaxce7u0es.crzl48eiuses.workers.dev
 - name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
   type: vless
   server: 118.167.230.191
@@ -44,39 +43,21 @@ proxies:
     public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
   servername: addons.mozilla.org
   client-fingerprint: edge
-- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
-  type: vmess
-  server: 61.223.124.196
-  port: 443
-  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 24864168545164.oylfmxz.cn
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 24864168545164.oylfmxz.cn
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
-  - 🇺🇸 美国 (United States) 02 (家宽) - wangyu
+  - 🇺🇸 美国 (United States) 01 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
-  - 🇺🇸 美国 (United States) 02 (家宽) - wangyu
+  - 🇺🇸 美国 (United States) 01 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

@@ -20,7 +20,19 @@ proxies:
       Host: c12.com
 - name: 🇫🇮 FI 02 - wangyu
   type: vless
-  server: k2.cloud--vpn.site
+  server: me1.movieseryalirani.ir
+  port: 443
+  uuid: 63aaea7f-2847-4f41-afab-0836b1cf79d9
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: CxRZ7oJWwR7okmOoqEEbVYCSfTaBlNA6ycf_UniyeEk
+  servername: matrix-client.matrix.org
+  client-fingerprint: firefox
+- name: 🇫🇮 FI 03 - wangyu
+  type: vless
+  server: 151.101.56.6
   port: 443
   uuid: 64c2bc5c-7534-4359-9b1e-e1dce5a380cd
   udp: true
@@ -29,19 +41,33 @@ proxies:
   servername: ssl.fastly.com
   network: ws
   ws-opts:
-    path: /?edTelegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+    path: /
     headers:
       Host: c12.com
-- name: 🇫🇮 FI 03 - wangyu
-  type: vmess
-  server: me6.movieseryalirani.ir
-  port: 57361
-  uuid: ed815caa-bff1-4419-8c61-1d108eabaf1f
-  alterId: 0
-  cipher: auto
+- name: 🇫🇮 FI 04 - wangyu
+  type: vless
+  server: 185.79.138.71
+  port: 448
+  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  reality-opts:
+    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
+  servername: www.samsung.com
+  client-fingerprint: chrome
+- name: 🇫🇮 FI 05 - wangyu
+  type: vless
+  server: 185.79.138.71
+  port: 448
+  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
+  servername: www.samsung.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -50,6 +76,8 @@ proxy-groups:
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
   - 🇫🇮 FI 03 - wangyu
+  - 🇫🇮 FI 04 - wangyu
+  - 🇫🇮 FI 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -58,5 +86,7 @@ proxy-groups:
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
   - 🇫🇮 FI 03 - wangyu
+  - 🇫🇮 FI 04 - wangyu
+  - 🇫🇮 FI 05 - wangyu
 rules:
 - MATCH,PROXIES
