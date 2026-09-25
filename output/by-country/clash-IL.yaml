@@ -6,7 +6,7 @@ log-level: info
 proxies:
 - name: 🇮🇱 IL 01 - xiaohe
   type: vless
-  server: platform113.golnamakcert.top
+  server: platform115.golnamakcert.top
   port: 80
   uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
   udp: true
@@ -14,20 +14,36 @@ proxies:
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /platform113
+    path: /platform115
     headers:
-      Host: platform113.halalkhor.info
+      Host: platform115.golnamakcert.top
+- name: 🇮🇱 IL 02 - xiaohe
+  type: vless
+  server: fserver-worker-001.mapleridgeway.top
+  port: 443
+  uuid: 83b4af70-376e-427c-8c11-a025bec6b085
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: fserver-worker-001.mapleridgeway.top
+  network: ws
+  ws-opts:
+    path: /cdn/99294c014f2c7791?ed=2056
+    headers:
+      Host: fserver-worker-001.mapleridgeway.top
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇱 IL 01 - xiaohe
+  - 🇮🇱 IL 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇮🇱 IL 01 - xiaohe
+  - 🇮🇱 IL 02 - xiaohe
 rules:
 - MATCH,PROXIES
