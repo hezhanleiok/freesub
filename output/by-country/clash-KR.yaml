@@ -5,36 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇷 韩国 (South Korea) 01 - xiaohe
-  server: 141.164.45.187
-  port: 6679
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: TEzjfAYq2IjtuoS
-- name: 🇰🇷 韩国 (South Korea) 02 - xiaohe
-  server: 152.67.200.82
-  port: 50160
-  udp: true
-  type: hysteria2
-  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
-  sni: speedtest.tinkoff.ru
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
-  server: 152.69.231.175
-  port: 50160
-  udp: true
-  type: hysteria2
-  password: 1beb216e3f60aea9555dae60d219a5ca
-  sni: 152-69-231-175.liao.kdns.fr
-  skip-cert-verify: false
-- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
-  server: 141.164.45.187
-  port: 5498
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: lGqs95QkFHo2NV
-- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
   server: 3.39.4.109
   port: 18967
   udp: true
@@ -46,29 +16,24 @@ proxies:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
   servername: www.apple.com
-  client-fingerprint: edge
-- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
-  server: 132.226.226.189
+  client-fingerprint: random
+- name: 🇰🇷 韩国 (South Korea) 02 - xiaohe
+  server: 152.67.200.82
   port: 50160
   udp: true
   type: hysteria2
-  password: 1671a252e2a97dc2bda4e515475931da
-  sni: www.bing.com
+  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
+  sni: whatsapp.com
   skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
-  server: 43.108.9.116
-  port: 443
+- name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
+  server: 152.70.237.123
+  port: 2053
   udp: true
-  type: vless
-  uuid: 5c9884a1-b641-4299-82ac-fc62da2327a7
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: vHl4olGSvL-LqhD2-yclHQWTupy6w02lSp3q8WVUUAU
-    short-id: cd6caa470bec865e
-  servername: www.apple.com
-  client-fingerprint: random
-- name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
+  type: hysteria2
+  password: maintell
+  sni: bing.com
+  skip-cert-verify: true
+- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
   server: 3.39.4.109
   port: 13672
   udp: true
@@ -80,28 +45,24 @@ proxies:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
   servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇰🇷 韩国 (South Korea) 09 - xiaohe
-  server: 150-230-252-217.liao.kdns.fr
+  client-fingerprint: random
+- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
+  server: 132.226.226.189
   port: 50160
   udp: true
   type: hysteria2
-  password: 9cfc9458e48c028ec03ff86ebc71c744
-  sni: 127.0.0.1
+  password: 1671a252e2a97dc2bda4e515475931da
+  sni: www.bing.com
   skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 10 - xiaohe
-  server: 151.245.106.49
-  port: 2053
+- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
+  server: 152.69.231.175
+  port: 50160
   udp: true
-  type: vless
-  uuid: a2de9567-9646-45a9-a410-7303a43bdb6c
-  tls: true
-  reality-opts:
-    public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
-    short-id: 429499c03d4cc8a0
-  servername: www.cloudflare.com
-  client-fingerprint: random
-- name: 🇰🇷 韩国 (South Korea) 11 - xiaohe
+  type: hysteria2
+  password: 1beb216e3f60aea9555dae60d219a5ca
+  sni: 152-69-231-175.liao.kdns.fr
+  skip-cert-verify: false
+- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
   server: 154.90.62.70
   port: 56127
   udp: true
@@ -109,6 +70,14 @@ proxies:
   password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
   sni: 154.90.62.70
   skip-cert-verify: true
+- name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
+  server: 150-230-252-217.liao.kdns.fr
+  port: 50160
+  udp: true
+  type: hysteria2
+  password: 9cfc9458e48c028ec03ff86ebc71c744
+  sni: 150-230-252-217.liao.kdns.fr
+  skip-cert-verify: false
 proxy-groups:
 - name: PROXIES
   type: select
@@ -122,9 +91,6 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 06 - xiaohe
   - 🇰🇷 韩国 (South Korea) 07 - xiaohe
   - 🇰🇷 韩国 (South Korea) 08 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 09 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 10 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 11 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -138,8 +104,5 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 06 - xiaohe
   - 🇰🇷 韩国 (South Korea) 07 - xiaohe
   - 🇰🇷 韩国 (South Korea) 08 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 09 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 10 - xiaohe
-  - 🇰🇷 韩国 (South Korea) 11 - xiaohe
 rules:
 - MATCH,PROXIES

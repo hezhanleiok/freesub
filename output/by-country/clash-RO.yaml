@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇴 罗马尼亚 (Romania) 01 - xiaohe
-  server: 77.74.123.98
+  server: 77.74.123.99
   port: 8443
   udp: true
   type: hysteria2
@@ -13,7 +13,7 @@ proxies:
   sni: grape-test-italy.dynuddns.net
   skip-cert-verify: true
 - name: 🇷🇴 罗马尼亚 (Romania) 02 - xiaohe
-  server: 85.204.107.185
+  server: 85.204.107.184
   port: 8443
   udp: true
   type: hysteria2
@@ -21,15 +21,26 @@ proxies:
   sni: hopp-romania-new.roxa.org
   skip-cert-verify: true
 - name: 🇷🇴 罗马尼亚 (Romania) 03 - xiaohe
-  server: 162.249.125.133
+  server: 185.156.44.99
   port: 443
   udp: true
   type: hysteria2
-  password: QCgqi_I4EkV8UR-OgQ_tG4EnVTEVvIyR2GgRBzrIn2s
-  sni: hy2-new.aspidnet.xyz
-  skip-cert-verify: false
-  obfs: salamander
-  obfs-password: c1b4086fea89914496c7e10967a419216566
+  password: gf1:gfhysteria2024
+  sni: vk.com
+  skip-cert-verify: true
+- name: 🇷🇴 罗马尼亚 (Romania) 04 - xiaohe
+  server: 146.70.124.85
+  port: 443
+  udp: true
+  type: vless
+  uuid: 40abbe13-f02e-4da2-9b19-966c2c3eb4ee
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: byzvlw97wjAAAfHs5AZRV0P0H6_JKBEZ4yfLS0HNewE
+    short-id: fe24f8a0a560056e
+  servername: www.datadoghq.com
+  client-fingerprint: random
 proxy-groups:
 - name: PROXIES
   type: select
@@ -38,6 +49,7 @@ proxy-groups:
   - 🇷🇴 罗马尼亚 (Romania) 01 - xiaohe
   - 🇷🇴 罗马尼亚 (Romania) 02 - xiaohe
   - 🇷🇴 罗马尼亚 (Romania) 03 - xiaohe
+  - 🇷🇴 罗马尼亚 (Romania) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -46,5 +58,6 @@ proxy-groups:
   - 🇷🇴 罗马尼亚 (Romania) 01 - xiaohe
   - 🇷🇴 罗马尼亚 (Romania) 02 - xiaohe
   - 🇷🇴 罗马尼亚 (Romania) 03 - xiaohe
+  - 🇷🇴 罗马尼亚 (Romania) 04 - xiaohe
 rules:
 - MATCH,PROXIES

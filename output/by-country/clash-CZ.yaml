@@ -4,30 +4,29 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇮🇶 IQ 01 - xiaohe
-  server: 193.56.135.212
-  port: 9543
+- name: 🇨🇿 捷克 (Czech) 01 - xiaohe
+  server: 13.143.181.220
+  port: 443
   udp: true
   type: vless
-  uuid: ff6d2dda-7b90-404e-9951-34b3124bfdfa
+  uuid: 7a8d2c3f-d6dd-0004-81d8-cff23d8364ee
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: M6Ck7wUfOLhQl4582CBnaXwscPEP6SCpdEkUDzoj4Fc
-    short-id: 123abcde
-  servername: storage.yandexcloud.net
-  client-fingerprint: chrome
+    public-key: QfdR5yEjdbaqSet3-XrkDdVjPO9VTRGlUI-MV-b4p38
+  servername: msk1.maxtelemost.com
+  client-fingerprint: safari
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇮🇶 IQ 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇮🇶 IQ 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 01 - xiaohe
 rules:
 - MATCH,PROXIES
