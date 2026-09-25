@@ -11,70 +11,17 @@ proxies:
   cipher: aes-256-gcm
   password: TEzjfAYq2IjtuoS
   udp: true
-- name: 🇰🇷 韩国 (South Korea) 02 - wangyu
-  type: vless
-  server: 151.245.106.49
-  port: 2053
-  uuid: a2de9567-9646-45a9-a410-7303a43bdb6c
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
-  servername: www.cloudflare.com
-  client-fingerprint: random
-- name: 🇰🇷 韩国 (South Korea) 03 - wangyu
-  type: vless
-  server: 47.80.57.116
-  port: 443
-  uuid: 3db635e4-f9ec-42d6-8aba-e23df8b0e6da
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: mia6.pages.dev
-  network: ws
-  ws-opts:
-    path: /TG:@MiaChatChannel
-    headers:
-      Host: mia6.pages.dev
-- name: 🇰🇷 韩国 (South Korea) 04 - wangyu
-  type: ss
-  server: 141.164.45.187
-  port: 9090
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
-  udp: true
-- name: 🇰🇷 韩国 (South Korea) 05 - wangyu
-  type: vless
-  server: 151.245.106.49
-  port: 2053
-  uuid: a2de9567-9646-45a9-a410-7303a43bdb6c
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
-  servername: www.cloudflare.com
-  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇰🇷 韩国 (South Korea) 01 - wangyu
-  - 🇰🇷 韩国 (South Korea) 02 - wangyu
-  - 🇰🇷 韩国 (South Korea) 03 - wangyu
-  - 🇰🇷 韩国 (South Korea) 04 - wangyu
-  - 🇰🇷 韩国 (South Korea) 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇰🇷 韩国 (South Korea) 01 - wangyu
-  - 🇰🇷 韩国 (South Korea) 02 - wangyu
-  - 🇰🇷 韩国 (South Korea) 03 - wangyu
-  - 🇰🇷 韩国 (South Korea) 04 - wangyu
-  - 🇰🇷 韩国 (South Korea) 05 - wangyu
 rules:
 - MATCH,PROXIES

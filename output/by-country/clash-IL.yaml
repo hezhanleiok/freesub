@@ -18,32 +18,17 @@ proxies:
     path: /cdn/99294c014f2c7791?ed=2056
     headers:
       Host: fserver-worker-001.mapleridgeway.top
-- name: 🇮🇱 IL 02 - wangyu
-  type: vless
-  server: platform115.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /platform115
-    headers:
-      Host: platform115.golnamakcert.top
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇱 IL 01 - wangyu
-  - 🇮🇱 IL 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇮🇱 IL 01 - wangyu
-  - 🇮🇱 IL 02 - wangyu
 rules:
 - MATCH,PROXIES
