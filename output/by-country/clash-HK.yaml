@@ -5,10 +5,12 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
-  type: vless
-  server: champion.xn--kivt58h.lol
-  port: 80
-  uuid: b5af4a3d-f525-43aa-9cc3-de1ba437e4ed
+  type: vmess
+  server: 156.245.232.239
+  port: 35043
+  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
+  alterId: 0
+  cipher: auto
   udp: true
   tls: false
   skip-cert-verify: true
@@ -16,7 +18,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: ak.mcdonaldshamburgergoodgoodgood.xyz
+      Host: ''
 - name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
   type: vmess
   server: 89.223.95.77
@@ -28,6 +30,46 @@ proxies:
   tls: false
   skip-cert-verify: true
 - name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
+  type: vless
+  server: 34.92.145.185
+  port: 443
+  uuid: 75d38591-267e-4d89-98bc-164f25b50880
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: HV_4dmK3rwzqhWP1yOpC1L8BObd5lpZRYTzUflsi2x4
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
+- name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
+  type: vless
+  server: 34.92.145.185
+  port: 443
+  uuid: 75d38591-267e-4d89-98bc-164f25b50880
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: HV_4dmK3rwzqhWP1yOpC1L8BObd5lpZRYTzUflsi2x4
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
+  type: vmess
+  server: 47.83.207.148
+  port: 443
+  uuid: f23bb427c1f94373876c2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: VAH4URdZL3jDX5r2.v.3dns.vip
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: VAH4URdZL3jDX5r2.v.3dns.vip
+- name: 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
   type: vmess
   server: 89.223.95.77
   port: 22324
@@ -37,19 +79,16 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
-  type: vless
-  server: champion.xn--kivt58h.lol
-  port: 80
-  uuid: b5af4a3d-f525-43aa-9cc3-de1ba437e4ed
+- name: 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
+  type: vmess
+  server: 89.223.95.77
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
   udp: true
   tls: false
   skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ak.mcdonaldshamburgergoodgoodgood.xyz
 proxy-groups:
 - name: PROXIES
   type: select
@@ -59,6 +98,9 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -68,5 +110,8 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
 rules:
 - MATCH,PROXIES
