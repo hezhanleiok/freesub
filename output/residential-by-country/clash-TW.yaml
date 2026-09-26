@@ -5,15 +5,8 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
-  type: ss
-  server: 36.224.141.124
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-  udp: true
-- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
   type: vless
-  server: 60.248.219.54
+  server: 59.125.69.24
   port: 443
   uuid: 06e177f7-240d-4687-bd85-235505801a5e
   udp: true
@@ -24,14 +17,19 @@ proxies:
   ws-opts:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
-      Host: 60.248.219.54
-- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
-  type: ss
-  server: namrcg001640lrm.cybervena.com
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: 7b56aeaa-8e2d-4bdf-b1d7-233ecca15f56
+      Host: 59.125.69.24
+- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  type: vless
+  server: 118.167.230.191
+  port: 24215
+  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
   udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
+  servername: addons.mozilla.org
+  client-fingerprint: edge
 proxy-groups:
 - name: PROXIES
   type: select
@@ -39,7 +37,6 @@ proxy-groups:
   - AUTO
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -47,6 +44,5 @@ proxy-groups:
   proxies:
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

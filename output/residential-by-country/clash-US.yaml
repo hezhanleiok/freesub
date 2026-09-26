@@ -4,9 +4,9 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇷🇺 俄罗斯 (Russia) 01 - wangyu
+- name: 🇺🇸 美国 (United States) 01 (家宽) - wangyu
   type: vless
-  server: 172.64.158.146
+  server: 172.64.154.8
   port: 2082
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
@@ -22,12 +22,12 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
+  - 🇺🇸 美国 (United States) 01 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
+  - 🇺🇸 美国 (United States) 01 (家宽) - wangyu
 rules:
 - MATCH,PROXIES
