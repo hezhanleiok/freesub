@@ -4,24 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇷🇴 RO 01 - wangyu
-  type: ss
-  server: 154.46.31.106
+- name: 🇪🇪 EE 01 - wangyu
+  type: vless
+  server: 94.183.170.135
   port: 443
-  cipher: chacha20-ietf-poly1305
-  password: QFWzCw2uX9B9i6qAYeFBIE
+  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
   udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 94.183.170.135
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇷🇴 RO 01 - wangyu
+  - 🇪🇪 EE 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇷🇴 RO 01 - wangyu
+  - 🇪🇪 EE 01 - wangyu
 rules:
 - MATCH,PROXIES
