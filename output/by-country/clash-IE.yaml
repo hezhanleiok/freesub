@@ -5,16 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
-  server: 50.7.5.187
-  port: 443
-  udp: true
-  type: vless
-  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-  flow: xtls-rprx-vision
-  tls: true
-  servername: ireland-new-ded1.failspace.top
-  skip-cert-verify: true
-- name: 🇮🇪 爱尔兰 (Ireland) 02 - xiaohe
   server: 3.9.135.156
   port: 51847
   udp: true
@@ -26,7 +16,17 @@ proxies:
     public-key: S6noV0L8eNASnTe1gXLutLZNdfENsvKMsOJiGQYi6nc
     short-id: 0eec442e7b34d2f2
   servername: www.tesla.com
-  client-fingerprint: chrome
+  client-fingerprint: edge
+- name: 🇮🇪 爱尔兰 (Ireland) 02 - xiaohe
+  server: 50.7.5.187
+  port: 443
+  udp: true
+  type: vless
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  flow: xtls-rprx-vision
+  tls: true
+  servername: ireland-new-ded1.failspace.top
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select

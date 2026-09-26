@@ -5,6 +5,21 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇷 IR 01 - xiaohe
+  server: 104.26.0.1
+  port: 2053
+  udp: true
+  type: vless
+  uuid: dce8ca0a-ed26-45c9-9962-38888c19a0ad
+  tls: true
+  servername: still-scene-fda3.devtahair.workers.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiSDNSSGYxT05LU2VEbyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbIjYyLjYwLjIxNy4yMzAiXX0=
+    headers:
+      Host: still-scene-fda3.devtahair.workers.dev
+- name: 🇮🇷 IR 02 - xiaohe
   server: 62.60.245.148
   port: 443
   udp: true
@@ -16,20 +31,7 @@ proxies:
     public-key: G8SING6Ibc_igZ5vI5578fXCT_mBMRuq_o8_Ymnj2SQ
     short-id: eba1498e012ef580
   servername: amazon.de
-  client-fingerprint: ios
-- name: 🇮🇷 IR 02 - xiaohe
-  server: 62.60.152.1
-  port: 56328
-  udp: true
-  type: vless
-  uuid: ce230b9c-0531-40da-bc3f-f27a8e059db1
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: iI1pc8k9-mIPHL2Dga-4n4h3KoBT68lN434nglpgm2M
-    short-id: f3a9c21e8b6d4571
-  servername: table.vkroom-it-service.xyz
-  client-fingerprint: safari
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select

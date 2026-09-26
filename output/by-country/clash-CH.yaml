@@ -13,24 +13,6 @@ proxies:
   sni: www.bing.com
   skip-cert-verify: true
 - name: 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
-  server: 152.67.75.161
-  port: 443
-  udp: true
-  type: hysteria2
-  password: 3a702d4d1de4949005d8431220e040fb
-  sni: www.bing.com
-  skip-cert-verify: true
-  obfs: salamander
-  obfs-password: c13f29db6a638ad2b211b9ce2669ef27
-- name: 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
-  server: 82.38.64.229
-  port: 8443
-  udp: true
-  type: hysteria2
-  password: we9_I1893UFj3149xbr1_k8qvJ8734ic_Mx82gH
-  sni: hopp-swizland-new.mysynology.net
-  skip-cert-verify: true
-- name: 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
   server: 45.90.59.15
   port: 443
   udp: true
@@ -42,23 +24,26 @@ proxies:
     public-key: P7S4UPFlQbmiBr4txyy8NZIMTrmO3UdxyH16WBU-YzY
     short-id: 19253fae84102271
   servername: www.cloudflare.com
-  client-fingerprint: firefox
-- name: 🇨🇭 瑞士 (Switzerland) 05 - xiaohe
-  server: 104.21.200.243
-  port: 2053
+  client-fingerprint: random
+- name: 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
+  server: 82.38.64.237
+  port: 8443
   udp: true
-  type: vless
-  uuid: 7074b9d7-2183-8919-fc11-ca5e00000000
-  tls: true
-  servername: netlivpn2584.vjvdgbc.workers.dev
+  type: hysteria2
+  password: we9_I1893UFj3149xbr1_k8qvJ8734ic_Mx82gH
+  sni: hopp-swizland-new.mysynology.net
   skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: netlivpn2584.vjvdgbc.workers.dev
-- name: 🇨🇭 瑞士 (Switzerland) 06 - xiaohe
+- name: 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
+  server: 152.67.75.161
+  port: 443
+  udp: true
+  type: hysteria2
+  password: 3a702d4d1de4949005d8431220e040fb
+  sni: www.bing.com
+  skip-cert-verify: true
+  obfs: salamander
+  obfs-password: c13f29db6a638ad2b211b9ce2669ef27
+- name: 🇨🇭 瑞士 (Switzerland) 05 - xiaohe
   server: 151.242.2.81
   port: 443
   udp: true
@@ -67,20 +52,19 @@ proxies:
   tls: true
   servername: cf9.rumedia-cdn.com
   skip-cert-verify: false
-  client-fingerprint: qq
   network: ws
   ws-opts:
     path: /cdn/v3/live
     headers:
       Host: cf9.rumedia-cdn.com
-- name: 🇨🇭 瑞士 (Switzerland) 07 - xiaohe
+- name: 🇨🇭 瑞士 (Switzerland) 06 - xiaohe
   server: 77.110.104.238
   port: 443
   udp: true
   type: hysteria2
   password: 5413edfb-08d6-4fba-b51c-809c04feb127
   sni: ch2-hy2.veilvpn.life
-  skip-cert-verify: false
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -92,7 +76,6 @@ proxy-groups:
   - 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 05 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 06 - xiaohe
-  - 🇨🇭 瑞士 (Switzerland) 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -104,6 +87,5 @@ proxy-groups:
   - 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 05 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 06 - xiaohe
-  - 🇨🇭 瑞士 (Switzerland) 07 - xiaohe
 rules:
 - MATCH,PROXIES

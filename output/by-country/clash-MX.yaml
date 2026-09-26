@@ -5,11 +5,17 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇲🇽 墨西哥 (Mexico) 01 - xiaohe
-  server: 45.164.20.114
-  port: 10226
+  server: 45.134.9.133
+  port: 8443
   udp: true
   type: vless
-  uuid: 9aab8f39-ccb3-44ea-acdc-a8aefe211287
+  uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+  tls: true
+  servername: ul-mexico1.09vpn.com
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless/
 proxy-groups:
 - name: PROXIES
   type: select
