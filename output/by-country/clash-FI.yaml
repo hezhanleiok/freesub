@@ -5,18 +5,7 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 芬兰 (Finland) 01 - xiaohe
-  server: fi.snobvpn.online
-  port: 80
-  udp: true
-  type: vless
-  uuid: 246b101b-4e4a-451f-8e9c-5e8d3b64b4ef
-  network: ws
-  ws-opts:
-    path: /snob-ws
-    headers:
-      Host: fi.snobvpn.online
-- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  server: est1313.ggisopi.su
+  server: 83.219.97.26
   port: 443
   udp: true
   type: vless
@@ -27,7 +16,7 @@ proxies:
     public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
   servername: est1313.ggisopi.su
   client-fingerprint: chrome
-- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
+- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
   server: me1.movieseryalirani.ir
   port: 443
   udp: true
@@ -39,14 +28,6 @@ proxies:
     short-id: 8d814a
   servername: matrix-client.matrix.org
   client-fingerprint: firefox
-- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
-  server: me6.movieseryalirani.ir
-  port: 57361
-  udp: true
-  type: vmess
-  uuid: ed815caa-bff1-4419-8c61-1d108eabaf1f
-  alterId: 0
-  cipher: auto
 proxy-groups:
 - name: PROXIES
   type: select
@@ -54,8 +35,6 @@ proxy-groups:
   - AUTO
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -63,7 +42,5 @@ proxy-groups:
   proxies:
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 04 - xiaohe
 rules:
 - MATCH,PROXIES

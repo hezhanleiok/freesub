@@ -5,34 +5,28 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 - xiaohe
-  server: vpn-tw-002.fastervpn.world
+  server: 125.224.202.118
+  port: 50099
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: a9a0d092-6f0e-4701-81ee-454643d6d506
+- name: 🇹🇼 中国台湾 (Taiwan) 02 - xiaohe
+  server: 160.187.100.109
   port: 443
   udp: true
   type: hysteria2
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: css.rbxcdn.com
+  sni: vpn-tw-002.fastervpn.world
   skip-cert-verify: true
-- name: 🇹🇼 中国台湾 (Taiwan) 02 - xiaohe
+- name: 🇹🇼 中国台湾 (Taiwan) 03 - xiaohe
   server: 103.115.109.49
   port: 443
   udp: true
   type: hysteria2
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: 103.115.109.49
+  sni: t.me
   skip-cert-verify: true
-- name: 🇹🇼 中国台湾 (Taiwan) 03 - xiaohe
-  server: 35.221.158.209
-  port: 32981
-  udp: true
-  type: vless
-  uuid: 41b96ee9-ee5e-455f-9753-187a9dead97a
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: JSn0GPz1WOSTUDBxN_XYnhgb2Jpjc2LpfBTzX1j3V2E
-    short-id: 70f4b7a4c40636
-  servername: www.sony.com
-  client-fingerprint: qq
 - name: 🇹🇼 中国台湾 (Taiwan) 04 - xiaohe
   server: 104.199.134.231
   port: 28364
@@ -58,7 +52,7 @@ proxies:
     public-key: HNPJBiUbqYVC3ylvu1GA7fCHLTaHO7S13Bex1nm0O1o
     short-id: e65d010354bdad73
   servername: www.amd.com
-  client-fingerprint: chrome
+  client-fingerprint: random
 proxy-groups:
 - name: PROXIES
   type: select
