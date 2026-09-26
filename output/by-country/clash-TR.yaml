@@ -5,12 +5,33 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
-  server: 82.47.63.156
-  port: 2053
+  server: 93.190.8.167
+  port: 3090
   udp: true
   type: vless
-  uuid: 9ef61079-6f7d-4911-9608-943da85d8e6f
+  uuid: 273e534f-1b9f-4392-bdbb-cbb0549cb6f4
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
 - name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
+  server: 93.190.8.85
+  port: 3090
+  udp: true
+  type: vless
+  uuid: 6864bd16-f8bb-457c-a191-dca5b80ca32a
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+- name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
+  server: 93.190.8.161
+  port: 3090
+  udp: true
+  type: vless
+  uuid: 6864bd16-f8bb-457c-a191-dca5b80ca32a
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+- name: 🇹🇷 土耳其 (Turkey) 04 - xiaohe
   server: 151.241.226.201
   port: 2053
   udp: true
@@ -21,7 +42,7 @@ proxies:
     public-key: bYW_MmB_CUHrsyoCAUKviI2LZdHf63yY2yOPXbih104
     short-id: 9e419c0759b54d6f
   servername: www.apple.com
-  client-fingerprint: chrome
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -29,6 +50,8 @@ proxy-groups:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -36,5 +59,7 @@ proxy-groups:
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 04 - xiaohe
 rules:
 - MATCH,PROXIES
