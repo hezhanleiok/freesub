@@ -1,0 +1,33 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
+  server: 94.176.234.161
+  port: 443
+  udp: true
+  type: vless
+  uuid: d448490d-4ee6-442f-80e1-5e1c186c4ce1
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: UpI0XKNUsMJ24XawPQ8g7br1faEsO7BOvmIIGg9Wrm8
+    short-id: dbb2ef1c7c
+  servername: www.intel.com
+  client-fingerprint: chrome
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
+rules:
+- MATCH,PROXIES
