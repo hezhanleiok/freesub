@@ -15,9 +15,24 @@ proxies:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
     short-id: a8ae
   servername: deepl.com
-  client-fingerprint: chrome
+  client-fingerprint: firefox
 - name: 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
   server: 5.253.28.218
+  port: 2443
+  udp: true
+  type: vless
+  uuid: 5e679ccd-1586-4d5f-b87b-48251046cad8
+  tls: true
+  reality-opts:
+    public-key: h85e28MxBgNyT9d9cNeOLVtWfHq6cT_1_oxZOTajtTg
+    short-id: 92c32de179e5d908
+  servername: deepl.com
+  client-fingerprint: qq
+  network: grpc
+  grpc-opts:
+    grpc-service-name: rex-eb0bf76b710ce763
+- name: 🇨🇾 塞浦路斯 (Cyprus) 03 - xiaohe
+  server: hydra.yokkastars.com
   port: 40443
   udp: true
   type: vless
@@ -28,7 +43,7 @@ proxies:
     public-key: cwmcqsfS7klQlkcoUNuATEk0NiPY-NnRb9z8rCJDQw0
     short-id: 88b6
   servername: deepl.com
-  client-fingerprint: chrome
+  client-fingerprint: qq
 proxy-groups:
 - name: PROXIES
   type: select
@@ -36,6 +51,7 @@ proxy-groups:
   - AUTO
   - 🇨🇾 塞浦路斯 (Cyprus) 01 - xiaohe
   - 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
+  - 🇨🇾 塞浦路斯 (Cyprus) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -43,5 +59,6 @@ proxy-groups:
   proxies:
   - 🇨🇾 塞浦路斯 (Cyprus) 01 - xiaohe
   - 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
+  - 🇨🇾 塞浦路斯 (Cyprus) 03 - xiaohe
 rules:
 - MATCH,PROXIES
