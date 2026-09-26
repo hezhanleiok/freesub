@@ -6,20 +6,6 @@ log-level: info
 proxies:
 - name: 🇸🇨 SC 01 - xiaohe
   type: vless
-  server: 154.211.8.227
-  port: 2087
-  uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: proxy-34l.pages.dev
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: proxy-34l.pages.dev
-- name: 🇸🇨 SC 02 - xiaohe
-  type: vless
   server: 154.218.15.250
   port: 2083
   uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
@@ -32,7 +18,7 @@ proxies:
     path: /
     headers:
       Host: proxy-1cu.pages.dev
-- name: 🇸🇨 SC 03 - xiaohe
+- name: 🇸🇨 SC 02 - xiaohe
   type: vless
   server: 154.197.75.40
   port: 8880
@@ -45,6 +31,20 @@ proxies:
     path: /
     headers:
       Host: vms.lifetime37.workers.dev
+- name: 🇸🇨 SC 03 - xiaohe
+  type: vless
+  server: 154.211.8.227
+  port: 2087
+  uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: proxy-34l.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: proxy-34l.pages.dev
 proxy-groups:
 - name: PROXIES
   type: select
