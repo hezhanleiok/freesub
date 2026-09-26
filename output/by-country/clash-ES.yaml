@@ -17,13 +17,26 @@ proxies:
   servername: www.apple.com
   client-fingerprint: firefox
 - name: 🇪🇸 西班牙 (Spain) 02 - wangyu
-  type: ss
-  server: 140.174.184.5
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: qItG8SueYQcP
+  type: vmess
+  server: 66.163.118.73
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
   udp: true
+  tls: false
+  skip-cert-verify: true
 - name: 🇪🇸 西班牙 (Spain) 03 - wangyu
+  type: vmess
+  server: 66.163.118.73
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇪🇸 西班牙 (Spain) 04 - wangyu
   type: vless
   server: 212.227.235.66
   port: 2053
@@ -35,6 +48,37 @@ proxies:
     public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
   servername: www.apple.com
   client-fingerprint: chrome
+- name: 🇪🇸 西班牙 (Spain) 05 - wangyu
+  type: ss
+  server: 108.181.121.226
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: WSyL4XTwNsdv
+  udp: true
+- name: 🇪🇸 西班牙 (Spain) 06 - wangyu
+  type: vmess
+  server: 66.163.118.73
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇪🇸 西班牙 (Spain) 07 - wangyu
+  type: ss
+  server: 140.174.184.5
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: qItG8SueYQcP
+  udp: true
+- name: 🇪🇸 西班牙 (Spain) 08 - wangyu
+  type: ss
+  server: 140.174.184.5
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: qItG8SueYQcP
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -43,6 +87,11 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 01 - wangyu
   - 🇪🇸 西班牙 (Spain) 02 - wangyu
   - 🇪🇸 西班牙 (Spain) 03 - wangyu
+  - 🇪🇸 西班牙 (Spain) 04 - wangyu
+  - 🇪🇸 西班牙 (Spain) 05 - wangyu
+  - 🇪🇸 西班牙 (Spain) 06 - wangyu
+  - 🇪🇸 西班牙 (Spain) 07 - wangyu
+  - 🇪🇸 西班牙 (Spain) 08 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -51,5 +100,10 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 01 - wangyu
   - 🇪🇸 西班牙 (Spain) 02 - wangyu
   - 🇪🇸 西班牙 (Spain) 03 - wangyu
+  - 🇪🇸 西班牙 (Spain) 04 - wangyu
+  - 🇪🇸 西班牙 (Spain) 05 - wangyu
+  - 🇪🇸 西班牙 (Spain) 06 - wangyu
+  - 🇪🇸 西班牙 (Spain) 07 - wangyu
+  - 🇪🇸 西班牙 (Spain) 08 - wangyu
 rules:
 - MATCH,PROXIES
