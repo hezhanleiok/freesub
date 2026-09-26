@@ -6,19 +6,26 @@ log-level: info
 proxies:
 - name: 🇵🇱 波兰 (Poland) 01 - xiaohe
   server: 217.30.10.44
-  port: 9076
+  port: 9006
   udp: true
   type: ss
   cipher: aes-256-cfb
-  password: S2zDyyPcmZN2h8EC
+  password: FAdUvMJUq5vDgKEq
 - name: 🇵🇱 波兰 (Poland) 02 - xiaohe
+  server: 217.30.10.44
+  port: 9063
+  udp: true
+  type: ss
+  cipher: aes-256-cfb
+  password: aQqJbtwFGcCCaeL3
+- name: 🇵🇱 波兰 (Poland) 03 - xiaohe
   server: 217.30.10.44
   port: 9041
   udp: true
   type: ss
   cipher: aes-256-cfb
   password: U6qnYRhfyDmn8sgn
-- name: 🇵🇱 波兰 (Poland) 03 - xiaohe
+- name: 🇵🇱 波兰 (Poland) 04 - xiaohe
   server: 185.223.57.16
   port: 33743
   udp: true
@@ -28,11 +35,11 @@ proxies:
   reality-opts:
     public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
   servername: www.google.com
-  client-fingerprint: qq
+  client-fingerprint: chrome
   network: grpc
   grpc-opts:
     grpc-service-name: TunService
-- name: 🇵🇱 波兰 (Poland) 04 - xiaohe
+- name: 🇵🇱 波兰 (Poland) 05 - xiaohe
   server: 144.31.131.38
   port: 443
   udp: true
@@ -45,16 +52,16 @@ proxies:
     short-id: db04ce8bdb8900f1
   servername: prod.pl-node-01.security-sbrf.ru
   client-fingerprint: firefox
-- name: 🇵🇱 波兰 (Poland) 05 - xiaohe
+- name: 🇵🇱 波兰 (Poland) 06 - xiaohe
   server: admin.wwwinternetvideo.click
   port: 443
   udp: true
   type: hysteria2
   password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
   sni: admin.wwwinternetvideo.click
-  skip-cert-verify: true
-- name: 🇵🇱 波兰 (Poland) 06 - xiaohe
-  server: 151.241.138.151
+  skip-cert-verify: false
+- name: 🇵🇱 波兰 (Poland) 07 - xiaohe
+  server: pl1.gursub.com
   port: 8444
   udp: true
   type: vless
@@ -65,18 +72,30 @@ proxies:
     public-key: sQ9CcspZ6urWlzGNjjmtfp8EuuDll5RVtcsVoq_EfUE
     short-id: a3f509aa7a4b41cc
   servername: pl1.gursub.com
-  client-fingerprint: edge
-- name: 🇵🇱 波兰 (Poland) 07 - xiaohe
-  server: 144.31.5.3
-  port: 443
+  client-fingerprint: ''
+- name: 🇵🇱 波兰 (Poland) 08 - xiaohe
+  server: 31.77.13.19
+  port: 2063
   udp: true
   type: vless
-  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
   flow: xtls-rprx-vision
   tls: true
-  servername: pl4.moritech.net
-  skip-cert-verify: false
-  client-fingerprint: firefox
+  reality-opts:
+    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
+  servername: rusbid.de
+  client-fingerprint: chrome
+- name: 🇵🇱 波兰 (Poland) 09 - xiaohe
+  server: 185.62.1.8
+  port: 8118
+  udp: true
+  type: vless
+  uuid: eea1c59d-70fd-4829-8ed7-21ddfe55a0da
+  tls: true
+  reality-opts:
+    public-key: LjAkLizwkZf35ObrUMFZ22UHXTEJzpgcTvHk9AuzcUM
+  servername: play.googleapis.com
+  client-fingerprint: ios
 proxy-groups:
 - name: PROXIES
   type: select
@@ -89,6 +108,8 @@ proxy-groups:
   - 🇵🇱 波兰 (Poland) 05 - xiaohe
   - 🇵🇱 波兰 (Poland) 06 - xiaohe
   - 🇵🇱 波兰 (Poland) 07 - xiaohe
+  - 🇵🇱 波兰 (Poland) 08 - xiaohe
+  - 🇵🇱 波兰 (Poland) 09 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -101,5 +122,7 @@ proxy-groups:
   - 🇵🇱 波兰 (Poland) 05 - xiaohe
   - 🇵🇱 波兰 (Poland) 06 - xiaohe
   - 🇵🇱 波兰 (Poland) 07 - xiaohe
+  - 🇵🇱 波兰 (Poland) 08 - xiaohe
+  - 🇵🇱 波兰 (Poland) 09 - xiaohe
 rules:
 - MATCH,PROXIES

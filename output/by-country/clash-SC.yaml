@@ -4,30 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
-  server: 94.176.234.161
+- name: 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
+  server: 144.31.50.236
   port: 443
   udp: true
   type: vless
-  uuid: d448490d-4ee6-442f-80e1-5e1c186c4ce1
+  uuid: 1c332eae-7e02-4acd-996d-4eb3e652401c
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: UpI0XKNUsMJ24XawPQ8g7br1faEsO7BOvmIIGg9Wrm8
-    short-id: dbb2ef1c7c
-  servername: www.intel.com
+    public-key: uitO4Z8t9TplwwYaqwLqh5rfxDh_X8bOBiNuPbzvaEM
+    short-id: bbe46bd8f6b96839
+  servername: yandex.ru
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
+  - 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
+  - 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
 rules:
 - MATCH,PROXIES
