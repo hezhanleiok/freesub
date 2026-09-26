@@ -5,19 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇱 以色列 (Israel) 01 - xiaohe
-  server: 185.95.231.233
-  port: 443
-  udp: true
-  type: vless
-  uuid: 1ffa8e68-3378-4cf4-b8f6-44bf3d46d106
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: r4Dp3mztZaizbDk28rEOkLikk7erR9dzzc-Jrsgraho
-    short-id: a1b2c3d4
-  servername: store.steampowered.com
-  client-fingerprint: chrome
-- name: 🇮🇱 以色列 (Israel) 02 - xiaohe
   server: 185.95.231.156
   port: 443
   udp: true
@@ -30,6 +17,45 @@ proxies:
     short-id: a3a578ab
   servername: www.apple.com
   client-fingerprint: chrome
+- name: 🇮🇱 以色列 (Israel) 02 - xiaohe
+  server: 185.95.231.233
+  port: 443
+  udp: true
+  type: vless
+  uuid: 1ffa8e68-3378-4cf4-b8f6-44bf3d46d106
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: r4Dp3mztZaizbDk28rEOkLikk7erR9dzzc-Jrsgraho
+    short-id: a1b2c3d4
+  servername: store.steampowered.com
+  client-fingerprint: random
+- name: 🇮🇱 以色列 (Israel) 03 - xiaohe
+  server: de2.dzvn.space
+  port: 2291
+  udp: true
+  type: vless
+  uuid: 25284368-40d5-4abe-9f56-54a07e88a7af
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: tLWqTzKtCCMxxOzSskvSwDB2an1bxxZ706kcNDqGNWg
+    short-id: 50ace5ab34f6df9b
+  servername: de2.dzvn.space
+  client-fingerprint: firefox
+- name: 🇮🇱 以色列 (Israel) 04 - xiaohe
+  server: arcturus.yokkastars.com
+  port: 40443
+  udp: true
+  type: vless
+  uuid: bb0f1ed0-0298-40a1-adb1-1f5d6ab33d54
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: w4AYHvQnQS6olDqoG9ptLOtgehaWOsv9HQhDax5bLA4
+    short-id: db46e2946fc466fd
+  servername: deepl.com
+  client-fingerprint: qq
 proxy-groups:
 - name: PROXIES
   type: select
@@ -37,6 +63,8 @@ proxy-groups:
   - AUTO
   - 🇮🇱 以色列 (Israel) 01 - xiaohe
   - 🇮🇱 以色列 (Israel) 02 - xiaohe
+  - 🇮🇱 以色列 (Israel) 03 - xiaohe
+  - 🇮🇱 以色列 (Israel) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -44,5 +72,7 @@ proxy-groups:
   proxies:
   - 🇮🇱 以色列 (Israel) 01 - xiaohe
   - 🇮🇱 以色列 (Israel) 02 - xiaohe
+  - 🇮🇱 以色列 (Israel) 03 - xiaohe
+  - 🇮🇱 以色列 (Israel) 04 - xiaohe
 rules:
 - MATCH,PROXIES
