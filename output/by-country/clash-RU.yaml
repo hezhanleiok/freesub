@@ -5,48 +5,46 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
-  server: 172.64.32.103
-  port: 80
+  server: 172.64.42.85
+  port: 2052
   udp: true
   type: vless
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   network: ws
   ws-opts:
-    path: '/?ed=2560security=tls '
+    path: /?ed=2560security=tls
     headers:
       Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 - name: 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
-  server: 167.82.76.7
+  server: 91.196.32.163
   port: 443
   udp: true
-  type: trojan
-  password: MiTiVPN
-  sni: ssl.fastly.com
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSs---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN
+  type: hysteria2
+  password: mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj
+  sni: germany3.h2corp.local
+  skip-cert-verify: true
 - name: 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
-  server: 91.196.32.216
-  port: 9543
+  server: 176.108.246.110
+  port: 9830
   udp: true
   type: vless
-  uuid: ff6d2dda-7b90-404e-9951-34b3124bfdfa
-  flow: xtls-rprx-vision
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
   tls: true
   reality-opts:
-    public-key: M6Ck7wUfOLhQl4582CBnaXwscPEP6SCpdEkUDzoj4Fc
-    short-id: 123abcdf
-  servername: storage.yandexcloud.net
+    public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+  servername: dl.google.com
   client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc-tunnel
 - name: 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
-  server: 91.240.86.70
-  port: 22443
+  server: msk.frkn.org
+  port: 443
   udp: true
   type: hysteria2
-  password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
-  sni: 91.240.86.70
-  skip-cert-verify: true
+  password: f317b5d6-d399-4d3d-a051-89d674ae953c
+  sni: msk.frkn.org
+  skip-cert-verify: false
 - name: 🇷🇺 俄罗斯 (Russia) 05 - xiaohe
   server: 46.8.200.91
   port: 443
@@ -62,13 +60,20 @@ proxies:
     headers:
       Host: cf3.rumedia-cdn.com
 - name: 🇷🇺 俄罗斯 (Russia) 06 - xiaohe
-  server: msk.frkn.org
-  port: 443
+  server: 91.240.86.70
+  port: 22443
   udp: true
   type: hysteria2
-  password: f317b5d6-d399-4d3d-a051-89d674ae953c
-  sni: msk.frkn.org
-  skip-cert-verify: false
+  password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
+  sni: 91.240.86.70
+  skip-cert-verify: true
+- name: 🇷🇺 俄罗斯 (Russia) 07 - xiaohe
+  server: 62.109.12.234
+  port: 2055
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: WxYpOK1iPSJySbVNMMJDtw
 proxy-groups:
 - name: PROXIES
   type: select
@@ -80,6 +85,7 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 05 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 06 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -91,5 +97,6 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 05 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 06 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 07 - xiaohe
 rules:
 - MATCH,PROXIES

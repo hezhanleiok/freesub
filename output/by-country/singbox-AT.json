@@ -4,44 +4,26 @@
   },
   "outbounds": [
     {
-      "type": "hysteria2",
+      "type": "shadowsocks",
       "tag": "🇦🇹 奥地利 (Austria) 01 - xiaohe",
-      "server": "67.159.17.181",
-      "server_port": 30443,
-      "password": "0e1506b1-22a4-4b4f-8082-9ddd2efcd28e",
-      "tls": {
-        "enabled": true,
-        "server_name": "filesconvert.org",
-        "insecure": false
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇦🇹 奥地利 (Austria) 02 - xiaohe",
-      "server": "86.106.119.23",
-      "server_port": 443,
-      "password": "600421cf-11d7-429f-a65b-c30397f1bc03",
-      "tls": {
-        "enabled": true,
-        "server_name": "gr.freeguard.org",
-        "insecure": false
-      }
+      "server": "82.110.60.9",
+      "server_port": 19999,
+      "method": "aes-256-gcm",
+      "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
     },
     {
       "type": "selector",
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇦🇹 奥地利 (Austria) 01 - xiaohe",
-        "🇦🇹 奥地利 (Austria) 02 - xiaohe"
+        "🇦🇹 奥地利 (Austria) 01 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇦🇹 奥地利 (Austria) 01 - xiaohe",
-        "🇦🇹 奥地利 (Austria) 02 - xiaohe"
+        "🇦🇹 奥地利 (Austria) 01 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

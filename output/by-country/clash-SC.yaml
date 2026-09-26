@@ -17,30 +17,17 @@ proxies:
     short-id: bbe46bd8f6b96839
   servername: yandex.ru
   client-fingerprint: chrome
-- name: 🇸🇨 塞舌尔 (Seychelles) 02 - xiaohe
-  server: 45.130.125.75
-  port: 443
-  udp: true
-  type: trojan
-  password: humanity
-  sni: www.calmlunch.com
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /assignment
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
-  - 🇸🇨 塞舌尔 (Seychelles) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
-  - 🇸🇨 塞舌尔 (Seychelles) 02 - xiaohe
 rules:
 - MATCH,PROXIES

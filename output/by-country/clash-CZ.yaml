@@ -1,0 +1,40 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇨🇿 捷克 (Czech) 01 - xiaohe
+  server: 194.87.59.96
+  port: 2085
+  udp: true
+  type: vless
+  uuid: 6864bd16-f8bb-457c-a191-dca5b80ca32a
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+- name: 🇨🇿 捷克 (Czech) 02 - xiaohe
+  server: 153.76.185.93
+  port: 3090
+  udp: true
+  type: vless
+  uuid: d21a3080-7011-47a1-9b1e-297578f28b3f
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 02 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 02 - xiaohe
+rules:
+- MATCH,PROXIES
