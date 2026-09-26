@@ -14,28 +14,17 @@ proxies:
   tls: true
   servername: md-new.failspace.top
   skip-cert-verify: false
-- name: 🇲🇩 摩尔多瓦 (Moldova) 02 - xiaohe
-  server: 143.246.219.51
-  port: 8081
-  udp: true
-  type: vless
-  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
-  network: ws
-  ws-opts:
-    path: /vless-test
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇲🇩 摩尔多瓦 (Moldova) 01 - xiaohe
-  - 🇲🇩 摩尔多瓦 (Moldova) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇲🇩 摩尔多瓦 (Moldova) 01 - xiaohe
-  - 🇲🇩 摩尔多瓦 (Moldova) 02 - xiaohe
 rules:
 - MATCH,PROXIES

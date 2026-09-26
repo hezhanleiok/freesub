@@ -17,32 +17,17 @@ proxies:
     short-id: eba1498e012ef580
   servername: amazon.de
   client-fingerprint: ios
-- name: 🇮🇷 IR 02 - xiaohe
-  server: 62.60.152.1
-  port: 56328
-  udp: true
-  type: vless
-  uuid: ce230b9c-0531-40da-bc3f-f27a8e059db1
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: iI1pc8k9-mIPHL2Dga-4n4h3KoBT68lN434nglpgm2M
-    short-id: f3a9c21e8b6d4571
-  servername: table.vkroom-it-service.xyz
-  client-fingerprint: safari
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇷 IR 01 - xiaohe
-  - 🇮🇷 IR 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇮🇷 IR 01 - xiaohe
-  - 🇮🇷 IR 02 - xiaohe
 rules:
 - MATCH,PROXIES
