@@ -5,20 +5,26 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇿 捷克 (Czech) 01 - xiaohe
-  server: 153.76.185.93
+  server: 172.67.145.5
+  port: 443
+  udp: true
+  type: vless
+  uuid: 20836693-ea23-4f40-a1e7-48a6da897917
+  tls: true
+  servername: netra-85a0ca.shoameni19.workers.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /vl/bluTTbb7MO8rvX1COEYH4WW4qzbr2aui
+    headers:
+      Host: netra-85a0ca.shoameni19.workers.dev
+- name: 🇨🇿 捷克 (Czech) 02 - xiaohe
+  server: 153.76.185.151
   port: 3090
   udp: true
   type: vless
-  uuid: d21a3080-7011-47a1-9b1e-297578f28b3f
-  network: grpc
-  grpc-opts:
-    grpc-service-name: vless
-- name: 🇨🇿 捷克 (Czech) 02 - xiaohe
-  server: 194.87.59.96
-  port: 2085
-  udp: true
-  type: vless
-  uuid: 6864bd16-f8bb-457c-a191-dca5b80ca32a
+  uuid: 51c8ed23-7ca5-43f1-b0a8-0a37a7a16647
   network: grpc
   grpc-opts:
     grpc-service-name: vless

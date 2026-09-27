@@ -1,0 +1,35 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇮🇶 IQ 01 - xiaohe
+  server: 104.21.79.199
+  port: 443
+  udp: true
+  type: vless
+  uuid: 38d6b629-64c2-4c31-a10d-26eb3a2a053d
+  tls: true
+  servername: lHNs3ww2-CXQ-Gj1vvOBkEPIg4noPkc.hqu4v38Hi9iFtcp6mZfMX-3bmx.WoRKeRS.dEV
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /vl/cxl8Wn1ylnsk63nJ0
+    headers:
+      Host: lhns3ww2-cxq-gj1vvobkepig4nopkc.hqu4v38hi9iftcp6mzfmx-3bmx.workers.dev
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇮🇶 IQ 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇮🇶 IQ 01 - xiaohe
+rules:
+- MATCH,PROXIES
