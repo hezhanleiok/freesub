@@ -25,18 +25,46 @@
       }
     },
     {
+      "type": "trojan",
+      "tag": "🇮🇷 IR 02 - xiaohe",
+      "server": "199.232.78.101",
+      "server_port": 443,
+      "password": "MiTiVPN",
+      "tls": {
+        "enabled": true,
+        "server_name": "ssl.fastly.com",
+        "insecure": false,
+        "alpn": [
+          "http/1.1"
+        ],
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN",
+        "headers": {
+          "Host": "mitivpn---de--s---mitivpn-1.global.ssl.fastly.net"
+        }
+      }
+    },
+    {
       "type": "selector",
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇮🇷 IR 01 - xiaohe"
+        "🇮🇷 IR 01 - xiaohe",
+        "🇮🇷 IR 02 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇮🇷 IR 01 - xiaohe"
+        "🇮🇷 IR 01 - xiaohe",
+        "🇮🇷 IR 02 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

@@ -16,24 +16,41 @@
       }
     },
     {
-      "type": "hysteria2",
+      "type": "vless",
       "tag": "🇨🇭 瑞士 (Switzerland) 02 - xiaohe",
-      "server": "152.67.75.161",
+      "server": "45.90.59.15",
       "server_port": 443,
-      "password": "3a702d4d1de4949005d8431220e040fb",
+      "uuid": "3950b45e-740d-4dca-ac95-505ec8534592",
+      "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
-      },
-      "obfs": {
-        "type": "salamander",
-        "password": "c13f29db6a638ad2b211b9ce2669ef27"
+        "server_name": "www.cloudflare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": ""
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "P7S4UPFlQbmiBr4txyy8NZIMTrmO3UdxyH16WBU-YzY",
+          "short_id": "19253fae84102271"
+        }
       }
     },
     {
       "type": "hysteria2",
       "tag": "🇨🇭 瑞士 (Switzerland) 03 - xiaohe",
+      "server": "82.38.64.237",
+      "server_port": 8443,
+      "password": "we9_I1893UFj3149xbr1_k8qvJ8734ic_Mx82gH",
+      "tls": {
+        "enabled": true,
+        "server_name": "hopp-swizland-new.mysynology.net",
+        "insecure": false
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇨🇭 瑞士 (Switzerland) 04 - xiaohe",
       "server": "77.110.104.238",
       "server_port": 443,
       "password": "5413edfb-08d6-4fba-b51c-809c04feb127",
@@ -44,13 +61,27 @@
       }
     },
     {
+      "type": "hysteria2",
+      "tag": "🇨🇭 瑞士 (Switzerland) 05 - xiaohe",
+      "server": "31.76.104.152",
+      "server_port": 9443,
+      "password": "e3c3b722-1264-4cdc-a97c-b0a1bb73cd67",
+      "tls": {
+        "enabled": true,
+        "server_name": "onecloudstream.com",
+        "insecure": false
+      }
+    },
+    {
       "type": "selector",
       "tag": "select",
       "outbounds": [
         "auto",
         "🇨🇭 瑞士 (Switzerland) 01 - xiaohe",
         "🇨🇭 瑞士 (Switzerland) 02 - xiaohe",
-        "🇨🇭 瑞士 (Switzerland) 03 - xiaohe"
+        "🇨🇭 瑞士 (Switzerland) 03 - xiaohe",
+        "🇨🇭 瑞士 (Switzerland) 04 - xiaohe",
+        "🇨🇭 瑞士 (Switzerland) 05 - xiaohe"
       ]
     },
     {
@@ -59,7 +90,9 @@
       "outbounds": [
         "🇨🇭 瑞士 (Switzerland) 01 - xiaohe",
         "🇨🇭 瑞士 (Switzerland) 02 - xiaohe",
-        "🇨🇭 瑞士 (Switzerland) 03 - xiaohe"
+        "🇨🇭 瑞士 (Switzerland) 03 - xiaohe",
+        "🇨🇭 瑞士 (Switzerland) 04 - xiaohe",
+        "🇨🇭 瑞士 (Switzerland) 05 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

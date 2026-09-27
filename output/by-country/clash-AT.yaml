@@ -11,17 +11,32 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇦🇹 奥地利 (Austria) 02 - xiaohe
+  server: 152.53.1.40
+  port: 443
+  udp: true
+  type: vless
+  uuid: edde565e-41f5-400e-84ea-7b87a3e84488
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: 10rVZPoOUP1TlQviIAsQ_jAROX0fRQxH0C92nq_zGQc
+    short-id: 43dcff53849b81e6
+  servername: at.quattro-tech.ru
+  client-fingerprint: qq
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇦🇹 奥地利 (Austria) 01 - xiaohe
+  - 🇦🇹 奥地利 (Austria) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇦🇹 奥地利 (Austria) 01 - xiaohe
+  - 🇦🇹 奥地利 (Austria) 02 - xiaohe
 rules:
 - MATCH,PROXIES

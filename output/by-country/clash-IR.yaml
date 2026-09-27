@@ -17,17 +17,30 @@ proxies:
     short-id: f3a9c21e8b6d4571
   servername: table.vkroom-it-service.xyz
   client-fingerprint: chrome
+- name: 🇮🇷 IR 02 - xiaohe
+  server: 199.232.78.101
+  port: 443
+  udp: true
+  type: trojan
+  password: MiTiVPN
+  sni: ssl.fastly.com
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇷 IR 01 - xiaohe
+  - 🇮🇷 IR 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇮🇷 IR 01 - xiaohe
+  - 🇮🇷 IR 02 - xiaohe
 rules:
 - MATCH,PROXIES

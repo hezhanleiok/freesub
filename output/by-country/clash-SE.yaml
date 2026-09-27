@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  server: 13.51.242.39
+  server: 51.20.122.188
   port: 443
   udp: true
   type: ss
@@ -30,28 +30,14 @@ proxies:
     public-key: x6p656szvu_3CKLsJ4NtkooRvdTVGx7IoPca_p58_jA
     short-id: fb442438e2223836
   servername: surstreming.vvzzkontaktezzvv.garden
-  client-fingerprint: random
+  client-fingerprint: firefox
 - name: 🇸🇪 瑞典 (Sweden) 04 - xiaohe
-  server: 45.138.103.4
-  port: 1443
+  server: 13.48.104.64
+  port: 443
   udp: true
   type: ss
-  cipher: chacha20-ietf-poly1305
-  password: N2YzM
-- name: 🇸🇪 瑞典 (Sweden) 05 - xiaohe
-  server: 193.42.39.10
-  port: 33743
-  udp: true
-  type: vless
-  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
-  tls: true
-  reality-opts:
-    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
-  servername: www.google.com
-  client-fingerprint: ''
-  network: grpc
-  grpc-opts:
-    grpc-service-name: TunService
+  cipher: aes-256-cfb
+  password: amazonskr05
 proxy-groups:
 - name: PROXIES
   type: select
@@ -61,7 +47,6 @@ proxy-groups:
   - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 03 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 04 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -71,6 +56,5 @@ proxy-groups:
   - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 03 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 04 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 05 - xiaohe
 rules:
 - MATCH,PROXIES
