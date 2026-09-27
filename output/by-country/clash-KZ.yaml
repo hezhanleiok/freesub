@@ -18,33 +18,17 @@ proxies:
     path: /vpnjantit
     headers:
       Host: kz1.vpnjantit.com
-- name: 🇰🇿 KZ 02 - xiaohe
-  type: vless
-  server: 89.218.15.90
-  port: 10002
-  uuid: 392fcc7e-b995-11f1-a6b7-1b2272a86bd5
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: kz1.vpnjantit.com
-  network: ws
-  ws-opts:
-    path: /vpnjantit
-    headers:
-      Host: kz1.vpnjantit.com
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇰🇿 KZ 01 - xiaohe
-  - 🇰🇿 KZ 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇰🇿 KZ 01 - xiaohe
-  - 🇰🇿 KZ 02 - xiaohe
 rules:
 - MATCH,PROXIES

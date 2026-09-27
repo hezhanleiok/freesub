@@ -4,30 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇦🇪 阿联酋 (UAE) 01 - xiaohe
+- name: 🇭🇺 HU 01 - xiaohe
   type: vless
-  server: uae.unixzone.us
-  port: 22573
-  uuid: 39947382-3212-41c9-bc3a-589574ac8b23
+  server: 38.180.225.247
+  port: 2053
+  uuid: 97532b08-357e-4140-a6f0-8e07f2ed3327
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: yf.962456.xyz
   network: ws
   ws-opts:
-    path: /
+    path: /proxyip=kr.william.us.ci
     headers:
-      Host: uae.unixzone.us
+      Host: yf.962456.xyz
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇦🇪 阿联酋 (UAE) 01 - xiaohe
+  - 🇭🇺 HU 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇦🇪 阿联酋 (UAE) 01 - xiaohe
+  - 🇭🇺 HU 01 - xiaohe
 rules:
 - MATCH,PROXIES

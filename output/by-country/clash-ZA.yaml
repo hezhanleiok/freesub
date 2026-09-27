@@ -5,18 +5,12 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇿🇦 ZA 01 - xiaohe
-  type: vless
-  server: platform101.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  type: ss
+  server: 20.164.220.189
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: UbkyrKvOtfSd2xQb
   udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /platform101
-    headers:
-      Host: platform101.halalkhor.info
 - name: 🇿🇦 ZA 02 - xiaohe
   type: ss
   server: 139.84.247.164
@@ -25,13 +19,6 @@ proxies:
   password: tfAcRikawhNoZAhu
   udp: true
 - name: 🇿🇦 ZA 03 - xiaohe
-  type: ss
-  server: 102.133.165.160
-  port: 16233
-  cipher: chacha20-ietf-poly1305
-  password: Xsy8Ox4yOV3xLlpxtjzs3X
-  udp: true
-- name: 🇿🇦 ZA 04 - xiaohe
   type: ss
   server: 102.37.156.224
   port: 443
@@ -46,7 +33,6 @@ proxy-groups:
   - 🇿🇦 ZA 01 - xiaohe
   - 🇿🇦 ZA 02 - xiaohe
   - 🇿🇦 ZA 03 - xiaohe
-  - 🇿🇦 ZA 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -55,6 +41,5 @@ proxy-groups:
   - 🇿🇦 ZA 01 - xiaohe
   - 🇿🇦 ZA 02 - xiaohe
   - 🇿🇦 ZA 03 - xiaohe
-  - 🇿🇦 ZA 04 - xiaohe
 rules:
 - MATCH,PROXIES
