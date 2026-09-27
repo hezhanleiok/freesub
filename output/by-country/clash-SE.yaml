@@ -5,19 +5,42 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - wangyu
+  type: vless
+  server: 51.170.176.145
+  port: 62145
+  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇪 SE 02 - wangyu
   type: ss
   server: 70.34.212.124
   port: 8388
   cipher: aes-256-gcm
   password: AxIYWtskJWIIaefW
   udp: true
-- name: 🇸🇪 SE 02 - wangyu
-  type: ss
-  server: 45.138.103.4
-  port: 1443
-  cipher: chacha20-ietf-poly1305
-  password: N2YzM
+- name: 🇸🇪 SE 03 - wangyu
+  type: vless
+  server: 103.177.249.40
+  port: 2083
+  uuid: 97532b08-357e-4140-a6f0-8e07f2ed3327
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: yf.962456.xyz
+  network: ws
+  ws-opts:
+    path: /proxyip=kr.william.us.ci
+    headers:
+      Host: yf.962456.xyz
+- name: 🇸🇪 SE 04 - wangyu
+  type: vless
+  server: 51.170.176.145
+  port: 62145
+  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+  udp: true
+  tls: false
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -25,6 +48,8 @@ proxy-groups:
   - AUTO
   - 🇸🇪 SE 01 - wangyu
   - 🇸🇪 SE 02 - wangyu
+  - 🇸🇪 SE 03 - wangyu
+  - 🇸🇪 SE 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -32,5 +57,7 @@ proxy-groups:
   proxies:
   - 🇸🇪 SE 01 - wangyu
   - 🇸🇪 SE 02 - wangyu
+  - 🇸🇪 SE 03 - wangyu
+  - 🇸🇪 SE 04 - wangyu
 rules:
 - MATCH,PROXIES
