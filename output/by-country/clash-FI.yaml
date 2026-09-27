@@ -18,16 +18,32 @@ proxies:
   client-fingerprint: random
 - name: 🇫🇮 FI 02 - wangyu
   type: vless
-  server: 185.79.138.71
-  port: 448
-  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+  server: a2.arshia-nova.ir
+  port: 443
+  uuid: 9ccf8612-5e16-4b16-834e-4df5fe3611cd
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
-  servername: www.samsung.com
-  client-fingerprint: chrome
+  servername: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: c12.com
+- name: 🇫🇮 FI 03 - wangyu
+  type: vless
+  server: 151.101.56.6
+  port: 443
+  uuid: 9ccf8612-5e16-4b16-834e-4df5fe3611cd
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: /?TELEGRAM--BYA--/@CoonfigCloud---@CoonfigCloud@CoonfigCloud---@CoonfigCloud@CoonfigCloud---@CoonfigCloud@CoonfigCloud---@CoonfigCloud@CoonfigCloud---@CoonfigCloud@CoonfigCloud---@CoonfigCloud@CoonfigCloud---@CoonfigCloud@CoonfigCloud---@CoonfigCloud
+    headers:
+      Host: c12.com
 proxy-groups:
 - name: PROXIES
   type: select
@@ -35,6 +51,7 @@ proxy-groups:
   - AUTO
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
+  - 🇫🇮 FI 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -42,5 +59,6 @@ proxy-groups:
   proxies:
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
+  - 🇫🇮 FI 03 - wangyu
 rules:
 - MATCH,PROXIES
