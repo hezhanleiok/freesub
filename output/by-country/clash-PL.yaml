@@ -6,20 +6,20 @@ log-level: info
 proxies:
 - name: 🇵🇱 波兰 (Poland) 01 - xiaohe
   server: 217.30.10.44
-  port: 9071
+  port: 9063
   udp: true
   type: ss
   cipher: aes-256-cfb
-  password: mENfxTFQpRKKh4As
+  password: aQqJbtwFGcCCaeL3
 - name: 🇵🇱 波兰 (Poland) 02 - xiaohe
   server: 217.30.10.44
-  port: 9041
+  port: 9006
   udp: true
   type: ss
   cipher: aes-256-cfb
-  password: U6qnYRhfyDmn8sgn
+  password: FAdUvMJUq5vDgKEq
 - name: 🇵🇱 波兰 (Poland) 03 - xiaohe
-  server: 185.223.57.10
+  server: 185.223.57.16
   port: 33743
   udp: true
   type: vless
@@ -28,7 +28,7 @@ proxies:
   reality-opts:
     public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
   servername: www.google.com
-  client-fingerprint: firefox
+  client-fingerprint: qq
   network: grpc
   grpc-opts:
     grpc-service-name: TunService
@@ -44,15 +44,8 @@ proxies:
     public-key: sQ9CcspZ6urWlzGNjjmtfp8EuuDll5RVtcsVoq_EfUE
     short-id: a3f509aa7a4b41cc
   servername: pl1.gursub.com
-  client-fingerprint: chrome
+  client-fingerprint: random
 - name: 🇵🇱 波兰 (Poland) 05 - xiaohe
-  server: 217.30.10.44
-  port: 9006
-  udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: FAdUvMJUq5vDgKEq
-- name: 🇵🇱 波兰 (Poland) 06 - xiaohe
   server: 144.31.131.38
   port: 443
   udp: true
@@ -65,18 +58,15 @@ proxies:
     short-id: db04ce8bdb8900f1
   servername: prod.pl-node-01.security-sbrf.ru
   client-fingerprint: firefox
-- name: 🇵🇱 波兰 (Poland) 07 - xiaohe
-  server: 188.114.97.3
-  port: 2052
+- name: 🇵🇱 波兰 (Poland) 06 - xiaohe
+  server: streambox.wwwinternetvideo.click
+  port: 443
   udp: true
-  type: vless
-  uuid: 4b87c68d-762f-4969-9680-36bfb9daa858
-  network: httpupgrade
-  httpupgrade-opts:
-    path: /wss
-    headers:
-      Host: nexomob.xnetaro.ir
-- name: 🇵🇱 波兰 (Poland) 08 - xiaohe
+  type: hysteria2
+  password: 865e271f7c97b549b024255c9d02cebe9cc0c2c070a82b1e11bb11b9cd88dd01
+  sni: streambox.wwwinternetvideo.click
+  skip-cert-verify: true
+- name: 🇵🇱 波兰 (Poland) 07 - xiaohe
   server: admin.wwwinternetvideo.click
   port: 443
   udp: true
@@ -84,6 +74,13 @@ proxies:
   password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
   sni: admin.wwwinternetvideo.click
   skip-cert-verify: false
+- name: 🇵🇱 波兰 (Poland) 08 - xiaohe
+  server: 146.59.116.19
+  port: 17000
+  udp: true
+  type: ss
+  cipher: aes-256-gcm
+  password: pX0uhU3ZjUcLWYs0Vez55BO3JoQrRlL
 - name: 🇵🇱 波兰 (Poland) 09 - xiaohe
   server: 31.77.13.19
   port: 2063
@@ -109,17 +106,6 @@ proxies:
     path: /
     headers:
       Host: google.whatsapp.snapp.torob.basalam.hesanid8.ir.
-- name: 🇵🇱 波兰 (Poland) 11 - xiaohe
-  server: 144.31.5.3
-  port: 443
-  udp: true
-  type: vless
-  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-  flow: xtls-rprx-vision
-  tls: true
-  servername: pl4.moritech.net
-  skip-cert-verify: false
-  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -135,7 +121,6 @@ proxy-groups:
   - 🇵🇱 波兰 (Poland) 08 - xiaohe
   - 🇵🇱 波兰 (Poland) 09 - xiaohe
   - 🇵🇱 波兰 (Poland) 10 - xiaohe
-  - 🇵🇱 波兰 (Poland) 11 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -151,6 +136,5 @@ proxy-groups:
   - 🇵🇱 波兰 (Poland) 08 - xiaohe
   - 🇵🇱 波兰 (Poland) 09 - xiaohe
   - 🇵🇱 波兰 (Poland) 10 - xiaohe
-  - 🇵🇱 波兰 (Poland) 11 - xiaohe
 rules:
 - MATCH,PROXIES
