@@ -4,10 +4,10 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇷🇸 RS 01 - wangyu
+- name: 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
   type: vless
-  server: 38.180.100.80
-  port: 443
+  server: 103.177.249.40
+  port: 2083
   uuid: 97532b08-357e-4140-a6f0-8e07f2ed3327
   udp: true
   tls: true
@@ -23,12 +23,12 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇷🇸 RS 01 - wangyu
+  - 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇷🇸 RS 01 - wangyu
+  - 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

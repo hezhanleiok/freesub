@@ -5,6 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - wangyu
+  type: ss
+  server: 70.34.212.124
+  port: 8388
+  cipher: aes-256-gcm
+  password: AxIYWtskJWIIaefW
+  udp: true
+- name: 🇸🇪 SE 02 - wangyu
   type: vless
   server: 51.170.176.145
   port: 62145
@@ -12,27 +19,20 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇸🇪 SE 02 - wangyu
-  type: ss
-  server: 70.34.212.124
-  port: 8388
-  cipher: aes-256-gcm
-  password: AxIYWtskJWIIaefW
-  udp: true
 - name: 🇸🇪 SE 03 - wangyu
   type: vless
-  server: 103.177.249.40
-  port: 2083
-  uuid: 97532b08-357e-4140-a6f0-8e07f2ed3327
+  server: 2.27.14.218
+  port: 2096
+  uuid: 11d826ce-d6e5-4154-8658-6829bb17dca2
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: yf.962456.xyz
+  servername: stf7697.rumedia-cdn.com
   network: ws
   ws-opts:
-    path: /proxyip=kr.william.us.ci
+    path: /cdn/v3/live
     headers:
-      Host: yf.962456.xyz
+      Host: stf7697.rumedia-cdn.com
 - name: 🇸🇪 SE 04 - wangyu
   type: vless
   server: 51.170.176.145

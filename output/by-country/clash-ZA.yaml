@@ -6,25 +6,31 @@ log-level: info
 proxies:
 - name: 🇿🇦 ZA 01 - wangyu
   type: ss
-  server: 102.37.156.224
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: aduB9HGxQHjA2SBMRjkHX6
-  udp: true
-- name: 🇿🇦 ZA 02 - wangyu
-  type: ss
   server: 20.164.220.189
   port: 443
   cipher: chacha20-ietf-poly1305
   password: UbkyrKvOtfSd2xQb
   udp: true
-- name: 🇿🇦 ZA 03 - wangyu
+- name: 🇿🇦 ZA 02 - wangyu
   type: ss
   server: 139.84.247.164
   port: 8388
   cipher: chacha20-ietf-poly1305
   password: tfAcRikawhNoZAhu
   udp: true
+- name: 🇿🇦 ZA 03 - wangyu
+  type: vless
+  server: platform106.golnamakcert.top
+  port: 80
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /platform106
+    headers:
+      Host: platform106.halalkhor.info
 proxy-groups:
 - name: PROXIES
   type: select

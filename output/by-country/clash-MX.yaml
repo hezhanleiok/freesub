@@ -4,31 +4,25 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇭🇺 HU 01 - wangyu
+- name: 🇲🇽 MX 01 - wangyu
   type: vless
-  server: 38.180.225.247
-  port: 2053
-  uuid: 97532b08-357e-4140-a6f0-8e07f2ed3327
+  server: 45.164.20.114
+  port: 10226
+  uuid: 9aab8f39-ccb3-44ea-acdc-a8aefe211287
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: yf.962456.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=kr.william.us.ci
-    headers:
-      Host: yf.962456.xyz
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇭🇺 HU 01 - wangyu
+  - 🇲🇽 MX 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇭🇺 HU 01 - wangyu
+  - 🇲🇽 MX 01 - wangyu
 rules:
 - MATCH,PROXIES
