@@ -17,28 +17,17 @@ proxies:
     short-id: f3a9c21e8b6d4571
   servername: table.vkroom-it-service.xyz
   client-fingerprint: chrome
-- name: 🇮🇷 IR 02 - xiaohe
-  server: service.erisrtg.ir
-  port: 9098
-  udp: true
-  type: vless
-  uuid: 9730ec36-a1d8-4cae-a246-fde2678be5df
-  network: grpc
-  grpc-opts:
-    grpc-service-name: ''
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇷 IR 01 - xiaohe
-  - 🇮🇷 IR 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇮🇷 IR 01 - xiaohe
-  - 🇮🇷 IR 02 - xiaohe
 rules:
 - MATCH,PROXIES
