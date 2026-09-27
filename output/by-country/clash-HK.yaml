@@ -9,9 +9,47 @@ proxies:
   server: sth.free-outline.giize.com
   port: 1081
   cipher: chacha20-ietf-poly1305
-  password: ac2jdpwv1zl10jim
+  password: v7qnj9jvxtnpmj4l
   udp: true
 - name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
+  type: ss
+  server: sth.free-outline.giize.com
+  port: 1081
+  cipher: chacha20-ietf-poly1305
+  password: ac2jdpwv1zl10jim
+  udp: true
+- name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
+  type: vmess
+  server: 156.245.232.239
+  port: 35043
+  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: www.pubgmobile.com
+- name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
+  type: vmess
+  server: 8.218.184.4
+  port: 443
+  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: NYcQg19zkwaCPM1B.v.3dns.vip
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: NYcQg19zkwaCPM1B.v.3dns.vip
+- name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
   type: vmess
   server: 47.83.207.148
   port: 443
@@ -27,18 +65,36 @@ proxies:
     path: /ws-vmess
     headers:
       Host: vah4urdzl3jdx5r2.v.3dns.vip
-- name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
-  type: vless
-  server: 47.238.210.5
-  port: 13779
-  uuid: 928e6cce-8ced-4243-9a48-a6642edd09b0
+- name: 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
+  type: vmess
+  server: 156.245.232.239
+  port: 35043
+  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
+  alterId: 0
+  cipher: auto
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  reality-opts:
-    public-key: llTyp52oRXnJmQ3I9UUrmlwbMA79B-wLCRHCu-8dLGg
-  servername: tesla.com
-  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ''
+- name: 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
+  type: vmess
+  server: 156.245.232.239
+  port: 35043
+  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ''
 proxy-groups:
 - name: PROXIES
   type: select
@@ -47,6 +103,10 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -55,5 +115,9 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
 rules:
 - MATCH,PROXIES
