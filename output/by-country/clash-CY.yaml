@@ -1,0 +1,33 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇨🇾 塞浦路斯 (Cyprus) 01 - xiaohe
+  server: 31.76.111.79
+  port: 443
+  udp: true
+  type: vless
+  uuid: ac9a573b-67ff-4953-9e13-4cf43576f8f0
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: 8w1MyEJV4l9QeNWbYMXny5tTLNTw_9nsQ7jOuiQhix4
+    short-id: 0123456789abcdef
+  servername: hh.ru
+  client-fingerprint: firefox
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇨🇾 塞浦路斯 (Cyprus) 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇨🇾 塞浦路斯 (Cyprus) 01 - xiaohe
+rules:
+- MATCH,PROXIES
