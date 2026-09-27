@@ -15,33 +15,44 @@ proxies:
     public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
     short-id: d368b94e275ab080
   servername: www.google.com
-  client-fingerprint: random
+  client-fingerprint: firefox
 - name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  server: 37.143.129.244
+  server: 185.79.138.71
+  port: 448
+  udp: true
+  type: vless
+  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+  tls: true
+  reality-opts:
+    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
+    short-id: cd21e552537c7c0b
+  servername: www.samsung.com
+  client-fingerprint: firefox
+- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  server: est1313.ggisopi.su
   port: 443
   udp: true
   type: vless
-  uuid: 0e6de971-69e8-4536-b06d-8b6eae57021b
+  uuid: d0f0a880-0df1-48c9-bdf1-5669fb9483ce
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: 5HArul2NDXfFUxijHj1xiPCfH-77zuuRxylT1vWIvUY
-    short-id: 48fd192dc4e46bc0
-  servername: gateway.icloud.com
-  client-fingerprint: chrome
-- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  server: 95.217.24.236
-  port: 2087
+    public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
+  servername: est1313.ggisopi.su
+  client-fingerprint: safari
+- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
+  server: 62.60.152.1
+  port: 56328
   udp: true
   type: vless
-  uuid: 10d85f65-f8d6-4504-b1e2-94649db1577a
+  uuid: ce230b9c-0531-40da-bc3f-f27a8e059db1
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: KN8tFlpIwPgJGwUCG7Pp9c9c0juYKPvNIv4kFHwqbyk
-    short-id: a32cfb5deca913ad
-  servername: 95.217.24.236
-  client-fingerprint: random
+    public-key: iI1pc8k9-mIPHL2Dga-4n4h3KoBT68lN434nglpgm2M
+    short-id: f3a9c21e8b6d4571
+  servername: table.vkroom-it-service.xyz
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -50,6 +61,7 @@ proxy-groups:
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
   - 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -58,5 +70,6 @@ proxy-groups:
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
   - 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 04 - xiaohe
 rules:
 - MATCH,PROXIES
