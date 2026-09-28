@@ -4,24 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
-  server: 195.238.126.20
-  port: 9068
+- name: 🇴🇲 OM 01 - xiaohe
+  server: 130.94.81.180
+  port: 18415
   udp: true
   type: ss
-  cipher: aes-256-cfb
-  password: mwgRg9hRq3b4Qnwb
+  cipher: aes-128-gcm
+  password: b667234b8d2e7eb34444857ea3a9b18a
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
+  - 🇴🇲 OM 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
+  - 🇴🇲 OM 01 - xiaohe
 rules:
 - MATCH,PROXIES
