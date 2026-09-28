@@ -12,32 +12,23 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: Xsy8Ox4yOV3xLlpxtjzs3X
 - name: 🇿🇦 南非 (South Africa) 02 - xiaohe
+  server: platform103.golnamakcert.top
+  port: 80
+  udp: true
+  type: vless
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  network: ws
+  ws-opts:
+    path: /platform103
+    headers:
+      Host: platform103.halalkhor.info
+- name: 🇿🇦 南非 (South Africa) 03 - xiaohe
   server: 139.84.247.164
   port: 8388
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
   password: tfAcRikawhNoZAhu
-- name: 🇿🇦 南非 (South Africa) 03 - xiaohe
-  server: platform117.golnamakcert.top
-  port: 80
-  udp: true
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  network: ws
-  ws-opts:
-    path: /platform117
-    headers:
-      Host: platform117.halalkhor.info
-- name: 🇿🇦 南非 (South Africa) 04 - xiaohe
-  server: platform107.golnamakcert.top
-  port: 80
-  udp: true
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  network: ws
-  ws-opts:
-    path: /platform107
 proxy-groups:
 - name: PROXIES
   type: select
@@ -46,7 +37,6 @@ proxy-groups:
   - 🇿🇦 南非 (South Africa) 01 - xiaohe
   - 🇿🇦 南非 (South Africa) 02 - xiaohe
   - 🇿🇦 南非 (South Africa) 03 - xiaohe
-  - 🇿🇦 南非 (South Africa) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -55,6 +45,5 @@ proxy-groups:
   - 🇿🇦 南非 (South Africa) 01 - xiaohe
   - 🇿🇦 南非 (South Africa) 02 - xiaohe
   - 🇿🇦 南非 (South Africa) 03 - xiaohe
-  - 🇿🇦 南非 (South Africa) 04 - xiaohe
 rules:
 - MATCH,PROXIES
