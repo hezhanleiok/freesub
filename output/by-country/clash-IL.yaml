@@ -29,9 +29,9 @@ proxies:
     public-key: r4Dp3mztZaizbDk28rEOkLikk7erR9dzzc-Jrsgraho
     short-id: a1b2c3d4
   servername: store.steampowered.com
-  client-fingerprint: chrome
+  client-fingerprint: random
 - name: 🇮🇱 以色列 (Israel) 03 - xiaohe
-  server: 193.202.10.137
+  server: de2.dzvn.space
   port: 2291
   udp: true
   type: vless
@@ -43,6 +43,19 @@ proxies:
     short-id: 50ace5ab34f6df9b
   servername: de2.dzvn.space
   client-fingerprint: firefox
+- name: 🇮🇱 以色列 (Israel) 04 - xiaohe
+  server: 193.169.229.145
+  port: 443
+  udp: true
+  type: vless
+  uuid: 46b3a70b-b99f-4c6e-aa83-df6d842bb954
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: 2CwgJn1lc23uxQjAdGphQl4SSRmd1amunSpYXxgCgCM
+    short-id: 7e13fde9
+  servername: isr.vpnskyline.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -51,6 +64,7 @@ proxy-groups:
   - 🇮🇱 以色列 (Israel) 01 - xiaohe
   - 🇮🇱 以色列 (Israel) 02 - xiaohe
   - 🇮🇱 以色列 (Israel) 03 - xiaohe
+  - 🇮🇱 以色列 (Israel) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -59,5 +73,6 @@ proxy-groups:
   - 🇮🇱 以色列 (Israel) 01 - xiaohe
   - 🇮🇱 以色列 (Israel) 02 - xiaohe
   - 🇮🇱 以色列 (Israel) 03 - xiaohe
+  - 🇮🇱 以色列 (Israel) 04 - xiaohe
 rules:
 - MATCH,PROXIES
