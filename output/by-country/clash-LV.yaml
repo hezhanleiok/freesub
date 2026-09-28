@@ -5,32 +5,23 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
-  server: 185.135.86.175
-  port: 9034
+  server: 109.248.148.139
+  port: 11469
   udp: true
   type: ss
-  cipher: aes-256-cfb
-  password: Yg4MbdXFQ9HFFVY6
-- name: 🇱🇻 拉脱维亚 (Latvia) 02 - xiaohe
-  server: 185.135.86.175
-  port: 9036
-  udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: hbtvgUz5uNYyB3Rf
+  cipher: aes-128-gcm
+  password: ce45b16adec66e4a199d92b9689eae9f
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
-  - 🇱🇻 拉脱维亚 (Latvia) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
-  - 🇱🇻 拉脱维亚 (Latvia) 02 - xiaohe
 rules:
 - MATCH,PROXIES
