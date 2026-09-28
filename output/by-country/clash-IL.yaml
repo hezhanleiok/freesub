@@ -16,8 +16,15 @@ proxies:
     public-key: r4Dp3mztZaizbDk28rEOkLikk7erR9dzzc-Jrsgraho
     short-id: a1b2c3d4
   servername: store.steampowered.com
-  client-fingerprint: chrome
+  client-fingerprint: random
 - name: 🇮🇱 以色列 (Israel) 02 - xiaohe
+  server: 31.57.185.82
+  port: 41770
+  udp: true
+  type: ss
+  cipher: 2022-blake3-aes-256-gcm
+  password: upFH0BmL9pV55mch4LvbPLe+Mf7vgG0YHGaTOT9gMG0=
+- name: 🇮🇱 以色列 (Israel) 03 - xiaohe
   server: 185.95.231.156
   port: 443
   udp: true
@@ -29,16 +36,9 @@ proxies:
     public-key: 8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To
     short-id: a3a578ab
   servername: www.apple.com
-  client-fingerprint: chrome
-- name: 🇮🇱 以色列 (Israel) 03 - xiaohe
-  server: 31.57.185.82
-  port: 41770
-  udp: true
-  type: ss
-  cipher: 2022-blake3-aes-256-gcm
-  password: upFH0BmL9pV55mch4LvbPLe+Mf7vgG0YHGaTOT9gMG0=
+  client-fingerprint: firefox
 - name: 🇮🇱 以色列 (Israel) 04 - xiaohe
-  server: 193.202.10.137
+  server: de2.dzvn.space
   port: 2291
   udp: true
   type: vless
@@ -50,6 +50,18 @@ proxies:
     short-id: 50ace5ab34f6df9b
   servername: de2.dzvn.space
   client-fingerprint: firefox
+- name: 🇮🇱 以色列 (Israel) 05 - xiaohe
+  server: assets-de2.pleiades.codes
+  port: 443
+  udp: true
+  type: vless
+  uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+  tls: true
+  servername: assets-de2.pleiades.codes
+  skip-cert-verify: false
+  network: grpc
+  grpc-opts:
+    grpc-service-name: cdn.v1.AssetService
 proxy-groups:
 - name: PROXIES
   type: select
@@ -59,6 +71,7 @@ proxy-groups:
   - 🇮🇱 以色列 (Israel) 02 - xiaohe
   - 🇮🇱 以色列 (Israel) 03 - xiaohe
   - 🇮🇱 以色列 (Israel) 04 - xiaohe
+  - 🇮🇱 以色列 (Israel) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -68,5 +81,6 @@ proxy-groups:
   - 🇮🇱 以色列 (Israel) 02 - xiaohe
   - 🇮🇱 以色列 (Israel) 03 - xiaohe
   - 🇮🇱 以色列 (Israel) 04 - xiaohe
+  - 🇮🇱 以色列 (Israel) 05 - xiaohe
 rules:
 - MATCH,PROXIES
