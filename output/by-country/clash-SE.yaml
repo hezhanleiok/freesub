@@ -6,13 +6,6 @@ log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - wangyu
   type: ss
-  server: 51.170.191.141
-  port: 45819
-  cipher: 2022-blake3-chacha20-poly1305
-  password: f/NpUKMY1ik7lr86dtH+rKX7U12gqCzzzdJYv7QZXk0=
-  udp: true
-- name: 🇸🇪 SE 02 - wangyu
-  type: ss
   server: 70.34.212.124
   port: 8388
   cipher: aes-256-gcm
@@ -24,13 +17,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇸🇪 SE 01 - wangyu
-  - 🇸🇪 SE 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇸🇪 SE 01 - wangyu
-  - 🇸🇪 SE 02 - wangyu
 rules:
 - MATCH,PROXIES

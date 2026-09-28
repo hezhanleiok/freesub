@@ -4,30 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇺🇸 美国 (United States) 01 (家宽) - wangyu
+- name: 🇫🇷 法国 (France) 01 (家宽) - wangyu
   type: vless
-  server: 188.114.97.6
-  port: 2052
+  server: 172.64.158.146
+  port: 80
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /?ed=2560
+    path: /?ed=2560security=tls
     headers:
-      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇺🇸 美国 (United States) 01 (家宽) - wangyu
+  - 🇫🇷 法国 (France) 01 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇺🇸 美国 (United States) 01 (家宽) - wangyu
+  - 🇫🇷 法国 (France) 01 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

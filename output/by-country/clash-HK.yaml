@@ -19,97 +19,17 @@ proxies:
     path: /
     headers:
       Host: ''
-- name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
-  type: ss
-  server: sth.free-outline.giize.com
-  port: 1081
-  cipher: chacha20-ietf-poly1305
-  password: ac2jdpwv1zl10jim
-  udp: true
-- name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
-  type: ss
-  server: sth.free-outline.giize.com
-  port: 1081
-  cipher: chacha20-ietf-poly1305
-  password: v7qnj9jvxtnpmj4l
-  udp: true
-- name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
-  type: vmess
-  server: 156.245.232.239
-  port: 35043
-  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: ''
-    headers:
-      Host: ''
-- name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
-  type: vmess
-  server: syj2ggugmwbwqwqx.v.3dns.vip
-  port: 443
-  uuid: f0b7bbd66aad458aaec0e9acaab768b6
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: syj2ggugmwbwqwqx.v.3dns.vip
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: syj2ggugmwbwqwqx.v.3dns.vip
-- name: 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
-  type: vmess
-  server: kbondxw9lifci4h4.v.3dns.vip
-  port: 443
-  uuid: f0b7bbd66aad458aaec0e9acaab768b6
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: kbondxw9lifci4h4.v.3dns.vip
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: kbondxw9lifci4h4.v.3dns.vip
-- name: 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
-  type: ss
-  server: 191.223.214.11
-  port: 8444
-  cipher: aes-128-gcm
-  password: 9be5ac71-b790-4364-a268-d7bed994f213
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
 rules:
 - MATCH,PROXIES
