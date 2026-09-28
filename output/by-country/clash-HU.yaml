@@ -4,30 +4,29 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇮🇶 IQ 01 - xiaohe
-  server: 178.17.57.34
-  port: 40443
+- name: 🇭🇺 匈牙利 (Hungary) 01 - xiaohe
+  server: 45.9.168.211
+  port: 443
   udp: true
   type: vless
-  uuid: bb0f1ed0-0298-40a1-adb1-1f5d6ab33d54
+  uuid: 7de5e70d-b95e-4019-affb-636151647b52
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: w4AYHvQnQS6olDqoG9ptLOtgehaWOsv9HQhDax5bLA4
-    short-id: db46e2946fc466fd
-  servername: deepl.com
-  client-fingerprint: qq
+    public-key: SARDrN_d46PsugT2k5ILoQAJqaA1eCOZhe1BjKMonj8
+  servername: mzone.hu.3cloudhost.com
+  client-fingerprint: safari
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇮🇶 IQ 01 - xiaohe
+  - 🇭🇺 匈牙利 (Hungary) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇮🇶 IQ 01 - xiaohe
+  - 🇭🇺 匈牙利 (Hungary) 01 - xiaohe
 rules:
 - MATCH,PROXIES
