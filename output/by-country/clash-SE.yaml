@@ -5,42 +5,33 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - xiaohe
-  type: vless
-  server: 51.170.176.145
-  port: 62145
-  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+  type: ss
+  server: 51.170.191.141
+  port: 45819
+  cipher: 2022-blake3-chacha20-poly1305
+  password: f/NpUKMY1ik7lr86dtH+rKX7U12gqCzzzdJYv7QZXk0=
   udp: true
-  tls: false
-  skip-cert-verify: true
 - name: 🇸🇪 SE 02 - xiaohe
-  type: vless
-  server: 2.27.14.218
-  port: 2096
-  uuid: 11d826ce-d6e5-4154-8658-6829bb17dca2
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: stf7697.rumedia-cdn.com
-  network: ws
-  ws-opts:
-    path: /cdn/v3/live
-    headers:
-      Host: stf7697.rumedia-cdn.com
-- name: 🇸🇪 SE 03 - xiaohe
   type: ss
   server: 70.34.212.124
   port: 8388
   cipher: aes-256-gcm
   password: AxIYWtskJWIIaefW
   udp: true
-- name: 🇸🇪 SE 04 - xiaohe
+- name: 🇸🇪 SE 03 - xiaohe
   type: vless
-  server: 51.170.176.145
-  port: 62145
-  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+  server: 89.22.224.146
+  port: 43788
+  uuid: 6fbd9bd1-ccd4-4e2f-a918-a0f871965763
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
@@ -49,7 +40,6 @@ proxy-groups:
   - 🇸🇪 SE 01 - xiaohe
   - 🇸🇪 SE 02 - xiaohe
   - 🇸🇪 SE 03 - xiaohe
-  - 🇸🇪 SE 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -58,6 +48,5 @@ proxy-groups:
   - 🇸🇪 SE 01 - xiaohe
   - 🇸🇪 SE 02 - xiaohe
   - 🇸🇪 SE 03 - xiaohe
-  - 🇸🇪 SE 04 - xiaohe
 rules:
 - MATCH,PROXIES

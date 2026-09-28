@@ -1,0 +1,66 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇺🇿 UZ 01 - xiaohe
+  type: vless
+  server: 104.25.155.45
+  port: 443
+  uuid: 50414e45-4c5f-5a45-5553-4eef5adc237a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: r5zenrelur2s.pqzdileiu8es.workers.dev
+  network: ws
+  ws-opts:
+    path: /stream/PANEL_ZEUS/4eef5adc237a/loc-1
+    headers:
+      Host: r5zenrelur2s.pqzdileiu8es.workers.dev
+- name: 🇺🇿 UZ 02 - xiaohe
+  type: vless
+  server: 172.67.210.146
+  port: 443
+  uuid: 50414e45-4c5f-5a45-5553-4eef5adc237a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: r5zenrelur2s.pqzdileiu8es.workers.dev
+  network: ws
+  ws-opts:
+    path: /stream/PANEL_ZEUS/4eef5adc237a/loc-1
+    headers:
+      Host: r5zenrelur2s.pqzdileiu8es.workers.dev
+- name: 🇺🇿 UZ 03 - xiaohe
+  type: vless
+  server: 104.24.143.217
+  port: 443
+  uuid: 50414e45-4c5f-5a45-5553-4eef5adc237a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: r5zenrelur2s.pqzdileiu8es.workers.dev
+  network: ws
+  ws-opts:
+    path: /stream/PANEL_ZEUS/4eef5adc237a/loc-1
+    headers:
+      Host: r5zenrelur2s.pqzdileiu8es.workers.dev
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇺🇿 UZ 01 - xiaohe
+  - 🇺🇿 UZ 02 - xiaohe
+  - 🇺🇿 UZ 03 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇺🇿 UZ 01 - xiaohe
+  - 🇺🇿 UZ 02 - xiaohe
+  - 🇺🇿 UZ 03 - xiaohe
+rules:
+- MATCH,PROXIES

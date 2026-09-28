@@ -6,6 +6,53 @@ log-level: info
 proxies:
 - name: 🇿🇦 ZA 01 - xiaohe
   type: vless
+  server: platform117.golnamakcert.top
+  port: 80
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /platform117
+    headers:
+      Host: platform117.halalkhor.info
+- name: 🇿🇦 ZA 02 - xiaohe
+  type: ss
+  server: 20.164.220.189
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: UbkyrKvOtfSd2xQb
+  udp: true
+- name: 🇿🇦 ZA 03 - xiaohe
+  type: vless
+  server: platform107.golnamakcert.top
+  port: 80
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /platform107
+    headers:
+      Host: platform107.golnamakcert.top
+- name: 🇿🇦 ZA 04 - xiaohe
+  type: ss
+  server: 102.133.165.160
+  port: 16233
+  cipher: chacha20-ietf-poly1305
+  password: Xsy8Ox4yOV3xLlpxtjzs3X
+  udp: true
+- name: 🇿🇦 ZA 05 - xiaohe
+  type: ss
+  server: 139.84.247.164
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: tfAcRikawhNoZAhu
+  udp: true
+- name: 🇿🇦 ZA 06 - xiaohe
+  type: vless
   server: platform106.golnamakcert.top
   port: 80
   uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
@@ -17,20 +64,6 @@ proxies:
     path: /platform106
     headers:
       Host: platform106.halalkhor.info
-- name: 🇿🇦 ZA 02 - xiaohe
-  type: ss
-  server: 20.164.220.189
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: UbkyrKvOtfSd2xQb
-  udp: true
-- name: 🇿🇦 ZA 03 - xiaohe
-  type: ss
-  server: 139.84.247.164
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: tfAcRikawhNoZAhu
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -39,6 +72,9 @@ proxy-groups:
   - 🇿🇦 ZA 01 - xiaohe
   - 🇿🇦 ZA 02 - xiaohe
   - 🇿🇦 ZA 03 - xiaohe
+  - 🇿🇦 ZA 04 - xiaohe
+  - 🇿🇦 ZA 05 - xiaohe
+  - 🇿🇦 ZA 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -47,5 +83,8 @@ proxy-groups:
   - 🇿🇦 ZA 01 - xiaohe
   - 🇿🇦 ZA 02 - xiaohe
   - 🇿🇦 ZA 03 - xiaohe
+  - 🇿🇦 ZA 04 - xiaohe
+  - 🇿🇦 ZA 05 - xiaohe
+  - 🇿🇦 ZA 06 - xiaohe
 rules:
 - MATCH,PROXIES
