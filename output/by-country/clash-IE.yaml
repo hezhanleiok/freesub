@@ -5,6 +5,36 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
+  server: 172.67.216.233
+  port: 443
+  udp: true
+  type: vless
+  uuid: 23e34376-aa47-4c8d-97ea-02915e01fcca
+  tls: true
+  servername: J3Bx1S9MK2syLW66yJ-hSk.TJsJrKk8GbHTS0Q5-0Os.wOrKeRS.DEv
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /vl/uwojyr8LT2gMeHnQJVf2HntOGHsvRH3?ed=2560
+    headers:
+      Host: j3bx1s9mk2sylw66yj-hsk.tjsjrkk8gbhts0q5-0os.workers.dev
+- name: 🇮🇪 爱尔兰 (Ireland) 02 - xiaohe
+  server: 104.21.70.223
+  port: 443
+  udp: true
+  type: vless
+  uuid: 527451fe-ee1f-4e6f-94ca-808f055f7c9b
+  tls: true
+  servername: 05a5f9v5a6cm563ieoye7j-8tnpd.hsysyegegrygvvvdujhh.workers.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /vl/ERYN0G44hia16zhR
+    headers:
+      Host: 05a5f9v5a6cm563ieoye7j-8tnpd.hsysyegegrygvvvdujhh.workers.dev
+- name: 🇮🇪 爱尔兰 (Ireland) 03 - xiaohe
   server: 3.9.135.156
   port: 51847
   udp: true
@@ -23,11 +53,15 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
+  - 🇮🇪 爱尔兰 (Ireland) 02 - xiaohe
+  - 🇮🇪 爱尔兰 (Ireland) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
+  - 🇮🇪 爱尔兰 (Ireland) 02 - xiaohe
+  - 🇮🇪 爱尔兰 (Ireland) 03 - xiaohe
 rules:
 - MATCH,PROXIES
