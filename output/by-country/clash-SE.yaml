@@ -5,13 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - wangyu
-  type: ss
-  server: 70.34.212.124
-  port: 8388
-  cipher: aes-256-gcm
-  password: AxIYWtskJWIIaefW
-  udp: true
-- name: 🇸🇪 SE 02 - wangyu
   type: vless
   server: 2.26.17.128
   port: 443
@@ -22,24 +15,10 @@ proxies:
   servername: shephe.dpdns.org
   network: ws
   ws-opts:
-    path: /
+    path: /fp=chrome
     headers:
       Host: shephe.dpdns.org
-- name: 🇸🇪 SE 03 - wangyu
-  type: vless
-  server: 103.71.22.26
-  port: 443
-  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shephe.dpdns.org
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shephe.dpdns.org
-- name: 🇸🇪 SE 04 - wangyu
+- name: 🇸🇪 SE 02 - wangyu
   type: vless
   server: 144.31.243.120
   port: 8443
@@ -53,6 +32,20 @@ proxies:
     path: /
     headers:
       Host: edgetunnel-4uw.pages.dev
+- name: 🇸🇪 SE 03 - wangyu
+  type: vless
+  server: 2.26.17.128
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
 proxy-groups:
 - name: PROXIES
   type: select
@@ -61,7 +54,6 @@ proxy-groups:
   - 🇸🇪 SE 01 - wangyu
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
-  - 🇸🇪 SE 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -70,6 +62,5 @@ proxy-groups:
   - 🇸🇪 SE 01 - wangyu
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
-  - 🇸🇪 SE 04 - wangyu
 rules:
 - MATCH,PROXIES
