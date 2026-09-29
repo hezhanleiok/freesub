@@ -5,40 +5,37 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  server: 62.60.159.81
-  port: 2053
-  udp: true
-  type: vless
-  uuid: fc00adfb-232a-46ce-8b93-0c70e516aa8a
-  tls: true
-  reality-opts:
-    public-key: ygmJxS-Mc7g0buNSUTVGhazT-FoBjyYtLLfUYIQxFTw
-    short-id: d0ea1847066af5a6
-  servername: www.samsung.com
-  client-fingerprint: firefox
-  network: grpc
-  grpc-opts:
-    grpc-service-name: grpce5bb9e71
-- name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
-  server: 89.125.37.143
-  port: 443
-  udp: true
-  type: vless
-  uuid: d39a375e-2f51-4d26-8cf4-5b437bbb3c99
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: nF_kEdHan2dgl2tlQ_dtNaKZ4oORhuiFrXHbtEDcT2Q
-    short-id: 2d6d073dc88f22a8
-  servername: nordic.global-cdn.org
-  client-fingerprint: chrome
-- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
   server: 51.20.86.152
   port: 443
   udp: true
   type: ss
   cipher: aes-256-cfb
   password: amazonskr05
+- name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
+  server: surstreming.vvzzkontaktezzvv.garden
+  port: 443
+  udp: true
+  type: vless
+  uuid: 4bdeee92-97e8-414d-bef6-ec1d5e2ab73b
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: x6p656szvu_3CKLsJ4NtkooRvdTVGx7IoPca_p58_jA
+    short-id: fb442438e2223836
+  servername: surstreming.vvzzkontaktezzvv.garden
+  client-fingerprint: chrome
+- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
+  server: sw-01.vacvps.com
+  port: 443
+  udp: true
+  type: vless
+  uuid: 84a3061b-3573-4a3c-a631-f26c31209268
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: bDAry75taTMaPJII9vRrJuXAjQglTJxCOVWraQ5BozY
+  servername: sw-01.vacvps.com
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select

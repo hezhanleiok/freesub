@@ -5,19 +5,20 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
-  server: 62.77.158.1
-  port: 443
+  server: 195.238.126.20
+  port: 9012
   udp: true
-  type: vless
-  uuid: 2eceaf2b-a775-5a9c-9990-dad2b3660fb6
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: sVhkyiMXvpofflCdSszxQmsqOXV1kg1Ldxq1a9mOPjs
-    short-id: 6a
-  servername: online.1c.ru
-  client-fingerprint: safari
+  type: ss
+  cipher: aes-256-cfb
+  password: xaupMUvhptwxdDUg
 - name: 🇱🇹 立陶宛 (Lithuania) 02 - xiaohe
+  server: 195.238.126.20
+  port: 9011
+  udp: true
+  type: ss
+  cipher: aes-256-cfb
+  password: M3t2ZEQcMGRWBjRa
+- name: 🇱🇹 立陶宛 (Lithuania) 03 - xiaohe
   server: 94.176.234.161
   port: 443
   udp: true
@@ -29,7 +30,22 @@ proxies:
     public-key: UpI0XKNUsMJ24XawPQ8g7br1faEsO7BOvmIIGg9Wrm8
     short-id: dbb2ef1c7c
   servername: www.intel.com
-  client-fingerprint: chrome
+  client-fingerprint: ''
+- name: 🇱🇹 立陶宛 (Lithuania) 04 - xiaohe
+  server: 176.123.165.180
+  port: 9881
+  udp: true
+  type: vless
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+  tls: true
+  reality-opts:
+    public-key: Dfgu8Ey0M8Hz4gXGZAwQ3H9jLt2HByVsjAOTWiuKDB0
+    short-id: aabbccdd
+  servername: dl.google.com
+  client-fingerprint: qq
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc-tunnel
 proxy-groups:
 - name: PROXIES
   type: select
@@ -37,6 +53,8 @@ proxy-groups:
   - AUTO
   - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
   - 🇱🇹 立陶宛 (Lithuania) 02 - xiaohe
+  - 🇱🇹 立陶宛 (Lithuania) 03 - xiaohe
+  - 🇱🇹 立陶宛 (Lithuania) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -44,5 +62,7 @@ proxy-groups:
   proxies:
   - 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
   - 🇱🇹 立陶宛 (Lithuania) 02 - xiaohe
+  - 🇱🇹 立陶宛 (Lithuania) 03 - xiaohe
+  - 🇱🇹 立陶宛 (Lithuania) 04 - xiaohe
 rules:
 - MATCH,PROXIES
