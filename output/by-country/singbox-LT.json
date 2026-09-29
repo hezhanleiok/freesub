@@ -4,8 +4,16 @@
   },
   "outbounds": [
     {
-      "type": "vless",
+      "type": "shadowsocks",
       "tag": "🇱🇹 立陶宛 (Lithuania) 01 - xiaohe",
+      "server": "195.238.126.20",
+      "server_port": 9012,
+      "method": "aes-256-cfb",
+      "password": "xaupMUvhptwxdDUg"
+    },
+    {
+      "type": "vless",
+      "tag": "🇱🇹 立陶宛 (Lithuania) 02 - xiaohe",
       "server": "62.77.158.1",
       "server_port": 443,
       "uuid": "2eceaf2b-a775-5a9c-9990-dad2b3660fb6",
@@ -25,23 +33,32 @@
       }
     },
     {
+      "type": "shadowsocks",
+      "tag": "🇱🇹 立陶宛 (Lithuania) 03 - xiaohe",
+      "server": "195.238.126.20",
+      "server_port": 9011,
+      "method": "aes-256-cfb",
+      "password": "M3t2ZEQcMGRWBjRa"
+    },
+    {
       "type": "vless",
-      "tag": "🇱🇹 立陶宛 (Lithuania) 02 - xiaohe",
-      "server": "lithuania-2.kochvpn.pw",
+      "tag": "🇱🇹 立陶宛 (Lithuania) 04 - xiaohe",
+      "server": "94.176.234.161",
       "server_port": 443,
-      "uuid": "2923fef2-3b52-a9c2-cde4-c2343eb74a2c",
+      "uuid": "d448490d-4ee6-442f-80e1-5e1c186c4ce1",
+      "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "lithuania-2.kochvpn.pw",
-        "insecure": false,
+        "server_name": "www.intel.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": ""
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "UpI0XKNUsMJ24XawPQ8g7br1faEsO7BOvmIIGg9Wrm8",
+          "short_id": "dbb2ef1c7c"
         }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/stream/ws"
       }
     },
     {
@@ -50,7 +67,9 @@
       "outbounds": [
         "auto",
         "🇱🇹 立陶宛 (Lithuania) 01 - xiaohe",
-        "🇱🇹 立陶宛 (Lithuania) 02 - xiaohe"
+        "🇱🇹 立陶宛 (Lithuania) 02 - xiaohe",
+        "🇱🇹 立陶宛 (Lithuania) 03 - xiaohe",
+        "🇱🇹 立陶宛 (Lithuania) 04 - xiaohe"
       ]
     },
     {
@@ -58,7 +77,9 @@
       "tag": "auto",
       "outbounds": [
         "🇱🇹 立陶宛 (Lithuania) 01 - xiaohe",
-        "🇱🇹 立陶宛 (Lithuania) 02 - xiaohe"
+        "🇱🇹 立陶宛 (Lithuania) 02 - xiaohe",
+        "🇱🇹 立陶宛 (Lithuania) 03 - xiaohe",
+        "🇱🇹 立陶宛 (Lithuania) 04 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },
