@@ -4,24 +4,25 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇴🇲 OM 01 - xiaohe
-  server: 130.94.81.180
-  port: 18415
+- name: 🇹🇭 泰国 (Thailand) 01 - xiaohe
+  server: 119.46.51.45
+  port: 37515
   udp: true
-  type: ss
-  cipher: aes-128-gcm
-  password: b667234b8d2e7eb34444857ea3a9b18a
+  type: vmess
+  uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
+  alterId: 0
+  cipher: auto
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇴🇲 OM 01 - xiaohe
+  - 🇹🇭 泰国 (Thailand) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇴🇲 OM 01 - xiaohe
+  - 🇹🇭 泰国 (Thailand) 01 - xiaohe
 rules:
 - MATCH,PROXIES

@@ -18,38 +18,54 @@ proxies:
   servername: google.com
   client-fingerprint: firefox
 - name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  server: 144.31.212.253
-  port: 443
-  udp: true
-  type: hysteria2
-  password: cf83b611-6cba-4535-adcb-8da06c6a9146
-  sni: vps155-edge.kermemehori.ru
-  skip-cert-verify: true
-- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  server: est1313.ggisopi.su
+  server: 138.124.17.179
   port: 443
   udp: true
   type: vless
-  uuid: d0f0a880-0df1-48c9-bdf1-5669fb9483ce
+  uuid: ca5ffe64-81e0-42f0-a136-03cc4f662a4f
+  tls: true
+  reality-opts:
+    public-key: eqlfwoHUoRvNeOKYzCzHSV64rSzyUVGS2w_nsOpWIG4
+    short-id: ffdf2e6056999b66
+  servername: finewl1.krusofiya.fun
+  client-fingerprint: random
+- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  server: 185.79.138.71
+  port: 448
+  udp: true
+  type: vless
+  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+  tls: true
+  reality-opts:
+    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
+    short-id: cd21e552537c7c0b
+  servername: www.samsung.com
+  client-fingerprint: chrome
+- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
+  server: 95.216.27.15
+  port: 2053
+  udp: true
+  type: vless
+  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
+  tls: true
+  reality-opts:
+    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
+    short-id: d368b94e275ab080
+  servername: www.google.com
+  client-fingerprint: firefox
+- name: 🇫🇮 芬兰 (Finland) 05 - xiaohe
+  server: 89.125.37.143
+  port: 443
+  udp: true
+  type: vless
+  uuid: d39a375e-2f51-4d26-8cf4-5b437bbb3c99
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
-  servername: est1313.ggisopi.su
+    public-key: nF_kEdHan2dgl2tlQ_dtNaKZ4oORhuiFrXHbtEDcT2Q
+    short-id: 2d6d073dc88f22a8
+  servername: nordic.global-cdn.org
   client-fingerprint: chrome
-- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
-  server: fi.astrafic.ru
-  port: 443
-  udp: true
-  type: vless
-  uuid: 3d9daa27-6283-406d-a2d4-c6f22c635a14
-  tls: true
-  servername: fi.astrafic.ru
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-service-name: vless-grpc
 proxy-groups:
 - name: PROXIES
   type: select
@@ -59,6 +75,7 @@ proxy-groups:
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
   - 🇫🇮 芬兰 (Finland) 03 - xiaohe
   - 🇫🇮 芬兰 (Finland) 04 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -68,5 +85,6 @@ proxy-groups:
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
   - 🇫🇮 芬兰 (Finland) 03 - xiaohe
   - 🇫🇮 芬兰 (Finland) 04 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 05 - xiaohe
 rules:
 - MATCH,PROXIES
