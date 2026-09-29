@@ -5,64 +5,18 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇬🇧 英国 (United Kingdom) 01 - xiaohe
-  type: ss
-  server: 51.77.225.200
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: zRZNBszYyWo5
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 02 - xiaohe
-  type: ss
-  server: 82.38.31.195
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 03 - xiaohe
-  type: ss
-  server: 141.98.101.181
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 04 - xiaohe
-  type: ss
-  server: 129.151.77.246
-  port: 61312
-  cipher: 2022-blake3-chacha20-poly1305
-  password: H0uNLTJ4GNHkmrVHdpjgcA2UDFQZ/Ty/+a6FS1FBpFM=
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 05 - xiaohe
-  type: vmess
-  server: 66.163.117.58
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: aksai.org
-  network: ws
-  ws-opts:
-    path: /linkvws
-    headers:
-      Host: aksai.org
-- name: 🇬🇧 英国 (United Kingdom) 06 - xiaohe
   type: vless
-  server: 199.232.78.159
-  port: 443
-  uuid: d6962b1a-4701-4456-ba61-deb28c913a66
+  server: 46.250.240.80
+  port: 2053
+  uuid: 948df76f-505d-4608-9c76-a933ee3ccc76
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ssl.fastly.com
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: pan2e.global.ssl.fastly.net
-- name: 🇬🇧 英国 (United Kingdom) 07 - xiaohe
+  reality-opts:
+    public-key: CYFeysLf--_IVhxQOCd3ZxLrAVWFFOkJzvIGHOVXN3E
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
+- name: 🇬🇧 英国 (United Kingdom) 02 - xiaohe
   type: vless
   server: 46.250.250.149
   port: 2053
@@ -74,47 +28,73 @@ proxies:
     public-key: hieuCHb3HYdDYHmTDyWw2SGqyfo36AVuA-wSiZMdU1M
   servername: www.apple.com
   client-fingerprint: random
-- name: 🇬🇧 英国 (United Kingdom) 08 - xiaohe
-  type: vmess
-  server: 186.190.211.147
-  port: 22324
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇬🇧 英国 (United Kingdom) 09 - xiaohe
+- name: 🇬🇧 英国 (United Kingdom) 03 - xiaohe
   type: ss
-  server: 129.151.83.142
-  port: 61312
-  cipher: 2022-blake3-chacha20-poly1305
-  password: NOv981b0xnoUuyIpicEqdyyKTTw+FPSk1/UXsp8PmyI=
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 10 - xiaohe
-  type: ss
-  server: 129.151.73.234
-  port: 61312
-  cipher: 2022-blake3-chacha20-poly1305
-  password: cWZss72WbEYna7wz8+JIcPgeCQfC+4gk9i4/h0ao9oc=
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 11 - xiaohe
-  type: vmess
-  server: aksai.org
+  server: 149.102.149.207
   port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
+  cipher: aes-256-gcm
+  password: LXchLsIwtCeUAUgu
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 04 - xiaohe
+  type: ss
+  server: 149.102.149.207
+  port: 443
+  cipher: aes-256-gcm
+  password: LXchLsIwtCeUAUgu
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 05 - xiaohe
+  type: vless
+  server: 51.89.194.151
+  port: 2053
+  uuid: 8e790f25-1d71-4601-9fb0-d503931dcfca
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ''
-  network: ws
-  ws-opts:
-    path: /linkvws
-    headers:
-      Host: ''
-- name: 🇬🇧 英国 (United Kingdom) 12 - xiaohe
+  reality-opts:
+    public-key: xPEBx4wUmwAAv4ikUALNBf5wH6TRhyeQ0Q2pcNELsV0
+  servername: www.apple.com
+  client-fingerprint: firefox
+- name: 🇬🇧 英国 (United Kingdom) 06 - xiaohe
+  type: vless
+  server: 46.250.250.149
+  port: 2053
+  uuid: b4caaf57-ad77-4948-a6f5-51b3513799bf
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: hieuCHb3HYdDYHmTDyWw2SGqyfo36AVuA-wSiZMdU1M
+  servername: www.apple.com
+  client-fingerprint: firefox
+- name: 🇬🇧 英国 (United Kingdom) 07 - xiaohe
+  type: ss
+  server: 134.65.62.95
+  port: 61312
+  cipher: 2022-blake3-chacha20-poly1305
+  password: +n/Yn6rWy+11rk4MxKsXdkGqV5y7bSFi1ktUN4jt11w=
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 08 - xiaohe
+  type: ss
+  server: 149.102.149.207
+  port: 80
+  cipher: aes-256-gcm
+  password: LXchLsIwtCeUAUgu
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 09 - xiaohe
+  type: ss
+  server: 129.151.77.246
+  port: 61312
+  cipher: 2022-blake3-chacha20-poly1305
+  password: H0uNLTJ4GNHkmrVHdpjgcA2UDFQZ/Ty/+a6FS1FBpFM=
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 10 - xiaohe
+  type: ss
+  server: 129.151.85.236
+  port: 61312
+  cipher: 2022-blake3-chacha20-poly1305
+  password: TI9oc8lBHt+MF8w17ovR+nzQIXv6izkiaiSUar824yM=
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 11 - xiaohe
   type: vless
   server: 144.31.243.120
   port: 8443
@@ -128,19 +108,98 @@ proxies:
     path: /
     headers:
       Host: edgetunnel-4uw.pages.dev
-- name: 🇬🇧 英国 (United Kingdom) 13 - xiaohe
-  type: vless
-  server: 46.250.250.149
-  port: 2053
-  uuid: b4caaf57-ad77-4948-a6f5-51b3513799bf
+- name: 🇬🇧 英国 (United Kingdom) 12 - xiaohe
+  type: vmess
+  server: aksai.org
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: hieuCHb3HYdDYHmTDyWw2SGqyfo36AVuA-wSiZMdU1M
-  servername: www.apple.com
-  client-fingerprint: firefox
+  servername: aksai.org
+  network: ws
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: aksai.org
+- name: 🇬🇧 英国 (United Kingdom) 13 - xiaohe
+  type: ss
+  server: 82.38.31.183
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
 - name: 🇬🇧 英国 (United Kingdom) 14 - xiaohe
+  type: ss
+  server: 129.151.83.142
+  port: 61312
+  cipher: 2022-blake3-chacha20-poly1305
+  password: NOv981b0xnoUuyIpicEqdyyKTTw+FPSk1/UXsp8PmyI=
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 15 - xiaohe
+  type: ss
+  server: 141.98.101.181
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 16 - xiaohe
+  type: ss
+  server: 134.65.60.121
+  port: 61312
+  cipher: 2022-blake3-chacha20-poly1305
+  password: BtbUy0WbUk0zMteivmHloMnVJvH1AXCSV2MPpOzu1os=
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 17 - xiaohe
+  type: vless
+  server: 188.114.97.6
+  port: 2052
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+- name: 🇬🇧 英国 (United Kingdom) 18 - xiaohe
+  type: vless
+  server: 188.114.97.6
+  port: 2052
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+- name: 🇬🇧 英国 (United Kingdom) 19 - xiaohe
+  type: vless
+  server: 199.232.78.159
+  port: 443
+  uuid: aa7c2760-e4c3-4034-9455-40a8a584f64c
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ssl.fastly.com
+  network: ws
+  ws-opts:
+    path: ?ed#Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+    headers:
+      Host: pannn1.global.ssl.fastly.net
+- name: 🇬🇧 英国 (United Kingdom) 20 - xiaohe
+  type: ss
+  server: 149.102.149.207
+  port: 80
+  cipher: aes-256-gcm
+  password: LXchLsIwtCeUAUgu
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 21 - xiaohe
   type: vmess
   server: 186.190.211.147
   port: 22324
@@ -150,89 +209,26 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇬🇧 英国 (United Kingdom) 15 - xiaohe
-  type: ss
-  server: 134.65.57.26
-  port: 61312
-  cipher: 2022-blake3-chacha20-poly1305
-  password: Sm4F5fX+ZJpWpkXMNbw0yYrWolYIiwknVYDwx8eus78=
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 16 - xiaohe
-  type: ss
-  server: 82.38.31.216
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 17 - xiaohe
-  type: vless
-  server: 51.89.194.151
-  port: 2053
-  uuid: 8e790f25-1d71-4601-9fb0-d503931dcfca
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: xPEBx4wUmwAAv4ikUALNBf5wH6TRhyeQ0Q2pcNELsV0
-  servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇬🇧 英国 (United Kingdom) 18 - xiaohe
-  type: ss
-  server: 149.102.149.207
-  port: 443
-  cipher: aes-256-gcm
-  password: LXchLsIwtCeUAUgu
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 19 - xiaohe
-  type: ss
-  server: 82.38.31.201
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 20 - xiaohe
-  type: ss
-  server: 134.65.60.121
-  port: 61312
-  cipher: 2022-blake3-chacha20-poly1305
-  password: BtbUy0WbUk0zMteivmHloMnVJvH1AXCSV2MPpOzu1os=
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 21 - xiaohe
-  type: vmess
-  server: 186.190.211.67
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: pahobac.org
-  network: ws
-  ws-opts:
-    path: /linkvws
-    headers:
-      Host: pahobac.org
 - name: 🇬🇧 英国 (United Kingdom) 22 - xiaohe
   type: ss
-  server: 129.151.85.236
+  server: 134.65.58.210
   port: 61312
   cipher: 2022-blake3-chacha20-poly1305
-  password: TI9oc8lBHt+MF8w17ovR+nzQIXv6izkiaiSUar824yM=
+  password: ZG5WzCzzYlKcfxZefNynxt0D2yveQ5jkD74pwXJNw/w=
   udp: true
 - name: 🇬🇧 英国 (United Kingdom) 23 - xiaohe
   type: ss
-  server: 149.102.149.207
-  port: 80
-  cipher: aes-256-gcm
-  password: LXchLsIwtCeUAUgu
+  server: 51.77.225.200
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: zRZNBszYyWo5
   udp: true
 - name: 🇬🇧 英国 (United Kingdom) 24 - xiaohe
   type: ss
-  server: 149.102.149.207
+  server: 149.102.132.184
   port: 80
   cipher: aes-256-gcm
-  password: LXchLsIwtCeUAUgu
+  password: g5h5jleTRSyO3Rk4
   udp: true
 proxy-groups:
 - name: PROXIES
