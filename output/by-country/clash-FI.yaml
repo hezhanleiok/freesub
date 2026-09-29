@@ -6,32 +6,64 @@ log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - wangyu
   type: vless
-  server: 151.101.56.6
+  server: 138.124.17.179
   port: 443
-  uuid: a819a5fb-6177-486b-c6fc-35adb29a2b0c
+  uuid: ca5ffe64-81e0-42f0-a136-03cc4f662a4f
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ssl.fastly.com
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM--BYA--CHANEL---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN--@JKVPN---@JKVPN---@JKVPN---@JKVPN
-    headers:
-      Host: c12.com
+  reality-opts:
+    public-key: eqlfwoHUoRvNeOKYzCzHSV64rSzyUVGS2w_nsOpWIG4
+  servername: finewl1.krusofiya.fun
+  client-fingerprint: random
 - name: 🇫🇮 FI 02 - wangyu
   type: vless
-  server: k2.cloud--vpn.site
+  server: 138.124.17.179
   port: 443
-  uuid: a819a5fb-6177-486b-c6fc-35adb29a2b0c
+  uuid: ca5ffe64-81e0-42f0-a136-03cc4f662a4f
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ssl.fastly.com
-  network: ws
-  ws-opts:
-    path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
-    headers:
-      Host: c12.com
+  reality-opts:
+    public-key: eqlfwoHUoRvNeOKYzCzHSV64rSzyUVGS2w_nsOpWIG4
+  servername: finewl1.krusofiya.fun
+  client-fingerprint: random
+- name: 🇫🇮 FI 03 - wangyu
+  type: vless
+  server: 185.79.138.71
+  port: 448
+  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
+  servername: www.samsung.com
+  client-fingerprint: firefox
+- name: 🇫🇮 FI 04 - wangyu
+  type: vless
+  server: 185.79.138.71
+  port: 448
+  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
+  servername: www.samsung.com
+  client-fingerprint: chrome
+- name: 🇫🇮 FI 05 - wangyu
+  type: vless
+  server: 185.79.138.71
+  port: 448
+  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
+  servername: www.samsung.com
+  client-fingerprint: random
 proxy-groups:
 - name: PROXIES
   type: select
@@ -39,6 +71,9 @@ proxy-groups:
   - AUTO
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
+  - 🇫🇮 FI 03 - wangyu
+  - 🇫🇮 FI 04 - wangyu
+  - 🇫🇮 FI 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -46,5 +81,8 @@ proxy-groups:
   proxies:
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
+  - 🇫🇮 FI 03 - wangyu
+  - 🇫🇮 FI 04 - wangyu
+  - 🇫🇮 FI 05 - wangyu
 rules:
 - MATCH,PROXIES

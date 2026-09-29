@@ -20,6 +20,41 @@ proxies:
       Host: shephe.dpdns.org
 - name: 🇦🇹 AT 02 - wangyu
   type: vless
+  server: 132.243.203.214
+  port: 8443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: 🇦🇹 AT 03 - wangyu
+  type: vless
+  server: 132.243.203.214
+  port: 8443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512
+    headers:
+      Host: shephe.dpdns.org
+- name: 🇦🇹 AT 04 - wangyu
+  type: ss
+  server: 82.110.60.9
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: 🇦🇹 AT 05 - wangyu
+  type: vless
   server: 152.53.1.40
   port: 443
   uuid: edde565e-41f5-400e-84ea-7b87a3e84488
@@ -30,13 +65,6 @@ proxies:
     public-key: 10rVZPoOUP1TlQviIAsQ_jAROX0fRQxH0C92nq_zGQc
   servername: at.quattro-tech.ru
   client-fingerprint: random
-- name: 🇦🇹 AT 03 - wangyu
-  type: ss
-  server: 82.110.60.9
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -45,6 +73,8 @@ proxy-groups:
   - 🇦🇹 AT 01 - wangyu
   - 🇦🇹 AT 02 - wangyu
   - 🇦🇹 AT 03 - wangyu
+  - 🇦🇹 AT 04 - wangyu
+  - 🇦🇹 AT 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -53,5 +83,7 @@ proxy-groups:
   - 🇦🇹 AT 01 - wangyu
   - 🇦🇹 AT 02 - wangyu
   - 🇦🇹 AT 03 - wangyu
+  - 🇦🇹 AT 04 - wangyu
+  - 🇦🇹 AT 05 - wangyu
 rules:
 - MATCH,PROXIES

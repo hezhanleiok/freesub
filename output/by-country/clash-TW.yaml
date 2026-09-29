@@ -15,7 +15,7 @@ proxies:
   reality-opts:
     public-key: PLslPQOBA3bfWO5hXLv7jioCTuNR8vCxa_axi0dC7C0
   servername: www.cloudflare.com
-  client-fingerprint: safari
+  client-fingerprint: ios
 - name: 🇹🇼 中国台湾 (Taiwan) 02 - wangyu
   type: vless
   server: 35.201.181.122
@@ -27,8 +27,32 @@ proxies:
   reality-opts:
     public-key: PLslPQOBA3bfWO5hXLv7jioCTuNR8vCxa_axi0dC7C0
   servername: www.cloudflare.com
-  client-fingerprint: safari
+  client-fingerprint: ios
 - name: 🇹🇼 中国台湾 (Taiwan) 03 - wangyu
+  type: vless
+  server: 35.201.181.122
+  port: 443
+  uuid: 22a0b0bd-1cd0-43fa-a7c3-73b24eae44e2
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: PLslPQOBA3bfWO5hXLv7jioCTuNR8vCxa_axi0dC7C0
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
+- name: 🇹🇼 中国台湾 (Taiwan) 04 - wangyu
+  type: vless
+  server: 35.201.181.122
+  port: 443
+  uuid: 22a0b0bd-1cd0-43fa-a7c3-73b24eae44e2
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: PLslPQOBA3bfWO5hXLv7jioCTuNR8vCxa_axi0dC7C0
+  servername: www.cloudflare.com
+  client-fingerprint: edge
+- name: 🇹🇼 中国台湾 (Taiwan) 05 - wangyu
   type: vless
   server: 60.248.219.54
   port: 443
@@ -42,30 +66,6 @@ proxies:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
       Host: 60.248.219.54
-- name: 🇹🇼 中国台湾 (Taiwan) 04 - wangyu
-  type: vless
-  server: 35.201.181.122
-  port: 443
-  uuid: 22a0b0bd-1cd0-43fa-a7c3-73b24eae44e2
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: PLslPQOBA3bfWO5hXLv7jioCTuNR8vCxa_axi0dC7C0
-  servername: www.cloudflare.com
-  client-fingerprint: ios
-- name: 🇹🇼 中国台湾 (Taiwan) 05 - wangyu
-  type: vless
-  server: 35.201.181.122
-  port: 443
-  uuid: 22a0b0bd-1cd0-43fa-a7c3-73b24eae44e2
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: PLslPQOBA3bfWO5hXLv7jioCTuNR8vCxa_axi0dC7C0
-  servername: www.cloudflare.com
-  client-fingerprint: ios
 - name: 🇹🇼 中国台湾 (Taiwan) 06 - wangyu
   type: vless
   server: 35.201.181.122
@@ -77,17 +77,21 @@ proxies:
   reality-opts:
     public-key: PLslPQOBA3bfWO5hXLv7jioCTuNR8vCxa_axi0dC7C0
   servername: www.cloudflare.com
-  client-fingerprint: firefox
+  client-fingerprint: qq
 - name: 🇹🇼 中国台湾 (Taiwan) 07 - wangyu
-  type: vmess
-  server: 165.154.195.38
-  port: 35034
-  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
-  alterId: 0
-  cipher: auto
+  type: vless
+  server: 60.248.219.78
+  port: 443
+  uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: ty986gfazs.cainiaohub.xyz
+  network: ws
+  ws-opts:
+    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
+    headers:
+      Host: 60.248.219.78
 - name: 🇹🇼 中国台湾 (Taiwan) 08 - wangyu
   type: vmess
   server: 165.154.195.38
