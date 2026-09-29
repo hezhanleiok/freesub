@@ -18,17 +18,33 @@ proxies:
     path: /
     headers:
       Host: shephe.dpdns.org
+- name: 🇱🇹 LT 02 - xiaohe
+  type: vless
+  server: lithuania-2.kochvpn.pw
+  port: 443
+  uuid: 2923fef2-3b52-a9c2-cde4-c2343eb74a2c
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: lithuania-2.kochvpn.pw
+  network: ws
+  ws-opts:
+    path: /stream/ws
+    headers:
+      Host: lithuania-2.kochvpn.pw
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇱🇹 LT 01 - xiaohe
+  - 🇱🇹 LT 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇱🇹 LT 01 - xiaohe
+  - 🇱🇹 LT 02 - xiaohe
 rules:
 - MATCH,PROXIES
