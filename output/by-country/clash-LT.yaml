@@ -5,19 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇱🇹 立陶宛 (Lithuania) 01 - xiaohe
-  server: 94.176.234.161
-  port: 443
-  udp: true
-  type: vless
-  uuid: d448490d-4ee6-442f-80e1-5e1c186c4ce1
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: UpI0XKNUsMJ24XawPQ8g7br1faEsO7BOvmIIGg9Wrm8
-    short-id: dbb2ef1c7c
-  servername: www.intel.com
-  client-fingerprint: chrome
-- name: 🇱🇹 立陶宛 (Lithuania) 02 - xiaohe
   server: 62.77.158.1
   port: 443
   udp: true
@@ -30,6 +17,19 @@ proxies:
     short-id: 6a
   servername: online.1c.ru
   client-fingerprint: safari
+- name: 🇱🇹 立陶宛 (Lithuania) 02 - xiaohe
+  server: lithuania-2.kochvpn.pw
+  port: 443
+  udp: true
+  type: vless
+  uuid: 2923fef2-3b52-a9c2-cde4-c2343eb74a2c
+  tls: true
+  servername: lithuania-2.kochvpn.pw
+  skip-cert-verify: false
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /stream/ws
 proxy-groups:
 - name: PROXIES
   type: select
