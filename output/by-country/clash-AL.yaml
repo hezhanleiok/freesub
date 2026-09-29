@@ -1,0 +1,32 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇦🇱 AL 01 - xiaohe
+  type: vless
+  server: 85.155.228.185
+  port: 443
+  uuid: ca5ffe64-81e0-42f0-a136-03cc4f662a4f
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 9M294WArTUZ9m1fMmvlHauSb5wZo68SkCW_lEgBVAF8
+  servername: avsal.krusofiya.fun
+  client-fingerprint: firefox
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇦🇱 AL 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇦🇱 AL 01 - xiaohe
+rules:
+- MATCH,PROXIES

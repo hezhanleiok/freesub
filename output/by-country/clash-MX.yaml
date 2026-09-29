@@ -1,0 +1,32 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇲🇽 MX 01 - xiaohe
+  type: vless
+  server: 34.51.29.171
+  port: 443
+  uuid: 9ad81959-02c6-4679-a419-2af6a16ca07a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 8vHditYTXXNZ37iNTraU4w129svOplF0QUhZwX2n3FA
+  servername: www.cloudflare.com
+  client-fingerprint: edge
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇲🇽 MX 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇲🇽 MX 01 - xiaohe
+rules:
+- MATCH,PROXIES
