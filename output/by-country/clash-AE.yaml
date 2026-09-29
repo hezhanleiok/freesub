@@ -7,7 +7,7 @@ proxies:
 - name: 🇦🇪 阿联酋 (UAE) 01 - wangyu
   type: vless
   server: 185.112.249.201
-  port: 8443
+  port: 2053
   uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
   udp: true
   tls: true
@@ -20,7 +20,7 @@ proxies:
       Host: edgetunnel-4uw.pages.dev
 - name: 🇦🇪 阿联酋 (UAE) 02 - wangyu
   type: vless
-  server: 84.235.244.108
+  server: uae.unixzone.us
   port: 22573
   uuid: 39947382-3212-41c9-bc3a-589574ac8b23
   udp: true
@@ -59,72 +59,18 @@ proxies:
       Host: uae.unixzone.us
 - name: 🇦🇪 阿联酋 (UAE) 05 - wangyu
   type: vless
-  server: 185.112.249.201
-  port: 2053
-  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  server: uae.unixzone.us
+  port: 22573
+  uuid: 39947382-3212-41c9-bc3a-589574ac8b23
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: edgetunnel-4uw.pages.dev
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: edgetunnel-4uw.pages.dev
+      Host: uae.unixzone.us
 - name: 🇦🇪 阿联酋 (UAE) 06 - wangyu
-  type: vless
-  server: 84.235.244.108
-  port: 22573
-  uuid: 39947382-3212-41c9-bc3a-589574ac8b23
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: uae.unixzone.us
-- name: 🇦🇪 阿联酋 (UAE) 07 - wangyu
-  type: vless
-  server: uae.unixzone.us
-  port: 22573
-  uuid: 39947382-3212-41c9-bc3a-589574ac8b23
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: uae.unixzone.us
-- name: 🇦🇪 阿联酋 (UAE) 08 - wangyu
-  type: vless
-  server: 185.112.249.201
-  port: 2053
-  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: edgetunnel-4uw.pages.dev
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: edgetunnel-4uw.pages.dev
-- name: 🇦🇪 阿联酋 (UAE) 09 - wangyu
-  type: vless
-  server: uae.unixzone.us
-  port: 22573
-  uuid: 39947382-3212-41c9-bc3a-589574ac8b23
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: uae.unixzone.us
-- name: 🇦🇪 阿联酋 (UAE) 10 - wangyu
   type: vless
   server: 185.112.249.201
   port: 8443
@@ -138,21 +84,9 @@ proxies:
     path: /
     headers:
       Host: edgetunnel-4uw.pages.dev
-- name: 🇦🇪 阿联酋 (UAE) 11 - wangyu
+- name: 🇦🇪 阿联酋 (UAE) 07 - wangyu
   type: vless
-  server: 89.125.147.199
-  port: 443
-  uuid: 246b101b-4e4a-451f-8e9c-5e8d3b64b4ef
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: iQJ8UdFw-lUWa9mXugescYHkmwNH96nuj_z-LAZvfxg
-  servername: maps.apple.com
-  client-fingerprint: chrome
-- name: 🇦🇪 阿联酋 (UAE) 12 - wangyu
-  type: vless
-  server: uae.unixzone.us
+  server: 84.235.244.108
   port: 22573
   uuid: 39947382-3212-41c9-bc3a-589574ac8b23
   udp: true
@@ -175,11 +109,6 @@ proxy-groups:
   - 🇦🇪 阿联酋 (UAE) 05 - wangyu
   - 🇦🇪 阿联酋 (UAE) 06 - wangyu
   - 🇦🇪 阿联酋 (UAE) 07 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 08 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 09 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 10 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 11 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 12 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -192,10 +121,5 @@ proxy-groups:
   - 🇦🇪 阿联酋 (UAE) 05 - wangyu
   - 🇦🇪 阿联酋 (UAE) 06 - wangyu
   - 🇦🇪 阿联酋 (UAE) 07 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 08 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 09 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 10 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 11 - wangyu
-  - 🇦🇪 阿联酋 (UAE) 12 - wangyu
 rules:
 - MATCH,PROXIES
