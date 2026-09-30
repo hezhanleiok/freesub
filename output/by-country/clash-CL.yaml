@@ -4,31 +4,29 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇨🇿 捷克 (Czech) 01 - xiaohe
-  server: 195.133.66.229
+- name: 🇨🇱 智利 (Chile) 01 - xiaohe
+  server: 34.176.187.219
   port: 443
   udp: true
   type: vless
-  uuid: 4abdfe42-aec7-4b66-974d-3f891e2e8184
+  uuid: ad5325f8-f0b3-41c4-a561-113529b60e70
   tls: true
   reality-opts:
-    public-key: Zl6Fe6WYQuaFe_QNUB4qU7nRkGujy7LqjoQ96GO3jUc
-  servername: nlll.gaz-service.shop
+    public-key: HnHVuSObMrldWGzq1-Eb93fwgu6QQRp6H0_8LX3ikDc
+    short-id: 2c2d919f5183d0b7
+  servername: www.cloudflare.com
   client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-service-name: grpc
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇨🇱 智利 (Chile) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇨🇱 智利 (Chile) 01 - xiaohe
 rules:
 - MATCH,PROXIES

@@ -11,17 +11,26 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: Xsy8Ox4yOV3xLlpxtjzs3X
+- name: 🇿🇦 南非 (South Africa) 02 - xiaohe
+  server: 139.84.247.164
+  port: 8388
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: tfAcRikawhNoZAhu
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇿🇦 南非 (South Africa) 01 - xiaohe
+  - 🇿🇦 南非 (South Africa) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇿🇦 南非 (South Africa) 01 - xiaohe
+  - 🇿🇦 南非 (South Africa) 02 - xiaohe
 rules:
 - MATCH,PROXIES

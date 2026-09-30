@@ -4,24 +4,25 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇳🇴 挪威 (Norway) 01 - xiaohe
-  server: 185.213.23.63
-  port: 990
+- name: 🇹🇭 泰国 (Thailand) 01 - xiaohe
+  server: th1.zestapp778.com
+  port: 443
   udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+  type: trojan
+  password: Trojan@82164024
+  sni: th1.zestapp778.com
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇳🇴 挪威 (Norway) 01 - xiaohe
+  - 🇹🇭 泰国 (Thailand) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇳🇴 挪威 (Norway) 01 - xiaohe
+  - 🇹🇭 泰国 (Thailand) 01 - xiaohe
 rules:
 - MATCH,PROXIES
