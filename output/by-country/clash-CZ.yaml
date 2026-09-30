@@ -5,27 +5,47 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇿 捷克 (Czech) 01 - xiaohe
-  server: 199.232.78.101
+  server: netra-85a0ca.shoameni19.workers.dev
   port: 443
   udp: true
-  type: trojan
-  password: mitivpn
-  sni: ssl.fastly.com
+  type: vless
+  uuid: 20836693-ea23-4f40-a1e7-48a6da897917
+  tls: true
+  servername: netra-85a0ca.shoameni19.workers.dev
   skip-cert-verify: false
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/NLSus---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN
+    path: /vl/bluTTbb7MO8rvX1COEYH4WW4qzbr2aui
+    headers:
+      Host: netra-85a0ca.shoameni19.workers.dev
+- name: 🇨🇿 捷克 (Czech) 02 - xiaohe
+  server: 195.133.66.229
+  port: 443
+  udp: true
+  type: vless
+  uuid: 4abdfe42-aec7-4b66-974d-3f891e2e8184
+  tls: true
+  reality-opts:
+    public-key: Zl6Fe6WYQuaFe_QNUB4qU7nRkGujy7LqjoQ96GO3jUc
+  servername: nlll.gaz-service.shop
+  client-fingerprint: firefox
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 02 - xiaohe
 rules:
 - MATCH,PROXIES

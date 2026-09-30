@@ -4,14 +4,14 @@
   },
   "outbounds": [
     {
-      "type": "trojan",
+      "type": "vless",
       "tag": "🇨🇿 捷克 (Czech) 01 - xiaohe",
-      "server": "199.232.78.101",
+      "server": "netra-85a0ca.shoameni19.workers.dev",
       "server_port": 443,
-      "password": "mitivpn",
+      "uuid": "20836693-ea23-4f40-a1e7-48a6da897917",
       "tls": {
         "enabled": true,
-        "server_name": "ssl.fastly.com",
+        "server_name": "netra-85a0ca.shoameni19.workers.dev",
         "insecure": false,
         "alpn": [
           "http/1.1"
@@ -23,10 +23,34 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/NLSus---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN/---@GHOFLSHCAN---@GHOFLSHCAN",
+        "path": "/vl/bluTTbb7MO8rvX1COEYH4WW4qzbr2aui",
         "headers": {
-          "Host": "mitivpn---de--s---mitivpn-11.global.ssl.fastly.net"
+          "Host": "netra-85a0ca.shoameni19.workers.dev"
         }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇨🇿 捷克 (Czech) 02 - xiaohe",
+      "server": "195.133.66.229",
+      "server_port": 443,
+      "uuid": "4abdfe42-aec7-4b66-974d-3f891e2e8184",
+      "tls": {
+        "enabled": true,
+        "server_name": "nlll.gaz-service.shop",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "Zl6Fe6WYQuaFe_QNUB4qU7nRkGujy7LqjoQ96GO3jUc",
+          "short_id": ""
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "grpc"
       }
     },
     {
@@ -34,14 +58,16 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇨🇿 捷克 (Czech) 01 - xiaohe"
+        "🇨🇿 捷克 (Czech) 01 - xiaohe",
+        "🇨🇿 捷克 (Czech) 02 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇨🇿 捷克 (Czech) 01 - xiaohe"
+        "🇨🇿 捷克 (Czech) 01 - xiaohe",
+        "🇨🇿 捷克 (Czech) 02 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },
