@@ -4,29 +4,29 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇲🇽 MX 01 - wangyu
+- name: 🇹🇷 土耳其 (Turkey) 01 - wangyu
   type: vless
-  server: 34.51.119.243
+  server: 92b6d0ff54070b56.IROnlY4l.Ir
   port: 443
-  uuid: 79bc7b01-6e4e-4365-a120-fefac8182bd9
+  uuid: 0b47cd2c-cd11-4398-a323-ef4a08475e77
   udp: true
   tls: true
   skip-cert-verify: true
   reality-opts:
-    public-key: vFcM44RcbcO5jcrSWHLd_0exXAnnJLhpCNnMrWCwlzI
-  servername: www.cloudflare.com
+    public-key: pLbqDSeEe7biTe6b-w6SOLl2SiRxIBjHMfqUzuRR3Ew
+  servername: play.google.com
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇲🇽 MX 01 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇲🇽 MX 01 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 01 - wangyu
 rules:
 - MATCH,PROXIES
