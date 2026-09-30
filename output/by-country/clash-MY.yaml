@@ -14,116 +14,17 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇲🇾 MY 02 - wangyu
-  type: vless
-  server: platform128.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /platform128
-    headers:
-      Host: platform128.golnamakcert.top
-- name: 🇲🇾 MY 03 - wangyu
-  type: vmess
-  server: 47.250.135.244
-  port: 10000
-  uuid: aedc66b8-99d7-4a21-8310-61870e7f870d
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇲🇾 MY 04 - wangyu
-  type: vless
-  server: platform128.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /platform128
-    headers:
-      Host: platform128.halalkhor.info
-- name: 🇲🇾 MY 05 - wangyu
-  type: vless
-  server: platform128.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /platform128
-    headers:
-      Host: platform128.halalkhor.info
-- name: 🇲🇾 MY 06 - wangyu
-  type: vless
-  server: platform128.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /platform128
-    headers:
-      Host: platform128.halalkhor.info
-- name: 🇲🇾 MY 07 - wangyu
-  type: vless
-  server: platform128.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /platform128
-    headers:
-      Host: platform128.golnamakcert.top
-- name: 🇲🇾 MY 08 - wangyu
-  type: vmess
-  server: 47.250.135.244
-  port: 10000
-  uuid: aedc66b8-99d7-4a21-8310-61870e7f870d
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇲🇾 MY 01 - wangyu
-  - 🇲🇾 MY 02 - wangyu
-  - 🇲🇾 MY 03 - wangyu
-  - 🇲🇾 MY 04 - wangyu
-  - 🇲🇾 MY 05 - wangyu
-  - 🇲🇾 MY 06 - wangyu
-  - 🇲🇾 MY 07 - wangyu
-  - 🇲🇾 MY 08 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇲🇾 MY 01 - wangyu
-  - 🇲🇾 MY 02 - wangyu
-  - 🇲🇾 MY 03 - wangyu
-  - 🇲🇾 MY 04 - wangyu
-  - 🇲🇾 MY 05 - wangyu
-  - 🇲🇾 MY 06 - wangyu
-  - 🇲🇾 MY 07 - wangyu
-  - 🇲🇾 MY 08 - wangyu
 rules:
 - MATCH,PROXIES
