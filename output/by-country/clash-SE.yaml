@@ -6,6 +6,20 @@ log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - wangyu
   type: vless
+  server: 144.31.243.120
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
+- name: 🇸🇪 SE 02 - wangyu
+  type: vless
   server: 103.71.22.234
   port: 8443
   uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
@@ -16,20 +30,6 @@ proxies:
   network: ws
   ws-opts:
     path: /
-    headers:
-      Host: shephe.dpdns.org
-- name: 🇸🇪 SE 02 - wangyu
-  type: vless
-  server: 103.71.22.26
-  port: 443
-  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: shephe.dpdns.org
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512
     headers:
       Host: shephe.dpdns.org
 - name: 🇸🇪 SE 03 - wangyu
@@ -43,12 +43,26 @@ proxies:
   servername: shephe.dpdns.org
   network: ws
   ws-opts:
-    path: /
+    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512
     headers:
       Host: shephe.dpdns.org
 - name: 🇸🇪 SE 04 - wangyu
   type: vless
   server: 2.26.17.128
+  port: 443
+  uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: shephe.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shephe.dpdns.org
+- name: 🇸🇪 SE 05 - wangyu
+  type: vless
+  server: 103.71.22.26
   port: 443
   uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
   udp: true
@@ -69,6 +83,7 @@ proxy-groups:
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
   - 🇸🇪 SE 04 - wangyu
+  - 🇸🇪 SE 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -78,5 +93,6 @@ proxy-groups:
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
   - 🇸🇪 SE 04 - wangyu
+  - 🇸🇪 SE 05 - wangyu
 rules:
 - MATCH,PROXIES

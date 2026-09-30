@@ -13,13 +13,6 @@ proxies:
   tls: false
   skip-cert-verify: true
 - name: 🇮🇹 意大利 (Italy) 02 - wangyu
-  type: ss
-  server: 57.131.48.45
-  port: 8388
-  cipher: aes-256-gcm
-  password: itzvpn@321
-  udp: true
-- name: 🇮🇹 意大利 (Italy) 03 - wangyu
   type: vless
   server: 57.131.21.102
   port: 8443
@@ -33,14 +26,35 @@ proxies:
     path: /RoBeRt
     headers:
       Host: milan.adaspoloandco.com
+- name: 🇮🇹 意大利 (Italy) 03 - wangyu
+  type: vless
+  server: 104.21.64.247
+  port: 443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: edgetunnel-4uw.pages.dev
 - name: 🇮🇹 意大利 (Italy) 04 - wangyu
   type: ss
-  server: 185.164.175.81
-  port: 19999
+  server: 57.131.48.45
+  port: 8388
   cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  password: itzvpn@321
   udp: true
 - name: 🇮🇹 意大利 (Italy) 05 - wangyu
+  type: ss
+  server: 57.131.48.45
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
+  udp: true
+- name: 🇮🇹 意大利 (Italy) 06 - wangyu
   type: vless
   server: 204.216.216.23
   port: 10086
@@ -48,13 +62,31 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇮🇹 意大利 (Italy) 06 - wangyu
-  type: ss
-  server: 57.131.48.45
-  port: 8388
-  cipher: aes-256-gcm
-  password: itzvpn@321
+- name: 🇮🇹 意大利 (Italy) 07 - wangyu
+  type: vless
+  server: 204.216.216.23
+  port: 10086
+  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
   udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇮🇹 意大利 (Italy) 08 - wangyu
+  type: ss
+  server: 185.164.175.81
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: 🇮🇹 意大利 (Italy) 09 - wangyu
+  type: vmess
+  server: 89.41.172.85
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -66,6 +98,9 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 04 - wangyu
   - 🇮🇹 意大利 (Italy) 05 - wangyu
   - 🇮🇹 意大利 (Italy) 06 - wangyu
+  - 🇮🇹 意大利 (Italy) 07 - wangyu
+  - 🇮🇹 意大利 (Italy) 08 - wangyu
+  - 🇮🇹 意大利 (Italy) 09 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -77,5 +112,8 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 04 - wangyu
   - 🇮🇹 意大利 (Italy) 05 - wangyu
   - 🇮🇹 意大利 (Italy) 06 - wangyu
+  - 🇮🇹 意大利 (Italy) 07 - wangyu
+  - 🇮🇹 意大利 (Italy) 08 - wangyu
+  - 🇮🇹 意大利 (Italy) 09 - wangyu
 rules:
 - MATCH,PROXIES
