@@ -4,30 +4,29 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe
-  server: 193.148.59.178
+- name: 🇸🇪 瑞典 (Sweden) 01 - xiaohe
+  server: 34.51.240.236
   port: 443
   udp: true
   type: vless
-  uuid: 20d7c485-5d24-49b5-a5cc-bb7a7daf9908
-  flow: xtls-rprx-vision
+  uuid: 788950f8-dbd9-4234-a42c-a7204665ce9f
   tls: true
   reality-opts:
-    public-key: -GMpCber8qtrKzJbwvpLcwlIhOy-5zS66u_x9lLvIjE
-    short-id: e3daad69
-  servername: www.apple.com
+    public-key: SOvacyM6CABhBHYdOHvhXbkNLHJBHuAkoJj2Z13xKlE
+    short-id: b4a6faed784ff461
+  servername: www.cloudflare.com
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe
+  - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe
+  - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
 rules:
 - MATCH,PROXIES

@@ -5,12 +5,24 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
-  server: 140.238.213.114
-  port: 50160
+  server: 208.69.78.217
+  port: 2053
+  udp: true
+  type: vless
+  uuid: c0dd6d59-1573-43af-8b70-1470b2632a6d
+  tls: true
+  reality-opts:
+    public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
+    short-id: ad86e2d52ff40ebd
+  servername: www.apple.com
+  client-fingerprint: firefox
+- name: 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
+  server: 82.38.64.239
+  port: 8443
   udp: true
   type: hysteria2
-  password: 84a506ca5aca505696a454d828420b3f
-  sni: 140.238.213.114
+  password: we9_I1893UFj3149xbr1_k8qvJ8734ic_Mx82gH
+  sni: hopp-swizland-new.mysynology.net
   skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
@@ -18,11 +30,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
+  - 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
+  - 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
 rules:
 - MATCH,PROXIES

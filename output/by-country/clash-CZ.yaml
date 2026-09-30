@@ -14,36 +14,21 @@ proxies:
   reality-opts:
     public-key: Zl6Fe6WYQuaFe_QNUB4qU7nRkGujy7LqjoQ96GO3jUc
   servername: nlll.gaz-service.shop
-  client-fingerprint: chrome
+  client-fingerprint: firefox
   network: grpc
   grpc-opts:
     grpc-service-name: grpc
-- name: 🇨🇿 捷克 (Czech) 02 - xiaohe
-  server: nlll.gaz-service.shop
-  port: 8443
-  udp: true
-  type: vless
-  uuid: 4abdfe42-aec7-4b66-974d-3f891e2e8184
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: j97RCvxVfMu5XWcXuAc4s8TnBTdl8PQrNFrZDQpAkng
-    short-id: b415b8d7a6106ace
-  servername: nlll.gaz-service.shop
-  client-fingerprint: ''
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇨🇿 捷克 (Czech) 01 - xiaohe
-  - 🇨🇿 捷克 (Czech) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇨🇿 捷克 (Czech) 01 - xiaohe
-  - 🇨🇿 捷克 (Czech) 02 - xiaohe
 rules:
 - MATCH,PROXIES
