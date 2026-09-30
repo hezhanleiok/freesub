@@ -6,55 +6,29 @@ log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - xiaohe
   type: vless
-  server: 95.216.27.15
-  port: 2053
-  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
+  server: 84.22.150.239
+  port: 444
+  uuid: dc83276f-268a-4b18-9f63-63c73e11ffd8
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
-  servername: www.google.com
-  client-fingerprint: firefox
-- name: 🇫🇮 FI 02 - xiaohe
-  type: vless
-  server: 185.79.138.71
-  port: 448
-  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
-  servername: www.samsung.com
-  client-fingerprint: chrome
-- name: 🇫🇮 FI 03 - xiaohe
-  type: vless
-  server: 185.79.138.71
-  port: 448
-  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
-  servername: www.samsung.com
-  client-fingerprint: chrome
+  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇫🇮 FI 01 - xiaohe
-  - 🇫🇮 FI 02 - xiaohe
-  - 🇫🇮 FI 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇫🇮 FI 01 - xiaohe
-  - 🇫🇮 FI 02 - xiaohe
-  - 🇫🇮 FI 03 - xiaohe
 rules:
 - MATCH,PROXIES

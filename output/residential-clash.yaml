@@ -18,26 +18,17 @@ proxies:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
       Host: ty986gfazs.cainiaohub.xyz
-- name: 🇰🇷 韩国 (South Korea) 02 (家宽) - xiaohe
-  type: ss
-  server: 211.174.113.172
-  port: 49642
-  cipher: aes-256-gcm
-  password: ac9c0a7b
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
-  - 🇰🇷 韩国 (South Korea) 02 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
-  - 🇰🇷 韩国 (South Korea) 02 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES

@@ -30,18 +30,6 @@ proxies:
     public-key: pLbqDSeEe7biTe6b-w6SOLl2SiRxIBjHMfqUzuRR3Ew
   servername: storage-p2.googleapis.com
   client-fingerprint: chrome
-- name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
-  type: vless
-  server: 151.241.226.201
-  port: 2053
-  uuid: 0eed6293-8cf1-4e77-ac10-9c3d50d0b2f8
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: bYW_MmB_CUHrsyoCAUKviI2LZdHf63yY2yOPXbih104
-  servername: www.apple.com
-  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -49,7 +37,6 @@ proxy-groups:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -57,6 +44,5 @@ proxy-groups:
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
 rules:
 - MATCH,PROXIES
