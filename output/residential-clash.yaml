@@ -4,42 +4,28 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇺🇸 美国 (United States) 01 (移动家宽) - xiaohe
-  server: 172.67.214.106
-  port: 443
+- name: 🇫🇷 法国 (France) 01 (家宽) - xiaohe
+  server: 108.162.198.178
+  port: 2095
   udp: true
   type: vless
-  uuid: a8890c1b-3622-3106-c4be-d8671be32d2b
-  tls: true
-  servername: summer-meadow-af5b.woowoorrrkk.workers.dev
-  skip-cert-verify: false
-  client-fingerprint: chrome
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   network: ws
   ws-opts:
-    path: /sync
+    path: /
     headers:
-      Host: summer-meadow-af5b.woowoorrrkk.workers.dev
-- name: 🇸🇬 新加坡 (Singapore) 02 (家宽) - xiaohe
-  server: s3.huhiuh.space
-  port: 18642
-  udp: true
-  type: hysteria2
-  password: user317_windows:c70565e9-a99f-40ef-b96c-469a3949eed2
-  sni: www.bing.com
-  skip-cert-verify: true
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇺🇸 美国 (United States) 01 (移动家宽) - xiaohe
-  - 🇸🇬 新加坡 (Singapore) 02 (家宽) - xiaohe
+  - 🇫🇷 法国 (France) 01 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇺🇸 美国 (United States) 01 (移动家宽) - xiaohe
-  - 🇸🇬 新加坡 (Singapore) 02 (家宽) - xiaohe
+  - 🇫🇷 法国 (France) 01 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES
