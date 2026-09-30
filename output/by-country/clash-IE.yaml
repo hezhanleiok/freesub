@@ -5,13 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇪 IE 01 - xiaohe
-  type: ss
-  server: 20.123.34.66
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: r5D6YOSrT6kC76ro
-  udp: true
-- name: 🇮🇪 IE 02 - xiaohe
   type: vless
   server: 45.141.234.138
   port: 443
@@ -25,7 +18,7 @@ proxies:
     path: /
     headers:
       Host: edgetunnel-4uw.pages.dev
-- name: 🇮🇪 IE 03 - xiaohe
+- name: 🇮🇪 IE 02 - xiaohe
   type: ss
   server: 20.123.34.66
   port: 443
@@ -39,7 +32,6 @@ proxy-groups:
   - AUTO
   - 🇮🇪 IE 01 - xiaohe
   - 🇮🇪 IE 02 - xiaohe
-  - 🇮🇪 IE 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -47,6 +39,5 @@ proxy-groups:
   proxies:
   - 🇮🇪 IE 01 - xiaohe
   - 🇮🇪 IE 02 - xiaohe
-  - 🇮🇪 IE 03 - xiaohe
 rules:
 - MATCH,PROXIES

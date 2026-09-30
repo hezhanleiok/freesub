@@ -19,19 +19,15 @@ proxies:
     headers:
       Host: ty986gfazs.cainiaohub.xyz
 - name: 🇹🇼 中国台湾 (Taiwan) 02 - xiaohe
-  type: vless
-  server: 60.248.219.54
-  port: 443
-  uuid: 06e177f7-240d-4687-bd85-235505801a5e
+  type: vmess
+  server: 165.154.195.38
+  port: 35034
+  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
+  alterId: 0
+  cipher: auto
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: ty986gfazs.cainiaohub.xyz
-  network: ws
-  ws-opts:
-    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
-    headers:
-      Host: 60.248.219.54
 - name: 🇹🇼 中国台湾 (Taiwan) 03 - xiaohe
   type: vmess
   server: 165.154.195.38
@@ -132,6 +128,16 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
+- name: 🇹🇼 中国台湾 (Taiwan) 13 - xiaohe
+  type: vmess
+  server: 165.154.195.38
+  port: 35034
+  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -149,6 +155,7 @@ proxy-groups:
   - 🇹🇼 中国台湾 (Taiwan) 10 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 11 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 12 - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 13 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -166,5 +173,6 @@ proxy-groups:
   - 🇹🇼 中国台湾 (Taiwan) 10 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 11 - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 12 - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 13 - xiaohe
 rules:
 - MATCH,PROXIES
