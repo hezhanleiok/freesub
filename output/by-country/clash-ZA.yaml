@@ -6,6 +6,13 @@ log-level: info
 proxies:
 - name: 🇿🇦 ZA 01 - xiaohe
   type: ss
+  server: 139.84.247.164
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: tfAcRikawhNoZAhu
+  udp: true
+- name: 🇿🇦 ZA 02 - xiaohe
+  type: ss
   server: 102.133.165.160
   port: 16233
   cipher: chacha20-ietf-poly1305
@@ -17,11 +24,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇿🇦 ZA 01 - xiaohe
+  - 🇿🇦 ZA 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇿🇦 ZA 01 - xiaohe
+  - 🇿🇦 ZA 02 - xiaohe
 rules:
 - MATCH,PROXIES
