@@ -4,24 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇷🇴 RO 01 - xiaohe
+- name: 🇵🇹 PT 01 - xiaohe
   type: ss
-  server: 154.46.31.106
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: QFWzCw2uX9B9i6qAYeFBIE
+  server: 185.231.233.91
+  port: 17167
+  cipher: aes-128-gcm
+  password: ca438054771821250089399a2f33275e
   udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇷🇴 RO 01 - xiaohe
+  - 🇵🇹 PT 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇷🇴 RO 01 - xiaohe
+  - 🇵🇹 PT 01 - xiaohe
 rules:
 - MATCH,PROXIES
