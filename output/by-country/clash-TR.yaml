@@ -1,0 +1,33 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
+  server: 83.217.9.140
+  port: 43000
+  udp: true
+  type: vless
+  uuid: 85163fd9-6f73-4eea-b1df-3b327dacbabf
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: ptE_QnAka3pXNEf8BYKpA9CHdgj4U4xXTixjYWOji0U
+    short-id: 68d2eb23
+  servername: 83.217.9.140
+  client-fingerprint: chrome
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
+rules:
+- MATCH,PROXIES
