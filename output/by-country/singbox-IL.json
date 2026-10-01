@@ -6,6 +6,35 @@
     {
       "type": "vless",
       "tag": "🇮🇱 以色列 (Israel) 01 - xiaohe",
+      "server": "185.95.231.156",
+      "server_port": 443,
+      "uuid": "1f8cf47a-b66a-4916-979f-26edfcf44eea",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To",
+          "short_id": "a3a578ab"
+        }
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇮🇱 以色列 (Israel) 02 - xiaohe",
+      "server": "31.57.185.82",
+      "server_port": 27797,
+      "method": "2022-blake3-aes-256-gcm",
+      "password": "ad8eqTJ4pcXibDSIE/90ObnHNABLoVO8Gzpq6DlGTGc=:rN//WmXR71iKTF+NlcmOg+EmbFVsxLUcxAI1YdWKOhE="
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇱 以色列 (Israel) 03 - xiaohe",
       "server": "185.95.231.233",
       "server_port": 443,
       "uuid": "1ffa8e68-3378-4cf4-b8f6-44bf3d46d106",
@@ -25,33 +54,13 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "🇮🇱 以色列 (Israel) 02 - xiaohe",
-      "server": "185.95.231.156",
-      "server_port": 443,
-      "uuid": "1f8cf47a-b66a-4916-979f-26edfcf44eea",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.apple.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To",
-          "short_id": "a3a578ab"
-        }
-      }
-    },
-    {
       "type": "selector",
       "tag": "select",
       "outbounds": [
         "auto",
         "🇮🇱 以色列 (Israel) 01 - xiaohe",
-        "🇮🇱 以色列 (Israel) 02 - xiaohe"
+        "🇮🇱 以色列 (Israel) 02 - xiaohe",
+        "🇮🇱 以色列 (Israel) 03 - xiaohe"
       ]
     },
     {
@@ -59,7 +68,8 @@
       "tag": "auto",
       "outbounds": [
         "🇮🇱 以色列 (Israel) 01 - xiaohe",
-        "🇮🇱 以色列 (Israel) 02 - xiaohe"
+        "🇮🇱 以色列 (Israel) 02 - xiaohe",
+        "🇮🇱 以色列 (Israel) 03 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

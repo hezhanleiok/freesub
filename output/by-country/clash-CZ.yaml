@@ -5,6 +5,55 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇿 捷克 (Czech) 01 - xiaohe
+  server: 153.76.185.162
+  port: 3090
+  udp: true
+  type: vless
+  uuid: ea723504-e8df-4f23-b35f-c93961d5128a
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+- name: 🇨🇿 捷克 (Czech) 02 - xiaohe
+  server: 153.76.185.159
+  port: 3090
+  udp: true
+  type: vless
+  uuid: ea723504-e8df-4f23-b35f-c93961d5128a
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+- name: 🇨🇿 捷克 (Czech) 03 - xiaohe
+  server: 153.76.185.163
+  port: 3090
+  udp: true
+  type: vless
+  uuid: ea723504-e8df-4f23-b35f-c93961d5128a
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+- name: 🇨🇿 捷克 (Czech) 04 - xiaohe
+  server: 194.87.59.29
+  port: 2085
+  udp: true
+  type: vless
+  uuid: ea723504-e8df-4f23-b35f-c93961d5128a
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+- name: 🇨🇿 捷克 (Czech) 05 - xiaohe
+  server: nlll.gaz-service.shop
+  port: 8443
+  udp: true
+  type: vless
+  uuid: 4abdfe42-aec7-4b66-974d-3f891e2e8184
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: j97RCvxVfMu5XWcXuAc4s8TnBTdl8PQrNFrZDQpAkng
+    short-id: b415b8d7a6106ace
+  servername: nlll.gaz-service.shop
+  client-fingerprint: ''
+- name: 🇨🇿 捷克 (Czech) 06 - xiaohe
   server: 195.133.66.229
   port: 443
   udp: true
@@ -14,7 +63,7 @@ proxies:
   reality-opts:
     public-key: Zl6Fe6WYQuaFe_QNUB4qU7nRkGujy7LqjoQ96GO3jUc
   servername: nlll.gaz-service.shop
-  client-fingerprint: firefox
+  client-fingerprint: chrome
   network: grpc
   grpc-opts:
     grpc-service-name: grpc
@@ -24,11 +73,21 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 02 - xiaohe
+  - 🇨🇿 捷克 (Czech) 03 - xiaohe
+  - 🇨🇿 捷克 (Czech) 04 - xiaohe
+  - 🇨🇿 捷克 (Czech) 05 - xiaohe
+  - 🇨🇿 捷克 (Czech) 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 02 - xiaohe
+  - 🇨🇿 捷克 (Czech) 03 - xiaohe
+  - 🇨🇿 捷克 (Czech) 04 - xiaohe
+  - 🇨🇿 捷克 (Czech) 05 - xiaohe
+  - 🇨🇿 捷克 (Czech) 06 - xiaohe
 rules:
 - MATCH,PROXIES
