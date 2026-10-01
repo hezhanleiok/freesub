@@ -1,0 +1,27 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇵🇹 葡萄牙 (Portugal) 01 - xiaohe
+  server: 185.231.233.91
+  port: 17167
+  udp: true
+  type: ss
+  cipher: aes-128-gcm
+  password: ca438054771821250089399a2f33275e
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇵🇹 葡萄牙 (Portugal) 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇵🇹 葡萄牙 (Portugal) 01 - xiaohe
+rules:
+- MATCH,PROXIES
