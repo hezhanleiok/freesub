@@ -5,7 +5,15 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
-  server: 50.7.5.164
+  server: ie.tronsg.com
+  port: 443
+  udp: true
+  type: trojan
+  password: Trojan@82164024
+  sni: ie.tronsg.com
+  skip-cert-verify: true
+- name: 🇮🇪 爱尔兰 (Ireland) 02 - xiaohe
+  server: 50.7.5.166
   port: 443
   udp: true
   type: vless
@@ -15,14 +23,6 @@ proxies:
   servername: ekb.eg
   skip-cert-verify: true
   client-fingerprint: firefox
-- name: 🇮🇪 爱尔兰 (Ireland) 02 - xiaohe
-  server: ie.tronsg.com
-  port: 443
-  udp: true
-  type: trojan
-  password: Trojan@82164024
-  sni: ie.tronsg.com
-  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
