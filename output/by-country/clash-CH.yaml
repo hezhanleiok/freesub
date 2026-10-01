@@ -5,6 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
+  server: 132.243.175.144
+  port: 8388
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
+- name: 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
   server: 208.69.78.217
   port: 2053
   udp: true
@@ -15,8 +22,8 @@ proxies:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
     short-id: ad86e2d52ff40ebd
   servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
+  client-fingerprint: chrome
+- name: 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
   server: 82.38.64.235
   port: 8443
   udp: true
@@ -31,6 +38,7 @@ proxy-groups:
   - AUTO
   - 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
+  - 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -38,5 +46,6 @@ proxy-groups:
   proxies:
   - 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
+  - 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
 rules:
 - MATCH,PROXIES

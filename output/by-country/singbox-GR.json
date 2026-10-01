@@ -5,24 +5,28 @@
   "outbounds": [
     {
       "type": "vless",
-      "tag": "🇹🇷 土耳其 (Turkey) 01 (移动家宽) - xiaohe",
-      "server": "178.83.46.216",
-      "server_port": 2053,
-      "uuid": "9ef61079-6f7d-4911-9608-943da85d8e6f"
+      "tag": "🇬🇷 希腊 (Greece) 01 - xiaohe",
+      "server": "185.126.238.87",
+      "server_port": 2083,
+      "uuid": "7668f678-faee-40cc-9b56-9c39dc773388",
+      "transport": {
+        "type": "grpc",
+        "service_name": "security.debian.org"
+      }
     },
     {
       "type": "selector",
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇹🇷 土耳其 (Turkey) 01 (移动家宽) - xiaohe"
+        "🇬🇷 希腊 (Greece) 01 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇹🇷 土耳其 (Turkey) 01 (移动家宽) - xiaohe"
+        "🇬🇷 希腊 (Greece) 01 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

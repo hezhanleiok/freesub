@@ -5,49 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇸 西班牙 (Spain) 01 - xiaohe
-  server: 104.18.46.46
-  port: 2095
-  udp: true
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  network: ws
-  ws-opts:
-    path: '/?ed=2560security=tls '
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
-  server: 212.227.235.66
-  port: 2053
-  udp: true
-  type: vless
-  uuid: ead0dd61-d398-40ad-80d6-a0e1e516d7d3
-  tls: true
-  reality-opts:
-    public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
-    short-id: 29e8dcd2b37aaa7f
-  servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇪🇸 西班牙 (Spain) 03 - xiaohe
-  server: 193.238.154.5
-  port: 443
-  udp: true
-  type: vless
-  uuid: e0b9fb0f-1bbd-478b-9580-c2294778338b
-  tls: true
-  servername: assets-es.pleiades.codes
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-service-name: cdn.v1.AssetService
-- name: 🇪🇸 西班牙 (Spain) 04 - xiaohe
   server: 108.181.121.226
   port: 8388
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
   password: WSyL4XTwNsdv
-- name: 🇪🇸 西班牙 (Spain) 05 - xiaohe
+- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
   server: 66.163.118.73
   port: 22324
   udp: true
@@ -55,7 +19,26 @@ proxies:
   uuid: 04621bae-ab36-11ec-b909-0242ac120002
   alterId: 0
   cipher: auto
-- name: 🇪🇸 西班牙 (Spain) 06 - xiaohe
+- name: 🇪🇸 西班牙 (Spain) 03 - xiaohe
+  server: 140.174.184.5
+  port: 8388
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: qItG8SueYQcP
+- name: 🇪🇸 西班牙 (Spain) 04 - xiaohe
+  server: 34.175.19.8
+  port: 443
+  udp: true
+  type: vless
+  uuid: 0b4b1548-c7ca-45a5-9096-6c3cc4b1c43b
+  tls: true
+  reality-opts:
+    public-key: iI9J--AfPKCXbVle3Om-WMn_g-3bO3SsVzUCNtwUkU0
+    short-id: fe85cb6a5c84e64c
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇪🇸 西班牙 (Spain) 05 - xiaohe
   server: mygptagent.org
   port: 443
   udp: true
@@ -81,7 +64,6 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 03 - xiaohe
   - 🇪🇸 西班牙 (Spain) 04 - xiaohe
   - 🇪🇸 西班牙 (Spain) 05 - xiaohe
-  - 🇪🇸 西班牙 (Spain) 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -92,6 +74,5 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 03 - xiaohe
   - 🇪🇸 西班牙 (Spain) 04 - xiaohe
   - 🇪🇸 西班牙 (Spain) 05 - xiaohe
-  - 🇪🇸 西班牙 (Spain) 06 - xiaohe
 rules:
 - MATCH,PROXIES

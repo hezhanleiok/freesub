@@ -5,6 +5,14 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
+  server: ie.tronsg.com
+  port: 443
+  udp: true
+  type: trojan
+  password: Trojan@82164024
+  sni: ie.tronsg.com
+  skip-cert-verify: true
+- name: 🇮🇪 爱尔兰 (Ireland) 02 - xiaohe
   server: 50.7.5.164
   port: 443
   udp: true
@@ -15,19 +23,6 @@ proxies:
   servername: ekb.eg
   skip-cert-verify: true
   client-fingerprint: firefox
-- name: 🇮🇪 爱尔兰 (Ireland) 02 - xiaohe
-  server: 3.9.135.156
-  port: 51847
-  udp: true
-  type: vless
-  uuid: 391a01e9-b664-407b-9158-610fab3f5920
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: S6noV0L8eNASnTe1gXLutLZNdfENsvKMsOJiGQYi6nc
-    short-id: 0eec442e7b34d2f2
-  servername: www.tesla.com
-  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
