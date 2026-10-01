@@ -5,30 +5,64 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - wangyu
+  type: ss
+  server: 130.49.189.158
+  port: 43558
+  cipher: chacha20-ietf-poly1305
+  password: IcovoXEMyjfGjN9RenzKs0/iPaZ3vtk9fkxJ0s/R5vw=
+  udp: true
+- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
   type: vless
-  server: germany.tofreedom.ru
-  port: 8444
-  uuid: 9cb2520c-148b-4bbc-a149-9d5a43ff0db3
+  server: 217.19.122.200
+  port: 443
+  uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: germany.tofreedom.ru
+  servername: fbsv6.guardora.pro
   network: ws
   ws-opts:
-    path: /c7f5317cd04691bc
+    path: /ws
     headers:
-      Host: germany.tofreedom.ru
+      Host: fbsv6.guardora.pro
+- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
+  type: vless
+  server: 78.159.246.110
+  port: 443
+  uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: fbsv6.guardora.pro
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: fbsv6.guardora.pro
+- name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
+  type: ss
+  server: 195.133.23.200
+  port: 20998
+  cipher: aes-256-gcm
+  password: 81a20429165df87e
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
 rules:
 - MATCH,PROXIES

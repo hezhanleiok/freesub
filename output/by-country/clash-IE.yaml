@@ -5,33 +5,26 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇪 IE 01 - wangyu
-  type: vless
-  server: 45.141.234.138
+  type: ss
+  server: 20.166.59.119
   port: 443
-  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  cipher: chacha20-ietf-poly1305
+  password: gJe7umStIck5Mieg
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: edgetunnel-4uw.pages.dev
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: edgetunnel-4uw.pages.dev
 - name: 🇮🇪 IE 02 - wangyu
-  type: vless
-  server: 45.141.234.138
+  type: ss
+  server: 20.166.59.119
   port: 443
-  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  cipher: chacha20-ietf-poly1305
+  password: gJe7umStIck5Mieg
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: edgetunnel-4uw.pages.dev
-  network: ws
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: edgetunnel-4uw.pages.dev
+- name: 🇮🇪 IE 03 - wangyu
+  type: ss
+  server: 20.166.59.119
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: gJe7umStIck5Mieg
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -39,6 +32,7 @@ proxy-groups:
   - AUTO
   - 🇮🇪 IE 01 - wangyu
   - 🇮🇪 IE 02 - wangyu
+  - 🇮🇪 IE 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -46,5 +40,6 @@ proxy-groups:
   proxies:
   - 🇮🇪 IE 01 - wangyu
   - 🇮🇪 IE 02 - wangyu
+  - 🇮🇪 IE 03 - wangyu
 rules:
 - MATCH,PROXIES
