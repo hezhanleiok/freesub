@@ -11,17 +11,26 @@ proxies:
   cipher: aes-128-gcm
   password: ca438054771821250089399a2f33275e
   udp: true
+- name: 🇵🇹 PT 02 - xiaohe
+  type: ss
+  server: 185.231.233.91
+  port: 17167
+  cipher: aes-128-gcm
+  password: ca438054771821250089399a2f33275e
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇵🇹 PT 01 - xiaohe
+  - 🇵🇹 PT 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇵🇹 PT 01 - xiaohe
+  - 🇵🇹 PT 02 - xiaohe
 rules:
 - MATCH,PROXIES
