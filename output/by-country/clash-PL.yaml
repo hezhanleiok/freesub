@@ -5,78 +5,91 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇵🇱 波兰 (Poland) 01 - xiaohe
-  server: 217.30.10.44
-  port: 9076
+  server: 149.86.227.200
+  port: 443
   udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: S2zDyyPcmZN2h8EC
+  type: vless
+  uuid: 0f4081e7-612b-425f-8def-eebf144aedba
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: ITd6cmCxudmTvGcwnAzpd0VRe8jS9KJAQ1tmtVN3mCM
+    short-id: 9e15546f267baa64
+  servername: waypoint.connectserverix.com
+  client-fingerprint: safari
 - name: 🇵🇱 波兰 (Poland) 02 - xiaohe
-  server: 149.86.227.16
+  server: 34.118.43.106
   port: 443
   udp: true
   type: vless
-  uuid: 733b2a78-9306-4bbc-a3a0-b8bfb55f430a
-  flow: xtls-rprx-vision
+  uuid: 16e310b7-659e-45ee-a4b0-10e0289b8621
   tls: true
   reality-opts:
-    public-key: JaP4bhvIMW-l7T0_RkLra59DeBYI6W9XemKa8MyRPSY
-    short-id: 6c6082a2223c1d03
-  servername: pmv.raketa-balance.com
-  client-fingerprint: firefox
+    public-key: -bjPqNKxxGTKCmH6dwsdGRTUzuatAowBWxyOPW4BiVQ
+    short-id: 7e7623474d41f032
+  servername: www.cloudflare.com
+  client-fingerprint: ''
 - name: 🇵🇱 波兰 (Poland) 03 - xiaohe
-  server: 95.85.253.202
-  port: 443
+  server: pl.srv.vbuste-bot.com
+  port: 444
   udp: true
   type: vless
-  uuid: 4314a583-3a39-45e1-883e-70bf570d252a
-  flow: xtls-rprx-vision
+  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
   tls: true
   reality-opts:
-    public-key: z-TKWOWgZLfzQ-wNdwXQqVwaUgCmbchM2Xtrk1NGynU
-  servername: pl0001.kubservice.icu
-  client-fingerprint: qq
-- name: 🇵🇱 波兰 (Poland) 04 - xiaohe
-  server: 144.31.131.38
-  port: 443
-  udp: true
-  type: vless
-  uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
-    short-id: db04ce8bdb8900f1
-  servername: prod.pl-node-01.security-sbrf.ru
+    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+    short-id: 4be4110078ebed4a
+  servername: pl.srv.vbuste-bot.com
   client-fingerprint: firefox
-- name: 🇵🇱 波兰 (Poland) 05 - xiaohe
-  server: cheerful-swan.rooster465.autos
+  network: grpc
+  grpc-opts:
+    grpc-service-name: ''
+- name: 🇵🇱 波兰 (Poland) 04 - xiaohe
+  server: 202.78.163.237
   port: 443
   udp: true
   type: trojan
   password: UX82473651
   sni: cheerful-swan.rooster465.autos
   skip-cert-verify: false
-- name: 🇵🇱 波兰 (Poland) 06 - xiaohe
-  server: admin.wwwinternetvideo.click
-  port: 443
+- name: 🇵🇱 波兰 (Poland) 05 - xiaohe
+  server: 31.77.13.19
+  port: 2063
   udp: true
-  type: hysteria2
-  password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
-  sni: admin.wwwinternetvideo.click
-  skip-cert-verify: true
-- name: 🇵🇱 波兰 (Poland) 07 - xiaohe
-  server: bober.nightfall.best
+  type: vless
+  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
+  servername: rusbid.de
+  client-fingerprint: firefox
+- name: 🇵🇱 波兰 (Poland) 06 - xiaohe
+  server: 83.168.95.145
   port: 443
   udp: true
   type: vless
-  uuid: af2bf319-ba88-4fec-8317-2b6a8cee96d1
+  uuid: 82f37352-85e5-49bb-9edc-a80997065659
+  flow: xtls-rprx-vision
   tls: true
-  servername: bober.nightfall.best
-  skip-cert-verify: false
-  network: grpc
-  grpc-opts:
-    grpc-service-name: rdamrwhuacfl
+  reality-opts:
+    public-key: AcuvO982QLzf76fVydfSuJIiF5520rmj7AxpaxyRwUg
+    short-id: d345ad4657adeef9
+  servername: google.com
+  client-fingerprint: chrome
+- name: 🇵🇱 波兰 (Poland) 07 - xiaohe
+  server: 188.114.96.19
+  port: 80
+  udp: true
+  type: vmess
+  uuid: aed88e79-5762-4d2f-86fa-f438f32a7654
+  alterId: 0
+  cipher: auto
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: google.whatsapp.snapp.torob.basalam.hesanid8.ir.
 proxy-groups:
 - name: PROXIES
   type: select
