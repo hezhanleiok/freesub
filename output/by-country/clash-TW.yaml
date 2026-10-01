@@ -19,25 +19,33 @@ proxies:
     headers:
       Host: ty986gfazs.cainiaohub.xyz
 - name: 🇹🇼 中国台湾 (Taiwan) 02 - wangyu
-  type: vmess
-  server: 165.154.195.38
-  port: 35034
-  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
-  alterId: 0
-  cipher: auto
+  type: vless
+  server: 141.11.87.48
+  port: 8443
+  uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: edgetunnel-4uw.pages.dev
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: edgetunnel-4uw.pages.dev
 - name: 🇹🇼 中国台湾 (Taiwan) 03 - wangyu
-  type: vmess
-  server: 165.154.195.38
-  port: 35034
-  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
-  alterId: 0
-  cipher: auto
+  type: vless
+  server: 60.248.219.54
+  port: 443
+  uuid: 06e177f7-240d-4687-bd85-235505801a5e
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: ty986gfazs.cainiaohub.xyz
+  network: ws
+  ws-opts:
+    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
+    headers:
+      Host: 60.248.219.54
 - name: 🇹🇼 中国台湾 (Taiwan) 04 - wangyu
   type: vmess
   server: 165.154.195.38
@@ -118,26 +126,6 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇹🇼 中国台湾 (Taiwan) 12 - wangyu
-  type: vmess
-  server: 165.154.195.38
-  port: 35034
-  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇹🇼 中国台湾 (Taiwan) 13 - wangyu
-  type: vmess
-  server: 165.154.195.38
-  port: 35034
-  uuid: 959a8caf-4cea-43d0-a548-3628e7ddfafc
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -154,8 +142,6 @@ proxy-groups:
   - 🇹🇼 中国台湾 (Taiwan) 09 - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 10 - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 11 - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 12 - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 13 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -172,7 +158,5 @@ proxy-groups:
   - 🇹🇼 中国台湾 (Taiwan) 09 - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 10 - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 11 - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 12 - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 13 - wangyu
 rules:
 - MATCH,PROXIES

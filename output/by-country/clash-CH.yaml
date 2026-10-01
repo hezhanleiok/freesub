@@ -5,6 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇭 CH 01 - wangyu
+  type: ss
+  server: 132.243.175.144
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
+  udp: true
+- name: 🇨🇭 CH 02 - wangyu
   type: vless
   server: 208.69.78.217
   port: 2053
@@ -15,18 +22,20 @@ proxies:
   reality-opts:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
   servername: www.apple.com
-  client-fingerprint: firefox
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇨🇭 CH 01 - wangyu
+  - 🇨🇭 CH 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇨🇭 CH 01 - wangyu
+  - 🇨🇭 CH 02 - wangyu
 rules:
 - MATCH,PROXIES
