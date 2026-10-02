@@ -5,18 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇸 西班牙 (Spain) 01 - xiaohe
-  type: vless
-  server: 34.175.44.113
-  port: 443
-  uuid: 0b4b1548-c7ca-45a5-9096-6c3cc4b1c43b
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: iI9J--AfPKCXbVle3Om-WMn_g-3bO3SsVzUCNtwUkU0
-  servername: www.cloudflare.com
-  client-fingerprint: ios
-- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
   type: vmess
   server: 66.163.118.73
   port: 22324
@@ -26,6 +14,18 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
+- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
+  type: vless
+  server: 212.227.235.66
+  port: 2053
+  uuid: ead0dd61-d398-40ad-80d6-a0e1e516d7d3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
+  servername: www.apple.com
+  client-fingerprint: firefox
 - name: 🇪🇸 西班牙 (Spain) 03 - xiaohe
   type: ss
   server: 108.181.121.226
@@ -42,19 +42,63 @@ proxies:
   udp: true
 - name: 🇪🇸 西班牙 (Spain) 05 - xiaohe
   type: vless
-  server: 31.57.190.62
-  port: 443
-  uuid: b1c31d36-c6b5-414b-88d2-9e24e7bfcca3
+  server: 212.227.235.66
+  port: 2053
+  uuid: ead0dd61-d398-40ad-80d6-a0e1e516d7d3
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: www.nihaoyun.top
+  reality-opts:
+    public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
+  servername: www.apple.com
+  client-fingerprint: chrome
+- name: 🇪🇸 西班牙 (Spain) 06 - xiaohe
+  type: vmess
+  server: mygptagent.org
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
   network: ws
   ws-opts:
-    path: /
+    path: /linkvws
     headers:
-      Host: www.nihaoyun.top
-- name: 🇪🇸 西班牙 (Spain) 06 - xiaohe
+      Host: ''
+- name: 🇪🇸 西班牙 (Spain) 07 - xiaohe
+  type: vmess
+  server: 66.163.118.73
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇪🇸 西班牙 (Spain) 08 - xiaohe
+  type: vmess
+  server: 66.163.118.73
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇪🇸 西班牙 (Spain) 09 - xiaohe
+  type: vmess
+  server: 66.163.118.73
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇪🇸 西班牙 (Spain) 10 - xiaohe
   type: vmess
   server: mygptagent.org
   port: 443
@@ -70,16 +114,6 @@ proxies:
     path: /linkvws
     headers:
       Host: mygptagent.org
-- name: 🇪🇸 西班牙 (Spain) 07 - xiaohe
-  type: vmess
-  server: 66.163.118.73
-  port: 22324
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -92,6 +126,9 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 05 - xiaohe
   - 🇪🇸 西班牙 (Spain) 06 - xiaohe
   - 🇪🇸 西班牙 (Spain) 07 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 08 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 09 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 10 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -104,5 +141,8 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 05 - xiaohe
   - 🇪🇸 西班牙 (Spain) 06 - xiaohe
   - 🇪🇸 西班牙 (Spain) 07 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 08 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 09 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 10 - xiaohe
 rules:
 - MATCH,PROXIES
