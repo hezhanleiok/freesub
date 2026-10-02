@@ -5,12 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 芬兰 (Finland) 01 - xiaohe
-  server: 77.42.20.51
-  port: 1085
-  udp: true
-  type: vless
-  uuid: 0c1b7949-fe09-43d9-863f-2c031f66bfc1
-- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
   server: 144.31.232.216
   port: 443
   udp: true
@@ -18,27 +12,24 @@ proxies:
   password: 06e88dd6-e264-4981-8c26-d7ab17348ab2
   sni: fi01.clgate.network
   skip-cert-verify: true
-- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  server: 144.31.212.253
-  port: 443
-  udp: true
-  type: hysteria2
-  password: cf83b611-6cba-4535-adcb-8da06c6a9146
-  sni: vps155-edge.kermemehori.ru
-  skip-cert-verify: true
-- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
-  server: 144.31.150.185
-  port: 443
+- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
+  server: 95.216.27.15
+  port: 2053
   udp: true
   type: vless
-  uuid: 49c8e76e-7e52-426a-8669-51d93c7a6d12
-  flow: xtls-rprx-vision
+  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
   tls: true
   reality-opts:
-    public-key: Z1_596gzjw7TiPAhowugetKeotIJzLGHA41Fu5Re3WE
-    short-id: 410a04029b24
-  servername: start.ru
+    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
+    short-id: d368b94e275ab080
+  servername: www.google.com
   client-fingerprint: firefox
+- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  server: 77.42.20.51
+  port: 1085
+  udp: true
+  type: vless
+  uuid: 0c1b7949-fe09-43d9-863f-2c031f66bfc1
 proxy-groups:
 - name: PROXIES
   type: select
@@ -47,7 +38,6 @@ proxy-groups:
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
   - 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -56,6 +46,5 @@ proxy-groups:
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
   - 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 04 - xiaohe
 rules:
 - MATCH,PROXIES

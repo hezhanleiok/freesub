@@ -5,22 +5,21 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇸 西班牙 (Spain) 01 - xiaohe
-  server: 185.174.137.172
-  port: 8446
-  udp: true
-  type: hysteria2
-  password: e9dc02d400b67c727aca1620
-  sni: 185.174.137.172
-  skip-cert-verify: true
-- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
   server: 140.174.184.5
   port: 8388
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
   password: qItG8SueYQcP
+- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
+  server: 108.181.121.226
+  port: 8388
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: WSyL4XTwNsdv
 - name: 🇪🇸 西班牙 (Spain) 03 - xiaohe
-  server: 66.163.118.73
+  server: mygptagent.org
   port: 443
   udp: true
   type: vmess
@@ -33,16 +32,23 @@ proxies:
   network: ws
   ws-opts:
     path: /linkvws
-    headers:
-      Host: mygptagent.org
 - name: 🇪🇸 西班牙 (Spain) 04 - xiaohe
-  server: 108.181.121.226
-  port: 8388
+  server: 66.163.118.73
+  port: 22324
   udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: WSyL4XTwNsdv
+  type: vmess
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
 - name: 🇪🇸 西班牙 (Spain) 05 - xiaohe
+  server: xby.mangshe.xyz
+  port: 2060
+  udp: true
+  type: hysteria2
+  password: 5d0a6445-a30d-4522-bb1f-94f1d3ad63be
+  sni: xby.mangshe.xyz
+  skip-cert-verify: true
+- name: 🇪🇸 西班牙 (Spain) 06 - xiaohe
   server: 193.238.154.5
   port: 443
   udp: true
@@ -55,14 +61,6 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: cdn.v1.AssetService
-- name: 🇪🇸 西班牙 (Spain) 06 - xiaohe
-  server: 66.163.118.73
-  port: 22324
-  udp: true
-  type: vmess
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
 proxy-groups:
 - name: PROXIES
   type: select

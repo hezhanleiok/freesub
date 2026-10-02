@@ -1,0 +1,57 @@
+{
+  "log": {
+    "level": "warn"
+  },
+  "outbounds": [
+    {
+      "type": "hysteria2",
+      "tag": "🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe",
+      "server": "66133e3a-tmm5c0-tmg311-141tv.hk3.hyhuawei.com",
+      "server_port": 443,
+      "password": "bd77bfe8-e0f3-11ec-bd7c-f23c913c8d2b",
+      "tls": {
+        "enabled": true,
+        "server_name": "66133e3a-tmm5c0-tmg311-141tv.hk3.hyhuawei.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe",
+      "server": "283aa14b-tmm5c0-tzkd63-1jr1u.nw4.hyhuawei.com",
+      "server_port": 443,
+      "password": "2c01eae6-0b6a-11ee-a058-f23c91369f2d",
+      "tls": {
+        "enabled": true,
+        "server_name": "283aa14b-tmm5c0-tzkd63-1jr1u.nw4.hyhuawei.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe",
+        "🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe",
+        "🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe"
+      ],
+      "url": "https://www.gstatic.com/generate_204"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}
