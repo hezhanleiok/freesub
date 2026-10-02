@@ -5,32 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇱 CL 01 - wangyu
-  type: vless
-  server: platform103.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  type: ss
+  server: 64.176.2.21
+  port: 8388
+  cipher: aes-256-gcm
+  password: xBStBEVqvGwHPocc
   udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /platform103
-    headers:
-      Host: platform103.halalkhor.info
 - name: 🇨🇱 CL 02 - wangyu
-  type: vless
-  server: platform107.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /platform107
-    headers:
-      Host: platform107.halalkhor.info
-- name: 🇨🇱 CL 03 - wangyu
   type: vless
   server: platform102.golnamakcert.top
   port: 80
@@ -43,9 +24,9 @@ proxies:
     path: /platform102
     headers:
       Host: platform102.halalkhor.info
-- name: 🇨🇱 CL 04 - wangyu
+- name: 🇨🇱 CL 03 - wangyu
   type: vless
-  server: platform101.golnamakcert.top
+  server: platform107.golnamakcert.top
   port: 80
   uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
   udp: true
@@ -53,10 +34,10 @@ proxies:
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /platform101
+    path: /platform107
     headers:
-      Host: platform101.halalkhor.info
-- name: 🇨🇱 CL 05 - wangyu
+      Host: platform107.halalkhor.info
+- name: 🇨🇱 CL 04 - wangyu
   type: vless
   server: platform106.golnamakcert.top
   port: 80
@@ -69,6 +50,45 @@ proxies:
     path: /platform106
     headers:
       Host: platform106.halalkhor.info
+- name: 🇨🇱 CL 05 - wangyu
+  type: vless
+  server: platform103.golnamakcert.top
+  port: 80
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /platform103
+    headers:
+      Host: platform103.halalkhor.info
+- name: 🇨🇱 CL 06 - wangyu
+  type: vless
+  server: platform101.golnamakcert.top
+  port: 80
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /platform101
+    headers:
+      Host: platform101.halalkhor.info
+- name: 🇨🇱 CL 07 - wangyu
+  type: vless
+  server: platform109.golnamakcert.top
+  port: 80
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /platform109
+    headers:
+      Host: platform109.halalkhor.info
 proxy-groups:
 - name: PROXIES
   type: select
@@ -79,6 +99,8 @@ proxy-groups:
   - 🇨🇱 CL 03 - wangyu
   - 🇨🇱 CL 04 - wangyu
   - 🇨🇱 CL 05 - wangyu
+  - 🇨🇱 CL 06 - wangyu
+  - 🇨🇱 CL 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -89,5 +111,7 @@ proxy-groups:
   - 🇨🇱 CL 03 - wangyu
   - 🇨🇱 CL 04 - wangyu
   - 🇨🇱 CL 05 - wangyu
+  - 🇨🇱 CL 06 - wangyu
+  - 🇨🇱 CL 07 - wangyu
 rules:
 - MATCH,PROXIES

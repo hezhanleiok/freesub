@@ -5,23 +5,91 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - wangyu
-  type: ss
-  server: bale.xv98.ir
-  port: 5051
-  cipher: chacha20-ietf-poly1305
-  password: 68mL2QkZEBlxWa3hcslGDw
+  type: vless
+  server: 176.96.131.251
+  port: 1280
+  uuid: c0e8fb58-a60f-4c15-9444-4e7c109797a8
   udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 176.96.131.251
+- name: 🇹🇷 土耳其 (Turkey) 02 - wangyu
+  type: vless
+  server: 49.13.231.249
+  port: 33483
+  uuid: 758a691a-45d2-4462-a0e8-991248a6994e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 49.13.231.249
+- name: 🇹🇷 土耳其 (Turkey) 03 - wangyu
+  type: vless
+  server: 130.94.1.177
+  port: 443
+  uuid: b1c31d36-c6b5-414b-88d2-9e24e7bfcca3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: www.nihaoyun.top
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: www.nihaoyun.top
+- name: 🇹🇷 土耳其 (Turkey) 04 - wangyu
+  type: vless
+  server: apadana.gamingnet.ir
+  port: 33483
+  uuid: 758a691a-45d2-4462-a0e8-991248a6994e
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: apadana.gamingnet.ir
+- name: 🇹🇷 土耳其 (Turkey) 05 - wangyu
+  type: vless
+  server: 188.132.192.145
+  port: 2087
+  uuid: b1c31d36-c6b5-414b-88d2-9e24e7bfcca3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: www.nihaoyun.top
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: www.nihaoyun.top
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 02 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 03 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 04 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 02 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 03 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 04 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 05 - wangyu
 rules:
 - MATCH,PROXIES

@@ -6,7 +6,7 @@ log-level: info
 proxies:
 - name: 🇧🇾 BY 01 - wangyu
   type: vless
-  server: 89.125.96.74
+  server: 89.125.96.88
   port: 2053
   uuid: 6c713691-3ca2-0008-ad25-113d1bed6b03
   udp: true
@@ -20,7 +20,7 @@ proxies:
       Host: wss.zazazuza.ru
 - name: 🇧🇾 BY 02 - wangyu
   type: vless
-  server: 89.125.96.75
+  server: 89.125.96.80
   port: 2053
   uuid: 6c713691-3ca2-0008-ad25-113d1bed6b03
   udp: true
@@ -34,7 +34,7 @@ proxies:
       Host: wss.zazazuza.ru
 - name: 🇧🇾 BY 03 - wangyu
   type: vless
-  server: ddnl0.zazazuza.ru
+  server: 89.125.96.75
   port: 2053
   uuid: 6c713691-3ca2-0008-ad25-113d1bed6b03
   udp: true
@@ -48,7 +48,7 @@ proxies:
       Host: wss.zazazuza.ru
 - name: 🇧🇾 BY 04 - wangyu
   type: vless
-  server: 89.125.96.88
+  server: 89.125.96.74
   port: 2053
   uuid: 6c713691-3ca2-0008-ad25-113d1bed6b03
   udp: true
@@ -62,35 +62,7 @@ proxies:
       Host: wss.zazazuza.ru
 - name: 🇧🇾 BY 05 - wangyu
   type: vless
-  server: 89.125.96.90
-  port: 2053
-  uuid: 6c713691-3ca2-0008-ad25-113d1bed6b03
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: wss.zazazuza.ru
-  network: ws
-  ws-opts:
-    path: /vpn-wss/fluxor/59011/
-    headers:
-      Host: wss.zazazuza.ru
-- name: 🇧🇾 BY 06 - wangyu
-  type: vless
-  server: 89.125.96.89
-  port: 2053
-  uuid: 6c713691-3ca2-0008-ad25-113d1bed6b03
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: wss.zazazuza.ru
-  network: ws
-  ws-opts:
-    path: /vpn-wss/fluxor/59011/
-    headers:
-      Host: wss.zazazuza.ru
-- name: 🇧🇾 BY 07 - wangyu
-  type: vless
-  server: 89.125.96.74
+  server: 89.125.96.81
   port: 2053
   uuid: 6c713691-3ca2-0008-ad25-113d1bed6b03
   udp: true
@@ -112,8 +84,6 @@ proxy-groups:
   - 🇧🇾 BY 03 - wangyu
   - 🇧🇾 BY 04 - wangyu
   - 🇧🇾 BY 05 - wangyu
-  - 🇧🇾 BY 06 - wangyu
-  - 🇧🇾 BY 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -124,7 +94,5 @@ proxy-groups:
   - 🇧🇾 BY 03 - wangyu
   - 🇧🇾 BY 04 - wangyu
   - 🇧🇾 BY 05 - wangyu
-  - 🇧🇾 BY 06 - wangyu
-  - 🇧🇾 BY 07 - wangyu
 rules:
 - MATCH,PROXIES
