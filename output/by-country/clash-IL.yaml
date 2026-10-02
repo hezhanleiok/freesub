@@ -17,31 +17,17 @@ proxies:
     short-id: a3a578ab
   servername: www.apple.com
   client-fingerprint: chrome
-- name: 🇮🇱 以色列 (Israel) 02 - xiaohe
-  server: 34.165.56.30
-  port: 443
-  udp: true
-  type: vless
-  uuid: 0c40bce9-8710-4820-8f22-0742b61df999
-  tls: true
-  reality-opts:
-    public-key: AeQDUAVCESyA1hFkw6lENmgWAY3sBH9CFPpPAddPwVc
-    short-id: fffff8acddadcac3
-  servername: www.cloudflare.com
-  client-fingerprint: qq
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇱 以色列 (Israel) 01 - xiaohe
-  - 🇮🇱 以色列 (Israel) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇮🇱 以色列 (Israel) 01 - xiaohe
-  - 🇮🇱 以色列 (Israel) 02 - xiaohe
 rules:
 - MATCH,PROXIES

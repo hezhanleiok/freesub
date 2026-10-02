@@ -4,9 +4,29 @@
   },
   "outbounds": [
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "🇧🇷 巴西 (Brazil) 01 - xiaohe",
-      "server": "aksai.org",
+      "server": "br.monkora.org",
+      "server_port": 443,
+      "uuid": "454431fc-71e2-42b1-b375-5b55dd06666a",
+      "tls": {
+        "enabled": true,
+        "server_name": "br.monkora.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU",
+          "short_id": ""
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇧🇷 巴西 (Brazil) 02 - xiaohe",
+      "server": "89.39.161.157",
       "server_port": 443,
       "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
       "security": "auto",
@@ -17,7 +37,10 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/linkvws"
+        "path": "/linkvws",
+        "headers": {
+          "Host": "aksai.org"
+        }
       }
     },
     {
@@ -25,14 +48,16 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇧🇷 巴西 (Brazil) 01 - xiaohe"
+        "🇧🇷 巴西 (Brazil) 01 - xiaohe",
+        "🇧🇷 巴西 (Brazil) 02 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇧🇷 巴西 (Brazil) 01 - xiaohe"
+        "🇧🇷 巴西 (Brazil) 01 - xiaohe",
+        "🇧🇷 巴西 (Brazil) 02 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

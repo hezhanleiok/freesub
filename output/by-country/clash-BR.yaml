@@ -5,7 +5,18 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇧🇷 巴西 (Brazil) 01 - xiaohe
-  server: aksai.org
+  server: br.monkora.org
+  port: 443
+  udp: true
+  type: vless
+  uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
+  tls: true
+  reality-opts:
+    public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
+  servername: br.monkora.org
+  client-fingerprint: firefox
+- name: 🇧🇷 巴西 (Brazil) 02 - xiaohe
+  server: 89.39.161.157
   port: 443
   udp: true
   type: vmess
@@ -18,17 +29,21 @@ proxies:
   network: ws
   ws-opts:
     path: /linkvws
+    headers:
+      Host: aksai.org
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇧🇷 巴西 (Brazil) 01 - xiaohe
+  - 🇧🇷 巴西 (Brazil) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇧🇷 巴西 (Brazil) 01 - xiaohe
+  - 🇧🇷 巴西 (Brazil) 02 - xiaohe
 rules:
 - MATCH,PROXIES
