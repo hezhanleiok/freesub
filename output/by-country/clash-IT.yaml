@@ -5,24 +5,25 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇹 意大利 (Italy) 01 - wangyu
-  type: ss
-  server: 185.164.175.81
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  type: vmess
+  server: 89.41.172.85
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
   udp: true
-- name: 🇮🇹 意大利 (Italy) 02 - wangyu
-  type: vless
-  server: 57.131.38.163
-  port: 2053
-  uuid: d4b08cd6-0903-411a-9dac-45dbdf5c9712
-  udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  reality-opts:
-    public-key: Ej2H5ucT7qKegYcT8wODdlxa-cLHr7F4hDVUHzAhcnc
-  servername: www.apple.com
-  client-fingerprint: chrome
+- name: 🇮🇹 意大利 (Italy) 02 - wangyu
+  type: vmess
+  server: 89.41.172.85
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
 - name: 🇮🇹 意大利 (Italy) 03 - wangyu
   type: vless
   server: 204.216.216.23
@@ -32,15 +33,12 @@ proxies:
   tls: false
   skip-cert-verify: true
 - name: 🇮🇹 意大利 (Italy) 04 - wangyu
-  type: vmess
-  server: 89.41.172.85
-  port: 22324
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
+  type: ss
+  server: 185.164.175.81
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-  tls: false
-  skip-cert-verify: true
 - name: 🇮🇹 意大利 (Italy) 05 - wangyu
   type: vless
   server: 204.216.216.23
@@ -50,34 +48,16 @@ proxies:
   tls: false
   skip-cert-verify: true
 - name: 🇮🇹 意大利 (Italy) 06 - wangyu
-  type: vless
-  server: 204.216.216.23
-  port: 10086
-  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
+  type: vmess
+  server: 89.41.172.85
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
   udp: true
   tls: false
   skip-cert-verify: true
 - name: 🇮🇹 意大利 (Italy) 07 - wangyu
-  type: vmess
-  server: 89.41.172.85
-  port: 22324
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇮🇹 意大利 (Italy) 08 - wangyu
-  type: vmess
-  server: 89.41.172.85
-  port: 22324
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇮🇹 意大利 (Italy) 09 - wangyu
   type: vless
   server: 57.131.21.102
   port: 8443
@@ -91,17 +71,25 @@ proxies:
     path: /RoBeRt
     headers:
       Host: milan.adaspoloandco.com
-- name: 🇮🇹 意大利 (Italy) 10 - wangyu
+- name: 🇮🇹 意大利 (Italy) 08 - wangyu
   type: vless
-  server: 34.154.18.129
-  port: 443
-  uuid: fffe33b6-5735-4a71-adb1-1c154def9024
+  server: 204.216.216.23
+  port: 10086
+  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇮🇹 意大利 (Italy) 09 - wangyu
+  type: vless
+  server: 57.131.38.163
+  port: 2053
+  uuid: d4b08cd6-0903-411a-9dac-45dbdf5c9712
   udp: true
   tls: true
   skip-cert-verify: true
   reality-opts:
-    public-key: -Tb9KKp870JxcZ3Ka7Rx5ez3QBYryX4e8_jdyNZu2wE
-  servername: www.cloudflare.com
+    public-key: Ej2H5ucT7qKegYcT8wODdlxa-cLHr7F4hDVUHzAhcnc
+  servername: www.apple.com
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
@@ -117,7 +105,6 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 07 - wangyu
   - 🇮🇹 意大利 (Italy) 08 - wangyu
   - 🇮🇹 意大利 (Italy) 09 - wangyu
-  - 🇮🇹 意大利 (Italy) 10 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -132,6 +119,5 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 07 - wangyu
   - 🇮🇹 意大利 (Italy) 08 - wangyu
   - 🇮🇹 意大利 (Italy) 09 - wangyu
-  - 🇮🇹 意大利 (Italy) 10 - wangyu
 rules:
 - MATCH,PROXIES

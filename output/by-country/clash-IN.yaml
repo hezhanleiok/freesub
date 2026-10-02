@@ -27,14 +27,19 @@ proxies:
   reality-opts:
     public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
   servername: www.apple.com
-  client-fingerprint: random
+  client-fingerprint: chrome
 - name: 🇮🇳 印度 (India) 03 - wangyu
-  type: ss
-  server: 172.105.39.124
-  port: 7002
-  cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
+  type: vless
+  server: 194.61.31.126
+  port: 2053
+  uuid: 1d4e18bd-1f26-4915-b35a-7ace4826e76a
   udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
+  servername: www.apple.com
+  client-fingerprint: chrome
 - name: 🇮🇳 印度 (India) 04 - wangyu
   type: vless
   server: 194.61.31.126
@@ -46,19 +51,7 @@ proxies:
   reality-opts:
     public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
   servername: www.apple.com
-  client-fingerprint: chrome
-- name: 🇮🇳 印度 (India) 05 - wangyu
-  type: vless
-  server: 194.61.31.126
-  port: 2053
-  uuid: 1d4e18bd-1f26-4915-b35a-7ace4826e76a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
-  servername: www.apple.com
-  client-fingerprint: chrome
+  client-fingerprint: random
 proxy-groups:
 - name: PROXIES
   type: select
@@ -68,7 +61,6 @@ proxy-groups:
   - 🇮🇳 印度 (India) 02 - wangyu
   - 🇮🇳 印度 (India) 03 - wangyu
   - 🇮🇳 印度 (India) 04 - wangyu
-  - 🇮🇳 印度 (India) 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -78,6 +70,5 @@ proxy-groups:
   - 🇮🇳 印度 (India) 02 - wangyu
   - 🇮🇳 印度 (India) 03 - wangyu
   - 🇮🇳 印度 (India) 04 - wangyu
-  - 🇮🇳 印度 (India) 05 - wangyu
 rules:
 - MATCH,PROXIES
