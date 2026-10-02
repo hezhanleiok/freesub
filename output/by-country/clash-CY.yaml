@@ -5,17 +5,12 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇾 CY 01 - wangyu
-  type: vless
-  server: 194.76.154.31
-  port: 40443
-  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
+  type: ss
+  server: 45.149.114.171
+  port: 777
+  cipher: chacha20-ietf-poly1305
+  password: Jeoq8ujfkqZKKvACQhoqBQ1PA3uq4242
   udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
-  servername: deepl.com
-  client-fingerprint: qq
 - name: 🇨🇾 CY 02 - wangyu
   type: vless
   server: 194.76.154.31
@@ -39,7 +34,7 @@ proxies:
   reality-opts:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
   servername: deepl.com
-  client-fingerprint: qq
+  client-fingerprint: chrome
 - name: 🇨🇾 CY 04 - wangyu
   type: vless
   server: 194.76.154.31
@@ -51,8 +46,32 @@ proxies:
   reality-opts:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
   servername: deepl.com
-  client-fingerprint: firefox
+  client-fingerprint: qq
 - name: 🇨🇾 CY 05 - wangyu
+  type: vless
+  server: 194.76.154.31
+  port: 40443
+  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
+  servername: deepl.com
+  client-fingerprint: chrome
+- name: 🇨🇾 CY 06 - wangyu
+  type: vless
+  server: 194.76.154.31
+  port: 40443
+  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
+  servername: deepl.com
+  client-fingerprint: qq
+- name: 🇨🇾 CY 07 - wangyu
   type: vless
   server: 194.76.154.31
   port: 40443
@@ -74,6 +93,8 @@ proxy-groups:
   - 🇨🇾 CY 03 - wangyu
   - 🇨🇾 CY 04 - wangyu
   - 🇨🇾 CY 05 - wangyu
+  - 🇨🇾 CY 06 - wangyu
+  - 🇨🇾 CY 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -84,5 +105,7 @@ proxy-groups:
   - 🇨🇾 CY 03 - wangyu
   - 🇨🇾 CY 04 - wangyu
   - 🇨🇾 CY 05 - wangyu
+  - 🇨🇾 CY 06 - wangyu
+  - 🇨🇾 CY 07 - wangyu
 rules:
 - MATCH,PROXIES

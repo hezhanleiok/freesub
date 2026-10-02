@@ -6,36 +6,21 @@ log-level: info
 proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
   type: vmess
-  server: 156.245.232.239
-  port: 35043
-  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ''
-- name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
-  type: vmess
-  server: 47.243.153.153
+  server: aksai.org
   port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: I2PSm3Knof5qjjix.v.3dns.vip
+  servername: aksai.org
   network: ws
   ws-opts:
-    path: /ws-vmess
+    path: /linkvws
     headers:
-      Host: I2PSm3Knof5qjjix.v.3dns.vip
-- name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
+      Host: aksai.org
+- name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
   type: vmess
   server: 194.99.79.26
   port: 443
@@ -51,6 +36,13 @@ proxies:
     path: /linkvws
     headers:
       Host: ''
+- name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
+  type: ss
+  server: telegramx.khp25.com
+  port: 1080
+  cipher: chacha20-ietf-poly1305
+  password: m5nsedvdczx6x06e
+  udp: true
 - name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
   type: vless
   server: hk.monkora.org
@@ -64,13 +56,50 @@ proxies:
   servername: hk.monkora.org
   client-fingerprint: firefox
 - name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
-  type: ss
-  server: telegramx.khp25.com
-  port: 1080
-  cipher: chacha20-ietf-poly1305
-  password: m5nsedvdczx6x06e
+  type: vmess
+  server: 47.243.153.153
+  port: 443
+  uuid: f23bb427c1f94373876c2f43e9f790f3
+  alterId: 0
+  cipher: auto
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: I2PSm3Knof5qjjix.v.3dns.vip
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: I2PSm3Knof5qjjix.v.3dns.vip
 - name: 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
+  type: vmess
+  server: 8.218.195.61
+  port: 443
+  uuid: f23bb427c1f94373876c2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: EX1oGt73NzPQKAc2.v.3dns.vip
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: EX1oGt73NzPQKAc2.v.3dns.vip
+- name: 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
+  type: vless
+  server: 27.0.232.36
+  port: 443
+  uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
+  servername: hk.monkora.org
+  client-fingerprint: firefox
+- name: 🇭🇰 中国香港 (Hong Kong) 08 - wangyu
   type: vmess
   server: 194.99.79.26
   port: 443
@@ -80,13 +109,13 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: aksai.org
+  servername: ''
   network: ws
   ws-opts:
     path: /linkvws
     headers:
-      Host: aksai.org
-- name: 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
+      Host: ''
+- name: 🇭🇰 中国香港 (Hong Kong) 09 - wangyu
   type: ss
   server: telegram.khp25.com
   port: 1080
@@ -105,6 +134,8 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 08 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 09 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -117,5 +148,7 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 08 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 09 - wangyu
 rules:
 - MATCH,PROXIES
