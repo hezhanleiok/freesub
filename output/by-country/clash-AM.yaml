@@ -1,0 +1,27 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇦🇲 AM 01 - xiaohe
+  type: ss
+  server: 86.107.50.160
+  port: 20998
+  cipher: aes-256-gcm
+  password: 78235e7dc55e9ad1
+  udp: true
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇦🇲 AM 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇦🇲 AM 01 - xiaohe
+rules:
+- MATCH,PROXIES
