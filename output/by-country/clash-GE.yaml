@@ -4,33 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇧🇷 巴西 (Brazil) 01 - xiaohe
-  server: aksai.org
+- name: 🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe
+  server: geo.shkola112.site
   port: 443
   udp: true
-  type: vmess
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
+  type: vless
+  uuid: 76ac91c5-ea82-4046-8ee7-2ffbb563ac94
   tls: true
-  servername: aksai.org
+  servername: geo.shkola112.site
   skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /linkvws
+    path: /api-vless
     headers:
-      Host: aksai.org
+      Host: geo.shkola112.site
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇧🇷 巴西 (Brazil) 01 - xiaohe
+  - 🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇧🇷 巴西 (Brazil) 01 - xiaohe
+  - 🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe
 rules:
 - MATCH,PROXIES

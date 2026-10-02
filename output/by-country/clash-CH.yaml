@@ -12,25 +12,26 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
 - name: 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
-  server: 208.69.78.217
-  port: 2053
+  server: 179.237.103.152
+  port: 443
   udp: true
   type: vless
-  uuid: c0dd6d59-1573-43af-8b70-1470b2632a6d
+  uuid: e0bd9dfa-0cf9-47c0-92ac-7dba08ebcff8
+  flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
-    short-id: ad86e2d52ff40ebd
-  servername: www.apple.com
-  client-fingerprint: chrome
+    public-key: 8PZTYkhNhSgagVdaI-iqSCPXJwDhHU23IUwZIu08zH4
+    short-id: 9de8ae53dabf1dc2
+  servername: www.google.com
+  client-fingerprint: firefox
 - name: 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
-  server: 82.38.64.229
+  server: 82.38.64.239
   port: 8443
   udp: true
   type: hysteria2
   password: we9_I1893UFj3149xbr1_k8qvJ8734ic_Mx82gH
   sni: hopp-swizland-new.mysynology.net
-  skip-cert-verify: true
+  skip-cert-verify: false
 - name: 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
   server: 45.90.59.15
   port: 443
@@ -45,39 +46,13 @@ proxies:
   servername: www.cloudflare.com
   client-fingerprint: firefox
 - name: 🇨🇭 瑞士 (Switzerland) 05 - xiaohe
-  server: 140.238.213.114
-  port: 50160
+  server: 104.165.205.41
+  port: 8443
   udp: true
   type: hysteria2
-  password: 84a506ca5aca505696a454d828420b3f
-  sni: www.bing.com
+  password: 3a92b39a-5f02-415e-a908-783ec320e83f
+  sni: speedtestmark.com
   skip-cert-verify: true
-- name: 🇨🇭 瑞士 (Switzerland) 06 - xiaohe
-  server: 179.237.103.152
-  port: 443
-  udp: true
-  type: vless
-  uuid: e0bd9dfa-0cf9-47c0-92ac-7dba08ebcff8
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: 8PZTYkhNhSgagVdaI-iqSCPXJwDhHU23IUwZIu08zH4
-    short-id: 9de8ae53dabf1dc2
-  servername: www.google.com
-  client-fingerprint: chrome
-- name: 🇨🇭 瑞士 (Switzerland) 07 - xiaohe
-  server: 176.65.144.84
-  port: 443
-  udp: true
-  type: vless
-  uuid: 0f4081e7-612b-425f-8def-eebf144aedba
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: ITd6cmCxudmTvGcwnAzpd0VRe8jS9KJAQ1tmtVN3mCM
-    short-id: 9e15546f267baa64
-  servername: indigo.clouderiux.com
-  client-fingerprint: safari
 proxy-groups:
 - name: PROXIES
   type: select
@@ -88,8 +63,6 @@ proxy-groups:
   - 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 05 - xiaohe
-  - 🇨🇭 瑞士 (Switzerland) 06 - xiaohe
-  - 🇨🇭 瑞士 (Switzerland) 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -100,7 +73,5 @@ proxy-groups:
   - 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 05 - xiaohe
-  - 🇨🇭 瑞士 (Switzerland) 06 - xiaohe
-  - 🇨🇭 瑞士 (Switzerland) 07 - xiaohe
 rules:
 - MATCH,PROXIES
