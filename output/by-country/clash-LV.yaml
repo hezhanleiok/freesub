@@ -1,0 +1,41 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
+  server: 85.159.228.223
+  port: 443
+  udp: true
+  type: vless
+  uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
+  tls: true
+  reality-opts:
+    public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
+  servername: example.org
+  client-fingerprint: firefox
+- name: 🇱🇻 拉脱维亚 (Latvia) 02 - xiaohe
+  server: 91.240.86.70
+  port: 24443
+  udp: true
+  type: hysteria2
+  password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
+  sni: hy.quattro-tech.ru
+  skip-cert-verify: true
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
+  - 🇱🇻 拉脱维亚 (Latvia) 02 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
+  - 🇱🇻 拉脱维亚 (Latvia) 02 - xiaohe
+rules:
+- MATCH,PROXIES

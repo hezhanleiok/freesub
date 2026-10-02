@@ -5,34 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  server: 13.48.177.148
+  server: 13.49.21.155
   port: 443
   udp: true
   type: ss
   cipher: aes-256-cfb
   password: amazonskr05
 - name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
-  server: 51.20.96.231
-  port: 443
-  udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
-- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
-  server: 13.48.104.64
-  port: 443
-  udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
-- name: 🇸🇪 瑞典 (Sweden) 04 - xiaohe
-  server: 51.20.86.152
-  port: 443
-  udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
-- name: 🇸🇪 瑞典 (Sweden) 05 - xiaohe
   server: 5.157.10.148
   port: 443
   udp: true
@@ -45,6 +24,25 @@ proxies:
     short-id: fb442438e2223836
   servername: surstreming.vvzzkontaktezzvv.garden
   client-fingerprint: firefox
+- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
+  server: 143.246.196.207
+  port: 443
+  udp: true
+  type: vless
+  uuid: ac0c2945-b758-11f1-8181-54db13ea7d40
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: wSjV1yR_rhDUdoNbM9zIXNGLASLp9RorComnyoayo2c
+  servername: www.blocket.se
+  client-fingerprint: firefox
+- name: 🇸🇪 瑞典 (Sweden) 04 - xiaohe
+  server: 13.48.177.148
+  port: 443
+  udp: true
+  type: ss
+  cipher: aes-256-cfb
+  password: amazonskr05
 proxy-groups:
 - name: PROXIES
   type: select
@@ -54,7 +52,6 @@ proxy-groups:
   - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 03 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 04 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -64,6 +61,5 @@ proxy-groups:
   - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 03 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 04 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 05 - xiaohe
 rules:
 - MATCH,PROXIES
