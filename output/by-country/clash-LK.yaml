@@ -4,31 +4,32 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe
-  server: geo.shkola112.site
+- name: 🇱🇰 斯里兰卡 (Sri Lanka) 01 - xiaohe
+  server: trackydev.site
   port: 443
   udp: true
   type: vless
-  uuid: 76ac91c5-ea82-4046-8ee7-2ffbb563ac94
+  uuid: 92d67828-4c56-4795-af5a-f387651380dc
   tls: true
-  servername: geo.shkola112.site
+  servername: trackydev.site
   skip-cert-verify: false
+  client-fingerprint: random
   network: ws
   ws-opts:
-    path: /api-vless
+    path: /
     headers:
-      Host: geo.shkola112.site
+      Host: trackydev.site
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe
+  - 🇱🇰 斯里兰卡 (Sri Lanka) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe
+  - 🇱🇰 斯里兰卡 (Sri Lanka) 01 - xiaohe
 rules:
 - MATCH,PROXIES
