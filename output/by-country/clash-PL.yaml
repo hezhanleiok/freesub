@@ -16,26 +16,17 @@ proxies:
     public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
   servername: pl.srv.vbuste-bot.com
   client-fingerprint: firefox
-- name: 🇵🇱 PL 02 - xiaohe
-  type: ss
-  server: 94.228.161.7
-  port: 4
-  cipher: chacha20-ietf-poly1305
-  password: MBiJEJ5VgZXVSj58CEEFZA
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇵🇱 PL 01 - xiaohe
-  - 🇵🇱 PL 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇵🇱 PL 01 - xiaohe
-  - 🇵🇱 PL 02 - xiaohe
 rules:
 - MATCH,PROXIES
