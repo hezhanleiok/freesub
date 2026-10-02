@@ -4,26 +4,30 @@
   },
   "outbounds": [
     {
-      "type": "shadowsocks",
-      "tag": "🇨🇴 哥伦比亚 (Colombia) 01 - xiaohe",
-      "server": "149.104.107.41",
-      "server_port": 8090,
-      "method": "aes-256-gcm",
-      "password": "PCnnH6SQSnfoS27"
+      "type": "trojan",
+      "tag": "🇻🇳 越南 (Vietnam) 01 - xiaohe",
+      "server": "109.110.162.40",
+      "server_port": 23005,
+      "password": "fac593ac-d6aa-4523-bea9-b3eb2a2b3da3",
+      "tls": {
+        "enabled": true,
+        "server_name": "82.yuanul.com",
+        "insecure": false
+      }
     },
     {
       "type": "selector",
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇨🇴 哥伦比亚 (Colombia) 01 - xiaohe"
+        "🇻🇳 越南 (Vietnam) 01 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇨🇴 哥伦比亚 (Colombia) 01 - xiaohe"
+        "🇻🇳 越南 (Vietnam) 01 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },
