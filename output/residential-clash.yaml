@@ -4,24 +4,11 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
+- name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
   type: vless
-  server: 172.66.170.53
-  port: 8880
-  uuid: 38ede46b-d237-4c76-9de1-a10738642adc
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /pyip=ProxyIP.KR.CMLiussss.net
-    headers:
-      Host: summer-hat-ba5c.430.workers.dev
-- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
-  type: vless
-  server: 60.248.219.54
+  server: 60.248.219.78
   port: 443
-  uuid: 06e177f7-240d-4687-bd85-235505801a5e
+  uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
   udp: true
   tls: true
   skip-cert-verify: true
@@ -30,77 +17,32 @@ proxies:
   ws-opts:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
-      Host: 60.248.219.54
-- name: 🇺🇸 美国 (United States) 03 (家宽) - wangyu
+      Host: 60.248.219.78
+- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
   type: vless
-  server: 162.159.43.187
-  port: 2086
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /?ed=2560security=tls
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇺🇸 美国 (United States) 04 (家宽) - wangyu
-  type: vless
-  server: 154.17.228.81
-  port: 59686
-  uuid: 88ee0e1e-a2a2-477e-88ce-4875c058aeba
+  server: hinet1.2yly.com
+  port: 24215
+  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: 123.714541.xyz
-  network: ws
-  ws-opts:
-    path: /Ra-vl
-    headers:
-      Host: 123.714541.xyz
-- name: 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - wangyu
-  type: vmess
-  server: hi.northcluster.info
-  port: 52300
-  uuid: 6e571484-4166-4699-8f58-b34a1823691f
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /video
-    headers:
-      Host: ''
-- name: 🇰🇷 韩国 (South Korea) 06 (家宽) - wangyu
-  type: ss
-  server: 211.174.113.172
-  port: 49642
-  cipher: aes-256-gcm
-  password: ac9c0a7b
-  udp: true
+  reality-opts:
+    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
+  servername: addons.mozilla.org
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
-  - 🇺🇸 美国 (United States) 03 (家宽) - wangyu
-  - 🇺🇸 美国 (United States) 04 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 06 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
-  - 🇺🇸 美国 (United States) 03 (家宽) - wangyu
-  - 🇺🇸 美国 (United States) 04 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - wangyu
-  - 🇰🇷 韩国 (South Korea) 06 (家宽) - wangyu
 rules:
 - MATCH,PROXIES
