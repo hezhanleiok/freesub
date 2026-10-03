@@ -42,7 +42,20 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: m.zoom.us
+      Host: cloud.ghostdev.lk
+- name: 🇱🇰 LK 04 - xiaohe
+  type: vless
+  server: cloud.ghostdev.lk
+  port: 80
+  uuid: 1eaed465-d720-400b-9f9f-439600a2d093
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: cloud.ghostdev.lk
 proxy-groups:
 - name: PROXIES
   type: select
@@ -51,6 +64,7 @@ proxy-groups:
   - 🇱🇰 LK 01 - xiaohe
   - 🇱🇰 LK 02 - xiaohe
   - 🇱🇰 LK 03 - xiaohe
+  - 🇱🇰 LK 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -59,5 +73,6 @@ proxy-groups:
   - 🇱🇰 LK 01 - xiaohe
   - 🇱🇰 LK 02 - xiaohe
   - 🇱🇰 LK 03 - xiaohe
+  - 🇱🇰 LK 04 - xiaohe
 rules:
 - MATCH,PROXIES
