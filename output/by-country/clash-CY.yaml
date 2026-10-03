@@ -5,18 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇾 塞浦路斯 (Cyprus) 01 - xiaohe
-  server: 194.76.154.31
-  port: 40443
-  udp: true
-  type: vless
-  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
-  tls: true
-  reality-opts:
-    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
-    short-id: a8ae
-  servername: deepl.com
-  client-fingerprint: firefox
-- name: 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
   server: 185.166.154.111
   port: 443
   udp: true
@@ -29,17 +17,16 @@ proxies:
     short-id: 94f32cfc
   servername: cdn.bulkavpn.top
   client-fingerprint: firefox
-- name: 🇨🇾 塞浦路斯 (Cyprus) 03 - xiaohe
-  server: 5.253.28.240
+- name: 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
+  server: 194.76.154.31
   port: 40443
   udp: true
   type: vless
-  uuid: 405b964e-a2d2-454f-aaaa-711cc218897c
-  flow: xtls-rprx-vision
+  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
   tls: true
   reality-opts:
-    public-key: cwmcqsfS7klQlkcoUNuATEk0NiPY-NnRb9z8rCJDQw0
-    short-id: 88b6
+    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
+    short-id: a8ae
   servername: deepl.com
   client-fingerprint: chrome
 proxy-groups:
@@ -49,7 +36,6 @@ proxy-groups:
   - AUTO
   - 🇨🇾 塞浦路斯 (Cyprus) 01 - xiaohe
   - 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
-  - 🇨🇾 塞浦路斯 (Cyprus) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -57,6 +43,5 @@ proxy-groups:
   proxies:
   - 🇨🇾 塞浦路斯 (Cyprus) 01 - xiaohe
   - 🇨🇾 塞浦路斯 (Cyprus) 02 - xiaohe
-  - 🇨🇾 塞浦路斯 (Cyprus) 03 - xiaohe
 rules:
 - MATCH,PROXIES

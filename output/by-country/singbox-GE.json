@@ -1,0 +1,50 @@
+{
+  "log": {
+    "level": "warn"
+  },
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe",
+      "server": "172.67.159.161",
+      "server_port": 443,
+      "uuid": "76ac91c5-ea82-4046-8ee7-2ffbb563ac94",
+      "tls": {
+        "enabled": true,
+        "server_name": "geo.shkola112.site",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/api-vless",
+        "headers": {
+          "Host": "geo.shkola112.site"
+        }
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe"
+      ],
+      "url": "https://www.gstatic.com/generate_204"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}

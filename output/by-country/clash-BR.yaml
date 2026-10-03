@@ -1,0 +1,48 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇧🇷 巴西 (Brazil) 01 - xiaohe
+  server: 89.39.161.157
+  port: 443
+  udp: true
+  type: vmess
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: aksai.org
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /linkvws
+- name: 🇧🇷 巴西 (Brazil) 02 - xiaohe
+  server: 35.247.243.231
+  port: 443
+  udp: true
+  type: vless
+  uuid: 5e517b94-e207-47ee-be3c-3020a57594e8
+  tls: true
+  reality-opts:
+    public-key: pCImwRkTjx8OIUiu1WFelZQFt1p3Q0lUoPbvjVq8GTs
+    short-id: b62a4da6cd1c4dd6
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇧🇷 巴西 (Brazil) 01 - xiaohe
+  - 🇧🇷 巴西 (Brazil) 02 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇧🇷 巴西 (Brazil) 01 - xiaohe
+  - 🇧🇷 巴西 (Brazil) 02 - xiaohe
+rules:
+- MATCH,PROXIES

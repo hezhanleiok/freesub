@@ -1,0 +1,35 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇧🇾 白俄罗斯 (Belarus) 01 - xiaohe
+  server: 89.125.96.89
+  port: 2053
+  udp: true
+  type: vless
+  uuid: 6c713691-3ca2-0008-ad25-113d1bed6b03
+  tls: true
+  servername: wss.zazazuza.ru
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /vpn-wss/fluxor/59011/
+    headers:
+      Host: wss.zazazuza.ru
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇧🇾 白俄罗斯 (Belarus) 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇧🇾 白俄罗斯 (Belarus) 01 - xiaohe
+rules:
+- MATCH,PROXIES

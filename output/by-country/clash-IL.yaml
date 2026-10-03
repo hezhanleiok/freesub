@@ -5,6 +5,19 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇱 以色列 (Israel) 01 - xiaohe
+  server: 185.95.231.233
+  port: 443
+  udp: true
+  type: vless
+  uuid: 1ffa8e68-3378-4cf4-b8f6-44bf3d46d106
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: r4Dp3mztZaizbDk28rEOkLikk7erR9dzzc-Jrsgraho
+    short-id: a1b2c3d4
+  servername: store.steampowered.com
+  client-fingerprint: chrome
+- name: 🇮🇱 以色列 (Israel) 02 - xiaohe
   server: 185.95.231.156
   port: 443
   udp: true
@@ -16,18 +29,20 @@ proxies:
     public-key: 8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To
     short-id: a3a578ab
   servername: www.apple.com
-  client-fingerprint: firefox
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇱 以色列 (Israel) 01 - xiaohe
+  - 🇮🇱 以色列 (Israel) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇮🇱 以色列 (Israel) 01 - xiaohe
+  - 🇮🇱 以色列 (Israel) 02 - xiaohe
 rules:
 - MATCH,PROXIES
