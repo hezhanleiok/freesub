@@ -4,32 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🌐 其他地区 (Other) 01 - xiaohe
-  server: 172.67.198.207
+- name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
+  server: argo6.5671234.xyz
   port: 443
   udp: true
   type: vless
-  uuid: 4b21fbc7-00c2-4665-9788-02153832f9e5
+  uuid: 08aaab35-a42d-4755-a03e-20c18cb1b3e8
   tls: true
-  servername: v2ray.aizgl.com
+  servername: argo6.5671234.xyz
   skip-cert-verify: false
-  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /xray-ws
+    path: /e8e2cecb6188f7fb
     headers:
-      Host: v2ray.aizgl.com
+      Host: argo6.5671234.xyz
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🌐 其他地区 (Other) 01 - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🌐 其他地区 (Other) 01 - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES
