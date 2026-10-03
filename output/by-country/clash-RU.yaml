@@ -5,13 +5,12 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
-  server: 91.240.86.70
-  port: 22443
+  server: 130.49.189.158
+  port: 43558
   udp: true
-  type: hysteria2
-  password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
-  sni: 91.240.86.70
-  skip-cert-verify: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: mhXYDvaSfHzHZXBswC/zo/o8VqdU3XSBpwWx050Y6MU=
 - name: 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
   server: 31.76.34.216
   port: 443
@@ -25,17 +24,20 @@ proxies:
   servername: ru-c-1.minzt.su
   client-fingerprint: chrome
 - name: 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
-  server: 45.12.75.242
-  port: 26424
+  server: 81.94.148.214
+  port: 443
   udp: true
   type: vless
-  uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+  uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
   tls: true
-  reality-opts:
-    public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
-    short-id: 23103e1e
-  servername: ya.ru
-  client-fingerprint: chrome
+  servername: fbsv6.guardora.pro
+  skip-cert-verify: false
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: fbsv6.guardora.pro
 proxy-groups:
 - name: PROXIES
   type: select
