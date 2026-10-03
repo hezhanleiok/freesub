@@ -5,40 +5,19 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇹 意大利 (Italy) 01 - xiaohe
-  server: 57.131.48.45
-  port: 8388
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: itzvpn@321
-- name: 🇮🇹 意大利 (Italy) 02 - xiaohe
-  server: 185.164.175.81
-  port: 19999
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇮🇹 意大利 (Italy) 03 - xiaohe
   server: 204.216.216.23
   port: 10086
   udp: true
   type: vless
   uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
-- name: 🇮🇹 意大利 (Italy) 04 - xiaohe
+- name: 🇮🇹 意大利 (Italy) 02 - xiaohe
   server: 91.201.65.122
-  port: 9074
+  port: 9059
   udp: true
   type: ss
   cipher: aes-256-cfb
-  password: p5wSkb2uM3pKSS3j
-- name: 🇮🇹 意大利 (Italy) 05 - xiaohe
-  server: 91.201.65.122
-  port: 9050
-  udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: FG5ddLsMPbV5CutE
-- name: 🇮🇹 意大利 (Italy) 06 - xiaohe
+  password: 9XwYyZsK8SNzQDtY
+- name: 🇮🇹 意大利 (Italy) 03 - xiaohe
   server: 57.131.38.163
   port: 2053
   udp: true
@@ -49,8 +28,8 @@ proxies:
     public-key: Ej2H5ucT7qKegYcT8wODdlxa-cLHr7F4hDVUHzAhcnc
     short-id: 5b8a942318178e7b
   servername: www.apple.com
-  client-fingerprint: chrome
-- name: 🇮🇹 意大利 (Italy) 07 - xiaohe
+  client-fingerprint: firefox
+- name: 🇮🇹 意大利 (Italy) 04 - xiaohe
   server: 82.118.16.187
   port: 443
   udp: true
@@ -62,35 +41,21 @@ proxies:
     public-key: R5ycsjJ-v024902dMSqTsSdqxUwCFEXMebdBEWFt9VU
     short-id: cd6065902eea7a02
   servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇮🇹 意大利 (Italy) 08 - xiaohe
+  client-fingerprint: random
+- name: 🇮🇹 意大利 (Italy) 05 - xiaohe
   server: 91.201.65.122
-  port: 9059
+  port: 9074
   udp: true
   type: ss
   cipher: aes-256-cfb
-  password: 9XwYyZsK8SNzQDtY
-- name: 🇮🇹 意大利 (Italy) 09 - xiaohe
+  password: p5wSkb2uM3pKSS3j
+- name: 🇮🇹 意大利 (Italy) 06 - xiaohe
   server: 91.201.65.122
-  port: 9053
+  port: 9050
   udp: true
   type: ss
   cipher: aes-256-cfb
-  password: SBM7R883jBmnqe6C
-- name: 🇮🇹 意大利 (Italy) 10 - xiaohe
-  server: 199.232.78.159
-  port: 443
-  udp: true
-  type: vless
-  uuid: c0e8fb58-a60f-4c15-9444-4e7c109797a8
-  tls: true
-  servername: ssl.fastly.com
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: italyji.global.ssl.fastly.net.
+  password: FG5ddLsMPbV5CutE
 proxy-groups:
 - name: PROXIES
   type: select
@@ -102,10 +67,6 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 04 - xiaohe
   - 🇮🇹 意大利 (Italy) 05 - xiaohe
   - 🇮🇹 意大利 (Italy) 06 - xiaohe
-  - 🇮🇹 意大利 (Italy) 07 - xiaohe
-  - 🇮🇹 意大利 (Italy) 08 - xiaohe
-  - 🇮🇹 意大利 (Italy) 09 - xiaohe
-  - 🇮🇹 意大利 (Italy) 10 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -117,9 +78,5 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 04 - xiaohe
   - 🇮🇹 意大利 (Italy) 05 - xiaohe
   - 🇮🇹 意大利 (Italy) 06 - xiaohe
-  - 🇮🇹 意大利 (Italy) 07 - xiaohe
-  - 🇮🇹 意大利 (Italy) 08 - xiaohe
-  - 🇮🇹 意大利 (Italy) 09 - xiaohe
-  - 🇮🇹 意大利 (Italy) 10 - xiaohe
 rules:
 - MATCH,PROXIES
