@@ -1,0 +1,34 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe
+  server: 104.21.50.89
+  port: 443
+  udp: true
+  type: vless
+  uuid: 76ac91c5-ea82-4046-8ee7-2ffbb563ac94
+  tls: true
+  servername: geo.shkola112.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /api-vless
+    headers:
+      Host: geo.shkola112.site
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe
+rules:
+- MATCH,PROXIES

@@ -4,30 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇬🇹 GT 01 - xiaohe
-  server: 185.47.254.251
+- name: 🇨🇿 捷克 (Czech) 01 - xiaohe
+  server: 85.117.235.50
   port: 443
   udp: true
   type: vless
-  uuid: 878fb7f7-fc65-465e-a352-17c7216c6f3d
+  uuid: f4d71fd6-1c25-4748-836b-1dbda9268039
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: 6-_ZidygR8PRt4gtHlGCAW-PPmjEIm7Wn7MZqJU1z1Q
-    short-id: 6c059ecfddf9b179
-  servername: gateway.icloud.com
-  client-fingerprint: random
+    public-key: PmdZ2ETkHc0zjYcs22xT_wyZk5fEpX7mg7RP396HBBc
+    short-id: 232b1b09e45325a4
+  servername: cz1.animeteka.info
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇬🇹 GT 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇬🇹 GT 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 01 - xiaohe
 rules:
 - MATCH,PROXIES
