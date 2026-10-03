@@ -1,0 +1,77 @@
+{
+  "log": {
+    "level": "warn"
+  },
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "🇱🇺 卢森堡 (Luxembourg) 01 - xiaohe",
+      "server": "lbeiggdz.smart-cats.ru",
+      "server_port": 443,
+      "uuid": "8325bd97-b77c-4917-acaa-2446e9e8cc03",
+      "tls": {
+        "enabled": true,
+        "server_name": "vk.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mzrVbIsEggpJfXR8M7yxki2vgv3sXWQdy1bGhXqatUY",
+          "short_id": "79651ae525860543"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "haknewhpjmv"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇱🇺 卢森堡 (Luxembourg) 02 - xiaohe",
+      "server": "176.108.242.55",
+      "server_port": 5002,
+      "uuid": "8e8ea5d2-6941-40fb-9efe-f9062b11b2b9",
+      "tls": {
+        "enabled": true,
+        "server_name": "lm.centermass.net",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "media.playback.v1.SessionGateway"
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇱🇺 卢森堡 (Luxembourg) 01 - xiaohe",
+        "🇱🇺 卢森堡 (Luxembourg) 02 - xiaohe"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇱🇺 卢森堡 (Luxembourg) 01 - xiaohe",
+        "🇱🇺 卢森堡 (Luxembourg) 02 - xiaohe"
+      ],
+      "url": "https://www.gstatic.com/generate_204"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}

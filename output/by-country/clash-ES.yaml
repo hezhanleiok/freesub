@@ -5,17 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇸 西班牙 (Spain) 01 - xiaohe
-  server: 162.159.24.131
-  port: 2052
-  udp: true
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  network: ws
-  ws-opts:
-    path: '/?ed=2560security=tls '
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
   server: 66.163.118.73
   port: 22324
   udp: true
@@ -23,6 +12,13 @@ proxies:
   uuid: 04621bae-ab36-11ec-b909-0242ac120002
   alterId: 0
   cipher: auto
+- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
+  server: 140.174.184.5
+  port: 8388
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: qItG8SueYQcP
 - name: 🇪🇸 西班牙 (Spain) 03 - xiaohe
   server: 108.181.121.226
   port: 8388
@@ -31,31 +27,19 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: WSyL4XTwNsdv
 - name: 🇪🇸 西班牙 (Spain) 04 - xiaohe
-  server: 212.227.235.66
-  port: 2053
-  udp: true
-  type: vless
-  uuid: ead0dd61-d398-40ad-80d6-a0e1e516d7d3
-  tls: true
-  reality-opts:
-    public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
-    short-id: 29e8dcd2b37aaa7f
-  servername: www.apple.com
-  client-fingerprint: chrome
-- name: 🇪🇸 西班牙 (Spain) 05 - xiaohe
-  server: 46.28.71.247
+  server: 45.154.206.88
   port: 443
   udp: true
   type: vless
-  uuid: 12c53e32-e589-47d6-b857-e4132294f767
+  uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: v4MuZIvFrTPT5GHMSaPryUAbIZlLstmsUTzmC1E-JTE
-    short-id: 0dfc23fe80778c00
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇪🇸 西班牙 (Spain) 06 - xiaohe
+    public-key: 2AKBmK0PMf2zUMhRo1Ad-WNf_XoRk3AN-SGo6ZdhxA4
+    short-id: ecca56e9a9963ed7
+  servername: es.monkeyisland.xyz
+  client-fingerprint: firefox
+- name: 🇪🇸 西班牙 (Spain) 05 - xiaohe
   server: 193.238.154.5
   port: 443
   udp: true
@@ -68,6 +52,43 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: cdn.v1.AssetService
+- name: 🇪🇸 西班牙 (Spain) 06 - xiaohe
+  server: 46.28.71.247
+  port: 443
+  udp: true
+  type: vless
+  uuid: 12c53e32-e589-47d6-b857-e4132294f767
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: v4MuZIvFrTPT5GHMSaPryUAbIZlLstmsUTzmC1E-JTE
+    short-id: 0dfc23fe80778c00
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
+- name: 🇪🇸 西班牙 (Spain) 07 - xiaohe
+  server: xby.mangshe.xyz
+  port: 2060
+  udp: true
+  type: hysteria2
+  password: 5d0a6445-a30d-4522-bb1f-94f1d3ad63be
+  sni: xby.mangshe.xyz
+  skip-cert-verify: true
+- name: 🇪🇸 西班牙 (Spain) 08 - xiaohe
+  server: mygptagent.org
+  port: 443
+  udp: true
+  type: vmess
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: mygptagent.org
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: mygptagent.org
 proxy-groups:
 - name: PROXIES
   type: select
@@ -79,6 +100,8 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 04 - xiaohe
   - 🇪🇸 西班牙 (Spain) 05 - xiaohe
   - 🇪🇸 西班牙 (Spain) 06 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 07 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 08 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -90,5 +113,7 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 04 - xiaohe
   - 🇪🇸 西班牙 (Spain) 05 - xiaohe
   - 🇪🇸 西班牙 (Spain) 06 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 07 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 08 - xiaohe
 rules:
 - MATCH,PROXIES
