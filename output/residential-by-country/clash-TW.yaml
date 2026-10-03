@@ -18,6 +18,20 @@ proxies:
   client-fingerprint: chrome
 - name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
   type: vless
+  server: argo6.5671234.xyz
+  port: 443
+  uuid: 08aaab35-a42d-4755-a03e-20c18cb1b3e8
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: argo6.5671234.xyz
+  network: ws
+  ws-opts:
+    path: /e8e2cecb6188f7fb
+    headers:
+      Host: argo6.5671234.xyz
+- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
+  type: vless
   server: 60.248.219.78
   port: 443
   uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
@@ -37,6 +51,7 @@ proxy-groups:
   - AUTO
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -44,5 +59,6 @@ proxy-groups:
   proxies:
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

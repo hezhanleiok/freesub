@@ -13,24 +13,29 @@ proxies:
   udp: true
 - name: 🇿🇦 ZA 02 - wangyu
   type: ss
-  server: 4.168.234.190
+  server: 102.37.156.224
   port: 443
   cipher: chacha20-ietf-poly1305
-  password: SBw5b6E9noHolBdA
+  password: aduB9HGxQHjA2SBMRjkHX6
   udp: true
 - name: 🇿🇦 ZA 03 - wangyu
+  type: vless
+  server: 34.35.58.153
+  port: 443
+  uuid: 8d65c8a7-4876-4556-bb6a-feccfb46ee81
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: bSN0cv0VMxmYZsNsMkkLndOTHZu74C1htJ2M71QMaVE
+  servername: www.cloudflare.com
+  client-fingerprint: safari
+- name: 🇿🇦 ZA 04 - wangyu
   type: ss
   server: 102.133.165.160
   port: 16233
   cipher: chacha20-ietf-poly1305
   password: Xsy8Ox4yOV3xLlpxtjzs3X
-  udp: true
-- name: 🇿🇦 ZA 04 - wangyu
-  type: ss
-  server: 102.37.156.224
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: aduB9HGxQHjA2SBMRjkHX6
   udp: true
 - name: 🇿🇦 ZA 05 - wangyu
   type: vless
@@ -43,19 +48,14 @@ proxies:
   reality-opts:
     public-key: bSN0cv0VMxmYZsNsMkkLndOTHZu74C1htJ2M71QMaVE
   servername: www.cloudflare.com
-  client-fingerprint: safari
-- name: 🇿🇦 ZA 06 - wangyu
-  type: vless
-  server: 34.35.58.153
-  port: 443
-  uuid: 8d65c8a7-4876-4556-bb6a-feccfb46ee81
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: bSN0cv0VMxmYZsNsMkkLndOTHZu74C1htJ2M71QMaVE
-  servername: www.cloudflare.com
   client-fingerprint: qq
+- name: 🇿🇦 ZA 06 - wangyu
+  type: ss
+  server: 4.168.234.190
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: SBw5b6E9noHolBdA
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
