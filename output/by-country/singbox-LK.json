@@ -12,10 +12,18 @@
       "tls": {
         "enabled": true,
         "server_name": "trackydev.site",
-        "insecure": false
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        }
       },
       "transport": {
-        "type": "ws"
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "trackydev.site"
+        }
       }
     },
     {
