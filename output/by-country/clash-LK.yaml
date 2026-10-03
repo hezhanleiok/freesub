@@ -6,60 +6,43 @@ log-level: info
 proxies:
 - name: 🇱🇰 LK 01 - wangyu
   type: vless
-  server: trackydev.site
-  port: 443
-  uuid: 92d67828-4c56-4795-af5a-f387651380dc
+  server: cdn.zoom.us
+  port: 80
+  uuid: 1eaed465-d720-400b-9f9f-439600a2d093
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: trackydev.site
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: trackydev.site
+      Host: cloud.ghostdev.lk
 - name: 🇱🇰 LK 02 - wangyu
   type: vless
-  server: trackydev.site
-  port: 443
-  uuid: 92d67828-4c56-4795-af5a-f387651380dc
+  server: cloud.ghostdev.lk
+  port: 80
+  uuid: 1eaed465-d720-400b-9f9f-439600a2d093
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: trackydev.site
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: trackydev.site
+      Host: cloud.ghostdev.lk
 - name: 🇱🇰 LK 03 - wangyu
   type: vless
-  server: trackydev.site
-  port: 443
-  uuid: 92d67828-4c56-4795-af5a-f387651380dc
+  server: cloud.ghostdev.lk
+  port: 80
+  uuid: 1eaed465-d720-400b-9f9f-439600a2d093
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: trackydev.site
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: trackydev.site
-- name: 🇱🇰 LK 04 - wangyu
-  type: vless
-  server: trackydev.site
-  port: 443
-  uuid: 92d67828-4c56-4795-af5a-f387651380dc
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: trackydev.site
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: trackydev.site
+      Host: m.zoom.us
 proxy-groups:
 - name: PROXIES
   type: select
@@ -68,7 +51,6 @@ proxy-groups:
   - 🇱🇰 LK 01 - wangyu
   - 🇱🇰 LK 02 - wangyu
   - 🇱🇰 LK 03 - wangyu
-  - 🇱🇰 LK 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -77,6 +59,5 @@ proxy-groups:
   - 🇱🇰 LK 01 - wangyu
   - 🇱🇰 LK 02 - wangyu
   - 🇱🇰 LK 03 - wangyu
-  - 🇱🇰 LK 04 - wangyu
 rules:
 - MATCH,PROXIES
