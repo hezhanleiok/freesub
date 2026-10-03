@@ -12,13 +12,6 @@ proxies:
   cipher: aes-256-cfb
   password: amazonskr05
 - name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
-  server: 13.49.21.155
-  port: 443
-  udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
-- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
   server: 5.157.10.148
   port: 443
   udp: true
@@ -31,57 +24,28 @@ proxies:
     short-id: fb442438e2223836
   servername: surstreming.vvzzkontaktezzvv.garden
   client-fingerprint: firefox
-- name: 🇸🇪 瑞典 (Sweden) 04 - xiaohe
-  server: swed4.o4ka-internet.com
+- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
+  server: 94.143.231.146
   port: 443
   udp: true
   type: vless
-  uuid: 8f6e49e6-7f03-4f10-9da9-1716158d80ed
-  flow: xtls-rprx-vision
+  uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
   tls: true
-  reality-opts:
-    public-key: V2JprbR_aJkS7uX6anyU3nrswGxdvDQT2HpY4WnzuC8
-    short-id: 5629431325884ff0
-  servername: swed4.o4ka-internet.com
-  client-fingerprint: random
-- name: 🇸🇪 瑞典 (Sweden) 05 - xiaohe
-  server: 143.246.196.207
-  port: 443
-  udp: true
-  type: vless
-  uuid: ac0c2945-b758-11f1-8181-54db13ea7d40
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: wSjV1yR_rhDUdoNbM9zIXNGLASLp9RorComnyoayo2c
-  servername: www.blocket.se
-  client-fingerprint: firefox
-- name: 🇸🇪 瑞典 (Sweden) 06 - xiaohe
-  server: 199.68.198.13
-  port: 443
-  udp: true
-  type: vless
-  uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
-  tls: true
-  reality-opts:
-    public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
-  servername: example.org
-  client-fingerprint: firefox
-- name: 🇸🇪 瑞典 (Sweden) 07 - xiaohe
-  server: 62.60.159.81
-  port: 2053
-  udp: true
-  type: vless
-  uuid: fc00adfb-232a-46ce-8b93-0c70e516aa8a
-  tls: true
-  reality-opts:
-    public-key: ygmJxS-Mc7g0buNSUTVGhazT-FoBjyYtLLfUYIQxFTw
-    short-id: d0ea1847066af5a6
-  servername: www.samsung.com
+  servername: sub.merky.top
+  skip-cert-verify: false
   client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-service-name: grpce5bb9e71
+  network: ws
+  ws-opts:
+    path: /merky-connect/de6/
+    headers:
+      Host: sub.merky.top
+- name: 🇸🇪 瑞典 (Sweden) 04 - xiaohe
+  server: sw.roshdiran1.ir
+  port: 53425
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: aIeil4UUGSF5wo1kg9TebZfXOFLCZ66G
 proxy-groups:
 - name: PROXIES
   type: select
@@ -91,9 +55,6 @@ proxy-groups:
   - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 03 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 04 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 05 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 06 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -103,8 +64,5 @@ proxy-groups:
   - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 03 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 04 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 05 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 06 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 07 - xiaohe
 rules:
 - MATCH,PROXIES

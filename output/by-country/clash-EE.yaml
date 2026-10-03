@@ -5,16 +5,14 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇪 爱沙尼亚 (Estonia) 01 - xiaohe
-  server: ee.monkora.org
+  server: 94.183.170.135
   port: 443
   udp: true
   type: vless
-  uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
-  tls: true
-  reality-opts:
-    public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
-  servername: example.org
-  client-fingerprint: firefox
+  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
+  network: ws
+  ws-opts:
+    path: /
 - name: 🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe
   server: 94.183.170.135
   port: 8443
@@ -26,7 +24,20 @@ proxies:
   skip-cert-verify: false
   client-fingerprint: firefox
 - name: 🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe
-  server: 77.72.85.246
+  server: 89.125.13.202
+  port: 443
+  udp: true
+  type: vless
+  uuid: 87fd990d-ca93-440a-bbd4-e8281c4a0910
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: g36Z7YIqJMJP-uv3DBr72X5jvfjyW1qIAxa8TkWmpmQ
+    short-id: ad6e08b22389abd2
+  servername: d3-ee1.cloud-cdn.xyz
+  client-fingerprint: chrome
+- name: 🇪🇪 爱沙尼亚 (Estonia) 04 - xiaohe
+  server: 77.72.85.247
   port: 8443
   udp: true
   type: vless
@@ -39,19 +50,6 @@ proxies:
     path: /vpn-wss/fluxor/59011/
     headers:
       Host: fdghyt.com
-- name: 🇪🇪 爱沙尼亚 (Estonia) 04 - xiaohe
-  server: 5.181.202.58
-  port: 443
-  udp: true
-  type: vless
-  uuid: 8f6e49e6-7f03-4f10-9da9-1716158d80ed
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: V2JprbR_aJkS7uX6anyU3nrswGxdvDQT2HpY4WnzuC8
-    short-id: 5629431325884ff0
-  servername: eston3.o4ka-internet.com
-  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select

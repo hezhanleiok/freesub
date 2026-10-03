@@ -4,8 +4,16 @@
   },
   "outbounds": [
     {
-      "type": "vless",
+      "type": "shadowsocks",
       "tag": "🇷🇺 俄罗斯 (Russia) 01 - xiaohe",
+      "server": "130.49.189.158",
+      "server_port": 43558,
+      "method": "chacha20-ietf-poly1305",
+      "password": "mhXYDvaSfHzHZXBswC/zo/o8VqdU3XSBpwWx050Y6MU="
+    },
+    {
+      "type": "vless",
+      "tag": "🇷🇺 俄罗斯 (Russia) 02 - xiaohe",
       "server": "31.76.34.216",
       "server_port": 443,
       "uuid": "94def50e-5f3c-4e4c-9719-3325f42d2131",
@@ -25,36 +33,27 @@
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "🇷🇺 俄罗斯 (Russia) 02 - xiaohe",
-      "server": "91.240.86.70",
-      "server_port": 22443,
-      "password": "3f63c86c-ac4a-4900-85cf-4fedf93c2ca5",
-      "tls": {
-        "enabled": true,
-        "server_name": "91.240.86.70",
-        "insecure": true
-      }
-    },
-    {
       "type": "vless",
       "tag": "🇷🇺 俄罗斯 (Russia) 03 - xiaohe",
-      "server": "81.177.215.175",
-      "server_port": 443,
-      "uuid": "1c5ed2e1-56da-41ab-9a78-159d9892ec17",
-      "flow": "xtls-rprx-vision",
+      "server": "176.123.165.25",
+      "server_port": 9881,
+      "uuid": "5d16ac22-6eea-426f-b778-6f4c2961faef",
       "tls": {
         "enabled": true,
-        "server_name": "github.com",
+        "server_name": "dl.google.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": "ios"
         },
         "reality": {
           "enabled": true,
-          "public_key": "lHCkAu_DOVFtE-iL2JGrPt44QeTCFijXuRfuGaSni3Q",
-          "short_id": "9e4eced6e98ed4d4"
+          "public_key": "Dfgu8Ey0M8Hz4gXGZAwQ3H9jLt2HByVsjAOTWiuKDB0",
+          "short_id": "aabbccdd"
         }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "grpc-tunnel"
       }
     },
     {
