@@ -1,0 +1,65 @@
+{
+  "log": {
+    "level": "warn"
+  },
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "🇦🇺 澳大利亚 (Australia) 01 - xiaohe",
+      "server": "35.197.168.118",
+      "server_port": 443,
+      "uuid": "4f865f35-cf47-4e7f-a7e6-8882511a1b36",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "OgTkmAQdLjipA9oLloxbU5BAX3hPjzbvkEGHF4aZ8z4",
+          "short_id": "8a7d5e0248cdb1b1"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇦🇺 澳大利亚 (Australia) 02 - xiaohe",
+      "server": "au-1.tr202613.com",
+      "server_port": 443,
+      "password": "2ni2H9zUKdDCjREL8Z",
+      "tls": {
+        "enabled": true,
+        "server_name": "au-1.tr202613.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇦🇺 澳大利亚 (Australia) 01 - xiaohe",
+        "🇦🇺 澳大利亚 (Australia) 02 - xiaohe"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇦🇺 澳大利亚 (Australia) 01 - xiaohe",
+        "🇦🇺 澳大利亚 (Australia) 02 - xiaohe"
+      ],
+      "url": "https://www.gstatic.com/generate_204"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}

@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇪 爱沙尼亚 (Estonia) 01 - xiaohe
-  server: 89.125.13.202
+  server: 163.245.52.91
   port: 443
   udp: true
   type: vless
@@ -16,8 +16,17 @@ proxies:
     public-key: g36Z7YIqJMJP-uv3DBr72X5jvfjyW1qIAxa8TkWmpmQ
     short-id: ad6e08b22389abd2
   servername: d3-ee1.cloud-cdn.xyz
-  client-fingerprint: chrome
+  client-fingerprint: edge
 - name: 🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe
+  server: 94.183.170.135
+  port: 443
+  udp: true
+  type: vless
+  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
+  network: ws
+  ws-opts:
+    path: /
+- name: 🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe
   server: 94.183.170.135
   port: 8443
   udp: true
@@ -27,7 +36,7 @@ proxies:
   servername: estproxy4.lockdwn.com
   skip-cert-verify: false
   client-fingerprint: chrome
-- name: 🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe
+- name: 🇪🇪 爱沙尼亚 (Estonia) 04 - xiaohe
   server: 194.26.141.148
   port: 8443
   udp: true
@@ -42,15 +51,18 @@ proxies:
     path: /vpn-wss/fluxor/59011/
     headers:
       Host: fdghyt.com
-- name: 🇪🇪 爱沙尼亚 (Estonia) 04 - xiaohe
-  server: 94.183.170.135
-  port: 443
+- name: 🇪🇪 爱沙尼亚 (Estonia) 05 - xiaohe
+  server: 143.246.41.23
+  port: 25895
   udp: true
   type: vless
-  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-  network: ws
-  ws-opts:
-    path: /
+  uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
+  tls: true
+  reality-opts:
+    public-key: jOVKSP-bS9OkILJ8Epz8hadh6qhavCrOiJYeF0NCn0k
+    short-id: a73f0410d728c823
+  servername: www.samsung.com
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -60,6 +72,7 @@ proxy-groups:
   - 🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe
   - 🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe
   - 🇪🇪 爱沙尼亚 (Estonia) 04 - xiaohe
+  - 🇪🇪 爱沙尼亚 (Estonia) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -69,5 +82,6 @@ proxy-groups:
   - 🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe
   - 🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe
   - 🇪🇪 爱沙尼亚 (Estonia) 04 - xiaohe
+  - 🇪🇪 爱沙尼亚 (Estonia) 05 - xiaohe
 rules:
 - MATCH,PROXIES

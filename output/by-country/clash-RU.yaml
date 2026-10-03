@@ -5,54 +5,28 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
-  server: 130.49.189.158
-  port: 43558
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: mhXYDvaSfHzHZXBswC/zo/o8VqdU3XSBpwWx050Y6MU=
-- name: 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
-  server: 31.76.34.216
+  server: 45.131.212.231
   port: 443
   udp: true
   type: vless
-  uuid: 94def50e-5f3c-4e4c-9719-3325f42d2131
+  uuid: 19513b1b-d29a-4f3e-ba9a-888261e4e048
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: XrgbY2hKJQG8QOZO2J1pGmZsbvjSsSWoM9iULIMGK00
-  servername: ru-c-1.minzt.su
-  client-fingerprint: chrome
-- name: 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
-  server: 81.94.148.214
-  port: 443
-  udp: true
-  type: vless
-  uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
-  tls: true
-  servername: fbsv6.guardora.pro
-  skip-cert-verify: false
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: sellflow.org
   client-fingerprint: firefox
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: fbsv6.guardora.pro
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
-  - 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
-  - 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
-  - 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
-  - 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
 rules:
 - MATCH,PROXIES
