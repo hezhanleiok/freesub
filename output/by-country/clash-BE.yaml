@@ -4,31 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
-  server: 89.218.15.90
-  port: 10002
+- name: 🇧🇪 比利时 (Belgium) 01 - xiaohe
+  server: 172.67.209.13
+  port: 443
   udp: true
   type: vless
-  uuid: 392fcc7e-b995-11f1-a6b7-1b2272a86bd5
+  uuid: fa45096d-bed0-ad80-c773-23c30000001b
   tls: true
-  servername: kz1.vpnjantit.com
+  servername: xo3ubk-c97eql-n2d4a9.shoameni17.workers.dev
   skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /vpnjantit
+    path: /
     headers:
-      Host: kz1.vpnjantit.com
+      Host: xo3ubk-c97eql-n2d4a9.shoameni17.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
+  - 🇧🇪 比利时 (Belgium) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
+  - 🇧🇪 比利时 (Belgium) 01 - xiaohe
 rules:
 - MATCH,PROXIES
