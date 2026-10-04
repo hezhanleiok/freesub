@@ -4,31 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇱🇺 LU 01 - wangyu
+- name: 🇵🇱 PL 01 - wangyu
   type: vless
-  server: 188.42.145.7
-  port: 8443
-  uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  server: 70.34.255.101
+  port: 80
+  uuid: a889262f-5fe3-4c93-9aaa-3721318dd389
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: speed.dulacloud.store
   network: ws
   ws-opts:
-    path: /dula?Telegram-WangCai2
+    path: /
     headers:
-      Host: speed.dulacloud.store
+      Host: 70.34.255.101
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇱🇺 LU 01 - wangyu
+  - 🇵🇱 PL 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇱🇺 LU 01 - wangyu
+  - 🇵🇱 PL 01 - wangyu
 rules:
 - MATCH,PROXIES
