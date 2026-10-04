@@ -1,0 +1,33 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇦🇶 AQ 01 - xiaohe
+  server: 2.27.26.128
+  port: 443
+  udp: true
+  type: vless
+  uuid: 8710a337-f504-4b75-8989-224cfd803b2d
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: HKkU-5UanGjWdmX8E-EGulXMk1BnidkFsVveyyOlTg8
+    short-id: 90f9d05bf95cb335
+  servername: aq-1.global-cdn.org
+  client-fingerprint: firefox
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇦🇶 AQ 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇦🇶 AQ 01 - xiaohe
+rules:
+- MATCH,PROXIES
