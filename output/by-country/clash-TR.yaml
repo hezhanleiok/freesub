@@ -4,30 +4,25 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇸🇪 SE 01 - wangyu
+- name: 🇹🇷 土耳其 (Turkey) 01 - wangyu
   type: vless
-  server: psf-2.weedly.top
-  port: 80
-  uuid: 33016f3d-8509-493c-bd8b-d26447d48135
+  server: test.keoplentuio.xyz
+  port: 2053
+  uuid: 9ef61079-6f7d-4911-9608-943da85d8e6f
   udp: true
   tls: false
   skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: stigmata.ir
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇸🇪 SE 01 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇸🇪 SE 01 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 01 - wangyu
 rules:
 - MATCH,PROXIES
