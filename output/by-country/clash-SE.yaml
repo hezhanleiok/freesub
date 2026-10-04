@@ -16,6 +16,18 @@ proxies:
     headers:
       Host: stigmata.ir
 - name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
+  server: 143.246.196.207
+  port: 443
+  udp: true
+  type: vless
+  uuid: ac0c2945-b758-11f1-8181-54db13ea7d40
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: wSjV1yR_rhDUdoNbM9zIXNGLASLp9RorComnyoayo2c
+  servername: www.blocket.se
+  client-fingerprint: firefox
+- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
   server: 132.243.231.4
   port: 443
   udp: true
@@ -28,21 +40,6 @@ proxies:
     short-id: 5efa80b939612291
   servername: d3-se1.cloud-cdn.xyz
   client-fingerprint: firefox
-- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
-  server: 94.143.231.146
-  port: 443
-  udp: true
-  type: vless
-  uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
-  tls: true
-  servername: sub.merky.top
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /merky-connect/de6/
-    headers:
-      Host: sub.merky.top
 proxy-groups:
 - name: PROXIES
   type: select

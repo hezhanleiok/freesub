@@ -4,15 +4,22 @@
   },
   "outbounds": [
     {
-      "type": "hysteria2",
-      "tag": "🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe",
-      "server": "2dd0472e-tmm5c0-twj07b-fm2v.hk3.hyhuawei.com",
+      "type": "vless",
+      "tag": "🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe",
+      "server": "172.67.159.161",
       "server_port": 443,
-      "password": "3fed19ea-1671-11f0-bd2e-f23c9164ca5d",
+      "uuid": "76ac91c5-ea82-4046-8ee7-2ffbb563ac94",
       "tls": {
         "enabled": true,
-        "server_name": "2dd0472e-tmm5c0-twj07b-fm2v.hk3.hyhuawei.com",
-        "insecure": true
+        "server_name": "geo.shkola112.site",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/api-vless",
+        "headers": {
+          "Host": "geo.shkola112.site"
+        }
       }
     },
     {
@@ -20,14 +27,14 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe"
+        "🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe"
+        "🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },
