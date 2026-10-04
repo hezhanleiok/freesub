@@ -15,7 +15,7 @@ proxies:
   reality-opts:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
   servername: www.apple.com
-  client-fingerprint: firefox
+  client-fingerprint: chrome
 - name: 🇨🇭 CH 02 - xiaohe
   type: vless
   server: 208.69.78.217
@@ -27,15 +27,8 @@ proxies:
   reality-opts:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
   servername: www.apple.com
-  client-fingerprint: chrome
+  client-fingerprint: firefox
 - name: 🇨🇭 CH 03 - xiaohe
-  type: ss
-  server: 132.243.175.144
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
-  udp: true
-- name: 🇨🇭 CH 04 - xiaohe
   type: vless
   server: 208.69.78.217
   port: 2053
@@ -46,7 +39,14 @@ proxies:
   reality-opts:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
   servername: www.apple.com
-  client-fingerprint: chrome
+  client-fingerprint: random
+- name: 🇨🇭 CH 04 - xiaohe
+  type: ss
+  server: 132.243.175.144
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select

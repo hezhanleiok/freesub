@@ -14,22 +14,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: aksai.org
-  network: ws
-  ws-opts:
-    path: /linkvws
-    headers:
-      Host: aksai.org
-- name: 🇧🇷 BR 02 - xiaohe
-  type: vmess
-  server: 89.39.161.157
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
   servername: ''
   network: ws
   ws-opts:
@@ -42,13 +26,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇧🇷 BR 01 - xiaohe
-  - 🇧🇷 BR 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇧🇷 BR 01 - xiaohe
-  - 🇧🇷 BR 02 - xiaohe
 rules:
 - MATCH,PROXIES
