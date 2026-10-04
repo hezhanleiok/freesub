@@ -5,8 +5,20 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇩 印尼 (Indonesia) 01 - xiaohe
-  server: funagfr.alixxplay.com
-  port: 61847
+  server: 103.172.197.3
+  port: 16006
+  udp: true
+  type: vless
+  uuid: f8c9d2a1-da40-4f90-b671-11772a0b13d6
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: ll7JTP628PuBMZJvx6fuhGSmCRSURnReAetmhCEL8GU
+  servername: www.cloudflare.com
+  client-fingerprint: random
+- name: 🇮🇩 印尼 (Indonesia) 02 - xiaohe
+  server: apinbxs.zalolink.com
+  port: 31094
   udp: true
   type: vless
   uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
@@ -17,7 +29,7 @@ proxies:
     short-id: c761f990d786f2
   servername: www.lamer.com.sg
   client-fingerprint: ios
-- name: 🇮🇩 印尼 (Indonesia) 02 - xiaohe
+- name: 🇮🇩 印尼 (Indonesia) 03 - xiaohe
   server: 103.172.197.2
   port: 29172
   udp: true
@@ -29,18 +41,6 @@ proxies:
     public-key: pff94OJwuKXnF7_3SJ8KKJuAN4GJtInBlR-kg-4mwzQ
   servername: aws.amazon.com
   client-fingerprint: random
-- name: 🇮🇩 印尼 (Indonesia) 03 - xiaohe
-  server: 103.172.197.3
-  port: 16006
-  udp: true
-  type: vless
-  uuid: f8c9d2a1-da40-4f90-b671-11772a0b13d6
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: ll7JTP628PuBMZJvx6fuhGSmCRSURnReAetmhCEL8GU
-  servername: www.cloudflare.com
-  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
