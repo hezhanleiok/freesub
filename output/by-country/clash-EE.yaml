@@ -6,6 +6,15 @@ log-level: info
 proxies:
 - name: 🇪🇪 爱沙尼亚 (Estonia) 01 - xiaohe
   server: 94.183.170.135
+  port: 443
+  udp: true
+  type: vless
+  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
+  network: ws
+  ws-opts:
+    path: /
+- name: 🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe
+  server: 94.183.170.135
   port: 8443
   udp: true
   type: vless
@@ -13,9 +22,8 @@ proxies:
   tls: true
   servername: estproxy4.lockdwn.com
   skip-cert-verify: false
-  client-fingerprint: chrome
-- name: 🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe
-  server: 77.72.85.247
+- name: 🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe
+  server: 77.72.85.246
   port: 8443
   udp: true
   type: vless
@@ -35,6 +43,7 @@ proxy-groups:
   - AUTO
   - 🇪🇪 爱沙尼亚 (Estonia) 01 - xiaohe
   - 🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe
+  - 🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -42,5 +51,6 @@ proxy-groups:
   proxies:
   - 🇪🇪 爱沙尼亚 (Estonia) 01 - xiaohe
   - 🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe
+  - 🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe
 rules:
 - MATCH,PROXIES
