@@ -23,18 +23,6 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
   udp: true
-- name: 🇨🇭 CH 03 - wangyu
-  type: vless
-  server: 208.69.78.217
-  port: 2053
-  uuid: c0dd6d59-1573-43af-8b70-1470b2632a6d
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
-  servername: www.apple.com
-  client-fingerprint: random
 proxy-groups:
 - name: PROXIES
   type: select
@@ -42,7 +30,6 @@ proxy-groups:
   - AUTO
   - 🇨🇭 CH 01 - wangyu
   - 🇨🇭 CH 02 - wangyu
-  - 🇨🇭 CH 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -50,6 +37,5 @@ proxy-groups:
   proxies:
   - 🇨🇭 CH 01 - wangyu
   - 🇨🇭 CH 02 - wangyu
-  - 🇨🇭 CH 03 - wangyu
 rules:
 - MATCH,PROXIES
