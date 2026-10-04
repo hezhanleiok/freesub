@@ -18,6 +18,18 @@ proxies:
   servername: d3-se1.cloud-cdn.xyz
   client-fingerprint: firefox
 - name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
+  server: 172.234.97.206
+  port: 8443
+  udp: true
+  type: vless
+  uuid: 9cdcec15-2c73-40d5-b50f-d00381fddd26
+  tls: true
+  servername: stsr.hospitaldt.ir
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
   server: swed4.o4ka-internet.com
   port: 443
   udp: true
@@ -30,21 +42,6 @@ proxies:
     short-id: 5629431325884ff0
   servername: swed4.o4ka-internet.com
   client-fingerprint: random
-- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
-  server: 94.143.231.146
-  port: 443
-  udp: true
-  type: vless
-  uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
-  tls: true
-  servername: sub.merky.top
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /merky-connect/de6/
-    headers:
-      Host: sub.merky.top
 proxy-groups:
 - name: PROXIES
   type: select

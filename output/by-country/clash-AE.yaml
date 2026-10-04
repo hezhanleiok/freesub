@@ -15,27 +15,15 @@ proxies:
   obfs: salamander
   obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
 - name: 🇦🇪 阿联酋 (UAE) 02 - xiaohe
-  server: 31.59.150.11
-  port: 443
-  udp: true
-  type: vless
-  uuid: cc4d63e2-3a86-49b3-9598-328bbe93e56c
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: yI6maXxTQ8zRHg39X8YMQtKW-IVfNIn0_OCUIQKmcXw
-  servername: google.com
-  client-fingerprint: qq
-- name: 🇦🇪 阿联酋 (UAE) 03 - xiaohe
   server: 144.31.49.47
   port: 443
   udp: true
   type: hysteria2
   password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
   sni: admin.wwwinternetvideo.click
-  skip-cert-verify: true
-- name: 🇦🇪 阿联酋 (UAE) 04 - xiaohe
-  server: 84.235.244.108
+  skip-cert-verify: false
+- name: 🇦🇪 阿联酋 (UAE) 03 - xiaohe
+  server: uae.unixzone.us
   port: 22573
   udp: true
   type: vless
@@ -43,8 +31,20 @@ proxies:
   network: ws
   ws-opts:
     path: /
-    headers:
-      Host: uae.unixzone.us
+- name: 🇦🇪 阿联酋 (UAE) 04 - xiaohe
+  server: 122.8.45.4
+  port: 8443
+  udp: true
+  type: vless
+  uuid: 2d24e797-ec6c-0808-dd31-9cd22b5dfdc7
+  tls: true
+  reality-opts:
+    public-key: iVDh09Vm2DqZMNQoUdf-LCZ6TqVGb9mLXnClAK2LRj4
+  servername: www.canon.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: TunService
 proxy-groups:
 - name: PROXIES
   type: select

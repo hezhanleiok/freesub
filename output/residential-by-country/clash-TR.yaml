@@ -5,12 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 (移动家宽) - xiaohe
-  server: tutaim.azad0namah.ir
-  port: 8080
-  udp: true
-  type: vless
-  uuid: fdc1206a-9d2e-42b7-b615-9ccea8cf70ee
-- name: 🇹🇷 土耳其 (Turkey) 02 (移动家宽) - xiaohe
   server: test.keoplentuio.xyz
   port: 2053
   udp: true
@@ -22,13 +16,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 (移动家宽) - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 02 (移动家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 (移动家宽) - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 02 (移动家宽) - xiaohe
 rules:
 - MATCH,PROXIES
