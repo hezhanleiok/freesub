@@ -5,6 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇪 IE 01 - xiaohe
+  type: ss
+  server: 20.166.33.115
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: xyn9JRjicrWOWqAJ
+  udp: true
+- name: 🇮🇪 IE 02 - xiaohe
   type: vless
   server: 23.95.225.10
   port: 8443
@@ -24,11 +31,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇮🇪 IE 01 - xiaohe
+  - 🇮🇪 IE 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇮🇪 IE 01 - xiaohe
+  - 🇮🇪 IE 02 - xiaohe
 rules:
 - MATCH,PROXIES
