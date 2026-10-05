@@ -5,21 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
-  server: 208.103.161.5
-  port: 443
-  udp: true
-  type: vless
-  uuid: d042a74a-c305-4eec-a89f-39a348022c92
-  tls: true
-  servername: dry-butterfly-8eb9.tmpgnacio83.workers.dev
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: dry-butterfly-8eb9.tmpgnacio83.workers.dev
-- name: 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
   server: vpn-au-001.fastervpn.world
   port: 443
   udp: true
@@ -27,20 +12,8 @@ proxies:
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   sni: vpn-au-001.fastervpn.world
   skip-cert-verify: true
-- name: 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
-  server: 34.40.217.165
-  port: 443
-  udp: true
-  type: vless
-  uuid: 325bc1be-0cb7-4cf7-bd35-a79ded91bbbd
-  tls: true
-  reality-opts:
-    public-key: fsdIMU2apN1C_NbkL7mHTsBKEfhwbDhgCRcB8ICf03E
-    short-id: d725f0dd8cce210f
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇦🇺 澳大利亚 (Australia) 04 - xiaohe
-  server: 103.30.76.65
+- name: 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
+  server: 103.30.76.197
   port: 39518
   udp: true
   type: vless
@@ -59,8 +32,6 @@ proxy-groups:
   - AUTO
   - 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
   - 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
-  - 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
-  - 🇦🇺 澳大利亚 (Australia) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -68,7 +39,5 @@ proxy-groups:
   proxies:
   - 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
   - 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
-  - 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
-  - 🇦🇺 澳大利亚 (Australia) 04 - xiaohe
 rules:
 - MATCH,PROXIES
