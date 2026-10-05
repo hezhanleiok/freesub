@@ -5,29 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  server: psf-2.weedly.top
-  port: 80
-  udp: true
-  type: vless
-  uuid: 33016f3d-8509-493c-bd8b-d26447d48135
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: stigmata.ir
-- name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
-  server: 143.246.196.207
-  port: 443
-  udp: true
-  type: vless
-  uuid: ac0c2945-b758-11f1-8181-54db13ea7d40
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: wSjV1yR_rhDUdoNbM9zIXNGLASLp9RorComnyoayo2c
-  servername: www.blocket.se
-  client-fingerprint: firefox
-- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
   server: 132.243.231.4
   port: 443
   udp: true
@@ -39,7 +16,18 @@ proxies:
     public-key: zWDvtTWK-cWWwHDMHMXcOpQy4k3EKp7yw-5e0wTZAUM
     short-id: 5efa80b939612291
   servername: d3-se1.cloud-cdn.xyz
-  client-fingerprint: firefox
+  client-fingerprint: edge
+- name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
+  server: psf-2.weedly.top
+  port: 80
+  udp: true
+  type: vless
+  uuid: 33016f3d-8509-493c-bd8b-d26447d48135
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: stigmata.ir
 proxy-groups:
 - name: PROXIES
   type: select
@@ -47,7 +35,6 @@ proxy-groups:
   - AUTO
   - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -55,6 +42,5 @@ proxy-groups:
   proxies:
   - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 03 - xiaohe
 rules:
 - MATCH,PROXIES
