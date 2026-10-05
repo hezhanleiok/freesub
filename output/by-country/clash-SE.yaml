@@ -17,17 +17,32 @@ proxies:
     path: /
     headers:
       Host: stigmata.ir
+- name: 🇸🇪 SE 02 - wangyu
+  type: vless
+  server: psf-2.weedly.top
+  port: 80
+  uuid: 33016f3d-8509-493c-bd8b-d26447d48135
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: stigmata.ir
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇸🇪 SE 01 - wangyu
+  - 🇸🇪 SE 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇸🇪 SE 01 - wangyu
+  - 🇸🇪 SE 02 - wangyu
 rules:
 - MATCH,PROXIES

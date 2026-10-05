@@ -6,7 +6,7 @@ log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - wangyu
   type: vless
-  server: 78.159.246.110
+  server: 217.19.122.200
   port: 443
   uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
   udp: true
@@ -34,21 +34,20 @@ proxies:
       Host: fbsv6.guardora.pro
 - name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   type: vless
-  server: 217.19.122.200
-  port: 443
-  uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
+  server: 185.148.107.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: fbsv6.guardora.pro
   network: ws
   ws-opts:
-    path: /ws
+    path: /
     headers:
-      Host: fbsv6.guardora.pro
+      Host: vms.lifetime55.workers.dev
 - name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
   type: vless
-  server: fbsv6.guardora.pro
+  server: 217.19.122.200
   port: 443
   uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
   udp: true
@@ -62,7 +61,54 @@ proxies:
       Host: fbsv6.guardora.pro
 - name: 🇷🇺 俄罗斯 (Russia) 05 - wangyu
   type: vless
-  server: 217.19.122.200
+  server: fbsv6.guardora.pro
+  port: 443
+  uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: fbsv6.guardora.pro
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: fbsv6.guardora.pro
+- name: 🇷🇺 俄罗斯 (Russia) 06 - wangyu
+  type: ss
+  server: 130.49.189.158
+  port: 43558
+  cipher: chacha20-ietf-poly1305
+  password: mhXYDvaSfHzHZXBswC/zo/o8VqdU3XSBpwWx050Y6MU=
+  udp: true
+- name: 🇷🇺 俄罗斯 (Russia) 07 - wangyu
+  type: vless
+  server: 78.159.246.110
+  port: 443
+  uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: fbsv6.guardora.pro
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: fbsv6.guardora.pro
+- name: 🇷🇺 俄罗斯 (Russia) 08 - wangyu
+  type: vless
+  server: 62.152.58.90
+  port: 443
+  uuid: 1bb2af63-4472-44ed-9c70-8f316258b68b
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: JBKJlzuJH1YzDHAoz28wEKbzWTGpDpKjgtSq0oT0a0k
+  servername: 360.yandex.ru
+  client-fingerprint: random
+- name: 🇷🇺 俄罗斯 (Russia) 09 - wangyu
+  type: vless
+  server: 78.159.246.110
   port: 443
   uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
   udp: true
@@ -84,6 +130,10 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 06 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 07 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 08 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 09 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -94,5 +144,9 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 06 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 07 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 08 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 09 - wangyu
 rules:
 - MATCH,PROXIES

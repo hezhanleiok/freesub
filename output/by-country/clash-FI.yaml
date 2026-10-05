@@ -5,19 +5,20 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - wangyu
-  type: vless
-  server: mainline.proxy.rlwy.net
-  port: 44242
-  uuid: ff07a00f-0592-41dc-b0e1-b41b4732aad0
+  type: ss
+  server: 45.149.114.171
+  port: 777
+  cipher: chacha20-ietf-poly1305
+  password: Jeoq8ujfkqZKKvACQhoqBQ1PA3uq4242
   udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: mainline.proxy.rlwy.net
 - name: 🇫🇮 FI 02 - wangyu
+  type: ss
+  server: 185.103.110.68
+  port: 18283
+  cipher: aes-128-gcm
+  password: f9300a9bf39ae0347c3a3bfbc4dd7754
+  udp: true
+- name: 🇫🇮 FI 03 - wangyu
   type: vless
   server: 95.216.27.15
   port: 2053
@@ -28,21 +29,7 @@ proxies:
   reality-opts:
     public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
   servername: www.google.com
-  client-fingerprint: firefox
-- name: 🇫🇮 FI 03 - wangyu
-  type: ss
-  server: 185.103.110.68
-  port: 18283
-  cipher: aes-128-gcm
-  password: f9300a9bf39ae0347c3a3bfbc4dd7754
-  udp: true
-- name: 🇫🇮 FI 04 - wangyu
-  type: ss
-  server: 185.103.110.68
-  port: 18283
-  cipher: aes-128-gcm
-  password: f9300a9bf39ae0347c3a3bfbc4dd7754
-  udp: true
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -51,7 +38,6 @@ proxy-groups:
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
   - 🇫🇮 FI 03 - wangyu
-  - 🇫🇮 FI 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -60,6 +46,5 @@ proxy-groups:
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
   - 🇫🇮 FI 03 - wangyu
-  - 🇫🇮 FI 04 - wangyu
 rules:
 - MATCH,PROXIES

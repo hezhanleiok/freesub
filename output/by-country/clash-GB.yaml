@@ -5,13 +5,46 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇬🇧 英国 (United Kingdom) 01 - wangyu
-  type: ss
-  server: 149.102.132.184
-  port: 80
-  cipher: aes-256-gcm
-  password: g5h5jleTRSyO3Rk4
+  type: vless
+  server: 46.250.250.149
+  port: 2053
+  uuid: b4caaf57-ad77-4948-a6f5-51b3513799bf
   udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: hieuCHb3HYdDYHmTDyWw2SGqyfo36AVuA-wSiZMdU1M
+  servername: www.apple.com
+  client-fingerprint: random
 - name: 🇬🇧 英国 (United Kingdom) 02 - wangyu
+  type: vless
+  server: 104.18.34.21
+  port: 8443
+  uuid: 656bb400-3b7a-47e3-94b0-0362f3865072
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: socks5.revil-time3.workers.dev
+  network: ws
+  ws-opts:
+    path: /socks5://128.140.46.169:13482
+    headers:
+      Host: socks5.revil-time3.workers.dev
+- name: 🇬🇧 英国 (United Kingdom) 03 - wangyu
+  type: vless
+  server: 45.130.125.126
+  port: 443
+  uuid: b69b43d1-091d-4d7c-90b2-7a8bbad9d6a9
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: BItter-CreDIT-61b8.b76EbA0aBb.wORkerS.dEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiY0U2T212Y21yeEhUZHRKYSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0
+    headers:
+      Host: BItter-CreDIT-61b8.b76EbA0aBb.wORkerS.dEv
+- name: 🇬🇧 英国 (United Kingdom) 04 - wangyu
   type: vless
   server: 57.129.132.223
   port: 80
@@ -24,56 +57,47 @@ proxies:
     path: /vless/
     headers:
       Host: google.com
-- name: 🇬🇧 英国 (United Kingdom) 03 - wangyu
-  type: vless
-  server: 46.250.240.80
-  port: 2053
-  uuid: 948df76f-505d-4608-9c76-a933ee3ccc76
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: CYFeysLf--_IVhxQOCd3ZxLrAVWFFOkJzvIGHOVXN3E
-  servername: www.cloudflare.com
-  client-fingerprint: random
-- name: 🇬🇧 英国 (United Kingdom) 04 - wangyu
-  type: vless
-  server: 186.190.211.188
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 186.190.211.188
 - name: 🇬🇧 英国 (United Kingdom) 05 - wangyu
   type: vless
-  server: 186.190.211.188
+  server: 159.65.51.189
   port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  uuid: d342d11e-d224-4463-b982-532309285094
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: 186.190.211.188
+  servername: ccc.010304.xyz
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: ccc.010304.xyz
 - name: 🇬🇧 英国 (United Kingdom) 06 - wangyu
   type: ss
-  server: 51.77.225.200
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: zRZNBszYyWo5
+  server: 149.102.132.184
+  port: 443
+  cipher: aes-256-gcm
+  password: g5h5jleTRSyO3Rk4
   udp: true
 - name: 🇬🇧 英国 (United Kingdom) 07 - wangyu
   type: vless
-  server: 46.250.250.149
-  port: 2053
-  uuid: b4caaf57-ad77-4948-a6f5-51b3513799bf
+  server: 186.190.211.188
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: hieuCHb3HYdDYHmTDyWw2SGqyfo36AVuA-wSiZMdU1M
-  servername: www.apple.com
-  client-fingerprint: random
+  servername: 186.190.211.188
 - name: 🇬🇧 英国 (United Kingdom) 08 - wangyu
+  type: vmess
+  server: 186.190.211.147
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇬🇧 英国 (United Kingdom) 09 - wangyu
   type: vless
   server: 186.190.211.188
   port: 443
@@ -82,13 +106,6 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: 186.190.211.188
-- name: 🇬🇧 英国 (United Kingdom) 09 - wangyu
-  type: ss
-  server: 149.102.149.207
-  port: 80
-  cipher: aes-256-gcm
-  password: LXchLsIwtCeUAUgu
-  udp: true
 - name: 🇬🇧 英国 (United Kingdom) 10 - wangyu
   type: vless
   server: 186.190.211.188
@@ -99,20 +116,109 @@ proxies:
   skip-cert-verify: true
   servername: 186.190.211.188
 - name: 🇬🇧 英国 (United Kingdom) 11 - wangyu
+  type: vless
+  server: 46.250.250.149
+  port: 2053
+  uuid: b4caaf57-ad77-4948-a6f5-51b3513799bf
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: hieuCHb3HYdDYHmTDyWw2SGqyfo36AVuA-wSiZMdU1M
+  servername: www.apple.com
+  client-fingerprint: firefox
+- name: 🇬🇧 英国 (United Kingdom) 12 - wangyu
+  type: ss
+  server: 149.102.132.184
+  port: 443
+  cipher: aes-256-gcm
+  password: g5h5jleTRSyO3Rk4
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 13 - wangyu
+  type: vmess
+  server: 186.190.211.147
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇬🇧 英国 (United Kingdom) 14 - wangyu
   type: ss
   server: 141.98.101.181
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
-- name: 🇬🇧 英国 (United Kingdom) 12 - wangyu
+- name: 🇬🇧 英国 (United Kingdom) 15 - wangyu
+  type: ss
+  server: 158.173.24.73
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 16 - wangyu
+  type: vless
+  server: 63.141.128.22
+  port: 443
+  uuid: b8b01773-36b1-4b49-9bd0-6249f52345b4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: MiSty-tooth-78cA.FoboGAH414-e7B.WoRKERs.DEv
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiTkNUaFg0ZnJNUjhhcyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: MiSty-tooth-78cA.FoboGAH414-e7B.WoRKERs.DEv
+- name: 🇬🇧 英国 (United Kingdom) 17 - wangyu
+  type: vmess
+  server: 186.190.211.147
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇬🇧 英国 (United Kingdom) 18 - wangyu
+  type: ss
+  server: 149.102.149.207
+  port: 80
+  cipher: aes-256-gcm
+  password: LXchLsIwtCeUAUgu
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 19 - wangyu
+  type: vmess
+  server: 57.129.132.223
+  port: 80
+  uuid: a25cbf11-2908-4a1b-a3a8-9a571777dca3
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vmess/
+    headers:
+      Host: google.com
+- name: 🇬🇧 英国 (United Kingdom) 20 - wangyu
   type: ss
   server: 149.102.149.207
   port: 443
   cipher: aes-256-gcm
   password: LXchLsIwtCeUAUgu
   udp: true
-- name: 🇬🇧 英国 (United Kingdom) 13 - wangyu
+- name: 🇬🇧 英国 (United Kingdom) 21 - wangyu
+  type: ss
+  server: 149.102.132.184
+  port: 80
+  cipher: aes-256-gcm
+  password: g5h5jleTRSyO3Rk4
+  udp: true
+- name: 🇬🇧 英国 (United Kingdom) 22 - wangyu
   type: vless
   server: 186.190.211.188
   port: 443
@@ -121,32 +227,6 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: 186.190.211.188
-- name: 🇬🇧 英国 (United Kingdom) 14 - wangyu
-  type: ss
-  server: 82.38.31.201
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-- name: 🇬🇧 英国 (United Kingdom) 15 - wangyu
-  type: vless
-  server: 51.89.194.151
-  port: 2053
-  uuid: 8e790f25-1d71-4601-9fb0-d503931dcfca
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: xPEBx4wUmwAAv4ikUALNBf5wH6TRhyeQ0Q2pcNELsV0
-  servername: www.apple.com
-  client-fingerprint: random
-- name: 🇬🇧 英国 (United Kingdom) 16 - wangyu
-  type: ss
-  server: 149.102.132.184
-  port: 443
-  cipher: aes-256-gcm
-  password: g5h5jleTRSyO3Rk4
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -168,6 +248,12 @@ proxy-groups:
   - 🇬🇧 英国 (United Kingdom) 14 - wangyu
   - 🇬🇧 英国 (United Kingdom) 15 - wangyu
   - 🇬🇧 英国 (United Kingdom) 16 - wangyu
+  - 🇬🇧 英国 (United Kingdom) 17 - wangyu
+  - 🇬🇧 英国 (United Kingdom) 18 - wangyu
+  - 🇬🇧 英国 (United Kingdom) 19 - wangyu
+  - 🇬🇧 英国 (United Kingdom) 20 - wangyu
+  - 🇬🇧 英国 (United Kingdom) 21 - wangyu
+  - 🇬🇧 英国 (United Kingdom) 22 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -189,5 +275,11 @@ proxy-groups:
   - 🇬🇧 英国 (United Kingdom) 14 - wangyu
   - 🇬🇧 英国 (United Kingdom) 15 - wangyu
   - 🇬🇧 英国 (United Kingdom) 16 - wangyu
+  - 🇬🇧 英国 (United Kingdom) 17 - wangyu
+  - 🇬🇧 英国 (United Kingdom) 18 - wangyu
+  - 🇬🇧 英国 (United Kingdom) 19 - wangyu
+  - 🇬🇧 英国 (United Kingdom) 20 - wangyu
+  - 🇬🇧 英国 (United Kingdom) 21 - wangyu
+  - 🇬🇧 英国 (United Kingdom) 22 - wangyu
 rules:
 - MATCH,PROXIES
