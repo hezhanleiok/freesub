@@ -18,33 +18,17 @@ proxies:
     path: /
     headers:
       Host: ccc.010304.xyz
-- name: 🇨🇿 CZ 02 - xiaohe
-  type: vless
-  server: 45.130.125.207
-  port: 8443
-  uuid: 31aa0950-eb19-45ff-94a2-af416deb3b90
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: SquarE-saLaD-EbDe.ZDFGVcCfgUUYgGG.wOrKeRS.DEV
-  network: ws
-  ws-opts:
-    path: /eyJqdW5rIjoiZm5INktPV0lGcHI1NjNSOSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0
-    headers:
-      Host: square-salad-ebde.zdfgvccfguuyggg.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇨🇿 CZ 01 - xiaohe
-  - 🇨🇿 CZ 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇨🇿 CZ 01 - xiaohe
-  - 🇨🇿 CZ 02 - xiaohe
 rules:
 - MATCH,PROXIES
