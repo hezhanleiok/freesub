@@ -7,21 +7,45 @@ proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - wangyu
   type: ss
   server: 206.1.103.221
-  port: 53281
+  port: 42264
   cipher: 2022-blake3-aes-256-gcm
-  password: ymykCy/7ioXKe7u60ZifNpAK+N4XKMYW7ljHu/e+h1Q=:tu4qvwMmFqKGRd3SAMGdHSD7G0MDWjHffAr+XSXc/Go=
+  password: Rzv4KXTXvFEqeALuBgzETlujcXrzIAsrSMAevky5x8c=:hdA4n/xn83dcbzxCAxapim47QxGlbAUPQ8I1rbC2RN8=
   udp: true
+- name: 🇹🇷 土耳其 (Turkey) 02 - wangyu
+  type: vless
+  server: 151.241.226.201
+  port: 2053
+  uuid: 0eed6293-8cf1-4e77-ac10-9c3d50d0b2f8
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: bYW_MmB_CUHrsyoCAUKviI2LZdHf63yY2yOPXbih104
+  servername: www.apple.com
+  client-fingerprint: chrome
+- name: 🇹🇷 土耳其 (Turkey) 03 - wangyu
+  type: vless
+  server: test.keoplentuio.xyz
+  port: 2053
+  uuid: 9ef61079-6f7d-4911-9608-943da85d8e6f
+  udp: true
+  tls: false
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 02 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 02 - wangyu
+  - 🇹🇷 土耳其 (Turkey) 03 - wangyu
 rules:
 - MATCH,PROXIES

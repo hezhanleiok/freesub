@@ -4,24 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇫🇮 FI 01 - wangyu
+- name: 🇮🇱 IL 01 - wangyu
   type: ss
-  server: 45.149.114.171
-  port: 777
-  cipher: chacha20-ietf-poly1305
-  password: Jeoq8ujfkqZKKvACQhoqBQ1PA3uq4242
+  server: 45.144.172.123
+  port: 10771
+  cipher: aes-256-gcm
+  password: 78235e7dc55e9ad1
   udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇫🇮 FI 01 - wangyu
+  - 🇮🇱 IL 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇫🇮 FI 01 - wangyu
+  - 🇮🇱 IL 01 - wangyu
 rules:
 - MATCH,PROXIES

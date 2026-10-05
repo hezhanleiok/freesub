@@ -4,24 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇲🇽 MX 01 - wangyu
+- name: 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
   type: ss
-  server: 147.78.1.234
-  port: 16673
-  cipher: aes-128-gcm
-  password: 67c57ae584eecd70396fcd7ca7521130
+  server: 211.174.113.172
+  port: 49642
+  cipher: aes-256-gcm
+  password: ac9c0a7b
   udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇲🇽 MX 01 - wangyu
+  - 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇲🇽 MX 01 - wangyu
+  - 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
 rules:
 - MATCH,PROXIES
