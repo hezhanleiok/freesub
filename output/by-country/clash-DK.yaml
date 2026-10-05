@@ -4,25 +4,25 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
-  server: 47.250.84.25
-  port: 443
+- name: 🇩🇰 丹麦 (Denmark) 01 - xiaohe
+  server: 77.74.123.106
+  port: 4443
   udp: true
   type: trojan
-  password: 5931134d1cde66bf83a54acdfebe7ab2
-  sni: 47.250.84.25
+  password: s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
+  sni: grape-test-italy.dynuddns.net
   skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
+  - 🇩🇰 丹麦 (Denmark) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
+  - 🇩🇰 丹麦 (Denmark) 01 - xiaohe
 rules:
 - MATCH,PROXIES
