@@ -6,6 +6,27 @@
     {
       "type": "vless",
       "tag": "🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe",
+      "server": "136.175.82.85",
+      "server_port": 18775,
+      "uuid": "9ae5940b-0278-403d-a1e1-9dddc47bdcf6",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "addons.mozilla.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "oR75S6pg_RDAKIuzv_WrCiwaUqqFoek2iuo5N22llQQ",
+          "short_id": "6ba85179e30d4fc2"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe",
       "server": "193.148.59.178",
       "server_port": 443,
       "uuid": "20d7c485-5d24-49b5-a5cc-bb7a7daf9908",
@@ -15,7 +36,7 @@
         "server_name": "www.apple.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "random"
         },
         "reality": {
           "enabled": true,
@@ -29,14 +50,16 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe"
+        "🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe",
+        "🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe"
+        "🇧🇬 保加利亚 (Bulgaria) 01 - xiaohe",
+        "🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

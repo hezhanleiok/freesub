@@ -15,6 +15,31 @@ proxies:
   obfs: salamander
   obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
 - name: 🇦🇪 阿联酋 (UAE) 02 - xiaohe
+  server: eu86.vaultberry.cloud
+  port: 443
+  udp: true
+  type: vless
+  uuid: cfcb4c51-5c89-4132-a86d-bbbb757b56fb
+  tls: true
+  reality-opts:
+    public-key: zYNnGVEkMFCUR_9NcYeaXfm9A_L-PP6iG2sIIST6S0M
+    short-id: 1ed136481e0ede74
+  servername: eu86.vaultberry.cloud
+  client-fingerprint: firefox
+- name: 🇦🇪 阿联酋 (UAE) 03 - xiaohe
+  server: 157.228.128.59
+  port: 443
+  udp: true
+  type: vless
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws
+    short-id: 06e00e7c
+  servername: addons.mozilla.org
+  client-fingerprint: chrome
+- name: 🇦🇪 阿联酋 (UAE) 04 - xiaohe
   server: uae.unixzone.us
   port: 22573
   udp: true
@@ -32,6 +57,8 @@ proxy-groups:
   - AUTO
   - 🇦🇪 阿联酋 (UAE) 01 - xiaohe
   - 🇦🇪 阿联酋 (UAE) 02 - xiaohe
+  - 🇦🇪 阿联酋 (UAE) 03 - xiaohe
+  - 🇦🇪 阿联酋 (UAE) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -39,5 +66,7 @@ proxy-groups:
   proxies:
   - 🇦🇪 阿联酋 (UAE) 01 - xiaohe
   - 🇦🇪 阿联酋 (UAE) 02 - xiaohe
+  - 🇦🇪 阿联酋 (UAE) 03 - xiaohe
+  - 🇦🇪 阿联酋 (UAE) 04 - xiaohe
 rules:
 - MATCH,PROXIES

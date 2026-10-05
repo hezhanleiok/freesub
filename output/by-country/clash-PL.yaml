@@ -5,20 +5,28 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇵🇱 波兰 (Poland) 01 - xiaohe
-  server: 95.85.254.221
+  server: 70.34.255.101
+  port: 80
+  udp: true
+  type: vless
+  uuid: a889262f-5fe3-4c93-9aaa-3721318dd389
+  network: ws
+  ws-opts:
+    path: /
+- name: 🇵🇱 波兰 (Poland) 02 - xiaohe
+  server: 189.74.116.13
   port: 443
   udp: true
   type: vless
-  uuid: 3464a5bd-6a17-4ac3-8ca9-86a54c1aac7b
+  uuid: 684a58f3-e942-4486-a3a1-effd2f277b25
+  flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: tKAYeVSM4yLXiOdKLMFP751fhII6YyqfbMXy_MSuejI
-  servername: samsung.com
-  client-fingerprint: firefox
-  network: grpc
-  grpc-opts:
-    grpc-service-name: vless-grpc
-- name: 🇵🇱 波兰 (Poland) 02 - xiaohe
+    public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+    short-id: a8
+  servername: api.mediaperekat.cc
+  client-fingerprint: edge
+- name: 🇵🇱 波兰 (Poland) 03 - xiaohe
   server: 70.34.252.154
   port: 80
   udp: true
@@ -27,62 +35,42 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🇵🇱 波兰 (Poland) 03 - xiaohe
+- name: 🇵🇱 波兰 (Poland) 04 - xiaohe
   server: 202.78.163.237
   port: 443
   udp: true
   type: trojan
   password: UX82473651
   sni: cheerful-swan.rooster465.autos
-  skip-cert-verify: false
-- name: 🇵🇱 波兰 (Poland) 04 - xiaohe
-  server: 83.168.95.145
-  port: 443
+  skip-cert-verify: true
+- name: 🇵🇱 波兰 (Poland) 05 - xiaohe
+  server: 31.77.13.19
+  port: 2063
   udp: true
   type: vless
-  uuid: f28e0ce1-ed75-4e90-b069-5215a80dfb4a
+  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: AcuvO982QLzf76fVydfSuJIiF5520rmj7AxpaxyRwUg
-    short-id: d345ad4657adeef9
-  servername: google.com
-  client-fingerprint: safari
-- name: 🇵🇱 波兰 (Poland) 05 - xiaohe
-  server: node64.tomalgopas.fun
+    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
+  servername: rusbid.de
+  client-fingerprint: chrome
+- name: 🇵🇱 波兰 (Poland) 06 - xiaohe
+  server: admin.wwwinternetvideo.click
   port: 443
   udp: true
-  type: vless
-  uuid: 3464a5bd-6a17-4ac3-8ca9-86a54c1aac7b
-  tls: true
-  reality-opts:
-    public-key: tKAYeVSM4yLXiOdKLMFP751fhII6YyqfbMXy_MSuejI
-  servername: samsung.com
-  client-fingerprint: firefox
-  network: grpc
-  grpc-opts:
-    grpc-service-name: vless-grpc
-- name: 🇵🇱 波兰 (Poland) 06 - xiaohe
+  type: hysteria2
+  password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
+  sni: admin.wwwinternetvideo.click
+  skip-cert-verify: true
+- name: 🇵🇱 波兰 (Poland) 07 - xiaohe
   server: 144.31.49.47
   port: 443
   udp: true
   type: hysteria2
   password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
   sni: admin.wwwinternetvideo.click
-  skip-cert-verify: false
-- name: 🇵🇱 波兰 (Poland) 07 - xiaohe
-  server: 83.168.107.220
-  port: 443
-  udp: true
-  type: vless
-  uuid: b1813cbd-831f-4cb3-baf8-5bc0cc8298bc
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: s0lbZ5BO3ctZjE8DzsXkNL0NvLl6FgLG6532NQzXigo
-    short-id: c56d4f1c
-  servername: google.com
-  client-fingerprint: safari
+  skip-cert-verify: true
 - name: 🇵🇱 波兰 (Poland) 08 - xiaohe
   server: 188.114.96.19
   port: 80
@@ -96,18 +84,6 @@ proxies:
     path: /
     headers:
       Host: google.whatsapp.snapp.torob.basalam.hesanid8.ir.
-- name: 🇵🇱 波兰 (Poland) 09 - xiaohe
-  server: pl-waw.dontblockmepls.com
-  port: 2063
-  udp: true
-  type: vless
-  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
-  servername: rusbid.de
-  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -121,7 +97,6 @@ proxy-groups:
   - 🇵🇱 波兰 (Poland) 06 - xiaohe
   - 🇵🇱 波兰 (Poland) 07 - xiaohe
   - 🇵🇱 波兰 (Poland) 08 - xiaohe
-  - 🇵🇱 波兰 (Poland) 09 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -135,6 +110,5 @@ proxy-groups:
   - 🇵🇱 波兰 (Poland) 06 - xiaohe
   - 🇵🇱 波兰 (Poland) 07 - xiaohe
   - 🇵🇱 波兰 (Poland) 08 - xiaohe
-  - 🇵🇱 波兰 (Poland) 09 - xiaohe
 rules:
 - MATCH,PROXIES

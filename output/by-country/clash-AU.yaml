@@ -12,32 +12,17 @@ proxies:
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   sni: vpn-au-001.fastervpn.world
   skip-cert-verify: true
-- name: 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
-  server: 103.30.76.197
-  port: 39518
-  udp: true
-  type: vless
-  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: DQDN2w0aoQnx-T3qF1fQnA2-stCUzVbBwmayI1smO0g
-    short-id: 4600771a0d0d50
-  servername: www.tesla.com
-  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
-  - 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
-  - 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
 rules:
 - MATCH,PROXIES
