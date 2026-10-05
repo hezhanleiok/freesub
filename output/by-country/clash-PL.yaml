@@ -6,9 +6,9 @@ log-level: info
 proxies:
 - name: 🇵🇱 PL 01 - xiaohe
   type: vless
-  server: 70.34.255.101
+  server: 70.34.252.154
   port: 80
-  uuid: a889262f-5fe3-4c93-9aaa-3721318dd389
+  uuid: d9c7ec1f-5aa3-469a-b860-760c686806b0
   udp: true
   tls: false
   skip-cert-verify: true
@@ -16,8 +16,22 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 70.34.255.101
+      Host: 70.34.252.154
 - name: 🇵🇱 PL 02 - xiaohe
+  type: vless
+  server: iiproxy8.iiproxy.com
+  port: 8443
+  uuid: 806fa224-44f7-4c1b-b7a3-05bfdfdfbf87
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: iiproxy8.iiproxy.com
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: iiproxy8.iiproxy.com
+- name: 🇵🇱 PL 03 - xiaohe
   type: vless
   server: 70.34.252.154
   port: 80
@@ -30,7 +44,7 @@ proxies:
     path: /
     headers:
       Host: 70.34.252.154
-- name: 🇵🇱 PL 03 - xiaohe
+- name: 🇵🇱 PL 04 - xiaohe
   type: vless
   server: 70.34.255.101
   port: 80
@@ -43,6 +57,18 @@ proxies:
     path: /
     headers:
       Host: 70.34.255.101
+- name: 🇵🇱 PL 05 - xiaohe
+  type: vless
+  server: 62.152.58.90
+  port: 443
+  uuid: 1bb2af63-4472-44ed-9c70-8f316258b68b
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: JBKJlzuJH1YzDHAoz28wEKbzWTGpDpKjgtSq0oT0a0k
+  servername: 360.yandex.ru
+  client-fingerprint: random
 proxy-groups:
 - name: PROXIES
   type: select
@@ -51,6 +77,8 @@ proxy-groups:
   - 🇵🇱 PL 01 - xiaohe
   - 🇵🇱 PL 02 - xiaohe
   - 🇵🇱 PL 03 - xiaohe
+  - 🇵🇱 PL 04 - xiaohe
+  - 🇵🇱 PL 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -59,5 +87,7 @@ proxy-groups:
   - 🇵🇱 PL 01 - xiaohe
   - 🇵🇱 PL 02 - xiaohe
   - 🇵🇱 PL 03 - xiaohe
+  - 🇵🇱 PL 04 - xiaohe
+  - 🇵🇱 PL 05 - xiaohe
 rules:
 - MATCH,PROXIES
