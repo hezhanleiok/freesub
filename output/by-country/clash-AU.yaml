@@ -5,16 +5,20 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
-  server: 167.82.76.27
+  server: 208.103.161.5
   port: 443
   udp: true
-  type: trojan
-  password: mitivpn
-  sni: ssl.fastly.com
+  type: vless
+  uuid: d042a74a-c305-4eec-a89f-39a348022c92
+  tls: true
+  servername: dry-butterfly-8eb9.tmpgnacio83.workers.dev
   skip-cert-verify: false
+  client-fingerprint: chrome
   network: ws
   ws-opts:
     path: /
+    headers:
+      Host: dry-butterfly-8eb9.tmpgnacio83.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
