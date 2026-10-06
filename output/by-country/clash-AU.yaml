@@ -5,33 +5,37 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇺 澳大利亚 (Australia) 01 - wangyu
-  type: vless
-  server: 208.103.161.5
+  type: vmess
+  server: aksai.org
   port: 443
-  uuid: d042a74a-c305-4eec-a89f-39a348022c92
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: dry-butterfly-8eb9.tmpgnacio83.workers.dev
+  servername: ''
   network: ws
   ws-opts:
-    path: /
+    path: /linkvws
     headers:
-      Host: dry-butterfly-8eb9.tmpgnacio83.workers.dev
+      Host: ''
 - name: 🇦🇺 澳大利亚 (Australia) 02 - wangyu
-  type: vless
-  server: 208.103.161.5
+  type: vmess
+  server: aksai.org
   port: 443
-  uuid: d042a74a-c305-4eec-a89f-39a348022c92
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: dry-butterfly-8eb9.tmpgnacio83.workers.dev
+  servername: aksai.org
   network: ws
   ws-opts:
-    path: /
+    path: /linkvws
     headers:
-      Host: dry-butterfly-8eb9.tmpgnacio83.workers.dev
+      Host: aksai.org
 proxy-groups:
 - name: PROXIES
   type: select

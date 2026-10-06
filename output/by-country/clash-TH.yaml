@@ -6,19 +6,6 @@ log-level: info
 proxies:
 - name: 🇹🇭 TH 01 - wangyu
   type: vless
-  server: 103.86.49.57
-  port: 80
-  uuid: 3c52e091-6714-4915-949f-2149fe69951b
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: aIs.SpEeDtEsT.nEt
-- name: 🇹🇭 TH 02 - wangyu
-  type: vless
   server: 104.16.10.185
   port: 443
   uuid: 3c52e091-6714-4915-949f-2149fe69951b
@@ -31,7 +18,7 @@ proxies:
     path: /ws
     headers:
       Host: v2ray.simspeedup.com
-- name: 🇹🇭 TH 03 - wangyu
+- name: 🇹🇭 TH 02 - wangyu
   type: vmess
   server: 119.46.51.45
   port: 37515
@@ -41,7 +28,7 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇹🇭 TH 04 - wangyu
+- name: 🇹🇭 TH 03 - wangyu
   type: vless
   server: 103.86.49.57
   port: 80
@@ -62,7 +49,6 @@ proxy-groups:
   - 🇹🇭 TH 01 - wangyu
   - 🇹🇭 TH 02 - wangyu
   - 🇹🇭 TH 03 - wangyu
-  - 🇹🇭 TH 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -71,6 +57,5 @@ proxy-groups:
   - 🇹🇭 TH 01 - wangyu
   - 🇹🇭 TH 02 - wangyu
   - 🇹🇭 TH 03 - wangyu
-  - 🇹🇭 TH 04 - wangyu
 rules:
 - MATCH,PROXIES

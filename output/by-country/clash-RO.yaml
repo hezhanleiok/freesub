@@ -4,24 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇮🇱 IL 01 - wangyu
+- name: 🇷🇴 RO 01 - wangyu
   type: ss
-  server: 45.144.172.123
-  port: 10771
-  cipher: aes-256-gcm
-  password: 78235e7dc55e9ad1
+  server: bogging-eyeteeth-fly.freesocks.work
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: QFWzCw2uX9B9i6qAYeFBIE
   udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇮🇱 IL 01 - wangyu
+  - 🇷🇴 RO 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇮🇱 IL 01 - wangyu
+  - 🇷🇴 RO 01 - wangyu
 rules:
 - MATCH,PROXIES

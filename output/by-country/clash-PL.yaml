@@ -19,9 +19,9 @@ proxies:
       Host: 70.34.252.154
 - name: 🇵🇱 PL 02 - wangyu
   type: vless
-  server: 70.34.252.154
+  server: 70.34.255.101
   port: 80
-  uuid: d9c7ec1f-5aa3-469a-b860-760c686806b0
+  uuid: a889262f-5fe3-4c93-9aaa-3721318dd389
   udp: true
   tls: false
   skip-cert-verify: true
@@ -29,8 +29,21 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 70.34.252.154
+      Host: 70.34.255.101
 - name: 🇵🇱 PL 03 - wangyu
+  type: vless
+  server: 70.34.255.101
+  port: 80
+  uuid: a889262f-5fe3-4c93-9aaa-3721318dd389
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 70.34.255.101
+- name: 🇵🇱 PL 04 - wangyu
   type: vless
   server: 70.34.252.154
   port: 80
@@ -51,6 +64,7 @@ proxy-groups:
   - 🇵🇱 PL 01 - wangyu
   - 🇵🇱 PL 02 - wangyu
   - 🇵🇱 PL 03 - wangyu
+  - 🇵🇱 PL 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -59,5 +73,6 @@ proxy-groups:
   - 🇵🇱 PL 01 - wangyu
   - 🇵🇱 PL 02 - wangyu
   - 🇵🇱 PL 03 - wangyu
+  - 🇵🇱 PL 04 - wangyu
 rules:
 - MATCH,PROXIES
