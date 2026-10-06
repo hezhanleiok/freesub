@@ -5,32 +5,27 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
-  server: 206.1.103.221
-  port: 42264
-  udp: true
-  type: ss
-  cipher: 2022-blake3-aes-256-gcm
-  password: Rzv4KXTXvFEqeALuBgzETlujcXrzIAsrSMAevky5x8c=:hdA4n/xn83dcbzxCAxapim47QxGlbAUPQ8I1rbC2RN8=
-- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  server: netork.povrak.ir
-  port: 37523
-  udp: true
-  type: vmess
-  uuid: ce0bcb75-baa7-41a7-833e-eb54a8f6a08e
-  alterId: 0
-  cipher: auto
-- name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
-  server: 151.241.226.201
+  server: 172.67.176.3
   port: 2053
   udp: true
+  type: trojan
+  password: e309e031-991e-4656-9934-44d10deb8fd8
+  sni: nimm.mpd.cc.cd
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /0962
+- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
+  server: cookie.wookshop.ir
+  port: 43233
+  udp: true
   type: vless
-  uuid: 0eed6293-8cf1-4e77-ac10-9c3d50d0b2f8
-  tls: true
-  reality-opts:
-    public-key: bYW_MmB_CUHrsyoCAUKviI2LZdHf63yY2yOPXbih104
-    short-id: 9e419c0759b54d6f
-  servername: www.apple.com
-  client-fingerprint: chrome
+  uuid: 568bcbbc-7a90-4164-8b5d-1c0bbeccfa38
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: cookie.wookshop.ir
 proxy-groups:
 - name: PROXIES
   type: select
@@ -38,7 +33,6 @@ proxy-groups:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -46,6 +40,5 @@ proxy-groups:
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
 rules:
 - MATCH,PROXIES

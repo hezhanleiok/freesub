@@ -4,25 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇲🇽 墨西哥 (Mexico) 01 - xiaohe
-  server: 211.20.156.191
-  port: 28121
+- name: 🇴🇲 OM 01 - xiaohe
+  server: w7k2mf.5tencent.asia
+  port: 35016
   udp: true
-  type: trojan
-  password: i99Cef
-  sni: ctldl.windowsupdate.com
-  skip-cert-verify: true
+  type: ss
+  cipher: aes-128-gcm
+  password: 6ee847c4-04ef-4786-9720-eb6f73fbd80b
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇲🇽 墨西哥 (Mexico) 01 - xiaohe
+  - 🇴🇲 OM 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇲🇽 墨西哥 (Mexico) 01 - xiaohe
+  - 🇴🇲 OM 01 - xiaohe
 rules:
 - MATCH,PROXIES

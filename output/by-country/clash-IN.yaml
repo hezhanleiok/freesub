@@ -5,14 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇳 印度 (India) 01 - xiaohe
-  server: 211.20.156.191
-  port: 28163
-  udp: true
-  type: trojan
-  password: i99Cef
-  sni: ctldl.windowsupdate.com
-  skip-cert-verify: true
-- name: 🇮🇳 印度 (India) 02 - xiaohe
   server: 194.61.31.126
   port: 2053
   udp: true
@@ -30,13 +22,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇮🇳 印度 (India) 01 - xiaohe
-  - 🇮🇳 印度 (India) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇮🇳 印度 (India) 01 - xiaohe
-  - 🇮🇳 印度 (India) 02 - xiaohe
 rules:
 - MATCH,PROXIES
