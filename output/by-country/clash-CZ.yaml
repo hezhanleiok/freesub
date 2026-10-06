@@ -18,17 +18,33 @@ proxies:
     path: /fp
     headers:
       Host: ccc.010304.xyz
+- name: 🇨🇿 CZ 02 - wangyu
+  type: vless
+  server: 80.211.27.249
+  port: 443
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: fzo5i.ir46.90k.hh.ov0.kdns.fr
+  network: ws
+  ws-opts:
+    path: /glasspanel/guest000_0_5de14443985f/
+    headers:
+      Host: fzo5i.ir46.90k.hh.ov0.kdns.fr
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇨🇿 CZ 01 - wangyu
+  - 🇨🇿 CZ 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇨🇿 CZ 01 - wangyu
+  - 🇨🇿 CZ 02 - wangyu
 rules:
 - MATCH,PROXIES

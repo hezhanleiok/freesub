@@ -5,11 +5,25 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - wangyu
+  type: vless
+  server: 84.38.183.237
+  port: 443
+  uuid: 9737cc16-7266-45ce-94d9-6e05a45e0b9c
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ws.nightproducts.ru
+  network: ws
+  ws-opts:
+    path: /vless#/?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+    headers:
+      Host: 84.38.183.237
+- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
   type: ss
-  server: 90.156.203.62
-  port: 5112
+  server: 130.49.189.158
+  port: 43558
   cipher: chacha20-ietf-poly1305
-  password: VVlAff77CnAU43Aoc5j15Y
+  password: EKGHx2yhUzmnRONhNOxvn+BqUr10wfqDQqRg4DYUJE8=
   udp: true
 proxy-groups:
 - name: PROXIES
@@ -17,11 +31,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
 rules:
 - MATCH,PROXIES
