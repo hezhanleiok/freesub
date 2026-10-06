@@ -5,12 +5,19 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇱 IL 01 - xiaohe
-  type: ss
-  server: 45.144.172.123
-  port: 10771
-  cipher: aes-256-gcm
-  password: 78235e7dc55e9ad1
+  type: vless
+  server: 177.3.208.65
+  port: 443
+  uuid: 4f34bc04-479c-49ba-91a8-6bb9ed15031c
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: tgmansion.site
+  network: ws
+  ws-opts:
+    path: /vless-il
+    headers:
+      Host: tgmansion.site
 proxy-groups:
 - name: PROXIES
   type: select
