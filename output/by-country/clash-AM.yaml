@@ -4,25 +4,25 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
-  server: vpn-au-001.fastervpn.world
-  port: 443
+- name: 🇦🇲 亚美尼亚 (Armenia) 01 - xiaohe
+  server: us3.xiaoliyu.cyou
+  port: 18333
   udp: true
   type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: vpn-au-001.fastervpn.world
+  password: 19f72087-4591-4d72-930b-2697078ec2be
+  sni: us3.xiaoliyu.cyou
   skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
+  - 🇦🇲 亚美尼亚 (Armenia) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
+  - 🇦🇲 亚美尼亚 (Armenia) 01 - xiaohe
 rules:
 - MATCH,PROXIES
