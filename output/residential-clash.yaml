@@ -4,18 +4,7 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
-  server: 172.64.229.170
-  port: 2052
-  udp: true
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  network: ws
-  ws-opts:
-    path: /?ed=2560security=tls
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇦🇹 奥地利 (Austria) 02 (家宽) - xiaohe
+- name: 🇦🇹 奥地利 (Austria) 01 (家宽) - xiaohe
   server: 31.77.227.6
   port: 52006
   udp: true
@@ -25,14 +14,14 @@ proxies:
   tls: true
   servername: bigdick.gamegrow.ru
   skip-cert-verify: false
-- name: 🇹🇷 土耳其 (Turkey) 03 (移动家宽) - xiaohe
+- name: 🇹🇷 土耳其 (Turkey) 02 (移动家宽) - xiaohe
   server: test.keoplentuio.xyz
   port: 2053
   udp: true
   type: vless
   uuid: 9ef61079-6f7d-4911-9608-943da85d8e6f
-- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
-  server: 45.192.201.140
+- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
+  server: 104.20.36.205
   port: 443
   udp: true
   type: vless
@@ -40,7 +29,6 @@ proxies:
   tls: true
   servername: argo6.5671234.xyz
   skip-cert-verify: false
-  client-fingerprint: chrome
   network: ws
   ws-opts:
     path: /e8e2cecb6188f7fb
@@ -51,18 +39,16 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
-  - 🇦🇹 奥地利 (Austria) 02 (家宽) - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 03 (移动家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
+  - 🇦🇹 奥地利 (Austria) 01 (家宽) - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 02 (移动家宽) - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
-  - 🇦🇹 奥地利 (Austria) 02 (家宽) - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 03 (移动家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
+  - 🇦🇹 奥地利 (Austria) 01 (家宽) - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 02 (移动家宽) - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES

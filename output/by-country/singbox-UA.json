@@ -4,23 +4,27 @@
   },
   "outbounds": [
     {
-      "type": "vless",
-      "tag": "🇬🇷 希腊 (Greece) 01 - xiaohe",
-      "server": "157.228.160.166",
+      "type": "trojan",
+      "tag": "🇺🇦 乌克兰 (Ukraine) 01 - xiaohe",
+      "server": "199.232.78.160",
       "server_port": 443,
-      "uuid": "df53b6c2-8005-475c-9eb9-74e1be785dc8",
-      "flow": "xtls-rprx-vision",
+      "password": "mitivpn",
       "tls": {
         "enabled": true,
-        "server_name": "addons.mozilla.org",
+        "server_name": "ssl.fastly.com",
+        "insecure": false,
+        "alpn": [
+          "http/1.1"
+        ],
         "utls": {
           "enabled": true,
-          "fingerprint": "randomized"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M",
-          "short_id": "3cef317b"
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "mitivpn---deb--s---mitivpn-2.global.ssl.fastly.net"
         }
       }
     },
@@ -29,14 +33,14 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇬🇷 希腊 (Greece) 01 - xiaohe"
+        "🇺🇦 乌克兰 (Ukraine) 01 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇬🇷 希腊 (Greece) 01 - xiaohe"
+        "🇺🇦 乌克兰 (Ukraine) 01 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

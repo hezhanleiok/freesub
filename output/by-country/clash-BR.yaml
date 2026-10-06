@@ -5,13 +5,21 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇧🇷 巴西 (Brazil) 01 - xiaohe
-  server: brb.nnpy.org
-  port: 11100
+  server: 89.39.161.157
+  port: 443
   udp: true
-  type: hysteria2
-  password: df8d55f9-fb51-442d-902a-bf8160dc051b
-  sni: brb.nnpy.org
-  skip-cert-verify: true
+  type: vmess
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: aksai.org
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /linkvws
+    headers:
+      Host: aksai.org
 proxy-groups:
 - name: PROXIES
   type: select
