@@ -17,19 +17,39 @@ proxies:
   servername: sellflow.org
   client-fingerprint: ''
 - name: 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
-  server: 194.38.11.86
-  port: 65443
-  udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: 7eadc6dbe2ae
-- name: 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
   server: 130.49.189.158
   port: 43558
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
   password: EKGHx2yhUzmnRONhNOxvn+BqUr10wfqDQqRg4DYUJE8=
+- name: 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
+  server: 45.12.75.242
+  port: 26424
+  udp: true
+  type: vless
+  uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+  tls: true
+  reality-opts:
+    public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
+    short-id: 23103e1e
+  servername: ya.ru
+  client-fingerprint: chrome
+- name: 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
+  server: 45.89.190.245
+  port: 8443
+  udp: true
+  type: vless
+  uuid: 053682f4-c584-46df-ad81-069dec5f64f0
+  tls: true
+  servername: de.gokonstantin.com
+  skip-cert-verify: false
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /cdnws
+    headers:
+      Host: de.gokonstantin.com
 proxy-groups:
 - name: PROXIES
   type: select
@@ -38,6 +58,7 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -46,5 +67,6 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
 rules:
 - MATCH,PROXIES
