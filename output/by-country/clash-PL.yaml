@@ -5,6 +5,27 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇵🇱 波兰 (Poland) 01 - xiaohe
+  server: 177.1.192.72
+  port: 443
+  udp: true
+  type: vless
+  uuid: 4d852af3-a121-41aa-9aed-4ca40a6f7b4d
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: y3YCXTqEVks0nGfiSwJ43ol4pY69-mWFUZsdmveoVDM
+    short-id: 46455ff0
+  servername: addons.mozilla.org
+  client-fingerprint: randomized
+- name: 🇵🇱 波兰 (Poland) 02 - xiaohe
+  server: 202.78.163.237
+  port: 443
+  udp: true
+  type: trojan
+  password: UX82473651
+  sni: cheerful-swan.rooster465.autos
+  skip-cert-verify: false
+- name: 🇵🇱 波兰 (Poland) 03 - xiaohe
   server: 70.34.255.101
   port: 80
   udp: true
@@ -13,7 +34,15 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🇵🇱 波兰 (Poland) 02 - xiaohe
+- name: 🇵🇱 波兰 (Poland) 04 - xiaohe
+  server: admin.wwwinternetvideo.click
+  port: 443
+  udp: true
+  type: hysteria2
+  password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
+  sni: admin.wwwinternetvideo.click
+  skip-cert-verify: true
+- name: 🇵🇱 波兰 (Poland) 05 - xiaohe
   server: 70.34.252.154
   port: 80
   udp: true
@@ -22,53 +51,7 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🇵🇱 波兰 (Poland) 03 - xiaohe
-  server: 81.90.20.200
-  port: 443
-  udp: true
-  type: vless
-  uuid: 51c14658-8873-4454-9383-c41fc80bde4b
-  flow: xtls-rprx-vision
-  tls: true
-  servername: pl.pupoe.sbs
-  skip-cert-verify: false
-- name: 🇵🇱 波兰 (Poland) 04 - xiaohe
-  server: 202.78.163.237
-  port: 443
-  udp: true
-  type: trojan
-  password: UX82473651
-  sni: cheerful-swan.rooster465.autos
-  skip-cert-verify: false
-- name: 🇵🇱 波兰 (Poland) 05 - xiaohe
-  server: 78.17.109.97
-  port: 6443
-  udp: true
-  type: vless
-  uuid: dfe8ea9e-fd77-48e6-86ee-7bc1019de1e7
-  tls: true
-  reality-opts:
-    public-key: NP5_ymQeqYr_EP7aAPIl3YBRghX60zLq6m74Ht4bFUI
-    short-id: 2c043ed8
-  servername: ok.ru
-  client-fingerprint: chrome
 - name: 🇵🇱 波兰 (Poland) 06 - xiaohe
-  server: streambox.wwwinternetvideo.click
-  port: 443
-  udp: true
-  type: hysteria2
-  password: 865e271f7c97b549b024255c9d02cebe9cc0c2c070a82b1e11bb11b9cd88dd01
-  sni: streambox.wwwinternetvideo.click
-  skip-cert-verify: true
-- name: 🇵🇱 波兰 (Poland) 07 - xiaohe
-  server: 144.31.49.47
-  port: 443
-  udp: true
-  type: hysteria2
-  password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
-  sni: admin.wwwinternetvideo.click
-  skip-cert-verify: true
-- name: 🇵🇱 波兰 (Poland) 08 - xiaohe
   server: 179.198.49.99
   port: 443
   udp: true
@@ -81,8 +64,16 @@ proxies:
     short-id: 088b263ae349cc97
   servername: pl1.nztvpn.com
   client-fingerprint: safari
-- name: 🇵🇱 波兰 (Poland) 09 - xiaohe
-  server: 31.77.13.19
+- name: 🇵🇱 波兰 (Poland) 07 - xiaohe
+  server: 144.31.49.47
+  port: 443
+  udp: true
+  type: hysteria2
+  password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
+  sni: admin.wwwinternetvideo.click
+  skip-cert-verify: false
+- name: 🇵🇱 波兰 (Poland) 08 - xiaohe
+  server: pl-waw.dontblockmepls.com
   port: 2063
   udp: true
   type: vless
@@ -92,15 +83,7 @@ proxies:
   reality-opts:
     public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
   servername: rusbid.de
-  client-fingerprint: chrome
-- name: 🇵🇱 波兰 (Poland) 10 - xiaohe
-  server: 92.118.150.146
-  port: 443
-  udp: true
-  type: trojan
-  password: Trojan@82164024
-  sni: pl.tronsg.com
-  skip-cert-verify: false
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -114,8 +97,6 @@ proxy-groups:
   - 🇵🇱 波兰 (Poland) 06 - xiaohe
   - 🇵🇱 波兰 (Poland) 07 - xiaohe
   - 🇵🇱 波兰 (Poland) 08 - xiaohe
-  - 🇵🇱 波兰 (Poland) 09 - xiaohe
-  - 🇵🇱 波兰 (Poland) 10 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -129,7 +110,5 @@ proxy-groups:
   - 🇵🇱 波兰 (Poland) 06 - xiaohe
   - 🇵🇱 波兰 (Poland) 07 - xiaohe
   - 🇵🇱 波兰 (Poland) 08 - xiaohe
-  - 🇵🇱 波兰 (Poland) 09 - xiaohe
-  - 🇵🇱 波兰 (Poland) 10 - xiaohe
 rules:
 - MATCH,PROXIES
