@@ -6,9 +6,9 @@ log-level: info
 proxies:
 - name: 🇵🇱 PL 01 - xiaohe
   type: vless
-  server: 70.34.252.154
+  server: 70.34.255.101
   port: 80
-  uuid: d9c7ec1f-5aa3-469a-b860-760c686806b0
+  uuid: a889262f-5fe3-4c93-9aaa-3721318dd389
   udp: true
   tls: false
   skip-cert-verify: true
@@ -16,12 +16,12 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 70.34.252.154
+      Host: 70.34.255.101
 - name: 🇵🇱 PL 02 - xiaohe
   type: vless
-  server: 70.34.252.154
+  server: 70.34.255.101
   port: 80
-  uuid: d9c7ec1f-5aa3-469a-b860-760c686806b0
+  uuid: a889262f-5fe3-4c93-9aaa-3721318dd389
   udp: true
   tls: false
   skip-cert-verify: true
@@ -29,7 +29,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 70.34.252.154
+      Host: 70.34.255.101
 - name: 🇵🇱 PL 03 - xiaohe
   type: vless
   server: 70.34.252.154
@@ -45,9 +45,9 @@ proxies:
       Host: 70.34.252.154
 - name: 🇵🇱 PL 04 - xiaohe
   type: vless
-  server: 70.34.255.101
+  server: 70.34.252.154
   port: 80
-  uuid: a889262f-5fe3-4c93-9aaa-3721318dd389
+  uuid: d9c7ec1f-5aa3-469a-b860-760c686806b0
   udp: true
   tls: false
   skip-cert-verify: true
@@ -55,7 +55,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 70.34.255.101
+      Host: 70.34.252.154
 - name: 🇵🇱 PL 05 - xiaohe
   type: vless
   server: 70.34.255.101
@@ -69,6 +69,19 @@ proxies:
     path: /
     headers:
       Host: 70.34.255.101
+- name: 🇵🇱 PL 06 - xiaohe
+  type: vless
+  server: 70.34.252.154
+  port: 80
+  uuid: d9c7ec1f-5aa3-469a-b860-760c686806b0
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 70.34.252.154
 proxy-groups:
 - name: PROXIES
   type: select
@@ -79,6 +92,7 @@ proxy-groups:
   - 🇵🇱 PL 03 - xiaohe
   - 🇵🇱 PL 04 - xiaohe
   - 🇵🇱 PL 05 - xiaohe
+  - 🇵🇱 PL 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -89,5 +103,6 @@ proxy-groups:
   - 🇵🇱 PL 03 - xiaohe
   - 🇵🇱 PL 04 - xiaohe
   - 🇵🇱 PL 05 - xiaohe
+  - 🇵🇱 PL 06 - xiaohe
 rules:
 - MATCH,PROXIES
