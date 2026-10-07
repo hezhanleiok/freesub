@@ -4,19 +4,24 @@
   },
   "outbounds": [
     {
-      "type": "trojan",
+      "type": "vless",
       "tag": "🇹🇷 土耳其 (Turkey) 01 - xiaohe",
-      "server": "nimm.mpd.cc.cd",
-      "server_port": 2053,
-      "password": "e309e031-991e-4656-9934-44d10deb8fd8",
+      "server": "38.180.209.248",
+      "server_port": 443,
+      "uuid": "5b5e4cbf-2366-499a-8327-0cd9918c687d",
+      "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "nimm.mpd.cc.cd",
-        "insecure": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/0962"
+        "server_name": "cloud.surfweb.club",
+        "insecure": false,
+        "alpn": [
+          "h2",
+          "http/1.1"
+        ],
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
       }
     },
     {

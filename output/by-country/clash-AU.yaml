@@ -4,25 +4,25 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
-  server: 45.205.27.78
-  port: 10443
+- name: 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
+  server: vpn-au-001.fastervpn.world
+  port: 443
   udp: true
-  type: trojan
-  password: f980c10a-6c40-4c3e-8879-ef6d9ba6d453
-  sni: 45.205.27.78
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: vpn-au-001.fastervpn.world
   skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
+  - 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
+  - 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
 rules:
 - MATCH,PROXIES
