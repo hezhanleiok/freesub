@@ -19,26 +19,19 @@ proxies:
     headers:
       Host: ccc.010304.xyz
 - name: 🇮🇱 IL 02 - wangyu
-  type: ss
-  server: 45.144.172.123
-  port: 10550
-  cipher: aes-256-gcm
-  password: 78235e7dc55e9ad1
-  udp: true
-- name: 🇮🇱 IL 03 - wangyu
   type: vless
-  server: 177.3.208.65
+  server: 185.253.75.119
   port: 443
-  uuid: 4f34bc04-479c-49ba-91a8-6bb9ed15031c
+  uuid: d342d11e-d224-4463-b982-532309285094
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: tgmansion.site
+  servername: ccc.010304.xyz
   network: ws
   ws-opts:
-    path: /vless-il
+    path: /
     headers:
-      Host: tgmansion.site
+      Host: ccc.010304.xyz
 proxy-groups:
 - name: PROXIES
   type: select
@@ -46,7 +39,6 @@ proxy-groups:
   - AUTO
   - 🇮🇱 IL 01 - wangyu
   - 🇮🇱 IL 02 - wangyu
-  - 🇮🇱 IL 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -54,6 +46,5 @@ proxy-groups:
   proxies:
   - 🇮🇱 IL 01 - wangyu
   - 🇮🇱 IL 02 - wangyu
-  - 🇮🇱 IL 03 - wangyu
 rules:
 - MATCH,PROXIES
