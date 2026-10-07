@@ -1,0 +1,55 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇨🇿 捷克 (Czech) 01 - xiaohe
+  server: 188.114.96.3
+  port: 443
+  udp: true
+  type: vless
+  uuid: 5d4f5139-6965-42ed-8dba-fe3ef9fed7c1
+  tls: true
+  servername: 022XW1dMCzG0C6165Pcla6.tOMBORn69.WOrkErS.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /vl/9QqHUXZVAXGwloTMo5uOQLnnjSncQ?ed=2560
+    headers:
+      Host: 022xw1dmczg0c6165pcla6.tomborn69.workers.dev
+- name: 🇨🇿 捷克 (Czech) 02 - xiaohe
+  server: cz.h2.cleanersaz.help
+  port: 443
+  udp: true
+  type: hysteria2
+  password: c-E0lamG8OnEj9M_uh3oJPmIXqYIVGctO-NHELF1TmNYs7Jl
+  sni: cz.h2.cleanersaz.help
+  skip-cert-verify: true
+- name: 🇨🇿 捷克 (Czech) 03 - xiaohe
+  server: 77.74.123.106
+  port: 4443
+  udp: true
+  type: trojan
+  password: s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
+  sni: grape-test-italy.dynuddns.net
+  skip-cert-verify: true
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 02 - xiaohe
+  - 🇨🇿 捷克 (Czech) 03 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 02 - xiaohe
+  - 🇨🇿 捷克 (Czech) 03 - xiaohe
+rules:
+- MATCH,PROXIES

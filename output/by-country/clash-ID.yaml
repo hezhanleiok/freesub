@@ -15,6 +15,18 @@ proxies:
   reality-opts:
     public-key: ll7JTP628PuBMZJvx6fuhGSmCRSURnReAetmhCEL8GU
   servername: www.cloudflare.com
+  client-fingerprint: firefox
+- name: 🇮🇩 印尼 (Indonesia) 02 - xiaohe
+  server: 103.172.197.2
+  port: 29172
+  udp: true
+  type: vless
+  uuid: 3977434d-6a9b-4858-8ced-80326ba5e367
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: pff94OJwuKXnF7_3SJ8KKJuAN4GJtInBlR-kg-4mwzQ
+  servername: aws.amazon.com
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
@@ -22,11 +34,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇮🇩 印尼 (Indonesia) 01 - xiaohe
+  - 🇮🇩 印尼 (Indonesia) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇮🇩 印尼 (Indonesia) 01 - xiaohe
+  - 🇮🇩 印尼 (Indonesia) 02 - xiaohe
 rules:
 - MATCH,PROXIES
