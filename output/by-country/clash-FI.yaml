@@ -31,18 +31,6 @@ proxies:
   servername: www.google.com
   client-fingerprint: firefox
 - name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
-  server: 159.194.250.154
-  port: 443
-  udp: true
-  type: vless
-  uuid: f0482c9d-ff67-4a43-af8e-76fc5d55c250
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: x9yfMdHRe9ZAJJUF9kZnDnO3Y7otoyFBCS9RoaIG3Es
-  servername: api-maps.yandex.ru
-  client-fingerprint: chrome
-- name: 🇫🇮 芬兰 (Finland) 05 - xiaohe
   server: i.wareznet.ru
   port: 8443
   udp: true
@@ -50,19 +38,13 @@ proxies:
   password: d402d4c0b8354a90b70bb2566dce9a08
   sni: i.wareznet.ru
   skip-cert-verify: true
-- name: 🇫🇮 芬兰 (Finland) 06 - xiaohe
-  server: 157.228.128.59
-  port: 443
+- name: 🇫🇮 芬兰 (Finland) 05 - xiaohe
+  server: 45.149.114.171
+  port: 777
   udp: true
-  type: vless
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws
-    short-id: 06e00e7c
-  servername: addons.mozilla.org
-  client-fingerprint: randomized
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: Jeoq8ujfkqZKKvACQhoqBQ1PA3uq4242
 proxy-groups:
 - name: PROXIES
   type: select
@@ -73,7 +55,6 @@ proxy-groups:
   - 🇫🇮 芬兰 (Finland) 03 - xiaohe
   - 🇫🇮 芬兰 (Finland) 04 - xiaohe
   - 🇫🇮 芬兰 (Finland) 05 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -84,6 +65,5 @@ proxy-groups:
   - 🇫🇮 芬兰 (Finland) 03 - xiaohe
   - 🇫🇮 芬兰 (Finland) 04 - xiaohe
   - 🇫🇮 芬兰 (Finland) 05 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 06 - xiaohe
 rules:
 - MATCH,PROXIES

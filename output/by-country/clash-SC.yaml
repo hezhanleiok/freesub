@@ -1,0 +1,28 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
+  server: 45.205.27.78
+  port: 10443
+  udp: true
+  type: trojan
+  password: 2b62b091-cb83-4752-9e3a-b422dce95131
+  sni: 45.205.27.78
+  skip-cert-verify: true
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
+rules:
+- MATCH,PROXIES
