@@ -4,24 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇸🇨 SC 01 - wangyu
+- name: 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
   type: ss
-  server: 45.207.207.25
-  port: 443
+  server: ce1fc2d8.krkt.hkssip.com
+  port: 49642
   cipher: aes-256-gcm
-  password: gj1+XKulKV0nmw6IThckOkkJh5DSM7+C
+  password: ac9c0a7b
   udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇸🇨 SC 01 - wangyu
+  - 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇸🇨 SC 01 - wangyu
+  - 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

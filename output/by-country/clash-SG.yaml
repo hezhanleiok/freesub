@@ -6,6 +6,20 @@ log-level: info
 proxies:
 - name: 🇸🇬 新加坡 (Singapore) 01 - wangyu
   type: vless
+  server: 139.162.27.96
+  port: 2096
+  uuid: 6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: free-server.techsonic.dev
+  network: ws
+  ws-opts:
+    path: /free-server.techsonic.dev
+    headers:
+      Host: free-server.techsonic.dev
+- name: 🇸🇬 新加坡 (Singapore) 02 - wangyu
+  type: vless
   server: asia.csmaster.site
   port: 8443
   uuid: 799b1006-3255-4e36-8ea0-64fe24d2bfa7
@@ -18,7 +32,7 @@ proxies:
     path: /
     headers:
       Host: asia.csmaster.site
-- name: 🇸🇬 新加坡 (Singapore) 02 - wangyu
+- name: 🇸🇬 新加坡 (Singapore) 03 - wangyu
   type: vless
   server: 217.217.254.126
   port: 2053
@@ -29,32 +43,24 @@ proxies:
   reality-opts:
     public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
   servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇸🇬 新加坡 (Singapore) 03 - wangyu
-  type: vmess
-  server: 149.88.23.207
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
+  client-fingerprint: firefox
 - name: 🇸🇬 新加坡 (Singapore) 04 - wangyu
-  type: vmess
-  server: 149.88.23.202
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
+  type: vless
+  server: 217.217.254.126
+  port: 2053
+  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  reality-opts:
+    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
 - name: 🇸🇬 新加坡 (Singapore) 05 - wangyu
   type: vless
   server: asia.csmaster.site
-  port: 443
-  uuid: a853e120-3570-462b-aec1-e8f3d4f92d24
+  port: 8443
+  uuid: 799b1006-3255-4e36-8ea0-64fe24d2bfa7
   udp: true
   tls: true
   skip-cert-verify: true
@@ -75,28 +81,39 @@ proxies:
   tls: false
   skip-cert-verify: true
 - name: 🇸🇬 新加坡 (Singapore) 07 - wangyu
-  type: vmess
-  server: ww11.levikogjgfdd.ir
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
+  type: vless
+  server: 129.150.51.127
+  port: 49289
+  uuid: 0590ab38-cb22-41d3-8312-6f396a5cec58
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: www.microsoft.com
 - name: 🇸🇬 新加坡 (Singapore) 08 - wangyu
+  type: vmess
+  server: 149.88.23.207
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 09 - wangyu
   type: vless
-  server: 217.217.254.126
-  port: 2053
-  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
+  server: asia.csmaster.site
+  port: 443
+  uuid: a853e120-3570-462b-aec1-e8f3d4f92d24
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
-  servername: www.cloudflare.com
-  client-fingerprint: firefox
-- name: 🇸🇬 新加坡 (Singapore) 09 - wangyu
+  servername: asia.csmaster.site
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: asia.csmaster.site
+- name: 🇸🇬 新加坡 (Singapore) 10 - wangyu
   type: vmess
   server: ww11.levikogjgfdd.ir
   port: 18000
@@ -106,33 +123,23 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 10 - wangyu
-  type: vless
-  server: 217.217.254.126
-  port: 2053
-  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
 - name: 🇸🇬 新加坡 (Singapore) 11 - wangyu
   type: vless
-  server: 217.217.254.126
-  port: 2053
-  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
+  server: asia.csmaster.site
+  port: 8443
+  uuid: 799b1006-3255-4e36-8ea0-64fe24d2bfa7
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
+  servername: asia.csmaster.site
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: asia.csmaster.site
 - name: 🇸🇬 新加坡 (Singapore) 12 - wangyu
   type: vmess
-  server: ww11.levikogjgfdd.ir
+  server: 149.88.23.207
   port: 18000
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
   alterId: 0
@@ -141,34 +148,32 @@ proxies:
   tls: false
   skip-cert-verify: true
 - name: 🇸🇬 新加坡 (Singapore) 13 - wangyu
-  type: vless
-  server: 217.217.254.126
-  port: 2053
-  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇸🇬 新加坡 (Singapore) 14 - wangyu
-  type: vless
-  server: 43.174.193.1
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ccc.010304.xyz
-  network: ws
-  ws-opts:
-    path: /fp
-    headers:
-      Host: ccc.010304.xyz
-- name: 🇸🇬 新加坡 (Singapore) 15 - wangyu
   type: vmess
   server: ww11.levikogjgfdd.ir
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 14 - wangyu
+  type: vless
+  server: asia.csmaster.site
+  port: 8443
+  uuid: 799b1006-3255-4e36-8ea0-64fe24d2bfa7
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: asia.csmaster.site
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: asia.csmaster.site
+- name: 🇸🇬 新加坡 (Singapore) 15 - wangyu
+  type: vmess
+  server: 149.88.23.207
   port: 18000
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
   alterId: 0
@@ -188,111 +193,6 @@ proxies:
   skip-cert-verify: true
 - name: 🇸🇬 新加坡 (Singapore) 17 - wangyu
   type: vless
-  server: 129.150.51.127
-  port: 49289
-  uuid: 0590ab38-cb22-41d3-8312-6f396a5cec58
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: www.microsoft.com
-- name: 🇸🇬 新加坡 (Singapore) 18 - wangyu
-  type: vmess
-  server: 149.88.23.207
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 19 - wangyu
-  type: vmess
-  server: 149.88.23.207
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 20 - wangyu
-  type: vless
-  server: 217.217.254.126
-  port: 2053
-  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇸🇬 新加坡 (Singapore) 21 - wangyu
-  type: vmess
-  server: 149.88.23.207
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 22 - wangyu
-  type: vmess
-  server: 149.88.23.207
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 23 - wangyu
-  type: vless
-  server: 217.217.254.126
-  port: 2053
-  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
-  servername: www.cloudflare.com
-  client-fingerprint: random
-- name: 🇸🇬 新加坡 (Singapore) 24 - wangyu
-  type: vmess
-  server: 149.88.23.207
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 25 - wangyu
-  type: vmess
-  server: 149.88.23.202
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 26 - wangyu
-  type: vless
-  server: 217.217.254.126
-  port: 2053
-  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇸🇬 新加坡 (Singapore) 27 - wangyu
-  type: vless
   server: asia.csmaster.site
   port: 8443
   uuid: 799b1006-3255-4e36-8ea0-64fe24d2bfa7
@@ -305,61 +205,7 @@ proxies:
     path: /
     headers:
       Host: asia.csmaster.site
-- name: 🇸🇬 新加坡 (Singapore) 28 - wangyu
-  type: vmess
-  server: ww11.levikogjgfdd.ir
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 29 - wangyu
-  type: vmess
-  server: 149.88.23.207
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 30 - wangyu
-  type: vmess
-  server: 149.88.23.207
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 31 - wangyu
-  type: vless
-  server: asia.csmaster.site
-  port: 443
-  uuid: a853e120-3570-462b-aec1-e8f3d4f92d24
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: asia.csmaster.site
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: asia.csmaster.site
-- name: 🇸🇬 新加坡 (Singapore) 32 - wangyu
-  type: vmess
-  server: ww11.levikogjgfdd.ir
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 33 - wangyu
+- name: 🇸🇬 新加坡 (Singapore) 18 - wangyu
   type: vmess
   server: 149.88.23.202
   port: 18000
@@ -369,64 +215,7 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 34 - wangyu
-  type: vless
-  server: asia.csmaster.site
-  port: 443
-  uuid: a853e120-3570-462b-aec1-e8f3d4f92d24
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: asia.csmaster.site
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: asia.csmaster.site
-- name: 🇸🇬 新加坡 (Singapore) 35 - wangyu
-  type: vless
-  server: asia.csmaster.site
-  port: 443
-  uuid: a853e120-3570-462b-aec1-e8f3d4f92d24
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: asia.csmaster.site
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: asia.csmaster.site
-- name: 🇸🇬 新加坡 (Singapore) 36 - wangyu
-  type: vmess
-  server: 149.88.23.207
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 37 - wangyu
-  type: vless
-  server: 129.150.51.127
-  port: 34249
-  uuid: 0590ab38-cb22-41d3-8312-6f396a5cec58
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: www.microsoft.com
-- name: 🇸🇬 新加坡 (Singapore) 38 - wangyu
-  type: vmess
-  server: 149.88.23.207
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 39 - wangyu
+- name: 🇸🇬 新加坡 (Singapore) 19 - wangyu
   type: vless
   server: 217.217.254.126
   port: 2053
@@ -438,7 +227,27 @@ proxies:
     public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
   servername: www.cloudflare.com
   client-fingerprint: chrome
-- name: 🇸🇬 新加坡 (Singapore) 40 - wangyu
+- name: 🇸🇬 新加坡 (Singapore) 20 - wangyu
+  type: vmess
+  server: 149.88.23.207
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 21 - wangyu
+  type: vmess
+  server: 149.88.23.207
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 22 - wangyu
   type: vless
   server: 217.217.254.126
   port: 2053
@@ -449,8 +258,18 @@ proxies:
   reality-opts:
     public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
   servername: www.cloudflare.com
-  client-fingerprint: firefox
-- name: 🇸🇬 新加坡 (Singapore) 41 - wangyu
+  client-fingerprint: chrome
+- name: 🇸🇬 新加坡 (Singapore) 23 - wangyu
+  type: vmess
+  server: ww11.levikogjgfdd.ir
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 24 - wangyu
   type: vmess
   server: 149.88.23.207
   port: 18000
@@ -460,6 +279,191 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 25 - wangyu
+  type: vless
+  server: asia.csmaster.site
+  port: 443
+  uuid: a853e120-3570-462b-aec1-e8f3d4f92d24
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: asia.csmaster.site
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: asia.csmaster.site
+- name: 🇸🇬 新加坡 (Singapore) 26 - wangyu
+  type: vmess
+  server: ww11.levikogjgfdd.ir
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 27 - wangyu
+  type: vless
+  server: 129.150.51.127
+  port: 49289
+  uuid: 0590ab38-cb22-41d3-8312-6f396a5cec58
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: www.microsoft.com
+- name: 🇸🇬 新加坡 (Singapore) 28 - wangyu
+  type: vless
+  server: asia.csmaster.site
+  port: 443
+  uuid: a853e120-3570-462b-aec1-e8f3d4f92d24
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: asia.csmaster.site
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: asia.csmaster.site
+- name: 🇸🇬 新加坡 (Singapore) 29 - wangyu
+  type: vmess
+  server: ww11.levikogjgfdd.ir
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 30 - wangyu
+  type: vmess
+  server: ww11.levikogjgfdd.ir
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 31 - wangyu
+  type: vmess
+  server: 149.88.23.207
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 32 - wangyu
+  type: vmess
+  server: 149.88.23.202
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 33 - wangyu
+  type: vmess
+  server: 149.88.23.207
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 34 - wangyu
+  type: vmess
+  server: ww11.levikogjgfdd.ir
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 35 - wangyu
+  type: vmess
+  server: 149.88.23.207
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 36 - wangyu
+  type: vless
+  server: 217.217.254.126
+  port: 2053
+  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇸🇬 新加坡 (Singapore) 37 - wangyu
+  type: vless
+  server: 104.18.0.181
+  port: 2082
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+- name: 🇸🇬 新加坡 (Singapore) 38 - wangyu
+  type: vmess
+  server: 149.88.23.207
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 39 - wangyu
+  type: vmess
+  server: ww11.levikogjgfdd.ir
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 40 - wangyu
+  type: vless
+  server: support.zoom.us
+  port: 8443
+  uuid: ba9ba1d3-19c8-4792-9d3f-ddd2cdcc2e65
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: primelinelk.me
+  network: ws
+  ws-opts:
+    path: /xprolk-primeline
+    headers:
+      Host: primelinelk.me
+- name: 🇸🇬 新加坡 (Singapore) 41 - wangyu
+  type: vless
+  server: 139.162.27.96
+  port: 443
+  uuid: f1178fbe-1420-4eef-b087-4f33b32b4a19
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: aka.ms
 - name: 🇸🇬 新加坡 (Singapore) 42 - wangyu
   type: vmess
   server: ww11.levikogjgfdd.ir
@@ -481,58 +485,21 @@ proxies:
   reality-opts:
     public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
   servername: www.cloudflare.com
-  client-fingerprint: firefox
+  client-fingerprint: random
 - name: 🇸🇬 新加坡 (Singapore) 44 - wangyu
-  type: vmess
-  server: ww11.levikogjgfdd.ir
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
+  type: vless
+  server: 172.64.150.28
+  port: 2082
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
   udp: true
   tls: false
   skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
 - name: 🇸🇬 新加坡 (Singapore) 45 - wangyu
-  type: vmess
-  server: ww11.levikogjgfdd.ir
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 46 - wangyu
-  type: vmess
-  server: ww11.levikogjgfdd.ir
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 47 - wangyu
-  type: vmess
-  server: ww11.levikogjgfdd.ir
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 48 - wangyu
-  type: vmess
-  server: 149.88.23.207
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 49 - wangyu
   type: vmess
   server: 149.88.23.202
   port: 18000
@@ -542,11 +509,59 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 46 - wangyu
+  type: vmess
+  server: 149.88.23.207
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 47 - wangyu
+  type: vless
+  server: 43.174.193.1
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ccc.010304.xyz
+  network: ws
+  ws-opts:
+    path: /fp
+    headers:
+      Host: ccc.010304.xyz
+- name: 🇸🇬 新加坡 (Singapore) 48 - wangyu
+  type: vless
+  server: 217.217.254.126
+  port: 2053
+  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇸🇬 新加坡 (Singapore) 49 - wangyu
+  type: vless
+  server: 217.217.254.126
+  port: 2053
+  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
 - name: 🇸🇬 新加坡 (Singapore) 50 - wangyu
   type: vless
   server: asia.csmaster.site
-  port: 8443
-  uuid: 799b1006-3255-4e36-8ea0-64fe24d2bfa7
+  port: 443
+  uuid: a853e120-3570-462b-aec1-e8f3d4f92d24
   udp: true
   tls: true
   skip-cert-verify: true
@@ -568,7 +583,7 @@ proxies:
   skip-cert-verify: true
 - name: 🇸🇬 新加坡 (Singapore) 52 - wangyu
   type: vmess
-  server: 149.88.23.207
+  server: 149.88.23.202
   port: 18000
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
   alterId: 0
@@ -577,6 +592,78 @@ proxies:
   tls: false
   skip-cert-verify: true
 - name: 🇸🇬 新加坡 (Singapore) 53 - wangyu
+  type: vless
+  server: 217.217.254.126
+  port: 2053
+  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
+- name: 🇸🇬 新加坡 (Singapore) 54 - wangyu
+  type: vmess
+  server: 149.88.23.207
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 55 - wangyu
+  type: vmess
+  server: ww11.levikogjgfdd.ir
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 56 - wangyu
+  type: vmess
+  server: 149.88.23.207
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 57 - wangyu
+  type: vmess
+  server: ww11.levikogjgfdd.ir
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 58 - wangyu
+  type: vmess
+  server: 149.88.23.207
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 59 - wangyu
+  type: vmess
+  server: ww11.levikogjgfdd.ir
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 60 - wangyu
   type: vmess
   server: 149.88.23.202
   port: 18000
@@ -586,7 +673,19 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 54 - wangyu
+- name: 🇸🇬 新加坡 (Singapore) 61 - wangyu
+  type: vless
+  server: 217.217.254.126
+  port: 2053
+  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇸🇬 新加坡 (Singapore) 62 - wangyu
   type: vless
   server: asia.csmaster.site
   port: 443
@@ -600,7 +699,58 @@ proxies:
     path: /
     headers:
       Host: asia.csmaster.site
-- name: 🇸🇬 新加坡 (Singapore) 55 - wangyu
+- name: 🇸🇬 新加坡 (Singapore) 63 - wangyu
+  type: vless
+  server: 217.217.254.126
+  port: 2053
+  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
+- name: 🇸🇬 新加坡 (Singapore) 64 - wangyu
+  type: vmess
+  server: 149.88.23.207
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 65 - wangyu
+  type: vmess
+  server: 149.88.23.207
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 66 - wangyu
+  type: vless
+  server: 217.217.254.126
+  port: 2053
+  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇸🇬 新加坡 (Singapore) 67 - wangyu
+  type: ss
+  server: 45.128.12.20
+  port: 14249
+  cipher: chacha20-ietf-poly1305
+  password: 9epp3o9ng8ej59uv
+  udp: true
+- name: 🇸🇬 新加坡 (Singapore) 68 - wangyu
   type: vmess
   server: ww11.levikogjgfdd.ir
   port: 18000
@@ -610,21 +760,21 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 56 - wangyu
+- name: 🇸🇬 新加坡 (Singapore) 69 - wangyu
   type: vless
-  server: 43.174.193.1
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
+  server: 173.234.14.85
+  port: 2096
+  uuid: 6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ccc.010304.xyz
+  servername: free-server.techsonic.dev
   network: ws
   ws-opts:
-    path: /fp
+    path: /free-server.techsonic.dev
     headers:
-      Host: ccc.010304.xyz
-- name: 🇸🇬 新加坡 (Singapore) 57 - wangyu
+      Host: free-server.techsonic.dev
+- name: 🇸🇬 新加坡 (Singapore) 70 - wangyu
   type: vmess
   server: 149.88.23.202
   port: 18000
@@ -634,7 +784,27 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 58 - wangyu
+- name: 🇸🇬 新加坡 (Singapore) 71 - wangyu
+  type: vmess
+  server: 149.88.23.202
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 72 - wangyu
+  type: vmess
+  server: ww11.levikogjgfdd.ir
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 73 - wangyu
   type: vless
   server: asia.csmaster.site
   port: 8443
@@ -648,27 +818,21 @@ proxies:
     path: /
     headers:
       Host: asia.csmaster.site
-- name: 🇸🇬 新加坡 (Singapore) 59 - wangyu
+- name: 🇸🇬 新加坡 (Singapore) 74 - wangyu
   type: vless
-  server: 47.237.74.17
-  port: 16263
-  uuid: c538c9dd-2e3f-488f-a8ca-ac5b7c0773f3
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 60 - wangyu
-  type: vless
-  server: 217.217.254.126
-  port: 2053
-  uuid: cb15cce9-73ed-4928-b38c-462f0732cbe9
+  server: asia.csmaster.site
+  port: 443
+  uuid: a853e120-3570-462b-aec1-e8f3d4f92d24
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: VzRjuHwcY-nLqkEIJS4S1CpButKc90Bh0gDbphyZ0Tw
-  servername: www.cloudflare.com
-  client-fingerprint: firefox
-- name: 🇸🇬 新加坡 (Singapore) 61 - wangyu
+  servername: asia.csmaster.site
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: asia.csmaster.site
+- name: 🇸🇬 新加坡 (Singapore) 75 - wangyu
   type: vmess
   server: 149.88.23.202
   port: 18000
@@ -678,13 +842,30 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇸🇬 新加坡 (Singapore) 62 - wangyu
-  type: ss
-  server: 45.128.12.20
-  port: 14249
-  cipher: chacha20-ietf-poly1305
-  password: 9epp3o9ng8ej59uv
+- name: 🇸🇬 新加坡 (Singapore) 76 - wangyu
+  type: vmess
+  server: 149.88.23.207
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
   udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇬 新加坡 (Singapore) 77 - wangyu
+  type: vless
+  server: asia.csmaster.site
+  port: 443
+  uuid: a853e120-3570-462b-aec1-e8f3d4f92d24
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: asia.csmaster.site
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: asia.csmaster.site
 proxy-groups:
 - name: PROXIES
   type: select
@@ -752,6 +933,21 @@ proxy-groups:
   - 🇸🇬 新加坡 (Singapore) 60 - wangyu
   - 🇸🇬 新加坡 (Singapore) 61 - wangyu
   - 🇸🇬 新加坡 (Singapore) 62 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 63 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 64 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 65 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 66 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 67 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 68 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 69 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 70 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 71 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 72 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 73 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 74 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 75 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 76 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 77 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -819,5 +1015,20 @@ proxy-groups:
   - 🇸🇬 新加坡 (Singapore) 60 - wangyu
   - 🇸🇬 新加坡 (Singapore) 61 - wangyu
   - 🇸🇬 新加坡 (Singapore) 62 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 63 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 64 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 65 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 66 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 67 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 68 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 69 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 70 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 71 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 72 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 73 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 74 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 75 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 76 - wangyu
+  - 🇸🇬 新加坡 (Singapore) 77 - wangyu
 rules:
 - MATCH,PROXIES
