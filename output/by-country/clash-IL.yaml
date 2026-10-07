@@ -5,6 +5,27 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇱 IL 01 - xiaohe
+  type: ss
+  server: 45.144.172.123
+  port: 10550
+  cipher: aes-256-gcm
+  password: 78235e7dc55e9ad1
+  udp: true
+- name: 🇮🇱 IL 02 - xiaohe
+  type: vless
+  server: 185.253.75.119
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ccc.010304.xyz
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: ccc.010304.xyz
+- name: 🇮🇱 IL 03 - xiaohe
   type: vless
   server: 177.3.208.65
   port: 443
@@ -24,11 +45,15 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇮🇱 IL 01 - xiaohe
+  - 🇮🇱 IL 02 - xiaohe
+  - 🇮🇱 IL 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇮🇱 IL 01 - xiaohe
+  - 🇮🇱 IL 02 - xiaohe
+  - 🇮🇱 IL 03 - xiaohe
 rules:
 - MATCH,PROXIES

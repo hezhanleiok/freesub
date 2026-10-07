@@ -18,17 +18,33 @@ proxies:
     path: /merky-connect/de6/
     headers:
       Host: sub.merky.top
+- name: 🇸🇪 SE 02 - xiaohe
+  type: vless
+  server: 109.120.134.243
+  port: 443
+  uuid: 04c808e2-0b59-47b0-a54b-32fc7ef1c902
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: free.cndyw.ggff.net
+  network: ws
+  ws-opts:
+    path: pyip=bpb.yousef.isegaro.comfp=random
+    headers:
+      Host: free.cndyw.ggff.net
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇸🇪 SE 01 - xiaohe
+  - 🇸🇪 SE 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇸🇪 SE 01 - xiaohe
+  - 🇸🇪 SE 02 - xiaohe
 rules:
 - MATCH,PROXIES

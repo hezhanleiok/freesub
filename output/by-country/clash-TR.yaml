@@ -6,25 +6,26 @@ log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   type: vless
+  server: 155.103.70.53
+  port: 30303
+  uuid: d18c6897-2849-456a-8c46-d7ecece47c20
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: wzs.echo.net.eu.org
+  network: ws
+  ws-opts:
+    path: /video/HxNMGkZdGw0PRk1GVw8YF14OXkwNVVtIRg1HAAQNCV1EClxZAgMWAlBZXRlKXU4aTV8WGRQRQkoXFgweUABdHg==fp=chrome
+    headers:
+      Host: wzs.echo.net.eu.org
+- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
+  type: vless
   server: test.keoplentuio.xyz
   port: 2053
   uuid: 9ef61079-6f7d-4911-9608-943da85d8e6f
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  type: vless
-  server: cookie.wookshop.ir
-  port: 43233
-  uuid: 568bcbbc-7a90-4164-8b5d-1c0bbeccfa38
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: cookie.wookshop.ir
 proxy-groups:
 - name: PROXIES
   type: select

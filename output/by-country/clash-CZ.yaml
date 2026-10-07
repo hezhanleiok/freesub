@@ -32,6 +32,20 @@ proxies:
     path: /fp
     headers:
       Host: ccc.010304.xyz
+- name: 🇨🇿 CZ 03 - xiaohe
+  type: vless
+  server: 188.114.96.3
+  port: 443
+  uuid: 5d4f5139-6965-42ed-8dba-fe3ef9fed7c1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 022XW1dMCzG0C6165Pcla6.tOMBORn69.WOrkErS.dev
+  network: ws
+  ws-opts:
+    path: /vl/9QqHUXZVAXGwloTMo5uOQLnnjSncQ?ed=2560
+    headers:
+      Host: 022xw1dmczg0c6165pcla6.tomborn69.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
@@ -39,6 +53,7 @@ proxy-groups:
   - AUTO
   - 🇨🇿 CZ 01 - xiaohe
   - 🇨🇿 CZ 02 - xiaohe
+  - 🇨🇿 CZ 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -46,5 +61,6 @@ proxy-groups:
   proxies:
   - 🇨🇿 CZ 01 - xiaohe
   - 🇨🇿 CZ 02 - xiaohe
+  - 🇨🇿 CZ 03 - xiaohe
 rules:
 - MATCH,PROXIES
