@@ -4,25 +4,25 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
-  server: 104.165.205.46
-  port: 9443
+- name: 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
+  server: 45.205.27.78
+  port: 10443
   udp: true
-  type: hysteria2
-  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
-  sni: onecloudstream.com
+  type: trojan
+  password: 8b0c85c7-6be1-4f7d-a2c6-6c63b95a7abe
+  sni: 45.205.27.78
   skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
+  - 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
+  - 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
 rules:
 - MATCH,PROXIES
