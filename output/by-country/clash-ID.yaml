@@ -15,18 +15,31 @@ proxies:
   reality-opts:
     public-key: ll7JTP628PuBMZJvx6fuhGSmCRSURnReAetmhCEL8GU
   servername: www.cloudflare.com
-  client-fingerprint: firefox
+  client-fingerprint: chrome
+- name: 🇮🇩 印尼 (Indonesia) 02 - xiaohe
+  server: 104.21.70.21
+  port: 443
+  udp: true
+  type: trojan
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  sni: id1.nathaya.web.id
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /trojan
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇩 印尼 (Indonesia) 01 - xiaohe
+  - 🇮🇩 印尼 (Indonesia) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇮🇩 印尼 (Indonesia) 01 - xiaohe
+  - 🇮🇩 印尼 (Indonesia) 02 - xiaohe
 rules:
 - MATCH,PROXIES

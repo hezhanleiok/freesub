@@ -20,25 +20,13 @@ proxies:
   sni: hopp-swizland-new.mysynology.net
   skip-cert-verify: true
 - name: 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
-  server: 208.69.78.217
-  port: 2053
-  udp: true
-  type: vless
-  uuid: c0dd6d59-1573-43af-8b70-1470b2632a6d
-  tls: true
-  reality-opts:
-    public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
-    short-id: ad86e2d52ff40ebd
-  servername: www.apple.com
-  client-fingerprint: random
-- name: 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
-  server: 140.238.213.114
-  port: 50160
+  server: 104.165.205.40
+  port: 8443
   udp: true
   type: hysteria2
-  password: 84a506ca5aca505696a454d828420b3f
-  sni: 'off'
-  skip-cert-verify: true
+  password: 54d2f622-fd71-4f5f-8813-832b68f4ca3b
+  sni: speedtestmark.com
+  skip-cert-verify: false
 proxy-groups:
 - name: PROXIES
   type: select
@@ -47,7 +35,6 @@ proxy-groups:
   - 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
-  - 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -56,6 +43,5 @@ proxy-groups:
   - 🇨🇭 瑞士 (Switzerland) 01 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 02 - xiaohe
   - 🇨🇭 瑞士 (Switzerland) 03 - xiaohe
-  - 🇨🇭 瑞士 (Switzerland) 04 - xiaohe
 rules:
 - MATCH,PROXIES
