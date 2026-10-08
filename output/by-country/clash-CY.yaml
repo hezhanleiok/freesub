@@ -27,7 +27,7 @@ proxies:
   reality-opts:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
   servername: deepl.com
-  client-fingerprint: qq
+  client-fingerprint: chrome
 - name: 🇨🇾 CY 03 - xiaohe
   type: vless
   server: 194.76.154.31
@@ -39,7 +39,7 @@ proxies:
   reality-opts:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
   servername: deepl.com
-  client-fingerprint: firefox
+  client-fingerprint: chrome
 - name: 🇨🇾 CY 04 - xiaohe
   type: vless
   server: 194.76.154.31
@@ -51,7 +51,7 @@ proxies:
   reality-opts:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
   servername: deepl.com
-  client-fingerprint: firefox
+  client-fingerprint: qq
 - name: 🇨🇾 CY 05 - xiaohe
   type: vless
   server: 194.76.154.31
@@ -63,7 +63,7 @@ proxies:
   reality-opts:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
   servername: deepl.com
-  client-fingerprint: chrome
+  client-fingerprint: firefox
 - name: 🇨🇾 CY 06 - xiaohe
   type: vless
   server: 194.76.154.31
@@ -87,7 +87,7 @@ proxies:
   reality-opts:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
   servername: deepl.com
-  client-fingerprint: chrome
+  client-fingerprint: firefox
 - name: 🇨🇾 CY 08 - xiaohe
   type: vless
   server: 194.76.154.31
@@ -111,7 +111,7 @@ proxies:
   reality-opts:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
   servername: deepl.com
-  client-fingerprint: chrome
+  client-fingerprint: random
 - name: 🇨🇾 CY 10 - xiaohe
   type: vless
   server: 194.76.154.31
@@ -123,7 +123,7 @@ proxies:
   reality-opts:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
   servername: deepl.com
-  client-fingerprint: firefox
+  client-fingerprint: chrome
 - name: 🇨🇾 CY 11 - xiaohe
   type: vless
   server: 194.76.154.31
@@ -135,7 +135,7 @@ proxies:
   reality-opts:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
   servername: deepl.com
-  client-fingerprint: random
+  client-fingerprint: firefox
 - name: 🇨🇾 CY 12 - xiaohe
   type: vless
   server: 194.76.154.31
@@ -147,7 +147,7 @@ proxies:
   reality-opts:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
   servername: deepl.com
-  client-fingerprint: qq
+  client-fingerprint: chrome
 - name: 🇨🇾 CY 13 - xiaohe
   type: vless
   server: 194.76.154.31
@@ -159,7 +159,19 @@ proxies:
   reality-opts:
     public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
   servername: deepl.com
-  client-fingerprint: chrome
+  client-fingerprint: qq
+- name: 🇨🇾 CY 14 - xiaohe
+  type: vless
+  server: 194.76.154.31
+  port: 40443
+  uuid: 9f0baff8-bdee-4de9-9515-bcc4932b41fa
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ
+  servername: deepl.com
+  client-fingerprint: qq
 proxy-groups:
 - name: PROXIES
   type: select
@@ -178,6 +190,7 @@ proxy-groups:
   - 🇨🇾 CY 11 - xiaohe
   - 🇨🇾 CY 12 - xiaohe
   - 🇨🇾 CY 13 - xiaohe
+  - 🇨🇾 CY 14 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -196,5 +209,6 @@ proxy-groups:
   - 🇨🇾 CY 11 - xiaohe
   - 🇨🇾 CY 12 - xiaohe
   - 🇨🇾 CY 13 - xiaohe
+  - 🇨🇾 CY 14 - xiaohe
 rules:
 - MATCH,PROXIES

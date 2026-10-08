@@ -5,12 +5,19 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇴 RO 01 - xiaohe
-  type: ss
-  server: 154.46.31.106
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: QFWzCw2uX9B9i6qAYeFBIE
+  type: vless
+  server: 46.183.16.4
+  port: 2087
+  uuid: 69d76969-4c52-40f5-ac1d-303571634362
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ro1.b0w.ir
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 46.183.16.4
 proxy-groups:
 - name: PROXIES
   type: select
