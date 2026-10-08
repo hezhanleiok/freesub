@@ -5,27 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
-  server: 216.173.71.43
-  port: 443
-  udp: true
-  type: vless
-  uuid: ee18d188-14cc-417e-beb1-70e4add6d023
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: miDhSALrcCvSfc38VjCDYlzNh5M61NMR5IkUli7IN08
-    short-id: 0da7e14db353e7d0
-  servername: lv.nztvpn.com
-  client-fingerprint: firefox
-- name: 🇱🇻 拉脱维亚 (Latvia) 02 - xiaohe
-  server: lv02.gotosvo.com
-  port: 9443
-  udp: true
-  type: hysteria2
-  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
-  sni: onecloudstream.com
-  skip-cert-verify: true
-- name: 🇱🇻 拉脱维亚 (Latvia) 03 - xiaohe
   server: 138.124.180.137
   port: 443
   udp: true
@@ -37,7 +16,15 @@ proxies:
     public-key: GBdkyDLfr0LIZo_94Xv8ycAKOmkjArYzwJAEMhuXX2c
     short-id: 33acba1b
   servername: www.apple.com
-  client-fingerprint: random
+  client-fingerprint: firefox
+- name: 🇱🇻 拉脱维亚 (Latvia) 02 - xiaohe
+  server: lv02.gotosvo.com
+  port: 9443
+  udp: true
+  type: hysteria2
+  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+  sni: onecloudstream.com
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -45,7 +32,6 @@ proxy-groups:
   - AUTO
   - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
   - 🇱🇻 拉脱维亚 (Latvia) 02 - xiaohe
-  - 🇱🇻 拉脱维亚 (Latvia) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -53,6 +39,5 @@ proxy-groups:
   proxies:
   - 🇱🇻 拉脱维亚 (Latvia) 01 - xiaohe
   - 🇱🇻 拉脱维亚 (Latvia) 02 - xiaohe
-  - 🇱🇻 拉脱维亚 (Latvia) 03 - xiaohe
 rules:
 - MATCH,PROXIES
