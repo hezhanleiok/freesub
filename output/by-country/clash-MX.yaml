@@ -5,13 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇲🇽 墨西哥 (Mexico) 01 - xiaohe
-  server: 147.78.1.141
-  port: 16672
-  udp: true
-  type: ss
-  cipher: aes-128-gcm
-  password: 67c57ae584eecd70396fcd7ca7521130
-- name: 🇲🇽 墨西哥 (Mexico) 02 - xiaohe
   server: 82.27.100.120
   port: 18777
   udp: true
@@ -24,13 +17,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇲🇽 墨西哥 (Mexico) 01 - xiaohe
-  - 🇲🇽 墨西哥 (Mexico) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇲🇽 墨西哥 (Mexico) 01 - xiaohe
-  - 🇲🇽 墨西哥 (Mexico) 02 - xiaohe
 rules:
 - MATCH,PROXIES

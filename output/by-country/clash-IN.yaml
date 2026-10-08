@@ -15,41 +15,18 @@ proxies:
     public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
     short-id: 9980e0609b0d3891
   servername: www.apple.com
-  client-fingerprint: random
-- name: 🇮🇳 印度 (India) 02 - xiaohe
-  server: 152.67.8.205
-  port: 80
-  udp: true
-  type: vmess
-  uuid: 9db4c708-aef8-4359-821b-38e47990be0d
-  alterId: 0
-  cipher: auto
-  network: ws
-  ws-opts:
-    path: /
-- name: 🇮🇳 印度 (India) 03 - xiaohe
-  server: 144.24.109.215
-  port: 51000
-  udp: true
-  type: hysteria2
-  password: 06133d56-2d98-4ca5-b9d3-bbf2d65bc238
-  sni: cn.cremedelamer.com
-  skip-cert-verify: true
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇳 印度 (India) 01 - xiaohe
-  - 🇮🇳 印度 (India) 02 - xiaohe
-  - 🇮🇳 印度 (India) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇮🇳 印度 (India) 01 - xiaohe
-  - 🇮🇳 印度 (India) 02 - xiaohe
-  - 🇮🇳 印度 (India) 03 - xiaohe
 rules:
 - MATCH,PROXIES

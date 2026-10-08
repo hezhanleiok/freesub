@@ -5,21 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 芬兰 (Finland) 01 - xiaohe
-  server: 185.103.110.68
-  port: 18283
-  udp: true
-  type: ss
-  cipher: aes-128-gcm
-  password: f9300a9bf39ae0347c3a3bfbc4dd7754
-- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  server: 87.251.17.11
-  port: 9443
-  udp: true
-  type: hysteria2
-  password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
-  sni: onecloudstream.com
-  skip-cert-verify: true
-- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
   server: 65.108.3.59
   port: 443
   udp: true
@@ -32,36 +17,17 @@ proxies:
     short-id: 90ec9bba2019
   servername: web.eitaa.com
   client-fingerprint: chrome
-- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
-  server: van2.ragnarok-it.xyz
-  port: 8446
-  udp: true
-  type: vless
-  uuid: a61496c3-f256-4a36-8a52-8638b9cc900a
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: Y6ZtoxCUW1qFIvLTNfbrsyfCDoIBaRsqGNtbF_mcAXM
-    short-id: 7bac4b112d30d1
-  servername: amd.com
-  client-fingerprint: edge
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  - 🇫🇮 芬兰 (Finland) 04 - xiaohe
 rules:
 - MATCH,PROXIES
