@@ -6,7 +6,7 @@ log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - wangyu
   type: vless
-  server: 155.103.71.142
+  server: 203.202.232.211
   port: 443
   uuid: d342d11e-d224-4463-b982-532309285094
   udp: true
@@ -20,15 +20,7 @@ proxies:
       Host: ccc.010304.xyz
 - name: 🇹🇷 土耳其 (Turkey) 02 - wangyu
   type: vless
-  server: test.keoplentuio.xyz
-  port: 2053
-  uuid: 9ef61079-6f7d-4911-9608-943da85d8e6f
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇹🇷 土耳其 (Turkey) 03 - wangyu
-  type: vless
-  server: 203.202.232.211
+  server: 155.103.71.142
   port: 443
   uuid: d342d11e-d224-4463-b982-532309285094
   udp: true
@@ -40,7 +32,7 @@ proxies:
     path: /fp=chrome
     headers:
       Host: ccc.010304.xyz
-- name: 🇹🇷 土耳其 (Turkey) 04 - wangyu
+- name: 🇹🇷 土耳其 (Turkey) 03 - wangyu
   type: vless
   server: 155.103.71.142
   port: 443
@@ -62,7 +54,6 @@ proxy-groups:
   - 🇹🇷 土耳其 (Turkey) 01 - wangyu
   - 🇹🇷 土耳其 (Turkey) 02 - wangyu
   - 🇹🇷 土耳其 (Turkey) 03 - wangyu
-  - 🇹🇷 土耳其 (Turkey) 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -71,6 +62,5 @@ proxy-groups:
   - 🇹🇷 土耳其 (Turkey) 01 - wangyu
   - 🇹🇷 土耳其 (Turkey) 02 - wangyu
   - 🇹🇷 土耳其 (Turkey) 03 - wangyu
-  - 🇹🇷 土耳其 (Turkey) 04 - wangyu
 rules:
 - MATCH,PROXIES
