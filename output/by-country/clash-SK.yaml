@@ -1,0 +1,29 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇸🇰 斯洛伐克 (Slovakia) 01 - xiaohe
+  server: 80.243.228.84
+  port: 2085
+  udp: true
+  type: vless
+  uuid: 84a7add6-dab3-4af4-900b-192e3e338875
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇸🇰 斯洛伐克 (Slovakia) 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇸🇰 斯洛伐克 (Slovakia) 01 - xiaohe
+rules:
+- MATCH,PROXIES
