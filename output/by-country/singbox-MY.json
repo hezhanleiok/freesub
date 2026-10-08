@@ -1,0 +1,77 @@
+{
+  "log": {
+    "level": "warn"
+  },
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "🇲🇾 马来西亚 (Malaysia) 01 - xiaohe",
+      "server": "platform101.golnamakcert.top",
+      "server_port": 80,
+      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+      "transport": {
+        "type": "ws",
+        "path": "/platform101",
+        "headers": {
+          "Host": "platform101.halalkhor.info"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇲🇾 马来西亚 (Malaysia) 02 - xiaohe",
+      "server": "platform102.golnamakcert.top",
+      "server_port": 80,
+      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+      "transport": {
+        "type": "ws",
+        "path": "/platform102",
+        "headers": {
+          "Host": "platform102.halalkhor.info"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇲🇾 马来西亚 (Malaysia) 03 - xiaohe",
+      "server": "platform103.golnamakcert.top",
+      "server_port": 80,
+      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+      "transport": {
+        "type": "ws",
+        "path": "/platform103",
+        "headers": {
+          "Host": "platform103.halalkhor.info"
+        }
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇲🇾 马来西亚 (Malaysia) 01 - xiaohe",
+        "🇲🇾 马来西亚 (Malaysia) 02 - xiaohe",
+        "🇲🇾 马来西亚 (Malaysia) 03 - xiaohe"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇲🇾 马来西亚 (Malaysia) 01 - xiaohe",
+        "🇲🇾 马来西亚 (Malaysia) 02 - xiaohe",
+        "🇲🇾 马来西亚 (Malaysia) 03 - xiaohe"
+      ],
+      "url": "https://www.gstatic.com/generate_204"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}

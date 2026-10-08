@@ -5,6 +5,17 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
+  server: 172.67.176.3
+  port: 2053
+  udp: true
+  type: trojan
+  password: e309e031-991e-4656-9934-44d10deb8fd8
+  sni: nimm.mpd.cc.cd
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /0962
+- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
   server: 162.249.126.39
   port: 9443
   udp: true
@@ -18,11 +29,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
 rules:
 - MATCH,PROXIES

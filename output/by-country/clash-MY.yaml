@@ -1,0 +1,57 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
+  server: platform101.golnamakcert.top
+  port: 80
+  udp: true
+  type: vless
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  network: ws
+  ws-opts:
+    path: /platform101
+    headers:
+      Host: platform101.halalkhor.info
+- name: 🇲🇾 马来西亚 (Malaysia) 02 - xiaohe
+  server: platform102.golnamakcert.top
+  port: 80
+  udp: true
+  type: vless
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  network: ws
+  ws-opts:
+    path: /platform102
+    headers:
+      Host: platform102.halalkhor.info
+- name: 🇲🇾 马来西亚 (Malaysia) 03 - xiaohe
+  server: platform103.golnamakcert.top
+  port: 80
+  udp: true
+  type: vless
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  network: ws
+  ws-opts:
+    path: /platform103
+    headers:
+      Host: platform103.halalkhor.info
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
+  - 🇲🇾 马来西亚 (Malaysia) 02 - xiaohe
+  - 🇲🇾 马来西亚 (Malaysia) 03 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
+  - 🇲🇾 马来西亚 (Malaysia) 02 - xiaohe
+  - 🇲🇾 马来西亚 (Malaysia) 03 - xiaohe
+rules:
+- MATCH,PROXIES

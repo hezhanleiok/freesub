@@ -5,46 +5,55 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
-  server: 104.21.16.109
-  port: 443
-  udp: true
-  type: vless
-  uuid: cc08d2d0-8a7a-4469-81d2-c43704451271
-  tls: true
-  servername: 9tg-d0htbrb5e3tp0c-o7ix23cx0f.ftfgblgft6-1h2iv2oo4h0.workers.dev
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /vl/6871nrbnl9WsdAiOUInt
-    headers:
-      Host: 9tg-d0htbrb5e3tp0c-o7ix23cx0f.ftfgblgft6-1h2iv2oo4h0.workers.dev
-- name: 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
-  server: 46.17.41.166
-  port: 20880
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: 895b4b796a357570
-- name: 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
   server: 130.49.189.158
   port: 43558
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
   password: EKGHx2yhUzmnRONhNOxvn+BqUr10wfqDQqRg4DYUJE8=
-- name: 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
-  server: 45.12.75.242
-  port: 26424
+- name: 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
+  server: 194.38.11.86
+  port: 65443
+  udp: true
+  type: ss
+  cipher: aes-256-cfb
+  password: 7eadc6dbe2ae
+- name: 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
+  server: 31.59.210.24
+  port: 2087
   udp: true
   type: vless
-  uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+  uuid: 5413edfb-08d6-4fba-b51c-809c04feb127
   tls: true
   reality-opts:
-    public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
-    short-id: 23103e1e
-  servername: ya.ru
-  client-fingerprint: chrome
+    public-key: W2OLbQ682PLJ9yHQ21Q0nPJk9U8RuL5YnlP-U1fdQzI
+    short-id: a11023050f134216
+  servername: www.yandex.ru
+  client-fingerprint: ios
+  network: grpc
+  grpc-opts:
+    grpc-service-name: astracat
+- name: 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
+  server: srv-17e124.21freedom.net
+  port: 11592
+  udp: true
+  type: hysteria2
+  password: 41edb44c8e
+  sni: srv-17e124.21freedom.net
+  skip-cert-verify: false
+- name: 🇷🇺 俄罗斯 (Russia) 05 - xiaohe
+  server: 5.42.99.64
+  port: 8443
+  udp: true
+  type: vless
+  uuid: c53ea5e9-ed8b-4990-805d-7f1d6451426c
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: fSVfR9NB-6J6smrZlavi0GWd8JfDh0aXuEkKbtuFzUI
+    short-id: 3cbc3d737fb9c4af
+  servername: du-rov.secureservice.top
+  client-fingerprint: random
 proxy-groups:
 - name: PROXIES
   type: select
@@ -54,6 +63,7 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -63,5 +73,6 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 05 - xiaohe
 rules:
 - MATCH,PROXIES
