@@ -5,20 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇹 AT 01 - xiaohe
-  type: vless
-  server: 188.114.97.6
-  port: 443
-  uuid: 698b212d-ca12-4794-8256-252a6e1b4533
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: w2p6.vpnpolar.online
-  network: ws
-  ws-opts:
-    path: /beeline?ed#Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
-    headers:
-      Host: w2p6.vpnpolar.online
-- name: 🇦🇹 AT 02 - xiaohe
   type: ss
   server: 82.110.60.9
   port: 19999
@@ -31,13 +17,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇦🇹 AT 01 - xiaohe
-  - 🇦🇹 AT 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇦🇹 AT 01 - xiaohe
-  - 🇦🇹 AT 02 - xiaohe
 rules:
 - MATCH,PROXIES

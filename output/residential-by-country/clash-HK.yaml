@@ -6,6 +6,20 @@ log-level: info
 proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe
   type: vless
+  server: 61.18.134.10
+  port: 443
+  uuid: e077d2c2-7dc5-4e6e-a44d-79c4e4d8b384
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: mswo-gy191m.zhiyuantech.cloud
+  network: ws
+  ws-opts:
+    path: /e077d2c2-7dc5-4e6e-a44d-79c4e4d8b384
+    headers:
+      Host: mswo-gy191m.zhiyuantech.cloud
+- name: 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe
+  type: vless
   server: 103.180.20.108
   port: 8443
   uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
@@ -24,11 +38,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe
+  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe
+  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES

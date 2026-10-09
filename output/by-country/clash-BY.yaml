@@ -4,31 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇸🇪 SE 01 - xiaohe
+- name: 🇧🇾 BY 01 - xiaohe
   type: vless
-  server: 89.127.201.202
-  port: 443
-  uuid: 489f1717-d3c7-4940-ad68-bdbdbab857f4
+  server: 89.125.96.79
+  port: 2053
+  uuid: 6c713691-3ca2-0008-ad25-113d1bed6b03
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: x.m-90.xyz
+  servername: wss.zazazuza.ru
   network: ws
   ws-opts:
-    path: t.me/TEAMNETGRATISCOL
+    path: /vpn-wss/fluxor/59011/
     headers:
-      Host: x.m-90.xyz
+      Host: wss.zazazuza.ru
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇸🇪 SE 01 - xiaohe
+  - 🇧🇾 BY 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇸🇪 SE 01 - xiaohe
+  - 🇧🇾 BY 01 - xiaohe
 rules:
 - MATCH,PROXIES
