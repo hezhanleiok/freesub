@@ -6,7 +6,7 @@ log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
   type: vless
-  server: 60.248.219.78
+  server: 59.125.69.23
   port: 443
   uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
   udp: true
@@ -17,8 +17,20 @@ proxies:
   ws-opts:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
-      Host: 60.248.219.78
-- name: 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
+      Host: 59.125.69.23
+- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  type: vless
+  server: 61.230.162.88
+  port: 24215
+  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
+  servername: addons.mozilla.org
+  client-fingerprint: safari
+- name: 🇭🇰 中国香港 (Hong Kong) 03 (家宽) - wangyu
   type: vless
   server: 103.180.20.108
   port: 8443
@@ -32,33 +44,21 @@ proxies:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
       Host: 103.180.20.108
-- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
-  type: vless
-  server: 61.230.162.88
-  port: 24215
-  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
-  servername: addons.mozilla.org
-  client-fingerprint: safari
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 03 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 03 (家宽) - wangyu
 rules:
 - MATCH,PROXIES
