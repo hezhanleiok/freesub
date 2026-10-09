@@ -18,17 +18,33 @@ proxies:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
       Host: 103.180.20.108
+- name: 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
+  type: vless
+  server: 61.18.134.10
+  port: 443
+  uuid: e077d2c2-7dc5-4e6e-a44d-79c4e4d8b384
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: mswo-gy191m.zhiyuantech.cloud
+  network: ws
+  ws-opts:
+    path: /e077d2c2-7dc5-4e6e-a44d-79c4e4d8b384
+    headers:
+      Host: mswo-gy191m.zhiyuantech.cloud
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
 rules:
 - MATCH,PROXIES
