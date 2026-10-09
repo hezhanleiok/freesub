@@ -24,6 +24,40 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
+- name: 🇹🇭 TH 03 - xiaohe
+  type: vmess
+  server: 119.46.51.45
+  port: 37515
+  uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇹🇭 TH 04 - xiaohe
+  type: vmess
+  server: 119.46.51.45
+  port: 37515
+  uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇹🇭 TH 05 - xiaohe
+  type: ss
+  server: pphfree2.mvpnpvpn.de5.net
+  port: 52351
+  cipher: aes-256-gcm
+  password: sxajCTwrlK0zl+zmHpX0p0jXIfatnzlLzWlSQ950L1c=
+  udp: true
+- name: 🇹🇭 TH 06 - xiaohe
+  type: ss
+  server: 103.107.52.106
+  port: 52351
+  cipher: aes-256-gcm
+  password: sxajCTwrlK0zl+zmHpX0p0jXIfatnzlLzWlSQ950L1c=
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -31,6 +65,10 @@ proxy-groups:
   - AUTO
   - 🇹🇭 TH 01 - xiaohe
   - 🇹🇭 TH 02 - xiaohe
+  - 🇹🇭 TH 03 - xiaohe
+  - 🇹🇭 TH 04 - xiaohe
+  - 🇹🇭 TH 05 - xiaohe
+  - 🇹🇭 TH 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -38,5 +76,9 @@ proxy-groups:
   proxies:
   - 🇹🇭 TH 01 - xiaohe
   - 🇹🇭 TH 02 - xiaohe
+  - 🇹🇭 TH 03 - xiaohe
+  - 🇹🇭 TH 04 - xiaohe
+  - 🇹🇭 TH 05 - xiaohe
+  - 🇹🇭 TH 06 - xiaohe
 rules:
 - MATCH,PROXIES

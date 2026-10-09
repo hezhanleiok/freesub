@@ -4,31 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇮🇪 IE 01 - xiaohe
+- name: 🇮🇶 IQ 01 - xiaohe
   type: vless
-  server: 23.95.225.10
-  port: 8443
-  uuid: d342d11e-d224-4463-b982-532309285094
+  server: node-562276409-ece9be.account12.workers.dev
+  port: 443
+  uuid: 3cd23424-7182-4f37-9461-7701917791f6
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ccc.010304.xyz
+  servername: NOde-562276409-eCe9Be.AcCouNT12.WORKERs.DeV
   network: ws
   ws-opts:
-    path: /
+    path: /vl/LoojiwDChctBr67OEQH2dfP05?ed=2560
     headers:
-      Host: ccc.010304.xyz
+      Host: node-562276409-ece9be.account12.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇮🇪 IE 01 - xiaohe
+  - 🇮🇶 IQ 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇮🇪 IE 01 - xiaohe
+  - 🇮🇶 IQ 01 - xiaohe
 rules:
 - MATCH,PROXIES
