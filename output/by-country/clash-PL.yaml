@@ -6,40 +6,48 @@ log-level: info
 proxies:
 - name: 🇵🇱 PL 01 - Cloudfree
   type: vless
+  server: 91.215.43.248
+  port: 443
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: my.kempekl.online
+  network: ws
+  ws-opts:
+    path: /gateway/v1/ws/a64eb463966ba9c4bfd628f1de0362ae
+    headers:
+      Host: my.kempekl.online
+- name: 🇵🇱 PL 02 - Cloudfree
+  type: vless
   server: 95.85.253.241
-  port: 2083
+  port: 2087
   uuid: ee0a38e3-d148-48ac-ba99-5133446c2377
   udp: true
   tls: true
   skip-cert-verify: true
   servername: 95.85.253.241
-- name: 🇵🇱 PL 02 - Cloudfree
-  type: vless
-  server: 2.26.225.89
-  port: 8443
-  uuid: 51a1fd52-fd88-4905-a976-35e44be28e4b
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: pl.flen-vpn.xyz
 - name: 🇵🇱 PL 03 - Cloudfree
   type: vless
-  server: 2.26.225.89
-  port: 8443
-  uuid: 51a1fd52-fd88-4905-a976-35e44be28e4b
+  server: 95.85.253.241
+  port: 2087
+  uuid: ee0a38e3-d148-48ac-ba99-5133446c2377
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: pl.flen-vpn.xyz
+  servername: 95.85.253.241
 - name: 🇵🇱 PL 04 - Cloudfree
   type: vless
-  server: pl.flen-vpn.xyz
-  port: 8443
-  uuid: 51a1fd52-fd88-4905-a976-35e44be28e4b
+  server: pl-1-1.unturned-rust-dead.lol
+  port: 443
+  uuid: c6e3c24c-ce20-4ad5-8c8c-68cb05890ea8
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: pl.flen-vpn.xyz
+  reality-opts:
+    public-key: gS0qvWKumWcOVoAgf8SHt6Sm3tqpBw07c5sA_Clb1hg
+  servername: pl-1-1.unturned-rust-dead.lol
+  client-fingerprint: random
 - name: 🇵🇱 PL 05 - Cloudfree
   type: vless
   server: 95.85.253.241
@@ -51,17 +59,17 @@ proxies:
   servername: 95.85.253.241
 - name: 🇵🇱 PL 06 - Cloudfree
   type: vless
-  server: 95.85.253.241
-  port: 2087
-  uuid: ee0a38e3-d148-48ac-ba99-5133446c2377
+  server: 2.26.225.89
+  port: 8443
+  uuid: 51a1fd52-fd88-4905-a976-35e44be28e4b
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: 95.85.253.241
+  servername: pl.flen-vpn.xyz
 - name: 🇵🇱 PL 07 - Cloudfree
   type: vless
   server: 95.85.253.241
-  port: 2087
+  port: 2083
   uuid: ee0a38e3-d148-48ac-ba99-5133446c2377
   udp: true
   tls: true

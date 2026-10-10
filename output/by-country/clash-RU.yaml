@@ -6,72 +6,32 @@ log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - Cloudfree
   type: vless
-  server: 79.174.92.222
+  server: 194.226.121.119
   port: 443
-  uuid: 03ca8c3f-e777-45b5-a1b1-592094ca99ee
+  uuid: ec6f8131-7a5d-4117-9627-6fb2b39ae0da
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: _PYBo3dyZRpGC44vADqcmlBCSeAVh1X8l3mulghVsTI
-  servername: m.vk.com
-  client-fingerprint: firefox
+  servername: drive.korroh.com
+  network: ws
+  ws-opts:
+    path: /remote.php/dav/89f7661a0011ce46
+    headers:
+      Host: drive.korroh.com
 - name: 🇷🇺 俄罗斯 (Russia) 02 - Cloudfree
   type: vless
-  server: 185.147.27.68
+  server: cloud.korroh.com
   port: 443
-  uuid: 2f9107cb-9af0-4c94-a89d-50437218e5fa
+  uuid: ec6f8131-7a5d-4117-9627-6fb2b39ae0da
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ap2.directly.chat
+  servername: cloud.korroh.com
   network: ws
   ws-opts:
-    path: /md/1
+    path: /remote.php/dav/89f7661a0011ce46
     headers:
-      Host: ap2.directly.chat
-- name: 🇷🇺 俄罗斯 (Russia) 03 - Cloudfree
-  type: ss
-  server: 130.49.189.158
-  port: 43558
-  cipher: chacha20-ietf-poly1305
-  password: eicdhshSrFLCx/sZ1PSpuKyoVWGZpU95tFS4iGC1c04=
-  udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 04 - Cloudfree
-  type: vless
-  server: 185.147.27.196
-  port: 443
-  uuid: 2f9107cb-9af0-4c94-a89d-50437218e5fa
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ap2.directly.chat
-  network: ws
-  ws-opts:
-    path: /md/1
-    headers:
-      Host: ap2.directly.chat
-- name: 🇷🇺 俄罗斯 (Russia) 05 - Cloudfree
-  type: vless
-  server: 87.228.71.195
-  port: 443
-  uuid: 2f9107cb-9af0-4c94-a89d-50437218e5fa
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ap2.directly.chat
-  network: ws
-  ws-opts:
-    path: /md/1
-    headers:
-      Host: ap2.directly.chat
-- name: 🇷🇺 俄罗斯 (Russia) 06 - Cloudfree
-  type: ss
-  server: 194.87.196.107
-  port: 40440
-  cipher: aes-256-gcm
-  password: 4938e975724d0ed1
-  udp: true
+      Host: cloud.korroh.com
 proxy-groups:
 - name: PROXIES
   type: select
@@ -79,10 +39,6 @@ proxy-groups:
   - AUTO
   - 🇷🇺 俄罗斯 (Russia) 01 - Cloudfree
   - 🇷🇺 俄罗斯 (Russia) 02 - Cloudfree
-  - 🇷🇺 俄罗斯 (Russia) 03 - Cloudfree
-  - 🇷🇺 俄罗斯 (Russia) 04 - Cloudfree
-  - 🇷🇺 俄罗斯 (Russia) 05 - Cloudfree
-  - 🇷🇺 俄罗斯 (Russia) 06 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -90,9 +46,5 @@ proxy-groups:
   proxies:
   - 🇷🇺 俄罗斯 (Russia) 01 - Cloudfree
   - 🇷🇺 俄罗斯 (Russia) 02 - Cloudfree
-  - 🇷🇺 俄罗斯 (Russia) 03 - Cloudfree
-  - 🇷🇺 俄罗斯 (Russia) 04 - Cloudfree
-  - 🇷🇺 俄罗斯 (Russia) 05 - Cloudfree
-  - 🇷🇺 俄罗斯 (Russia) 06 - Cloudfree
 rules:
 - MATCH,PROXIES
