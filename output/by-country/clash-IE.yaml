@@ -18,17 +18,35 @@ proxies:
     path: /fp=chrome
     headers:
       Host: ccc.010304.xyz
+- name: 🇮🇪 IE 02 - xiaohe
+  type: ss
+  server: 20.123.1.55
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: YF329KNGVTUZ1qrH
+  udp: true
+- name: 🇮🇪 IE 03 - xiaohe
+  type: ss
+  server: 20.123.1.55
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: YF329KNGVTUZ1qrH
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇪 IE 01 - xiaohe
+  - 🇮🇪 IE 02 - xiaohe
+  - 🇮🇪 IE 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇮🇪 IE 01 - xiaohe
+  - 🇮🇪 IE 02 - xiaohe
+  - 🇮🇪 IE 03 - xiaohe
 rules:
 - MATCH,PROXIES

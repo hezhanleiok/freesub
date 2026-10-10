@@ -4,24 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇦🇲 AM 01 - xiaohe
+- name: 🇦🇹 AT 01 - xiaohe
   type: ss
-  server: 86.107.50.183
-  port: 30111
+  server: 82.110.60.9
+  port: 19999
   cipher: aes-256-gcm
-  password: 78235e7dc55e9ad1
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇦🇲 AM 01 - xiaohe
+  - 🇦🇹 AT 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇦🇲 AM 01 - xiaohe
+  - 🇦🇹 AT 01 - xiaohe
 rules:
 - MATCH,PROXIES

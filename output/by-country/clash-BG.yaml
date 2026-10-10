@@ -20,6 +20,34 @@ proxies:
       Host: 0gltyawm4dbxby5k6kw-3d2475.arta-ts.workers.dev
 - name: 🇧🇬 BG 02 - xiaohe
   type: vless
+  server: 31.40.204.131
+  port: 443
+  uuid: 86b6c7ba-d613-4567-962a-acfdad5c22db
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 0gltyawm4dbxby5k6kw-3d2475.arta-ts.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 0gltyawm4dbxby5k6kw-3d2475.arta-ts.workers.dev
+- name: 🇧🇬 BG 03 - xiaohe
+  type: vless
+  server: 31.40.204.131
+  port: 443
+  uuid: 86b6c7ba-d613-4567-962a-acfdad5c22db
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 0gltyawm4dbxby5k6kw-3d2475.arta-ts.workers.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 0gltyawm4dbxby5k6kw-3d2475.arta-ts.workers.dev
+- name: 🇧🇬 BG 04 - xiaohe
+  type: vless
   server: 194.226.121.119
   port: 443
   uuid: ec6f8131-7a5d-4117-9627-6fb2b39ae0da
@@ -39,6 +67,8 @@ proxy-groups:
   - AUTO
   - 🇧🇬 BG 01 - xiaohe
   - 🇧🇬 BG 02 - xiaohe
+  - 🇧🇬 BG 03 - xiaohe
+  - 🇧🇬 BG 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -46,5 +76,7 @@ proxy-groups:
   proxies:
   - 🇧🇬 BG 01 - xiaohe
   - 🇧🇬 BG 02 - xiaohe
+  - 🇧🇬 BG 03 - xiaohe
+  - 🇧🇬 BG 04 - xiaohe
 rules:
 - MATCH,PROXIES

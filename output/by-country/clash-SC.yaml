@@ -1,0 +1,34 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇸🇨 SC 01 - xiaohe
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: 698b212d-ca12-4794-8256-252a6e1b4533
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: w2p6.vpnpolar.online
+  network: ws
+  ws-opts:
+    path: /beeline?ed#Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+    headers:
+      Host: w2p6.vpnpolar.online
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇸🇨 SC 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇸🇨 SC 01 - xiaohe
+rules:
+- MATCH,PROXIES

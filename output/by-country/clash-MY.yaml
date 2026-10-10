@@ -32,19 +32,6 @@ proxies:
     path: /
     headers:
       Host: ccc.010304.xyz
-- name: 🇲🇾 MY 03 - xiaohe
-  type: vless
-  server: 166.88.35.245
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /platform117
-    headers:
-      Host: platform117.halalkhor.info
 proxy-groups:
 - name: PROXIES
   type: select
@@ -52,7 +39,6 @@ proxy-groups:
   - AUTO
   - 🇲🇾 MY 01 - xiaohe
   - 🇲🇾 MY 02 - xiaohe
-  - 🇲🇾 MY 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -60,6 +46,5 @@ proxy-groups:
   proxies:
   - 🇲🇾 MY 01 - xiaohe
   - 🇲🇾 MY 02 - xiaohe
-  - 🇲🇾 MY 03 - xiaohe
 rules:
 - MATCH,PROXIES
