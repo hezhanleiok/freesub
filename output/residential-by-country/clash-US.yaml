@@ -4,31 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇸🇪 SE 01 - wangyu
+- name: 🇺🇸 美国 (United States) 01 (家宽) - wangyu
   type: vless
-  server: 94.143.231.146
-  port: 443
-  uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
+  server: skk.moe
+  port: 8880
+  uuid: 0de87762-7d50-49e7-a5ae-7ac85760e083
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: sub.merky.top
   network: ws
   ws-opts:
-    path: /merky-connect/de6/
+    path: /pyip=ProxyIP.US.CMLiussss.net
     headers:
-      Host: sub.merky.top
+      Host: delicate-fog-bbae.205-635.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇸🇪 SE 01 - wangyu
+  - 🇺🇸 美国 (United States) 01 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇸🇪 SE 01 - wangyu
+  - 🇺🇸 美国 (United States) 01 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

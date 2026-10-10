@@ -6,18 +6,17 @@ log-level: info
 proxies:
 - name: 🇲🇾 MY 01 - wangyu
   type: vless
-  server: 216.173.67.59
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
+  server: 166.88.35.245
+  port: 80
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: ccc.010304.xyz
   network: ws
   ws-opts:
-    path: /
+    path: /platform117
     headers:
-      Host: ccc.010304.xyz
+      Host: platform117.halalkhor.info
 - name: 🇲🇾 MY 02 - wangyu
   type: vless
   server: 216.173.67.59
@@ -34,17 +33,18 @@ proxies:
       Host: ccc.010304.xyz
 - name: 🇲🇾 MY 03 - wangyu
   type: vless
-  server: 166.88.35.245
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  server: 216.173.67.59
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: ccc.010304.xyz
   network: ws
   ws-opts:
-    path: /platform117
+    path: /
     headers:
-      Host: platform117.halalkhor.info
+      Host: ccc.010304.xyz
 proxy-groups:
 - name: PROXIES
   type: select
