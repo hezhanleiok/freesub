@@ -34,13 +34,6 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇹🇭 TH 04 - wangyu
-  type: ss
-  server: 103.107.52.106
-  port: 52351
-  cipher: aes-256-gcm
-  password: sxajCTwrlK0zl+zmHpX0p0jXIfatnzlLzWlSQ950L1c=
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -49,7 +42,6 @@ proxy-groups:
   - 🇹🇭 TH 01 - wangyu
   - 🇹🇭 TH 02 - wangyu
   - 🇹🇭 TH 03 - wangyu
-  - 🇹🇭 TH 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -58,6 +50,5 @@ proxy-groups:
   - 🇹🇭 TH 01 - wangyu
   - 🇹🇭 TH 02 - wangyu
   - 🇹🇭 TH 03 - wangyu
-  - 🇹🇭 TH 04 - wangyu
 rules:
 - MATCH,PROXIES
