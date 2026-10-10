@@ -4,31 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇸🇨 SC 01 - xiaohe
+- name: 🇮🇷 IR 01 - xiaohe
   type: vless
-  server: 188.114.97.6
-  port: 443
-  uuid: 698b212d-ca12-4794-8256-252a6e1b4533
+  server: mail.loyalsmile.net
+  port: 2052
+  uuid: ff766b85-d50f-47b7-9b63-6ca4ea128f3f
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: w2p6.vpnpolar.online
   network: ws
   ws-opts:
-    path: /beeline?ed#Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+    path: /wp-content4
     headers:
-      Host: w2p6.vpnpolar.online
+      Host: mail.loyalsmile.net
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇸🇨 SC 01 - xiaohe
+  - 🇮🇷 IR 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇸🇨 SC 01 - xiaohe
+  - 🇮🇷 IR 01 - xiaohe
 rules:
 - MATCH,PROXIES

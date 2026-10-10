@@ -6,20 +6,6 @@ log-level: info
 proxies:
 - name: 🇧🇾 BY 01 - xiaohe
   type: vless
-  server: 89.125.96.89
-  port: 2053
-  uuid: 6c713691-3ca2-0008-ad25-113d1bed6b03
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: wss.zazazuza.ru
-  network: ws
-  ws-opts:
-    path: /vpn-wss/fluxor/59011/
-    headers:
-      Host: wss.zazazuza.ru
-- name: 🇧🇾 BY 02 - xiaohe
-  type: vless
   server: 89.125.96.81
   port: 2053
   uuid: 6c713691-3ca2-0008-ad25-113d1bed6b03
@@ -32,7 +18,7 @@ proxies:
     path: /vpn-wss/fluxor/59011/
     headers:
       Host: wss.zazazuza.ru
-- name: 🇧🇾 BY 03 - xiaohe
+- name: 🇧🇾 BY 02 - xiaohe
   type: vless
   server: 89.125.96.93
   port: 2053
@@ -53,7 +39,6 @@ proxy-groups:
   - AUTO
   - 🇧🇾 BY 01 - xiaohe
   - 🇧🇾 BY 02 - xiaohe
-  - 🇧🇾 BY 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -61,6 +46,5 @@ proxy-groups:
   proxies:
   - 🇧🇾 BY 01 - xiaohe
   - 🇧🇾 BY 02 - xiaohe
-  - 🇧🇾 BY 03 - xiaohe
 rules:
 - MATCH,PROXIES

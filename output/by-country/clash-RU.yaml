@@ -6,16 +6,18 @@ log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
   type: vless
-  server: 79.174.92.222
+  server: cloud.korroh.com
   port: 443
-  uuid: 03ca8c3f-e777-45b5-a1b1-592094ca99ee
+  uuid: ec6f8131-7a5d-4117-9627-6fb2b39ae0da
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: _PYBo3dyZRpGC44vADqcmlBCSeAVh1X8l3mulghVsTI
-  servername: m.vk.com
-  client-fingerprint: firefox
+  servername: cloud.korroh.com
+  network: ws
+  ws-opts:
+    path: /remote.php/dav/89f7661a0011ce46
+    headers:
+      Host: cloud.korroh.com
 - name: 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
   type: ss
   server: 130.49.189.158
@@ -23,6 +25,20 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: eicdhshSrFLCx/sZ1PSpuKyoVWGZpU95tFS4iGC1c04=
   udp: true
+- name: 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
+  type: vless
+  server: 91.215.43.248
+  port: 443
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: my.kempekl.online
+  network: ws
+  ws-opts:
+    path: /gateway/v1/ws/a64eb463966ba9c4bfd628f1de0362ae
+    headers:
+      Host: my.kempekl.online
 proxy-groups:
 - name: PROXIES
   type: select
@@ -30,6 +46,7 @@ proxy-groups:
   - AUTO
   - 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -37,5 +54,6 @@ proxy-groups:
   proxies:
   - 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
 rules:
 - MATCH,PROXIES
