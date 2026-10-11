@@ -4,11 +4,25 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
+- name: 🇺🇸 美国 (United States) 01 (家宽) - wangyu
   type: vless
-  server: 60.248.219.78
+  server: 188.114.97.3
+  port: 2083
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: newwk1.f1w.de5.net
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: newwk1.f1w.de5.net
+- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  type: vless
+  server: 59.125.69.24
   port: 443
-  uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
+  uuid: 06e177f7-240d-4687-bd85-235505801a5e
   udp: true
   tls: true
   skip-cert-verify: true
@@ -17,8 +31,8 @@ proxies:
   ws-opts:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
-      Host: 60.248.219.78
-- name: 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
+      Host: 59.125.69.24
+- name: 🇭🇰 中国香港 (Hong Kong) 03 (家宽) - wangyu
   type: vless
   server: 103.180.20.108
   port: 8443
@@ -32,7 +46,7 @@ proxies:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
       Host: 103.180.20.108
-- name: 🇭🇰 中国香港 (Hong Kong) 03 (家宽) - wangyu
+- name: 🇭🇰 中国香港 (Hong Kong) 04 (家宽) - wangyu
   type: vless
   server: 103.148.73.173
   port: 8443
@@ -51,16 +65,18 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
+  - 🇺🇸 美国 (United States) 01 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 03 (家宽) - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 04 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - wangyu
+  - 🇺🇸 美国 (United States) 01 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 03 (家宽) - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 04 (家宽) - wangyu
 rules:
 - MATCH,PROXIES

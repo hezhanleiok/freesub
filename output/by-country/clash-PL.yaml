@@ -7,7 +7,7 @@ proxies:
 - name: 🇵🇱 PL 01 - wangyu
   type: vless
   server: 95.85.253.241
-  port: 2083
+  port: 2087
   uuid: ee0a38e3-d148-48ac-ba99-5133446c2377
   udp: true
   tls: true
@@ -15,17 +15,20 @@ proxies:
   servername: 95.85.253.241
 - name: 🇵🇱 PL 02 - wangyu
   type: vless
-  server: 95.85.253.241
-  port: 2087
-  uuid: ee0a38e3-d148-48ac-ba99-5133446c2377
+  server: 185.229.9.176
+  port: 46018
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: 95.85.253.241
+  reality-opts:
+    public-key: een4U3X5mnY1gH2swiakXS9BJ8P4omf8Qp_s8sTp_3Y
+  servername: ligastavok.ru
+  client-fingerprint: firefox
 - name: 🇵🇱 PL 03 - wangyu
   type: vless
   server: 95.85.253.241
-  port: 2087
+  port: 2083
   uuid: ee0a38e3-d148-48ac-ba99-5133446c2377
   udp: true
   tls: true
@@ -33,31 +36,14 @@ proxies:
   servername: 95.85.253.241
 - name: 🇵🇱 PL 04 - wangyu
   type: vless
-  server: 91.215.43.248
-  port: 443
-  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  server: 95.85.253.241
+  port: 2087
+  uuid: ee0a38e3-d148-48ac-ba99-5133446c2377
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: my.kempekl.online
-  network: ws
-  ws-opts:
-    path: /gateway/v1/ws/a64eb463966ba9c4bfd628f1de0362ae
-    headers:
-      Host: my.kempekl.online
+  servername: 95.85.253.241
 - name: 🇵🇱 PL 05 - wangyu
-  type: vless
-  server: pl-1-1.unturned-rust-dead.lol
-  port: 443
-  uuid: c6e3c24c-ce20-4ad5-8c8c-68cb05890ea8
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: gS0qvWKumWcOVoAgf8SHt6Sm3tqpBw07c5sA_Clb1hg
-  servername: pl-1-1.unturned-rust-dead.lol
-  client-fingerprint: random
-- name: 🇵🇱 PL 06 - wangyu
   type: vless
   server: 2.26.225.89
   port: 8443
@@ -66,15 +52,6 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: pl.flen-vpn.xyz
-- name: 🇵🇱 PL 07 - wangyu
-  type: vless
-  server: 95.85.253.241
-  port: 2083
-  uuid: ee0a38e3-d148-48ac-ba99-5133446c2377
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 95.85.253.241
 proxy-groups:
 - name: PROXIES
   type: select
@@ -85,8 +62,6 @@ proxy-groups:
   - 🇵🇱 PL 03 - wangyu
   - 🇵🇱 PL 04 - wangyu
   - 🇵🇱 PL 05 - wangyu
-  - 🇵🇱 PL 06 - wangyu
-  - 🇵🇱 PL 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -97,7 +72,5 @@ proxy-groups:
   - 🇵🇱 PL 03 - wangyu
   - 🇵🇱 PL 04 - wangyu
   - 🇵🇱 PL 05 - wangyu
-  - 🇵🇱 PL 06 - wangyu
-  - 🇵🇱 PL 07 - wangyu
 rules:
 - MATCH,PROXIES
