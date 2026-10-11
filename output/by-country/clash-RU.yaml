@@ -6,18 +6,16 @@ log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - Cloudfree
   type: vless
-  server: 194.226.121.119
-  port: 443
-  uuid: ec6f8131-7a5d-4117-9627-6fb2b39ae0da
+  server: 185.229.9.176
+  port: 46018
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: drive.korroh.com
-  network: ws
-  ws-opts:
-    path: /remote.php/dav/89f7661a0011ce46
-    headers:
-      Host: drive.korroh.com
+  reality-opts:
+    public-key: een4U3X5mnY1gH2swiakXS9BJ8P4omf8Qp_s8sTp_3Y
+  servername: ligastavok.ru
+  client-fingerprint: firefox
 - name: 🇷🇺 俄罗斯 (Russia) 02 - Cloudfree
   type: vless
   server: cloud.korroh.com
@@ -32,6 +30,88 @@ proxies:
     path: /remote.php/dav/89f7661a0011ce46
     headers:
       Host: cloud.korroh.com
+- name: 🇷🇺 俄罗斯 (Russia) 03 - Cloudfree
+  type: vless
+  server: spb.ai-boost.tech
+  port: 443
+  uuid: e2599b64-2eaa-4b81-b2bc-738605ecfeec
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: spb.ai-boost.tech
+  network: ws
+  ws-opts:
+    path: /bKGK1ZI0PzpQz3OeEeq1
+    headers:
+      Host: spb.ai-boost.tech
+- name: 🇷🇺 俄罗斯 (Russia) 04 - Cloudfree
+  type: ss
+  server: 130.49.189.158
+  port: 43558
+  cipher: chacha20-ietf-poly1305
+  password: eicdhshSrFLCx/sZ1PSpuKyoVWGZpU95tFS4iGC1c04=
+  udp: true
+- name: 🇷🇺 俄罗斯 (Russia) 05 - Cloudfree
+  type: vless
+  server: 79.174.92.222
+  port: 443
+  uuid: 03ca8c3f-e777-45b5-a1b1-592094ca99ee
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: _PYBo3dyZRpGC44vADqcmlBCSeAVh1X8l3mulghVsTI
+  servername: m.vk.com
+  client-fingerprint: firefox
+- name: 🇷🇺 俄罗斯 (Russia) 06 - Cloudfree
+  type: vless
+  server: 194.226.121.119
+  port: 443
+  uuid: ec6f8131-7a5d-4117-9627-6fb2b39ae0da
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: drive.korroh.com
+  network: ws
+  ws-opts:
+    path: /remote.php/dav/89f7661a0011ce46
+    headers:
+      Host: drive.korroh.com
+- name: 🇷🇺 俄罗斯 (Russia) 07 - Cloudfree
+  type: vless
+  server: 172.67.152.162
+  port: 443
+  uuid: 07f9bc85-613f-4a33-8da1-191973c43c0a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: app-q0zc4t.user-4gfyh5.workers.dev
+  network: ws
+  ws-opts:
+    path: /cmh
+    headers:
+      Host: app-q0zc4t.user-4gfyh5.workers.dev
+- name: 🇷🇺 俄罗斯 (Russia) 08 - Cloudfree
+  type: vless
+  server: 172.67.203.158
+  port: 443
+  uuid: 911b84e1-d046-4fbf-bfc0-c168791115ef
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 12YGbaE0K3gN0z0f.mEhrsHADHaDdadI8.WorkerS.DEv
+  network: ws
+  ws-opts:
+    path: /vl/YCNmDFbqMu7cgTzgsfEWGtBD8kR
+    headers:
+      Host: 12ygbae0k3gn0z0f.mehrshadhaddadi8.workers.dev
+- name: 🇷🇺 俄罗斯 (Russia) 09 - Cloudfree
+  type: ss
+  server: 46.29.166.27
+  port: 20221
+  cipher: aes-256-gcm
+  password: 6b39ae3234dfd68b
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -39,6 +119,13 @@ proxy-groups:
   - AUTO
   - 🇷🇺 俄罗斯 (Russia) 01 - Cloudfree
   - 🇷🇺 俄罗斯 (Russia) 02 - Cloudfree
+  - 🇷🇺 俄罗斯 (Russia) 03 - Cloudfree
+  - 🇷🇺 俄罗斯 (Russia) 04 - Cloudfree
+  - 🇷🇺 俄罗斯 (Russia) 05 - Cloudfree
+  - 🇷🇺 俄罗斯 (Russia) 06 - Cloudfree
+  - 🇷🇺 俄罗斯 (Russia) 07 - Cloudfree
+  - 🇷🇺 俄罗斯 (Russia) 08 - Cloudfree
+  - 🇷🇺 俄罗斯 (Russia) 09 - Cloudfree
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -46,5 +133,12 @@ proxy-groups:
   proxies:
   - 🇷🇺 俄罗斯 (Russia) 01 - Cloudfree
   - 🇷🇺 俄罗斯 (Russia) 02 - Cloudfree
+  - 🇷🇺 俄罗斯 (Russia) 03 - Cloudfree
+  - 🇷🇺 俄罗斯 (Russia) 04 - Cloudfree
+  - 🇷🇺 俄罗斯 (Russia) 05 - Cloudfree
+  - 🇷🇺 俄罗斯 (Russia) 06 - Cloudfree
+  - 🇷🇺 俄罗斯 (Russia) 07 - Cloudfree
+  - 🇷🇺 俄罗斯 (Russia) 08 - Cloudfree
+  - 🇷🇺 俄罗斯 (Russia) 09 - Cloudfree
 rules:
 - MATCH,PROXIES
