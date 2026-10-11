@@ -6,6 +6,20 @@ log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
   type: vless
+  server: spb.ai-boost.tech
+  port: 443
+  uuid: e2599b64-2eaa-4b81-b2bc-738605ecfeec
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: spb.ai-boost.tech
+  network: ws
+  ws-opts:
+    path: /bKGK1ZI0PzpQz3OeEeq1
+    headers:
+      Host: spb.ai-boost.tech
+- name: 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
+  type: vless
   server: cloud.korroh.com
   port: 443
   uuid: ec6f8131-7a5d-4117-9627-6fb2b39ae0da
@@ -18,27 +32,32 @@ proxies:
     path: /remote.php/dav/89f7661a0011ce46
     headers:
       Host: cloud.korroh.com
-- name: 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
-  type: ss
-  server: 130.49.189.158
-  port: 43558
-  cipher: chacha20-ietf-poly1305
-  password: eicdhshSrFLCx/sZ1PSpuKyoVWGZpU95tFS4iGC1c04=
-  udp: true
 - name: 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
   type: vless
-  server: 91.215.43.248
+  server: 79.174.92.222
   port: 443
-  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  uuid: 03ca8c3f-e777-45b5-a1b1-592094ca99ee
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: my.kempekl.online
+  reality-opts:
+    public-key: _PYBo3dyZRpGC44vADqcmlBCSeAVh1X8l3mulghVsTI
+  servername: m.vk.com
+  client-fingerprint: firefox
+- name: 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
+  type: vless
+  server: 104.21.19.76
+  port: 2096
+  uuid: fee1da7e-a258-4456-8e5e-8ecf6518ed12
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ez-82c7e7.aBoBaBA.WorkeRS.dEv
   network: ws
   ws-opts:
-    path: /gateway/v1/ws/a64eb463966ba9c4bfd628f1de0362ae
+    path: /eyJqdW5rIjoiemxGMEFDU1VDRyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0
     headers:
-      Host: my.kempekl.online
+      Host: ez-82c7e7.abobaba.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
@@ -47,6 +66,7 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -55,5 +75,6 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
 rules:
 - MATCH,PROXIES

@@ -4,29 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇧🇷 BR 01 - xiaohe
+- name: 🇸🇨 SC 01 - xiaohe
   type: vless
-  server: 35.199.90.53
-  port: 443
-  uuid: 5e517b94-e207-47ee-be3c-3020a57594e8
+  server: 154.211.8.227
+  port: 2087
+  uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: pCImwRkTjx8OIUiu1WFelZQFt1p3Q0lUoPbvjVq8GTs
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
+  servername: proxy-34l.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: proxy-34l.pages.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇧🇷 BR 01 - xiaohe
+  - 🇸🇨 SC 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇧🇷 BR 01 - xiaohe
+  - 🇸🇨 SC 01 - xiaohe
 rules:
 - MATCH,PROXIES
