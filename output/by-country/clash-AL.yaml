@@ -4,29 +4,29 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇰🇿 KZ 01 - wangyu
+- name: 🇦🇱 AL 01 - wangyu
   type: vless
-  server: 109.248.170.119
-  port: 13447
-  uuid: b573cefb-7bc7-4a42-b407-b8b534e66773
+  server: best.valaiqm.ir
+  port: 3037
+  uuid: a1fb63f7-a942-4010-a830-bc395703a9a4
   udp: true
   tls: true
   skip-cert-verify: true
   reality-opts:
-    public-key: _0wM2ep44eAcrgf5PflKaBivknCWT6kMvQBQUoScCkE
-  servername: yahoo.com
+    public-key: cYQAluLQY4m0yBUkvqWo3LEXTp-_9In3gJUDoEMmn1U
+  servername: telewebion.ir
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇰🇿 KZ 01 - wangyu
+  - 🇦🇱 AL 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇰🇿 KZ 01 - wangyu
+  - 🇦🇱 AL 01 - wangyu
 rules:
 - MATCH,PROXIES

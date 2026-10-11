@@ -5,6 +5,22 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
+  type: vmess
+  server: 654168416355441.d6f54hd1j.cc
+  port: 443
+  uuid: ecdc303d-bcbf-4129-bc02-dd67703f7081
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 654168416355441.d6f54hd1j.cc
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 654168416355441.d6f54hd1j.cc
+- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
   type: vless
   server: 59.125.69.23
   port: 443
@@ -18,17 +34,37 @@ proxies:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
       Host: 59.125.69.23
+- name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
+  type: vmess
+  server: 24864168545164.d6f54hd1j.cc
+  port: 443
+  uuid: ecdc303d-bcbf-4129-bc02-dd67703f7081
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ''
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - wangyu
 rules:
 - MATCH,PROXIES
