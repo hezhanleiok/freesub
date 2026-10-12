@@ -6,13 +6,6 @@ log-level: info
 proxies:
 - name: 🇷🇴 RO 01 - xiaohe
   type: ss
-  server: 154.46.31.106
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: QFWzCw2uX9B9i6qAYeFBIE
-  udp: true
-- name: 🇷🇴 RO 02 - xiaohe
-  type: ss
   server: 194.68.44.42
   port: 64546
   cipher: chacha20-ietf-poly1305
@@ -24,13 +17,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇷🇴 RO 01 - xiaohe
-  - 🇷🇴 RO 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇷🇴 RO 01 - xiaohe
-  - 🇷🇴 RO 02 - xiaohe
 rules:
 - MATCH,PROXIES

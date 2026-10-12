@@ -4,31 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
+- name: 🇻🇳 VN 01 - xiaohe
   type: vless
-  server: 104.17.100.185
+  server: 103.161.178.72
   port: 443
-  uuid: 1e922b22-d169-4461-89c1-07e09ff2617c
+  uuid: 81eed05f-e2d0-4944-9e48-caeb8d036557
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: vlesss.xttd.eu.org
+  servername: us-lax.862400.xyz
   network: ws
   ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io
+    path: /announcement?ed=2048fp=random
     headers:
-      Host: vlesss.xttd.eu.org
+      Host: us-lax.862400.xyz
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
+  - 🇻🇳 VN 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
+  - 🇻🇳 VN 01 - xiaohe
 rules:
 - MATCH,PROXIES

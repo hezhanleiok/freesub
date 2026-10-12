@@ -6,20 +6,6 @@ log-level: info
 proxies:
 - name: 🇲🇾 MY 01 - xiaohe
   type: vless
-  server: 216.173.67.59
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ccc.010304.xyz
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
-- name: 🇲🇾 MY 02 - xiaohe
-  type: vless
   server: platform102.golnamakcert.top
   port: 80
   uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
@@ -31,7 +17,7 @@ proxies:
     path: /platform102
     headers:
       Host: platform102.halalkhor.info
-- name: 🇲🇾 MY 03 - xiaohe
+- name: 🇲🇾 MY 02 - xiaohe
   type: vless
   server: platform101.golnamakcert.top
   port: 80
@@ -44,7 +30,7 @@ proxies:
     path: /platform101
     headers:
       Host: platform101.halalkhor.info
-- name: 🇲🇾 MY 04 - xiaohe
+- name: 🇲🇾 MY 03 - xiaohe
   type: vless
   server: 216.173.67.59
   port: 443
@@ -66,7 +52,6 @@ proxy-groups:
   - 🇲🇾 MY 01 - xiaohe
   - 🇲🇾 MY 02 - xiaohe
   - 🇲🇾 MY 03 - xiaohe
-  - 🇲🇾 MY 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -75,6 +60,5 @@ proxy-groups:
   - 🇲🇾 MY 01 - xiaohe
   - 🇲🇾 MY 02 - xiaohe
   - 🇲🇾 MY 03 - xiaohe
-  - 🇲🇾 MY 04 - xiaohe
 rules:
 - MATCH,PROXIES
