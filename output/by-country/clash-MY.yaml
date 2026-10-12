@@ -19,7 +19,7 @@ proxies:
       Host: platform101.halalkhor.info
 - name: 🇲🇾 MY 02 - wangyu
   type: vless
-  server: 45.195.69.230
+  server: platform102.golnamakcert.top
   port: 80
   uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
   udp: true
@@ -27,63 +27,10 @@ proxies:
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /platform103
+    path: /platform102
     headers:
-      Host: platform103.halalkhor.info
+      Host: platform102.halalkhor.info
 - name: 🇲🇾 MY 03 - wangyu
-  type: vless
-  server: 216.173.67.59
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ccc.010304.xyz
-  network: ws
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: ccc.010304.xyz
-- name: 🇲🇾 MY 04 - wangyu
-  type: vless
-  server: platform117.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /platform117
-    headers:
-      Host: platform117.halalkhor.info
-- name: 🇲🇾 MY 05 - wangyu
-  type: vless
-  server: platform103.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /platform103
-    headers:
-      Host: platform103.halalkhor.info
-- name: 🇲🇾 MY 06 - wangyu
-  type: vless
-  server: platform118.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /platform118
-    headers:
-      Host: platform118.halalkhor.info
-- name: 🇲🇾 MY 07 - wangyu
   type: vless
   server: 216.173.67.59
   port: 443
@@ -97,19 +44,20 @@ proxies:
     path: /
     headers:
       Host: ccc.010304.xyz
-- name: 🇲🇾 MY 08 - wangyu
+- name: 🇲🇾 MY 04 - wangyu
   type: vless
-  server: platform102.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  server: 216.173.67.59
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: ccc.010304.xyz
   network: ws
   ws-opts:
-    path: /platform102
+    path: /fp=chrome
     headers:
-      Host: platform102.halalkhor.info
+      Host: ccc.010304.xyz
 proxy-groups:
 - name: PROXIES
   type: select
@@ -119,10 +67,6 @@ proxy-groups:
   - 🇲🇾 MY 02 - wangyu
   - 🇲🇾 MY 03 - wangyu
   - 🇲🇾 MY 04 - wangyu
-  - 🇲🇾 MY 05 - wangyu
-  - 🇲🇾 MY 06 - wangyu
-  - 🇲🇾 MY 07 - wangyu
-  - 🇲🇾 MY 08 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -132,9 +76,5 @@ proxy-groups:
   - 🇲🇾 MY 02 - wangyu
   - 🇲🇾 MY 03 - wangyu
   - 🇲🇾 MY 04 - wangyu
-  - 🇲🇾 MY 05 - wangyu
-  - 🇲🇾 MY 06 - wangyu
-  - 🇲🇾 MY 07 - wangyu
-  - 🇲🇾 MY 08 - wangyu
 rules:
 - MATCH,PROXIES

@@ -6,12 +6,18 @@ log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - wangyu
   type: vless
-  server: edge10.cyrionflare.com
-  port: 2052
-  uuid: 1a8ecc41-6e62-431b-8eca-87c2fa4dc286
+  server: ansooyefilter-telegram.arshia-nova.ir
+  port: 443
+  uuid: 2968eb62-dd97-4c8f-fbca-d69388f1b572
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: speedtest.net
+  network: ws
+  ws-opts:
+    path: /?ed=2056
+    headers:
+      Host: mr_anonoijji.global.ssl.fastly.net
 - name: 🇫🇮 FI 02 - wangyu
   type: ss
   server: 185.103.110.66
@@ -20,6 +26,20 @@ proxies:
   password: f9300a9bf39ae0347c3a3bfbc4dd7754
   udp: true
 - name: 🇫🇮 FI 03 - wangyu
+  type: vless
+  server: 199.232.239.239
+  port: 443
+  uuid: 2968eb62-dd97-4c8f-fbca-d69388f1b572
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: speedtest.net
+  network: ws
+  ws-opts:
+    path: /?ed=2056/؟/@v2ray_configs_pools
+    headers:
+      Host: mr_anonoijji.global.ssl.fastly.net
+- name: 🇫🇮 FI 04 - wangyu
   type: vless
   server: 95.216.27.15
   port: 2053
@@ -31,12 +51,20 @@ proxies:
     public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
   servername: www.google.com
   client-fingerprint: chrome
-- name: 🇫🇮 FI 04 - wangyu
+- name: 🇫🇮 FI 05 - wangyu
+  type: vless
+  server: edge10.cyrionflare.com
+  port: 2052
+  uuid: 1a8ecc41-6e62-431b-8eca-87c2fa4dc286
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇫🇮 FI 06 - wangyu
   type: ss
-  server: 45.149.114.171
-  port: 777
-  cipher: chacha20-ietf-poly1305
-  password: Jeoq8ujfkqZKKvACQhoqBQ1PA3uq4242
+  server: 185.103.110.68
+  port: 18283
+  cipher: aes-128-gcm
+  password: f9300a9bf39ae0347c3a3bfbc4dd7754
   udp: true
 proxy-groups:
 - name: PROXIES
@@ -47,6 +75,8 @@ proxy-groups:
   - 🇫🇮 FI 02 - wangyu
   - 🇫🇮 FI 03 - wangyu
   - 🇫🇮 FI 04 - wangyu
+  - 🇫🇮 FI 05 - wangyu
+  - 🇫🇮 FI 06 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -56,5 +86,7 @@ proxy-groups:
   - 🇫🇮 FI 02 - wangyu
   - 🇫🇮 FI 03 - wangyu
   - 🇫🇮 FI 04 - wangyu
+  - 🇫🇮 FI 05 - wangyu
+  - 🇫🇮 FI 06 - wangyu
 rules:
 - MATCH,PROXIES
