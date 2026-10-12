@@ -6,13 +6,16 @@ log-level: info
 proxies:
 - name: 🇵🇱 PL 01 - xiaohe
   type: vless
-  server: 95.85.253.241
-  port: 2053
-  uuid: ee0a38e3-d148-48ac-ba99-5133446c2377
+  server: pl-1-1.unturned-rust-dead.lol
+  port: 443
+  uuid: c6e3c24c-ce20-4ad5-8c8c-68cb05890ea8
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: 95.85.253.241
+  reality-opts:
+    public-key: gS0qvWKumWcOVoAgf8SHt6Sm3tqpBw07c5sA_Clb1hg
+  servername: pl-1-1.unturned-rust-dead.lol
+  client-fingerprint: random
 - name: 🇵🇱 PL 02 - xiaohe
   type: vless
   server: 91.215.43.248
@@ -29,7 +32,7 @@ proxies:
       Host: my.kempekl.online
 - name: 🇵🇱 PL 03 - xiaohe
   type: vless
-  server: pl.flen-vpn.xyz
+  server: 2.26.225.89
   port: 8443
   uuid: 51a1fd52-fd88-4905-a976-35e44be28e4b
   udp: true
@@ -47,19 +50,7 @@ proxies:
   servername: pl.flen-vpn.xyz
 - name: 🇵🇱 PL 05 - xiaohe
   type: vless
-  server: pl-1-1.unturned-rust-dead.lol
-  port: 443
-  uuid: c6e3c24c-ce20-4ad5-8c8c-68cb05890ea8
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: gS0qvWKumWcOVoAgf8SHt6Sm3tqpBw07c5sA_Clb1hg
-  servername: pl-1-1.unturned-rust-dead.lol
-  client-fingerprint: random
-- name: 🇵🇱 PL 06 - xiaohe
-  type: vless
-  server: pl-1-1.unturned-rust-dead.lol
+  server: 80.47.12.94
   port: 443
   uuid: c6e3c24c-ce20-4ad5-8c8c-68cb05890ea8
   udp: true
@@ -79,7 +70,6 @@ proxy-groups:
   - 🇵🇱 PL 03 - xiaohe
   - 🇵🇱 PL 04 - xiaohe
   - 🇵🇱 PL 05 - xiaohe
-  - 🇵🇱 PL 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -90,6 +80,5 @@ proxy-groups:
   - 🇵🇱 PL 03 - xiaohe
   - 🇵🇱 PL 04 - xiaohe
   - 🇵🇱 PL 05 - xiaohe
-  - 🇵🇱 PL 06 - xiaohe
 rules:
 - MATCH,PROXIES

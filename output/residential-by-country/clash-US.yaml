@@ -4,31 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇮🇱 IL 01 - xiaohe
+- name: 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
   type: vless
-  server: 185.253.75.119
+  server: 104.17.100.185
   port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
+  uuid: 1e922b22-d169-4461-89c1-07e09ff2617c
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ccc.010304.xyz
+  servername: vlesss.xttd.eu.org
   network: ws
   ws-opts:
-    path: /fp=chrome
+    path: /proxyip=proxyip.fxxk.dedyn.io
     headers:
-      Host: ccc.010304.xyz
+      Host: vlesss.xttd.eu.org
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇮🇱 IL 01 - xiaohe
+  - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇮🇱 IL 01 - xiaohe
+  - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES

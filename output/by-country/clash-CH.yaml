@@ -5,6 +5,20 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇭 CH 01 - xiaohe
+  type: vless
+  server: 185.18.250.245
+  port: 443
+  uuid: f77299ea-e13d-417d-8cdc-ce5566dfc94b
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: edu.ruangguru.com.r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /nl-tw
+    headers:
+      Host: edu.ruangguru.com.r3xxe.eu.cc
+- name: 🇨🇭 CH 02 - xiaohe
   type: ss
   server: 132.243.175.144
   port: 8388
@@ -17,11 +31,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇨🇭 CH 01 - xiaohe
+  - 🇨🇭 CH 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇨🇭 CH 01 - xiaohe
+  - 🇨🇭 CH 02 - xiaohe
 rules:
 - MATCH,PROXIES
