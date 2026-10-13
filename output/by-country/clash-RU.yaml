@@ -5,19 +5,12 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - xiaohe
-  type: vless
-  server: 91.215.43.248
-  port: 443
-  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  type: ss
+  server: 130.49.189.158
+  port: 43558
+  cipher: chacha20-ietf-poly1305
+  password: 52+ggoCvKFVJyT1NDiuWOZw2rHIvAg3tgqgJl8aeCwY=
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: my.kempekl.online
-  network: ws
-  ws-opts:
-    path: /gateway/v1/ws/a64eb463966ba9c4bfd628f1de0362ae
-    headers:
-      Host: my.kempekl.online
 proxy-groups:
 - name: PROXIES
   type: select
