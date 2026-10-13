@@ -6,30 +6,32 @@ log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - wangyu
   type: vless
-  server: 109.120.134.243
+  server: 77.110.97.245
   port: 443
-  uuid: 04c808e2-0b59-47b0-a54b-32fc7ef1c902
+  uuid: d342d11e-d224-4463-b982-532309285094
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: free.cndyw.ggff.net
+  servername: ccc.010304.xyz
   network: ws
   ws-opts:
-    path: pyip=bpb.yousef.isegaro.comfp=random
+    path: /fp=chrome
     headers:
-      Host: free.cndyw.ggff.net
+      Host: ccc.010304.xyz
 - name: 🇸🇪 SE 02 - wangyu
   type: vless
-  server: 732051t.se1.h1clayd.click
+  server: 77.110.97.245
   port: 443
-  uuid: ec572cf0-1337-4c51-b4ec-ff2f538c1f4c
+  uuid: d342d11e-d224-4463-b982-532309285094
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: NqyAfxsF9xeJZi_5itA5VCxaja1ioXjw7xPM_QonKVk
-  servername: 732051t.se1.h1clayd.click
-  client-fingerprint: chrome
+  servername: ccc.010304.xyz
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: ccc.010304.xyz
 - name: 🇸🇪 SE 03 - wangyu
   type: vless
   server: 94.143.231.146
@@ -44,20 +46,6 @@ proxies:
     path: /merky-connect/de6/
     headers:
       Host: sub.merky.top
-- name: 🇸🇪 SE 04 - wangyu
-  type: vless
-  server: 77.110.97.245
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ccc.010304.xyz
-  network: ws
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: ccc.010304.xyz
 proxy-groups:
 - name: PROXIES
   type: select
@@ -66,7 +54,6 @@ proxy-groups:
   - 🇸🇪 SE 01 - wangyu
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
-  - 🇸🇪 SE 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -75,6 +62,5 @@ proxy-groups:
   - 🇸🇪 SE 01 - wangyu
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
-  - 🇸🇪 SE 04 - wangyu
 rules:
 - MATCH,PROXIES
