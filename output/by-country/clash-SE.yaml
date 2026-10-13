@@ -20,6 +20,20 @@ proxies:
       Host: ccc.010304.xyz
 - name: 🇸🇪 SE 02 - xiaohe
   type: vless
+  server: 77.110.97.245
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ccc.010304.xyz
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: ccc.010304.xyz
+- name: 🇸🇪 SE 03 - xiaohe
+  type: vless
   server: 94.143.231.146
   port: 443
   uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
@@ -39,6 +53,7 @@ proxy-groups:
   - AUTO
   - 🇸🇪 SE 01 - xiaohe
   - 🇸🇪 SE 02 - xiaohe
+  - 🇸🇪 SE 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -46,5 +61,6 @@ proxy-groups:
   proxies:
   - 🇸🇪 SE 01 - xiaohe
   - 🇸🇪 SE 02 - xiaohe
+  - 🇸🇪 SE 03 - xiaohe
 rules:
 - MATCH,PROXIES

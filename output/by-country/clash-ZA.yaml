@@ -5,12 +5,17 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇿🇦 ZA 01 - xiaohe
-  type: ss
-  server: 102.37.156.224
+  type: vless
+  server: 34.35.186.228
   port: 443
-  cipher: chacha20-ietf-poly1305
-  password: aduB9HGxQHjA2SBMRjkHX6
+  uuid: 8d65c8a7-4876-4556-bb6a-feccfb46ee81
   udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: bSN0cv0VMxmYZsNsMkkLndOTHZu74C1htJ2M71QMaVE
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
 - name: 🇿🇦 ZA 02 - xiaohe
   type: vless
   server: 34.35.189.111
@@ -35,49 +40,6 @@ proxies:
     public-key: dcox8XXfkOCmKn3kgrloj6wY5o1_0brJOi2mczYmAT4
   servername: www.cloudflare.com
   client-fingerprint: safari
-- name: 🇿🇦 ZA 04 - xiaohe
-  type: vless
-  server: 34.35.189.111
-  port: 443
-  uuid: 4758aee6-6d1a-4306-b460-2398b5af4e35
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: dcox8XXfkOCmKn3kgrloj6wY5o1_0brJOi2mczYmAT4
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇿🇦 ZA 05 - xiaohe
-  type: vless
-  server: 34.35.189.111
-  port: 443
-  uuid: 4758aee6-6d1a-4306-b460-2398b5af4e35
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: dcox8XXfkOCmKn3kgrloj6wY5o1_0brJOi2mczYmAT4
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇿🇦 ZA 06 - xiaohe
-  type: vless
-  server: 34.35.186.228
-  port: 443
-  uuid: 8d65c8a7-4876-4556-bb6a-feccfb46ee81
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: bSN0cv0VMxmYZsNsMkkLndOTHZu74C1htJ2M71QMaVE
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇿🇦 ZA 07 - xiaohe
-  type: ss
-  server: 102.133.165.160
-  port: 16233
-  cipher: chacha20-ietf-poly1305
-  password: Xsy8Ox4yOV3xLlpxtjzs3X
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -86,10 +48,6 @@ proxy-groups:
   - 🇿🇦 ZA 01 - xiaohe
   - 🇿🇦 ZA 02 - xiaohe
   - 🇿🇦 ZA 03 - xiaohe
-  - 🇿🇦 ZA 04 - xiaohe
-  - 🇿🇦 ZA 05 - xiaohe
-  - 🇿🇦 ZA 06 - xiaohe
-  - 🇿🇦 ZA 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -98,9 +56,5 @@ proxy-groups:
   - 🇿🇦 ZA 01 - xiaohe
   - 🇿🇦 ZA 02 - xiaohe
   - 🇿🇦 ZA 03 - xiaohe
-  - 🇿🇦 ZA 04 - xiaohe
-  - 🇿🇦 ZA 05 - xiaohe
-  - 🇿🇦 ZA 06 - xiaohe
-  - 🇿🇦 ZA 07 - xiaohe
 rules:
 - MATCH,PROXIES
