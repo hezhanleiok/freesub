@@ -6,19 +6,45 @@ log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - wangyu
   type: vless
+  server: 95.216.27.15
+  port: 2053
+  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
+  servername: www.google.com
+  client-fingerprint: chrome
+- name: 🇫🇮 FI 02 - wangyu
+  type: vless
+  server: 199.232.78.159
+  port: 443
+  uuid: c0331b33-4a3a-4320-bacb-78601f9795bd
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: google.com
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: az_man-eski_naro_Pesar_jOon.global.ssl.fastly.net.
+- name: 🇫🇮 FI 03 - wangyu
+  type: vless
   server: 199.232.239.239
   port: 443
-  uuid: 0617eade-fb92-422f-9b59-c9a4b65b2906
+  uuid: b3f3f34c-cbcd-427d-9894-5330738ac0da
   udp: true
   tls: true
   skip-cert-verify: true
   servername: speedtest.net
   network: ws
   ws-opts:
-    path: /?
+    path: /?ed=2056?/TELEGRAM--BYA--CHANEL---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN--@JKVPN---@JKVPN---@JKVPN---@JKVPN
     headers:
       Host: mr_anonoijji.global.ssl.fastly.net
-- name: 🇫🇮 FI 02 - wangyu
+- name: 🇫🇮 FI 04 - wangyu
   type: vless
   server: edge10.cyrionflare.com
   port: 2052
@@ -26,10 +52,44 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇫🇮 FI 03 - wangyu
+- name: 🇫🇮 FI 05 - wangyu
+  type: vless
+  server: edge10.cyrionflare.com
+  port: 2052
+  uuid: 1a8ecc41-6e62-431b-8eca-87c2fa4dc286
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇫🇮 FI 06 - wangyu
+  type: vless
+  server: 95.216.27.15
+  port: 2053
+  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
+  servername: www.google.com
+  client-fingerprint: chrome
+- name: 🇫🇮 FI 07 - wangyu
+  type: vless
+  server: 199.232.78.159
+  port: 443
+  uuid: c0331b33-4a3a-4320-bacb-78601f9795bd
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: google.com
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: az_man-eski_naro_Pesar_jOon.global.ssl.fastly.net.
+- name: 🇫🇮 FI 08 - wangyu
   type: ss
-  server: 185.103.110.66
-  port: 18280
+  server: 185.103.110.68
+  port: 18283
   cipher: aes-128-gcm
   password: f9300a9bf39ae0347c3a3bfbc4dd7754
   udp: true
@@ -41,6 +101,11 @@ proxy-groups:
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
   - 🇫🇮 FI 03 - wangyu
+  - 🇫🇮 FI 04 - wangyu
+  - 🇫🇮 FI 05 - wangyu
+  - 🇫🇮 FI 06 - wangyu
+  - 🇫🇮 FI 07 - wangyu
+  - 🇫🇮 FI 08 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -49,5 +114,10 @@ proxy-groups:
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
   - 🇫🇮 FI 03 - wangyu
+  - 🇫🇮 FI 04 - wangyu
+  - 🇫🇮 FI 05 - wangyu
+  - 🇫🇮 FI 06 - wangyu
+  - 🇫🇮 FI 07 - wangyu
+  - 🇫🇮 FI 08 - wangyu
 rules:
 - MATCH,PROXIES
