@@ -1,0 +1,65 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇱🇰 LK 01 - xiaohe
+  type: vless
+  server: centurylink.es
+  port: 8443
+  uuid: c136a12c-4260-48a7-a1e6-fbda83a11045
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: free.sahanwickramasinghe.me
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: free.sahanwickramasinghe.me
+- name: 🇱🇰 LK 02 - xiaohe
+  type: vless
+  server: free.sahanwickramasinghe.me
+  port: 2096
+  uuid: 13d72f62-ca03-4f06-acc4-409f5dc2f4e6
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: microsoft.com
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: free.sahanwickramasinghe.me
+- name: 🇱🇰 LK 03 - xiaohe
+  type: vless
+  server: free.sahanwickramasinghe.me
+  port: 80
+  uuid: fcdb24e3-5e66-4c45-b89e-ac9441f4dcda
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: free.sahanwickramasinghe.me
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇱🇰 LK 01 - xiaohe
+  - 🇱🇰 LK 02 - xiaohe
+  - 🇱🇰 LK 03 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇱🇰 LK 01 - xiaohe
+  - 🇱🇰 LK 02 - xiaohe
+  - 🇱🇰 LK 03 - xiaohe
+rules:
+- MATCH,PROXIES

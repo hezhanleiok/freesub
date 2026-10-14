@@ -5,27 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇪 IE 01 - xiaohe
-  type: ss
-  server: 4.210.66.165
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: 8qKJlc2Z6lo64bUq
-  udp: true
-- name: 🇮🇪 IE 02 - xiaohe
-  type: vless
-  server: 185.18.221.188
-  port: 443
-  uuid: b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: rnxq-1lpi3m.linmeisoft.com
-  network: ws
-  ws-opts:
-    path: /b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
-    headers:
-      Host: rnxq-1lpi3m.linmeisoft.com
-- name: 🇮🇪 IE 03 - xiaohe
   type: vless
   server: 23.95.225.10
   port: 8443
@@ -39,30 +18,17 @@ proxies:
     path: /
     headers:
       Host: ccc.010304.xyz
-- name: 🇮🇪 IE 04 - xiaohe
-  type: ss
-  server: 4.210.66.165
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: 8qKJlc2Z6lo64bUq
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇪 IE 01 - xiaohe
-  - 🇮🇪 IE 02 - xiaohe
-  - 🇮🇪 IE 03 - xiaohe
-  - 🇮🇪 IE 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇮🇪 IE 01 - xiaohe
-  - 🇮🇪 IE 02 - xiaohe
-  - 🇮🇪 IE 03 - xiaohe
-  - 🇮🇪 IE 04 - xiaohe
 rules:
 - MATCH,PROXIES
