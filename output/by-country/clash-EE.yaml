@@ -6,6 +6,18 @@ log-level: info
 proxies:
 - name: 🇪🇪 EE 01 - xiaohe
   type: vless
+  server: 179.254.126.20
+  port: 25895
+  uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: jOVKSP-bS9OkILJ8Epz8hadh6qhavCrOiJYeF0NCn0k
+  servername: www.samsung.com
+  client-fingerprint: random
+- name: 🇪🇪 EE 02 - xiaohe
+  type: vless
   server: 94.183.170.135
   port: 8443
   uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
@@ -13,7 +25,7 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: estproxy4.lockdwn.com
-- name: 🇪🇪 EE 02 - xiaohe
+- name: 🇪🇪 EE 03 - xiaohe
   type: vless
   server: 94.183.170.135
   port: 8443
@@ -29,6 +41,7 @@ proxy-groups:
   - AUTO
   - 🇪🇪 EE 01 - xiaohe
   - 🇪🇪 EE 02 - xiaohe
+  - 🇪🇪 EE 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -36,5 +49,6 @@ proxy-groups:
   proxies:
   - 🇪🇪 EE 01 - xiaohe
   - 🇪🇪 EE 02 - xiaohe
+  - 🇪🇪 EE 03 - xiaohe
 rules:
 - MATCH,PROXIES

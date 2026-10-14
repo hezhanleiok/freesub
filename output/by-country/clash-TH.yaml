@@ -25,6 +25,36 @@ proxies:
   tls: false
   skip-cert-verify: true
 - name: 🇹🇭 TH 03 - xiaohe
+  type: vmess
+  server: 119.46.51.45
+  port: 37515
+  uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇹🇭 TH 04 - xiaohe
+  type: vmess
+  server: 119.46.51.45
+  port: 37515
+  uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇹🇭 TH 05 - xiaohe
+  type: vmess
+  server: 119.46.51.45
+  port: 37515
+  uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇹🇭 TH 06 - xiaohe
   type: vless
   server: 104.16.10.185
   port: 443
@@ -38,16 +68,6 @@ proxies:
     path: /ws
     headers:
       Host: v2ray.simspeedup.com
-- name: 🇹🇭 TH 04 - xiaohe
-  type: vmess
-  server: 119.46.51.45
-  port: 37515
-  uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -57,6 +77,8 @@ proxy-groups:
   - 🇹🇭 TH 02 - xiaohe
   - 🇹🇭 TH 03 - xiaohe
   - 🇹🇭 TH 04 - xiaohe
+  - 🇹🇭 TH 05 - xiaohe
+  - 🇹🇭 TH 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -66,5 +88,7 @@ proxy-groups:
   - 🇹🇭 TH 02 - xiaohe
   - 🇹🇭 TH 03 - xiaohe
   - 🇹🇭 TH 04 - xiaohe
+  - 🇹🇭 TH 05 - xiaohe
+  - 🇹🇭 TH 06 - xiaohe
 rules:
 - MATCH,PROXIES
