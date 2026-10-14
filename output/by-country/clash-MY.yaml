@@ -1,0 +1,36 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇲🇾 MY 01 - xiaohe
+  type: vmess
+  server: 172.67.205.213
+  port: 443
+  uuid: f5f0babe-aea2-4f07-a1fc-3c9820253f49
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: my.lovehk.xyz
+  network: ws
+  ws-opts:
+    path: /KualaLumpur1
+    headers:
+      Host: my.lovehk.xyz
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇲🇾 MY 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇲🇾 MY 01 - xiaohe
+rules:
+- MATCH,PROXIES
