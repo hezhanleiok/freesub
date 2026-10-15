@@ -6,44 +6,35 @@ log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - wangyu
   type: vless
-  server: 94.143.231.146
-  port: 443
-  uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
+  server: se1.h1cloud.net
+  port: 26100
+  uuid: 68c3d665-b2b5-4ffb-9f37-9f3d8c47324d
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: sub.merky.top
-  network: ws
-  ws-opts:
-    path: /merky-connect/de6/
-    headers:
-      Host: sub.merky.top
+  reality-opts:
+    public-key: 1uuvuG2Jl_o6yoVvOYm3hEboArh2Znu7zCy4Tqj36TI
+  servername: www.icloud.com
+  client-fingerprint: chrome
 - name: 🇸🇪 SE 02 - wangyu
   type: vless
-  server: 193.188.21.253
-  port: 14430
-  uuid: 57f7772d-f5d6-4d8f-992d-5fa5e0d6da55
+  server: se1.h1cloud.net
+  port: 26100
+  uuid: 68c3d665-b2b5-4ffb-9f37-9f3d8c47324d
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 193.188.21.253
+  reality-opts:
+    public-key: 1uuvuG2Jl_o6yoVvOYm3hEboArh2Znu7zCy4Tqj36TI
+  servername: www.icloud.com
+  client-fingerprint: edge
 - name: 🇸🇪 SE 03 - wangyu
-  type: vless
-  server: 193.188.21.253
-  port: 14430
-  uuid: 57f7772d-f5d6-4d8f-992d-5fa5e0d6da55
+  type: ss
+  server: 70.34.212.124
+  port: 8388
+  cipher: aes-256-gcm
+  password: AxIYWtskJWIIaefW
   udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 193.188.21.253
 - name: 🇸🇪 SE 04 - wangyu
   type: vless
   server: sub.merky.top
@@ -60,16 +51,18 @@ proxies:
       Host: sub.merky.top
 - name: 🇸🇪 SE 05 - wangyu
   type: vless
-  server: se1.h1cloud.net
-  port: 26100
-  uuid: 68c3d665-b2b5-4ffb-9f37-9f3d8c47324d
+  server: 94.143.231.146
+  port: 443
+  uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: 1uuvuG2Jl_o6yoVvOYm3hEboArh2Znu7zCy4Tqj36TI
-  servername: www.icloud.com
-  client-fingerprint: qq
+  servername: sub.merky.top
+  network: ws
+  ws-opts:
+    path: /merky-connect/de6/
+    headers:
+      Host: sub.merky.top
 - name: 🇸🇪 SE 06 - wangyu
   type: vless
   server: se1.h1cloud.net
@@ -81,17 +74,10 @@ proxies:
   reality-opts:
     public-key: 1uuvuG2Jl_o6yoVvOYm3hEboArh2Znu7zCy4Tqj36TI
   servername: www.icloud.com
-  client-fingerprint: edge
+  client-fingerprint: qq
 - name: 🇸🇪 SE 07 - wangyu
-  type: ss
-  server: 70.34.212.124
-  port: 8388
-  cipher: aes-256-gcm
-  password: AxIYWtskJWIIaefW
-  udp: true
-- name: 🇸🇪 SE 08 - wangyu
   type: vless
-  server: 94.143.231.146
+  server: sub.merky.top
   port: 443
   uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
   udp: true
@@ -115,7 +101,6 @@ proxy-groups:
   - 🇸🇪 SE 05 - wangyu
   - 🇸🇪 SE 06 - wangyu
   - 🇸🇪 SE 07 - wangyu
-  - 🇸🇪 SE 08 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -128,6 +113,5 @@ proxy-groups:
   - 🇸🇪 SE 05 - wangyu
   - 🇸🇪 SE 06 - wangyu
   - 🇸🇪 SE 07 - wangyu
-  - 🇸🇪 SE 08 - wangyu
 rules:
 - MATCH,PROXIES
