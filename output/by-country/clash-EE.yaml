@@ -1,0 +1,52 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇪🇪 EE 01 - wangyu
+  type: vmess
+  server: eu3.998998.best
+  port: 443
+  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: server40.9966338.xyz
+  network: ws
+  ws-opts:
+    path: /aiaiai
+    headers:
+      Host: server40.9966338.xyz
+- name: 🇪🇪 EE 02 - wangyu
+  type: vless
+  server: 5.189.254.168
+  port: 2053
+  uuid: 51a0af77-a60c-4d9b-81a4-f50e1b38d90b
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cf3.schzyc.cc.cd
+  network: ws
+  ws-opts:
+    path: /proxyip=ProxyIP.CMLiussss.netfp=chrome
+    headers:
+      Host: cf3.schzyc.cc.cd
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇪🇪 EE 01 - wangyu
+  - 🇪🇪 EE 02 - wangyu
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇪🇪 EE 01 - wangyu
+  - 🇪🇪 EE 02 - wangyu
+rules:
+- MATCH,PROXIES
