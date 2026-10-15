@@ -15,11 +15,16 @@ proxies:
 - name: 🇸🇨 SC 02 - wangyu
   type: vless
   server: 45.137.43.168
-  port: 10443
+  port: 14430
   uuid: b4cc503a-c352-4775-85ad-fc982086884a
   udp: true
   tls: false
   skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: 45.137.43.168
 - name: 🇸🇨 SC 03 - wangyu
   type: vless
   server: 45.137.43.168
@@ -33,6 +38,22 @@ proxies:
     path: /vless
     headers:
       Host: 45.137.43.168
+- name: 🇸🇨 SC 04 - wangyu
+  type: vless
+  server: 45.137.43.168
+  port: 10443
+  uuid: b4cc503a-c352-4775-85ad-fc982086884a
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇸🇨 SC 05 - wangyu
+  type: vless
+  server: 45.137.43.168
+  port: 10443
+  uuid: b4cc503a-c352-4775-85ad-fc982086884a
+  udp: true
+  tls: false
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -41,6 +62,8 @@ proxy-groups:
   - 🇸🇨 SC 01 - wangyu
   - 🇸🇨 SC 02 - wangyu
   - 🇸🇨 SC 03 - wangyu
+  - 🇸🇨 SC 04 - wangyu
+  - 🇸🇨 SC 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -49,5 +72,7 @@ proxy-groups:
   - 🇸🇨 SC 01 - wangyu
   - 🇸🇨 SC 02 - wangyu
   - 🇸🇨 SC 03 - wangyu
+  - 🇸🇨 SC 04 - wangyu
+  - 🇸🇨 SC 05 - wangyu
 rules:
 - MATCH,PROXIES
