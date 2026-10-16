@@ -6,12 +6,16 @@ log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - wangyu
   type: vless
-  server: edge10.cyrionflare.com
-  port: 2052
-  uuid: 1a8ecc41-6e62-431b-8eca-87c2fa4dc286
+  server: 95.216.27.15
+  port: 2053
+  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  reality-opts:
+    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
+  servername: www.google.com
+  client-fingerprint: firefox
 - name: 🇫🇮 FI 02 - wangyu
   type: vless
   server: 95.216.27.15
@@ -23,18 +27,8 @@ proxies:
   reality-opts:
     public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
   servername: www.google.com
-  client-fingerprint: firefox
+  client-fingerprint: chrome
 - name: 🇫🇮 FI 03 - wangyu
-  type: vmess
-  server: fin-2.povrak.ir
-  port: 56268
-  uuid: 9a53a545-53e3-4fce-a0ba-5cfc3c4e5a74
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇫🇮 FI 04 - wangyu
   type: vless
   server: 95.216.27.15
   port: 2053
@@ -46,7 +40,7 @@ proxies:
     public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
   servername: www.google.com
   client-fingerprint: chrome
-- name: 🇫🇮 FI 05 - wangyu
+- name: 🇫🇮 FI 04 - wangyu
   type: vless
   server: 95.216.27.15
   port: 2053
@@ -58,7 +52,7 @@ proxies:
     public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
   servername: www.google.com
   client-fingerprint: random
-- name: 🇫🇮 FI 06 - wangyu
+- name: 🇫🇮 FI 05 - wangyu
   type: vless
   server: 45.144.234.157
   port: 14430
@@ -71,7 +65,7 @@ proxies:
     path: /vless
     headers:
       Host: 45.144.234.157
-- name: 🇫🇮 FI 07 - wangyu
+- name: 🇫🇮 FI 06 - wangyu
   type: vless
   server: edge10.cyrionflare.com
   port: 2052
@@ -79,7 +73,7 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇫🇮 FI 08 - wangyu
+- name: 🇫🇮 FI 07 - wangyu
   type: vless
   server: 3f8efdt.fi1.h1clayd.click
   port: 443
@@ -91,18 +85,14 @@ proxies:
     public-key: 1D_o1pqfVoReg9zLPKNy1wCL7aGWytbmbYPbbJGaozY
   servername: 3f8efdt.fi1.h1clayd.click
   client-fingerprint: edge
-- name: 🇫🇮 FI 09 - wangyu
+- name: 🇫🇮 FI 08 - wangyu
   type: vless
-  server: 95.216.27.15
-  port: 2053
-  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
+  server: edge10.cyrionflare.com
+  port: 2052
+  uuid: 1a8ecc41-6e62-431b-8eca-87c2fa4dc286
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  reality-opts:
-    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
-  servername: www.google.com
-  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -116,7 +106,6 @@ proxy-groups:
   - 🇫🇮 FI 06 - wangyu
   - 🇫🇮 FI 07 - wangyu
   - 🇫🇮 FI 08 - wangyu
-  - 🇫🇮 FI 09 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -130,6 +119,5 @@ proxy-groups:
   - 🇫🇮 FI 06 - wangyu
   - 🇫🇮 FI 07 - wangyu
   - 🇫🇮 FI 08 - wangyu
-  - 🇫🇮 FI 09 - wangyu
 rules:
 - MATCH,PROXIES

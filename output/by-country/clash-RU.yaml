@@ -5,30 +5,18 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - wangyu
-  type: vless
-  server: 45.133.151.186
-  port: 25414
-  uuid: d54a7512-dda3-4218-8ae7-c591d300fd7c
+  type: ss
+  server: 194.87.196.107
+  port: 18443
+  cipher: aes-256-gcm
+  password: Lpq5UPVHtQYiuB9jEUNc2WkeIYCUH9DE
   udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: KjcB2_xuklgTEHo_L_y3YdGdQoDgA91Yaa3YgRu_Iis
-  servername: www.icloud.com
-  client-fingerprint: firefox
 - name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
   type: ss
   server: 176.32.32.108
   port: 18443
   cipher: aes-256-gcm
   password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
-  udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
-  type: ss
-  server: 194.87.196.107
-  port: 18443
-  cipher: aes-256-gcm
-  password: Lpq5UPVHtQYiuB9jEUNc2WkeIYCUH9DE
   udp: true
 proxy-groups:
 - name: PROXIES
@@ -37,7 +25,6 @@ proxy-groups:
   - AUTO
   - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -45,6 +32,5 @@ proxy-groups:
   proxies:
   - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
 rules:
 - MATCH,PROXIES

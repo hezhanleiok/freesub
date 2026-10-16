@@ -18,20 +18,22 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: ''
+      Host: 152.67.8.205
 - name: 🇮🇳 印度 (India) 02 - wangyu
-  type: vless
-  server: 13.140.56.100
-  port: 14430
-  uuid: 68512eac-cd53-4de3-8d1e-08f6e04af1a9
+  type: vmess
+  server: 152.67.8.205
+  port: 80
+  uuid: 9db4c708-aef8-4359-821b-38e47990be0d
+  alterId: 0
+  cipher: auto
   udp: true
   tls: false
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /vless
+    path: /
     headers:
-      Host: 13.140.56.100
+      Host: ''
 - name: 🇮🇳 印度 (India) 03 - wangyu
   type: vless
   server: 13.140.56.100
@@ -47,18 +49,17 @@ proxies:
       Host: 13.140.56.100
 - name: 🇮🇳 印度 (India) 04 - wangyu
   type: vless
-  server: 168.144.155.167
-  port: 443
-  uuid: 51a0af77-a60c-4d9b-81a4-f50e1b38d90b
+  server: 13.140.56.100
+  port: 14430
+  uuid: 68512eac-cd53-4de3-8d1e-08f6e04af1a9
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: cf3.schzyc.cc.cd
   network: ws
   ws-opts:
-    path: /proxyip=ProxyIP.CMLiussss.net
+    path: /vless
     headers:
-      Host: cf3.schzyc.cc.cd
+      Host: 13.140.56.100
 - name: 🇮🇳 印度 (India) 05 - wangyu
   type: vless
   server: 194.61.31.126
@@ -85,20 +86,8 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: None
+      Host: ''
 - name: 🇮🇳 印度 (India) 07 - wangyu
-  type: vless
-  server: 194.61.31.126
-  port: 2053
-  uuid: 1d4e18bd-1f26-4915-b35a-7ace4826e76a
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
-  servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇮🇳 印度 (India) 08 - wangyu
   type: vmess
   server: 152.67.8.205
   port: 80
@@ -110,9 +99,22 @@ proxies:
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: ''
+    path: /
     headers:
-      Host: ''
+      Host: None
+- name: 🇮🇳 印度 (India) 08 - wangyu
+  type: vless
+  server: 13.140.56.100
+  port: 14430
+  uuid: 68512eac-cd53-4de3-8d1e-08f6e04af1a9
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: 13.140.56.100
 - name: 🇮🇳 印度 (India) 09 - wangyu
   type: ss
   server: 172.105.39.124
@@ -121,6 +123,19 @@ proxies:
   password: RexnBgU7EV5ADxG
   udp: true
 - name: 🇮🇳 印度 (India) 10 - wangyu
+  type: vless
+  server: 13.140.56.100
+  port: 14430
+  uuid: 68512eac-cd53-4de3-8d1e-08f6e04af1a9
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: 13.140.56.100
+- name: 🇮🇳 印度 (India) 11 - wangyu
   type: vless
   server: 194.61.31.126
   port: 2053
@@ -132,36 +147,18 @@ proxies:
     public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
   servername: www.apple.com
   client-fingerprint: chrome
-- name: 🇮🇳 印度 (India) 11 - wangyu
-  type: vmess
-  server: 152.67.8.205
-  port: 80
-  uuid: 9db4c708-aef8-4359-821b-38e47990be0d
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 152.67.8.205
 - name: 🇮🇳 印度 (India) 12 - wangyu
-  type: vmess
-  server: 152.67.8.205
-  port: 80
-  uuid: 9db4c708-aef8-4359-821b-38e47990be0d
-  alterId: 0
-  cipher: auto
+  type: vless
+  server: 194.61.31.126
+  port: 2053
+  uuid: 1d4e18bd-1f26-4915-b35a-7ace4826e76a
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 152.67.8.205
+  reality-opts:
+    public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
+  servername: www.apple.com
+  client-fingerprint: firefox
 - name: 🇮🇳 印度 (India) 13 - wangyu
   type: vmess
   server: 152.67.8.205
@@ -176,7 +173,7 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: ''
+      Host: 152.67.8.205
 proxy-groups:
 - name: PROXIES
   type: select
