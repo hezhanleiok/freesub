@@ -34,6 +34,22 @@ proxies:
     path: /KualaLumpur1
     headers:
       Host: my.lovehk.xyz
+- name: 🇲🇾 MY 03 - wangyu
+  type: vmess
+  server: 104.21.23.80
+  port: 443
+  uuid: f5f0babe-aea2-4f07-a1fc-3c9820253f49
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: my.lovehk.xyz
+  network: ws
+  ws-opts:
+    path: /KualaLumpur1
+    headers:
+      Host: my.lovehk.xyz
 proxy-groups:
 - name: PROXIES
   type: select
@@ -41,6 +57,7 @@ proxy-groups:
   - AUTO
   - 🇲🇾 MY 01 - wangyu
   - 🇲🇾 MY 02 - wangyu
+  - 🇲🇾 MY 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -48,5 +65,6 @@ proxy-groups:
   proxies:
   - 🇲🇾 MY 01 - wangyu
   - 🇲🇾 MY 02 - wangyu
+  - 🇲🇾 MY 03 - wangyu
 rules:
 - MATCH,PROXIES

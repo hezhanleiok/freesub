@@ -6,7 +6,7 @@ log-level: info
 proxies:
 - name: 🇱🇰 LK 01 - wangyu
   type: vless
-  server: free.sahanwickramasinghe.me
+  server: centurylink.es
   port: 8443
   uuid: c136a12c-4260-48a7-a1e6-fbda83a11045
   udp: true
@@ -20,7 +20,7 @@ proxies:
       Host: free.sahanwickramasinghe.me
 - name: 🇱🇰 LK 02 - wangyu
   type: vless
-  server: free.sahanwickramasinghe.me
+  server: support.zoom.us
   port: 80
   uuid: fcdb24e3-5e66-4c45-b89e-ac9441f4dcda
   udp: true
@@ -46,7 +46,7 @@ proxies:
       Host: free.sahanwickramasinghe.me
 - name: 🇱🇰 LK 04 - wangyu
   type: vless
-  server: free.sahanwickramasinghe.me
+  server: support.zoom.us
   port: 80
   uuid: fcdb24e3-5e66-4c45-b89e-ac9441f4dcda
   udp: true
@@ -59,7 +59,7 @@ proxies:
       Host: free.sahanwickramasinghe.me
 - name: 🇱🇰 LK 05 - wangyu
   type: vless
-  server: support.zoom.us
+  server: free.sahanwickramasinghe.me
   port: 80
   uuid: fcdb24e3-5e66-4c45-b89e-ac9441f4dcda
   udp: true
@@ -72,7 +72,7 @@ proxies:
       Host: free.sahanwickramasinghe.me
 - name: 🇱🇰 LK 06 - wangyu
   type: vless
-  server: support.zoom.us
+  server: free.sahanwickramasinghe.me
   port: 80
   uuid: fcdb24e3-5e66-4c45-b89e-ac9441f4dcda
   udp: true
@@ -97,6 +97,33 @@ proxies:
     path: /
     headers:
       Host: free.sahanwickramasinghe.me
+- name: 🇱🇰 LK 08 - wangyu
+  type: vless
+  server: centurylink.es
+  port: 8443
+  uuid: c136a12c-4260-48a7-a1e6-fbda83a11045
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: free.sahanwickramasinghe.me
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: free.sahanwickramasinghe.me
+- name: 🇱🇰 LK 09 - wangyu
+  type: vless
+  server: free.sahanwickramasinghe.me
+  port: 80
+  uuid: fcdb24e3-5e66-4c45-b89e-ac9441f4dcda
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: free.sahanwickramasinghe.me
 proxy-groups:
 - name: PROXIES
   type: select
@@ -109,6 +136,8 @@ proxy-groups:
   - 🇱🇰 LK 05 - wangyu
   - 🇱🇰 LK 06 - wangyu
   - 🇱🇰 LK 07 - wangyu
+  - 🇱🇰 LK 08 - wangyu
+  - 🇱🇰 LK 09 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -121,5 +150,7 @@ proxy-groups:
   - 🇱🇰 LK 05 - wangyu
   - 🇱🇰 LK 06 - wangyu
   - 🇱🇰 LK 07 - wangyu
+  - 🇱🇰 LK 08 - wangyu
+  - 🇱🇰 LK 09 - wangyu
 rules:
 - MATCH,PROXIES
