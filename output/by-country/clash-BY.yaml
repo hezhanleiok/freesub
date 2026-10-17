@@ -6,19 +6,6 @@ log-level: info
 proxies:
 - name: 🇧🇾 白俄罗斯 (Belarus) 01 - xiaohe
   server: 178.172.227.228
-  port: 10444
-  udp: true
-  type: vless
-  uuid: b6e5dc56-836f-48c1-9163-b0b0b43b647d
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: 0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo
-    short-id: 8debcf36f1cc69ff
-  servername: ads.x5.ru
-  client-fingerprint: qq
-- name: 🇧🇾 白俄罗斯 (Belarus) 02 - xiaohe
-  server: 178.172.227.228
   port: 14430
   udp: true
   type: vless
@@ -28,41 +15,19 @@ proxies:
     path: /vless
     headers:
       Host: 178.172.227.228
-- name: 🇧🇾 白俄罗斯 (Belarus) 03 - xiaohe
-  server: 95.128.71.79
-  port: 14430
-  udp: true
-  type: vless
-  uuid: 8cef7621-c6f0-486e-b51d-59c30c5b0b25
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 95.128.71.79
-- name: 🇧🇾 白俄罗斯 (Belarus) 04 - xiaohe
-  server: 178.172.227.124
-  port: 14430
-  udp: true
-  type: vless
-  uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 178.172.227.124
-- name: 🇧🇾 白俄罗斯 (Belarus) 05 - xiaohe
-  server: 178.172.227.124
+- name: 🇧🇾 白俄罗斯 (Belarus) 02 - xiaohe
+  server: 178.172.227.228
   port: 10444
   udp: true
   type: vless
-  uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
+  uuid: b6e5dc56-836f-48c1-9163-b0b0b43b647d
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
     public-key: 0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo
     short-id: 8debcf36f1cc69ff
   servername: ads.x5.ru
-  client-fingerprint: safari
+  client-fingerprint: ios
 proxy-groups:
 - name: PROXIES
   type: select
@@ -70,9 +35,6 @@ proxy-groups:
   - AUTO
   - 🇧🇾 白俄罗斯 (Belarus) 01 - xiaohe
   - 🇧🇾 白俄罗斯 (Belarus) 02 - xiaohe
-  - 🇧🇾 白俄罗斯 (Belarus) 03 - xiaohe
-  - 🇧🇾 白俄罗斯 (Belarus) 04 - xiaohe
-  - 🇧🇾 白俄罗斯 (Belarus) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -80,8 +42,5 @@ proxy-groups:
   proxies:
   - 🇧🇾 白俄罗斯 (Belarus) 01 - xiaohe
   - 🇧🇾 白俄罗斯 (Belarus) 02 - xiaohe
-  - 🇧🇾 白俄罗斯 (Belarus) 03 - xiaohe
-  - 🇧🇾 白俄罗斯 (Belarus) 04 - xiaohe
-  - 🇧🇾 白俄罗斯 (Belarus) 05 - xiaohe
 rules:
 - MATCH,PROXIES

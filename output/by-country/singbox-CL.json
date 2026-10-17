@@ -4,8 +4,16 @@
   },
   "outbounds": [
     {
-      "type": "vless",
+      "type": "shadowsocks",
       "tag": "🇨🇱 智利 (Chile) 01 - xiaohe",
+      "server": "64.176.2.21",
+      "server_port": 8388,
+      "method": "aes-256-gcm",
+      "password": "xBStBEVqvGwHPocc"
+    },
+    {
+      "type": "vless",
+      "tag": "🇨🇱 智利 (Chile) 02 - xiaohe",
       "server": "43.174.193.1",
       "server_port": 443,
       "uuid": "d342d11e-d224-4463-b982-532309285094",
@@ -27,14 +35,16 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇨🇱 智利 (Chile) 01 - xiaohe"
+        "🇨🇱 智利 (Chile) 01 - xiaohe",
+        "🇨🇱 智利 (Chile) 02 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇨🇱 智利 (Chile) 01 - xiaohe"
+        "🇨🇱 智利 (Chile) 01 - xiaohe",
+        "🇨🇱 智利 (Chile) 02 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

@@ -5,6 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇸 西班牙 (Spain) 01 - xiaohe
+  server: 5.188.181.201
+  port: 9027
+  udp: true
+  type: ss
+  cipher: aes-256-cfb
+  password: EXN3S3eQpjE7EJu8
+- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
   server: 212.227.235.66
   port: 2053
   udp: true
@@ -16,14 +23,22 @@ proxies:
     short-id: 29e8dcd2b37aaa7f
   servername: www.apple.com
   client-fingerprint: firefox
-- name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
-  server: 5.188.181.201
-  port: 9025
-  udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: XPtzA9sCug3SPR4c
 - name: 🇪🇸 西班牙 (Spain) 03 - xiaohe
+  server: 31.57.190.89
+  port: 443
+  udp: true
+  type: vless
+  uuid: d342d11e-d224-4463-b982-532309285094
+  tls: true
+  servername: ccc.010304.xyz
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: ccc.010304.xyz
+- name: 🇪🇸 西班牙 (Spain) 04 - xiaohe
   server: 31.57.190.50
   port: 443
   udp: true
@@ -38,7 +53,7 @@ proxies:
     path: /
     headers:
       Host: ccc.010304.xyz
-- name: 🇪🇸 西班牙 (Spain) 04 - xiaohe
+- name: 🇪🇸 西班牙 (Spain) 05 - xiaohe
   server: 31.57.190.15
   port: 443
   udp: true
@@ -47,12 +62,13 @@ proxies:
   tls: true
   servername: ccc.010304.xyz
   skip-cert-verify: false
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /
+    path: /fp=chrome
     headers:
       Host: ccc.010304.xyz
-- name: 🇪🇸 西班牙 (Spain) 05 - xiaohe
+- name: 🇪🇸 西班牙 (Spain) 06 - xiaohe
   server: 46.28.71.247
   port: 443
   udp: true
@@ -65,34 +81,6 @@ proxies:
     short-id: 0dfc23fe80778c00
   servername: www.cloudflare.com
   client-fingerprint: firefox
-- name: 🇪🇸 西班牙 (Spain) 06 - xiaohe
-  server: 31.57.190.89
-  port: 443
-  udp: true
-  type: vless
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  servername: ccc.010304.xyz
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
-- name: 🇪🇸 西班牙 (Spain) 07 - xiaohe
-  server: 193.238.154.78
-  port: 443
-  udp: true
-  type: vless
-  uuid: 897d47f8-4dd5-42a1-bcd0-bef19caff55a
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: 4eE3K8Eac-ELze-LwRyJolqmhPqgCVqwQM1DKu6i0Ts
-    short-id: e93d46ee3735069e
-  servername: gateway.icloud.com
-  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -104,7 +92,6 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 04 - xiaohe
   - 🇪🇸 西班牙 (Spain) 05 - xiaohe
   - 🇪🇸 西班牙 (Spain) 06 - xiaohe
-  - 🇪🇸 西班牙 (Spain) 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -116,6 +103,5 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 04 - xiaohe
   - 🇪🇸 西班牙 (Spain) 05 - xiaohe
   - 🇪🇸 西班牙 (Spain) 06 - xiaohe
-  - 🇪🇸 西班牙 (Spain) 07 - xiaohe
 rules:
 - MATCH,PROXIES

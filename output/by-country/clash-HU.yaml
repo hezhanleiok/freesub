@@ -5,32 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇭🇺 匈牙利 (Hungary) 01 - xiaohe
-  server: 85.155.242.38
-  port: 443
-  udp: true
-  type: vless
-  uuid: 6338c01a-310e-42c3-bf4f-2a20e161054b
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: mPzNFHO4pZMzFviRkIhRd7xDUz4dMHyI-flZLOrgDVg
-    short-id: f8379ce795f2e5ed
-  servername: hu1.aiage.work
-  client-fingerprint: chrome
-- name: 🇭🇺 匈牙利 (Hungary) 02 - xiaohe
-  server: 79.139.59.46
-  port: 443
-  udp: true
-  type: vless
-  uuid: 6338c01a-310e-42c3-bf4f-2a20e161054b
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: mPzNFHO4pZMzFviRkIhRd7xDUz4dMHyI-flZLOrgDVg
-    short-id: f8379ce795f2e5ed
-  servername: hu1.aiage.work
-  client-fingerprint: firefox
-- name: 🇭🇺 匈牙利 (Hungary) 03 - xiaohe
   server: 85.155.242.37
   port: 443
   udp: true
@@ -43,8 +17,21 @@ proxies:
     short-id: f8379ce795f2e5ed
   servername: hu1.aiage.work
   client-fingerprint: chrome
-- name: 🇭🇺 匈牙利 (Hungary) 04 - xiaohe
-  server: 85.155.242.39
+- name: 🇭🇺 匈牙利 (Hungary) 02 - xiaohe
+  server: 85.155.242.38
+  port: 443
+  udp: true
+  type: vless
+  uuid: 6338c01a-310e-42c3-bf4f-2a20e161054b
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: mPzNFHO4pZMzFviRkIhRd7xDUz4dMHyI-flZLOrgDVg
+    short-id: f8379ce795f2e5ed
+  servername: hu1.aiage.work
+  client-fingerprint: chrome
+- name: 🇭🇺 匈牙利 (Hungary) 03 - xiaohe
+  server: hu1.aiage.work
   port: 443
   udp: true
   type: vless
@@ -64,7 +51,6 @@ proxy-groups:
   - 🇭🇺 匈牙利 (Hungary) 01 - xiaohe
   - 🇭🇺 匈牙利 (Hungary) 02 - xiaohe
   - 🇭🇺 匈牙利 (Hungary) 03 - xiaohe
-  - 🇭🇺 匈牙利 (Hungary) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -73,6 +59,5 @@ proxy-groups:
   - 🇭🇺 匈牙利 (Hungary) 01 - xiaohe
   - 🇭🇺 匈牙利 (Hungary) 02 - xiaohe
   - 🇭🇺 匈牙利 (Hungary) 03 - xiaohe
-  - 🇭🇺 匈牙利 (Hungary) 04 - xiaohe
 rules:
 - MATCH,PROXIES

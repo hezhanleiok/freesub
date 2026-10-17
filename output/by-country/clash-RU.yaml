@@ -19,40 +19,28 @@ proxies:
   grpc-opts:
     grpc-service-name: GunService
 - name: 🇷🇺 俄罗斯 (Russia) 02 - xiaohe
-  server: 194.58.102.227
-  port: 52586
+  server: 193.233.74.6
+  port: 8444
+  udp: true
+  type: vless
+  uuid: f55e9aba-7b14-4f6f-b59a-d5b3d45c9309
+  tls: true
+  reality-opts:
+    public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
+    short-id: 457fab2ac885dbe0
+  servername: github.com
+  client-fingerprint: ios
+  network: grpc
+  grpc-opts:
+    grpc-service-name: GunService
+- name: 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
+  server: 176.32.32.108
+  port: 18443
   udp: true
   type: ss
   cipher: aes-256-gcm
-  password: doqqp95nknt0pny7
-- name: 🇷🇺 俄罗斯 (Russia) 03 - xiaohe
-  server: 194.38.11.86
-  port: 65443
-  udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: 7eadc6dbe2ae
+  password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
 - name: 🇷🇺 俄罗斯 (Russia) 04 - xiaohe
-  server: 104.171.133.209
-  port: 443
-  udp: true
-  type: vless
-  uuid: ebd1c0d6-7ff4-4b9f-8692-237517a27a64
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: mza5Hn1aolSz65qu-UwvBP3oesxMe25r11o4nxvikF0
-    short-id: 64c1fe36c7846400
-  servername: anyfile2file.com
-  client-fingerprint: chrome
-- name: 🇷🇺 俄罗斯 (Russia) 05 - xiaohe
-  server: 130.49.189.158
-  port: 43558
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: j3PKOCj7wHl5Pk6thI9HyXtCa6JU180IlBpWANgFjkY=
-- name: 🇷🇺 俄罗斯 (Russia) 06 - xiaohe
   server: tgfree.rush-server.com
   port: 443
   udp: true
@@ -65,14 +53,27 @@ proxies:
     short-id: 64c1fe36c7846400
   servername: anyfile2file.com
   client-fingerprint: ios
-- name: 🇷🇺 俄罗斯 (Russia) 07 - xiaohe
-  server: 194.87.196.107
-  port: 18443
+- name: 🇷🇺 俄罗斯 (Russia) 05 - xiaohe
+  server: 130.49.189.158
+  port: 43558
   udp: true
   type: ss
-  cipher: aes-256-gcm
-  password: Lpq5UPVHtQYiuB9jEUNc2WkeIYCUH9DE
-- name: 🇷🇺 俄罗斯 (Russia) 08 - xiaohe
+  cipher: chacha20-ietf-poly1305
+  password: j3PKOCj7wHl5Pk6thI9HyXtCa6JU180IlBpWANgFjkY=
+- name: 🇷🇺 俄罗斯 (Russia) 06 - xiaohe
+  server: m-vruvc.mvpstr.com
+  port: 443
+  udp: true
+  type: vless
+  uuid: 7c86240f-ac0c-4cfe-87c8-fa0dd69b2d25
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: ZtAlhN1pU4MTmv4KaX9J_5_8KWnwy9IOnc-BLzIf234
+    short-id: 11ac376e18d20343
+  servername: m-vruvc.mvpstr.com
+  client-fingerprint: chrome
+- name: 🇷🇺 俄罗斯 (Russia) 07 - xiaohe
   server: 72.56.241.230
   port: 443
   udp: true
@@ -87,23 +88,22 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: api.v1.StreamService
-- name: 🇷🇺 俄罗斯 (Russia) 09 - xiaohe
-  server: 194.87.118.184
-  port: 2053
+- name: 🇷🇺 俄罗斯 (Russia) 08 - xiaohe
+  server: 194.87.143.165
+  port: 8443
   udp: true
-  type: hysteria2
-  password: 7ab3c77e-8fcc-4848-918f-cae3d4eac794
-  sni: 194.87.118.184
-  skip-cert-verify: true
-- name: 🇷🇺 俄罗斯 (Russia) 10 - xiaohe
-  server: 194.87.118.184
-  port: 2053
-  udp: true
-  type: hysteria2
-  password: 7ab3c77e-8fcc-4848-918f-cae3d4eac794
-  sni: match-stream.lovkisport.blog
+  type: vless
+  uuid: f9613819-d2fe-4b3a-a2e6-40c184c6854c
+  tls: true
+  servername: wsru1.wba-pn.ru
   skip-cert-verify: false
-- name: 🇷🇺 俄罗斯 (Russia) 11 - xiaohe
+  client-fingerprint: random
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 194.87.143.165
+- name: 🇷🇺 俄罗斯 (Russia) 09 - xiaohe
   server: 153.80.241.206
   port: 8444
   udp: true
@@ -113,11 +113,34 @@ proxies:
   reality-opts:
     public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
   servername: github.com
-  client-fingerprint: chrome
+  client-fingerprint: ios
   network: grpc
   grpc-opts:
     grpc-service-name: GunService
+- name: 🇷🇺 俄罗斯 (Russia) 10 - xiaohe
+  server: 194.38.11.86
+  port: 65443
+  udp: true
+  type: ss
+  cipher: aes-256-cfb
+  password: 7eadc6dbe2ae
+- name: 🇷🇺 俄罗斯 (Russia) 11 - xiaohe
+  server: 194.87.118.184
+  port: 2053
+  udp: true
+  type: hysteria2
+  password: 7ab3c77e-8fcc-4848-918f-cae3d4eac794
+  sni: 194.87.118.184
+  skip-cert-verify: true
 - name: 🇷🇺 俄罗斯 (Russia) 12 - xiaohe
+  server: outh.yandex-cloud.org
+  port: 54183
+  udp: true
+  type: hysteria2
+  password: 082f5694-9019-4110-b67b-8125dbb9bab8
+  sni: outh.yandex-cloud.org
+  skip-cert-verify: false
+- name: 🇷🇺 俄罗斯 (Russia) 13 - xiaohe
   server: 5.42.99.64
   port: 8443
   udp: true
@@ -130,29 +153,7 @@ proxies:
     short-id: 3cbc3d737fb9c4af
   servername: du-rov.secureservice.top
   client-fingerprint: random
-- name: 🇷🇺 俄罗斯 (Russia) 13 - xiaohe
-  server: 176.32.32.108
-  port: 18443
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
 - name: 🇷🇺 俄罗斯 (Russia) 14 - xiaohe
-  server: 193.233.74.6
-  port: 8444
-  udp: true
-  type: vless
-  uuid: f55e9aba-7b14-4f6f-b59a-d5b3d45c9309
-  tls: true
-  reality-opts:
-    public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
-    short-id: 457fab2ac885dbe0
-  servername: github.com
-  client-fingerprint: firefox
-  network: grpc
-  grpc-opts:
-    grpc-service-name: GunService
-- name: 🇷🇺 俄罗斯 (Russia) 15 - xiaohe
   server: 139.28.168.75
   port: 10444
   udp: true
@@ -164,18 +165,32 @@ proxies:
     public-key: 0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo
     short-id: 8debcf36f1cc69ff
   servername: video.yandex.ru
-  client-fingerprint: safari
-- name: 🇷🇺 俄罗斯 (Russia) 16 - xiaohe
-  server: 45.12.75.242
-  port: 26424
+  client-fingerprint: chrome
+- name: 🇷🇺 俄罗斯 (Russia) 15 - xiaohe
+  server: du-rov.secureservice.top
+  port: 8443
   udp: true
   type: vless
-  uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+  uuid: c53ea5e9-ed8b-4990-805d-7f1d6451426c
+  flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
-    short-id: 23103e1e
-  servername: ya.ru
+    public-key: fSVfR9NB-6J6smrZlavi0GWd8JfDh0aXuEkKbtuFzUI
+    short-id: 3cbc3d737fb9c4af
+  servername: du-rov.secureservice.top
+  client-fingerprint: chrome
+- name: 🇷🇺 俄罗斯 (Russia) 16 - xiaohe
+  server: 104.171.133.209
+  port: 443
+  udp: true
+  type: vless
+  uuid: ebd1c0d6-7ff4-4b9f-8692-237517a27a64
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: mza5Hn1aolSz65qu-UwvBP3oesxMe25r11o4nxvikF0
+    short-id: 64c1fe36c7846400
+  servername: anyfile2file.com
   client-fingerprint: chrome
 - name: 🇷🇺 俄罗斯 (Russia) 17 - xiaohe
   server: aelix-al.safire-soleiman.ir
@@ -188,6 +203,32 @@ proxies:
     public-key: lQbgwNDYw6Zbjdim0JtXUarzb-3GSjDvtX6FJYZD9Qo
   servername: play.google.com
   client-fingerprint: qq
+- name: 🇷🇺 俄罗斯 (Russia) 18 - xiaohe
+  server: freede.aiage.work
+  port: 443
+  udp: true
+  type: vless
+  uuid: 6338c01a-310e-42c3-bf4f-2a20e161054b
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: A_bQLZE6D32TJUdAf9doQTPaTUXyJjPXLSklplG4V1g
+    short-id: 5f5e74dfd296b28d
+  servername: freede.aiage.work
+  client-fingerprint: firefox
+- name: 🇷🇺 俄罗斯 (Russia) 19 - xiaohe
+  server: entry6.chick-chirik.com
+  port: 443
+  udp: true
+  type: vless
+  uuid: dd045fba-0257-4643-be29-4325450ef186
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: aFbCyrLOre-V3ORpBjqenGfDt62Ng_i1sSq-DmZHVgc
+    short-id: 89e0494514ec
+  servername: www.oracle.com
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -210,6 +251,8 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 15 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 16 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 17 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 18 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 19 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -232,5 +275,7 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 15 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 16 - xiaohe
   - 🇷🇺 俄罗斯 (Russia) 17 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 18 - xiaohe
+  - 🇷🇺 俄罗斯 (Russia) 19 - xiaohe
 rules:
 - MATCH,PROXIES

@@ -18,6 +18,13 @@ proxies:
   servername: www.apple.com
   client-fingerprint: chrome
 - name: 🇮🇱 以色列 (Israel) 02 - xiaohe
+  server: 31.57.185.22
+  port: 16242
+  udp: true
+  type: ss
+  cipher: 2022-blake3-aes-256-gcm
+  password: im7wQea8A7n+DI+q0O0ZDYpUPNcEnYK6LpOD6gj20NQ=:qnSPecKzN183ZW5eUPioqt0pRlUpg7DYcko33VhhUm4=
+- name: 🇮🇱 以色列 (Israel) 03 - xiaohe
   server: 185.253.75.119
   port: 443
   udp: true
@@ -26,20 +33,11 @@ proxies:
   tls: true
   servername: ccc.010304.xyz
   skip-cert-verify: false
-  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /
+    path: /fp=chrome
     headers:
       Host: ccc.010304.xyz
-- name: 🇮🇱 以色列 (Israel) 03 - xiaohe
-  server: 129.159.156.109
-  port: 50160
-  udp: true
-  type: hysteria2
-  password: f25f19f29ce3fb53a35bf1b35b452a43
-  sni: www.bing.com
-  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
