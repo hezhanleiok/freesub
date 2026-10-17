@@ -5,6 +5,20 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - wangyu
+  type: ss
+  server: 194.58.102.227
+  port: 52586
+  cipher: aes-256-gcm
+  password: doqqp95nknt0pny7
+  udp: true
+- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  type: ss
+  server: 176.32.32.108
+  port: 18443
+  cipher: aes-256-gcm
+  password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
+  udp: true
+- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   type: vless
   server: 185.141.227.223
   port: 443
@@ -18,54 +32,7 @@ proxies:
     path: /useraction/events/b892639b7195/
     headers:
       Host: z1q3pv4g78.rucdncomp.pro
-- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
-  type: ss
-  server: 38.60.223.254
-  port: 10881
-  cipher: aes-128-gcm
-  password: 663b3405bf0662d0105907f4ceceb9f6
-  udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
-  type: ss
-  server: 194.87.196.107
-  port: 18443
-  cipher: aes-256-gcm
-  password: Lpq5UPVHtQYiuB9jEUNc2WkeIYCUH9DE
-  udp: true
 - name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
-  type: vless
-  server: 185.141.227.223
-  port: 443
-  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: z1q3pv4g78.rucdncomp.pro
-  network: ws
-  ws-opts:
-    path: /useraction/events/b892639b7195/
-    headers:
-      Host: z1q3pv4g78.rucdncomp.pro
-- name: 🇷🇺 俄罗斯 (Russia) 05 - wangyu
-  type: vless
-  server: aelix-al.safire-soleiman.ir
-  port: 6311
-  uuid: 2ffa91fe-e1cc-4c44-a90a-45002feae978
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: lQbgwNDYw6Zbjdim0JtXUarzb-3GSjDvtX6FJYZD9Qo
-  servername: play.google.com
-  client-fingerprint: qq
-- name: 🇷🇺 俄罗斯 (Russia) 06 - wangyu
-  type: ss
-  server: 176.32.32.108
-  port: 18443
-  cipher: aes-256-gcm
-  password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
-  udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 07 - wangyu
   type: ss
   server: 194.87.196.107
   port: 18443
@@ -81,9 +48,6 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 06 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -93,8 +57,5 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 06 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 07 - wangyu
 rules:
 - MATCH,PROXIES
