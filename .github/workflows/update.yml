@@ -58,12 +58,16 @@ jobs:
         if: success()
         run: |
           REPO="${GITHUB_REPOSITORY}"
-          p() { curl -s -o /dev/null "https://purge.jsdelivr.net/gh/${REPO}@main/$1" || true; }
+          BRANCH="${GITHUB_REF_NAME}"
+          p() { curl -s -o /dev/null "https://purge.jsdelivr.net/gh/${REPO}@${BRANCH}/$1" || true; }
           p README.md
-          for f in v2ray.txt clash.yaml singbox.json residential.txt residential-clash.yaml residential-singbox.json; do
+          for f in v2ray.txt clash.yaml singbox.json \
+                   residential.txt residential-clash.yaml residential-singbox.json \
+                   direct.txt direct-clash.yaml direct-singbox.json \
+                   with-front.txt with-front-clash.yaml with-front-singbox.json; do
             p "output/$f"
           done
           find output/residential-by-country output/by-country -type f 2>/dev/null | while read -r f; do
             p "$f"; sleep 0.2
           done
-          echo "[+] jsDelivr CDN purge done (after push)"
+          echo "[+] jsDelivr CDN purge done (branch=${BRANCH}, after push)"
