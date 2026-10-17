@@ -5,26 +5,17 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
-  server: 206.1.99.116
-  port: 1080
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: CM-_ISRcHPz4cetu7grgSEv0VpT5MTRE
-- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  server: 78.135.73.47
+  server: 139.28.240.24
   port: 443
   udp: true
-  type: vless
-  uuid: 25e16692-d097-4e69-9e2d-8415609c1968
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: sZAJkAu23wp1WKY-qeaeiwR38izP5OyfhumoE9xhbB8
-    short-id: f46cd3ea3d1eb72d
-  servername: www.datadoghq.com
-  client-fingerprint: chrome
-- name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
+  type: trojan
+  password: humanity
+  sni: www.pleadcourt.org
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /assignment
+- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
   server: 151.241.226.201
   port: 2053
   udp: true
@@ -36,13 +27,21 @@ proxies:
     short-id: 9e419c0759b54d6f
   servername: www.apple.com
   client-fingerprint: firefox
-- name: 🇹🇷 土耳其 (Turkey) 04 (移动家宽) - xiaohe
-  server: test.keoplentuio.xyz
-  port: 2053
+- name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
+  server: 62.60.233.157
+  port: 8444
   udp: true
   type: vless
-  uuid: 9ef61079-6f7d-4911-9608-943da85d8e6f
-- name: 🇹🇷 土耳其 (Turkey) 05 - xiaohe
+  uuid: f55e9aba-7b14-4f6f-b59a-d5b3d45c9309
+  tls: true
+  reality-opts:
+    public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
+  servername: github.com
+  client-fingerprint: firefox
+  network: grpc
+  grpc-opts:
+    grpc-service-name: GunService
+- name: 🇹🇷 土耳其 (Turkey) 04 - xiaohe
   server: 85.192.48.142
   port: 443
   udp: true
@@ -55,8 +54,15 @@ proxies:
     short-id: db04ce8bdb8900f1
   servername: nvidia.com
   client-fingerprint: ''
+- name: 🇹🇷 土耳其 (Turkey) 05 - xiaohe
+  server: 206.1.99.116
+  port: 1080
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: CM-_ISRcHPz4cetu7grgSEv0VpT5MTRE
 - name: 🇹🇷 土耳其 (Turkey) 06 - xiaohe
-  server: nimm.mpd.cc.cd
+  server: 104.21.48.18
   port: 2053
   udp: true
   type: trojan
@@ -79,14 +85,6 @@ proxies:
     short-id: 89e0494514ec
   servername: www.oracle.com
   client-fingerprint: firefox
-- name: 🇹🇷 土耳其 (Turkey) 08 - xiaohe
-  server: 153.52.92.39
-  port: 2095
-  udp: true
-  type: vmess
-  uuid: a515723a-6055-4800-8948-e0940f9f76c8
-  alterId: 0
-  cipher: auto
 proxy-groups:
 - name: PROXIES
   type: select
@@ -95,11 +93,10 @@ proxy-groups:
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 04 (移动家宽) - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 04 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 05 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 06 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 07 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 08 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -108,10 +105,9 @@ proxy-groups:
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 04 (移动家宽) - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 04 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 05 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 06 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 07 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 08 - xiaohe
 rules:
 - MATCH,PROXIES

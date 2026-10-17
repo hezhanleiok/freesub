@@ -6,41 +6,19 @@ log-level: info
 proxies:
 - name: 🇰🇷 韩国 (South Korea) 01 - xiaohe
   server: 141.164.45.187
-  port: 6697
+  port: 5001
   udp: true
   type: ss
   cipher: aes-256-gcm
-  password: TEzjfAYq2IjtuoS
+  password: Y6R9pAtvxxzmGC
 - name: 🇰🇷 韩国 (South Korea) 02 - xiaohe
-  server: 218.237.185.234
-  port: 4652
+  server: 141.164.45.187
+  port: 9101
   udp: true
   type: ss
-  cipher: aes-256-cfb
-  password: qwerREWQ@@
+  cipher: aes-256-gcm
+  password: e4FCWrgpkji3QY
 - name: 🇰🇷 韩国 (South Korea) 03 - xiaohe
-  server: 141.164.45.187
-  port: 8008
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: XKFKl2rULjIp74
-- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
-  server: 152.70.237.123
-  port: 2053
-  udp: true
-  type: hysteria2
-  password: maintell
-  sni: 152.70.237.123
-  skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
-  server: 141.164.45.187
-  port: 2376
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: faBAoD54k87UJG7
-- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
   server: 132.145.80.230
   port: 80
   udp: true
@@ -51,46 +29,53 @@ proxies:
   network: ws
   ws-opts:
     path: /cctv13.m3u8
-    headers:
-      Host: kr02.a0a.xyz
-- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 04 - xiaohe
   server: 132.226.226.189
   port: 50160
   udp: true
   type: hysteria2
   password: 1671a252e2a97dc2bda4e515475931da
-  sni: www.bing.com
+  sni: 132.226.226.189
   skip-cert-verify: true
+- name: 🇰🇷 韩国 (South Korea) 05 - xiaohe
+  server: 152.70.237.123
+  port: 2053
+  udp: true
+  type: hysteria2
+  password: maintell
+  sni: bing.com
+  skip-cert-verify: true
+- name: 🇰🇷 韩国 (South Korea) 06 - xiaohe
+  server: 141.164.45.187
+  port: 5498
+  udp: true
+  type: ss
+  cipher: aes-256-gcm
+  password: lGqs95QkFHo2NV
+- name: 🇰🇷 韩国 (South Korea) 07 - xiaohe
+  server: 13.125.94.114
+  port: 8443
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 7e68e32f-8015-4f37-9082-70e8b0b58043
 - name: 🇰🇷 韩国 (South Korea) 08 - xiaohe
-  server: 141.164.45.187
-  port: 9101
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: e4FCWrgpkji3QY
-- name: 🇰🇷 韩国 (South Korea) 09 - xiaohe
-  server: 141.164.45.187
-  port: 8888
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
-- name: 🇰🇷 韩国 (South Korea) 10 - xiaohe
-  server: 141.164.45.187
-  port: 6679
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: TEzjfAYq2IjtuoS
-- name: 🇰🇷 韩国 (South Korea) 11 - xiaohe
   server: 152.67.200.82
   port: 50160
   udp: true
   type: hysteria2
   password: 3d7634af8cb2c6cb4bac1c0efad8b43d
-  sni: t.me
+  sni: google.com
   skip-cert-verify: true
-- name: 🇰🇷 韩国 (South Korea) 12 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 09 - xiaohe
+  server: 152.69.231.175
+  port: 50160
+  udp: true
+  type: hysteria2
+  password: 1beb216e3f60aea9555dae60d219a5ca
+  sni: 152-69-231-175.liao.kdns.fr
+  skip-cert-verify: false
+- name: 🇰🇷 韩国 (South Korea) 10 - xiaohe
   server: 64.176.231.183
   port: 443
   udp: true
@@ -103,19 +88,34 @@ proxies:
     short-id: ca193e889d958f81
   servername: www.apple.com
   client-fingerprint: chrome
-- name: 🇰🇷 韩国 (South Korea) 13 - xiaohe
-  server: 3.39.4.109
-  port: 13672
+- name: 🇰🇷 韩国 (South Korea) 11 - xiaohe
+  server: pure-kodiak.rooster465.autos
+  port: 443
+  udp: true
+  type: trojan
+  password: UX82473651
+  sni: pure-kodiak.rooster465.autos
+  skip-cert-verify: true
+- name: 🇰🇷 韩国 (South Korea) 12 - xiaohe
+  server: 151.245.106.49
+  port: 2053
   udp: true
   type: vless
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
-  flow: xtls-rprx-vision
+  uuid: a2de9567-9646-45a9-a410-7303a43bdb6c
   tls: true
   reality-opts:
-    public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
-    short-id: 48050fab
-  servername: www.apple.com
-  client-fingerprint: chrome
+    public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
+    short-id: 429499c03d4cc8a0
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
+- name: 🇰🇷 韩国 (South Korea) 13 - xiaohe
+  server: 154.90.62.70
+  port: 56127
+  udp: true
+  type: trojan
+  password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
+  sni: 154.90.62.70
+  skip-cert-verify: true
 - name: 🇰🇷 韩国 (South Korea) 14 - xiaohe
   server: 3.39.4.109
   port: 18967
@@ -130,30 +130,27 @@ proxies:
   servername: www.apple.com
   client-fingerprint: chrome
 - name: 🇰🇷 韩国 (South Korea) 15 - xiaohe
-  server: 3.34.131.153
+  server: main-fawn.rooster465.autos
   port: 443
   udp: true
   type: trojan
   password: UX82473651
-  sni: pretty-rat.rooster465.autos
+  sni: main-fawn.rooster465.autos
   skip-cert-verify: false
 - name: 🇰🇷 韩国 (South Korea) 16 - xiaohe
-  server: 154.90.62.70
-  port: 56127
+  server: 3.39.4.109
+  port: 13672
   udp: true
-  type: trojan
-  password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
-  sni: 154.90.62.70
-  skip-cert-verify: true
+  type: vless
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
+    short-id: 48050fab
+  servername: www.apple.com
+  client-fingerprint: chrome
 - name: 🇰🇷 韩国 (South Korea) 17 - xiaohe
-  server: 152.69.231.175
-  port: 50160
-  udp: true
-  type: hysteria2
-  password: 1beb216e3f60aea9555dae60d219a5ca
-  sni: 152-69-231-175.liao.kdns.fr
-  skip-cert-verify: false
-- name: 🇰🇷 韩国 (South Korea) 18 - xiaohe
   server: central-jawfish.rooster465.autos
   port: 443
   udp: true
@@ -161,15 +158,15 @@ proxies:
   password: UX82473651
   sni: central-jawfish.rooster465.autos
   skip-cert-verify: false
-- name: 🇰🇷 韩国 (South Korea) 19 - xiaohe
-  server: 43.201.100.203
+- name: 🇰🇷 韩国 (South Korea) 18 - xiaohe
+  server: 3.35.168.225
   port: 443
   udp: true
   type: trojan
   password: UX82473651
-  sni: optimum-snapper.rooster465.autos
+  sni: noted-cougar.rooster465.autos
   skip-cert-verify: false
-- name: 🇰🇷 韩国 (South Korea) 20 - xiaohe
+- name: 🇰🇷 韩国 (South Korea) 19 - xiaohe
   server: 13.125.94.114
   port: 443
   udp: true
@@ -182,21 +179,28 @@ proxies:
     short-id: e04a526b0b09c765
   servername: lmate.net
   client-fingerprint: chrome
+- name: 🇰🇷 韩国 (South Korea) 20 - xiaohe
+  server: 3.34.131.153
+  port: 443
+  udp: true
+  type: trojan
+  password: UX82473651
+  sni: pretty-rat.rooster465.autos
+  skip-cert-verify: false
 - name: 🇰🇷 韩国 (South Korea) 21 - xiaohe
-  server: 3.35.168.225
-  port: 443
+  server: 141.164.45.187
+  port: 6697
   udp: true
-  type: trojan
-  password: UX82473651
-  sni: noted-cougar.rooster465.autos
-  skip-cert-verify: true
+  type: ss
+  cipher: aes-256-gcm
+  password: TEzjfAYq2IjtuoS
 - name: 🇰🇷 韩国 (South Korea) 22 - xiaohe
-  server: main-fawn.rooster465.autos
+  server: optimum-snapper.rooster465.autos
   port: 443
   udp: true
   type: trojan
   password: UX82473651
-  sni: main-fawn.rooster465.autos
+  sni: optimum-snapper.rooster465.autos
   skip-cert-verify: false
 - name: 🇰🇷 韩国 (South Korea) 23 - xiaohe
   server: 140.238.2.250
@@ -207,6 +211,13 @@ proxies:
   alterId: 0
   cipher: auto
 - name: 🇰🇷 韩国 (South Korea) 24 - xiaohe
+  server: 141.164.45.187
+  port: 2376
+  udp: true
+  type: ss
+  cipher: aes-256-gcm
+  password: faBAoD54k87UJG7
+- name: 🇰🇷 韩国 (South Korea) 25 - xiaohe
   server: jp4.998998.best
   port: 443
   udp: true
@@ -222,47 +233,45 @@ proxies:
     path: /vvvvvvvvv
     headers:
       Host: nat12.9966338.xyz
-- name: 🇰🇷 韩国 (South Korea) 25 - xiaohe
-  server: 3.36.50.213
-  port: 443
-  udp: true
-  type: trojan
-  password: UX82473651
-  sni: pure-kodiak.rooster465.autos
-  skip-cert-verify: false
 - name: 🇰🇷 韩国 (South Korea) 26 - xiaohe
-  server: 151.245.106.49
-  port: 2053
-  udp: true
-  type: vless
-  uuid: a2de9567-9646-45a9-a410-7303a43bdb6c
-  tls: true
-  reality-opts:
-    public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
-    short-id: 429499c03d4cc8a0
-  servername: www.cloudflare.com
-  client-fingerprint: random
-- name: 🇰🇷 韩国 (South Korea) 27 - xiaohe
   server: 141.164.45.187
   port: 8119
   udp: true
   type: ss
   cipher: aes-256-gcm
   password: cdBIDV42DCwnfIN
+- name: 🇰🇷 韩国 (South Korea) 27 - xiaohe
+  server: 183.109.131.75
+  port: 20086
+  udp: true
+  type: vmess
+  uuid: b26c4803-0bca-467c-a245-c9a80bdd72ec
+  alterId: 0
+  cipher: auto
+  network: ws
+  ws-opts:
+    path: /
 - name: 🇰🇷 韩国 (South Korea) 28 - xiaohe
-  server: 141.164.45.187
-  port: 7002
+  server: 211.174.113.172
+  port: 49642
   udp: true
   type: ss
   cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
+  password: ac9c0a7b
 - name: 🇰🇷 韩国 (South Korea) 29 - xiaohe
   server: 141.164.45.187
-  port: 9090
+  port: 8091
   udp: true
   type: ss
   cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
+  password: PCnnH6SQSnfoS27
+- name: 🇰🇷 韩国 (South Korea) 30 - xiaohe
+  server: 141.164.45.187
+  port: 8000
+  udp: true
+  type: ss
+  cipher: aes-256-gcm
+  password: KixLvKzwjekG00rm
 proxy-groups:
 - name: PROXIES
   type: select
@@ -297,6 +306,7 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 27 - xiaohe
   - 🇰🇷 韩国 (South Korea) 28 - xiaohe
   - 🇰🇷 韩国 (South Korea) 29 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 30 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -331,5 +341,6 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 27 - xiaohe
   - 🇰🇷 韩国 (South Korea) 28 - xiaohe
   - 🇰🇷 韩国 (South Korea) 29 - xiaohe
+  - 🇰🇷 韩国 (South Korea) 30 - xiaohe
 rules:
 - MATCH,PROXIES

@@ -5,17 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
-  server: 166.88.35.245
-  port: 80
-  udp: true
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  network: ws
-  ws-opts:
-    path: /platform117
-    headers:
-      Host: platform117.halalkhor.info
-- name: 🇲🇾 马来西亚 (Malaysia) 02 - xiaohe
   server: 104.21.23.80
   port: 443
   udp: true
@@ -31,6 +20,17 @@ proxies:
     path: /KualaLumpur1
     headers:
       Host: my.lovehk.xyz
+- name: 🇲🇾 马来西亚 (Malaysia) 02 - xiaohe
+  server: 166.88.35.245
+  port: 80
+  udp: true
+  type: vless
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  network: ws
+  ws-opts:
+    path: /platform117
+    headers:
+      Host: platform117.halalkhor.info
 proxy-groups:
 - name: PROXIES
   type: select

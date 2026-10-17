@@ -18,19 +18,6 @@ proxies:
   servername: gateway.icloud.com
   client-fingerprint: chrome
 - name: 🇨🇿 捷克 (Czech) 02 - xiaohe
-  server: 189.74.118.4
-  port: 443
-  udp: true
-  type: vless
-  uuid: 082f5694-9019-4110-b67b-8125dbb9bab8
-  tls: true
-  servername: api.mediavolna.cc
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-service-name: r7Kp4mN9tQ2v
-- name: 🇨🇿 捷克 (Czech) 03 - xiaohe
   server: 67.159.18.34
   port: 17001
   udp: true
@@ -44,7 +31,6 @@ proxy-groups:
   - AUTO
   - 🇨🇿 捷克 (Czech) 01 - xiaohe
   - 🇨🇿 捷克 (Czech) 02 - xiaohe
-  - 🇨🇿 捷克 (Czech) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -52,6 +38,5 @@ proxy-groups:
   proxies:
   - 🇨🇿 捷克 (Czech) 01 - xiaohe
   - 🇨🇿 捷克 (Czech) 02 - xiaohe
-  - 🇨🇿 捷克 (Czech) 03 - xiaohe
 rules:
 - MATCH,PROXIES
