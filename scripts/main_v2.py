@@ -110,7 +110,26 @@ SPEED_TEST_URLS = [               # 测速端点多路 (实测部分节点商屏
     "https://cachefly.cachefly.net/10mb.test",
 ]
 TRACE_URL = "https://www.cloudflare.com/cdn-cgi/trace"      # warp=on 检测套壳节点
-MAX_WORKERS_TEST    = 48            # 同时 sing-box 实测节点数 (Azure 2C7G 实测 24→48 稳定; sing-box 单实例 < 30MB)
+
+
+def _env_int(name: str, default: int, max_value: int = 128) -> int:
+    """读环境变量整数 (非法/<=0 回退默认值; 超过 max_value 截断, 防手抖填 480)"""
+    try:
+        v = int(os.environ.get(name, "").strip())
+        return min(v, max_value) if v > 0 else default
+    except Exception:
+        return default
+
+
+# 同时 sing-box 实测节点数。
+#   为什么可调: 并发不是越高越好。GitHub Actions 标准 runner 只有 2~4 vCPU,
+#   48 并发 = 每核 12~24 个 sing-box 进程, TLS 握手阶段会互相抢 CPU,
+#   握手被拉长 → 超时 → 误判 no_liveness (正是"能用变不能用"的一种来源)。
+#   另外 Azure 出站有 SNAT 端口上限, 高并发 + 端口快速 TIME_WAIT 会造成连接失败。
+#   因此默认取 48 (吞吐优先), 但可通过 PROBE_CONCURRENCY 环境变量下调:
+#   若"未通过原因分布"里 no_liveness 占比异常高、且 probe_secs p90 接近超时值,
+#   说明并发压过了 CPU, 调到 32 / 24 再跑一轮对比真活数即可定论。
+MAX_WORKERS_TEST    = _env_int("PROBE_CONCURRENCY", 48)
 MAX_WORKERS_FETCH   = 8
 MAX_WORKERS_CLASSIFY = 32
 
@@ -1063,37 +1082,93 @@ def extract_nodes_from_text(text: str) -> set:
     return results
 
 
-def fetch_raw_nodes() -> list:
+# 被 WAF / 风控拦截的状态码: 同一个出口 IP 重试毫无意义, 直接交给"回源补抓"
+FETCH_BLOCK_STATUS = {401, 403, 407, 429, 451}
+
+
+def _classify_fetch_error(status_code: int) -> str:
+    """HTTP 状态码 → 失败类型
+
+    blocked: 鉴权/风控/地域封锁 — 同 IP 重试无意义, 直接回源
+    server : 5xx — 源站自身故障或过载, 值得重试一次, 仍失败再回源
+    network: 其他 4xx — 多为路径错误, 回源也救不了, 但仍归入回源集合 (成本可忽略)
+    """
+    if status_code in FETCH_BLOCK_STATUS:
+        return "blocked"
+    if 500 <= status_code < 600:
+        return "server"
+    return "network"
+
+
+# 失败类型的信息量排序: 越靠前越"值得回源", 多次尝试时保留信息量最高的那个
+FETCH_KIND_PRIO = {"blocked": 0, "server": 1, "empty": 2, "network": 3}
+
+
+def _merge_kind(old: str, new: str) -> str:
+    """两次尝试的失败类型合并: 取信息量更高的 (blocked > server > empty > network)
+
+    例: 第 1 次 200-但-0节点 (empty)、第 2 次连接超时 (network) —— 保留 empty,
+    因为"源站回了内容但是空的"比"这次没连上"更能说明问题。
+    """
+    return new if FETCH_KIND_PRIO.get(new, 9) < FETCH_KIND_PRIO.get(old, 9) else old
+
+
+def fetch_raw_nodes() -> tuple:
+    """抓取全部订阅源
+
+    返回 (nodes, failed)
+      nodes  : list[str]  节点 URI 全集
+      failed : list[(url, kind, err)]  kind ∈ {blocked, server, empty, network}
+
+    ★ 为什么要区分 kind:
+      源站 (如 shadowmere.xyz) 普遍在 Cloudflare 上按出口 ASN 拦截数据中心 IP。
+      GitHub Actions 出口是 Azure → 直接 403。此时在同一 IP 上重试 3 次纯属浪费,
+      正确做法是记下来, 等测活阶段拿到存活节点后**用节点自身作出口回源补抓**。
+    """
     nodes = set()
+    failed = []
     print("[*] 抓取全部订阅源 ...")
 
     def _fetch(url):
-        last_err = None
-        # 重试 2 次 (网络抖动/GFW 间歇性重置; 退避 3s)
+        last_err, kind = "unknown", "network"
+        # 重试 2 次 (网络抖动/间歇性重置; 退避 3s) —— 仅对网络/5xx 类失败有意义
         for attempt in range(3):
             try:
                 r = http_get(url, timeout=30)
                 if r.status_code == 200:
                     got = extract_nodes_from_text(r.text)
-                    return url, got, None
-                last_err = f"HTTP {r.status_code}"
+                    if got:
+                        return url, got, None, ""
+                    # 200 但解析不出节点: 可能是空订阅/维护页, 重试一次仍不行就记为 empty
+                    last_err, kind = "HTTP 200 但解析 0 节点", _merge_kind(kind, "empty")
+                else:
+                    last_err = f"HTTP {r.status_code}"
+                    new_kind = _classify_fetch_error(r.status_code)
+                    kind = _merge_kind(kind, new_kind)
+                    if new_kind == "blocked":
+                        break   # WAF 拦截: 换 IP 才有意义, 同 IP 重试无用
             except Exception as e:
-                last_err = str(e)[:70]
+                last_err, kind = str(e)[:70], _merge_kind(kind, "network")
             if attempt < 2:
                 time.sleep(3)
-        return url, set(), last_err
+        return url, set(), last_err, kind
 
     with ThreadPoolExecutor(MAX_WORKERS_FETCH) as ex:
         futs = [ex.submit(_fetch, u) for u in SOURCE_URLS]
         for f in as_completed(futs):
-            url, got, err = f.result()
+            url, got, err, kind = f.result()
             if err:
-                print(f"[!] 拉取失败 {url} → {err}")
+                failed.append((url, kind, err))
+                tag = "被拦" if kind == "blocked" else "失败"
+                print(f"[!] 拉取{tag} {url} → {err}")
             else:
                 print(f"[+] {url} → {len(got)} 节点")
             nodes.update(got)
     print(f"[*] 初始抓取总量: {len(nodes)}")
-    return list(nodes)
+    if failed:
+        blocked_n = sum(1 for _, k, _ in failed if k == "blocked")
+        print(f"[*] 抓取失败 {len(failed)} 个源站 (其中被 WAF 拦截 {blocked_n} 个, 将尝试用存活节点回源补抓)")
+    return list(nodes), failed
 
 
 # ═══════════════════════════════════════════N═══════════════════════
@@ -1201,7 +1276,8 @@ def _alloc_socks_port() -> int:
         return s.getsockname()[1]
 
 
-def build_test_config(outbound: dict, socks_port: int, chain_relay: dict = None) -> dict:
+def build_test_config(outbound: dict, socks_port: int, chain_relay: dict = None,
+                      allow_front: bool = True) -> dict:
     node = dict(outbound)
     node["tag"] = "node"
 
@@ -1224,7 +1300,9 @@ def build_test_config(outbound: dict, socks_port: int, chain_relay: dict = None)
     #     (大陆直连目标节点会被 GFW 拦截, 造成本地假死 ≠ 节点死亡)
     #   - GitHub Actions: FRONT_PROXY 为空 → 直连 (Azure US 本就是海外视角)
     # 用法: 环境变量 FRONT_PROXY=socks5://127.0.0.1:10808
-    front = os.environ.get("FRONT_PROXY", "").strip()
+    # ★ allow_front=False 用于"回源补抓": 那里必须让流量真的从节点出去,
+    #   若再叠一层本机前置代理, 出口又变回本机 IP, 整个回源机制就静默失效了。
+    front = os.environ.get("FRONT_PROXY", "").strip() if allow_front else ""
     if front and not chain_relay:
         # 解析 socks5://host:port → socks outbound
         m = re.match(r"^(socks5h?|http)://([^:]+):(\d+)$", front)
@@ -1372,6 +1450,7 @@ def test_single_node(item, keep_alive_check=True):
         alive_hits, latency_ms = 0, 99999
         last_err = ""
         t0 = time.time()
+        t_live0 = t0          # 活性阶段单独计时 (并发是否压垮 CPU, 只看这一段)
         for i, url in enumerate(LIVENESS_URLS):
             timeout = PROBE_TIMEOUT if i == 0 else PROBE_RETRY_TIMEOUT
             try:
@@ -1384,8 +1463,11 @@ def test_single_node(item, keep_alive_check=True):
             except Exception as e:
                 last_err = type(e).__name__
                 continue
+        liveness_secs = round(time.time() - t_live0, 2)
         if alive_hits == 0:
-            return _make_result(item, "unreachable", "no_liveness", last_err)
+            res = _make_result(item, "unreachable", "no_liveness", last_err)
+            res["liveness_secs"] = liveness_secs
+            return res
 
         # --- 2) 真实出口 IP (多路冗余) ---
         exit_ip, exit_country, exit_asn, exit_asn_org, exit_isp = None, None, None, None, None
@@ -1508,6 +1590,7 @@ def test_single_node(item, keep_alive_check=True):
             "fail_detail": "",
             "alive": True,
             "latency_ms": int(latency_ms),
+            "liveness_secs": liveness_secs,
             "exit_ip": exit_ip,
             "exit_country_online": exit_country,
             "exit_asn_online": exit_asn,
@@ -1542,7 +1625,11 @@ def run_liveness_test(candidates: list) -> list:
     done_count = [0]
 
     def _work(item):
-        return test_single_node(item)
+        t0 = time.time()
+        r = test_single_node(item)
+        if r is not None:
+            r["probe_secs"] = round(time.time() - t0, 2)
+        return r
 
     with ThreadPoolExecutor(max_workers=MAX_WORKERS_TEST) as ex:
         futs = {ex.submit(_work, it): it for it in candidates}
@@ -1561,6 +1648,29 @@ def run_liveness_test(candidates: list) -> list:
     unmeasured = sum(1 for r in results if r.get("speed_unmeasured"))
     print(f"[+] 测活完成: 真活 {len(alive)} | 断流 {stalled} | 未测到速度(保留) {unmeasured} | MITM {mitm}")
 
+    # ★ 并发压测埋点: 只统计"活性阶段"耗时 (不含 sing-box check / 出口IP / 测速)。
+    #   判据: 若存活节点的 p90 明显变大 (正常应 < 2s), 或大量节点卡满首击超时,
+    #   说明 48 并发已把 CPU/SNAT 压满, no_liveness 里混着"被自己挤死"的节点
+    #   → 下调 PROBE_CONCURRENCY (32/24) 再跑一轮, 对比真活数即可定论。
+    def _pct(arr, p):
+        return arr[min(int(len(arr) * p), len(arr) - 1)]
+
+    live_secs = sorted(r["liveness_secs"] for r in results
+                       if r.get("alive") and "liveness_secs" in r)
+    dead_secs = sorted(r["liveness_secs"] for r in results
+                       if not r.get("alive") and "liveness_secs" in r)
+    if live_secs:
+        print(f"[*] 活性耗时(存活节点): p50={_pct(live_secs, 0.5):.2f}s "
+              f"p90={_pct(live_secs, 0.9):.2f}s max={live_secs[-1]:.2f}s | 并发 {MAX_WORKERS_TEST}")
+    if dead_secs:
+        hit = sum(1 for s in dead_secs if s >= PROBE_TIMEOUT - 0.3)
+        print(f"[*] 活性耗时(未通节点): 卡满首击超时(≥{PROBE_TIMEOUT}s) {hit}/{len(dead_secs)} "
+              f"| 若该比例异常高, 说明并发把 CPU/SNAT 压满了")
+    total_secs = sorted(r["probe_secs"] for r in results if "probe_secs" in r)
+    if total_secs:
+        print(f"[*] 单节点全流程耗时: p50={_pct(total_secs, 0.5):.1f}s "
+              f"p90={_pct(total_secs, 0.9):.1f}s")
+
     # ★ 淘汰原因直方图 (埋点): 看清漏斗, 后续所有规则调整都以此为依据
     stage_hist = {}
     for r in results:
@@ -1571,6 +1681,220 @@ def run_liveness_test(candidates: list) -> list:
         print("[*] 未通过原因分布: " + " | ".join(
             f"{k}={v}" for k, v in sorted(stage_hist.items(), key=lambda x: -x[1])))
     return results  # 保留全部信息 (含失败节点), 分类阶段再决定去留
+
+
+# ════════════════════════════════════════════════════════════════════
+# 阶段 B1.5: 回源补抓 (用已测活节点作出口, 绕过源站对数据中心 IP 的拦截)
+# ════════════════════════════════════════════════════════════════════
+
+# 回源出口优先国家 (离大陆近、到源站 RTT 低, 且多为家宽/小机房段, 不易被 WAF 规则命中)
+REFETCH_PREFER_COUNTRIES = {"HK", "TW", "SG", "JP", "KR", "MO"}
+REFETCH_MAX_EGRESS = 4          # 最多换几个出口节点 (每个节点启动 ~1s, 不宜多)
+REFETCH_CONNECT_TIMEOUT = 5     # 连接超时 (秒) — 节点连不上要快速放弃
+REFETCH_READ_TIMEOUT = 15       # 读超时 (秒) — 源站回包, 不是下载大文件, 15s 足够
+REFETCH_TOTAL_BUDGET = 180      # 回源阶段总耗时上限 (秒) — 防止源站全挂时无限拖时间
+
+
+def expand_dedup(test_results: list, dedup_map: dict) -> tuple:
+    """把代表节点的测活结果回填给同 (server, port, proto, 凭据) 的重复 URI
+
+    返回 (expanded, backfilled)
+    """
+    result_by_key = {}
+    for r in test_results:
+        p = parse_node_uri(r["raw"])
+        if not p:
+            continue
+        fp = cred_fingerprint(p[0], r["proto"])
+        result_by_key[((r["server"] or "").lower(), r["port"], r["proto"], fp)] = r
+    expanded = list(test_results)
+    backfilled = 0
+    for key, uris in dedup_map.items():
+        if len(uris) <= 1:
+            continue
+        r = result_by_key.get(key)
+        if not r or not r.get("alive"):
+            continue
+        for extra_uri in uris[1:]:
+            clone = dict(r)
+            clone["raw"] = extra_uri
+            expanded.append(clone)
+            backfilled += 1
+    return expanded, backfilled
+
+
+def _pick_refetch_egress(alive_items: list, n: int) -> list:
+    """挑回源出口节点: 亚洲低延迟优先, 排除 WARP 套壳 / 断流节点
+
+    ★ 必须先去重: main() 里 expand_dedup 会把同一节点的测活结果克隆给它的重复 URI,
+      克隆体与原节点的 (exit_ip, latency_ms) 完全相同。若不去重, 按延迟排序后
+      前 4 名可能全是同一个节点的克隆 → 实际只有 1 个出口, 回源失败就整体失败。
+      这里用 (server, port, proto, 凭据) 还原"真实节点"身份。
+    """
+    cands, seen = [], set()
+    for r in alive_items:
+        if not r.get("exit_ip") or r.get("is_warp") or r.get("is_stalled"):
+            continue
+        ident = ((r.get("server") or "").lower(), r.get("port"), r.get("proto"), r.get("cred") or "")
+        if ident in seen:
+            continue
+        seen.add(ident)
+        cc = (r.get("exit_country_online") or "").upper()
+        tier = 0 if cc in REFETCH_PREFER_COUNTRIES else 1
+        lat = r.get("latency_ms")
+        cands.append((tier, lat if isinstance(lat, int) else 99999, r))
+    cands.sort(key=lambda x: (x[0], x[1]))
+    return [c[2] for c in cands[:n]]
+
+
+def _fetch_via_socks(url: str, socks_port: int):
+    """经本地 SOCKS 入站抓取 (独立 Session, 绝不跟随本机/环境代理)"""
+    s = requests.Session()
+    s.trust_env = False   # 关键: 否则环境里的 http_proxy 会覆盖, 又回到原出口
+    origin = urllib.parse.urlsplit(url)
+    s.headers.update({
+        "User-Agent": USER_AGENT,
+        "Accept": "*/*",
+        "Referer": f"{origin.scheme}://{origin.netloc}/",
+    })
+    proxies = {"http": f"socks5h://127.0.0.1:{socks_port}",
+               "https": f"socks5h://127.0.0.1:{socks_port}"}
+    try:
+        return s.get(url, proxies=proxies,
+                     timeout=(REFETCH_CONNECT_TIMEOUT, REFETCH_READ_TIMEOUT))
+    finally:
+        s.close()
+
+
+def _refetch_targets(failed: list) -> list:
+    """从抓取失败列表里挑出值得回源的 URL, 按 kind 优先级排序 (被拦的优先救)"""
+    prio = {"blocked": 0, "server": 1, "empty": 2, "network": 3}
+    items = sorted(((prio.get(k, 9), u) for u, k, _ in failed), key=lambda x: x[0])
+    seen, out = set(), []
+    for _, u in items:
+        if u not in seen:
+            seen.add(u)
+            out.append(u)
+    return out
+
+
+def refetch_via_alive_nodes(failed: list, alive_items: list) -> dict:
+    """用已测活节点作出口, 补抓被源站 WAF 拦截的订阅
+
+    背景 (实测):
+      shadowmere.xyz / shadowmere.akiel.dev 在 Cloudflare 上按出口 ASN 拦截数据中心 IP。
+      GitHub Actions 出口是 Azure → 恒 403。换备用域名无用 (同一 CF zone, 同一套规则);
+      套一层 Cloudflare Worker 也无用 (Worker 回源同样是数据中心 IP, 实测返回 522/403)。
+
+      唯一不依赖外部基建的办法: 池子里已经有上千个测活节点, 拿其中一个作出口去拉。
+      这些节点出口多为港台日新家宽/小机房, 不在源站的拦截名单里。
+
+    failed      : [(url, kind, err)]
+    alive_items : 测活结果中 status=alive 的项 (需带 raw / exit_ip / latency_ms)
+    返回 {url: set(uri)}  —— 仅含成功且解析出节点的
+    """
+    urls = _refetch_targets(failed)
+    if not urls:
+        return {}
+    # 纯网络抖动 (全部是 exception/timeout) 不启用回源:
+    # 为一次偶发超时白起 4 个 sing-box 进程不划算。只要有一个非 network 类失败
+    # (被拦/5xx/空内容) 才值得走回源, 顺带把 network 类也一起重试。
+    if not any(k != "network" for _, k, _ in failed):
+        print("[*] 抓取失败均为网络抖动, 不启用回源补抓")
+        return {}
+    egress = _pick_refetch_egress(alive_items, REFETCH_MAX_EGRESS)
+    if not egress:
+        print("[!] 回源补抓: 无可用的存活节点作出口, 跳过 (本次将缺少这些源站的节点)")
+        return {}
+
+    print(f"[*] 回源补抓: {len(urls)} 个源站抓取失败, 尝试 {len(egress)} 个存活节点作出口 ...")
+    exe = SINGBOX_BIN + (".exe" if os.name == "nt" else "")
+    recovered = {}
+    pending = list(urls)
+    t_refetch = time.time()
+    tried_egress = 0
+
+    def _out_of_budget() -> bool:
+        return time.time() - t_refetch > REFETCH_TOTAL_BUDGET
+
+    for node in egress:
+        if not pending:
+            break
+        if _out_of_budget():
+            print(f"[!] 回源补抓超出 {REFETCH_TOTAL_BUDGET}s 预算, 停止 (剩余 {len(pending)} 个源站未解决)")
+            break
+        parsed = parse_node_uri(node["raw"])
+        if not parsed:
+            continue
+        tried_egress += 1
+        outbound = parsed[0]
+        socks_port = _alloc_socks_port()
+        cfg_path = os.path.join(RUNTIME_DIR, f"rf_{uuid.uuid4().hex[:10]}.json")
+        proc = None
+        try:
+            with open(cfg_path, "w", encoding="utf-8") as f:
+                # allow_front=False: 回源必须真的从节点出去, 不能叠本机前置代理
+                json.dump(build_test_config(outbound, socks_port, allow_front=False), f)
+            proc = subprocess.Popen(
+                [exe, "run", "-c", cfg_path],
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                creationflags=(subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0),
+            )
+            deadline = time.time() + 8
+            ready = False
+            while time.time() < deadline:
+                if proc.poll() is not None:
+                    break
+                try:
+                    with socket.create_connection(("127.0.0.1", socks_port), timeout=0.4):
+                        ready = True
+                        break
+                except Exception:
+                    time.sleep(0.15)
+            if not ready:
+                print(f"  [-] 出口 {node.get('exit_country_online')}/{node.get('exit_ip')} 未能启动, 换下一个")
+                continue
+
+            cc = node.get("exit_country_online") or "??"
+            for url in list(pending):
+                if _out_of_budget():
+                    print(f"  [!] 超出 {REFETCH_TOTAL_BUDGET}s 预算, 中止本出口剩余源站")
+                    break
+                try:
+                    r = _fetch_via_socks(url, socks_port)
+                    if r.status_code != 200:
+                        print(f"  [!] 出口 {cc} 仍被拒 {url} → HTTP {r.status_code}")
+                        continue
+                    got = extract_nodes_from_text(r.text)
+                    if not got:
+                        print(f"  [!] 出口 {cc} 返回 200 但解析 0 节点 {url}")
+                        continue
+                    recovered[url] = got
+                    pending.remove(url)
+                    print(f"  [+] 回源成功 (出口 {cc}/{node.get('exit_ip')}) {url} → {len(got)} 节点")
+                except Exception as e:
+                    print(f"  [!] 出口 {cc} 回源异常 {url} → {type(e).__name__}: {str(e)[:60]}")
+        except Exception as e:
+            print(f"  [!] 回源出口准备失败 → {type(e).__name__}: {str(e)[:60]}")
+        finally:
+            if proc and proc.poll() is None:
+                proc.kill()
+                try:
+                    proc.wait(timeout=3)
+                except Exception:
+                    pass
+            try:
+                if os.path.exists(cfg_path):
+                    os.remove(cfg_path)
+            except OSError:
+                pass
+
+    if pending:
+        print(f"[!] 回源补抓仍有 {len(pending)} 个源站未解决 (已试 {tried_egress} 个出口, "
+              f"耗时 {time.time() - t_refetch:.0f}s)")
+    elif recovered:
+        print(f"[+] 回源补抓完成: {len(recovered)} 个源站恢复, 耗时 {time.time() - t_refetch:.0f}s")
+    return recovered
 
 
 # ═══════════════════════════════════════════N═══════════════════════
@@ -2920,7 +3244,7 @@ def main():
     setup_environment()
 
     # 1. 抓取
-    raw_nodes = fetch_raw_nodes()
+    raw_nodes, fetch_failed = fetch_raw_nodes()
 
     # 2. 解析
     candidates = []
@@ -2960,7 +3284,11 @@ def main():
     print(f"[*] 解析成功(去重后): {len(candidates)} | 失败 {parse_fail} | 协议分布 {proto_stat}")
 
     if not candidates:
-        print("[!] 无可测节点 (订阅源全部失效?) — 保留上次 output, 不覆盖订阅文件")
+        if fetch_failed:
+            print(f"[!] 无可测节点 — 抓取阶段已有 {len(fetch_failed)} 个源站失败; "
+                  f"回源补抓需要至少 1 个存活节点作出口, 本轮无出口可用, 无法补救")
+        else:
+            print("[!] 无可测节点 (订阅源全部失效?) — 保留上次 output, 不覆盖订阅文件")
         return
 
     # 3. 端口预检
@@ -2970,33 +3298,49 @@ def main():
     test_results = run_liveness_test(candidates)
 
     # 4.5 ★ 重复节点结果回填: 同 凭据+目标 的重复 URI 继承测活结果 (凭据相同 → 服务端表现一致)
+    #     key 用 (server, port, proto, 凭据指纹) 四元组 —— 修复旧版只用三元组导致
+    #     "同一 server:port 上挂不同凭据"时结果串号 (死节点变假活 / 出口 IP 与 ASN 串号)
     if DEDUP_MAP:
-        # ★ 修复旧版 bug: 旧实现用 (server, port, proto) 索引, 忽略了凭据指纹 ——
-        #   同一 server:port 上挂不同凭据的节点时, 会把 A 的结果贴到 B 身上
-        #   (死节点变假活 / 出口 IP 与 ASN 串号)。现在用与 DEDUP_MAP 完全一致的 4 元 key。
-        result_by_key = {}
-        for r in test_results:
-            p = parse_node_uri(r["raw"])
-            if not p:
-                continue
-            fp = cred_fingerprint(p[0], r["proto"])
-            result_by_key[((r["server"] or "").lower(), r["port"], r["proto"], fp)] = r
-        expanded = list(test_results)
-        backfilled = 0
-        for key, uris in DEDUP_MAP.items():
-            if len(uris) <= 1:
-                continue
-            r = result_by_key.get(key)
-            if not r or not r.get("alive"):
-                continue
-            for extra_uri in uris[1:]:
-                clone = dict(r)
-                clone["raw"] = extra_uri
-                expanded.append(clone)
-                backfilled += 1
+        test_results, backfilled = expand_dedup(test_results, DEDUP_MAP)
         if backfilled:
             print(f"[+] 重复节点回填: +{backfilled} (继承代表测活结果)")
-        test_results = expanded
+
+    # 4.55 ★ 回源补抓: 被源站 WAF 拦掉的订阅, 用已测活节点作出口重试
+    #      (Actions 出口是 Azure, 免费节点站普遍按 ASN 拦数据中心 IP;
+    #       换备用域名无用 = 同一 CF zone 同一套规则; 套 CF Worker 也无用 = 回源同样走数据中心)
+    if fetch_failed:
+        alive_items = [r for r in test_results if r.get("alive")]
+        recovered = refetch_via_alive_nodes(fetch_failed, alive_items)
+        if recovered:
+            refetch_dedup, new_cands, skipped = {}, [], 0
+            for uri in set().union(*recovered.values()):
+                parsed = parse_node_uri(uri)
+                if not parsed:
+                    continue
+                outbound, server, port, proto = parsed
+                if BLACKLIST_NAME_HINTS.search(
+                        urllib.parse.unquote(uri.split("#", 1)[-1] if "#" in uri else "")):
+                    continue
+                key = ((server or "").lower(), port, proto, cred_fingerprint(outbound, proto))
+                if key in DEDUP_MAP:
+                    skipped += 1      # 主批次已覆盖同一凭据, 无需重复测
+                    continue
+                if key in refetch_dedup:
+                    refetch_dedup[key].append(uri)
+                    continue
+                refetch_dedup[key] = [uri]
+                new_cands.append((uri, outbound, server, port, proto))
+            if skipped:
+                print(f"[*] 回源补抓的节点中 {skipped} 个与主批次重复, 已跳过")
+            if new_cands:
+                print(f"[*] 回源补抓新增 {len(new_cands)} 个待测节点 (去重后), 追加一轮测活 ...")
+                extra_results = run_liveness_test(prefilter_candidates(new_cands))
+                extra_results, extra_backfill = expand_dedup(extra_results, refetch_dedup)
+                if extra_backfill:
+                    print(f"[+] 回源批次重复回填: +{extra_backfill}")
+                test_results.extend(extra_results)
+            else:
+                print("[*] 回源补抓的节点全部与已有节点重复, 无需追加测活")
 
     # 4.6 ★ 跨运行记忆: 挂载上一轮结果, 用于识别"上次活、这次连不上"的节点
     #     (这类节点大概率是封了云厂商 IP, 对国内家用宽带反而正常, 不能当死节点删掉)
@@ -3049,6 +3393,14 @@ def main():
         by_country[n["country"]] = by_country.get(n["country"], 0) + 1
     top_c = sorted(by_country.items(), key=lambda x: -x[1])[:10]
     print(f"国家 Top10: {top_c}")
+    if fetch_failed:
+        hosts = []
+        for u, k, _ in fetch_failed:
+            try:
+                hosts.append(f"{urllib.parse.urlsplit(u).netloc or u}({k})")
+            except Exception:
+                hosts.append(f"{u}({k})")
+        print(f"抓取失败源站: {len(fetch_failed)} 个 — " + " | ".join(hosts))
 
 
 if __name__ == "__main__":

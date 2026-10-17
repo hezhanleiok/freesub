@@ -2,6 +2,12 @@ name: Update Subscriptions
 
 on:
   workflow_dispatch:  # 仅保留手动触发按钮
+    inputs:
+      concurrency:
+        description: '测活并发数 (留空=48). 若日志里 no_liveness 占比异常高、p90 逼近超时, 试 32 或 24'
+        required: false
+        default: ''
+        type: string
 
 jobs:
   build:
@@ -31,6 +37,8 @@ jobs:
         env:
           # 便于 ip-api 等识别限速; GitHub runner 出口为美国 Azure
           PYTHONUNBUFFERED: '1'
+          # 并发可调: 空值/非法值由脚本回退默认 48
+          PROBE_CONCURRENCY: ${{ inputs.concurrency }}
 
       - name: Upload test artifacts (调试用, 7天保留)
         uses: actions/upload-artifact@v4
