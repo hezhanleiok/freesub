@@ -17,17 +17,44 @@ proxies:
     short-id: a3a578ab
   servername: www.apple.com
   client-fingerprint: chrome
+- name: 🇮🇱 以色列 (Israel) 02 - xiaohe
+  server: 185.253.75.119
+  port: 443
+  udp: true
+  type: vless
+  uuid: d342d11e-d224-4463-b982-532309285094
+  tls: true
+  servername: ccc.010304.xyz
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ccc.010304.xyz
+- name: 🇮🇱 以色列 (Israel) 03 - xiaohe
+  server: 129.159.156.109
+  port: 50160
+  udp: true
+  type: hysteria2
+  password: f25f19f29ce3fb53a35bf1b35b452a43
+  sni: www.bing.com
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇱 以色列 (Israel) 01 - xiaohe
+  - 🇮🇱 以色列 (Israel) 02 - xiaohe
+  - 🇮🇱 以色列 (Israel) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇮🇱 以色列 (Israel) 01 - xiaohe
+  - 🇮🇱 以色列 (Israel) 02 - xiaohe
+  - 🇮🇱 以色列 (Israel) 03 - xiaohe
 rules:
 - MATCH,PROXIES

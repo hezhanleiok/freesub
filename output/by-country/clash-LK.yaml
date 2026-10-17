@@ -1,0 +1,48 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇱🇰 斯里兰卡 (Sri Lanka) 01 - xiaohe
+  server: support.zoom.us
+  port: 80
+  udp: true
+  type: vless
+  uuid: fcdb24e3-5e66-4c45-b89e-ac9441f4dcda
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: free.sahanwickramasinghe.me
+- name: 🇱🇰 斯里兰卡 (Sri Lanka) 02 - xiaohe
+  server: free.sahanwickramasinghe.me
+  port: 8443
+  udp: true
+  type: vless
+  uuid: c136a12c-4260-48a7-a1e6-fbda83a11045
+  tls: true
+  servername: free.sahanwickramasinghe.me
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: free.sahanwickramasinghe.me
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇱🇰 斯里兰卡 (Sri Lanka) 01 - xiaohe
+  - 🇱🇰 斯里兰卡 (Sri Lanka) 02 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇱🇰 斯里兰卡 (Sri Lanka) 01 - xiaohe
+  - 🇱🇰 斯里兰卡 (Sri Lanka) 02 - xiaohe
+rules:
+- MATCH,PROXIES
