@@ -21,6 +21,20 @@ proxies:
     headers:
       Host: my.lovehk.xyz
 - name: 🇲🇾 MY 02 - wangyu
+  type: vless
+  server: 216.173.67.59
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ccc.010304.xyz
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: ccc.010304.xyz
+- name: 🇲🇾 MY 03 - wangyu
   type: vmess
   server: 104.21.23.80
   port: 443
@@ -36,20 +50,6 @@ proxies:
     path: /KualaLumpur1
     headers:
       Host: my.lovehk.xyz
-- name: 🇲🇾 MY 03 - wangyu
-  type: vless
-  server: 216.173.67.59
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ccc.010304.xyz
-  network: ws
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: ccc.010304.xyz
 proxy-groups:
 - name: PROXIES
   type: select

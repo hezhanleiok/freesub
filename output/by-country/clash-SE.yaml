@@ -33,17 +33,30 @@ proxies:
       Host: ccc.010304.xyz
 - name: 🇸🇪 SE 03 - wangyu
   type: vless
-  server: 5.178.109.174
-  port: 14430
-  uuid: 80de563a-cac8-40ea-8cb0-4cb082dd92f9
+  server: 88.216.223.66
+  port: 443
+  uuid: 244d9eab-3311-40c7-b47f-4968dc3088a6
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  reality-opts:
+    public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
+  servername: tcpswed1.figurapn.ru
+  client-fingerprint: chrome
+- name: 🇸🇪 SE 04 - wangyu
+  type: vless
+  server: 94.143.231.146
+  port: 443
+  uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: sub.merky.top
   network: ws
   ws-opts:
-    path: /vless
+    path: /merky-connect/de6/
     headers:
-      Host: 5.178.109.174
+      Host: sub.merky.top
 proxy-groups:
 - name: PROXIES
   type: select
@@ -52,6 +65,7 @@ proxy-groups:
   - 🇸🇪 SE 01 - wangyu
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
+  - 🇸🇪 SE 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -60,5 +74,6 @@ proxy-groups:
   - 🇸🇪 SE 01 - wangyu
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
+  - 🇸🇪 SE 04 - wangyu
 rules:
 - MATCH,PROXIES

@@ -6,42 +6,6 @@ log-level: info
 proxies:
 - name: 🇵🇱 PL 01 - wangyu
   type: vless
-  server: 2.26.225.89
-  port: 8443
-  uuid: 51a1fd52-fd88-4905-a976-35e44be28e4b
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: pl.flen-vpn.xyz
-- name: 🇵🇱 PL 02 - wangyu
-  type: vless
-  server: 2.26.225.89
-  port: 8443
-  uuid: 51a1fd52-fd88-4905-a976-35e44be28e4b
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: pl.flen-vpn.xyz
-- name: 🇵🇱 PL 03 - wangyu
-  type: vless
-  server: 2.26.225.89
-  port: 8443
-  uuid: 51a1fd52-fd88-4905-a976-35e44be28e4b
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: pl.flen-vpn.xyz
-- name: 🇵🇱 PL 04 - wangyu
-  type: vless
-  server: 2.26.225.89
-  port: 8443
-  uuid: 51a1fd52-fd88-4905-a976-35e44be28e4b
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: pl.flen-vpn.xyz
-- name: 🇵🇱 PL 05 - wangyu
-  type: vless
   server: 38.244.186.167
   port: 8445
   uuid: f3b8d5f8-cbe9-4aca-ab34-005c51262d5e
@@ -52,39 +16,17 @@ proxies:
     public-key: -s2SHiKfXMJRYizNuu8URrx6MgyoQtBJ0QAj33qMog0
   servername: www.samsung.com
   client-fingerprint: firefox
-- name: 🇵🇱 PL 06 - wangyu
-  type: vless
-  server: 38.244.186.167
-  port: 8445
-  uuid: f3b8d5f8-cbe9-4aca-ab34-005c51262d5e
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: -s2SHiKfXMJRYizNuu8URrx6MgyoQtBJ0QAj33qMog0
-  servername: www.samsung.com
-  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇵🇱 PL 01 - wangyu
-  - 🇵🇱 PL 02 - wangyu
-  - 🇵🇱 PL 03 - wangyu
-  - 🇵🇱 PL 04 - wangyu
-  - 🇵🇱 PL 05 - wangyu
-  - 🇵🇱 PL 06 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇵🇱 PL 01 - wangyu
-  - 🇵🇱 PL 02 - wangyu
-  - 🇵🇱 PL 03 - wangyu
-  - 🇵🇱 PL 04 - wangyu
-  - 🇵🇱 PL 05 - wangyu
-  - 🇵🇱 PL 06 - wangyu
 rules:
 - MATCH,PROXIES
