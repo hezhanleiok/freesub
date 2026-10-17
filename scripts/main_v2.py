@@ -1208,23 +1208,11 @@ def _alloc_socks_port() -> int:
         return s.getsockname()[1]
 
 
-def build_test_config(outbound: dict, socks_port: int, chain_relay: dict = None,
-                      allow_front: bool = True) -> dict:
+def build_test_config(outbound: dict, socks_port: int, allow_front: bool = True) -> dict:
     node = dict(outbound)
     node["tag"] = "node"
 
     outbounds = [node, {"type": "direct", "tag": "direct"}, {"type": "block", "tag": "block"}]
-
-    # ══ 链式前置 (家宽链式复测用) ═════════════════════════════════════
-    # chain_relay: 已验证存活的 sing-box outbound dict — node 经它转发 (detour 双跳)
-    # 模拟用户 v2rayN "链式/前置代理" 场景: 前置 → 家宽节点 → 目标
-    if chain_relay:
-        relay = dict(chain_relay)
-        relay["tag"] = "chain-relay"
-        # relay 自身剥 detour (避免与 node 的 detour 循环)
-        relay.pop("detour", None)
-        outbounds.append(relay)
-        node["detour"] = "chain-relay"
 
     # ══ 前置代理 (链式) ═════════════════════════════════════════════
     # 模拟 GitHub Actions 海外视角:
@@ -1235,7 +1223,7 @@ def build_test_config(outbound: dict, socks_port: int, chain_relay: dict = None,
     # ★ allow_front=False 用于"回源补抓": 那里必须让流量真的从节点出去,
     #   若再叠一层本机前置代理, 出口又变回本机 IP, 整个回源机制就静默失效了。
     front = os.environ.get("FRONT_PROXY", "").strip() if allow_front else ""
-    if front and not chain_relay:
+    if front:
         # 解析 socks5://host:port → socks outbound
         m = re.match(r"^(socks5h?|http)://([^:]+):(\d+)$", front)
         if m:
@@ -1318,15 +1306,10 @@ def test_single_node(item, keep_alive_check=True):
     task_id = uuid.uuid4().hex[:10]
     cfg_path = os.path.join(RUNTIME_DIR, f"sb_{task_id}.json")
 
-    # ★ 链式前置 (chain relay): 注入已验证存活节点作前置 (chain_retest 用, 模拟 v2rayN 链式)
-    chain_out = None
-    chain_json = os.environ.get("CHAIN_RELAY_OUT", "").strip()
-    if chain_json:
-        try:
-            chain_out = json.loads(chain_json)
-        except Exception:
-            chain_out = None
-    config = build_test_config(outbound, socks_port, chain_relay=chain_out)
+    # ★ 链式前置 (chain relay) 已改为"真起一个 socks5 前置进程", 见 _start_relay_proxy。
+    #   旧的 CHAIN_RELAY_OUT (sing-box 内部 detour) 已删除: 它能把 UDP 也 relay 过去,
+    #   于是在 CI 里把 hy2 判成"双跳可用", 而用户前置转发不了 UDP → 客户端全 -1。
+    config = build_test_config(outbound, socks_port)
     with open(cfg_path, "w", encoding="utf-8") as f:
         json.dump(config, f)
 
@@ -1830,20 +1813,141 @@ def refetch_via_alive_nodes(failed: list, alive_items: list) -> dict:
 # 阶段 B2: 家宽链式复测 (chain relay retest)
 # ════════════════════════════════════════════════════════════════════
 
+# ★ 家宽区协议准入: 只收 TCP 协议, 排除 QUIC/UDP
+#
+# 【为什么】家宽节点入口 IP 在国内基本不可直连, 用户必须挂前置 (v2rayN 的
+#   socks5/http 链式)。而 socks5/http 前置对 UDP 支持极差 —— 多数实现不做
+#   UDP associate, hysteria2/tuic 这类 QUIC 协议在链式下 100% 失败。
+#
+# 【实测】本机 (国内网络) 对上一版 5 个家宽节点逐个验证:
+#   hy2  US 155.117.19.17  直连 no_liveness | 经 10808 前置 no_liveness
+#   hy2  SG s3.huhiuh.space 直连 no_liveness | 经 10808 前置 no_liveness
+#   tuic 同类问题
+#   vless TR 177.3.208.65  直连 208KB/s   | 经前置 619KB/s      ← TCP, 两场景都可用
+#   vmess KR 183.109.131.75 直连超时      | 经前置 1.46MB/s     ← TCP, 前置可用
+#   vless TW hinet1.2yly.com 直连超时     | 经前置也超时         ← 节点本身已死
+# 结论: 家宽区放 UDP 协议等于塞死节点, 必须排除。
+UDP_ONLY_PROTOS = {"hysteria2", "hysteria", "tuic"}
+
+# 前置视角优先地区 (国内用户前置多为港台日新韩)
+RELAY_PREFER_COUNTRIES = {"HK", "TW", "JP", "SG", "KR", "MO"}
+
+
+def _probe_via_socks(socks_port: int, timeout: int = 12) -> bool:
+    """经本地 socks 前置做一次真实 HTTPS 探活
+
+    ★ 为什么必须探: 节点"能连上"不等于"能转发"。实测有节点活性探测 204 通过,
+      但经它转发 HTTPS 时直接断流 (服务端只放行特定域名)。若不先验证 relay 本身
+      能转发, 一个坏 relay 会把全部家宽候选判死, 家宽区直接归零。
+    """
+    s = requests.Session()
+    s.trust_env = False          # 绝不能吃到环境里的 http_proxy
+    proxies = {"http": f"socks5h://127.0.0.1:{socks_port}",
+               "https": f"socks5h://127.0.0.1:{socks_port}"}
+    try:
+        r = s.get("https://www.gstatic.com/generate_204",
+                  proxies=proxies, timeout=timeout, allow_redirects=False)
+        return r.status_code in (200, 204)
+    except Exception:
+        return False
+    finally:
+        s.close()
+
+
+def _start_relay_proxy(relay_out: dict):
+    """起一个 sing-box 作 socks5 前置 (socks 入站 → relay 节点出站)
+
+    返回 (proc, port, cfg_path); 起不来返回 (None, 0, cfg_path)
+
+    ★ 与旧实现的关键区别: 旧版用 sing-box 内部 detour (node → relay) 做双跳,
+      这样 UDP 也能被 relay 转发, 于是 hy2 节点在 CI 里"双跳通过", 到用户手上
+      却全挂。现在改成"真起一个 socks5 前置", 与被测节点的关系等价于
+      用户 v2rayN 的"前置代理 + 目标节点", UDP 走不通就会如实失败。
+    """
+    exe = SINGBOX_BIN + (".exe" if os.name == "nt" else "")
+    port = _alloc_socks_port()
+    cfg_path = os.path.join(RUNTIME_DIR, f"relay_{uuid.uuid4().hex[:10]}.json")
+    ob = dict(relay_out)
+    ob.pop("detour", None)
+    proc = None
+    try:
+        with open(cfg_path, "w", encoding="utf-8") as f:
+            json.dump(build_test_config(ob, port, allow_front=False), f)
+        # 先 check 再 run: 内核不认该协议/字段时能给出原因, 而不是只留一句"启动失败"
+        chk = subprocess.run([exe, "check", "-c", cfg_path],
+                             capture_output=True, text=True, timeout=15,
+                             creationflags=(subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0))
+        if chk.returncode != 0:
+            detail = (chk.stderr or chk.stdout or "").strip().splitlines()
+            print(f"[!] 链式 relay 配置校验失败: {(detail[0] if detail else '?')[:100]}")
+            os.remove(cfg_path)
+            return None, 0, cfg_path
+        proc = subprocess.Popen(
+            [exe, "run", "-c", cfg_path],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+            creationflags=(subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0),
+        )
+        deadline = time.time() + 8
+        while time.time() < deadline:
+            if proc.poll() is not None:
+                break
+            try:
+                with socket.create_connection(("127.0.0.1", port), timeout=0.4):
+                    return proc, port, cfg_path
+            except Exception:
+                time.sleep(0.15)
+    except Exception as e:
+        print(f"[!] 链式 relay 启动失败: {type(e).__name__}: {str(e)[:60]}")
+    # 失败清理
+    if proc is not None:
+        try:
+            if proc.poll() is None:
+                proc.kill()
+        except Exception:
+            pass
+    try:
+        os.remove(cfg_path)
+    except OSError:
+        pass
+    return None, 0, cfg_path
+
+
+def _stop_relay_proxy(proc, cfg_path):
+    if proc:
+        try:
+            if proc.poll() is None:
+                proc.terminate()
+                try:
+                    proc.wait(timeout=3)
+                except Exception:
+                    proc.kill()
+        except Exception:
+            pass
+    try:
+        os.remove(cfg_path)
+    except OSError:
+        pass
+
+
 def chain_retest(test_results: list) -> list:
     """家宽链式复测: 模拟用户 v2rayN 链式 (前置 → 家宽节点 → 目标)
 
-    实测背景: 用户反馈家宽节点在 v2rayN 链式代理下仅 ~50% 可用。
-    根因: 单跳测活通过 ≠ 双跳可用 (部分节点不允许"已被代理的流量"再入,
-    或 UDP/QUIC 节点无法过 socks 链)。解决: CI 里用最快存活节点当前置,
-    对家宽候选做双跳复测 — 双跳通过的才进家宽专区。
+    【为什么必须用"真 socks 前置"而不是 sing-box detour】
+      旧实现把 relay 作为 node 的 detour (sing-box 内部双跳)。这样 UDP 也能被
+      relay 转发, 于是 hysteria2/tuic 节点在 CI 里"双跳通过", 进家宽区; 但用户
+      的 v2rayN 前置是 socks5/http 代理, 不做 UDP associate, hy2 在客户端里 100%
+      失败 —— 这就是"家宽节点开不开前置都不能用"的直接原因。
+      现在改为: 起一个 sing-box 作 socks5 前置, 被测节点经它出站, 与用户场景等价。
 
-    流程: 先跑一遍轻量分类拿到家宽候选 → 取最快存活节点做 relay →
-    家宽候选逐个双跳复测 → 双跳也活的保留, 双跳死的降级普通区。
-    返回: 更新 net_type 后的 test_results (原对象原地修改)。
+    【本函数负责两道闸门】
+      闸门一 (协议): UDP_ONLY_PROTOS 直接判定家宽不可用, 不进复测 (省时间)
+      闸门二 (连通): 经 socks5 前置仍能完成 HTTPS 往返 **且实测到下载吞吐**
+                    (只看 alive 不够: 下载 0 字节时 is_stalled=False, 会误判通过)
+      第三道闸门 (吞吐) 在 classify_and_export 里做最终兜底, 用前置口径的实测值。
+
+    返回: test_results (原对象原地修改, 失败者标 _chain_failed)
     """
     # 1) 轻量分类拿家宽候选 (复用 classify_and_export 的候选判定, 但不导出)
-    #    家宽候选 = ip-api/mmdb 六信号判 residential/mobile 的节点
     ip_api_info = {}
     all_exit_ips = list({r["exit_ip"] for r in test_results if r.get("exit_ip")})
     if all_exit_ips:
@@ -1854,6 +1958,7 @@ def chain_retest(test_results: list) -> list:
             return test_results
 
     res_candidates = {}
+    udp_dropped = 0
     for r in test_results:
         if not (r.get("alive") and not r.get("is_stalled")):
             continue
@@ -1861,64 +1966,133 @@ def chain_retest(test_results: list) -> list:
         t, c = classify_network_type(r["exit_ip"], r.get("exit_country_online"),
                                      r.get("exit_asn_online"),
                                      r.get("exit_asn_org_online"), rec or None)
-        if t in ("residential", "mobile") and c >= 60:
-            res_candidates[(r["server"].lower(), r["port"], r["proto"])] = r
+        if t not in ("residential", "mobile") or c < 60:
+            continue
+        # 闸门一: UDP/QUIC 协议在 socks5/http 前置下必然不可用
+        if (r.get("proto") or "").lower() in UDP_ONLY_PROTOS:
+            r["_chain_failed"] = True
+            udp_dropped += 1
+            continue
+        res_candidates[(r["server"].lower(), r["port"], r["proto"])] = r
+
+    if udp_dropped:
+        print(f"[*] 链式复测: {udp_dropped} 个 UDP 家宽候选直接排除 "
+              f"(hy2/tuic 过不了 socks5 前置, 用户链式必挂)")
 
     if not res_candidates:
-        print("[*] 链式复测: 无家宽候选, 跳过")
+        print("[*] 链式复测: 无 TCP 家宽候选, 跳过")
         return test_results
-    print(f"[*] 链式复测: {len(res_candidates)} 个家宽候选")
+    print(f"[*] 链式复测: {len(res_candidates)} 个 TCP 家宽候选")
 
-    # 2) 选 relay: 全体存活节点里延迟最低、非家宽候选自己 (避免自己套自己)
+    # 2) 选 relay: 亚洲优先 (贴近国内用户前置) + TCP 协议 + 延迟升序
+    def _relay_rank(r):
+        cc = (r.get("exit_country_online") or "").upper()
+        asia = 0 if cc in RELAY_PREFER_COUNTRIES else 1
+        udp = 1 if (r.get("proto") or "").lower() in UDP_ONLY_PROTOS else 0
+        lat = r.get("latency_ms")
+        return (asia, udp, lat if lat is not None else 99999)
+
     alive_sorted = sorted(
         [r for r in test_results if r.get("alive") and not r.get("is_stalled")],
-        key=lambda x: x.get("latency_ms", 99999))
-    relay_result = None
+        key=_relay_rank)
+
+    # 取前 3 个候选: 单个 relay 不可靠 —— 实测存在"活性 204 通过但转发 HTTPS 断流"的节点,
+    # 若只用 1 个且恰好是这种, 全部家宽候选会被误判死, 家宽区直接归零。
+    relay_pool = []
     for r in alive_sorted:
-        if (r["server"].lower(), r["port"], r["proto"]) not in res_candidates:
-            relay_result = r
+        if (r["server"].lower(), r["port"], r["proto"]) in res_candidates:
+            continue
+        ob = r.get("outbound")
+        if not ob:
+            p = parse_node_uri(r["raw"])
+            ob = p[0] if p else None
+        if not ob:
+            continue
+        ob = dict(ob)
+        ob.pop("detour", None)
+        relay_pool.append((r, ob))
+        if len(relay_pool) >= 3:
             break
-    if not relay_result:
+
+    if not relay_pool:
         print("[!] 链式复测: 无可用 relay 节点, 跳过")
         return test_results
-    relay_out = relay_result.get("outbound")
-    if not relay_out:
-        # 重新解析 relay 的 raw 拿 outbound
-        p = parse_node_uri(relay_result["raw"])
-        if p:
-            relay_out = p[0]
-    if not relay_out:
-        print("[!] 链式复测: relay outbound 构建失败, 跳过")
-        return test_results
-    # relay 必须剥离 detour (前置链复用时防循环)
-    relay_out = dict(relay_out)
-    relay_out.pop("detour", None)
-    print(f"[*] 链式 relay: {relay_result['proto']} {relay_result['server']}:{relay_result['port']} "
-          f"(延迟 {relay_result['latency_ms']}ms)")
 
-    # 3) 家宽候选逐个双跳复测 (注入 CHAIN_RELAY_OUT, test_single_node 自动加 detour)
-    os.environ["CHAIN_RELAY_OUT"] = json.dumps(relay_out)
+    # 3) 依次尝试 relay, 每个都先验证"真能转发 TCP"再投入使用
+    proc = relay_port = relay_cfg = None
+    relay_result = None
+    for cand, ob in relay_pool:
+        p, port, cfg = _start_relay_proxy(ob)
+        if not p:
+            continue
+        if not _probe_via_socks(port):
+            print(f"  [-] relay {cand['server']}:{cand['port']} 起得来但转发不通, 换下一个")
+            _stop_relay_proxy(p, cfg)
+            continue
+        proc, relay_port, relay_cfg, relay_result = p, port, cfg, cand
+        break
+
+    if not proc:
+        print(f"[!] 链式复测: {len(relay_pool)} 个 relay 候选都不可用, 跳过 "
+              f"(家宽区将只保留协议+吞吐达标的 TCP 节点)")
+        return test_results
+
+    print(f"[*] 链式 relay: {relay_result['proto']} {relay_result['server']}:"
+          f"{relay_result['port']} ({relay_result.get('exit_country_online') or '??'}, "
+          f"{relay_result['latency_ms']}ms) — 作为 socks5 前置 (已验证可转发)")
+
+    prev_front = os.environ.get("FRONT_PROXY", "")
+    os.environ["FRONT_PROXY"] = f"socks5://127.0.0.1:{relay_port}"
     chain_alive, chain_dead = [], []
     try:
-        for key, r in res_candidates.items():
-            item = (r["raw"], r.get("outbound") or (parse_node_uri(r["raw"]) or [None])[0],
-                    r["server"], r["port"], r["proto"])
-            if not item[1]:
-                chain_dead.append(r)
-                continue
-            recheck = test_single_node(item)
-            if recheck and recheck.get("alive") and not recheck.get("is_stalled"):
-                chain_alive.append(r)
-            else:
-                chain_dead.append(r)
-    finally:
-        os.environ.pop("CHAIN_RELAY_OUT", None)
+        # 并行复测: 每个候选一次完整测活 (check/活性/出口/测速), 串行会被拖到几十分钟
+        def _one(r):
+            try:
+                item = (r["raw"], r.get("outbound") or (parse_node_uri(r["raw"]) or [None])[0],
+                        r["server"], r["port"], r["proto"])
+                if not item[1]:
+                    return r, False
+                re = test_single_node(item)
+                if not re:
+                    return r, False
+                # ★ 判据必须含"吞吐", 不能只看 alive:
+                #   is_stalled = speed_measured and speed < 阈值, 所以"经前置下载 0 字节"
+                #   时 speed_measured=False → is_stalled=False → 只看 alive 会误判通过。
+                #   而这类节点正是用户端的"连上了但打不开网页"。
+                ok = bool(re.get("alive")
+                          and not re.get("is_stalled")
+                          and not re.get("speed_unmeasured"))
+                if ok:
+                    # 回写前置口径的实测值: 闸门三要按"经前置能不能下载"来判,
+                    # 而不是按直连时留下的旧值 (否则直连快、前置 0 字节的节点会漏网)
+                    r["speed_bps"] = re.get("speed_bps") or 0
+                    r["speed_unmeasured"] = False
+                    r["is_stalled"] = False
+                    if re.get("exit_ip"):
+                        r["exit_ip"] = re["exit_ip"]
+                return r, ok
+            except Exception:
+                # 单个候选异常不能拖垮整批复测; 保守判失败 (宁可少放, 不放死节点)
+                return r, False
 
-    # 4) 双跳失败的 → 降级普通区 (不从订阅删除, 用户直连场景仍可能可用)
+        # ★ 并发压到 4: 所有候选共用同一条 relay 带宽, 8 路并发测速会互相挤到
+        #   阈值以下, 把本来能用的家宽节点判成 stalled (假阴性)。
+        workers = max(1, min(4, len(res_candidates)))
+        with ThreadPoolExecutor(max_workers=workers) as ex:
+            for r, ok in ex.map(_one, list(res_candidates.values())):
+                (chain_alive if ok else chain_dead).append(r)
+    finally:
+        if prev_front:
+            os.environ["FRONT_PROXY"] = prev_front
+        else:
+            os.environ.pop("FRONT_PROXY", None)
+        _stop_relay_proxy(proc, relay_cfg)
+
+    # 4) 前置复测失败的 → 降级普通区 (不从订阅删除, 用户直连场景仍可能可用)
     for r in chain_dead:
         r["_chain_failed"] = True
 
-    print(f"[+] 链式复测完成: 双跳可用 {len(chain_alive)} | 双跳失败降级 {len(chain_dead)}")
+    print(f"[+] 链式复测完成: 经前置可用 {len(chain_alive)} | 失败降级 {len(chain_dead)}")
     return test_results
 
 
@@ -2716,21 +2890,52 @@ def classify_and_export(test_results: list):
 
     # 去重: 出口IP+端口 唯一化, 家宽区严格防同IP刷屏
     # ★ 链式复测 (chain_retest) 双跳失败的家宽候选 → 不进家宽专区 (降级普通)
+    #   同时按 raw 和 (server,port,proto) 匹配: expand_dedup 克隆出的重复 URI
+    #   raw 不同但三元组相同, 只按 raw 匹配会漏判, 让死节点从克隆体那条路溜进家宽区。
     chain_failed_raws = set()
+    chain_failed_keys = set()
     for r in test_results:
         if r.get("_chain_failed"):
             chain_failed_raws.add(r.get("raw"))
+            chain_failed_keys.add(((r.get("server") or "").lower(),
+                                   r.get("port"), r.get("proto")))
     residential = []
     res_seen_ip = set()
+    udp_rejected = 0
+    speed_rejected = 0
     for n in unique_nodes:
         if n["net_type"] in ("residential", "mobile") and n["confidence"] >= 60:
-            if n.get("raw") in chain_failed_raws:
+            n_key = ((n["server"] or "").lower(), n["port"], n["proto"])
+            if n.get("raw") in chain_failed_raws or n_key in chain_failed_keys:
                 n["net_type"] = "datacenter"
                 n["confidence"] = 70
+                continue
+            # ★ 闸门一兜底 (不依赖 chain_retest 是否跑过): UDP/QUIC 协议不进家宽区。
+            #   家宽节点入口在国内基本不可直连, 用户必须挂 socks5/http 前置,
+            #   而前置不转发 UDP → hy2/tuic 在客户端里恒为 -1。
+            if (n.get("proto") or "").lower() in UDP_ONLY_PROTOS:
+                n["net_type"] = "datacenter"
+                n["confidence"] = 70
+                udp_rejected += 1
+                continue
+            # ★ 闸门三: 家宽区必须实测到吞吐。
+            #   speed_unmeasured=True 表示两个测速端点都拿不到一个字节 —— 全量订阅里
+            #   可以保留 (可能只是测速站被节点商屏蔽), 但家宽区不能放:
+            #   家宽节点本来就慢, 连测速都出不了数据, 客户端里大概率握手成功但页面转圈。
+            #   实测: 上一版 5 个家宽节点里, 台湾 reality 与韩国 vmess 均 alive=True
+            #   但 speed_bps=0 / speed_unmeasured=True, 用户端全部报无效。
+            if n.get("speed_unmeasured") or (n.get("speed_bps") or 0) < SPEED_MIN_BYTES_PER_S:
+                n["net_type"] = "datacenter"
+                n["confidence"] = 70
+                speed_rejected += 1
                 continue
             if n["exit_ip"] and n["exit_ip"] not in res_seen_ip:
                 res_seen_ip.add(n["exit_ip"])
                 residential.append(n)
+    if udp_rejected:
+        print(f"[*] 家宽区排除 UDP 协议 (hy2/tuic 过不了前置): {udp_rejected} 个")
+    if speed_rejected:
+        print(f"[*] 家宽区排除未实测吞吐的节点 (alive 但下载 0 字节): {speed_rejected} 个")
     # fraud 分极高 (≥90) 的节点整体剔除 (任何区都不要)
     before_total = len(unique_nodes)
     unique_nodes = [n for n in unique_nodes if not (0 <= n.get("fraud_score", -1) >= 90)]
@@ -2775,6 +2980,18 @@ def make_node_name(item, idx, force_residential=False):
     fraud = item.get("fraud_score", -1)
     risk_tag = f" R{fraud}" if 0 <= fraud < 75 and fraud >= 40 else (" ⚠R" if fraud >= 75 else "")
     return f"{flag} {cname} {idx:02d}{tag}{risk_tag} - xiaohe"
+
+
+def _count_sub_nodes(path: str) -> int:
+    """数一个 base64 订阅文件里有多少行节点 URI (读不到就当 0)"""
+    try:
+        raw = open(path, encoding="utf-8").read().strip()
+        if not raw:
+            return 0
+        dec = base64.b64decode(raw + "=" * (-len(raw) % 4)).decode("utf-8", "ignore")
+        return sum(1 for line in dec.splitlines() if line.strip())
+    except Exception:
+        return 0
 
 
 def export_all(unique_nodes, residential, non_residential):
@@ -2832,7 +3049,21 @@ def export_all(unique_nodes, residential, non_residential):
 
     # 2) ★ 家宽总订阅: 所有国家/地区的家宽+移动网络节点汇总 (不按国家拆)
     res_links, res_proxies, res_sb = build_group(residential, force_res=True)
-    write_sub("residential", res_links, res_proxies, res_sb)
+    res_count = len(res_links)
+    if res_links:
+        write_sub("residential", res_links, res_proxies, res_sb)
+    else:
+        # ★ 家宽区为空时保留上次文件: 三道闸门 + 单个 relay 抖动都可能让某轮归零,
+        #   不该因此把用户手里还能用的家宽订阅清空。首次运行(无旧文件)才写空占位,
+        #   避免 README 里的链接 404。
+        _res_txt = os.path.join(OUTPUT_DIR, "residential.txt")
+        if os.path.exists(_res_txt):
+            # README 里的数字要跟"实际能拉到的文件内容"一致, 不能显示 0 却指向有内容的文件
+            res_count = _count_sub_nodes(_res_txt)
+            print(f"[!] 家宽区本轮为空: 保留上次 residential 订阅 ({res_count} 个节点, 不覆盖)")
+        else:
+            print("[!] 家宽区为空且无历史文件: 写空占位, 避免 README 链接 404")
+            write_sub("residential", [], [], [])
 
     # 3) 4) 按国家分区 (★ 无存活节点时不动, 否则会把线上 by-country 清空)
     if unique_nodes:
@@ -2862,8 +3093,8 @@ def export_all(unique_nodes, residential, non_residential):
             export_clash_yaml(p, os.path.join(RESIDENTIAL_COUNTRY_DIR, f"clash-{cc}.yaml"))
             export_singbox_json(s, os.path.join(RESIDENTIAL_COUNTRY_DIR, f"singbox-{cc}.json"))
 
-    print(f"[*] 导出完毕: 全量 {len(all_links)} | 家宽总订阅 {len(res_links)}")
-    return len(all_links), len(res_links)
+    print(f"[*] 导出完毕: 全量 {len(all_links)} | 家宽总订阅 {res_count}")
+    return len(all_links), res_count
 
 
 def export_clash_yaml(clash_proxies, filepath):
@@ -2975,6 +3206,13 @@ def update_readme(total_count, res_count):
 ## 🏠 按照家宽分类节点订阅 (住宅 IP 专区)
 
 > 家宽判定六重信号: ① ip-api.com `hosting` 字段 ② `mobile` 移动网络字段 ③ Cloudflare/主流 CDN Anycast 网段比对 ④ MaxMind GeoLite2 ASN 白/黑名单 (覆盖 60+ 国家主流民用运营商) ⑤ rDNS/ISP 名称特征 ⑥ Scamalytics 风控评分复核 (fraud ≥75 降级、≥90 剔除)。排除所有云主机/数据中心/CDN 任播, 保留真实民用宽带与移动网络。
+>
+> **可用性三道闸门** (家宽节点入口 IP 在国内基本不可直连, 通常必须挂前置, 因此比普通区多三道准入):
+> ① **协议闸门** — 只收 TCP 协议。`hysteria2` / `tuic` 是 QUIC/UDP, 而 socks5/http 前置不做 UDP 转发, 链式下 100% 失败, 一律不进家宽区 (它们仍在全量订阅里, 直连可用时照常使用)。
+> ② **吞吐闸门** — 必须实测到下载吞吐。仅"握手成功但下载 0 字节"的节点不进家宽区 (客户端里表现为连上了却打不开网页)。
+> ③ **前置闸门** — 在 CI 里起一个真实 socks5 前置 (亚洲节点优先), 家宽候选经它复测, 通过才放出。
+>
+> ⚠️ 因此家宽区的节点数会明显少于其他区: 宁可少而真, 不放多而假。
 
 ### 🌍 家宽总订阅 (全部国家汇总 · 推荐)
 
