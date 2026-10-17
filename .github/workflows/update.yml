@@ -70,9 +70,7 @@ jobs:
           p() { curl -s -o /dev/null "https://purge.jsdelivr.net/gh/${REPO}@${BRANCH}/$1" || true; }
           p README.md
           for f in v2ray.txt clash.yaml singbox.json \
-                   residential.txt residential-clash.yaml residential-singbox.json \
-                   direct.txt direct-clash.yaml direct-singbox.json \
-                   with-front.txt with-front-clash.yaml with-front-singbox.json; do
+                   residential.txt residential-clash.yaml residential-singbox.json; do
             p "output/$f"
           done
           find output/residential-by-country output/by-country -type f 2>/dev/null | while read -r f; do

@@ -207,84 +207,16 @@ DATACENTER_ASNS = {
 }
 
 # ══════════════════════════════════════════════════════════════════
-# 国内直连画像 (cn_direct_score)
+# 跨运行记忆
 #
-# 【为什么需要】GitHub Actions 出口是美国 Azure, 用它判定"节点活不活"会系统性错位:
-#   免费节点服务端普遍封禁云厂商 IP 段 (防滥用/防扫描) → 从 Azure 连不上,
-#   但这些节点对国内家用宽带完全正常。反之欧美机房直连节点从 Azure 通,
-#   国内却必须挂前置。实测症状: 出库 US128/NL96/DE49, 港台仅 10/3。
-#
-# 【怎么判】不看出口, 看**入口** IP 的国内可达性:
-#   Cloudflare CDN 段 → 国内全国可达, 是最稳的直连形态 (ws+tls over CF)
-#   云厂商段         → 国内直连基本不通 (被墙 + 服务端封禁双重打击)
-#   亚洲非云 IDC     → 可直连概率较高 (CN2/CMI/BGP 线路居多)
+# 【保留但不再参与出库】曾经用来支撑"救援池"(Azure 连不上但历史活过 + 入口画像
+#   可直连 → 当作对国内家宽可用)。实测反馈: 这批节点在国内客户端里全是 -1,
+#   必须挂前置才有一部分能用 —— 说明"入口 IP 像 CF/亚洲 IDC"并不等于"国内能连",
+#   该假设不成立, 救援池与国内直连专区已整体下线。
+#   state.json 仍继续写入, 保留各节点的历史存活轨迹备查。
 # ══════════════════════════════════════════════════════════════════
-
-# 云厂商 / 大型 IDC ASN (与 DATACENTER_ASNS 区分: 这里只放"国内直连必不通"的海外公有云)
-# ★ 刻意不收 阿里云/腾讯云/华为云 (45102/37963/132203/45090/55990):
-#   国内厂商的香港/新加坡节点与大陆互联较好, 常可直连, 交给地区规则打分更准。
-CLOUD_ASNS = {
-    8075, 8068, 12076, 6584,        # Microsoft / Azure
-    16509, 14618, 8987, 38895,      # AWS
-    15169, 396982, 19527, 139070,   # Google / GCP
-    14061, 20473, 64515, 63949,     # DigitalOcean / Vultr / Oracle
-    24940, 16276, 51167, 12876,     # Hetzner / OVH / Contabo / Online SAS
-    55081, 197540, 8560, 42708,     # Hostinger / IONOS
-    9009, 212238, 49981, 200651,    # M247 / Datacamp / Hostkey
-    20454, 199524, 49304, 62240,    # Kaopu/Selectel/Clouvider/Zenlayer
-    31898,                          # Oracle Cloud
-}
-
-CLOUDFLARE_ASN = 13335
-
-# 亚洲近距离地区 (非云 IDC 时直连概率较高)
-ASIA_DIRECT_COUNTRIES = {"HK", "TW", "JP", "SG", "KR", "MO"}
-
-# 欧美地区 IDC (国内直连普遍不通, 但非云厂商时仍保留低优先级)
-WEST_IDC_COUNTRIES = {"US", "NL", "DE", "GB", "FR", "CA", "SE", "FI", "PL", "RU", "IE", "CH", "AT", "IT", "ES"}
-
-# 直连池准入分 (>= 该值进入 direct 订阅)
-CN_DIRECT_THRESHOLD = 60
-
-# 跨运行记忆: 连续失败多少次才真正淘汰 (防"云 IP 被封"误杀)
 STATE_FILE = os.path.join(OUTPUT_DIR, "state.json")
 STATE_MAX_CONSEC_DEAD = 3
-
-
-def cn_direct_score(entry_ip: str, entry_country: str = None, entry_asn=None) -> tuple:
-    """入口 IP 的「国内直连可行性」评分 → (score 0-100, reason)
-
-    注意: 判的是**入口** (你连的那个 IP), 不是出口 (落地的 IP)。
-    出口决定"解锁哪个地区", 入口决定"国内能不能连上"。
-    """
-    if not entry_ip:
-        return 50, "no_entry_ip"
-    try:
-        ip_obj = ipaddress.ip_address(str(entry_ip))
-    except ValueError:
-        return 50, "bad_entry_ip"
-
-    # ① Cloudflare Anycast: 国内三大运营商全国可达, 直连最稳
-    for net in CLOUDFLARE_IP_NETWORKS:
-        if ip_obj in net:
-            return 92, "cloudflare_cdn"
-    # CF 新增段可能还没进上面的列表 → 按 ASN 兜底
-    if isinstance(entry_asn, int) and entry_asn == CLOUDFLARE_ASN:
-        return 90, "cloudflare_asn"
-
-    # ② 海外公有云 / 大厂段: 国内直连基本不通
-    if isinstance(entry_asn, int) and entry_asn in CLOUD_ASNS:
-        return 15, "cloud_asn"
-
-    # ③ 亚洲近距离地区 (非云 IDC): CN2/CMI/BGP 线路居多
-    if entry_country in ASIA_DIRECT_COUNTRIES:
-        return 72, "asia_idc"
-
-    # ④ 欧美 IDC: 直连普遍不通
-    if entry_country in WEST_IDC_COUNTRIES:
-        return 40, "west_idc"
-
-    return 50, "unknown"
 
 
 # 民用宽带 ASN 白名单 (离线兜底; 关键国家主流运营商)
@@ -1347,13 +1279,10 @@ def print_once(key: str, msg: str):
 def _make_result(item, status, fail_stage="", fail_detail=""):
     """构造统一结果对象 (★ 三态化: 失败节点也返回对象, 不再 return None)
 
-    为什么要保留失败节点:
-      GitHub Actions 出口是 Azure, 而免费节点服务端普遍封禁云厂商 IP 段。
-      "从 Azure 连不上" ≠ "节点坏了" —— 对国内家用宽带它可能是完全正常的。
-      直接 return None 会把这批最适配国内直连的节点永久丢掉 (旧版实测症状:
-      出库 US128/NL96/DE49, 港台仅 10/3)。
-      因此失败节点带 status=unreachable 返回, 由上层结合
-      cn_direct_score + 跨运行记忆 (state.json) 决定去留。
+    为什么要保留失败节点而不直接丢弃:
+      失败原因要能统计 (fail_stage 直方图), 否则永远看不清漏斗卡在哪一步。
+      但**不连通就不出库** —— 曾经试过把"Azure 连不上但入口像 CF/亚洲 IDC"的节点
+      当救援池放出, 实测国内客户端全 -1, 必须挂前置才有一部分能用, 该假设已废弃。
     """
     raw, outbound, server, port, proto = item
     return {
@@ -2532,18 +2461,9 @@ def save_state(state: dict):
 
 
 def state_key(server, port, proto, cred="") -> str:
-    """★ 记忆 key 必须含凭据: 同 host:port 上不同凭据是不同节点,
-    否则活凭据会把死凭据的 consec_dead 重置, 导致死节点被反复"救援"。"""
+    """记忆 key 含凭据: 同 host:port 上不同凭据是不同节点,
+    否则活凭据会把死凭据的 consec_dead 重置, 历史轨迹会串号。"""
     return f"{(server or '').lower()}:{port}|{proto}|{cred}"
-
-
-def attach_state(test_results: list, prev_state: dict):
-    """把上一轮的记忆挂到本轮结果上 (供 classify 判定"救援池")"""
-    for r in test_results:
-        k = state_key(r.get("server"), r.get("port"), r.get("proto"), r.get("cred", ""))
-        rec = prev_state.get(k) or {}
-        r["_prev_ever_alive"] = rec.get("ever", 0) > 0
-        r["_consec_dead"] = rec.get("consec_dead", 0)
 
 
 def build_state(test_results: list, prev_state: dict) -> dict:
@@ -2551,7 +2471,9 @@ def build_state(test_results: list, prev_state: dict) -> dict:
 
     - 本轮出现的 key: 累加 ever / 重置或累加 consec_dead
     - 本轮未出现的 key: 保留最多 3 轮 (miss 计数), 防订阅源抖动导致历史被清空
-    - 从未活过且连续失败超限的: 丢弃 (既无救援价值, 也避免 state.json 无限膨胀)
+    - 从未活过且连续失败超限的: 丢弃 (无参考价值, 也避免 state.json 无限膨胀)
+
+    注: 记忆只作历史轨迹留档, 不再影响出库 (救援池已下线)。
     """
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     merged = {}
@@ -2591,7 +2513,6 @@ def classify_and_export(test_results: list):
     # 收集全部出口 IP
     all_exit_ips = []
     seen_ip = set()
-    no_exit_ip = []
     for r in test_results:
         if r["exit_ip"] and r["exit_ip"] not in seen_ip:
             seen_ip.add(r["exit_ip"])
@@ -2616,12 +2537,12 @@ def classify_and_export(test_results: list):
     except Exception as e:
         print(f"[!] MaxMind 数据库打开失败: {e}")
 
-    # ★ 预解析入口域名 (并行): 分类循环里要用入口 IP 算直连画像,
+    # ★ 预解析入口域名 (并行): 出口 IP 查不到国家时(中转隧道/内网出口)要用入口 IP 定位地区。
     #   串行 DoH 会把这一步拖成几十秒; 预检阶段已缓存的会直接跳过。
-    #   只解析"存活 / 历史上活过"的节点 —— 从没活过的死域名没有画像价值。
+    #   只解析存活节点 —— 死节点的地区信息没有出库价值。
     pending_hosts = {
         r["server"] for r in test_results
-        if (r.get("alive") or r.get("_prev_ever_alive"))
+        if r.get("alive")
         and r.get("server") and not is_ip_literal(r["server"])
         and r["server"] not in _DNS_CACHE
     }
@@ -2649,19 +2570,14 @@ def classify_and_export(test_results: list):
             asn = asn or off_asn
             org = org or off_org
 
-        # ★ 入口 IP 情报 (国内直连画像用): 判"你连的那个 IP"国内能不能到
-        #   注意与出口区分: 出口决定"落地哪个地区", 入口决定"国内能不能连上"
-        #   只为"存活 / 历史上活过"的节点解析: 从没活过的死节点算画像没有意义,
-        #   几千个死域名串行 DoH 会把分类阶段拖垮。
+        # ★ 入口 IP 情报: 仅用于"出口 IP 查不到国家"时的地区兜底
         srv = r.get("server") or ""
         entry_ip, entry_country, entry_asn, entry_org = None, None, None, None
-        cn_score, cn_reason = 50, "skipped"
-        if srv and (r.get("alive") or r.get("_prev_ever_alive")):
+        if srv and r.get("alive"):
             entry_ip = srv if is_ip_literal(srv) else resolve_host(srv)
             if entry_ip and country_reader:
                 entry_country, entry_asn, entry_org = offline_ip_lookup(
                     entry_ip, country_reader, asn_reader)
-            cn_score, cn_reason = cn_direct_score(entry_ip, entry_country, entry_asn)
 
         # ★ 出口 IP 查不到国家 (云内网/中转隧道) → 回退用入口服务器 IP 定位国家
         #    (中转节点出口常是内网地址, mmdb 也查不到; 入口国 ≠ 出口国但至少给用户可用地区)
@@ -2701,15 +2617,9 @@ def classify_and_export(test_results: list):
             "is_stalled": r.get("is_stalled", False),
             "is_warp": r.get("is_warp", False),
             "quality_flags": r.get("quality_flags") or [],
-            # ★ 国内直连画像
             "entry_ip": entry_ip,
             "entry_country": entry_country,
             "entry_asn": entry_asn,
-            "cn_score": cn_score,
-            "cn_reason": cn_reason,
-            # 跨运行记忆 (由 main 注入, 用于救援判定)
-            "_prev_ever_alive": r.get("_prev_ever_alive", False),
-            "_consec_dead": r.get("_consec_dead", 0),
         })
 
     if country_reader:
@@ -2717,7 +2627,7 @@ def classify_and_export(test_results: list):
     if asn_reader:
         asn_reader.close()
 
-    # ── 风险过滤 (仅作用于存活节点; 失败节点留给"救援池"判定) ──
+    # ── 风险过滤 (仅作用于存活节点; 失败节点只用于统计失败原因, 不出库) ──
     alive_nodes = [n for n in nodes if n["status"] == "alive"]
     unreachable_nodes = [n for n in nodes if n["status"] != "alive"]
 
@@ -2728,7 +2638,7 @@ def classify_and_export(test_results: list):
     stalled_dropped = sum(1 for n in safe_nodes if n["is_stalled"])
     safe_nodes = [n for n in safe_nodes if not n["is_stalled"]]
     print(f"[*] 风险过滤: MITM 证书劫持剔除 {mitm_dropped} | 实测断流剔除 {stalled_dropped} "
-          f"| 保留存活 {len(safe_nodes)} | 待救援(未连通) {len(unreachable_nodes)}")
+          f"| 保留存活 {len(safe_nodes)} | 未连通(不出库) {len(unreachable_nodes)}")
 
     # ── Scamalytics 风控评分 (免费 HTML, 逐个; 只查家宽候选 + 抽样普通节点) ──
     # 家宽候选: 全查 (宁缺毋滥); 普通节点: 每 IP 查一次 (通常 <= 出口 IP 数)
@@ -2837,49 +2747,8 @@ def classify_and_export(test_results: list):
     residential.sort(key=lambda x: x["latency_ms"])
     non_residential.sort(key=lambda x: x["latency_ms"])
 
-    # ══════════════════════════════════════════════════════════════
-    # ★ 国内直连分层 (方案 A 核心)
-    #   direct      = 入口画像显示国内可直连 (CF CDN / 亚洲非云 IDC)
-    #   with-front  = 只能挂前置用 (欧美云厂商/机房)
-    #   rescue      = Azure 连不上, 但历史活过 + 入口画像可直连
-    #                 → 极可能是"封了云厂商 IP、对家用宽带友好"的节点, 必须救回
-    # ══════════════════════════════════════════════════════════════
-    direct_nodes = [n for n in unique_nodes if n["cn_score"] >= CN_DIRECT_THRESHOLD]
-    with_front_nodes = [n for n in unique_nodes if n["cn_score"] < CN_DIRECT_THRESHOLD]
-
-    alive_raws = {n["raw"] for n in unique_nodes}
-    rescue, rescue_seen = [], set()
-    rescue_skip = {"not_network": 0, "low_score": 0, "never_alive": 0, "dead_too_long": 0, "dup": 0}
-    for n in unreachable_nodes:
-        # 只救"网络层连不上"的节点 (no_liveness)。
-        # config_invalid 是 sing-box 不认这个配置 (schema/密钥问题), socks_not_ready 是本地进程
-        # 起不来 —— 这两类都不是"云 IP 被封", 救回来只会给主推订阅添噪声。
-        if n["fail_stage"] != "no_liveness":
-            rescue_skip["not_network"] += 1
-            continue
-        if n["cn_score"] < CN_DIRECT_THRESHOLD:
-            rescue_skip["low_score"] += 1
-            continue
-        if not n.get("_prev_ever_alive"):
-            rescue_skip["never_alive"] += 1
-            continue
-        if n.get("_consec_dead", 0) >= STATE_MAX_CONSEC_DEAD:
-            rescue_skip["dead_too_long"] += 1
-            continue
-        key = f"{n['server'].lower()}:{n['port']}|{n['proto']}"
-        if n["raw"] in alive_raws or key in rescue_seen:
-            rescue_skip["dup"] += 1
-            continue
-        rescue_seen.add(key)
-        n["pending"] = True          # 待验证: 导出时加 "待验" 标记
-        n["latency_ms"] = 99999      # 未实测延迟, 排在直连池末尾
-        rescue.append(n)
-    rescue.sort(key=lambda x: (-x["cn_score"], x["server"]))
-    print(f"[*] 救援池: 保留 {len(rescue)} 个 (Azure 未连通但历史可用+国内可直连) | "
-          f"跳过 {rescue_skip}")
-
     # 重建 outbound (测活阶段的 outbound 已验证可用); 剥离测试专用字段 (detour 等绝不入订阅)
-    for n in unique_nodes + rescue:
+    for n in unique_nodes:
         parsed = parse_node_uri(n["raw"])
         if parsed:
             ob = parsed[0]
@@ -2887,22 +2756,11 @@ def classify_and_export(test_results: list):
             n["outbound"] = ob
         else:
             n["outbound"] = None
-    rescue = [n for n in rescue if n["outbound"]]
+    unique_nodes = [n for n in unique_nodes if n["outbound"]]
+    residential = [n for n in residential if n["outbound"]]
+    non_residential = [n for n in non_residential if n["outbound"]]
 
-    # 直连池 = 已测活且画像达标 + 救援池
-    direct_nodes = [n for n in direct_nodes if n["outbound"]]
-    direct_nodes.sort(key=lambda x: x["latency_ms"])
-    direct_all = direct_nodes + rescue
-    with_front_nodes = [n for n in with_front_nodes if n["outbound"]]
-
-    print(f"[*] 国内直连池: {len(direct_nodes)} 已测活 + {len(rescue)} 待验证 = {len(direct_all)} "
-          f"| 需前置: {len(with_front_nodes)}")
-    by_reason = {}
-    for n in direct_all:
-        by_reason[n["cn_reason"]] = by_reason.get(n["cn_reason"], 0) + 1
-    print(f"[*] 直连池入口画像分布: {by_reason}")
-
-    return unique_nodes, residential, non_residential, direct_all, with_front_nodes
+    return unique_nodes, residential, non_residential
 
 
 def make_node_name(item, idx, force_residential=False):
@@ -2916,15 +2774,11 @@ def make_node_name(item, idx, force_residential=False):
     # Scamalytics 风控分: 高风险节点名内标注 (R分数), 低危不标 (保持简洁)
     fraud = item.get("fraud_score", -1)
     risk_tag = f" R{fraud}" if 0 <= fraud < 75 and fraud >= 40 else (" ⚠R" if fraud >= 75 else "")
-    # ★ 待验证节点 (Azure 未连通但历史可用 + 国内可直连) 加标记, 便于用户识别
-    pend_tag = " 待验" if item.get("pending") else ""
-    return f"{flag} {cname} {idx:02d}{tag}{risk_tag}{pend_tag} - xiaohe"
+    return f"{flag} {cname} {idx:02d}{tag}{risk_tag} - xiaohe"
 
 
-def export_all(unique_nodes, residential, non_residential, direct_nodes=None, with_front_nodes=None):
+def export_all(unique_nodes, residential, non_residential):
     ensure_directories()
-    direct_nodes = direct_nodes or []
-    with_front_nodes = with_front_nodes or []
 
     def build_group(nodes_list, force_res=False):
         links, proxies, sb_nodes = [], [], []
@@ -2941,52 +2795,44 @@ def export_all(unique_nodes, residential, non_residential, direct_nodes=None, wi
         return links, proxies, sb_nodes
 
     def write_sub(base_name, links, proxies, sb_nodes):
-        """写一套订阅 (txt / clash / singbox); 为空则清掉旧文件, 避免发陈旧数据"""
+        """写一套订阅 (txt / clash / singbox)
+
+        空集时写**最小合法空配置**而不是删文件 —— README 里三个链接永远指向存在的文件,
+        客户端拉下来显示 0 节点, 而不是 404 报错 (用户会以为项目挂了)。
+        """
         txt_path = os.path.join(OUTPUT_DIR, f"{base_name}.txt")
         clash_path = os.path.join(OUTPUT_DIR, f"{base_name}-clash.yaml")
         sb_path = os.path.join(OUTPUT_DIR, f"{base_name}-singbox.json")
-        if not links:
-            for p in (txt_path, clash_path, sb_path):
-                if os.path.exists(p):
-                    os.remove(p)
-            return 0
         with open(txt_path, "w", encoding="utf-8") as f:
             f.write(base64.b64encode("\n".join(links).encode()).decode())
-        export_clash_yaml(proxies, clash_path)
-        export_singbox_json(sb_nodes, sb_path)
+        if links:
+            export_clash_yaml(proxies, clash_path)
+            export_singbox_json(sb_nodes, sb_path)
+        else:
+            # 空 clash: 无 proxy, 全部走 DIRECT (clash 不接受 proxies 为空的 select 组)
+            with open(clash_path, "w", encoding="utf-8") as f:
+                yaml.dump({"port": 7890, "socks-port": 7891, "allow-lan": True,
+                           "mode": "rule", "log-level": "info",
+                           "proxies": [], "proxy-groups": [],
+                           "rules": ["MATCH,DIRECT"]},
+                          f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+            # 空 sing-box: 只留 direct 出站
+            with open(sb_path, "w", encoding="utf-8") as f:
+                json.dump({"log": {"level": "warn"},
+                           "outbounds": [{"type": "direct", "tag": "direct"}]},
+                          f, indent=2, ensure_ascii=False)
         return len(links)
 
-    # 1) 全量 (★ 无存活节点时保留上次文件, 避免把线上主订阅清空)
-    all_links = []
-    if unique_nodes:
-        all_links, all_proxies, all_sb = build_group(unique_nodes)
-        with open(os.path.join(OUTPUT_DIR, "v2ray.txt"), "w", encoding="utf-8") as f:
-            f.write(base64.b64encode("\n".join(all_links).encode()).decode())
-        export_clash_yaml(all_proxies, os.path.join(OUTPUT_DIR, "clash.yaml"))
-        export_singbox_json(all_sb, os.path.join(OUTPUT_DIR, "singbox.json"))
-    else:
-        print("[!] 无存活节点: 保留上次 v2ray/clash/singbox 全量订阅不覆盖")
+    # 1) 全量
+    all_links, all_proxies, all_sb = build_group(unique_nodes)
+    with open(os.path.join(OUTPUT_DIR, "v2ray.txt"), "w", encoding="utf-8") as f:
+        f.write(base64.b64encode("\n".join(all_links).encode()).decode())
+    export_clash_yaml(all_proxies, os.path.join(OUTPUT_DIR, "clash.yaml"))
+    export_singbox_json(all_sb, os.path.join(OUTPUT_DIR, "singbox.json"))
 
-    # 2) 家宽总订阅
+    # 2) ★ 家宽总订阅: 所有国家/地区的家宽+移动网络节点汇总 (不按国家拆)
     res_links, res_proxies, res_sb = build_group(residential, force_res=True)
-    with open(os.path.join(OUTPUT_DIR, "residential.txt"), "w", encoding="utf-8") as f:
-        f.write(base64.b64encode("\n".join(res_links).encode()).decode())
-    if res_proxies:
-        export_clash_yaml(res_proxies, os.path.join(OUTPUT_DIR, "residential-clash.yaml"))
-        export_singbox_json(res_sb, os.path.join(OUTPUT_DIR, "residential-singbox.json"))
-    else:
-        for fn in ("residential-clash.yaml", "residential-singbox.json"):
-            p = os.path.join(OUTPUT_DIR, fn)
-            if os.path.exists(p):
-                os.remove(p)
-
-    # 2.5) ★ 国内直连专区 (方案 A 主输出: 入口画像达标 + 救援池)
-    d_links, d_proxies, d_sb = build_group(direct_nodes)
-    direct_written = write_sub("direct", d_links, d_proxies, d_sb)
-
-    # 2.6) 需前置代理专区 (欧美云厂商/机房, 国内直连不通)
-    f_links, f_proxies, f_sb = build_group(with_front_nodes)
-    front_written = write_sub("with-front", f_links, f_proxies, f_sb)
+    write_sub("residential", res_links, res_proxies, res_sb)
 
     # 3) 4) 按国家分区 (★ 无存活节点时不动, 否则会把线上 by-country 清空)
     if unique_nodes:
@@ -3016,9 +2862,8 @@ def export_all(unique_nodes, residential, non_residential, direct_nodes=None, wi
             export_clash_yaml(p, os.path.join(RESIDENTIAL_COUNTRY_DIR, f"clash-{cc}.yaml"))
             export_singbox_json(s, os.path.join(RESIDENTIAL_COUNTRY_DIR, f"singbox-{cc}.json"))
 
-    print(f"[*] 导出完毕: 全量 {len(all_links)} | 家宽 {len(res_links)} | "
-          f"国内直连 {direct_written} | 需前置 {front_written}")
-    return len(all_links), len(res_links), direct_written, front_written
+    print(f"[*] 导出完毕: 全量 {len(all_links)} | 家宽总订阅 {len(res_links)}")
+    return len(all_links), len(res_links)
 
 
 def export_clash_yaml(clash_proxies, filepath):
@@ -3060,11 +2905,10 @@ def export_singbox_json(sb_nodes, filepath):
 # README 生成
 # ═══════════════════════════════════════════N═══════════════════════
 
-def update_readme(total_count, res_count, direct_count=0, front_count=0):
+def update_readme(total_count, res_count):
     repo_name = os.environ.get("GITHUB_REPOSITORY", "hezhanleiok/freesub").strip()
     # ★ 订阅链接跟随当前分支 (test 分支上写死 @main 会让用户订阅到主分支的旧数据)
     branch = (os.environ.get("GITHUB_REF_NAME") or "main").strip() or "main"
-    cache_bust = ""
     # 私有化部署 Worker 脚本里的仓库参数 (默认值兜底)
     try:
         owner, repo = repo_name.split("/", 1)
@@ -3111,29 +2955,16 @@ def update_readme(total_count, res_count, direct_count=0, front_count=0):
     readme = f"""# 🚀 免费节点自动测活订阅池 (含真实家宽/住宅IP甄选)
 
 > 👤 **定制规范命名**: 所有订阅节点均重命名为 `国旗 地区 序号 (家宽) - xiaohe`
-> ⚡ **真实可用保障**: 所有节点由 `sing-box v{SINGBOX_VERSION}` 内核建立实际代理隧道, 完成真实 HTTPS 双向传输握手 + 出口 IP 穿透验证 + Cloudflare 限速下载断流检测 + TLS 证书校验 (MITM 劫持识别), 拒绝虚假通畅、断流节点与高危劫持节点。
+> ⚡ **真实可用保障**: 所有节点由 `sing-box {SINGBOX_VERSION}` 内核建立实际代理隧道, 完成真实 HTTPS 双向传输握手 + 出口 IP 穿透验证 + Cloudflare 限速下载断流检测 + TLS 证书校验 (MITM 劫持识别), 拒绝虚假通畅、断流节点与高危劫持节点。
 > 🛡️ **全协议支持**: VLESS (Reality/Vision) · VMESS · Trojan · Shadowsocks · Hysteria2 · TUIC · AnyTLS
-
----
-
-## ⚡ 国内直连专区 (优先用这个 · 无需前置代理)
-
-> 判定依据: **入口 IP** 的国内可达性画像 —— Cloudflare CDN 段 (全国可达) 与亚洲近距离非云 IDC 优先; 公有云/欧美机房段降权。
-> 含两类节点: ① 海外实测存活 + 入口画像达标 ② **Azure 连不上但历史可用 + 入口可直连** (这类多为封了云厂商 IP、对家用宽带友好的节点, 名字带 `待验`)。
-
-| 客户端 / 格式类型 | 节点总数 | 免翻 CDN 订阅直链 (国内直连) | 官方原生 Raw 直链 (开启代理) |
-| :--- | :---: | :--- | :--- |
-| 🚀 **Clash (YAML 格式)** | `{direct_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/direct-clash.yaml) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/direct-clash.yaml) |
-| ⚡ **V2RayN (Base64 格式)** | `{direct_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/direct.txt) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/direct.txt) |
-| 📦 **sing-box (JSON 格式)** | `{direct_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/direct-singbox.json) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/direct-singbox.json) |
-
-> 🔌 另有 **需前置代理专区** (`{front_count}` 个, 欧美云厂商/机房直连不可达): [V2RayN](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/with-front.txt) · [Clash](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/with-front-clash.yaml) · [sing-box](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/with-front-singbox.json)
 
 ---
 
 ## 📌 全部节点总订阅链接
 
-| 客户端 / 格式类型 | 节点总数 | 免翻 CDN 订阅直链 (国内直连) | 官方原生 Raw 直链 (开启代理) |
+> 全部为**海外实测存活**节点 (sing-box 真实握手 + 出口 IP 穿透 + 断流检测通过)。国内使用请开启前置代理。
+
+| 客户端 / 格式类型 | 节点总数 | 免翻 CDN 加速直链 | 官方原生 Raw 直链 (开启代理) |
 | :--- | :---: | :--- | :--- |
 | 🚀 **Clash (YAML 格式)** | `{total_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/clash.yaml) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/clash.yaml) |
 | ⚡ **V2RayN (Base64 格式)** | `{total_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/v2ray.txt) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/v2ray.txt) |
@@ -3144,6 +2975,18 @@ def update_readme(total_count, res_count, direct_count=0, front_count=0):
 ## 🏠 按照家宽分类节点订阅 (住宅 IP 专区)
 
 > 家宽判定六重信号: ① ip-api.com `hosting` 字段 ② `mobile` 移动网络字段 ③ Cloudflare/主流 CDN Anycast 网段比对 ④ MaxMind GeoLite2 ASN 白/黑名单 (覆盖 60+ 国家主流民用运营商) ⑤ rDNS/ISP 名称特征 ⑥ Scamalytics 风控评分复核 (fraud ≥75 降级、≥90 剔除)。排除所有云主机/数据中心/CDN 任播, 保留真实民用宽带与移动网络。
+
+### 🌍 家宽总订阅 (全部国家汇总 · 推荐)
+
+> 把下面所有国家/地区的家宽 + 移动网络节点合并成一份, 不用逐个国家订阅。
+
+| 客户端 / 格式类型 | 节点总数 | 免翻 CDN 加速直链 | 官方原生 Raw 直链 (开启代理) |
+| :--- | :---: | :--- | :--- |
+| 🚀 **Clash (YAML 格式)** | `{res_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/residential-clash.yaml) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/residential-clash.yaml) |
+| ⚡ **V2RayN (Base64 格式)** | `{res_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/residential.txt) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/residential.txt) |
+| 📦 **sing-box (JSON 格式)** | `{res_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/residential-singbox.json) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/residential-singbox.json) |
+
+### 📍 按国家/地区拆分
 
 | 家宽地区 | 节点数 | V2RayN 专属订阅 | Clash 专属订阅 | sing-box 专属订阅 |
 | :--- | :---: | :---: | :---: | :---: |
@@ -3209,6 +3052,9 @@ export default {{
 * **总 V2RayN 订阅**: `https://你的域名.workers.dev/v2ray.txt`
 * **总 Clash 订阅**: `https://你的域名.workers.dev/clash.yaml`
 * **总 sing-box 订阅**: `https://你的域名.workers.dev/singbox.json`
+* **家宽总订阅 (V2RayN)**: `https://你的域名.workers.dev/residential.txt`
+* **家宽总订阅 (Clash)**: `https://你的域名.workers.dev/residential-clash.yaml`
+* **家宽总订阅 (sing-box)**: `https://你的域名.workers.dev/residential-singbox.json`
 * **台湾家宽 V2RayN**: `https://你的域名.workers.dev/residential-by-country/TW.txt`
 * **香港家宽 Clash**: `https://你的域名.workers.dev/residential-by-country/clash-HK.yaml`
 * **日本家宽 sing-box**: `https://你的域名.workers.dev/residential-by-country/singbox-JP.json`
@@ -3224,13 +3070,12 @@ export default {{
 ## 🛠️ 项目使用说明
 1. **更新机制**：GitHub Actions **手动触发** (`workflow_dispatch`) 后刷新上述全部订阅与数据。
 2. **测活标准**：① sing-box 实际隧道 + 3 个多厂商 generate_204 探测 ② 真实出口 IP 穿透 ③ 稳态吞吐测量 (剔除慢启动, ≥ 35KB/s 判为可用; 测不到速度只标记不淘汰) ④ TLS 证书链校验识别 MITM (仅证书验证失败才判劫持)。
-3. **直连判定**：按**入口 IP** 画像分级 —— Cloudflare CDN 段 / 亚洲近距离非云 IDC 进「国内直连专区」; 公有云与欧美机房段进「需前置代理专区」。Azure 连不上但历史可用的节点会保留为 `待验`, 不再直接删除。
+3. **出库标准**：只有本轮**实测连通**的节点才会出库 (失败节点仅用于统计失败原因, 不写入订阅)。
 4. **多客户端兼容**：Clash / v2rayN / sing-box 全格式订阅。
 """
     with open(os.path.join(BASEDIR, "README.md"), "w", encoding="utf-8") as f:
         f.write(readme)
-    print(f"[+] README.md 更新完毕: 总节点 {total_count}, 家宽 {res_count}, "
-          f"国内直连 {direct_count}, 需前置 {front_count}")
+    print(f"[+] README.md 更新完毕: 总节点 {total_count}, 家宽总订阅 {res_count}")
 
 
 # ═══════════════════════════════════════════N═══════════════════════
@@ -3342,35 +3187,27 @@ def main():
             else:
                 print("[*] 回源补抓的节点全部与已有节点重复, 无需追加测活")
 
-    # 4.6 ★ 跨运行记忆: 挂载上一轮结果, 用于识别"上次活、这次连不上"的节点
-    #     (这类节点大概率是封了云厂商 IP, 对国内家用宽带反而正常, 不能当死节点删掉)
+    # 4.6 跨运行记忆: 只读来累加历史轨迹, 不参与出库判定 (救援池已下线)
     prev_state = load_state()
-    if prev_state:
-        attach_state(test_results, prev_state)
-        print(f"[*] 已加载跨运行记忆: {len(prev_state)} 条")
-    else:
-        print("[*] 无跨运行记忆 (首次运行), 救援池本轮为空")
+    print(f"[*] 跨运行记忆: {len(prev_state)} 条" if prev_state else "[*] 无跨运行记忆 (首次运行)")
 
     # 5. ★ 家宽链式复测: 用最快存活节点做前置双跳复测家宽候选
     #    (模拟用户 v2rayN 链式场景, 双跳失败的家宽降级普通区 — 提高链式可用率)
     test_results = chain_retest(test_results)
 
-    # 5.5 保存跨运行记忆 (即使本轮无可用节点也要更新, 否则救援判定会失真)
+    # 5.5 保存跨运行记忆
     save_state(build_state(test_results, prev_state))
 
     # 6. 分类 + 导出
     if not test_results:
         print("[!] 无任何测活结果 — 保留上次 output, 不覆盖订阅文件")
         return
-    unique_nodes, residential, non_residential, direct_nodes, with_front_nodes = \
-        classify_and_export(test_results)
-    # ★ 三态化后, 即使 0 个存活节点, 救援池也可能有内容 —— 不能因为 unique_nodes 为空就整体跳过
-    if not (unique_nodes or direct_nodes):
-        print("[!] 既无存活节点也无救援节点 — 保留上次 output")
+    unique_nodes, residential, non_residential = classify_and_export(test_results)
+    if not unique_nodes:
+        print("[!] 无存活节点 — 保留上次 output, 不覆盖订阅文件")
         return
-    total, res, direct_cnt, front_cnt = export_all(
-        unique_nodes, residential, non_residential, direct_nodes, with_front_nodes)
-    update_readme(total, res, direct_cnt, front_cnt)
+    total, res = export_all(unique_nodes, residential, non_residential)
+    update_readme(total, res)
 
 
     # 统计报告
@@ -3378,8 +3215,7 @@ def main():
     print("\n===== 运行报告 =====")
     print(f"总耗时: {elapsed:.0f}s | 抓取 {len(raw_nodes)} → 解析成功 {len(candidates)} "
           f"→ 存活 {sum(1 for r in test_results if r.get('alive'))}/{len(test_results)} "
-          f"→ 去重后 {len(unique_nodes)} → 家宽 {len(residential)} "
-          f"→ 直连 {direct_cnt} → 需前置 {front_cnt}")
+          f"→ 去重后 {len(unique_nodes)} → 家宽 {len(residential)}")
     by_type = {}
     for n in unique_nodes:
         by_type[n["net_type"]] = by_type.get(n["net_type"], 0) + 1
