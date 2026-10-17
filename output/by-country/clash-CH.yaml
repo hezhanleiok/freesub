@@ -25,10 +25,10 @@ proxies:
   client-fingerprint: chrome
 - name: 🇨🇭 CH 03 - wangyu
   type: ss
-  server: 86.106.84.194
-  port: 13261
-  cipher: aes-128-gcm
-  password: 2bf536a4bd6008511734a505d248de2c
+  server: 132.243.175.144
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
   udp: true
 - name: 🇨🇭 CH 04 - wangyu
   type: vless
@@ -42,13 +42,6 @@ proxies:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
   servername: www.apple.com
   client-fingerprint: chrome
-- name: 🇨🇭 CH 05 - wangyu
-  type: ss
-  server: 132.243.175.144
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -58,7 +51,6 @@ proxy-groups:
   - 🇨🇭 CH 02 - wangyu
   - 🇨🇭 CH 03 - wangyu
   - 🇨🇭 CH 04 - wangyu
-  - 🇨🇭 CH 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -68,6 +60,5 @@ proxy-groups:
   - 🇨🇭 CH 02 - wangyu
   - 🇨🇭 CH 03 - wangyu
   - 🇨🇭 CH 04 - wangyu
-  - 🇨🇭 CH 05 - wangyu
 rules:
 - MATCH,PROXIES

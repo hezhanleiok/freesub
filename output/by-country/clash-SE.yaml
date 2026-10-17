@@ -6,72 +6,18 @@ log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - wangyu
   type: vless
-  server: 94.143.231.146
-  port: 443
-  uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
+  server: 5.178.109.174
+  port: 14430
+  uuid: 80de563a-cac8-40ea-8cb0-4cb082dd92f9
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: sub.merky.top
   network: ws
   ws-opts:
-    path: /merky-connect/de6/
+    path: /vless
     headers:
-      Host: sub.merky.top
+      Host: 5.178.109.174
 - name: 🇸🇪 SE 02 - wangyu
-  type: vless
-  server: sub.merky.top
-  port: 443
-  uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: sub.merky.top
-  network: ws
-  ws-opts:
-    path: /merky-connect/de6/
-    headers:
-      Host: sub.merky.top
-- name: 🇸🇪 SE 03 - wangyu
-  type: vless
-  server: 5.178.109.174
-  port: 14430
-  uuid: 80de563a-cac8-40ea-8cb0-4cb082dd92f9
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 5.178.109.174
-- name: 🇸🇪 SE 04 - wangyu
-  type: vless
-  server: 5.178.109.174
-  port: 14430
-  uuid: 80de563a-cac8-40ea-8cb0-4cb082dd92f9
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 5.178.109.174
-- name: 🇸🇪 SE 05 - wangyu
-  type: vless
-  server: 193.188.21.253
-  port: 14430
-  uuid: 57f7772d-f5d6-4d8f-992d-5fa5e0d6da55
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 193.188.21.253
-- name: 🇸🇪 SE 06 - wangyu
   type: vless
   server: 77.110.97.245
   port: 443
@@ -85,20 +31,19 @@ proxies:
     path: /
     headers:
       Host: ccc.010304.xyz
-- name: 🇸🇪 SE 07 - wangyu
+- name: 🇸🇪 SE 03 - wangyu
   type: vless
-  server: 94.143.231.146
-  port: 443
-  uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
+  server: 5.178.109.174
+  port: 14430
+  uuid: 80de563a-cac8-40ea-8cb0-4cb082dd92f9
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: sub.merky.top
   network: ws
   ws-opts:
-    path: /merky-connect/de6/
+    path: /vless
     headers:
-      Host: sub.merky.top
+      Host: 5.178.109.174
 proxy-groups:
 - name: PROXIES
   type: select
@@ -107,10 +52,6 @@ proxy-groups:
   - 🇸🇪 SE 01 - wangyu
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
-  - 🇸🇪 SE 04 - wangyu
-  - 🇸🇪 SE 05 - wangyu
-  - 🇸🇪 SE 06 - wangyu
-  - 🇸🇪 SE 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -119,9 +60,5 @@ proxy-groups:
   - 🇸🇪 SE 01 - wangyu
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
-  - 🇸🇪 SE 04 - wangyu
-  - 🇸🇪 SE 05 - wangyu
-  - 🇸🇪 SE 06 - wangyu
-  - 🇸🇪 SE 07 - wangyu
 rules:
 - MATCH,PROXIES

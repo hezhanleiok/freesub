@@ -7,11 +7,16 @@ proxies:
 - name: 🇨🇾 CY 01 - wangyu
   type: vless
   server: 5.253.29.254
-  port: 10443
+  port: 14430
   uuid: c7c27192-60a5-4ce1-b613-95270d82309d
   udp: true
   tls: false
   skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: 5.253.29.254
 - name: 🇨🇾 CY 02 - wangyu
   type: vless
   server: 5.253.29.254
@@ -57,6 +62,14 @@ proxies:
 - name: 🇨🇾 CY 06 - wangyu
   type: vless
   server: 5.253.29.254
+  port: 10443
+  uuid: c7c27192-60a5-4ce1-b613-95270d82309d
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇨🇾 CY 07 - wangyu
+  type: vless
+  server: 5.253.29.254
   port: 14430
   uuid: c7c27192-60a5-4ce1-b613-95270d82309d
   udp: true
@@ -78,6 +91,7 @@ proxy-groups:
   - 🇨🇾 CY 04 - wangyu
   - 🇨🇾 CY 05 - wangyu
   - 🇨🇾 CY 06 - wangyu
+  - 🇨🇾 CY 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -89,5 +103,6 @@ proxy-groups:
   - 🇨🇾 CY 04 - wangyu
   - 🇨🇾 CY 05 - wangyu
   - 🇨🇾 CY 06 - wangyu
+  - 🇨🇾 CY 07 - wangyu
 rules:
 - MATCH,PROXIES

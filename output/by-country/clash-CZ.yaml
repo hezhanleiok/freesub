@@ -11,17 +11,58 @@ proxies:
   cipher: aes-256-gcm
   password: I6o9NnialYLMEjVt28RF4dpjmr9wMvNL
   udp: true
+- name: 🇨🇿 CZ 02 - wangyu
+  type: vless
+  server: 195.133.24.39
+  port: 8443
+  uuid: 5aeb8159-7ecd-4051-89c3-82fb1cecff2e
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: sub.777lfvpn.site
+  network: ws
+  ws-opts:
+    path: /lfvpn-v28-vless
+    headers:
+      Host: sub.777lfvpn.site
+- name: 🇨🇿 CZ 03 - wangyu
+  type: ss
+  server: 67.159.18.34
+  port: 17001
+  cipher: aes-256-gcm
+  password: I6o9NnialYLMEjVt28RF4dpjmr9wMvNL
+  udp: true
+- name: 🇨🇿 CZ 04 - wangyu
+  type: vless
+  server: cl-glb6e059ee.gcdn.co
+  port: 443
+  uuid: 6206cb76-491d-4237-baf1-8c29eea4eafb
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: node-3.wt419.site
+  network: ws
+  ws-opts:
+    path: /qVnRkTxmLwBzHjYpFaDgUcSeNrKxMtVbWqZhPcLsJfGy
+    headers:
+      Host: node-3.wt419.site
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇨🇿 CZ 01 - wangyu
+  - 🇨🇿 CZ 02 - wangyu
+  - 🇨🇿 CZ 03 - wangyu
+  - 🇨🇿 CZ 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇨🇿 CZ 01 - wangyu
+  - 🇨🇿 CZ 02 - wangyu
+  - 🇨🇿 CZ 03 - wangyu
+  - 🇨🇿 CZ 04 - wangyu
 rules:
 - MATCH,PROXIES

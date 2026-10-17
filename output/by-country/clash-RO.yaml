@@ -5,6 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇴 RO 01 - wangyu
+  type: ss
+  server: 194.68.44.42
+  port: 64546
+  cipher: chacha20-ietf-poly1305
+  password: U83u9OGpvSatIUW7LsWffr
+  udp: true
+- name: 🇷🇴 RO 02 - wangyu
   type: vless
   server: edge10.cyrionflare.com
   port: 2052
@@ -12,13 +19,6 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇷🇴 RO 02 - wangyu
-  type: ss
-  server: 194.68.44.42
-  port: 64546
-  cipher: chacha20-ietf-poly1305
-  password: U83u9OGpvSatIUW7LsWffr
-  udp: true
 - name: 🇷🇴 RO 03 - wangyu
   type: vless
   server: edge10.cyrionflare.com
@@ -28,16 +28,8 @@ proxies:
   tls: false
   skip-cert-verify: true
 - name: 🇷🇴 RO 04 - wangyu
-  type: vless
-  server: edge10.cyrionflare.com
-  port: 2052
-  uuid: 1a8ecc41-6e62-431b-8eca-87c2fa4dc286
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: 🇷🇴 RO 05 - wangyu
   type: ss
-  server: 154.46.31.106
+  server: bogging-eyeteeth-fly.freesocks.work
   port: 443
   cipher: chacha20-ietf-poly1305
   password: QFWzCw2uX9B9i6qAYeFBIE
@@ -51,7 +43,6 @@ proxy-groups:
   - 🇷🇴 RO 02 - wangyu
   - 🇷🇴 RO 03 - wangyu
   - 🇷🇴 RO 04 - wangyu
-  - 🇷🇴 RO 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -61,6 +52,5 @@ proxy-groups:
   - 🇷🇴 RO 02 - wangyu
   - 🇷🇴 RO 03 - wangyu
   - 🇷🇴 RO 04 - wangyu
-  - 🇷🇴 RO 05 - wangyu
 rules:
 - MATCH,PROXIES
