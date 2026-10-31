@@ -5,41 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - wangyu
-  type: ss
-  server: alb.rvpn.app
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: hTTg7lwQMzpaF7KXpY3A8w
-  udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
-  type: vless
-  server: 194.87.143.165
-  port: 8443
-  uuid: f9613819-d2fe-4b3a-a2e6-40c184c6854c
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 194.87.143.165
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 194.87.143.165
-- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
-  type: ss
-  server: 130.49.189.54
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: hTTg7lwQMzpaF7KXpY3A8w
-  udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
-  type: ss
-  server: 185.22.155.121
-  port: 18443
-  cipher: aes-256-gcm
-  password: NTiHBg64fsY8u8DbGrtypD9gPGSL386p
-  udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 05 - wangyu
   type: vless
   server: lvi.su
   port: 443
@@ -53,7 +18,7 @@ proxies:
     path: /vpn-relay?token=27fede42482b3c29d4c1c9640876c250&pool=whitelist2
     headers:
       Host: lvi.su
-- name: 🇷🇺 俄罗斯 (Russia) 06 - wangyu
+- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
   type: vless
   server: 87.120.166.160
   port: 443
@@ -67,13 +32,32 @@ proxies:
     path: /vpn-relay?token=27fede42482b3c29d4c1c9640876c250&pool=whitelist2
     headers:
       Host: lvi.su
-- name: 🇷🇺 俄罗斯 (Russia) 07 - wangyu
-  type: ss
-  server: 159.194.251.76
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: MODziWLa9qMuW-4yPa0rfw
+- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
+  type: vless
+  server: 5.129.249.65
+  port: 443
+  uuid: a5212bcb-ab85-459a-bec6-9f259eeeebfa
   udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: iT-HgkPRUHl7Tm-LUWAGD-zoNoZSkVc-M9sscIIomHY
+  servername: rue.tems.bet
+  client-fingerprint: firefox
+- name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
+  type: vless
+  server: lvi.su
+  port: 443
+  uuid: 7b91b2c3-8af3-449b-a555-00c9460989f4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: lvi.su
+  network: ws
+  ws-opts:
+    path: /vpn-relay?token=27fede42482b3c29d4c1c9640876c250&pool=whitelist2
+    headers:
+      Host: lvi.su
 proxy-groups:
 - name: PROXIES
   type: select
@@ -83,9 +67,6 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 06 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -95,8 +76,5 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 06 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 07 - wangyu
 rules:
 - MATCH,PROXIES

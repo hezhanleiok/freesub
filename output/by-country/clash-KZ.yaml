@@ -4,25 +4,29 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇻🇳 VN 01 - wangyu
+- name: 🇰🇿 KZ 01 - wangyu
   type: vless
-  server: 150.95.109.109
-  port: 2086
-  uuid: b83faafc-cbb7-4655-99d4-2c4c39a49d1b
+  server: 109.248.170.119
+  port: 13447
+  uuid: b573cefb-7bc7-4a42-b407-b8b534e66773
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  reality-opts:
+    public-key: _0wM2ep44eAcrgf5PflKaBivknCWT6kMvQBQUoScCkE
+  servername: yahoo.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇻🇳 VN 01 - wangyu
+  - 🇰🇿 KZ 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇻🇳 VN 01 - wangyu
+  - 🇰🇿 KZ 01 - wangyu
 rules:
 - MATCH,PROXIES
