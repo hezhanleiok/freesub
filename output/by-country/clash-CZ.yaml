@@ -6,20 +6,6 @@ log-level: info
 proxies:
 - name: 🇨🇿 CZ 01 - wangyu
   type: vless
-  server: 188.114.98.0
-  port: 443
-  uuid: f27b6f65-6e59-4f89-b929-afa397ca587f
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: n.bitpulse.me
-  network: ws
-  ws-opts:
-    path: /019bcbad-3813-7cce-8786-3ac0e418f128?ed=2560
-    headers:
-      Host: n.bitpulse.me
-- name: 🇨🇿 CZ 02 - wangyu
-  type: vless
   server: 155.212.240.10
   port: 443
   uuid: f27b6f65-6e59-4f89-b929-afa397ca587f
@@ -32,35 +18,17 @@ proxies:
     path: /019bcbad-3813-7cce-8786-3ac0e418f128?ed=2560
     headers:
       Host: n.bitpulse.me
-- name: 🇨🇿 CZ 03 - wangyu
-  type: vless
-  server: 188.114.98.0
-  port: 443
-  uuid: f27b6f65-6e59-4f89-b929-afa397ca587f
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: n.bitpulse.me
-  network: ws
-  ws-opts:
-    path: /019bcbad-3813-7cce-8786-3ac0e418f128?ed=2560fp=unsafe
-    headers:
-      Host: n.bitpulse.me
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇨🇿 CZ 01 - wangyu
-  - 🇨🇿 CZ 02 - wangyu
-  - 🇨🇿 CZ 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇨🇿 CZ 01 - wangyu
-  - 🇨🇿 CZ 02 - wangyu
-  - 🇨🇿 CZ 03 - wangyu
 rules:
 - MATCH,PROXIES
