@@ -4,26 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇪🇪 EE 01 - wangyu
-  type: vless
-  server: 179.253.179.109
-  port: 57043
-  uuid: da8fab8e-4a25-4eb0-b224-88ab96c753ce
+- name: 🇵🇭 PH 01 - wangyu
+  type: ss
+  server: 149.104.109.252
+  port: 8882
+  cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 87.121.86.24
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇪🇪 EE 01 - wangyu
+  - 🇵🇭 PH 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇪🇪 EE 01 - wangyu
+  - 🇵🇭 PH 01 - wangyu
 rules:
 - MATCH,PROXIES

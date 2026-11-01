@@ -6,35 +6,14 @@ log-level: info
 proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
   type: vless
-  server: 172.67.149.199
-  port: 443
-  uuid: 326227e2-f2d1-4f43-8715-9da854f5f4c0
+  server: 152.175.6.229
+  port: 31884
+  uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: px2.5ibtc.cn
-  network: ws
-  ws-opts:
-    path: /326227e2-f2d1-4f43-8715-9da854f5f4c0
-    headers:
-      Host: px2.5ibtc.cn
+  servername: hk010.zestapp778.com
 - name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
-  type: vmess
-  server: 8.217.254.88
-  port: 443
-  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 2b9hwy8ocx7q74nm.v.3dns.vip
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: 2b9hwy8ocx7q74nm.v.3dns.vip
-- name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
   type: vmess
   server: 47.76.57.83
   port: 443
@@ -50,11 +29,18 @@ proxies:
     path: /ws-vmess
     headers:
       Host: vah4urdzl3jdx5r2.v.3dns.vip
+- name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
+  type: ss
+  server: 38.54.85.230
+  port: 8445
+  cipher: 2022-blake3-aes-128-gcm
+  password: +SpI6Aj5R5Tex6qKfWF3Zw==
+  udp: true
 - name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
   type: vmess
   server: 47.244.120.197
-  port: 36703
-  uuid: 45b83519-9c4f-4052-a11b-02e017b636d4
+  port: 23026
+  uuid: b9de1bc9-baa7-41ac-86f7-ccd59695cb21
   alterId: 0
   cipher: auto
   udp: true
@@ -64,22 +50,23 @@ proxies:
   ws-opts:
     path: /arki
     headers:
-      Host: ''
+      Host: 47.244.120.197
 - name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
   type: vmess
-  server: 156.245.232.239
-  port: 35043
-  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
+  server: euu1yAlfmcqvLJEx.v.3dns.vip
+  port: 443
+  uuid: d237ab38-1974-4b36-94a3-0665ce8587b9
   alterId: 0
   cipher: auto
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: euu1yAlfmcqvLJEx.v.3dns.vip
   network: ws
   ws-opts:
-    path: /
+    path: /ws-vmess
     headers:
-      Host: ''
+      Host: euu1yAlfmcqvLJEx.v.3dns.vip
 proxy-groups:
 - name: PROXIES
   type: select

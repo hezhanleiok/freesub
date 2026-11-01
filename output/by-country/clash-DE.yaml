@@ -5,27 +5,55 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇩🇪 德国 (Germany) 01 - wangyu
+  type: ss
+  server: 185.176.204.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: 🇩🇪 德国 (Germany) 02 - wangyu
   type: vless
-  server: hw5.roghanmo.com
-  port: 465
-  uuid: a356fa77-7199-417a-80dd-0c0925789161
+  server: 148.253.210.191
+  port: 443
+  uuid: 53f03acd-fec1-6685-fc8f-03baf9550cb8
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: hw5.roghanmo.com.
+  servername: 148-253-210-191.sslip.io
+  network: ws
+  ws-opts:
+    path: /test-ws
+    headers:
+      Host: 148-253-210-191.sslip.io
+- name: 🇩🇪 德国 (Germany) 03 - wangyu
+  type: vless
+  server: 146.75.57.238
+  port: 443
+  uuid: 31edfa90-bc81-4534-9066-322dbf52dcef
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cdn.akamai.steamstatic.com
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: hw5.roghanmo.com
-- name: 🇩🇪 德国 (Germany) 02 - wangyu
-  type: ss
-  server: 185.226.172.8
-  port: 8008
-  cipher: aes-256-gcm
-  password: XKFKl2rULjIp74
+      Host: azadi-gk-nasim.global.ssl.fastly.net
+- name: 🇩🇪 德国 (Germany) 04 - wangyu
+  type: vless
+  server: 104.17.70.206
+  port: 8443
+  uuid: 5f704d93-7e7f-45b5-81f5-08db4a946220
   udp: true
-- name: 🇩🇪 德国 (Germany) 03 - wangyu
+  tls: true
+  skip-cert-verify: true
+  servername: free.sahanwickramasinghe.com
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: free.sahanwickramasinghe.com
+- name: 🇩🇪 德国 (Germany) 05 - wangyu
   type: vless
   server: 57.129.41.216
   port: 80
@@ -38,79 +66,48 @@ proxies:
     path: /vless/
     headers:
       Host: OV-Germany1.09vpn.com
-- name: 🇩🇪 德国 (Germany) 04 - wangyu
-  type: ss
-  server: 185.176.204.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: 🇩🇪 德国 (Germany) 05 - wangyu
-  type: vless
-  server: free.sahanwickramasinghe.com
-  port: 2096
-  uuid: 20d04f6e-797b-4814-b60a-3882be3b101b
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: microsoft.com
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: microsoft.com
 - name: 🇩🇪 德国 (Germany) 06 - wangyu
   type: ss
-  server: 185.176.204.18
-  port: 19999
+  server: 185.226.172.8
+  port: 8008
   cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  password: XKFKl2rULjIp74
   udp: true
 - name: 🇩🇪 德国 (Germany) 07 - wangyu
   type: vless
-  server: bigshagy.zqpm.ir
-  port: 5780
-  uuid: 996f6fed-a94e-4e9d-b876-82bc4ad02847
+  server: ov-germany1.09vpn.com
+  port: 80
+  uuid: 18535741-e8b3-4b43-9348-785b55936751
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  reality-opts:
-    public-key: PF8LdirtBEOQ_w9-1-i3mhgeFYbIQ1iOu1FPCfxUHQo
-  servername: yahoo.com
-  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /vless/
+    headers:
+      Host: ov-germany1.09vpn.com
 - name: 🇩🇪 德国 (Germany) 08 - wangyu
-  type: vless
-  server: 179.253.179.109
-  port: 63053
-  uuid: e3aa3d22-a95e-407b-aacc-d855b90a5d70
+  type: ss
+  server: 185.176.204.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: de2.derevohom.xyz
 - name: 🇩🇪 德国 (Germany) 09 - wangyu
   type: vless
-  server: hw14.roghanmo.com
-  port: 465
-  uuid: 98aa35fc-7d2f-4744-a91b-7e33b4fdd9c8
+  server: 91.107.247.173
+  port: 2083
+  uuid: 7858128a-6b5e-4f86-9bff-52c1f1e6439d
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: hw14.roghanmo.com.
+  servername: sino.bestsellers1.site
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: hw14.roghanmo.com
+      Host: sino.bestsellers1.site
 - name: 🇩🇪 德国 (Germany) 10 - wangyu
-  type: vless
-  server: 179.253.179.109
-  port: 63053
-  uuid: e3aa3d22-a95e-407b-aacc-d855b90a5d70
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: de2.derevohom.xyz
-- name: 🇩🇪 德国 (Germany) 11 - wangyu
   type: vmess
   server: www.gptcloudai.com
   port: 443
@@ -126,21 +123,7 @@ proxies:
     path: /truth
     headers:
       Host: www.gptcloudai.com
-- name: 🇩🇪 德国 (Germany) 12 - wangyu
-  type: vless
-  server: 91.107.247.173
-  port: 2083
-  uuid: 7858128a-6b5e-4f86-9bff-52c1f1e6439d
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: sino.bestsellers1.site
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: sino.bestsellers1.site
-- name: 🇩🇪 德国 (Germany) 13 - wangyu
+- name: 🇩🇪 德国 (Germany) 11 - wangyu
   type: vless
   server: 91.107.247.173
   port: 2083
@@ -154,48 +137,6 @@ proxies:
     path: /
     headers:
       Host: 91.107.247.173
-- name: 🇩🇪 德国 (Germany) 14 - wangyu
-  type: vless
-  server: 104.17.70.206
-  port: 8443
-  uuid: 5f704d93-7e7f-45b5-81f5-08db4a946220
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: free.sahanwickramasinghe.com
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: free.sahanwickramasinghe.com
-- name: 🇩🇪 德国 (Germany) 15 - wangyu
-  type: vless
-  server: 148.253.210.191
-  port: 443
-  uuid: 53f03acd-fec1-6685-fc8f-03baf9550cb8
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 148-253-210-191.sslip.io
-  network: ws
-  ws-opts:
-    path: /test-ws
-    headers:
-      Host: 148-253-210-191.sslip.io
-- name: 🇩🇪 德国 (Germany) 16 - wangyu
-  type: vless
-  server: 172.66.44.124
-  port: 8443
-  uuid: b2f2f9f2-1864-48ea-839b-22815faff1f1
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
 proxy-groups:
 - name: PROXIES
   type: select
@@ -212,11 +153,6 @@ proxy-groups:
   - 🇩🇪 德国 (Germany) 09 - wangyu
   - 🇩🇪 德国 (Germany) 10 - wangyu
   - 🇩🇪 德国 (Germany) 11 - wangyu
-  - 🇩🇪 德国 (Germany) 12 - wangyu
-  - 🇩🇪 德国 (Germany) 13 - wangyu
-  - 🇩🇪 德国 (Germany) 14 - wangyu
-  - 🇩🇪 德国 (Germany) 15 - wangyu
-  - 🇩🇪 德国 (Germany) 16 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -233,10 +169,5 @@ proxy-groups:
   - 🇩🇪 德国 (Germany) 09 - wangyu
   - 🇩🇪 德国 (Germany) 10 - wangyu
   - 🇩🇪 德国 (Germany) 11 - wangyu
-  - 🇩🇪 德国 (Germany) 12 - wangyu
-  - 🇩🇪 德国 (Germany) 13 - wangyu
-  - 🇩🇪 德国 (Germany) 14 - wangyu
-  - 🇩🇪 德国 (Germany) 15 - wangyu
-  - 🇩🇪 德国 (Germany) 16 - wangyu
 rules:
 - MATCH,PROXIES
