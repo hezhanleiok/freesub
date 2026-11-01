@@ -7,25 +7,12 @@ proxies:
 - name: 🇧🇾 BY 01 - wangyu
   type: vless
   server: 178.172.227.124
-  port: 14430
-  uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 178.172.227.124
-- name: 🇧🇾 BY 02 - wangyu
-  type: vless
-  server: 178.172.227.124
   port: 10443
   uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
   udp: true
   tls: false
   skip-cert-verify: true
-- name: 🇧🇾 BY 03 - wangyu
+- name: 🇧🇾 BY 02 - wangyu
   type: vless
   server: 178.172.227.228
   port: 14430
@@ -38,7 +25,7 @@ proxies:
     path: /vless
     headers:
       Host: 178.172.227.228
-- name: 🇧🇾 BY 04 - wangyu
+- name: 🇧🇾 BY 03 - wangyu
   type: vless
   server: 178.172.227.124
   port: 10443
@@ -46,6 +33,19 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
+- name: 🇧🇾 BY 04 - wangyu
+  type: vless
+  server: 178.172.227.124
+  port: 14430
+  uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: 178.172.227.124
 proxy-groups:
 - name: PROXIES
   type: select
