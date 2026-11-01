@@ -31,6 +31,18 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: 2.26.6.1
+- name: 🇵🇱 PL 04 - wangyu
+  type: vless
+  server: 79.182.39.37
+  port: 27591
+  uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: LY0H47MWx87_L_JBzxFAuTzKZB53U7MrZQK8-dNnMxM
+  servername: www.samsung.com
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -39,6 +51,7 @@ proxy-groups:
   - 🇵🇱 PL 01 - wangyu
   - 🇵🇱 PL 02 - wangyu
   - 🇵🇱 PL 03 - wangyu
+  - 🇵🇱 PL 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -47,5 +60,6 @@ proxy-groups:
   - 🇵🇱 PL 01 - wangyu
   - 🇵🇱 PL 02 - wangyu
   - 🇵🇱 PL 03 - wangyu
+  - 🇵🇱 PL 04 - wangyu
 rules:
 - MATCH,PROXIES
