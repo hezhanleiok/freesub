@@ -20,6 +20,20 @@ proxies:
       Host: n04.jinggai.online
 - name: 🇹🇼 中国台湾 (Taiwan) 02 - wangyu
   type: vless
+  server: n04.jinggai.online
+  port: 8443
+  uuid: 91ad30e9-ab06-4b4c-9fb9-1c2aa97d8b3a
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: n04.jinggai.online
+  network: ws
+  ws-opts:
+    path: /nvl-n04-ws/e0577fe8fd7c8823
+    headers:
+      Host: n04.jinggai.online
+- name: 🇹🇼 中国台湾 (Taiwan) 03 - wangyu
+  type: vless
   server: 60.248.219.78
   port: 443
   uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
@@ -39,6 +53,7 @@ proxy-groups:
   - AUTO
   - 🇹🇼 中国台湾 (Taiwan) 01 - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 02 - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -46,5 +61,6 @@ proxy-groups:
   proxies:
   - 🇹🇼 中国台湾 (Taiwan) 01 - wangyu
   - 🇹🇼 中国台湾 (Taiwan) 02 - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 03 - wangyu
 rules:
 - MATCH,PROXIES

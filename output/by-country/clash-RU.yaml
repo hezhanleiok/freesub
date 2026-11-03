@@ -6,6 +6,34 @@ log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - wangyu
   type: vless
+  server: 91.185.83.44
+  port: 443
+  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: nguyxejonb.rucdncomp.pro
+  network: ws
+  ws-opts:
+    path: /service/telemetry/0294da469190/
+    headers:
+      Host: nguyxejonb.rucdncomp.pro
+- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  type: vless
+  server: 91.185.83.44
+  port: 443
+  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: nguyxejonb.rucdncomp.pro
+  network: ws
+  ws-opts:
+    path: /service/telemetry/0294da469190/
+    headers:
+      Host: nguyxejonb.rucdncomp.pro
+- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
+  type: vless
   server: 87.120.166.160
   port: 443
   uuid: 7b91b2c3-8af3-449b-a555-00c9460989f4
@@ -18,7 +46,21 @@ proxies:
     path: /vpn-relay?token=27fede42482b3c29d4c1c9640876c250&pool=whitelist2
     headers:
       Host: lvi.su
-- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+- name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
+  type: vless
+  server: 91.185.83.44
+  port: 443
+  uuid: 7955bf18-35c4-412d-aabd-c0b36c793063
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: nguyxejonb.rucdncomp.pro
+  network: ws
+  ws-opts:
+    path: /service/telemetry/0294da469190/
+    headers:
+      Host: nguyxejonb.rucdncomp.pro
+- name: 🇷🇺 俄罗斯 (Russia) 05 - wangyu
   type: vless
   server: lvi.su
   port: 443
@@ -39,6 +81,9 @@ proxy-groups:
   - AUTO
   - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -46,5 +91,8 @@ proxy-groups:
   proxies:
   - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
 rules:
 - MATCH,PROXIES
