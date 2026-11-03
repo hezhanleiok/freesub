@@ -6,33 +6,19 @@ log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - wangyu
   type: vless
-  server: 91.185.83.44
+  server: 87.120.166.160
   port: 443
-  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  uuid: 7b91b2c3-8af3-449b-a555-00c9460989f4
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: nguyxejonb.rucdncomp.pro
+  servername: lvi.su
   network: ws
   ws-opts:
-    path: /service/telemetry/0294da469190/
+    path: /vpn-relay?token=27fede42482b3c29d4c1c9640876c250&pool=whitelist2
     headers:
-      Host: nguyxejonb.rucdncomp.pro
+      Host: lvi.su
 - name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
-  type: vless
-  server: 91.185.83.44
-  port: 443
-  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: nguyxejonb.rucdncomp.pro
-  network: ws
-  ws-opts:
-    path: /service/telemetry/0294da469190/
-    headers:
-      Host: nguyxejonb.rucdncomp.pro
-- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
   type: vless
   server: 87.120.166.160
   port: 443
@@ -46,20 +32,29 @@ proxies:
     path: /vpn-relay?token=27fede42482b3c29d4c1c9640876c250&pool=whitelist2
     headers:
       Host: lvi.su
-- name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
-  type: vless
-  server: 91.185.83.44
+- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
+  type: vmess
+  server: renderer-stream-2-129.mirra.now
   port: 443
-  uuid: 7955bf18-35c4-412d-aabd-c0b36c793063
+  uuid: 27653b37-603c-4c90-b1f5-25c4d23f8932
+  alterId: 0
+  cipher: auto
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: nguyxejonb.rucdncomp.pro
+  servername: renderer-stream-2-129.mirra.now
   network: ws
   ws-opts:
-    path: /service/telemetry/0294da469190/
+    path: /api/v1/gpu-stream/socket
     headers:
-      Host: nguyxejonb.rucdncomp.pro
+      Host: renderer-stream-2-129.mirra.now
+- name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
+  type: ss
+  server: 46.17.46.27
+  port: 18443
+  cipher: aes-256-gcm
+  password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
+  udp: true
 - name: 🇷🇺 俄罗斯 (Russia) 05 - wangyu
   type: vless
   server: lvi.su

@@ -43,24 +43,10 @@ proxies:
   servername: ccc.010304.xyz
   network: ws
   ws-opts:
-    path: /fp
-    headers:
-      Host: ccc.010304.xyz
-- name: 🇱🇹 LT 04 - wangyu
-  type: vless
-  server: 88.216.69.253
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ccc.010304.xyz
-  network: ws
-  ws-opts:
     path: /fp=chrome
     headers:
       Host: ccc.010304.xyz
-- name: 🇱🇹 LT 05 - wangyu
+- name: 🇱🇹 LT 04 - wangyu
   type: vless
   server: 88.216.69.253
   port: 443
@@ -83,7 +69,6 @@ proxy-groups:
   - 🇱🇹 LT 02 - wangyu
   - 🇱🇹 LT 03 - wangyu
   - 🇱🇹 LT 04 - wangyu
-  - 🇱🇹 LT 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -93,6 +78,5 @@ proxy-groups:
   - 🇱🇹 LT 02 - wangyu
   - 🇱🇹 LT 03 - wangyu
   - 🇱🇹 LT 04 - wangyu
-  - 🇱🇹 LT 05 - wangyu
 rules:
 - MATCH,PROXIES
