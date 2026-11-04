@@ -15,7 +15,7 @@ proxies:
   reality-opts:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
   servername: www.apple.com
-  client-fingerprint: firefox
+  client-fingerprint: chrome
 - name: 🇨🇭 CH 02 - wangyu
   type: vless
   server: 208.69.78.217
@@ -75,21 +75,7 @@ proxies:
   reality-opts:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
   servername: www.apple.com
-  client-fingerprint: chrome
-- name: 🇨🇭 CH 07 - wangyu
-  type: vless
-  server: 57.129.52.47
-  port: 52014
-  uuid: ecc4675b-1607-4699-8b20-23af97b671af
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
-  network: ws
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -101,7 +87,6 @@ proxy-groups:
   - 🇨🇭 CH 04 - wangyu
   - 🇨🇭 CH 05 - wangyu
   - 🇨🇭 CH 06 - wangyu
-  - 🇨🇭 CH 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -113,6 +98,5 @@ proxy-groups:
   - 🇨🇭 CH 04 - wangyu
   - 🇨🇭 CH 05 - wangyu
   - 🇨🇭 CH 06 - wangyu
-  - 🇨🇭 CH 07 - wangyu
 rules:
 - MATCH,PROXIES
