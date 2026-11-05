@@ -4,27 +4,26 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇱🇻 LV 01 - wangyu
-  type: vmess
-  server: 95.182.115.178
+- name: 🇱🇰 LK 01 - wangyu
+  type: vless
+  server: free.vkehi.store
   port: 443
-  uuid: db753334-5fd1-472b-b3e0-458bc2189c58
-  alterId: 0
-  cipher: auto
+  uuid: e4d1298a-1f21-42e2-a53e-1b22c0645c48
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: zoom.com
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇱🇻 LV 01 - wangyu
+  - 🇱🇰 LK 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇱🇻 LV 01 - wangyu
+  - 🇱🇰 LK 01 - wangyu
 rules:
 - MATCH,PROXIES

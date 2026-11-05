@@ -6,54 +6,29 @@ log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - wangyu
   type: vless
-  server: z1q3pv4g78.rucdncomp.pro
+  server: 91.185.83.44
   port: 443
   uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: z1q3pv4g78.rucdncomp.pro
+  servername: nguyxejonb.rucdncomp.pro
   network: ws
   ws-opts:
-    path: /useraction/events/b892639b7195/
+    path: /service/telemetry/0294da469190/
     headers:
-      Host: z1q3pv4g78.rucdncomp.pro
-- name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
-  type: ss
-  server: 46.17.46.27
-  port: 18443
-  cipher: aes-256-gcm
-  password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
-  udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
-  type: vless
-  server: 87.120.166.160
-  port: 443
-  uuid: 7b91b2c3-8af3-449b-a555-00c9460989f4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: lvi.su
-  network: ws
-  ws-opts:
-    path: /vpn-relay?token=27fede42482b3c29d4c1c9640876c250&pool=whitelist2
-    headers:
-      Host: lvi.su
+      Host: nguyxejonb.rucdncomp.pro
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
-  - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
 rules:
 - MATCH,PROXIES

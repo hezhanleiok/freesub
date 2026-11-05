@@ -30,6 +30,19 @@ proxies:
     path: /vless
     headers:
       Host: 45.144.234.157
+- name: 🇫🇮 FI 03 - wangyu
+  type: vless
+  server: 45.144.234.157
+  port: 14430
+  uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: 45.144.234.157
 proxy-groups:
 - name: PROXIES
   type: select
@@ -37,6 +50,7 @@ proxy-groups:
   - AUTO
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
+  - 🇫🇮 FI 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -44,5 +58,6 @@ proxy-groups:
   proxies:
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
+  - 🇫🇮 FI 03 - wangyu
 rules:
 - MATCH,PROXIES
