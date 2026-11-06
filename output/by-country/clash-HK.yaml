@@ -37,6 +37,36 @@ proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
   type: vmess
   server: 47.244.120.197
+  port: 36703
+  uuid: 45b83519-9c4f-4052-a11b-02e017b636d4
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /arki
+    headers:
+      Host: ''
+- name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
+  type: vmess
+  server: 47.244.120.197
+  port: 23026
+  uuid: b9de1bc9-baa7-41ac-86f7-ccd59695cb21
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /arki
+    headers:
+      Host: 47.244.120.197
+- name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
+  type: vmess
+  server: 47.244.120.197
   port: 44867
   uuid: 845e6b08-2919-4290-ade0-5dc7dcea59ca
   alterId: 0
@@ -49,6 +79,30 @@ proxies:
     path: /arki
     headers:
       Host: 47.244.120.197
+- name: 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
+  type: vless
+  server: 152.175.6.229
+  port: 31884
+  uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: hk010.zestapp778.com
+- name: 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
+  type: vmess
+  server: 47.244.120.197
+  port: 44867
+  uuid: 845e6b08-2919-4290-ade0-5dc7dcea59ca
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /arki
+    headers:
+      Host: ''
 proxy-groups:
 - name: PROXIES
   type: select
@@ -57,6 +111,10 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -65,5 +123,9 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
 rules:
 - MATCH,PROXIES

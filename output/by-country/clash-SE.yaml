@@ -6,24 +6,6 @@ log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - wangyu
   type: vless
-  server: 194.104.94.141
-  port: 443
-  uuid: 6ba4ed2e-b42b-4880-8b3b-c7e2df2d02f6
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: se3.shtil.io
-- name: 🇸🇪 SE 02 - wangyu
-  type: vless
-  server: se3.shtil.io
-  port: 443
-  uuid: 6ba4ed2e-b42b-4880-8b3b-c7e2df2d02f6
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: se3.shtil.io
-- name: 🇸🇪 SE 03 - wangyu
-  type: vless
   server: 5.178.109.174
   port: 14430
   uuid: 80de563a-cac8-40ea-8cb0-4cb082dd92f9
@@ -35,21 +17,16 @@ proxies:
     path: /vless
     headers:
       Host: 5.178.109.174
-- name: 🇸🇪 SE 04 - wangyu
+- name: 🇸🇪 SE 02 - wangyu
   type: vless
-  server: 89.22.224.146
-  port: 43788
-  uuid: 6fbd9bd1-ccd4-4e2f-a918-a0f871965763
+  server: se3.shtil.io
+  port: 443
+  uuid: 6ba4ed2e-b42b-4880-8b3b-c7e2df2d02f6
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
-  network: ws
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
-- name: 🇸🇪 SE 05 - wangyu
+  servername: se3.shtil.io
+- name: 🇸🇪 SE 03 - wangyu
   type: vless
   server: 194.104.94.141
   port: 443
@@ -66,8 +43,6 @@ proxy-groups:
   - 🇸🇪 SE 01 - wangyu
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
-  - 🇸🇪 SE 04 - wangyu
-  - 🇸🇪 SE 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -76,7 +51,5 @@ proxy-groups:
   - 🇸🇪 SE 01 - wangyu
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
-  - 🇸🇪 SE 04 - wangyu
-  - 🇸🇪 SE 05 - wangyu
 rules:
 - MATCH,PROXIES

@@ -5,30 +5,24 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇷 法国 (France) 01 - wangyu
-  type: vmess
-  server: 141.95.65.9
-  port: 1234
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
+  type: vless
+  server: 15.236.109.186
+  port: 2053
+  uuid: fbda2834-b1e7-4148-afb9-deda31036a30
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ''
+  servername: w.geogame.ir
 - name: 🇫🇷 法国 (France) 02 - wangyu
-  type: vmess
-  server: 79.137.99.183
-  port: 1270
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
+  type: ss
+  server: 54.36.174.140
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: 6heexyz
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: None
 - name: 🇫🇷 法国 (France) 03 - wangyu
   type: vmess
-  server: 162.19.204.71
+  server: 141.95.65.9
   port: 1234
   uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
   alterId: 0
@@ -38,44 +32,6 @@ proxies:
   skip-cert-verify: true
   servername: ''
 - name: 🇫🇷 法国 (France) 04 - wangyu
-  type: vmess
-  server: 141.95.65.9
-  port: 1234
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ''
-- name: 🇫🇷 法国 (France) 05 - wangyu
-  type: vless
-  server: 15.236.109.186
-  port: 2053
-  uuid: fbda2834-b1e7-4148-afb9-deda31036a30
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: w.geogame.ir
-- name: 🇫🇷 法国 (France) 06 - wangyu
-  type: ss
-  server: pl134.vpnbook.com
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: 6heexyz
-  udp: true
-- name: 🇫🇷 法国 (France) 07 - wangyu
-  type: vmess
-  server: 141.95.65.9
-  port: 1234
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ''
-- name: 🇫🇷 法国 (France) 08 - wangyu
   type: vless
   server: 51.77.217.70
   port: 2053
@@ -86,10 +42,35 @@ proxies:
   reality-opts:
     public-key: g63cT3uI0Y5iUtj3m__RYz7nmR1eIK4AYikdnZCl63w
   servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇫🇷 法国 (France) 09 - wangyu
+  client-fingerprint: chrome
+- name: 🇫🇷 法国 (France) 05 - wangyu
+  type: ss
+  server: pl140.vpnbook.com
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: 6heexyz
+  udp: true
+- name: 🇫🇷 法国 (France) 06 - wangyu
+  type: ss
+  server: 54.36.174.134
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: 6heexyz
+  udp: true
+- name: 🇫🇷 法国 (France) 07 - wangyu
   type: vmess
-  server: 46.105.222.155
+  server: 162.19.204.71
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
+- name: 🇫🇷 法国 (France) 08 - wangyu
+  type: vmess
+  server: 79.137.99.183
   port: 1270
   uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
   alterId: 0
@@ -98,14 +79,39 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: None
-- name: 🇫🇷 法国 (France) 10 - wangyu
+- name: 🇫🇷 法国 (France) 09 - wangyu
   type: ss
-  server: 54.36.174.140
+  server: pl134.vpnbook.com
   port: 443
   cipher: chacha20-ietf-poly1305
   password: 6heexyz
   udp: true
+- name: 🇫🇷 法国 (France) 10 - wangyu
+  type: vmess
+  server: 162.19.204.71
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
 - name: 🇫🇷 法国 (France) 11 - wangyu
+  type: vless
+  server: 94.156.115.22
+  port: 443
+  uuid: 7b91b2c3-8af3-449b-a555-00c9460989f4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: lvi.su
+  network: ws
+  ws-opts:
+    path: /vpn-relay?token=27fede42482b3c29d4c1c9640876c250&pool=whitelist2
+    headers:
+      Host: lvi.su
+- name: 🇫🇷 法国 (France) 12 - wangyu
   type: vless
   server: ov-france1.09vpn.com
   port: 80
@@ -118,28 +124,9 @@ proxies:
     path: /vless/
     headers:
       Host: ov-france1.09vpn.com
-- name: 🇫🇷 法国 (France) 12 - wangyu
-  type: ss
-  server: 54.36.174.134
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: 6heexyz
-  udp: true
 - name: 🇫🇷 法国 (France) 13 - wangyu
-  type: vless
-  server: 51.77.217.70
-  port: 2053
-  uuid: bf16ee0c-8b3c-41e4-ab3a-8b48033c404e
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: g63cT3uI0Y5iUtj3m__RYz7nmR1eIK4AYikdnZCl63w
-  servername: www.apple.com
-  client-fingerprint: chrome
-- name: 🇫🇷 法国 (France) 14 - wangyu
   type: vmess
-  server: 162.19.204.71
+  server: 141.95.65.9
   port: 1234
   uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
   alterId: 0
@@ -148,7 +135,7 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: ''
-- name: 🇫🇷 法国 (France) 15 - wangyu
+- name: 🇫🇷 法国 (France) 14 - wangyu
   type: vmess
   server: 46.105.222.157
   port: 1270
@@ -159,7 +146,7 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: None
-- name: 🇫🇷 法国 (France) 16 - wangyu
+- name: 🇫🇷 法国 (France) 15 - wangyu
   type: vless
   server: w.geogame.ir
   port: 2053
@@ -168,6 +155,17 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: w.geogame.ir
+- name: 🇫🇷 法国 (France) 16 - wangyu
+  type: vmess
+  server: 162.19.204.71
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
 - name: 🇫🇷 法国 (France) 17 - wangyu
   type: vless
   server: 51.77.217.70
@@ -179,28 +177,20 @@ proxies:
   reality-opts:
     public-key: g63cT3uI0Y5iUtj3m__RYz7nmR1eIK4AYikdnZCl63w
   servername: www.apple.com
-  client-fingerprint: chrome
+  client-fingerprint: random
 - name: 🇫🇷 法国 (France) 18 - wangyu
   type: vless
-  server: 15.236.109.186
+  server: 51.77.217.70
   port: 2053
-  uuid: fbda2834-b1e7-4148-afb9-deda31036a30
+  uuid: bf16ee0c-8b3c-41e4-ab3a-8b48033c404e
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: w.geogame.ir
+  reality-opts:
+    public-key: g63cT3uI0Y5iUtj3m__RYz7nmR1eIK4AYikdnZCl63w
+  servername: www.apple.com
+  client-fingerprint: firefox
 - name: 🇫🇷 法国 (France) 19 - wangyu
-  type: vmess
-  server: 162.19.204.71
-  port: 1234
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ''
-- name: 🇫🇷 法国 (France) 20 - wangyu
   type: vless
   server: 138.124.70.41
   port: 14430
@@ -213,6 +203,17 @@ proxies:
     path: /vless
     headers:
       Host: 138.124.70.41
+- name: 🇫🇷 法国 (France) 20 - wangyu
+  type: vmess
+  server: 141.95.65.9
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ''
 - name: 🇫🇷 法国 (France) 21 - wangyu
   type: vless
   server: 138.124.70.41
@@ -227,13 +228,24 @@ proxies:
     headers:
       Host: 138.124.70.41
 - name: 🇫🇷 法国 (France) 22 - wangyu
-  type: ss
-  server: pl140.vpnbook.com
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: 6heexyz
+  type: vmess
+  server: 46.105.222.155
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: None
 - name: 🇫🇷 法国 (France) 23 - wangyu
+  type: ss
+  server: 79.137.99.183
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: 🇫🇷 法国 (France) 24 - wangyu
   type: vless
   server: 51.77.217.70
   port: 2053
@@ -244,7 +256,16 @@ proxies:
   reality-opts:
     public-key: g63cT3uI0Y5iUtj3m__RYz7nmR1eIK4AYikdnZCl63w
   servername: www.apple.com
-  client-fingerprint: random
+  client-fingerprint: chrome
+- name: 🇫🇷 法国 (France) 25 - wangyu
+  type: vless
+  server: 15.236.109.186
+  port: 2053
+  uuid: fbda2834-b1e7-4148-afb9-deda31036a30
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: w.geogame.ir
 proxy-groups:
 - name: PROXIES
   type: select
@@ -273,6 +294,8 @@ proxy-groups:
   - 🇫🇷 法国 (France) 21 - wangyu
   - 🇫🇷 法国 (France) 22 - wangyu
   - 🇫🇷 法国 (France) 23 - wangyu
+  - 🇫🇷 法国 (France) 24 - wangyu
+  - 🇫🇷 法国 (France) 25 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -301,5 +324,7 @@ proxy-groups:
   - 🇫🇷 法国 (France) 21 - wangyu
   - 🇫🇷 法国 (France) 22 - wangyu
   - 🇫🇷 法国 (France) 23 - wangyu
+  - 🇫🇷 法国 (France) 24 - wangyu
+  - 🇫🇷 法国 (France) 25 - wangyu
 rules:
 - MATCH,PROXIES
