@@ -13,17 +13,28 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: zoom.com
+- name: 🇱🇰 LK 02 - wangyu
+  type: vless
+  server: free.vkehi.store
+  port: 443
+  uuid: e4d1298a-1f21-42e2-a53e-1b22c0645c48
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: zoom.com
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇱🇰 LK 01 - wangyu
+  - 🇱🇰 LK 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇱🇰 LK 01 - wangyu
+  - 🇱🇰 LK 02 - wangyu
 rules:
 - MATCH,PROXIES
