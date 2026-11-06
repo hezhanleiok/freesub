@@ -6,18 +6,18 @@ log-level: info
 proxies:
 - name: 🇵🇱 PL 01 - wangyu
   type: vless
-  server: 129.101.100.126
-  port: 8443
-  uuid: 981c7ccc-2b17-473c-8358-7fd1d6eec1b4
+  server: 212.119.43.76
+  port: 443
+  uuid: b8d8a5b0-867f-4491-b4e4-30edc04bb10e
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: lte-v2-ws.gacvpn.site
+  servername: u.srilankangrill.online
   network: ws
   ws-opts:
-    path: /static/js/runtime.9d03c7.js
+    path: /
     headers:
-      Host: 129.101.100.126
+      Host: u.srilankangrill.online
 - name: 🇵🇱 PL 02 - wangyu
   type: vless
   server: 129.101.100.126
@@ -31,63 +31,8 @@ proxies:
   ws-opts:
     path: /static/js/runtime.9d03c7.js
     headers:
-      Host: 129.101.100.126
+      Host: lte-v2-ws.gacvpn.site
 - name: 🇵🇱 PL 03 - wangyu
-  type: vless
-  server: 2.26.6.1
-  port: 2087
-  uuid: b9fdc03f-389b-4cda-9be4-155b623bee15
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 2.26.6.1
-- name: 🇵🇱 PL 04 - wangyu
-  type: vless
-  server: 212.119.43.76
-  port: 443
-  uuid: b8d8a5b0-867f-4491-b4e4-30edc04bb10e
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: u.srilankangrill.online
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: u.srilankangrill.online
-- name: 🇵🇱 PL 05 - wangyu
-  type: vless
-  server: 145.63.143.205
-  port: 8444
-  uuid: 35c9f200-7520-4005-b78e-f8a2fb9f68f7
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: pl1.meshbeat.online
-  network: ws
-  ws-opts:
-    path: /api/v1/devices/10be32b380/telemetry
-    headers:
-      Host: pl1.meshbeat.online
-- name: 🇵🇱 PL 06 - wangyu
-  type: vless
-  server: 2.26.6.1
-  port: 2087
-  uuid: b9fdc03f-389b-4cda-9be4-155b623bee15
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 2.26.6.1
-- name: 🇵🇱 PL 07 - wangyu
-  type: vless
-  server: 2.26.6.1
-  port: 2087
-  uuid: b9fdc03f-389b-4cda-9be4-155b623bee15
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 2.26.6.1
-- name: 🇵🇱 PL 08 - wangyu
   type: vless
   server: lte-v2-ws.gacvpn.site
   port: 8443
@@ -101,6 +46,38 @@ proxies:
     path: /static/js/runtime.9d03c7.js
     headers:
       Host: lte-v2-ws.gacvpn.site
+- name: 🇵🇱 PL 04 - wangyu
+  type: vless
+  server: 129.101.100.126
+  port: 8443
+  uuid: 981c7ccc-2b17-473c-8358-7fd1d6eec1b4
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: lte-v2-ws.gacvpn.site
+  network: ws
+  ws-opts:
+    path: /static/js/runtime.9d03c7.js
+    headers:
+      Host: 129.101.100.126
+- name: 🇵🇱 PL 05 - wangyu
+  type: vless
+  server: 2.26.6.1
+  port: 2087
+  uuid: b9fdc03f-389b-4cda-9be4-155b623bee15
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 2.26.6.1
+- name: 🇵🇱 PL 06 - wangyu
+  type: vless
+  server: 2.26.6.1
+  port: 2087
+  uuid: b9fdc03f-389b-4cda-9be4-155b623bee15
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 2.26.6.1
 proxy-groups:
 - name: PROXIES
   type: select
@@ -112,8 +89,6 @@ proxy-groups:
   - 🇵🇱 PL 04 - wangyu
   - 🇵🇱 PL 05 - wangyu
   - 🇵🇱 PL 06 - wangyu
-  - 🇵🇱 PL 07 - wangyu
-  - 🇵🇱 PL 08 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -125,7 +100,5 @@ proxy-groups:
   - 🇵🇱 PL 04 - wangyu
   - 🇵🇱 PL 05 - wangyu
   - 🇵🇱 PL 06 - wangyu
-  - 🇵🇱 PL 07 - wangyu
-  - 🇵🇱 PL 08 - wangyu
 rules:
 - MATCH,PROXIES
