@@ -66,9 +66,10 @@ jobs:
           MAX_FULL_PROBE: '0'
           # ★ rDNS 兜底默认关闭 (每个未知 IP 最多 2s, 分类阶段明显提速)
           CLASSIFY_RDNS: '0'
-          # ★ UDP-only (hy2/tuic) 不进主订阅: 前置代理不转发 UDP, 链式必挂
-          #   单独导出到 output/udp-direct.*; 想恢复旧行为改 '1'
-          EXPORT_UDP_TO_MAIN: '0'
+          # ★ UDP-only (hy2/tuic) 进主订阅: v2rayN 的 socks5/http 前置链式可以转发
+          #   UDP, 用户实测参考项目的台湾 hy2 挂前置可用; 不再一刀切剔除以保留 TW/HK 全量
+          #   udp-direct.* 仍会单独刷新一份; 想回到"主订阅只出 TCP"改成 '0'
+          EXPORT_UDP_TO_MAIN: '1'
 
       - name: Upload test artifacts (调试用, 7天保留)
         uses: actions/upload-artifact@v4

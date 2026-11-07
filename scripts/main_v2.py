@@ -64,25 +64,28 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/roosterkid/openproxylist/main/V2RAY_RAW.txt",
     "https://www.ermao.net/sub/v2ray/ermao.net",
     "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt",
-    # ★ 2026-11 起此 gist 已被作者删除 (raw 404 / API 404), 留着每轮都会走一次
-    #   "失败→回源补抓→仍 404" 的无效流程, 直接移除。
+    # ★ 2026-11: 两个源站已长期不可用, 移除避免每轮无效重试:
+    #   - gist shuaidaoya/... : 作者已删除 (raw/API 均 404)
+    #   - shadowmere.akiel.dev: 对 Azure 出口恒 403 (WAF 按 ASN 拦截), 回源也经常失败
     # "https://gist.githubusercontent.com/shuaidaoya/9e5cf2749c0ce79932dd9229d9b4162b/raw/base64.txt",
-    "https://shadowmere.akiel.dev/api/b64sub/",
-    # 香港定向补充源 (见 REGION_FILTER_SOURCES: 只取名称含 HK 的节点)
+    # "https://shadowmere.akiel.dev/api/b64sub/",
+    # 香港/台湾定向补充源 (见 REGION_FILTER_SOURCES: 只取名称含 HK/TW 的节点)
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_base64.txt",
     "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.txt",
 ]
 
-# ★ 地区定向源: 抓取后只保留名称命中正则的节点。
-#   动机: 香港长期只有个位数可用节点(主订阅 5 个), 而聚合源里大量 HK 段节点被
-#   淹没在 4000+ 全球节点里; 全量入库会把测活时间翻倍, 只取 HK 段则只增加 ~130 个
-#   候选, 却能显著抬高香港可用节点数。
+# ★ 地区定向源: 抓取后只保留名称命中正则的地区节点 (现在补 HK + TW)。
+#   动机: 香港/台湾长期只有个位数可用节点, 而聚合源里大量 HK/TW 段节点被淹没在
+#   4000+ 全球节点里; 全量入库会把测活时间翻倍, 只取 HK/TW 段则只增加 ~200 个
+#   候选, 却能显著抬高这两个地区的可用节点数。
 #   说明: 名称里的国家是上游标注, 最终仍以实测出口 IP 落库 (标注不准的会被自然淘汰)。
+_REGION_FILTER_RE = re.compile(
+    r"香港|Hong\s*Kong|\bHK\b|🇭🇰|台湾|Taiwan|\bTW\b|🇹🇼", re.I)
 REGION_FILTER_SOURCES = {
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_base64.txt":
-        re.compile(r"香港|Hong\s*Kong|\bHK\b|🇭🇰", re.I),
+        _REGION_FILTER_RE,
     "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.txt":
-        re.compile(r"香港|Hong\s*Kong|\bHK\b|🇭🇰", re.I),
+        _REGION_FILTER_RE,
 }
 
 OUTPUT_DIR = "output"
@@ -179,13 +182,14 @@ MAX_FULL_PROBE = _env_int("MAX_FULL_PROBE", 0, max_value=20000)
 # 家宽召回不足时再设 CLASSIFY_RDNS=1 打开。
 ENABLE_RDNS = os.environ.get("CLASSIFY_RDNS", "0").strip().lower() in ("1", "true", "yes", "on")
 
-# ★ UDP-only 协议 (hysteria2/tuic) 默认不进主订阅:
-#   目标用户在国内, 基本必须挂 socks5/http 前置; 而前置不转发 UDP,
-#   链式下 hy2/tuic 恒为不可用。用户实测"香港 21 个节点前置/直连全不通",
-#   查下来 21 个全是 hysteria2 —— 不是测活误判, 而是这类协议根本不适合本场景。
-#   现在把它们单独导出到 output/udp-direct.*, 主订阅只保留可走前置的 TCP 协议。
-#   想恢复旧行为 (UDP 也进主订阅) 设 EXPORT_UDP_TO_MAIN=1。
-EXPORT_UDP_TO_MAIN = os.environ.get("EXPORT_UDP_TO_MAIN", "0").strip().lower() in (
+# ★ UDP-only 协议 (hysteria2/tuic) **默认进主订阅** (v2 起改回全协议):
+#   之前为了"前置不转发 UDP"把 hy2 全部移出主订阅, 结果台湾等以 hy2 为主的地区
+#   在主订阅里直接消失 (参考项目 TW 29 个里有 24 个是 hy2)。
+#   实测 v2rayN 的 socks5/http 前置链式**可以**转发 UDP (用户实测 ref 的 TW hy2
+#   挂前置有延迟可用), 所以协议不该一刀切; 只按真实测活结果过滤。
+#   udp-direct.* 仍然照常单独导出, 想只要 TCP 时可用它/自行筛选。
+#   仍想恢复"主订阅只出 TCP"的旧行为, 设 EXPORT_UDP_TO_MAIN=0。
+EXPORT_UDP_TO_MAIN = os.environ.get("EXPORT_UDP_TO_MAIN", "1").strip().lower() in (
     "1", "true", "yes", "on")
 
 # ip-api.com 免费批量: 15 req/min, 每 req ≤100 IP (仅 HTTP)
@@ -1158,7 +1162,7 @@ def fetch_raw_nodes() -> tuple:
                     if pat and got:
                         before = len(got)
                         got = {u for u in got if pat.search(_uri_display_name(u))}
-                        print(f"[*] 地区过滤 {url.split('/')[-1]} → {len(got)}/{before} 节点 (仅保留 HK)")
+                        print(f"[*] 地区过滤 {url.split('/')[-1]} → {len(got)}/{before} 节点 (仅保留 HK/TW)")
                     if got:
                         return url, got, None, ""
                     # 200 但解析不出节点: 可能是空订阅/维护页, 重试一次仍不行就记为 empty
@@ -3416,24 +3420,23 @@ def export_all(unique_nodes, residential, non_residential):
                           f, indent=2, ensure_ascii=False)
         return len(links)
 
-    # 0) ★ UDP-only 协议分流 (hysteria2/tuic)
-    #    socks5/http 前置不转发 UDP → 链式下这类节点 100% 不可用。
-    #    用户实测"香港 21 个全不通", 查下来 21 个全是 hysteria2; 问题不在测活,
-    #    而在把"只能直连 UDP"的节点混进了"以为能走前置"的主订阅。
-    #    现在: 主订阅只留 TCP 协议, UDP-only 单独导出到 output/udp-direct.*。
+    # 0) ★ UDP-only 协议 (hysteria2/tuic) 单独导出一份
+    #    main 是否包含它们由 EXPORT_UDP_TO_MAIN 决定 (v2 默认包含, 见文件头说明)。
+    #    udp-direct.* 始终刷新, 避免主订阅改成全协议后这份文件变成旧数据 (锁死客户端)。
     udp_nodes = [n for n in unique_nodes
                  if (n.get("proto") or "").lower() in UDP_ONLY_PROTOS]
-    if udp_nodes and not EXPORT_UDP_TO_MAIN:
-        udp_ids = {id(n) for n in udp_nodes}
-        unique_nodes = [n for n in unique_nodes if id(n) not in udp_ids]
-        non_residential = [n for n in non_residential if id(n) not in udp_ids]
+    if udp_nodes:
         u_links, u_proxies, u_sb = build_group(udp_nodes)
         if u_links:
             write_sub("udp-direct", u_links, u_proxies, u_sb)
-            print(f"[*] UDP-only 协议单独出库 (前置代理不可用, 仅直连): "
-                  f"{len(u_links)} 个 → output/udp-direct.txt")
+            print(f"[*] UDP-only 协议单独出库: {len(u_links)} 个 → output/udp-direct.txt")
+        if not EXPORT_UDP_TO_MAIN:
+            udp_ids = {id(n) for n in udp_nodes}
+            unique_nodes = [n for n in unique_nodes if id(n) not in udp_ids]
+            non_residential = [n for n in non_residential if id(n) not in udp_ids]
+            print("[*] EXPORT_UDP_TO_MAIN=0: 主订阅只保留 TCP 协议")
 
-    # 1) 全量 (TCP, 可走 socks5/http 前置)
+    # 1) 全量 (含 TCP 与 UDP-only, 具体是否剔除 UDP 由 EXPORT_UDP_TO_MAIN 决定)
     all_links, all_proxies, all_sb = build_group(unique_nodes)
     with open(os.path.join(OUTPUT_DIR, "v2ray.txt"), "w", encoding="utf-8") as f:
         f.write(base64.b64encode("\n".join(all_links).encode()).decode())
@@ -3483,7 +3486,7 @@ def export_all(unique_nodes, residential, non_residential):
             export_clash_yaml(p, os.path.join(RESIDENTIAL_COUNTRY_DIR, f"clash-{cc}.yaml"))
             export_singbox_json(s, os.path.join(RESIDENTIAL_COUNTRY_DIR, f"singbox-{cc}.json"))
 
-    print(f"[*] 导出完毕: 全量(TCP) {len(all_links)} | 家宽总订阅 {res_count}")
+    print(f"[*] 导出完毕: 主订阅(全协议) {len(all_links)} | 家宽总订阅 {res_count}")
     return len(all_links), res_count
 
 
@@ -3577,13 +3580,13 @@ def update_readme(total_count, res_count):
 
 > 👤 **定制规范命名**: 所有订阅节点均重命名为 `国旗 地区 序号 (家宽) - xiaohe`
 > ⚡ **真实可用保障**: 所有节点由 `sing-box {SINGBOX_VERSION}` 内核建立实际代理隧道, 完成真实 HTTPS 双向传输握手 + 出口 IP 穿透验证 + Cloudflare 限速下载断流检测 + TLS 证书校验 (MITM 劫持识别), 拒绝虚假通畅、断流节点与高危劫持节点。
-> 🛡️ **前置可用优先**: 主订阅只保留可走 `socks5/http` 前置的 TCP 协议 (VLESS / VMESS / Trojan / Shadowsocks / AnyTLS)。`hysteria2` / `tuic` 是 QUIC/UDP, 前置不转发 UDP, 链式下 100% 不可用, 已单独放到 [UDP 直连订阅](https://raw.githubusercontent.com/{repo_name}/{branch}/output/udp-direct.txt) (仅"本机可直连 UDP"时使用)。
+> 🛡️ **全协议可选**: 主订阅包含 VLESS / VMESS / Trojan / Shadowsocks / AnyTLS **以及 Hysteria2 / TUIC**。TCP 协议可直连或走 `socks5/http` 前置; Hysteria2/TUIC 是 QUIC/UDP, 需要客户端或前置支持 UDP 转发 (v2rayN 的链式前置通常可以)。`udp-direct.*` 仍单独提供一份只含 UDP 协议的订阅, 方便按需区分。
 
 ---
 
 ## 📌 全部节点总订阅链接
 
-> 全部为**海外实测存活**且**可走前置代理**的节点 (sing-box 真实握手 + 出口 IP 穿透 + 断流检测通过)。国内使用请开启前置代理。
+> 全部为**海外实测存活**节点 (sing-box 真实握手 + 出口 IP 穿透 + 断流检测通过), 含 TCP 与 Hysteria2/TUIC。国内使用请开启前置代理; UDP 协议需要客户端/前置支持 UDP 转发。
 
 | 客户端 / 格式类型 | 节点总数 | 免翻 CDN 加速直链 | 官方原生 Raw 直链 (开启代理) |
 | :--- | :---: | :--- | :--- |
@@ -3591,7 +3594,7 @@ def update_readme(total_count, res_count):
 | ⚡ **V2RayN (Base64 格式)** | `{total_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/v2ray.txt) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/v2ray.txt) |
 | 📦 **sing-box (JSON 格式)** | `{total_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/singbox.json) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/singbox.json) |
 
-> 🔌 **UDP-only 专用订阅 (hysteria2 / tuic, 不能走前置, 仅电脑/路由器可直连 UDP 时使用)**:
+> 🔌 **UDP-only 专用订阅 (hysteria2 / tuic, 主订阅已包含, 这里只是按协议再拆一份)**:
 > [V2RayN](https://raw.githubusercontent.com/{repo_name}/{branch}/output/udp-direct.txt) ·
 > [Clash](https://raw.githubusercontent.com/{repo_name}/{branch}/output/udp-direct-clash.yaml) ·
 > [sing-box](https://raw.githubusercontent.com/{repo_name}/{branch}/output/udp-direct-singbox.json)
@@ -3703,7 +3706,7 @@ export default {{
 ## 🛠️ 项目使用说明
 1. **更新机制**：GitHub Actions **每小时自动触发** + 支持手动触发 (`workflow_dispatch`) 后刷新上述全部订阅与数据。
 2. **测活标准**：① sing-box 实际隧道 + 3 个多厂商 generate_204 探测 ② 真实出口 IP 穿透 ③ 稳态吞吐测量 (剔除慢启动, < 20KB/s 判为断流) ④ TLS 证书链校验识别 MITM (仅证书验证失败才判劫持) ⑤ 家宽节点额外做 3 端前置交叉验证。
-3. **出库标准**：只有本轮**实测连通**的节点才会出库 (失败节点仅用于统计失败原因, 不写入订阅)；`hysteria2`/`tuic` 等 UDP-only 协议不进主订阅, 单独放在 `output/udp-direct.*`。
+3. **出库标准**：只有本轮**实测连通**的节点才会出库 (失败节点仅用于统计失败原因, 不写入订阅)；主订阅含全协议 (TCP + Hysteria2/TUIC), `udp-direct.*` 额外拆出 UDP 协议一份。
 4. **多客户端兼容**：Clash / v2rayN / sing-box 全格式订阅。
 """
     with open(os.path.join(BASEDIR, "README.md"), "w", encoding="utf-8") as f:
@@ -3854,23 +3857,26 @@ def main():
     print(f"总耗时: {elapsed:.0f}s | 抓取 {len(raw_nodes)} → 解析成功 {len(candidates)} "
           f"→ 存活 {sum(1 for r in test_results if r.get('alive'))}/{len(test_results)} "
           f"→ 去重后 {len(unique_nodes)} → 家宽 {len(residential)}")
-    udp_exported = 0 if EXPORT_UDP_TO_MAIN else sum(
-        1 for n in unique_nodes if (n.get("proto") or "").lower() in UDP_ONLY_PROTOS)
-    exported_tcp = unique_nodes if EXPORT_UDP_TO_MAIN else [
+    udp_count = sum(1 for n in unique_nodes
+                    if (n.get("proto") or "").lower() in UDP_ONLY_PROTOS)
+    tcp_count = len(unique_nodes) - udp_count
+    exported_nodes = unique_nodes if EXPORT_UDP_TO_MAIN else [
         n for n in unique_nodes if (n.get("proto") or "").lower() not in UDP_ONLY_PROTOS]
-    print(f"导出构成: 主订阅(TCP, 可走前置) {total} | UDP-only(udp-direct) {udp_exported} | 家宽 {res}")
+    print(f"导出构成: 主订阅 {total} (TCP {tcp_count} + UDP-only {udp_count}, "
+          f"{'已包含在主订阅' if EXPORT_UDP_TO_MAIN else '已移出主订阅'}) | "
+          f"udp-direct(单独) {udp_count} | 家宽 {res}")
     # 下面的分布只统计"真正写进主订阅"的节点, 避免日志里出现
     # "国家 Top10 有 HK 21" 但订阅里一个香港都没有的误导
     by_type = {}
-    for n in exported_tcp:
+    for n in exported_nodes:
         by_type[n["net_type"]] = by_type.get(n["net_type"], 0) + 1
     print(f"节点类型分布(主订阅): {by_type}")
     by_proto = {}
-    for n in exported_tcp:
+    for n in exported_nodes:
         by_proto[n["proto"]] = by_proto.get(n["proto"], 0) + 1
     print(f"协议分布(主订阅): {by_proto}")
     by_country = {}
-    for n in exported_tcp:
+    for n in exported_nodes:
         by_country[n["country"]] = by_country.get(n["country"], 0) + 1
     top_c = sorted(by_country.items(), key=lambda x: -x[1])[:10]
     print(f"国家 Top10(主订阅): {top_c}")
