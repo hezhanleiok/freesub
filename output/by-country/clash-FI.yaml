@@ -5,6 +5,17 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 芬兰 (Finland) 01 - xiaohe
+  server: 45.144.234.157
+  port: 14430
+  udp: true
+  type: vless
+  uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: 45.144.234.157
+- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
   server: 104.18.0.1
   port: 2053
   udp: true
@@ -15,19 +26,8 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  server: 172.66.0.1
-  port: 2053
-  udp: true
-  type: trojan
-  password: gHQP0D7D15
-  sni: marvdasht.phonecomparisonblog.org
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
 - name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  server: 188.114.96.3
+  server: 104.24.0.1
   port: 2053
   udp: true
   type: trojan
@@ -38,7 +38,7 @@ proxies:
   ws-opts:
     path: /
 - name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
-  server: 104.24.0.1
+  server: 188.114.96.3
   port: 2053
   udp: true
   type: trojan

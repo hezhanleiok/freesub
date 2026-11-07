@@ -16,7 +16,7 @@ proxies:
     public-key: QFYzek1TNFeZxhHP3gH-42RUYDGw0ZiigeDcUOFL2Vs
     short-id: bd44ae7c721b8252
   servername: gb1.japancase.site
-  client-fingerprint: chrome
+  client-fingerprint: ''
 - name: 🇦🇲 亚美尼亚 (Armenia) 02 - xiaohe
   server: gb1.japancase.site
   port: 443
@@ -30,6 +30,32 @@ proxies:
     short-id: bd44ae7c721b8252
   servername: gb1.japancase.site
   client-fingerprint: ''
+- name: 🇦🇲 亚美尼亚 (Armenia) 03 - xiaohe
+  server: it1.japancase.site
+  port: 443
+  udp: true
+  type: vless
+  uuid: db80088c-32a1-4cb8-a907-0f3cb7844152
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: zEntiD6D81wY__YHPvIw78e09CBIgYkyQ5meIo7c_hg
+    short-id: 41ae8e266bc3346f
+  servername: it1.japancase.site
+  client-fingerprint: ''
+- name: 🇦🇲 亚美尼亚 (Armenia) 04 - xiaohe
+  server: 157.228.71.76
+  port: 443
+  udp: true
+  type: vless
+  uuid: db80088c-32a1-4cb8-a907-0f3cb7844152
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: zEntiD6D81wY__YHPvIw78e09CBIgYkyQ5meIo7c_hg
+    short-id: 41ae8e266bc3346f
+  servername: it1.japancase.site
+  client-fingerprint: ''
 proxy-groups:
 - name: PROXIES
   type: select
@@ -37,6 +63,8 @@ proxy-groups:
   - AUTO
   - 🇦🇲 亚美尼亚 (Armenia) 01 - xiaohe
   - 🇦🇲 亚美尼亚 (Armenia) 02 - xiaohe
+  - 🇦🇲 亚美尼亚 (Armenia) 03 - xiaohe
+  - 🇦🇲 亚美尼亚 (Armenia) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -44,5 +72,7 @@ proxy-groups:
   proxies:
   - 🇦🇲 亚美尼亚 (Armenia) 01 - xiaohe
   - 🇦🇲 亚美尼亚 (Armenia) 02 - xiaohe
+  - 🇦🇲 亚美尼亚 (Armenia) 03 - xiaohe
+  - 🇦🇲 亚美尼亚 (Armenia) 04 - xiaohe
 rules:
 - MATCH,PROXIES
