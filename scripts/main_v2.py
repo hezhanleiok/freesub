@@ -3720,22 +3720,26 @@ def main():
     print(f"总耗时: {elapsed:.0f}s | 抓取 {len(raw_nodes)} → 解析成功 {len(candidates)} "
           f"→ 存活 {sum(1 for r in test_results if r.get('alive'))}/{len(test_results)} "
           f"→ 去重后 {len(unique_nodes)} → 家宽 {len(residential)}")
-    udp_exported = sum(1 for n in unique_nodes
-                       if (n.get("proto") or "").lower() in UDP_ONLY_PROTOS)
+    udp_exported = 0 if EXPORT_UDP_TO_MAIN else sum(
+        1 for n in unique_nodes if (n.get("proto") or "").lower() in UDP_ONLY_PROTOS)
+    exported_tcp = unique_nodes if EXPORT_UDP_TO_MAIN else [
+        n for n in unique_nodes if (n.get("proto") or "").lower() not in UDP_ONLY_PROTOS]
     print(f"导出构成: 主订阅(TCP, 可走前置) {total} | UDP-only(udp-direct) {udp_exported} | 家宽 {res}")
+    # 下面的分布只统计"真正写进主订阅"的节点, 避免日志里出现
+    # "国家 Top10 有 HK 21" 但订阅里一个香港都没有的误导
     by_type = {}
-    for n in unique_nodes:
+    for n in exported_tcp:
         by_type[n["net_type"]] = by_type.get(n["net_type"], 0) + 1
-    print(f"节点类型分布: {by_type}")
+    print(f"节点类型分布(主订阅): {by_type}")
     by_proto = {}
-    for n in unique_nodes:
+    for n in exported_tcp:
         by_proto[n["proto"]] = by_proto.get(n["proto"], 0) + 1
-    print(f"协议分布(出库): {by_proto}")
+    print(f"协议分布(主订阅): {by_proto}")
     by_country = {}
-    for n in unique_nodes:
+    for n in exported_tcp:
         by_country[n["country"]] = by_country.get(n["country"], 0) + 1
     top_c = sorted(by_country.items(), key=lambda x: -x[1])[:10]
-    print(f"国家 Top10: {top_c}")
+    print(f"国家 Top10(主订阅): {top_c}")
     if fetch_failed:
         hosts = []
         for u, k, _ in fetch_failed:
