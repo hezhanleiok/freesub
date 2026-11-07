@@ -71,6 +71,9 @@ SOURCE_URLS = [
 OUTPUT_DIR = "output"
 COUNTRY_DIR = os.path.join(OUTPUT_DIR, "by-country")
 RESIDENTIAL_COUNTRY_DIR = os.path.join(OUTPUT_DIR, "residential-by-country")
+# 家宽区快照: 某轮家宽复测被 relay 抖动打成 0 时, 用它原样恢复上一轮
+# (含按国家拆分), 保证 README 的"汇总数"和"按国家表"永远指向同一批节点。
+RESIDENTIAL_STATE_FILE = os.path.join(OUTPUT_DIR, "residential-last.json")
 
 SINGBOX_VERSION = "v1.14.0"
 WORKDIR = os.path.dirname(os.path.abspath(__file__))          # scripts/
@@ -158,6 +161,15 @@ MAX_FULL_PROBE = _env_int("MAX_FULL_PROBE", 0, max_value=20000)
 # rDNS 兜底默认关闭: 每个未知节点最多 2s, 在几百分类的场景里很拖时间。
 # 家宽召回不足时再设 CLASSIFY_RDNS=1 打开。
 ENABLE_RDNS = os.environ.get("CLASSIFY_RDNS", "0").strip().lower() in ("1", "true", "yes", "on")
+
+# ★ UDP-only 协议 (hysteria2/tuic) 默认不进主订阅:
+#   目标用户在国内, 基本必须挂 socks5/http 前置; 而前置不转发 UDP,
+#   链式下 hy2/tuic 恒为不可用。用户实测"香港 21 个节点前置/直连全不通",
+#   查下来 21 个全是 hysteria2 —— 不是测活误判, 而是这类协议根本不适合本场景。
+#   现在把它们单独导出到 output/udp-direct.*, 主订阅只保留可走前置的 TCP 协议。
+#   想恢复旧行为 (UDP 也进主订阅) 设 EXPORT_UDP_TO_MAIN=1。
+EXPORT_UDP_TO_MAIN = os.environ.get("EXPORT_UDP_TO_MAIN", "0").strip().lower() in (
+    "1", "true", "yes", "on")
 
 # ip-api.com 免费批量: 15 req/min, 每 req ≤100 IP (仅 HTTP)
 IP_API_BATCH_URL = "http://ip-api.com/batch?fields=status,countryCode,isp,org,as,asname,reverse,mobile,proxy,hosting,query"
@@ -3145,6 +3157,61 @@ def _count_sub_nodes(path: str) -> int:
         return 0
 
 
+def _save_residential_state(residential):
+    """把本轮入区的家宽节点存成快照 (output/residential-last.json)
+
+    只存重建订阅所需字段 (country/outbound/...). 下一轮家宽复测被 relay 抖动
+    打成 0 时, 用它原样恢复整份家宽订阅 + 按国家拆分, 而不是只保留一个 txt
+    导致 README 汇总和按国家表对不上。
+    """
+    try:
+        data = []
+        for n in residential:
+            ob = n.get("outbound")
+            if not ob:
+                continue
+            data.append({
+                "country": n.get("country") or "OTHER",
+                "net_type": n.get("net_type") or "residential",
+                "confidence": n.get("confidence", 70),
+                "latency_ms": n.get("latency_ms", 9999),
+                "exit_ip": n.get("exit_ip"),
+                "server": n.get("server"),
+                "port": n.get("port"),
+                "proto": n.get("proto"),
+                "fraud_score": n.get("fraud_score", -1),
+                "outbound": ob,
+            })
+        tmp = RESIDENTIAL_STATE_FILE + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        os.replace(tmp, RESIDENTIAL_STATE_FILE)
+    except Exception as e:
+        print(f"[!] 家宽快照写入失败: {e}")
+
+
+def _load_residential_state():
+    """读取上一轮家宽快照; 缺失/损坏返回空列表"""
+    try:
+        with open(RESIDENTIAL_STATE_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if not isinstance(data, list):
+            return []
+        out = []
+        for d in data:
+            if not isinstance(d, dict) or not d.get("outbound"):
+                continue
+            d.setdefault("country", "OTHER")
+            d.setdefault("net_type", "residential")
+            d.setdefault("confidence", 70)
+            d.setdefault("latency_ms", 9999)
+            d.setdefault("fraud_score", -1)
+            out.append(d)
+        return out
+    except Exception:
+        return []
+
+
 def export_all(unique_nodes, residential, non_residential):
     ensure_directories()
 
@@ -3191,7 +3258,24 @@ def export_all(unique_nodes, residential, non_residential):
                           f, indent=2, ensure_ascii=False)
         return len(links)
 
-    # 1) 全量
+    # 0) ★ UDP-only 协议分流 (hysteria2/tuic)
+    #    socks5/http 前置不转发 UDP → 链式下这类节点 100% 不可用。
+    #    用户实测"香港 21 个全不通", 查下来 21 个全是 hysteria2; 问题不在测活,
+    #    而在把"只能直连 UDP"的节点混进了"以为能走前置"的主订阅。
+    #    现在: 主订阅只留 TCP 协议, UDP-only 单独导出到 output/udp-direct.*。
+    udp_nodes = [n for n in unique_nodes
+                 if (n.get("proto") or "").lower() in UDP_ONLY_PROTOS]
+    if udp_nodes and not EXPORT_UDP_TO_MAIN:
+        udp_ids = {id(n) for n in udp_nodes}
+        unique_nodes = [n for n in unique_nodes if id(n) not in udp_ids]
+        non_residential = [n for n in non_residential if id(n) not in udp_ids]
+        u_links, u_proxies, u_sb = build_group(udp_nodes)
+        if u_links:
+            write_sub("udp-direct", u_links, u_proxies, u_sb)
+            print(f"[*] UDP-only 协议单独出库 (前置代理不可用, 仅直连): "
+                  f"{len(u_links)} 个 → output/udp-direct.txt")
+
+    # 1) 全量 (TCP, 可走 socks5/http 前置)
     all_links, all_proxies, all_sb = build_group(unique_nodes)
     with open(os.path.join(OUTPUT_DIR, "v2ray.txt"), "w", encoding="utf-8") as f:
         f.write(base64.b64encode("\n".join(all_links).encode()).decode())
@@ -3199,26 +3283,36 @@ def export_all(unique_nodes, residential, non_residential):
     export_singbox_json(all_sb, os.path.join(OUTPUT_DIR, "singbox.json"))
 
     # 2) ★ 家宽总订阅: 所有国家/地区的家宽+移动网络节点汇总 (不按国家拆)
+    #    本轮为空时优先用上一轮快照恢复 (含按国家拆分), 这样"汇总数"和
+    #    "按国家表"永远来自同一批节点, 不会再出现 汇总 3 / 分类 0 的矛盾。
+    if residential:
+        _save_residential_state(residential)
+    else:
+        restored = _load_residential_state()
+        if restored:
+            residential = restored
+            print(f"[!] 家宽区本轮为空: 沿用上一轮家宽快照 "
+                  f"({len(residential)} 个节点, 含按国家拆分)")
+        else:
+            print("[!] 家宽区本轮为空且无快照: 按国家表将保留旧目录 (若有)")
+
     res_links, res_proxies, res_sb = build_group(residential, force_res=True)
     res_count = len(res_links)
     if res_links:
         write_sub("residential", res_links, res_proxies, res_sb)
     else:
-        # ★ 家宽区为空时保留上次文件: 三道闸门 + 单个 relay 抖动都可能让某轮归零,
-        #   不该因此把用户手里还能用的家宽订阅清空。首次运行(无旧文件)才写空占位,
-        #   避免 README 里的链接 404。
+        # 首次运行(无历史文件)才写空占位, 避免 README 里的链接 404。
         _res_txt = os.path.join(OUTPUT_DIR, "residential.txt")
         if os.path.exists(_res_txt):
-            # README 里的数字要跟"实际能拉到的文件内容"一致, 不能显示 0 却指向有内容的文件
+            # README 里的数字要跟"实际能拉到的文件内容"一致
             res_count = _count_sub_nodes(_res_txt)
-            print(f"[!] 家宽区本轮为空: 保留上次 residential 订阅 ({res_count} 个节点, 不覆盖)")
+            print(f"[!] 家宽区为空: 保留上次 residential 订阅 ({res_count} 个节点, 不覆盖)")
         else:
             print("[!] 家宽区为空且无历史文件: 写空占位, 避免 README 链接 404")
             write_sub("residential", [], [], [])
 
-    # 3) 4) 按国家分区 (★ 无存活节点时不动, 否则会把线上 by-country 清空)
+    # 3) 按国家 - 普通区 (★ 无存活节点时不动, 否则会把线上 by-country 清空)
     if unique_nodes:
-        # 3) 按国家 - 普通区
         shutil.rmtree(COUNTRY_DIR, ignore_errors=True)
         os.makedirs(COUNTRY_DIR, exist_ok=True)
         by_cc = {}
@@ -3231,7 +3325,10 @@ def export_all(unique_nodes, residential, non_residential):
             export_clash_yaml(p, os.path.join(COUNTRY_DIR, f"clash-{cc}.yaml"))
             export_singbox_json(s, os.path.join(COUNTRY_DIR, f"singbox-{cc}.json"))
 
-        # 4) 按国家 - 家宽区
+    # 4) 按国家 - 家宽区
+    #    只有本轮 (或快照恢复) 确有家宽时才重建; 完全为空时保留旧目录,
+    #    免得 README 汇总数有值、按国家表却被清空成 0。
+    if residential:
         shutil.rmtree(RESIDENTIAL_COUNTRY_DIR, ignore_errors=True)
         os.makedirs(RESIDENTIAL_COUNTRY_DIR, exist_ok=True)
         res_by_cc = {}
@@ -3243,8 +3340,10 @@ def export_all(unique_nodes, residential, non_residential):
                 f.write(base64.b64encode("\n".join(l).encode()).decode())
             export_clash_yaml(p, os.path.join(RESIDENTIAL_COUNTRY_DIR, f"clash-{cc}.yaml"))
             export_singbox_json(s, os.path.join(RESIDENTIAL_COUNTRY_DIR, f"singbox-{cc}.json"))
+    else:
+        os.makedirs(RESIDENTIAL_COUNTRY_DIR, exist_ok=True)
 
-    print(f"[*] 导出完毕: 全量 {len(all_links)} | 家宽总订阅 {res_count}")
+    print(f"[*] 导出完毕: 全量(TCP) {len(all_links)} | 家宽总订阅 {res_count}")
     return len(all_links), res_count
 
 
@@ -3334,23 +3433,39 @@ def update_readme(total_count, res_count):
     res_table = table_rows(res_counts, "residential-by-country")
     normal_table = table_rows(normal_counts, "by-country")
 
+    # ★ 过渡兜底: 家宽快照机制上线前, 可能只有 residential.txt 而按国家目录已被清空。
+    #   这时用一行汇总占位, 保证"家宽总订阅"和"按国家表"的数字一致 (不再 3 vs 0)。
+    if not res_counts and res_count > 0:
+        v2 = (f"[CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/residential.txt) · "
+              f"[Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/residential.txt)")
+        cl = (f"[CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/residential-clash.yaml) · "
+              f"[Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/residential-clash.yaml)")
+        sb = (f"[CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/residential-singbox.json) · "
+              f"[Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/residential-singbox.json)")
+        res_table = (f"| 🔁 家宽汇总 (沿用上一轮) | {res_count} | {v2} | {cl} | {sb} |")
+
     readme = f"""# 🚀 免费节点自动测活订阅池 (含真实家宽/住宅IP甄选)
 
 > 👤 **定制规范命名**: 所有订阅节点均重命名为 `国旗 地区 序号 (家宽) - xiaohe`
 > ⚡ **真实可用保障**: 所有节点由 `sing-box {SINGBOX_VERSION}` 内核建立实际代理隧道, 完成真实 HTTPS 双向传输握手 + 出口 IP 穿透验证 + Cloudflare 限速下载断流检测 + TLS 证书校验 (MITM 劫持识别), 拒绝虚假通畅、断流节点与高危劫持节点。
-> 🛡️ **全协议支持**: VLESS (Reality/Vision) · VMESS · Trojan · Shadowsocks · Hysteria2 · TUIC · AnyTLS
+> 🛡️ **前置可用优先**: 主订阅只保留可走 `socks5/http` 前置的 TCP 协议 (VLESS / VMESS / Trojan / Shadowsocks / AnyTLS)。`hysteria2` / `tuic` 是 QUIC/UDP, 前置不转发 UDP, 链式下 100% 不可用, 已单独放到 [UDP 直连订阅](https://raw.githubusercontent.com/{repo_name}/{branch}/output/udp-direct.txt) (仅"本机可直连 UDP"时使用)。
 
 ---
 
 ## 📌 全部节点总订阅链接
 
-> 全部为**海外实测存活**节点 (sing-box 真实握手 + 出口 IP 穿透 + 断流检测通过)。国内使用请开启前置代理。
+> 全部为**海外实测存活**且**可走前置代理**的节点 (sing-box 真实握手 + 出口 IP 穿透 + 断流检测通过)。国内使用请开启前置代理。
 
 | 客户端 / 格式类型 | 节点总数 | 免翻 CDN 加速直链 | 官方原生 Raw 直链 (开启代理) |
 | :--- | :---: | :--- | :--- |
 | 🚀 **Clash (YAML 格式)** | `{total_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/clash.yaml) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/clash.yaml) |
 | ⚡ **V2RayN (Base64 格式)** | `{total_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/v2ray.txt) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/v2ray.txt) |
 | 📦 **sing-box (JSON 格式)** | `{total_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@{branch}/output/singbox.json) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/{branch}/output/singbox.json) |
+
+> 🔌 **UDP-only 专用订阅 (hysteria2 / tuic, 不能走前置, 仅电脑/路由器可直连 UDP 时使用)**:
+> [V2RayN](https://raw.githubusercontent.com/{repo_name}/{branch}/output/udp-direct.txt) ·
+> [Clash](https://raw.githubusercontent.com/{repo_name}/{branch}/output/udp-direct-clash.yaml) ·
+> [sing-box](https://raw.githubusercontent.com/{repo_name}/{branch}/output/udp-direct-singbox.json)
 
 ---
 
@@ -3377,7 +3492,7 @@ def update_readme(total_count, res_count):
 
 ### 📍 按国家/地区拆分
 
-| 家宽地区 | 节点数 | V2RayN 专属订阅 | Clash 专属订阅 | sing-box 专属订阅 |
+| 地区/国家 | 节点数 | V2RayN 专属订阅 | Clash 专属订阅 | sing-box 专属订阅 |
 | :--- | :---: | :---: | :---: | :---: |
 {res_table}
 
@@ -3459,7 +3574,7 @@ export default {{
 ## 🛠️ 项目使用说明
 1. **更新机制**：GitHub Actions **手动触发** (`workflow_dispatch`) 后刷新上述全部订阅与数据。
 2. **测活标准**：① sing-box 实际隧道 + 3 个多厂商 generate_204 探测 ② 真实出口 IP 穿透 ③ 稳态吞吐测量 (剔除慢启动, ≥ 35KB/s 判为可用; 测不到速度只标记不淘汰) ④ TLS 证书链校验识别 MITM (仅证书验证失败才判劫持)。
-3. **出库标准**：只有本轮**实测连通**的节点才会出库 (失败节点仅用于统计失败原因, 不写入订阅)。
+3. **出库标准**：只有本轮**实测连通**的节点才会出库 (失败节点仅用于统计失败原因, 不写入订阅)；`hysteria2`/`tuic` 等 UDP-only 协议不进主订阅, 单独放在 `output/udp-direct.*`。
 4. **多客户端兼容**：Clash / v2rayN / sing-box 全格式订阅。
 """
     with open(os.path.join(BASEDIR, "README.md"), "w", encoding="utf-8") as f:
@@ -3605,6 +3720,9 @@ def main():
     print(f"总耗时: {elapsed:.0f}s | 抓取 {len(raw_nodes)} → 解析成功 {len(candidates)} "
           f"→ 存活 {sum(1 for r in test_results if r.get('alive'))}/{len(test_results)} "
           f"→ 去重后 {len(unique_nodes)} → 家宽 {len(residential)}")
+    udp_exported = sum(1 for n in unique_nodes
+                       if (n.get("proto") or "").lower() in UDP_ONLY_PROTOS)
+    print(f"导出构成: 主订阅(TCP, 可走前置) {total} | UDP-only(udp-direct) {udp_exported} | 家宽 {res}")
     by_type = {}
     for n in unique_nodes:
         by_type[n["net_type"]] = by_type.get(n["net_type"], 0) + 1
