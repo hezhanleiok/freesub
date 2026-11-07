@@ -86,15 +86,17 @@ PROBE_RETRY_TIMEOUT    = 4       # 活性重试超时 (秒) — 死节点快速�
 PORT_KNOCK_TIMEOUT     = 2.5     # 端口预检超时
 IP_ECHO_TIMEOUT        = 6.0     # 出口 IP 检测超时
 
-# ★ 测速判定 (v3 修正):
-#   旧版 5s 窗口把 SOCKS/TCP/TLS 握手 + TTFB 全算进吞吐, 且未剔除 TCP 慢启动期,
-#   导致"真实 100KB/s 的节点被测成 60KB/s" → 系统性误杀 (尤其 CF CDN 中转节点)。
-#   现在: 计时从首字节开始, 丢弃前 1.5s 慢启动, 用稳态窗口算速率, 阈值降到 35KB/s。
-SPEED_TEST_BYTES       = 1_500_000   # 1.5MB (9s@35KB/s=315KB, 1.5MB 足够算准稳态)
-SPEED_TEST_BUDGET      = 9.0         # 测速总预算 (秒, 从首字节起算)
+# ★ 测速判定 (v4: 提速 + 降低误杀):
+#   旧版 9s/1.5MB 在每个活节点上都要跑一遍, 48 并发时既慢又互相挤带宽。
+#   现在: 6s/1MB 预算, 计时仍从首字节开始并丢弃 1.5s 慢启动;
+#   主池阈值降到 20KB/s (20~35KB/s 的节点仍可用, 不再一刀切误杀),
+#   家宽区继续用 35KB/s 严阈值。
+SPEED_TEST_BYTES       = 1_000_000   # 1MB (6s@20KB/s=120KB, 足够判断是否断流)
+SPEED_TEST_BUDGET      = 6.0         # 测速总预算 (秒, 从首字节起算)
 SPEED_WARMUP           = 1.5         # 慢启动丢弃窗口 (秒)
-SPEED_MIN_BYTES_PER_S  = 35_000      # 稳态吞吐 < 35KB/s 才判定断流 (仅在"实测到速度"时生效)
-SPEED_MIN_SAMPLE_BYTES = 200_000     # 有效样本下限: 不足则视为未测到 (防 64KB/0.3s 算出假高值)
+SPEED_MIN_BYTES_PER_S  = 20_000      # 主池: 稳态吞吐 < 20KB/s 才判定断流
+SPEED_MIN_RESIDENTIAL_BYTES_PER_S = 35_000  # 家宽区: 维持 35KB/s 严阈值
+SPEED_MIN_SAMPLE_BYTES = 200_000     # 有效样本下限 (只看"样本小且时间短"时才判无效)
 IP_ECHO_URLS = [                    # 经代理获取出口 IP (多路冗余)
     "https://api.ip.sb/geoip",                         # JSON: country_code/asn/isp
     "https://ipinfo.io/json",                          # JSON: country/org
@@ -132,6 +134,28 @@ def _env_int(name: str, default: int, max_value: int = 128) -> int:
 MAX_WORKERS_TEST    = _env_int("PROBE_CONCURRENCY", 48)
 MAX_WORKERS_FETCH   = 8
 MAX_WORKERS_CLASSIFY = 32
+
+# ══════════════════════════════════════════════════════════════════
+# 工作流提速 / 误杀控制
+# ══════════════════════════════════════════════════════════════════
+# CI (Actions 海外视角) 或本地挂了前置代理时, TCP 预检失败可以直接淘汰:
+#   此时"预检失败"基本等于"节点入口真的不通", 继续起 sing-box 只会浪费 40%~60% 时间,
+#   还会把 CPU/带宽压满, 把活节点挤出 no_liveness (假阴性)。
+# 本地大陆无前置时保持"预检失败降级保留", 避免 GFW 视角误杀。
+IS_CI = os.environ.get("GITHUB_ACTIONS", "").strip().lower() == "true"
+HAS_FRONT_PROXY = bool(os.environ.get("FRONT_PROXY", "").strip())
+PREFILTER_DROP = os.environ.get(
+    "PREFILTER_DROP", "1" if (IS_CI or HAS_FRONT_PROXY) else "0"
+).strip().lower() in ("1", "true", "yes", "on")
+
+# 预检通过后的全量测活上限 (按 TCP RTT 排序, 只测最快的 N 个)。
+# 0 = 不限制。CI 上源站很多时, 这一步能把十几分钟压到几分钟;
+# 预检已淘汰死节点, 被 cap 掉的基本是 RTT 很差的尾部节点。
+MAX_FULL_PROBE = _env_int("MAX_FULL_PROBE", 3000, max_value=20000)
+
+# rDNS 兜底默认关闭: 每个未知节点最多 2s, 在几百分类的场景里很拖时间。
+# 家宽召回不足时再设 CLASSIFY_RDNS=1 打开。
+ENABLE_RDNS = os.environ.get("CLASSIFY_RDNS", "0").strip().lower() in ("1", "true", "yes", "on")
 
 # ip-api.com 免费批量: 15 req/min, 每 req ≤100 IP (仅 HTTP)
 IP_API_BATCH_URL = "http://ip-api.com/batch?fields=status,countryCode,isp,org,as,asname,reverse,mobile,proxy,hosting,query"
@@ -570,11 +594,26 @@ def setup_environment():
         print(f"[!] sing-box 内核无法运行: {e}")
         raise
 
-    # --- GeoLite2 数据库 ---
+    # --- GeoLite2 数据库 (★ 7 天新鲜度缓存: 旧版每次运行都重下 ~11MB) ---
     country_db = os.path.join(RUNTIME_DIR, "Country.mmdb")
     asn_db = os.path.join(RUNTIME_DIR, "ASN.mmdb")
-    download_file("https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-Country.mmdb", country_db)
-    download_file("https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb", asn_db)
+
+    def _db_fresh(path):
+        try:
+            return (os.path.exists(path)
+                    and os.path.getsize(path) > 100 * 1024
+                    and (time.time() - os.path.getmtime(path)) < 7 * 86400)
+        except OSError:
+            return False
+
+    if _db_fresh(country_db):
+        print(f"[+] GeoLite Country 命中缓存: {os.path.getsize(country_db)//1024}KB")
+    else:
+        download_file("https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-Country.mmdb", country_db)
+    if _db_fresh(asn_db):
+        print(f"[+] GeoLite ASN 命中缓存: {os.path.getsize(asn_db)//1024}KB")
+    else:
+        download_file("https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb", asn_db)
     print(f"[+] GeoLite 数据库就绪: Country={os.path.getsize(country_db)//1024}KB, ASN={os.path.getsize(asn_db)//1024}KB")
 
 
@@ -1108,60 +1147,96 @@ def fetch_raw_nodes() -> tuple:
 # ═══════════════════════════════════════════N═══════════════════════
 
 # DoH 域名解析 (Cloudflare): 防 DNS 污染 (本地大陆网络); Actions 上顺带跳过其国内 DNS 限制
+#   value = (ips: list[str], expire_ts: float)
+#   ★ 负缓存必须有 TTL: 旧版把一次 DoH/系统 DNS 抖动永久缓存成 "", 该域名的所有节点
+#     整轮判死, 属于典型误杀。现在成功缓存 30 分钟, 失败只缓存 5 分钟。
 _DNS_CACHE = {}
+_DNS_TTL_OK = 1800
+_DNS_TTL_FAIL = 300
 
-def resolve_host(host: str) -> str:
-    """DoH 解析 (带本地缓存); 失败退回系统 DNS"""
-    if not host or is_ip_literal(host):
-        return host or ""
-    if host in _DNS_CACHE:
-        return _DNS_CACHE[host]
+
+def resolve_hosts(host: str) -> list:
+    """解析域名 → 全部 A 记录列表 (带 TTL 缓存; 失败退回系统 DNS)
+
+    ★ 返回列表而不是单个 IP: 多 A 记录的 CDN 域名只试第一个 IP 会误杀,
+      预检时需要把所有地址都试一遍。"""
+    if not host:
+        return []
+    if is_ip_literal(host):
+        return [host]
+    now = time.time()
+    hit = _DNS_CACHE.get(host)
+    if hit and hit[1] > now:
+        return hit[0]
+    ips = []
     # 1) DoH (Cloudflare 1.1.1.1, 走 DIRECT_SESSION 可过墙)
     try:
         r = DIRECT_SESSION.get(
             f"https://cloudflare-dns.com/dns-query?name={urllib.parse.quote(host)}&type=A",
             headers={"Accept": "application/dns-json"}, timeout=5)
         if r.status_code == 200:
-            answers = r.json().get("Answer") or []
-            for a in answers:
-                if a.get("type") == 1 and a.get("data"):
-                    _DNS_CACHE[host] = a["data"]
-                    return a["data"]
+            for a in (r.json().get("Answer") or []):
+                if a.get("type") == 1 and a.get("data") and a["data"] not in ips:
+                    ips.append(a["data"])
     except Exception:
         pass
-    # 2) 系统 DNS 兜底
-    try:
-        ip = socket.getaddrinfo(host, None, socket.AF_INET, socket.SOCK_STREAM)[0][4][0]
-        _DNS_CACHE[host] = ip
-        return ip
-    except Exception:
-        # ★ 负缓存: 死域名不缓存会导致每个节点都重试 DoH(5s)+getaddrinfo,
-        #   几千个节点里几百个死域名就能把分类阶段拖成几十分钟。
-        _DNS_CACHE[host] = ""
-        return ""
+    # 2) 系统 DNS 兜底 (拿全部地址)
+    if not ips:
+        try:
+            for info in socket.getaddrinfo(host, None, socket.AF_INET, socket.SOCK_STREAM):
+                ip = info[4][0]
+                if ip and ip not in ips:
+                    ips.append(ip)
+        except Exception:
+            pass
+    if ips:
+        _DNS_CACHE[host] = (ips, now + _DNS_TTL_OK)
+    else:
+        # 负缓存带 TTL: 一次抖动不该让该域名整轮判死
+        _DNS_CACHE[host] = ([], now + _DNS_TTL_FAIL)
+    return ips
 
 
-def knock_port(server: str, port: int, protocol_type: str) -> bool:
-    """TCP 直连预检 (DoH 解析防本地 DNS 污染); QUIC 类直接放行阶段B
-    注: 预检失败不淘汰 (本地大陆视角的假死 ≠ 节点死亡), 只影响排序;
-        生死由阶段B sing-box 全流程测活裁决 (Actions 海外视角)"""
+def resolve_host(host: str) -> str:
+    """兼容旧调用: 返回首个可用 IP (失败返回 "")"""
+    ips = resolve_hosts(host)
+    return ips[0] if ips else ""
+
+
+def knock_port(server: str, port: int, protocol_type: str):
+    """TCP 直连预检; 返回 (ok, rtt_ms)
+
+    ★ 多地址尝试: 解析出的全部 A 记录都试一遍, 全失败才算失败。
+    QUIC 类 (hysteria2/tuic) 无法用 TCP 预检 UDP, 直接放行 (ok=True, rtt=0)。"""
     if protocol_type in ("hysteria2", "tuic"):
-        # QUIC 无法轻量预检 UDP 端口连通性, 且本地 UDP 常被 QoS → 放行交阶段B
-        return True
-    try:
-        ip = resolve_host(server)
-        if not ip:
-            return False
-        with socket.create_connection((ip, port), timeout=PORT_KNOCK_TIMEOUT):
-            return True
-    except Exception:
-        return False
+        return True, 0.0
+    ips = resolve_hosts(server)
+    if not ips:
+        return False, 0.0
+    best = None
+    for ip in ips[:4]:   # 最多试 4 个地址, 避免极端多 A 域名拖慢预检
+        t0 = time.time()
+        try:
+            with socket.create_connection((ip, port), timeout=PORT_KNOCK_TIMEOUT):
+                rtt = (time.time() - t0) * 1000.0
+                if best is None or rtt < best:
+                    best = rtt
+        except Exception:
+            continue
+    if best is None:
+        return False, 0.0
+    return True, best
 
 
 def prefilter_candidates(candidates: list) -> list:
-    """端口预检: 通过者优先, 未通过者降级保留 (防止本地网络/GFW 视角误杀;
-    真正生死由阶段B sing-box 全流程测活裁决 — Actions 海外视角)"""
-    print(f"[*] 端口预检 (TCP {PORT_KNOCK_TIMEOUT}s): {len(candidates)} 候选 ...")
+    """端口预检 + 排序 + 可选淘汰
+
+    ★ 提速关键: CI / 挂了前置代理时, 预检失败基本等于入口真不通,
+      继续起 sing-box 只会浪费 40%~60% 时间, 还会把并发压满制造假阴性。
+      此时直接淘汰; 本地大陆无前置时仍保留"预检未过降级到队尾"的旧行为。
+    ★ 通过者按 TCP RTT 升序排列, 并受 MAX_FULL_PROBE 上限约束。"""
+    drop = PREFILTER_DROP
+    print(f"[*] 端口预检 (TCP {PORT_KNOCK_TIMEOUT}s, drop={int(drop)}): {len(candidates)} 候选 ...")
     passed, deferred = [], []
 
     def _knock(item):
@@ -1169,12 +1244,25 @@ def prefilter_candidates(candidates: list) -> list:
         return knock_port(server, port, proto)
 
     with ThreadPoolExecutor(max_workers=64) as ex:
-        # ex.map 保序返回; 通过者优先, 未通过降级保留 (不淘汰, 防本地视角误杀)
-        for item, ok in zip(candidates, ex.map(_knock, candidates)):
-            (passed if ok else deferred).append(item)
-    print(f"[+] 预检通过: {len(passed)} | 预检未过(保留低优先级待全测): {len(deferred)}")
-    # 预检未过的仍进入全流程 (只是排在后面) — 交给 sing-box 真实裁决
-    return passed + deferred
+        for item, (ok, rtt) in zip(candidates, ex.map(_knock, candidates)):
+            if ok:
+                passed.append((rtt, item))
+            else:
+                deferred.append(item)
+    passed.sort(key=lambda x: x[0])
+    passed = [it for _, it in passed]
+
+    if drop:
+        print(f"[+] 预检通过: {len(passed)} | 预检未过已淘汰: {len(deferred)}")
+        ordered = passed
+    else:
+        print(f"[+] 预检通过: {len(passed)} | 预检未过(保留低优先级待全测): {len(deferred)}")
+        ordered = passed + deferred
+
+    if MAX_FULL_PROBE > 0 and len(ordered) > MAX_FULL_PROBE:
+        print(f"[+] 全量测活上限 {MAX_FULL_PROBE}: 按 TCP RTT 截断 {len(ordered) - MAX_FULL_PROBE} 个尾部队列")
+        ordered = ordered[:MAX_FULL_PROBE]
+    return ordered
 
 
 # ═══════════════════════════════════════════N═══════════════════════
@@ -1279,6 +1367,7 @@ def _make_result(item, status, fail_stage="", fail_detail=""):
         "port": port,
         "proto": proto,
         "cred": cred_fingerprint(outbound, proto),
+        "outbound": outbound,   # 留底: 出库阶段重建 outbound 失败时回退使用
         "status": status,
         "fail_stage": fail_stage,
         "fail_detail": (fail_detail or "")[:120],
@@ -1381,7 +1470,89 @@ def test_single_node(item, keep_alive_check=True):
             res["liveness_secs"] = liveness_secs
             return res
 
-        # --- 2) 真实出口 IP (多路冗余) ---
+        # --- 2) 吞吐测量 (★ 提前到出口 IP / MITM / trace 之前) ---
+        #   (a) 计时从**首字节**开始, 不再把 SOCKS/TCP/TLS 握手 + TTFB 算进吞吐
+        #   (b) 丢弃前 1.5s 慢启动期, 用稳态窗口算速率
+        #   (c) 全部端点都拿不到数据 → 标记 speed_unmeasured, **不再判定断流**
+        #   (d) ★ 小样本修正: downloaded>0 且耗时足够时按实际速度算 (慢节点不再被
+        #       当成"未测到"而漏出); 只有 0 字节 / 明显过早 EOF 才叫未测到。
+        #   (e) ★ 断流节点在这里就直接返回, 省掉后面出口IP+MITM+trace 的 3~4 个请求。
+        speed_bps = 0
+        speed_measured = False
+        for speed_url in SPEED_TEST_URLS:
+            downloaded = 0
+            t_first = t_warm = t_last = None
+            bytes_warm = 0
+            try:
+                with PROBE_SESSION.get(speed_url, proxies=proxies,
+                                       timeout=(5, SPEED_TEST_BUDGET), stream=True) as r:
+                    if r.status_code != 200:
+                        continue
+                    for chunk in r.iter_content(chunk_size=65536):
+                        now = time.time()
+                        if chunk:
+                            if t_first is None:
+                                t_first = now
+                                t_warm = now + SPEED_WARMUP
+                            downloaded += len(chunk)
+                            if now >= t_warm:
+                                bytes_warm += len(chunk)
+                                t_last = now
+                        if t_first is not None and now - t_first > SPEED_TEST_BUDGET:
+                            break
+                        if t_last is not None and now - t_last > 3.0:
+                            break   # 空闲 > 3s 无数据 = 断流签名, 立即中止
+                if downloaded <= 0 or t_first is None:
+                    continue
+                elapsed_total = (t_last or time.time()) - t_first
+                if bytes_warm > 0 and t_last is not None:
+                    speed_bps = int(bytes_warm / max(t_last - t_warm, 0.5))
+                    speed_measured = True
+                elif downloaded >= SPEED_MIN_SAMPLE_BYTES or elapsed_total >= 1.0:
+                    # ★ 小样本但耗时足够 = 真实慢节点, 按实测速度算 (旧版直接丢弃 →
+                    #    <22KB/s 的慢节点被当"未测到"保留, 与"断流"口径自相矛盾)
+                    speed_bps = int(downloaded / max(elapsed_total, 0.3))
+                    speed_measured = True
+                else:
+                    # 下载量极小且时间极短 (服务端提前 EOF): 硬算会得到假高值 → 未测到
+                    continue
+                break   # 首个成功端点的结果即有效
+            except Exception:
+                continue
+
+        is_stalled = speed_measured and speed_bps < SPEED_MIN_BYTES_PER_S
+
+        res = {
+            "raw": raw,
+            "server": server,
+            "port": port,
+            "proto": proto,
+            "cred": cred_fingerprint(outbound, proto),
+            "outbound": outbound,
+            "status": "alive",
+            "fail_stage": "",
+            "fail_detail": "",
+            "alive": True,
+            "latency_ms": int(latency_ms),
+            "liveness_secs": liveness_secs,
+            "exit_ip": None,
+            "exit_country_online": None,
+            "exit_asn_online": None,
+            "exit_asn_org_online": "",
+            "exit_isp_online": "",
+            "mitm_risk": False,
+            "is_warp": False,
+            "speed_bps": speed_bps,
+            "speed_unmeasured": not speed_measured,
+            "is_stalled": is_stalled,
+            "quality_flags": [],
+        }
+
+        if is_stalled:
+            # 断流节点出库阶段必被淘汰, 提前返回省时 (不做出口IP/MITM/trace)
+            return res
+
+        # --- 3) 真实出口 IP (多路冗余) ---
         exit_ip, exit_country, exit_asn, exit_asn_org, exit_isp = None, None, None, None, None
         for url in IP_ECHO_URLS:
             try:
@@ -1415,9 +1586,9 @@ def test_single_node(item, keep_alive_check=True):
             except Exception:
                 continue
 
-        quality_flags = []
+        quality_flags = res["quality_flags"]
 
-        # --- 3) MITM 劫持检测 ---
+        # --- 4) MITM 劫持检测 ---
         # ★ 修正旧版误判: 旧实现把"非 204/200 且带内容"全判为 MITM 并直接删除,
         #   但 Google 对机房/被滥用 IP 经常直接回 403 或 sorry 页 —— 那是 IP 信誉问题,
         #   不是中间人。真正的 MITM 唯一可靠信号是 TLS 证书链校验失败 (SSLError)。
@@ -1433,7 +1604,7 @@ def test_single_node(item, keep_alive_check=True):
         except Exception:
             pass  # 网络层失败不算 MITM (活性探测已通过)
 
-        # 3b) cloudflare trace: warp=on = 套壳 WARP 节点 (非真实出口, 只打标记不淘汰)
+        # 4b) cloudflare trace: warp=on = 套壳 WARP 节点 (非真实出口, 只打标记不淘汰)
         is_warp = False
         try:
             r = PROBE_SESSION.get(TRACE_URL, proxies=proxies, timeout=PROBE_RETRY_TIMEOUT, verify=True)
@@ -1443,66 +1614,7 @@ def test_single_node(item, keep_alive_check=True):
         except Exception:
             pass
 
-        # --- 4) 吞吐测量 (★ 修正三处系统性低估) ---
-        #   (a) 计时从**首字节**开始, 不再把 SOCKS/TCP/TLS 握手 + TTFB 算进吞吐
-        #   (b) 丢弃前 1.5s 慢启动期, 用稳态窗口算速率
-        #   (c) 全部端点都拿不到数据 → 标记 speed_unmeasured, **不再判定断流**
-        #       (旧版 0 字节 = 断流 = 删除, 把"连不上测速站"误判成"节点坏了")
-        speed_bps = 0
-        speed_measured = False
-        for speed_url in SPEED_TEST_URLS:
-            downloaded = 0
-            t_first = t_warm = t_last = None
-            bytes_warm = 0
-            try:
-                with PROBE_SESSION.get(speed_url, proxies=proxies,
-                                       timeout=(5, SPEED_TEST_BUDGET), stream=True) as r:
-                    if r.status_code != 200:
-                        continue
-                    for chunk in r.iter_content(chunk_size=65536):
-                        now = time.time()
-                        if chunk:
-                            if t_first is None:
-                                t_first = now
-                                t_warm = now + SPEED_WARMUP
-                            downloaded += len(chunk)
-                            if now >= t_warm:
-                                bytes_warm += len(chunk)
-                                t_last = now
-                        if t_first is not None and now - t_first > SPEED_TEST_BUDGET:
-                            break
-                        if t_last is not None and now - t_last > 3.0:
-                            break   # 空闲 > 3s 无数据 = 断流签名, 立即中止
-                if downloaded <= 0 or t_first is None:
-                    continue
-                if downloaded < SPEED_MIN_SAMPLE_BYTES:
-                    # 样本太小 (服务端提前 EOF / 只发了个头): 不足以判吞吐。
-                    # 若拿 64KB / 0.3s 硬算会得到 200KB/s 的假高值 → 漏判断流; 当作未测到。
-                    continue
-                if bytes_warm > 0 and t_last is not None:
-                    speed_bps = int(bytes_warm / max(t_last - t_warm, 0.5))
-                else:
-                    # 全部数据都在慢启动窗口内到达 (极快节点) → 用总时长兜底
-                    speed_bps = int(downloaded / max((t_last or time.time()) - t_first, 0.3))
-                speed_measured = True
-                break   # 首个成功端点的结果即有效
-            except Exception:
-                continue
-
-        is_stalled = speed_measured and speed_bps < SPEED_MIN_BYTES_PER_S
-
-        return {
-            "raw": raw,
-            "server": server,
-            "port": port,
-            "proto": proto,
-            "cred": cred_fingerprint(outbound, proto),
-            "status": "alive",
-            "fail_stage": "",
-            "fail_detail": "",
-            "alive": True,
-            "latency_ms": int(latency_ms),
-            "liveness_secs": liveness_secs,
+        res.update({
             "exit_ip": exit_ip,
             "exit_country_online": exit_country,
             "exit_asn_online": exit_asn,
@@ -1510,11 +1622,8 @@ def test_single_node(item, keep_alive_check=True):
             "exit_isp_online": (exit_isp or "")[:120],
             "mitm_risk": mitm_risk,
             "is_warp": is_warp,
-            "speed_bps": speed_bps,
-            "speed_unmeasured": not speed_measured,
-            "is_stalled": is_stalled,
-            "quality_flags": quality_flags,
-        }
+        })
+        return res
     except Exception as e:
         return _make_result(item, "unreachable", "exception", f"{type(e).__name__}: {e}")
     finally:
@@ -2100,14 +2209,30 @@ def chain_retest(test_results: list) -> list:
 # 阶段 C: 出口 IP 批量情报 (ip-api.com 免费 batch) + 离线兜底
 # ═══════════════════════════════════════════N═══════════════════════
 
+# ★ 全局 IP 情报缓存: chain_retest 和 classify_and_export 都会查同一批出口 IP,
+#   旧版各查一次 (免费层 15 req/min), 重复批次要白白等 4s/批。这里进程内复用。
+_IP_API_CACHE = {}
+
+
 def ip_api_batch_lookup(ip_list: list) -> dict:
-    """ip-api.com batch (免费 HTTP, ≤100/req, 15 req/min → 1500 IP/min)"""
+    """ip-api.com batch (免费 HTTP, ≤100/req, 15 req/min → 1500 IP/min)
+
+    ★ 带进程内缓存 + 最后一批不再 sleep, 避免 chain_retest / classify_and_export
+      对同一批出口 IP 重复查询和重复限速等待。"""
     info = {}
+    todo = []
+    for ip in ip_list:
+        if ip in _IP_API_CACHE:
+            info[ip] = _IP_API_CACHE[ip]
+        elif ip not in todo:
+            todo.append(ip)
+    if not todo:
+        return info
     session = requests.Session()
     session.trust_env = True  # 直连即可; ip-api.com 免费层全球可达 (CI 无代理/本地走系统代理均可)
-    total_batches = (len(ip_list) + IP_API_BATCH_SIZE - 1) // IP_API_BATCH_SIZE
-    for bi, i in enumerate(range(0, len(ip_list), IP_API_BATCH_SIZE), 1):
-        chunk = ip_list[i:i + IP_API_BATCH_SIZE]
+    total_batches = (len(todo) + IP_API_BATCH_SIZE - 1) // IP_API_BATCH_SIZE
+    for bi, i in enumerate(range(0, len(todo), IP_API_BATCH_SIZE), 1):
+        chunk = todo[i:i + IP_API_BATCH_SIZE]
         payload = [{"query": ip} for ip in chunk]
         for attempt in range(3):
             try:
@@ -2115,8 +2240,9 @@ def ip_api_batch_lookup(ip_list: list) -> dict:
                 if r.status_code == 200:
                     for rec in r.json():
                         q = rec.get("query")
-                        if q:
+                        if q and rec.get("status", "success") == "success":
                             info[q] = rec
+                            _IP_API_CACHE[q] = rec
                     break
                 elif r.status_code == 429:
                     time.sleep(4 + attempt * 3)
@@ -2126,7 +2252,8 @@ def ip_api_batch_lookup(ip_list: list) -> dict:
                 time.sleep(2)
         if total_batches >= 3 and (bi % 5 == 0 or bi == total_batches):
             print(f"[*] ip-api 进度: 批 {bi}/{total_batches} ({len(info)} IP 已查)")
-        time.sleep(IP_API_BATCH_RPS_INTERVAL)
+        if bi < total_batches:   # 最后一批不用再等 (旧版白等 4.2s)
+            time.sleep(IP_API_BATCH_RPS_INTERVAL)
     return info
 
 
@@ -2241,15 +2368,16 @@ def classify_network_type(ip: str, country: str, asn, org: str, ip_api_rec: dict
             if kw in org_lower:
                 return "residential", 70
 
-    # 5) rDNS 兜底
-    rdns = get_rdns(ip_str)
-    if rdns:
-        for kw in IDC_NAME_PATTERNS:
-            if kw in rdns:
-                return "datacenter", 60
-        for kw in RESIDENTIAL_NAME_PATTERNS:
-            if kw in rdns:
-                return "residential", 60
+    # 5) rDNS 兜底 (默认关闭: 每个未知节点最多 2s, 几百个未知 IP 会明显拖慢分类)
+    if ENABLE_RDNS:
+        rdns = get_rdns(ip_str)
+        if rdns:
+            for kw in IDC_NAME_PATTERNS:
+                if kw in rdns:
+                    return "datacenter", 60
+            for kw in RESIDENTIAL_NAME_PATTERNS:
+                if kw in rdns:
+                    return "residential", 60
 
     return "unknown", 30
 
@@ -2774,6 +2902,7 @@ def classify_and_export(test_results: list):
             "server": r["server"],
             "port": r["port"],
             "proto": r["proto"],
+            "cred": r.get("cred") or cred_fingerprint(r.get("outbound") or {}, r["proto"]),
             "outbound": r.get("outbound"),
             "status": r.get("status", "alive"),
             "fail_stage": r.get("fail_stage", ""),
@@ -2877,16 +3006,19 @@ def classify_and_export(test_results: list):
     if downgraded:
         print(f"[*] 高 fraud 分 (≥75) 家宽候选降级: {downgraded} 个")
 
-    # ── 去重 (同出口IP+端口 只留最快) ──
+    # ── 去重 (★ 身份 key: server+port+proto+凭据) ──
+    #   旧版 key = exit_ip:port: CDN/anycast/NAT 场景下, 不同协议/不同凭据的节点
+    #   共享同一出口 IP 和端口, 会被错误合并成一条, 只留延迟最低的那个 → 可用节点被误杀。
+    #   现在按身份 key 去重, "同出口刷屏"交给家宽区的单 IP 配额控制。
     best_by_key = {}
     for n in safe_nodes:
-        key = f"{n['exit_ip']}:{n['port']}" if n["exit_ip"] else f"{n['server']}:{n['port']}|{n['raw'][:64]}"
+        key = ((n["server"] or "").lower(), n["port"], n["proto"], n.get("cred") or n["raw"])
         cur = best_by_key.get(key)
         if not cur or n["latency_ms"] < cur["latency_ms"]:
             best_by_key[key] = n
     unique_nodes = list(best_by_key.values())
     dup_dropped = len(safe_nodes) - len(unique_nodes)
-    print(f"[*] 去重: {len(safe_nodes)} → {len(unique_nodes)} (剔除重复 {dup_dropped})")
+    print(f"[*] 去重 (身份 key): {len(safe_nodes)} → {len(unique_nodes)} (剔除重复 {dup_dropped})")
 
     # 去重: 出口IP+端口 唯一化, 家宽区严格防同IP刷屏
     # ★ 链式复测 (chain_retest) 双跳失败的家宽候选 → 不进家宽专区 (降级普通)
@@ -2924,7 +3056,7 @@ def classify_and_export(test_results: list):
             #   家宽节点本来就慢, 连测速都出不了数据, 客户端里大概率握手成功但页面转圈。
             #   实测: 上一版 5 个家宽节点里, 台湾 reality 与韩国 vmess 均 alive=True
             #   但 speed_bps=0 / speed_unmeasured=True, 用户端全部报无效。
-            if n.get("speed_unmeasured") or (n.get("speed_bps") or 0) < SPEED_MIN_BYTES_PER_S:
+            if n.get("speed_unmeasured") or (n.get("speed_bps") or 0) < SPEED_MIN_RESIDENTIAL_BYTES_PER_S:
                 n["net_type"] = "datacenter"
                 n["confidence"] = 70
                 speed_rejected += 1
@@ -2953,12 +3085,17 @@ def classify_and_export(test_results: list):
     non_residential.sort(key=lambda x: x["latency_ms"])
 
     # 重建 outbound (测活阶段的 outbound 已验证可用); 剥离测试专用字段 (detour 等绝不入订阅)
+    # ★ 重建失败时回退用测活阶段的 outbound: 解析器抖动不该把已验证可用的节点误杀。
     for n in unique_nodes:
         parsed = parse_node_uri(n["raw"])
+        fallback = n.get("outbound")
         if parsed:
             ob = parsed[0]
             ob.pop("detour", None)
             n["outbound"] = ob
+        elif fallback:
+            fallback.pop("detour", None)
+            n["outbound"] = fallback
         else:
             n["outbound"] = None
     unique_nodes = [n for n in unique_nodes if n["outbound"]]

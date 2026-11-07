@@ -12,9 +12,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 40
     permissions:
       contents: write
+    # ★ job 级并发组: 防止两次手动运行同时 git push 互相冲突/覆盖
+    concurrency:
+      group: update-subscriptions-${{ github.ref_name }}
+      cancel-in-progress: false
 
     steps:
       - name: Checkout Code
@@ -31,6 +35,18 @@ jobs:
         run: |
           pip install -r scripts/requirements.txt
 
+      # ★ 缓存 sing-box 内核 + GeoLite2 mmdb: 旧版每次运行都要重新下载 ~40MB,
+      #   在十几分钟的耗时里占掉一大块。按自然周更换 key, 保证 mmdb 至少每周刷新。
+      - name: Compute runtime cache week
+        id: runtime-week
+        run: echo "week=$(date -u +%Y-W%V)" >> "$GITHUB_OUTPUT"
+
+      - name: Restore runtime cache (sing-box + mmdb)
+        uses: actions/cache@v4
+        with:
+          path: runtime
+          key: runtime-${{ runner.os }}-${{ steps.runtime-week.outputs.week }}
+
       - name: Run Real-Prober and Classifier (sing-box v1.14 全协议)
         run: |
           python scripts/main_v2.py
@@ -39,6 +55,12 @@ jobs:
           PYTHONUNBUFFERED: '1'
           # 并发可调: 空值/非法值由脚本回退默认 48
           PROBE_CONCURRENCY: ${{ inputs.concurrency }}
+          # ★ 提速: CI 海外视角下 TCP 预检失败直接淘汰 (省 40%~60% 无效 sing-box 探测)
+          PREFILTER_DROP: '1'
+          # ★ 全量测活上限 (按 TCP RTT 排序取前 N), 控制最坏情况耗时
+          MAX_FULL_PROBE: '3000'
+          # ★ rDNS 兜底默认关闭 (每个未知 IP 最多 2s, 分类阶段明显提速)
+          CLASSIFY_RDNS: '0'
 
       - name: Upload test artifacts (调试用, 7天保留)
         uses: actions/upload-artifact@v4
