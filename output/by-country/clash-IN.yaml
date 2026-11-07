@@ -5,17 +5,18 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇳 印度 (India) 01 - xiaohe
-  server: 194.61.31.126
-  port: 2053
+  server: 107.181.139.144
+  port: 443
   udp: true
   type: vless
-  uuid: 1d4e18bd-1f26-4915-b35a-7ace4826e76a
+  uuid: db80088c-32a1-4cb8-a907-0f3cb7844152
+  flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
-    short-id: 9980e0609b0d3891
-  servername: www.apple.com
-  client-fingerprint: chrome
+    public-key: lDBwW08dYwPP-7dVxYQ_clzfFwsDHLlclz9K2cEV6DM
+    short-id: df7b054cfc29800c
+  servername: in1.japancase.site
+  client-fingerprint: firefox
 - name: 🇮🇳 印度 (India) 02 - xiaohe
   server: 178.212.35.198
   port: 443
@@ -29,6 +30,33 @@ proxies:
   servername: www.cloudflare.com
   client-fingerprint: firefox
 - name: 🇮🇳 印度 (India) 03 - xiaohe
+  server: in.smrtai.top
+  port: 443
+  udp: true
+  type: vless
+  uuid: 6bdc8320-7eae-46fc-be08-f5f54e65dfc8
+  tls: true
+  reality-opts:
+    public-key: 3LbVuwKpQv55GngyRhvGl9KyAHIDAgvJx_VRM5mUD2Q
+    short-id: 6bdc8320
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇮🇳 印度 (India) 04 - xiaohe
+  server: 122.176.216.52
+  port: 443
+  udp: true
+  type: vless
+  uuid: 16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
+  tls: true
+  servername: app-6ada5023.deploy.meerasolution.com
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /ws/16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
+    headers:
+      Host: app-6ada5023.deploy.meerasolution.com
+- name: 🇮🇳 印度 (India) 05 - xiaohe
   server: in1.japancase.site
   port: 443
   udp: true
@@ -41,19 +69,7 @@ proxies:
     short-id: df7b054cfc29800c
   servername: in1.japancase.site
   client-fingerprint: ios
-- name: 🇮🇳 印度 (India) 04 - xiaohe
-  server: in.smrtai.top
-  port: 443
-  udp: true
-  type: vless
-  uuid: 6bdc8320-7eae-46fc-be08-f5f54e65dfc8
-  tls: true
-  reality-opts:
-    public-key: 3LbVuwKpQv55GngyRhvGl9KyAHIDAgvJx_VRM5mUD2Q
-    short-id: 6bdc8320
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇮🇳 印度 (India) 05 - xiaohe
+- name: 🇮🇳 印度 (India) 06 - xiaohe
   server: 13.140.56.100
   port: 14430
   udp: true
@@ -62,9 +78,7 @@ proxies:
   network: ws
   ws-opts:
     path: /vless
-    headers:
-      Host: 13.140.56.100
-- name: 🇮🇳 印度 (India) 06 - xiaohe
+- name: 🇮🇳 印度 (India) 07 - xiaohe
   server: 152.67.8.205
   port: 80
   udp: true
@@ -76,8 +90,8 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: in-152.67.8.205-0250
-- name: 🇮🇳 印度 (India) 07 - xiaohe
+      Host: 152.67.8.205
+- name: 🇮🇳 印度 (India) 08 - xiaohe
   server: 172.105.39.124
   port: 7002
   udp: true
@@ -96,6 +110,7 @@ proxy-groups:
   - 🇮🇳 印度 (India) 05 - xiaohe
   - 🇮🇳 印度 (India) 06 - xiaohe
   - 🇮🇳 印度 (India) 07 - xiaohe
+  - 🇮🇳 印度 (India) 08 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -108,5 +123,6 @@ proxy-groups:
   - 🇮🇳 印度 (India) 05 - xiaohe
   - 🇮🇳 印度 (India) 06 - xiaohe
   - 🇮🇳 印度 (India) 07 - xiaohe
+  - 🇮🇳 印度 (India) 08 - xiaohe
 rules:
 - MATCH,PROXIES

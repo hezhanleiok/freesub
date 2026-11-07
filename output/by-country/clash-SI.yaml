@@ -1,0 +1,33 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇸🇮 斯洛文尼亚 (Slovenia) 01 - xiaohe
+  server: 92.42.201.160
+  port: 14443
+  udp: true
+  type: vless
+  uuid: a60da2ca-0abf-49f8-9dcb-156989d76ad2
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: fmZQYGYXw4xYtiuMFvH4Dgse1DBoGazt-vWM7LOdchY
+    short-id: e013fa99a81badcc
+  servername: node-slo05.rkitman.ru
+  client-fingerprint: firefox
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇸🇮 斯洛文尼亚 (Slovenia) 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇸🇮 斯洛文尼亚 (Slovenia) 01 - xiaohe
+rules:
+- MATCH,PROXIES
