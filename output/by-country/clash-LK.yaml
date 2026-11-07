@@ -5,30 +5,35 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇱🇰 斯里兰卡 (Sri Lanka) 01 - xiaohe
-  server: support.zoom.us
-  port: 80
+  server: 141.193.213.21
+  port: 2087
   udp: true
   type: vless
-  uuid: fcdb24e3-5e66-4c45-b89e-ac9441f4dcda
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: free.sahanwickramasinghe.me
-- name: 🇱🇰 斯里兰卡 (Sri Lanka) 02 - xiaohe
-  server: 104.17.73.206
-  port: 8443
-  udp: true
-  type: vless
-  uuid: c136a12c-4260-48a7-a1e6-fbda83a11045
+  uuid: 0ef68b97-f878-4cea-b756-c56ea3632851
   tls: true
-  servername: free.sahanwickramasinghe.me
+  servername: free.vkehi.store
   skip-cert-verify: false
+  client-fingerprint: android
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: free.sahanwickramasinghe.me
+      Host: free.vkehi.store
+- name: 🇱🇰 斯里兰卡 (Sri Lanka) 02 - xiaohe
+  server: 141.193.213.20
+  port: 2087
+  udp: true
+  type: vless
+  uuid: 0ef68b97-f878-4cea-b756-c56ea3632851
+  tls: true
+  servername: free.vkehi.store
+  skip-cert-verify: false
+  client-fingerprint: android
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: free.vkehi.store
 proxy-groups:
 - name: PROXIES
   type: select
