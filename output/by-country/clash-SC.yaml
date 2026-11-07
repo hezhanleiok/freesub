@@ -5,6 +5,25 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇨 塞舌尔 (Seychelles) 01 - xiaohe
+  server: 46.29.255.123
+  port: 59539
+  udp: true
+  type: vless
+  uuid: 30572b57-f5ab-4eb8-82d4-a24d399b99f6
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: R6mPqCsjZMWauci4LHw7Qp1LGKmBd-sxMXplyOn9bSQ
+  servername: cloudflare-dns.com
+  client-fingerprint: firefox
+- name: 🇸🇨 塞舌尔 (Seychelles) 02 - xiaohe
+  server: 45.207.207.25
+  port: 443
+  udp: true
+  type: ss
+  cipher: aes-256-gcm
+  password: gj1+XKulKV0nmw6IThckOkkJh5DSM7+C
+- name: 🇸🇨 塞舌尔 (Seychelles) 03 - xiaohe
   server: hk3n.wxgqlfx.vip
   port: 35193
   udp: true
@@ -17,7 +36,7 @@ proxies:
     short-id: e8daed2d
   servername: www.apple.com
   client-fingerprint: chrome
-- name: 🇸🇨 塞舌尔 (Seychelles) 02 - xiaohe
+- name: 🇸🇨 塞舌尔 (Seychelles) 04 - xiaohe
   server: 156.226.168.221
   port: 35193
   udp: true
@@ -30,25 +49,6 @@ proxies:
     short-id: e8daed2d
   servername: www.apple.com
   client-fingerprint: firefox
-- name: 🇸🇨 塞舌尔 (Seychelles) 03 - xiaohe
-  server: 46.29.255.123
-  port: 59539
-  udp: true
-  type: vless
-  uuid: 30572b57-f5ab-4eb8-82d4-a24d399b99f6
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: R6mPqCsjZMWauci4LHw7Qp1LGKmBd-sxMXplyOn9bSQ
-  servername: cloudflare-dns.com
-  client-fingerprint: firefox
-- name: 🇸🇨 塞舌尔 (Seychelles) 04 - xiaohe
-  server: 45.207.207.25
-  port: 443
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: gj1+XKulKV0nmw6IThckOkkJh5DSM7+C
 proxy-groups:
 - name: PROXIES
   type: select
