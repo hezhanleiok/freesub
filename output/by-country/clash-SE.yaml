@@ -5,14 +5,12 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - wangyu
-  type: vless
-  server: se3.shtil.io
-  port: 443
-  uuid: 6ba4ed2e-b42b-4880-8b3b-c7e2df2d02f6
+  type: ss
+  server: 138.199.55.243
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: se3.shtil.io
 - name: 🇸🇪 SE 02 - wangyu
   type: vless
   server: 194.104.94.141
@@ -33,6 +31,15 @@ proxies:
   servername: se3.shtil.io
 - name: 🇸🇪 SE 04 - wangyu
   type: vless
+  server: 194.104.94.141
+  port: 443
+  uuid: 6ba4ed2e-b42b-4880-8b3b-c7e2df2d02f6
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: se3.shtil.io
+- name: 🇸🇪 SE 05 - wangyu
+  type: vless
   server: 5.178.109.174
   port: 14430
   uuid: 80de563a-cac8-40ea-8cb0-4cb082dd92f9
@@ -44,6 +51,15 @@ proxies:
     path: /vless
     headers:
       Host: 5.178.109.174
+- name: 🇸🇪 SE 06 - wangyu
+  type: vless
+  server: se3.shtil.io
+  port: 443
+  uuid: 6ba4ed2e-b42b-4880-8b3b-c7e2df2d02f6
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: se3.shtil.io
 proxy-groups:
 - name: PROXIES
   type: select
@@ -53,6 +69,8 @@ proxy-groups:
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
   - 🇸🇪 SE 04 - wangyu
+  - 🇸🇪 SE 05 - wangyu
+  - 🇸🇪 SE 06 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -62,5 +80,7 @@ proxy-groups:
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
   - 🇸🇪 SE 04 - wangyu
+  - 🇸🇪 SE 05 - wangyu
+  - 🇸🇪 SE 06 - wangyu
 rules:
 - MATCH,PROXIES
