@@ -5,6 +5,18 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇳 印度 (India) 01 - xiaohe
+  server: 194.61.31.126
+  port: 2053
+  udp: true
+  type: vless
+  uuid: 1d4e18bd-1f26-4915-b35a-7ace4826e76a
+  tls: true
+  reality-opts:
+    public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
+    short-id: 9980e0609b0d3891
+  servername: www.apple.com
+  client-fingerprint: chrome
+- name: 🇮🇳 印度 (India) 02 - xiaohe
   server: 178.212.35.198
   port: 443
   udp: true
@@ -16,18 +28,6 @@ proxies:
     short-id: 6bdc8320
   servername: www.cloudflare.com
   client-fingerprint: firefox
-- name: 🇮🇳 印度 (India) 02 - xiaohe
-  server: in.smrtai.top
-  port: 443
-  udp: true
-  type: vless
-  uuid: 6bdc8320-7eae-46fc-be08-f5f54e65dfc8
-  tls: true
-  reality-opts:
-    public-key: 3LbVuwKpQv55GngyRhvGl9KyAHIDAgvJx_VRM5mUD2Q
-    short-id: 6bdc8320
-  servername: www.cloudflare.com
-  client-fingerprint: random
 - name: 🇮🇳 印度 (India) 03 - xiaohe
   server: in1.japancase.site
   port: 443
@@ -42,20 +42,17 @@ proxies:
   servername: in1.japancase.site
   client-fingerprint: ios
 - name: 🇮🇳 印度 (India) 04 - xiaohe
-  server: 122.176.216.52
+  server: in.smrtai.top
   port: 443
   udp: true
   type: vless
-  uuid: 16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
+  uuid: 6bdc8320-7eae-46fc-be08-f5f54e65dfc8
   tls: true
-  servername: app-6ada5023.deploy.meerasolution.com
-  skip-cert-verify: false
+  reality-opts:
+    public-key: 3LbVuwKpQv55GngyRhvGl9KyAHIDAgvJx_VRM5mUD2Q
+    short-id: 6bdc8320
+  servername: www.cloudflare.com
   client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /ws/16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
-    headers:
-      Host: app-6ada5023.deploy.meerasolution.com
 - name: 🇮🇳 印度 (India) 05 - xiaohe
   server: 13.140.56.100
   port: 14430
