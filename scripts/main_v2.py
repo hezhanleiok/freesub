@@ -66,7 +66,22 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt",
     "https://gist.githubusercontent.com/shuaidaoya/9e5cf2749c0ce79932dd9229d9b4162b/raw/base64.txt",
     "https://shadowmere.akiel.dev/api/b64sub/",
+    # 香港定向补充源 (见 REGION_FILTER_SOURCES: 只取名称含 HK 的节点)
+    "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_base64.txt",
+    "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.txt",
 ]
+
+# ★ 地区定向源: 抓取后只保留名称命中正则的节点。
+#   动机: 香港长期只有个位数可用节点(主订阅 5 个), 而聚合源里大量 HK 段节点被
+#   淹没在 4000+ 全球节点里; 全量入库会把测活时间翻倍, 只取 HK 段则只增加 ~130 个
+#   候选, 却能显著抬高香港可用节点数。
+#   说明: 名称里的国家是上游标注, 最终仍以实测出口 IP 落库 (标注不准的会被自然淘汰)。
+REGION_FILTER_SOURCES = {
+    "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_base64.txt":
+        re.compile(r"香港|Hong\s*Kong|\bHK\b|🇭🇰", re.I),
+    "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.txt":
+        re.compile(r"香港|Hong\s*Kong|\bHK\b|🇭🇰", re.I),
+}
 
 OUTPUT_DIR = "output"
 COUNTRY_DIR = os.path.join(OUTPUT_DIR, "by-country")
@@ -1042,6 +1057,21 @@ def parse_node_uri(uri: str):
     return None
 
 
+def _uri_display_name(uri: str) -> str:
+    """取节点显示名 (vmess 的 ps 在 base64 JSON 里, 不能只看 #fragment)"""
+    try:
+        if uri.startswith("vmess://"):
+            data = b64_decode(uri[len("vmess://"):])
+            if data:
+                j = json.loads(data)
+                return str(j.get("ps") or j.get("remark") or "")
+        if "#" in uri:
+            return urllib.parse.unquote(uri.split("#", 1)[-1])
+    except Exception:
+        pass
+    return ""
+
+
 def extract_nodes_from_text(text: str) -> set:
     results = set()
     if not text:
@@ -1122,6 +1152,11 @@ def fetch_raw_nodes() -> tuple:
                 r = http_get(url, timeout=30)
                 if r.status_code == 200:
                     got = extract_nodes_from_text(r.text)
+                    pat = REGION_FILTER_SOURCES.get(url)
+                    if pat and got:
+                        before = len(got)
+                        got = {u for u in got if pat.search(_uri_display_name(u))}
+                        print(f"[*] 地区过滤 {url.split('/')[-1]} → {len(got)}/{before} 节点 (仅保留 HK)")
                     if got:
                         return url, got, None, ""
                     # 200 但解析不出节点: 可能是空订阅/维护页, 重试一次仍不行就记为 empty

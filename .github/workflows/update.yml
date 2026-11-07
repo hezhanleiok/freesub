@@ -1,7 +1,11 @@
 name: Update Subscriptions
 
 on:
-  workflow_dispatch:  # 仅保留手动触发按钮
+  schedule:
+    # ★ 每小时自动刷新: 免费节点寿命常常只有 1~3 小时, 手动触发时遇到"刚抓到手就全 -1"
+    #   很常见; 参考项目也是小时级刷新。公开仓库 Actions 分钟数不计量。
+    - cron: '0 * * * *'
+  workflow_dispatch:  # 保留手动触发按钮
     inputs:
       concurrency:
         description: '测活并发数 (留空=48). 若日志里 no_liveness 占比异常高、p90 逼近超时, 试 32 或 24'
