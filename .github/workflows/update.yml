@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 60
     permissions:
       contents: write
     # ★ job 级并发组: 防止两次手动运行同时 git push 互相冲突/覆盖
@@ -57,8 +57,9 @@ jobs:
           PROBE_CONCURRENCY: ${{ inputs.concurrency }}
           # ★ 提速: CI 海外视角下 TCP 预检失败直接淘汰 (省 40%~60% 无效 sing-box 探测)
           PREFILTER_DROP: '1'
-          # ★ 全量测活上限 (按 TCP RTT 排序取前 N), 控制最坏情况耗时
-          MAX_FULL_PROBE: '3000'
+          # ★ 全量测活上限: 0 = 不限制 (全部候选都要真实检测)
+          #   设成 3000 会截断 RTT 尾部节点, 可能漏掉家宽/中转节点
+          MAX_FULL_PROBE: '0'
           # ★ rDNS 兜底默认关闭 (每个未知 IP 最多 2s, 分类阶段明显提速)
           CLASSIFY_RDNS: '0'
 

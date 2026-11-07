@@ -149,9 +149,11 @@ PREFILTER_DROP = os.environ.get(
 ).strip().lower() in ("1", "true", "yes", "on")
 
 # 预检通过后的全量测活上限 (按 TCP RTT 排序, 只测最快的 N 个)。
-# 0 = 不限制。CI 上源站很多时, 这一步能把十几分钟压到几分钟;
-# 预检已淘汰死节点, 被 cap 掉的基本是 RTT 很差的尾部节点。
-MAX_FULL_PROBE = _env_int("MAX_FULL_PROBE", 3000, max_value=20000)
+# ★ 默认 0 = 不限制: 全部候选都要真实测活。
+#   上限会截断 RTT 尾部队列, 而家宽/中转节点恰恰常在尾部 (入口远、握手慢),
+#   一旦被截断就等于整轮漏检, 订阅里会直接少掉一批可用节点。
+#   需要临时限流时再用环境变量 MAX_FULL_PROBE=3000 打开。
+MAX_FULL_PROBE = _env_int("MAX_FULL_PROBE", 0, max_value=20000)
 
 # rDNS 兜底默认关闭: 每个未知节点最多 2s, 在几百分类的场景里很拖时间。
 # 家宽召回不足时再设 CLASSIFY_RDNS=1 打开。
@@ -3035,12 +3037,17 @@ def classify_and_export(test_results: list):
     res_seen_ip = set()
     udp_rejected = 0
     speed_rejected = 0
+    res_candidates = 0
+    res_chain_rejected = 0
+    res_ip_dup_rejected = 0
     for n in unique_nodes:
         if n["net_type"] in ("residential", "mobile") and n["confidence"] >= 60:
+            res_candidates += 1
             n_key = ((n["server"] or "").lower(), n["port"], n["proto"])
             if n.get("raw") in chain_failed_raws or n_key in chain_failed_keys:
                 n["net_type"] = "datacenter"
                 n["confidence"] = 70
+                res_chain_rejected += 1
                 continue
             # ★ 闸门一兜底 (不依赖 chain_retest 是否跑过): UDP/QUIC 协议不进家宽区。
             #   家宽节点入口在国内基本不可直连, 用户必须挂 socks5/http 前置,
@@ -3064,6 +3071,13 @@ def classify_and_export(test_results: list):
             if n["exit_ip"] and n["exit_ip"] not in res_seen_ip:
                 res_seen_ip.add(n["exit_ip"])
                 residential.append(n)
+            else:
+                res_ip_dup_rejected += 1
+    # ★ 家宽漏斗埋点: 从"被判为家宽/移动"到最终入区, 每一步淘汰多少都要看得见,
+    #   否则家宽区归零时只能猜 (是分类没识别? 前置复测失败? 吞吐不达标? 同 IP 去重?)
+    print(f"[*] 家宽漏斗: 候选 {res_candidates} → 前置失败 {res_chain_rejected} "
+          f"→ UDP 排除 {udp_rejected} → 吞吐不达标 {speed_rejected} "
+          f"→ 同出口IP去重 {res_ip_dup_rejected} → 入区 {len(residential)}")
     if udp_rejected:
         print(f"[*] 家宽区排除 UDP 协议 (hy2/tuic 过不了前置): {udp_rejected} 个")
     if speed_rejected:
