@@ -5,6 +5,19 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇿 捷克 (Czech) 01 - xiaohe
+  server: 195.123.245.241
+  port: 443
+  udp: true
+  type: vless
+  uuid: 7c053ca8-38cc-45e2-930c-eda1fd66f903
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: hlY5ce1UsVIgE46y5PlEZhUsSaXUnCtoDLLaGrhInjw
+    short-id: 23d0950d60bc0d5b
+  servername: gateway.icloud.com
+  client-fingerprint: chrome
+- name: 🇨🇿 捷克 (Czech) 02 - xiaohe
   server: 212.102.38.25
   port: 443
   udp: true
@@ -23,11 +36,13 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 02 - xiaohe
 rules:
 - MATCH,PROXIES

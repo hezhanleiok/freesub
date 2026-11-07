@@ -5,17 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 芬兰 (Finland) 01 - xiaohe
-  server: 45.144.234.157
-  port: 14430
-  udp: true
-  type: vless
-  uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 45.144.234.157
-- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
   server: 217.144.188.185
   port: 443
   udp: true
@@ -27,8 +16,19 @@ proxies:
     public-key: _ZRqqX7UVPTq--m8Lk8YHhrfElad2dIIpTh3D59f8zk
   servername: www.nordea.fi
   client-fingerprint: chrome
+- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
+  server: 45.144.234.157
+  port: 14430
+  udp: true
+  type: vless
+  uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: 45.144.234.157
 - name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  server: 172.66.0.1
+  server: 188.114.96.3
   port: 2053
   udp: true
   type: trojan
@@ -39,7 +39,7 @@ proxies:
   ws-opts:
     path: /
 - name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
-  server: 188.114.96.3
+  server: 172.66.0.1
   port: 2053
   udp: true
   type: trojan

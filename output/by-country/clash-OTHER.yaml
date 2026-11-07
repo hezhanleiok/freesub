@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 proxies:
 - name: 🌐 其他地区 (Other) 01 - xiaohe
-  server: 104.24.0.1
+  server: 172.67.217.240
   port: 443
   udp: true
   type: vless
@@ -13,43 +13,43 @@ proxies:
   tls: true
   servername: jp3.yohototo.top
   skip-cert-verify: false
-  client-fingerprint: chrome
+  client-fingerprint: safari
   network: ws
   ws-opts:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
 - name: 🌐 其他地区 (Other) 02 - xiaohe
-  server: 104.19.48.107
-  port: 443
+  server: 188.114.96.3
+  port: 8443
+  udp: true
+  type: vmess
+  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: v2ray1.dozapp.xyz
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /lMnsZUN4/
+    headers:
+      Host: v2ray1.dozapp.xyz
+- name: 🌐 其他地区 (Other) 03 - xiaohe
+  server: 172.67.199.126
+  port: 2053
   udp: true
   type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  uuid: e3149c82-00f6-4227-b2c0-b78f1dd81279
   tls: true
-  servername: jp3.yohototo.top
+  servername: fast.145779.xyz
   skip-cert-verify: false
   client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /tyxyws
+    path: /ws-tesla
     headers:
-      Host: jp3.yohototo.top
-- name: 🌐 其他地区 (Other) 03 - xiaohe
-  server: 104.21.0.1
-  port: 2083
-  udp: true
-  type: vmess
-  uuid: ac251237-576f-40c8-a543-554960c958b1
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: or3.sfacg.uk
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /or3
-    headers:
-      Host: or3.sfacg.uk
+      Host: fast.145779.xyz
 proxy-groups:
 - name: PROXIES
   type: select
