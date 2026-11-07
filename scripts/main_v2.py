@@ -64,7 +64,9 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/roosterkid/openproxylist/main/V2RAY_RAW.txt",
     "https://www.ermao.net/sub/v2ray/ermao.net",
     "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt",
-    "https://gist.githubusercontent.com/shuaidaoya/9e5cf2749c0ce79932dd9229d9b4162b/raw/base64.txt",
+    # ★ 2026-11 起此 gist 已被作者删除 (raw 404 / API 404), 留着每轮都会走一次
+    #   "失败→回源补抓→仍 404" 的无效流程, 直接移除。
+    # "https://gist.githubusercontent.com/shuaidaoya/9e5cf2749c0ce79932dd9229d9b4162b/raw/base64.txt",
     "https://shadowmere.akiel.dev/api/b64sub/",
     # 香港定向补充源 (见 REGION_FILTER_SOURCES: 只取名称含 HK 的节点)
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_base64.txt",
