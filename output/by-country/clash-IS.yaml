@@ -18,17 +18,33 @@ proxies:
     path: /tvpn-tor/is
     headers:
       Host: orbylume.my.to
+- name: 🇮🇸 IS 02 - wangyu
+  type: vless
+  server: 191.44.112.170
+  port: 443
+  uuid: 46d221fa-e9b4-748c-4eae-019a88e42991
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: orbylume.my.to
+  network: ws
+  ws-opts:
+    path: /tvpn-tor/is
+    headers:
+      Host: orbylume.my.to
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇸 IS 01 - wangyu
+  - 🇮🇸 IS 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇮🇸 IS 01 - wangyu
+  - 🇮🇸 IS 02 - wangyu
 rules:
 - MATCH,PROXIES
