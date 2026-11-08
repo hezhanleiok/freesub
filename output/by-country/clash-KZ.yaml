@@ -5,17 +5,18 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇿 KZ 01 - wangyu
-  type: vless
+  type: vmess
   server: 38.107.234.57
-  port: 8443
-  uuid: 2424febb-43cb-488d-bdd1-401e923c8e48
+  port: 80
+  uuid: 567f4be5-12ab-42e1-b8d9-db6fd1fdd31c
+  alterId: 0
+  cipher: auto
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: 3h-kazakhstan1.09vpn.com
   network: ws
   ws-opts:
-    path: /vless/
+    path: /vmess/
     headers:
       Host: 38.107.234.57
 proxy-groups:

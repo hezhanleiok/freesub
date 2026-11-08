@@ -18,38 +18,8 @@ proxies:
   ws-opts:
     path: /arki
     headers:
-      Host: 47.244.120.197
-- name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
-  type: vmess
-  server: 47.244.120.197
-  port: 36703
-  uuid: 45b83519-9c4f-4052-a11b-02e017b636d4
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /arki
-    headers:
       Host: ''
-- name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
-  type: vmess
-  server: 47.244.120.197
-  port: 36703
-  uuid: 45b83519-9c4f-4052-a11b-02e017b636d4
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /arki
-    headers:
-      Host: 47.244.120.197
-- name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
+- name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
   type: vmess
   server: 156.245.232.239
   port: 35043
@@ -71,8 +41,6 @@ proxy-groups:
   - AUTO
   - 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -80,7 +48,5 @@ proxy-groups:
   proxies:
   - 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
 rules:
 - MATCH,PROXIES
