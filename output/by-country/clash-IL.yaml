@@ -1,0 +1,34 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇮🇱 IL 01 - wangyu
+  type: vless
+  server: 64.177.66.9
+  port: 8443
+  uuid: 5d7b401c-78fa-4254-872e-6d42bf7e75ec
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: vp7.1145678.xyz
+  network: ws
+  ws-opts:
+    path: /events/classfp
+    headers:
+      Host: vp7.1145678.xyz
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇮🇱 IL 01 - wangyu
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇮🇱 IL 01 - wangyu
+rules:
+- MATCH,PROXIES

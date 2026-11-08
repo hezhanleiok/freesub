@@ -4,21 +4,7 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇮🇳 印度 (India) 01 (家宽) - wangyu
-  type: vless
-  server: 122.176.216.52
-  port: 443
-  uuid: 16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: app-6ada5023.deploy.meerasolution.com
-  network: ws
-  ws-opts:
-    path: /ws/16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
-    headers:
-      Host: app-6ada5023.deploy.meerasolution.com
-- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+- name: 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
   type: vless
   server: 59.125.69.22
   port: 443
@@ -37,14 +23,12 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇮🇳 印度 (India) 01 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇮🇳 印度 (India) 01 (家宽) - wangyu
-  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - wangyu
 rules:
 - MATCH,PROXIES
