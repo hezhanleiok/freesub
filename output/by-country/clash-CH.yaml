@@ -5,29 +5,27 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇭 CH 01 - wangyu
-  type: vless
-  server: 57.129.130.34
-  port: 52014
-  uuid: d44da6cd-10d2-4189-a167-49e9f35c7143
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
-  network: ws
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
-- name: 🇨🇭 CH 02 - wangyu
   type: ss
-  server: 79.127.184.104
+  server: 23.166.88.127
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
+- name: 🇨🇭 CH 02 - wangyu
+  type: vless
+  server: 208.69.78.217
+  port: 2053
+  uuid: c0dd6d59-1573-43af-8b70-1470b2632a6d
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
+  servername: www.apple.com
+  client-fingerprint: random
 - name: 🇨🇭 CH 03 - wangyu
   type: ss
-  server: 23.166.88.127
+  server: 79.127.184.104
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
@@ -43,7 +41,7 @@ proxies:
   reality-opts:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
   servername: www.apple.com
-  client-fingerprint: random
+  client-fingerprint: chrome
 - name: 🇨🇭 CH 05 - wangyu
   type: vless
   server: 208.69.78.217
@@ -55,19 +53,14 @@ proxies:
   reality-opts:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
   servername: www.apple.com
-  client-fingerprint: chrome
+  client-fingerprint: firefox
 - name: 🇨🇭 CH 06 - wangyu
-  type: vless
-  server: 208.69.78.217
-  port: 2053
-  uuid: c0dd6d59-1573-43af-8b70-1470b2632a6d
+  type: ss
+  server: 186.190.215.251
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
-  servername: www.apple.com
-  client-fingerprint: chrome
 - name: 🇨🇭 CH 07 - wangyu
   type: vless
   server: 208.69.78.217
@@ -79,7 +72,7 @@ proxies:
   reality-opts:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
   servername: www.apple.com
-  client-fingerprint: firefox
+  client-fingerprint: chrome
 - name: 🇨🇭 CH 08 - wangyu
   type: vless
   server: 208.69.78.217
@@ -91,7 +84,7 @@ proxies:
   reality-opts:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
   servername: www.apple.com
-  client-fingerprint: random
+  client-fingerprint: chrome
 - name: 🇨🇭 CH 09 - wangyu
   type: vless
   server: 208.69.78.217
@@ -103,14 +96,7 @@ proxies:
   reality-opts:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
   servername: www.apple.com
-  client-fingerprint: chrome
-- name: 🇨🇭 CH 10 - wangyu
-  type: ss
-  server: 186.190.215.251
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
+  client-fingerprint: random
 proxy-groups:
 - name: PROXIES
   type: select
@@ -125,7 +111,6 @@ proxy-groups:
   - 🇨🇭 CH 07 - wangyu
   - 🇨🇭 CH 08 - wangyu
   - 🇨🇭 CH 09 - wangyu
-  - 🇨🇭 CH 10 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -140,6 +125,5 @@ proxy-groups:
   - 🇨🇭 CH 07 - wangyu
   - 🇨🇭 CH 08 - wangyu
   - 🇨🇭 CH 09 - wangyu
-  - 🇨🇭 CH 10 - wangyu
 rules:
 - MATCH,PROXIES
