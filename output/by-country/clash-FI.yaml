@@ -6,17 +6,18 @@ log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - wangyu
   type: vless
-  server: 45.144.234.157
-  port: 14430
-  uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
+  server: 2.26.147.65
+  port: 443
+  uuid: affb10d4-3835-4b1f-b5a3-3481489911b6
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: cat.ilovezhenjiu.top
   network: ws
   ws-opts:
-    path: /vless
+    path: /cgciws
     headers:
-      Host: 45.144.234.157
+      Host: cat.ilovezhenjiu.top
 - name: 🇫🇮 FI 02 - wangyu
   type: vless
   server: 45.144.234.157
@@ -43,6 +44,19 @@ proxies:
     path: /vless
     headers:
       Host: 45.144.234.157
+- name: 🇫🇮 FI 04 - wangyu
+  type: vless
+  server: 45.144.234.157
+  port: 14430
+  uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: 45.144.234.157
 proxy-groups:
 - name: PROXIES
   type: select
@@ -51,6 +65,7 @@ proxy-groups:
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
   - 🇫🇮 FI 03 - wangyu
+  - 🇫🇮 FI 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -59,5 +74,6 @@ proxy-groups:
   - 🇫🇮 FI 01 - wangyu
   - 🇫🇮 FI 02 - wangyu
   - 🇫🇮 FI 03 - wangyu
+  - 🇫🇮 FI 04 - wangyu
 rules:
 - MATCH,PROXIES
