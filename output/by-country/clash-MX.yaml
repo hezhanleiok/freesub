@@ -11,17 +11,29 @@ proxies:
   cipher: aes-256-gcm
   password: BWyPPTusFKhGgzKh
   udp: true
+- name: 🇲🇽 MX 02 - wangyu
+  type: vmess
+  server: 38.60.224.173
+  port: 32153
+  uuid: 5cf1f470-3f70-4589-a2a4-4657ea3a1edf
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇲🇽 MX 01 - wangyu
+  - 🇲🇽 MX 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇲🇽 MX 01 - wangyu
+  - 🇲🇽 MX 02 - wangyu
 rules:
 - MATCH,PROXIES
