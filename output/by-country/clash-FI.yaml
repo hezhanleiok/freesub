@@ -6,18 +6,18 @@ log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - wangyu
   type: vless
-  server: 138.124.49.108
-  port: 8443
-  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+  server: 146.103.118.189
+  port: 443
+  uuid: ce698f0c-a8ec-474a-b5d8-3be8032deeb8
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: fs.qicai99.com
+  servername: nl2.574ck.xyz
   network: ws
   ws-opts:
-    path: /fp=chrome
+    path: /574ck-finland
     headers:
-      Host: fs.qicai99.com
+      Host: nl2.574ck.xyz
 - name: 🇫🇮 FI 02 - wangyu
   type: vless
   server: 45.144.234.157
@@ -33,6 +33,20 @@ proxies:
       Host: 45.144.234.157
 - name: 🇫🇮 FI 03 - wangyu
   type: vless
+  server: 138.124.49.108
+  port: 8443
+  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: fs.qicai99.com
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: fs.qicai99.com
+- name: 🇫🇮 FI 04 - wangyu
+  type: vless
   server: 45.144.234.157
   port: 14430
   uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
@@ -44,49 +58,7 @@ proxies:
     path: /vless
     headers:
       Host: 45.144.234.157
-- name: 🇫🇮 FI 04 - wangyu
-  type: vless
-  server: 146.103.118.189
-  port: 443
-  uuid: ce698f0c-a8ec-474a-b5d8-3be8032deeb8
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: nl2.574ck.xyz
-  network: ws
-  ws-opts:
-    path: /574ck-finland
-    headers:
-      Host: nl2.574ck.xyz
 - name: 🇫🇮 FI 05 - wangyu
-  type: vless
-  server: 146.103.118.189
-  port: 443
-  uuid: ce698f0c-a8ec-474a-b5d8-3be8032deeb8
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: nl2.574ck.xyz
-  network: ws
-  ws-opts:
-    path: /574ck-finland
-    headers:
-      Host: nl2.574ck.xyz
-- name: 🇫🇮 FI 06 - wangyu
-  type: vless
-  server: 109.120.134.181
-  port: 443
-  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: fs.qicai99.com
-  network: ws
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: fs.qicai99.com
-- name: 🇫🇮 FI 07 - wangyu
   type: vless
   server: 45.144.234.157
   port: 14430
@@ -109,8 +81,6 @@ proxy-groups:
   - 🇫🇮 FI 03 - wangyu
   - 🇫🇮 FI 04 - wangyu
   - 🇫🇮 FI 05 - wangyu
-  - 🇫🇮 FI 06 - wangyu
-  - 🇫🇮 FI 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -121,7 +91,5 @@ proxy-groups:
   - 🇫🇮 FI 03 - wangyu
   - 🇫🇮 FI 04 - wangyu
   - 🇫🇮 FI 05 - wangyu
-  - 🇫🇮 FI 06 - wangyu
-  - 🇫🇮 FI 07 - wangyu
 rules:
 - MATCH,PROXIES
