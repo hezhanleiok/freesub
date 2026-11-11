@@ -4,27 +4,32 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇹🇭 TH 01 - wangyu
+- name: 🇰🇿 KZ 01 - wangyu
   type: vmess
-  server: 119.46.51.45
-  port: 37515
-  uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
+  server: 38.107.234.57
+  port: 80
+  uuid: 567f4be5-12ab-42e1-b8d9-db6fd1fdd31c
   alterId: 0
   cipher: auto
   udp: true
   tls: false
   skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vmess/
+    headers:
+      Host: 38.107.234.57
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇹🇭 TH 01 - wangyu
+  - 🇰🇿 KZ 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇹🇭 TH 01 - wangyu
+  - 🇰🇿 KZ 01 - wangyu
 rules:
 - MATCH,PROXIES
