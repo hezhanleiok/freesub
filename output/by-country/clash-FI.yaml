@@ -6,34 +6,6 @@ log-level: info
 proxies:
 - name: 🇫🇮 FI 01 - wangyu
   type: vless
-  server: 138.124.124.157
-  port: 443
-  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: fs.qicai99.com
-  network: ws
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: fs.qicai99.com
-- name: 🇫🇮 FI 02 - wangyu
-  type: vless
-  server: 109.120.134.181
-  port: 443
-  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: fs.qicai99.com
-  network: ws
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: fs.qicai99.com
-- name: 🇫🇮 FI 03 - wangyu
-  type: vless
   server: 138.124.49.108
   port: 8443
   uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
@@ -46,7 +18,16 @@ proxies:
     path: /fp=chrome
     headers:
       Host: fs.qicai99.com
-- name: 🇫🇮 FI 04 - wangyu
+- name: 🇫🇮 FI 02 - wangyu
+  type: vless
+  server: 65.109.208.183
+  port: 443
+  uuid: 5f07a2a1-82a5-494d-847b-b882e6903192
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: free.for.member.iiproxy.com
+- name: 🇫🇮 FI 03 - wangyu
   type: vless
   server: 45.144.234.157
   port: 14430
@@ -59,6 +40,20 @@ proxies:
     path: /vless
     headers:
       Host: 45.144.234.157
+- name: 🇫🇮 FI 04 - wangyu
+  type: vless
+  server: 138.124.124.157
+  port: 443
+  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: fs.qicai99.com
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: fs.qicai99.com
 - name: 🇫🇮 FI 05 - wangyu
   type: vless
   server: 45.144.234.157
@@ -85,27 +80,6 @@ proxies:
     path: /vless
     headers:
       Host: 45.144.234.157
-- name: 🇫🇮 FI 07 - wangyu
-  type: vless
-  server: 146.103.118.189
-  port: 443
-  uuid: ce698f0c-a8ec-474a-b5d8-3be8032deeb8
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: nl2.574ck.xyz
-  network: ws
-  ws-opts:
-    path: /574ck-finland
-    headers:
-      Host: nl2.574ck.xyz
-- name: 🇫🇮 FI 08 - wangyu
-  type: ss
-  server: oztq9osla2ad.dop15.com
-  port: 26412
-  cipher: 2022-blake3-aes-256-gcm
-  password: L9F2GjYbyk6gICuLp2LFmHC0lKaEW7HOA32XTf29C6Y=:OvfxPVBCAsZFpN0pIx9AwgxwxV+U3A7XtRagdUwio+U=
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -117,8 +91,6 @@ proxy-groups:
   - 🇫🇮 FI 04 - wangyu
   - 🇫🇮 FI 05 - wangyu
   - 🇫🇮 FI 06 - wangyu
-  - 🇫🇮 FI 07 - wangyu
-  - 🇫🇮 FI 08 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -130,7 +102,5 @@ proxy-groups:
   - 🇫🇮 FI 04 - wangyu
   - 🇫🇮 FI 05 - wangyu
   - 🇫🇮 FI 06 - wangyu
-  - 🇫🇮 FI 07 - wangyu
-  - 🇫🇮 FI 08 - wangyu
 rules:
 - MATCH,PROXIES

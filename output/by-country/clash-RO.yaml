@@ -6,19 +6,12 @@ log-level: info
 proxies:
 - name: 🇷🇴 RO 01 - wangyu
   type: ss
-  server: bogging-eyeteeth-fly.freesocks.work
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: QFWzCw2uX9B9i6qAYeFBIE
-  udp: true
-- name: 🇷🇴 RO 02 - wangyu
-  type: ss
   server: 194.68.44.42
   port: 64546
   cipher: chacha20-ietf-poly1305
   password: U83u9OGpvSatIUW7LsWffr
   udp: true
-- name: 🇷🇴 RO 03 - wangyu
+- name: 🇷🇴 RO 02 - wangyu
   type: vless
   server: 82.152.132.74
   port: 443
@@ -32,7 +25,7 @@ proxies:
     path: /assets/sync-8f3a71
     headers:
       Host: 82.152.132.74
-- name: 🇷🇴 RO 04 - wangyu
+- name: 🇷🇴 RO 03 - wangyu
   type: vless
   server: 82.152.132.74
   port: 443
@@ -54,7 +47,6 @@ proxy-groups:
   - 🇷🇴 RO 01 - wangyu
   - 🇷🇴 RO 02 - wangyu
   - 🇷🇴 RO 03 - wangyu
-  - 🇷🇴 RO 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -63,6 +55,5 @@ proxy-groups:
   - 🇷🇴 RO 01 - wangyu
   - 🇷🇴 RO 02 - wangyu
   - 🇷🇴 RO 03 - wangyu
-  - 🇷🇴 RO 04 - wangyu
 rules:
 - MATCH,PROXIES
