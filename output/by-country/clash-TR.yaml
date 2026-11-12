@@ -18,16 +18,18 @@ proxies:
   client-fingerprint: random
 - name: 🇹🇷 土耳其 (Turkey) 02 - wangyu
   type: vless
-  server: 151.241.226.201
-  port: 2053
-  uuid: 0eed6293-8cf1-4e77-ac10-9c3d50d0b2f8
+  server: 188.225.37.43
+  port: 443
+  uuid: 4cabcd59-a405-4c00-96f5-03507e1e28fa
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: bYW_MmB_CUHrsyoCAUKviI2LZdHf63yY2yOPXbih104
-  servername: www.apple.com
-  client-fingerprint: random
+  servername: torvani.cyou
+  network: ws
+  ws-opts:
+    path: /api/boards/live
+    headers:
+      Host: torvani.cyou
 - name: 🇹🇷 土耳其 (Turkey) 03 - wangyu
   type: vless
   server: 188.225.37.43
