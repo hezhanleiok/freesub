@@ -15,17 +15,33 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: None
+- name: 🇧🇷 BR 02 - wangyu
+  type: vless
+  server: 43.174.195.1
+  port: 443
+  uuid: 24916ad0-847d-4522-9e17-f4347dee57fd
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: kv.074167.xyz
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: kv.074167.xyz
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇧🇷 BR 01 - wangyu
+  - 🇧🇷 BR 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇧🇷 BR 01 - wangyu
+  - 🇧🇷 BR 02 - wangyu
 rules:
 - MATCH,PROXIES
