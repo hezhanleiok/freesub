@@ -1,0 +1,66 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇱🇻 LV 01 - wangyu
+  type: vless
+  server: 46.8.228.144
+  port: 443
+  uuid: e5be613e-0b23-4c08-88fb-6b4a82055365
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: oslo.zovip2.ir
+  network: ws
+  ws-opts:
+    path: /api/v3/pulse
+    headers:
+      Host: oslo.zovip2.ir
+- name: 🇱🇻 LV 02 - wangyu
+  type: vless
+  server: 31.56.177.27
+  port: 443
+  uuid: e5be613e-0b23-4c08-88fb-6b4a82055365
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: oslo.zovip2.ir
+  network: ws
+  ws-opts:
+    path: /api/v3/pulse
+    headers:
+      Host: oslo.zovip2.ir
+- name: 🇱🇻 LV 03 - wangyu
+  type: vless
+  server: 109.248.161.235
+  port: 443
+  uuid: e5be613e-0b23-4c08-88fb-6b4a82055365
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: oslo.zovip2.ir
+  network: ws
+  ws-opts:
+    path: /api/v3/pulse
+    headers:
+      Host: oslo.zovip2.ir
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇱🇻 LV 01 - wangyu
+  - 🇱🇻 LV 02 - wangyu
+  - 🇱🇻 LV 03 - wangyu
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇱🇻 LV 01 - wangyu
+  - 🇱🇻 LV 02 - wangyu
+  - 🇱🇻 LV 03 - wangyu
+rules:
+- MATCH,PROXIES

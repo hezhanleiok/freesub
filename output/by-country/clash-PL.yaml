@@ -25,6 +25,15 @@ proxies:
     public-key: LY0H47MWx87_L_JBzxFAuTzKZB53U7MrZQK8-dNnMxM
   servername: 57aac2t.pl7.h1clayd.click
   client-fingerprint: chrome
+- name: 🇵🇱 PL 03 - wangyu
+  type: vless
+  server: 2.26.6.1
+  port: 2087
+  uuid: b9fdc03f-389b-4cda-9be4-155b623bee15
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 2.26.6.1
 proxy-groups:
 - name: PROXIES
   type: select
@@ -32,6 +41,7 @@ proxy-groups:
   - AUTO
   - 🇵🇱 PL 01 - wangyu
   - 🇵🇱 PL 02 - wangyu
+  - 🇵🇱 PL 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -39,5 +49,6 @@ proxy-groups:
   proxies:
   - 🇵🇱 PL 01 - wangyu
   - 🇵🇱 PL 02 - wangyu
+  - 🇵🇱 PL 03 - wangyu
 rules:
 - MATCH,PROXIES
