@@ -19,6 +19,19 @@ proxies:
       Host: 45.144.234.157
 - name: 🇫🇮 FI 02 - wangyu
   type: vless
+  server: 45.144.234.157
+  port: 14430
+  uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: 45.144.234.157
+- name: 🇫🇮 FI 03 - wangyu
+  type: vless
   server: 146.103.118.189
   port: 443
   uuid: ce698f0c-a8ec-474a-b5d8-3be8032deeb8
@@ -31,38 +44,7 @@ proxies:
     path: /574ck-finland
     headers:
       Host: nl2.574ck.xyz
-- name: 🇫🇮 FI 03 - wangyu
-  type: vless
-  server: 65.109.208.183
-  port: 443
-  uuid: 5f07a2a1-82a5-494d-847b-b882e6903192
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: free.for.member.iiproxy.com
 - name: 🇫🇮 FI 04 - wangyu
-  type: vless
-  server: 65.109.208.183
-  port: 443
-  uuid: 5f07a2a1-82a5-494d-847b-b882e6903192
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: free.for.member.iiproxy.com
-- name: 🇫🇮 FI 05 - wangyu
-  type: vless
-  server: 45.144.234.157
-  port: 14430
-  uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 45.144.234.157
-- name: 🇫🇮 FI 06 - wangyu
   type: vless
   server: 45.144.234.157
   port: 14430
@@ -84,8 +66,6 @@ proxy-groups:
   - 🇫🇮 FI 02 - wangyu
   - 🇫🇮 FI 03 - wangyu
   - 🇫🇮 FI 04 - wangyu
-  - 🇫🇮 FI 05 - wangyu
-  - 🇫🇮 FI 06 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -95,7 +75,5 @@ proxy-groups:
   - 🇫🇮 FI 02 - wangyu
   - 🇫🇮 FI 03 - wangyu
   - 🇫🇮 FI 04 - wangyu
-  - 🇫🇮 FI 05 - wangyu
-  - 🇫🇮 FI 06 - wangyu
 rules:
 - MATCH,PROXIES

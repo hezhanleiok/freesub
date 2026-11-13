@@ -18,33 +18,17 @@ proxies:
     path: /fp=chrome
     headers:
       Host: fs.qicai99.com
-- name: 🇬🇷 GR 02 - wangyu
-  type: vless
-  server: 85.90.197.158
-  port: 443
-  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: fs.qicai99.com
-  network: ws
-  ws-opts:
-    path: /fp
-    headers:
-      Host: fs.qicai99.com
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇬🇷 GR 01 - wangyu
-  - 🇬🇷 GR 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇬🇷 GR 01 - wangyu
-  - 🇬🇷 GR 02 - wangyu
 rules:
 - MATCH,PROXIES
