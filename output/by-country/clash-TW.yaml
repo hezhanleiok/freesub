@@ -11,17 +11,31 @@ proxies:
   cipher: 2022-blake3-aes-128-gcm
   password: b7I6g7l7fJhBaMInJ+zkzw==
   udp: true
+- name: 🇹🇼 中国台湾 (Taiwan) 02 - wangyu
+  type: vless
+  server: 83.147.13.74
+  port: 8443
+  uuid: eb8c97f7-a154-4442-91b0-54c0d055ad0b
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: 4g6gX0ueJap7pY_iTDx23h6bzo3KIOTcFzP1Uacn0QA
+  servername: github.githubassets.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇹🇼 中国台湾 (Taiwan) 01 - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇹🇼 中国台湾 (Taiwan) 01 - wangyu
+  - 🇹🇼 中国台湾 (Taiwan) 02 - wangyu
 rules:
 - MATCH,PROXIES
