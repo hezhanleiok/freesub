@@ -4,31 +4,32 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇬🇪 GE 01 - wangyu
-  type: vless
-  server: 194.135.119.82
-  port: 2053
-  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+- name: 🇰🇿 KZ 01 - wangyu
+  type: vmess
+  server: 38.107.234.57
+  port: 80
+  uuid: 567f4be5-12ab-42e1-b8d9-db6fd1fdd31c
+  alterId: 0
+  cipher: auto
   udp: true
-  tls: true
+  tls: false
   skip-cert-verify: true
-  servername: fs.qicai99.com
   network: ws
   ws-opts:
-    path: /fp=chrome
+    path: /vmess/
     headers:
-      Host: fs.qicai99.com
+      Host: 38.107.234.57
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇬🇪 GE 01 - wangyu
+  - 🇰🇿 KZ 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇬🇪 GE 01 - wangyu
+  - 🇰🇿 KZ 01 - wangyu
 rules:
 - MATCH,PROXIES
