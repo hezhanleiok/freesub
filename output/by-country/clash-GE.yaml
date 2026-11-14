@@ -4,29 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇧🇬 BG 01 - wangyu
+- name: 🇬🇪 GE 01 - wangyu
   type: vless
-  server: p1real5.greewebservices.ir
-  port: 1270
-  uuid: b0511969-f769-460b-963b-70c6b84b6967
+  server: 194.135.119.82
+  port: 2053
+  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
   udp: true
   tls: true
   skip-cert-verify: true
-  reality-opts:
-    public-key: xQnXh5EfPDhcEBB7rRiLca33GYrMEeUa35domLL_yA8
-  servername: play.googleapis.com
-  client-fingerprint: chrome
+  servername: fs.qicai99.com
+  network: ws
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: fs.qicai99.com
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇧🇬 BG 01 - wangyu
+  - 🇬🇪 GE 01 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇧🇬 BG 01 - wangyu
+  - 🇬🇪 GE 01 - wangyu
 rules:
 - MATCH,PROXIES
