@@ -5,13 +5,41 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - wangyu
+  type: vless
+  server: 109.120.155.155
+  port: 444
+  uuid: 99ab6748-3d57-4562-9451-843c15960b9b
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
+- name: 🇸🇪 SE 02 - wangyu
   type: ss
   server: 138.199.55.243
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: 🇸🇪 SE 02 - wangyu
+- name: 🇸🇪 SE 03 - wangyu
+  type: ss
+  server: 62.182.193.228
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: 2e555e46dbc421452416834962fd014f
+  udp: true
+- name: 🇸🇪 SE 04 - wangyu
+  type: ss
+  server: 70.34.212.124
+  port: 8388
+  cipher: aes-256-gcm
+  password: AxIYWtskJWIIaefW
+  udp: true
+- name: 🇸🇪 SE 05 - wangyu
   type: vless
   server: 5.178.109.174
   port: 14430
@@ -24,13 +52,6 @@ proxies:
     path: /vless
     headers:
       Host: 5.178.109.174
-- name: 🇸🇪 SE 03 - wangyu
-  type: ss
-  server: 62.182.193.228
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: 2e555e46dbc421452416834962fd014f
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -39,6 +60,8 @@ proxy-groups:
   - 🇸🇪 SE 01 - wangyu
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
+  - 🇸🇪 SE 04 - wangyu
+  - 🇸🇪 SE 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -47,5 +70,7 @@ proxy-groups:
   - 🇸🇪 SE 01 - wangyu
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
+  - 🇸🇪 SE 04 - wangyu
+  - 🇸🇪 SE 05 - wangyu
 rules:
 - MATCH,PROXIES

@@ -4,24 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇹🇼 中国台湾 (Taiwan) 01 - wangyu
+- name: 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
   type: ss
-  server: amasoid.ddns.net
-  port: 14514
-  cipher: 2022-blake3-aes-128-gcm
-  password: b7I6g7l7fJhBaMInJ+zkzw==
+  server: 115.161.136.145
+  port: 10099
+  cipher: chacha20-ietf-poly1305
+  password: '12242'
   udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇹🇼 中国台湾 (Taiwan) 01 - wangyu
+  - 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇹🇼 中国台湾 (Taiwan) 01 - wangyu
+  - 🇰🇷 韩国 (South Korea) 01 (家宽) - wangyu
 rules:
 - MATCH,PROXIES
