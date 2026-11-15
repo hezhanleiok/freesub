@@ -30,6 +30,19 @@ proxies:
     path: /
     headers:
       Host: dcm4kwis2exkw.cloudfront.net
+- name: 🇹🇭 TH 03 - wangyu
+  type: vless
+  server: www.true.th
+  port: 80
+  uuid: f4c5605a-8424-441e-b23d-d6384d012c28
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: dcm4kwis2exkw.cloudfront.net
 proxy-groups:
 - name: PROXIES
   type: select
@@ -37,6 +50,7 @@ proxy-groups:
   - AUTO
   - 🇹🇭 TH 01 - wangyu
   - 🇹🇭 TH 02 - wangyu
+  - 🇹🇭 TH 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -44,5 +58,6 @@ proxy-groups:
   proxies:
   - 🇹🇭 TH 01 - wangyu
   - 🇹🇭 TH 02 - wangyu
+  - 🇹🇭 TH 03 - wangyu
 rules:
 - MATCH,PROXIES

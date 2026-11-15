@@ -5,20 +5,31 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - wangyu
-  type: ss
-  server: 138.199.55.243
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  type: vmess
+  server: 138.199.55.230
+  port: 1270
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  alterId: 0
+  cipher: auto
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: xmfhlpy.com
 - name: 🇸🇪 SE 02 - wangyu
   type: ss
-  server: 70.34.212.124
-  port: 8388
-  cipher: aes-256-gcm
-  password: AxIYWtskJWIIaefW
+  server: 194.59.250.52
+  port: 18501
+  cipher: aes-128-gcm
+  password: 517403753b63fd4fac88986bf98b11e0
   udp: true
 - name: 🇸🇪 SE 03 - wangyu
+  type: ss
+  server: 62.182.193.228
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: 2e555e46dbc421452416834962fd014f
+  udp: true
+- name: 🇸🇪 SE 04 - wangyu
   type: vless
   server: 5.178.109.174
   port: 14430
@@ -31,12 +42,19 @@ proxies:
     path: /vless
     headers:
       Host: 5.178.109.174
-- name: 🇸🇪 SE 04 - wangyu
+- name: 🇸🇪 SE 05 - wangyu
   type: ss
-  server: 62.182.193.228
+  server: 138.199.55.243
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: 🇸🇪 SE 06 - wangyu
+  type: ss
+  server: 70.34.212.124
   port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: 2e555e46dbc421452416834962fd014f
+  cipher: aes-256-gcm
+  password: AxIYWtskJWIIaefW
   udp: true
 proxy-groups:
 - name: PROXIES
@@ -47,6 +65,8 @@ proxy-groups:
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
   - 🇸🇪 SE 04 - wangyu
+  - 🇸🇪 SE 05 - wangyu
+  - 🇸🇪 SE 06 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -56,5 +76,7 @@ proxy-groups:
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
   - 🇸🇪 SE 04 - wangyu
+  - 🇸🇪 SE 05 - wangyu
+  - 🇸🇪 SE 06 - wangyu
 rules:
 - MATCH,PROXIES
