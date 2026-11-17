@@ -5,19 +5,12 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇭 CH 01 - wangyu
-  type: vless
-  server: 185.18.250.245
-  port: 443
-  uuid: f77299ea-e13d-417d-8cdc-ce5566dfc94b
+  type: ss
+  server: 79.127.184.104
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: edu.ruangguru.com.r3xxe.eu.cc
-  network: ws
-  ws-opts:
-    path: /nl-tw
-    headers:
-      Host: edu.ruangguru.com.r3xxe.eu.cc
 - name: 🇨🇭 CH 02 - wangyu
   type: ss
   server: 23.166.88.127
@@ -27,7 +20,7 @@ proxies:
   udp: true
 - name: 🇨🇭 CH 03 - wangyu
   type: ss
-  server: 79.127.184.104
+  server: 23.166.88.189
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
@@ -39,20 +32,6 @@ proxies:
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: 🇨🇭 CH 05 - wangyu
-  type: vless
-  server: 185.18.250.252
-  port: 443
-  uuid: f77299ea-e13d-417d-8cdc-ce5566dfc94b
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: edu.ruangguru.com.r3xxe.eu.cc
-  network: ws
-  ws-opts:
-    path: /nl-tw
-    headers:
-      Host: edu.ruangguru.com.r3xxe.eu.cc
 proxy-groups:
 - name: PROXIES
   type: select
@@ -62,7 +41,6 @@ proxy-groups:
   - 🇨🇭 CH 02 - wangyu
   - 🇨🇭 CH 03 - wangyu
   - 🇨🇭 CH 04 - wangyu
-  - 🇨🇭 CH 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -72,6 +50,5 @@ proxy-groups:
   - 🇨🇭 CH 02 - wangyu
   - 🇨🇭 CH 03 - wangyu
   - 🇨🇭 CH 04 - wangyu
-  - 🇨🇭 CH 05 - wangyu
 rules:
 - MATCH,PROXIES
