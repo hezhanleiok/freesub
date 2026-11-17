@@ -1,0 +1,48 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
+  type: vless
+  server: 9e5f5c4b-tomdc0-tpolhi-1rgxu.hk2.hyhuawei.com
+  port: 443
+  uuid: ea93064c-176c-11f0-885d-f23c91cfbbc9
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: c9DdggKaJGSH7FN3JgGbi9ZvsUqOGGpIr7BhzTWeTCo
+  servername: download.windowsupdate.com
+  client-fingerprint: chrome
+- name: 🇩🇪 德国 (Germany) 02 (家宽) - wangyu
+  type: vless
+  server: 172.64.88.98
+  port: 443
+  uuid: afa524de-2b93-4be9-b846-6bc88d8a2ce1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: 1v5Vp5jsQ611A5dsm.PAges.dEV
+  network: ws
+  ws-opts:
+    path: /vl/fbo164EXEqNcjQ9WdWcK?ed=2560
+    headers:
+      Host: 1v5vp5jsq611a5dsm.pages.dev
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
+  - 🇩🇪 德国 (Germany) 02 (家宽) - wangyu
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - wangyu
+  - 🇩🇪 德国 (Germany) 02 (家宽) - wangyu
+rules:
+- MATCH,PROXIES

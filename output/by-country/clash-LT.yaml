@@ -1,0 +1,60 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇱🇹 LT 01 - wangyu
+  type: vless
+  server: 84.32.248.124
+  port: 443
+  uuid: a30903dc-1bf0-4be5-8b1b-603a3a56211c
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
+  servername: net-io-api.galioncc.com
+  client-fingerprint: firefox
+- name: 🇱🇹 LT 02 - wangyu
+  type: vless
+  server: 84.32.83.197
+  port: 443
+  uuid: a30903dc-1bf0-4be5-8b1b-603a3a56211c
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
+  servername: api-dns-gw.galioncc.com
+  client-fingerprint: firefox
+- name: 🇱🇹 LT 03 - wangyu
+  type: vless
+  server: 84.32.248.124
+  port: 443
+  uuid: a30903dc-1bf0-4be5-8b1b-603a3a56211c
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
+  servername: net-io-api.galioncc.com
+  client-fingerprint: firefox
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇱🇹 LT 01 - wangyu
+  - 🇱🇹 LT 02 - wangyu
+  - 🇱🇹 LT 03 - wangyu
+- name: AUTO
+  type: url-test
+  url: https://www.google.com/generate_204
+  interval: 300
+  proxies:
+  - 🇱🇹 LT 01 - wangyu
+  - 🇱🇹 LT 02 - wangyu
+  - 🇱🇹 LT 03 - wangyu
+rules:
+- MATCH,PROXIES
