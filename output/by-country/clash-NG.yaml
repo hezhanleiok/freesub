@@ -1,0 +1,58 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇳🇬 尼日利亚 (Nigeria) 01 - xiaohe
+  server: sclass-01.catcat321.com
+  port: 20103
+  udp: true
+  type: trojan
+  password: d7563108-615c-4338-a7bd-77f359869a4a
+  sni: hk.catxstar.com
+  skip-cert-verify: true
+- name: 🇳🇬 尼日利亚 (Nigeria) 02 - xiaohe
+  server: 157.254.38.210
+  port: 20103
+  udp: true
+  type: trojan
+  password: d7563108-615c-4338-a7bd-77f359869a4a
+  sni: hk.catxstar.com
+  skip-cert-verify: false
+- name: 🇳🇬 尼日利亚 (Nigeria) 03 - xiaohe
+  server: 157.254.38.210
+  port: 20051
+  udp: true
+  type: trojan
+  password: d9064589-74af-432a-9390-5d8a9da281bf
+  sni: hk.catxstar.com
+  skip-cert-verify: false
+- name: 🇳🇬 尼日利亚 (Nigeria) 04 - xiaohe
+  server: sclass-c2.catcat321.com
+  port: 20051
+  udp: true
+  type: trojan
+  password: d9064589-74af-432a-9390-5d8a9da281bf
+  sni: hk.catxstar.com
+  skip-cert-verify: true
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇳🇬 尼日利亚 (Nigeria) 01 - xiaohe
+  - 🇳🇬 尼日利亚 (Nigeria) 02 - xiaohe
+  - 🇳🇬 尼日利亚 (Nigeria) 03 - xiaohe
+  - 🇳🇬 尼日利亚 (Nigeria) 04 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇳🇬 尼日利亚 (Nigeria) 01 - xiaohe
+  - 🇳🇬 尼日利亚 (Nigeria) 02 - xiaohe
+  - 🇳🇬 尼日利亚 (Nigeria) 03 - xiaohe
+  - 🇳🇬 尼日利亚 (Nigeria) 04 - xiaohe
+rules:
+- MATCH,PROXIES

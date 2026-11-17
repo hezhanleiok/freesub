@@ -18,6 +18,21 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: Xsy8Ox4yOV3xLlpxtjzs3X
+- name: 🇿🇦 南非 (South Africa) 03 - xiaohe
+  server: 139.84.231.142
+  port: 443
+  udp: true
+  type: trojan
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  sni: explorecareerpathsandunlockprofessionalsuccesstoday.com
+  skip-cert-verify: false
+- name: 🇿🇦 南非 (South Africa) 04 - xiaohe
+  server: 40.123.254.236
+  port: 443
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: M8Z2I7nGjhmwhy2m
 proxy-groups:
 - name: PROXIES
   type: select
@@ -25,6 +40,8 @@ proxy-groups:
   - AUTO
   - 🇿🇦 南非 (South Africa) 01 - xiaohe
   - 🇿🇦 南非 (South Africa) 02 - xiaohe
+  - 🇿🇦 南非 (South Africa) 03 - xiaohe
+  - 🇿🇦 南非 (South Africa) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -32,5 +49,7 @@ proxy-groups:
   proxies:
   - 🇿🇦 南非 (South Africa) 01 - xiaohe
   - 🇿🇦 南非 (South Africa) 02 - xiaohe
+  - 🇿🇦 南非 (South Africa) 03 - xiaohe
+  - 🇿🇦 南非 (South Africa) 04 - xiaohe
 rules:
 - MATCH,PROXIES

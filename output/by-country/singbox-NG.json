@@ -1,0 +1,85 @@
+{
+  "log": {
+    "level": "warn"
+  },
+  "outbounds": [
+    {
+      "type": "trojan",
+      "tag": "🇳🇬 尼日利亚 (Nigeria) 01 - xiaohe",
+      "server": "sclass-01.catcat321.com",
+      "server_port": 20103,
+      "password": "d7563108-615c-4338-a7bd-77f359869a4a",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇳🇬 尼日利亚 (Nigeria) 02 - xiaohe",
+      "server": "157.254.38.210",
+      "server_port": 20103,
+      "password": "d7563108-615c-4338-a7bd-77f359869a4a",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "insecure": false
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇳🇬 尼日利亚 (Nigeria) 03 - xiaohe",
+      "server": "157.254.38.210",
+      "server_port": 20051,
+      "password": "d9064589-74af-432a-9390-5d8a9da281bf",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "insecure": false
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇳🇬 尼日利亚 (Nigeria) 04 - xiaohe",
+      "server": "sclass-c2.catcat321.com",
+      "server_port": 20051,
+      "password": "d9064589-74af-432a-9390-5d8a9da281bf",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇳🇬 尼日利亚 (Nigeria) 01 - xiaohe",
+        "🇳🇬 尼日利亚 (Nigeria) 02 - xiaohe",
+        "🇳🇬 尼日利亚 (Nigeria) 03 - xiaohe",
+        "🇳🇬 尼日利亚 (Nigeria) 04 - xiaohe"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇳🇬 尼日利亚 (Nigeria) 01 - xiaohe",
+        "🇳🇬 尼日利亚 (Nigeria) 02 - xiaohe",
+        "🇳🇬 尼日利亚 (Nigeria) 03 - xiaohe",
+        "🇳🇬 尼日利亚 (Nigeria) 04 - xiaohe"
+      ],
+      "url": "https://www.gstatic.com/generate_204"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}

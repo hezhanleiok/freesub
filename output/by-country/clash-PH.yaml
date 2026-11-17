@@ -5,34 +5,29 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇵🇭 菲律宾 (Philippines) 01 - xiaohe
-  server: ph001.zestapp778.com
-  port: 46298
+  server: 120.89.61.213
+  port: 443
   udp: true
-  type: trojan
-  password: 5t6i121em5lkmsmk
-  sni: ph001.zestapp778.com
-  skip-cert-verify: false
-- name: 🇵🇭 菲律宾 (Philippines) 02 - xiaohe
-  server: 130.94.51.219
-  port: 46298
-  udp: true
-  type: trojan
-  password: 5t6i121em5lkmsmk
-  sni: ph001.zestapp778.com
-  skip-cert-verify: false
+  type: vless
+  uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: wAh4gvnTR3NRk0SFrkBRkX3tNeybFNodcmg7piumxiM
+    short-id: 87395f88
+  servername: ph1.gofizz.in
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇵🇭 菲律宾 (Philippines) 01 - xiaohe
-  - 🇵🇭 菲律宾 (Philippines) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇵🇭 菲律宾 (Philippines) 01 - xiaohe
-  - 🇵🇭 菲律宾 (Philippines) 02 - xiaohe
 rules:
 - MATCH,PROXIES

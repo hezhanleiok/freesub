@@ -1,0 +1,33 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇧🇭 BH 01 - xiaohe
+  server: bh1.vpnjantit.com
+  port: 443
+  udp: true
+  type: vless
+  uuid: b36a16e4-ded8-11f1-bdea-5254b0a2c347
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: lDEkUokSL-mrM1jsH8UKs8-3cfJMvkxhY7k37iBkFi4
+    short-id: 32b72239bc69220e
+  servername: cloudflare.com
+  client-fingerprint: chrome
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇧🇭 BH 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇧🇭 BH 01 - xiaohe
+rules:
+- MATCH,PROXIES
