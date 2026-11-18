@@ -5,23 +5,18 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - wangyu
-  type: vless
-  server: 88.216.214.159
-  port: 443
-  uuid: a30903dc-1bf0-4be5-8b1b-603a3a56211c
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  reality-opts:
-    public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
-  servername: api-svc-mgr.galioncc.com
-  client-fingerprint: firefox
-- name: 🇸🇪 SE 02 - wangyu
   type: ss
   server: 70.34.212.124
   port: 8388
   cipher: aes-256-gcm
   password: AxIYWtskJWIIaefW
+  udp: true
+- name: 🇸🇪 SE 02 - wangyu
+  type: ss
+  server: 62.182.193.228
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: 2e555e46dbc421452416834962fd014f
   udp: true
 - name: 🇸🇪 SE 03 - wangyu
   type: ss
@@ -31,17 +26,6 @@ proxies:
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
 - name: 🇸🇪 SE 04 - wangyu
-  type: vmess
-  server: 138.199.55.230
-  port: 1270
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ''
-- name: 🇸🇪 SE 05 - wangyu
   type: vless
   server: 5.178.109.174
   port: 14430
@@ -54,24 +38,6 @@ proxies:
     path: /vless
     headers:
       Host: 5.178.109.174
-- name: 🇸🇪 SE 06 - wangyu
-  type: vmess
-  server: 62.93.166.184
-  port: 1270
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ''
-- name: 🇸🇪 SE 07 - wangyu
-  type: ss
-  server: 62.182.193.228
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: 2e555e46dbc421452416834962fd014f
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -81,9 +47,6 @@ proxy-groups:
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
   - 🇸🇪 SE 04 - wangyu
-  - 🇸🇪 SE 05 - wangyu
-  - 🇸🇪 SE 06 - wangyu
-  - 🇸🇪 SE 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -93,8 +56,5 @@ proxy-groups:
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
   - 🇸🇪 SE 04 - wangyu
-  - 🇸🇪 SE 05 - wangyu
-  - 🇸🇪 SE 06 - wangyu
-  - 🇸🇪 SE 07 - wangyu
 rules:
 - MATCH,PROXIES
