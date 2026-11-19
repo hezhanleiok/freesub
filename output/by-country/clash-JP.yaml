@@ -5,15 +5,8 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇯🇵 日本 (Japan) 01 - wangyu
-  type: ss
-  server: 149.22.87.204
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: 🇯🇵 日本 (Japan) 02 - wangyu
   type: vless
-  server: 188.114.98.0
+  server: 104.19.48.107
   port: 443
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
@@ -25,20 +18,27 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
+- name: 🇯🇵 日本 (Japan) 02 - wangyu
+  type: ss
+  server: 149.22.87.240
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
 - name: 🇯🇵 日本 (Japan) 03 - wangyu
   type: vless
-  server: 57.129.130.200
-  port: 52014
-  uuid: c8b0617e-010f-43a8-b3d0-d5358febf0c9
+  server: 162.159.254.3
+  port: 443
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
+  servername: jp3.yohototo.top
   network: ws
   ws-opts:
-    path: /@Marisa_kristi
+    path: /tyxyws
     headers:
-      Host: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
+      Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 04 - wangyu
   type: vless
   server: 104.21.0.87
@@ -54,16 +54,9 @@ proxies:
     headers:
       Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 05 - wangyu
-  type: ss
-  server: 149.22.87.241
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: 🇯🇵 日本 (Japan) 06 - wangyu
   type: vless
-  server: 154.31.114.162
-  port: 8443
+  server: 104.19.12.94
+  port: 443
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
   tls: true
@@ -74,9 +67,24 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
+- name: 🇯🇵 日本 (Japan) 06 - wangyu
+  type: vmess
+  server: 168.138.43.75
+  port: 80
+  uuid: 11c3627f-31e8-4695-dfbd-34076e2f1f5d
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /cctv13.m3u8
+    headers:
+      Host: None
 - name: 🇯🇵 日本 (Japan) 07 - wangyu
   type: vless
-  server: 104.24.31.89
+  server: 104.16.10.2
   port: 443
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
@@ -89,40 +97,33 @@ proxies:
     headers:
       Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 08 - wangyu
-  type: vless
-  server: 84.22.150.39
-  port: 7443
-  uuid: 9d5cbb90-876b-448d-9874-27ab35bae6e7
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
-  network: ws
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
-- name: 🇯🇵 日本 (Japan) 09 - wangyu
   type: ss
   server: 84.247.155.196
-  port: 443
+  port: 80
   cipher: aes-256-gcm
   password: 3eOFeNssde7PYYMv
   udp: true
-- name: 🇯🇵 日本 (Japan) 10 - wangyu
+- name: 🇯🇵 日本 (Japan) 09 - wangyu
   type: vless
-  server: 129.153.71.28
-  port: 28863
-  uuid: 3e956106-7f92-4cbf-bf77-715d3890fa84
+  server: 104.19.33.25
+  port: 443
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+  servername: jp3.yohototo.top
   network: ws
   ws-opts:
-    path: /@Marisa_kristi
+    path: /tyxyws
     headers:
-      Host: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
+      Host: jp3.yohototo.top
+- name: 🇯🇵 日本 (Japan) 10 - wangyu
+  type: ss
+  server: 149.22.87.241
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
 - name: 🇯🇵 日本 (Japan) 11 - wangyu
   type: vless
   server: 104.16.111.102
@@ -139,7 +140,7 @@ proxies:
       Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 12 - wangyu
   type: vless
-  server: 104.17.50.227
+  server: 188.114.98.0
   port: 443
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
@@ -153,7 +154,7 @@ proxies:
       Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 13 - wangyu
   type: vless
-  server: 62.106.70.68
+  server: 172.67.217.240
   port: 443
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
@@ -166,78 +167,43 @@ proxies:
     headers:
       Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 14 - wangyu
-  type: vless
-  server: 109.120.155.155
-  port: 444
-  uuid: 99ab6748-3d57-4562-9451-843c15960b9b
+  type: ss
+  server: 149.22.87.204
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
-  network: ws
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
 - name: 🇯🇵 日本 (Japan) 15 - wangyu
-  type: vless
-  server: 62.106.75.37
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  type: ss
+  server: 84.247.155.196
+  port: 80
+  cipher: aes-256-gcm
+  password: 3eOFeNssde7PYYMv
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 16 - wangyu
-  type: vless
-  server: 104.21.219.160
+  type: ss
+  server: 149.22.87.240
   port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  cipher: aes-128-gcm
+  password: shadowsocks
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 17 - wangyu
-  type: vless
-  server: 104.24.31.89
+  type: ss
+  server: 149.22.87.241
   port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  cipher: aes-128-gcm
+  password: shadowsocks
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 18 - wangyu
-  type: vless
-  server: 104.19.48.107
+  type: ss
+  server: 149.22.87.204
   port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  cipher: aes-128-gcm
+  password: shadowsocks
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 19 - wangyu
   type: vless
-  server: 45.153.245.181
+  server: 104.17.210.74
   port: 443
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
@@ -251,7 +217,7 @@ proxies:
       Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 20 - wangyu
   type: vless
-  server: 162.159.254.3
+  server: 104.21.6.186
   port: 443
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
@@ -264,243 +230,37 @@ proxies:
     headers:
       Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 21 - wangyu
-  type: vmess
-  server: 168.110.63.247
-  port: 8081
-  uuid: c3bde296-8e44-4b8c-a325-577d5b3cc7c8
-  alterId: 0
-  cipher: auto
+  type: vless
+  server: 38.207.178.173
+  port: 2087
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: jp3.yohototo.top
   network: ws
   ws-opts:
-    path: /vless
+    path: /tyxyws
     headers:
-      Host: None
+      Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 22 - wangyu
   type: vless
-  server: 147.45.42.73
-  port: 20443
-  uuid: f293db4d-7ab1-4faf-bb15-89540d8709cb
+  server: 104.16.0.1
+  port: 443
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  servername: jp3.yohototo.top
   network: ws
   ws-opts:
-    path: /@Marisa_kristi
+    path: /tyxyws
     headers:
-      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+      Host: jp3.yohototo.top
 - name: 🇯🇵 日本 (Japan) 23 - wangyu
-  type: vless
-  server: 104.16.111.195
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 24 - wangyu
-  type: vmess
-  server: 168.138.43.75
-  port: 80
-  uuid: 11c3627f-31e8-4695-dfbd-34076e2f1f5d
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /cctv13.m3u8
-    headers:
-      Host: None
-- name: 🇯🇵 日本 (Japan) 25 - wangyu
-  type: ss
-  server: 149.22.87.241
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: 🇯🇵 日本 (Japan) 26 - wangyu
-  type: vless
-  server: 104.21.70.21
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 27 - wangyu
-  type: ss
-  server: 149.22.87.204
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: 🇯🇵 日本 (Japan) 28 - wangyu
-  type: vless
-  server: 89.22.224.146
-  port: 43788
-  uuid: 6fbd9bd1-ccd4-4e2f-a918-a0f871965763
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
-  network: ws
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
-- name: 🇯🇵 日本 (Japan) 29 - wangyu
-  type: vless
-  server: 104.17.50.53
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 30 - wangyu
-  type: ss
-  server: 149.22.87.240
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: 🇯🇵 日本 (Japan) 31 - wangyu
-  type: vless
-  server: 152.69.200.216
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 32 - wangyu
   type: ss
   server: 84.247.155.196
-  port: 80
-  cipher: aes-256-gcm
-  password: 3eOFeNssde7PYYMv
-  udp: true
-- name: 🇯🇵 日本 (Japan) 33 - wangyu
-  type: vless
-  server: 103.201.131.202
-  port: 2053
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 34 - wangyu
-  type: vless
-  server: 172.67.217.240
   port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 35 - wangyu
-  type: ss
-  server: 149.22.87.240
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: 🇯🇵 日本 (Japan) 36 - wangyu
-  type: vless
-  server: 104.16.10.56
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 37 - wangyu
-  type: vmess
-  server: 168.110.63.247
-  port: 8081
-  uuid: c3bde296-8e44-4b8c-a325-577d5b3cc7c8
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: ''
-- name: 🇯🇵 日本 (Japan) 38 - wangyu
-  type: vless
-  server: 104.21.70.21
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 39 - wangyu
-  type: vless
-  server: 154.31.114.162
-  port: 8443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: 🇯🇵 日本 (Japan) 40 - wangyu
-  type: ss
-  server: 84.247.155.196
-  port: 80
   cipher: aes-256-gcm
   password: 3eOFeNssde7PYYMv
   udp: true
@@ -532,23 +292,6 @@ proxy-groups:
   - 🇯🇵 日本 (Japan) 21 - wangyu
   - 🇯🇵 日本 (Japan) 22 - wangyu
   - 🇯🇵 日本 (Japan) 23 - wangyu
-  - 🇯🇵 日本 (Japan) 24 - wangyu
-  - 🇯🇵 日本 (Japan) 25 - wangyu
-  - 🇯🇵 日本 (Japan) 26 - wangyu
-  - 🇯🇵 日本 (Japan) 27 - wangyu
-  - 🇯🇵 日本 (Japan) 28 - wangyu
-  - 🇯🇵 日本 (Japan) 29 - wangyu
-  - 🇯🇵 日本 (Japan) 30 - wangyu
-  - 🇯🇵 日本 (Japan) 31 - wangyu
-  - 🇯🇵 日本 (Japan) 32 - wangyu
-  - 🇯🇵 日本 (Japan) 33 - wangyu
-  - 🇯🇵 日本 (Japan) 34 - wangyu
-  - 🇯🇵 日本 (Japan) 35 - wangyu
-  - 🇯🇵 日本 (Japan) 36 - wangyu
-  - 🇯🇵 日本 (Japan) 37 - wangyu
-  - 🇯🇵 日本 (Japan) 38 - wangyu
-  - 🇯🇵 日本 (Japan) 39 - wangyu
-  - 🇯🇵 日本 (Japan) 40 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -577,22 +320,5 @@ proxy-groups:
   - 🇯🇵 日本 (Japan) 21 - wangyu
   - 🇯🇵 日本 (Japan) 22 - wangyu
   - 🇯🇵 日本 (Japan) 23 - wangyu
-  - 🇯🇵 日本 (Japan) 24 - wangyu
-  - 🇯🇵 日本 (Japan) 25 - wangyu
-  - 🇯🇵 日本 (Japan) 26 - wangyu
-  - 🇯🇵 日本 (Japan) 27 - wangyu
-  - 🇯🇵 日本 (Japan) 28 - wangyu
-  - 🇯🇵 日本 (Japan) 29 - wangyu
-  - 🇯🇵 日本 (Japan) 30 - wangyu
-  - 🇯🇵 日本 (Japan) 31 - wangyu
-  - 🇯🇵 日本 (Japan) 32 - wangyu
-  - 🇯🇵 日本 (Japan) 33 - wangyu
-  - 🇯🇵 日本 (Japan) 34 - wangyu
-  - 🇯🇵 日本 (Japan) 35 - wangyu
-  - 🇯🇵 日本 (Japan) 36 - wangyu
-  - 🇯🇵 日本 (Japan) 37 - wangyu
-  - 🇯🇵 日本 (Japan) 38 - wangyu
-  - 🇯🇵 日本 (Japan) 39 - wangyu
-  - 🇯🇵 日本 (Japan) 40 - wangyu
 rules:
 - MATCH,PROXIES

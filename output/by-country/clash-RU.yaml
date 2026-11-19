@@ -13,18 +13,32 @@ proxies:
   udp: true
 - name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
   type: vless
-  server: 193.233.219.98
+  server: ws3.falmero.store
   port: 443
-  uuid: 265ecca2-4733-49de-b2c9-ed7f0e999655
+  uuid: 25ac78e7-6d1d-4c9a-a450-c01a4871769f
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: daily-author.ru
+  servername: canvas.merlano.monster
   network: ws
   ws-opts:
-    path: /api/vless
+    path: /api/de1/stream
     headers:
-      Host: vpn-rating.space
+      Host: ws3.falmero.store
+- name: 🇷🇺 俄罗斯 (Russia) 03 - wangyu
+  type: vless
+  server: quay.gerqix.online
+  port: 443
+  uuid: 25ac78e7-6d1d-4c9a-a450-c01a4871769f
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: quay.gerqix.online
+  network: ws
+  ws-opts:
+    path: /api/de2/stream
+    headers:
+      Host: quay.gerqix.online
 proxy-groups:
 - name: PROXIES
   type: select
@@ -32,6 +46,7 @@ proxy-groups:
   - AUTO
   - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -39,5 +54,6 @@ proxy-groups:
   proxies:
   - 🇷🇺 俄罗斯 (Russia) 01 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 02 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 03 - wangyu
 rules:
 - MATCH,PROXIES

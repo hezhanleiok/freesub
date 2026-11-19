@@ -44,18 +44,12 @@ proxies:
     headers:
       Host: 152.69.226.63
 - name: 🇰🇷 韩国 (South Korea) 04 - wangyu
-  type: vless
-  server: 152.69.226.63
-  port: 25555
-  uuid: 27c5483f-17f4-48ae-9a04-def53d88440d
+  type: ss
+  server: glance.asuscomm.com
+  port: 10099
+  cipher: chacha20-ietf-poly1305
+  password: '12242'
   udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 152.69.226.63
 - name: 🇰🇷 韩国 (South Korea) 05 - wangyu
   type: vless
   server: 152.69.226.63
@@ -70,6 +64,16 @@ proxies:
     headers:
       Host: 152.69.226.63
 - name: 🇰🇷 韩国 (South Korea) 06 - wangyu
+  type: vmess
+  server: 129.154.61.196
+  port: 800
+  uuid: a915b1d6-cf28-4dc8-e4b4-e09c48c37ec0
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: 🇰🇷 韩国 (South Korea) 07 - wangyu
   type: vless
   server: 152.69.226.63
   port: 25555
@@ -82,16 +86,19 @@ proxies:
     path: /
     headers:
       Host: 152.69.226.63
-- name: 🇰🇷 韩国 (South Korea) 07 - wangyu
-  type: vmess
-  server: 129.154.61.196
-  port: 800
-  uuid: a915b1d6-cf28-4dc8-e4b4-e09c48c37ec0
-  alterId: 0
-  cipher: auto
+- name: 🇰🇷 韩国 (South Korea) 08 - wangyu
+  type: vless
+  server: 152.69.226.63
+  port: 25555
+  uuid: 27c5483f-17f4-48ae-9a04-def53d88440d
   udp: true
   tls: false
   skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 152.69.226.63
 proxy-groups:
 - name: PROXIES
   type: select
@@ -104,6 +111,7 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 05 - wangyu
   - 🇰🇷 韩国 (South Korea) 06 - wangyu
   - 🇰🇷 韩国 (South Korea) 07 - wangyu
+  - 🇰🇷 韩国 (South Korea) 08 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -116,5 +124,6 @@ proxy-groups:
   - 🇰🇷 韩国 (South Korea) 05 - wangyu
   - 🇰🇷 韩国 (South Korea) 06 - wangyu
   - 🇰🇷 韩国 (South Korea) 07 - wangyu
+  - 🇰🇷 韩国 (South Korea) 08 - wangyu
 rules:
 - MATCH,PROXIES
