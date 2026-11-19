@@ -6,20 +6,21 @@ log-level: info
 proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
   type: vless
-  server: 213.176.92.168
-  port: 14430
-  uuid: ba52cc43-700d-4040-9444-29214c98e6e0
+  server: 172.66.132.196
+  port: 443
+  uuid: a25a71d1-10ed-4383-855a-f269a34ca691
   udp: true
-  tls: false
+  tls: true
   skip-cert-verify: true
+  servername: ave-qualifications-choices-populations.trycloudflare.com
   network: ws
   ws-opts:
-    path: /vless
+    path: /a8b8606819ef
     headers:
-      Host: 213.176.92.168
+      Host: ave-qualifications-choices-populations.trycloudflare.com
 - name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
   type: vless
-  server: 104.21.89.181
+  server: 104.21.55.229
   port: 443
   uuid: a25a71d1-10ed-4383-855a-f269a34ca691
   udp: true
@@ -32,15 +33,22 @@ proxies:
     headers:
       Host: ave-qualifications-choices-populations.trycloudflare.com
 - name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
-  type: ss
-  server: 213.176.92.148
-  port: 40647
-  cipher: aes-256-gcm
-  password: DgMywXKqojHXeuXY8hOJaYGPFcjweCIJeD5cdg/cUUY=
+  type: vless
+  server: 172.66.140.62
+  port: 443
+  uuid: a25a71d1-10ed-4383-855a-f269a34ca691
   udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ave-qualifications-choices-populations.trycloudflare.com
+  network: ws
+  ws-opts:
+    path: /a8b8606819ef
+    headers:
+      Host: ave-qualifications-choices-populations.trycloudflare.com
 - name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
   type: vless
-  server: skk.moe
+  server: 172.67.187.219
   port: 443
   uuid: a25a71d1-10ed-4383-855a-f269a34ca691
   udp: true
@@ -54,7 +62,7 @@ proxies:
       Host: ave-qualifications-choices-populations.trycloudflare.com
 - name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
   type: vless
-  server: 172.67.174.37
+  server: 104.21.56.202
   port: 443
   uuid: a25a71d1-10ed-4383-855a-f269a34ca691
   udp: true
@@ -68,7 +76,7 @@ proxies:
       Host: ave-qualifications-choices-populations.trycloudflare.com
 - name: 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
   type: vless
-  server: 104.21.56.202
+  server: 104.21.89.181
   port: 443
   uuid: a25a71d1-10ed-4383-855a-f269a34ca691
   udp: true
@@ -81,6 +89,35 @@ proxies:
     headers:
       Host: ave-qualifications-choices-populations.trycloudflare.com
 - name: 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
+  type: vmess
+  server: 156.245.232.239
+  port: 35043
+  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ''
+- name: 🇭🇰 中国香港 (Hong Kong) 08 - wangyu
+  type: vless
+  server: 172.67.174.37
+  port: 443
+  uuid: a25a71d1-10ed-4383-855a-f269a34ca691
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: ave-qualifications-choices-populations.trycloudflare.com
+  network: ws
+  ws-opts:
+    path: /a8b8606819ef
+    headers:
+      Host: ave-qualifications-choices-populations.trycloudflare.com
+- name: 🇭🇰 中国香港 (Hong Kong) 09 - wangyu
   type: vless
   server: 172.67.190.141
   port: 443
@@ -94,20 +131,13 @@ proxies:
     path: /a8b8606819ef
     headers:
       Host: ave-qualifications-choices-populations.trycloudflare.com
-- name: 🇭🇰 中国香港 (Hong Kong) 08 - wangyu
-  type: vless
-  server: 172.66.132.196
-  port: 443
-  uuid: a25a71d1-10ed-4383-855a-f269a34ca691
+- name: 🇭🇰 中国香港 (Hong Kong) 10 - wangyu
+  type: ss
+  server: 213.176.92.148
+  port: 40647
+  cipher: aes-256-gcm
+  password: DgMywXKqojHXeuXY8hOJaYGPFcjweCIJeD5cdg/cUUY=
   udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ave-qualifications-choices-populations.trycloudflare.com
-  network: ws
-  ws-opts:
-    path: /a8b8606819ef
-    headers:
-      Host: ave-qualifications-choices-populations.trycloudflare.com
 proxy-groups:
 - name: PROXIES
   type: select
@@ -121,6 +151,8 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 08 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 09 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 10 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -134,5 +166,7 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 06 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 07 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 08 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 09 - wangyu
+  - 🇭🇰 中国香港 (Hong Kong) 10 - wangyu
 rules:
 - MATCH,PROXIES

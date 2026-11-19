@@ -6,26 +6,52 @@ log-level: info
 proxies:
 - name: 🇸🇪 SE 01 - wangyu
   type: ss
-  server: 70.34.212.124
-  port: 8388
-  cipher: aes-256-gcm
-  password: AxIYWtskJWIIaefW
-  udp: true
-- name: 🇸🇪 SE 02 - wangyu
-  type: ss
-  server: 62.182.193.228
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: 2e555e46dbc421452416834962fd014f
-  udp: true
-- name: 🇸🇪 SE 03 - wangyu
-  type: ss
   server: 138.199.55.243
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
+- name: 🇸🇪 SE 02 - wangyu
+  type: vless
+  server: 92.223.84.254
+  port: 443
+  uuid: 740b2630-b42d-425c-bacd-37e7e30d78f1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: subgift.gcorecdn.com
+  network: ws
+  ws-opts:
+    path: /t.me-SubGift
+    headers:
+      Host: subgift.gcorecdn.com
+- name: 🇸🇪 SE 03 - wangyu
+  type: vless
+  server: 88.216.60.73
+  port: 443
+  uuid: a30903dc-1bf0-4be5-8b1b-603a3a56211c
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
+  servername: ns-api-gw.galioncc.com
+  client-fingerprint: firefox
 - name: 🇸🇪 SE 04 - wangyu
+  type: vless
+  server: subgift.gcorecdn.com
+  port: 443
+  uuid: 740b2630-b42d-425c-bacd-37e7e30d78f1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: subgift.gcorecdn.com
+  network: ws
+  ws-opts:
+    path: /t.me-SubGift
+    headers:
+      Host: subgift.gcorecdn.com
+- name: 🇸🇪 SE 05 - wangyu
   type: vless
   server: 5.178.109.174
   port: 14430
@@ -47,6 +73,7 @@ proxy-groups:
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
   - 🇸🇪 SE 04 - wangyu
+  - 🇸🇪 SE 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -56,5 +83,6 @@ proxy-groups:
   - 🇸🇪 SE 02 - wangyu
   - 🇸🇪 SE 03 - wangyu
   - 🇸🇪 SE 04 - wangyu
+  - 🇸🇪 SE 05 - wangyu
 rules:
 - MATCH,PROXIES
