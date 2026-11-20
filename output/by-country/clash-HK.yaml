@@ -20,56 +20,12 @@ proxies:
     headers:
       Host: ''
 - name: 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
-  type: vmess
-  server: 47.244.120.197
-  port: 36703
-  uuid: 45b83519-9c4f-4052-a11b-02e017b636d4
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /arki
-    headers:
-      Host: 47.244.120.197
-- name: 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
   type: ss
   server: 213.176.92.148
   port: 40647
   cipher: aes-256-gcm
   password: DgMywXKqojHXeuXY8hOJaYGPFcjweCIJeD5cdg/cUUY=
   udp: true
-- name: 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
-  type: vmess
-  server: 47.244.120.197
-  port: 36703
-  uuid: 45b83519-9c4f-4052-a11b-02e017b636d4
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /arki
-    headers:
-      Host: ''
-- name: 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
-  type: vless
-  server: skk.moe
-  port: 443
-  uuid: a25a71d1-10ed-4383-855a-f269a34ca691
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ave-qualifications-choices-populations.trycloudflare.com
-  network: ws
-  ws-opts:
-    path: /a8b8606819ef
-    headers:
-      Host: ave-qualifications-choices-populations.trycloudflare.com
 proxy-groups:
 - name: PROXIES
   type: select
@@ -77,9 +33,6 @@ proxy-groups:
   - AUTO
   - 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -87,8 +40,5 @@ proxy-groups:
   proxies:
   - 🇭🇰 中国香港 (Hong Kong) 01 - wangyu
   - 🇭🇰 中国香港 (Hong Kong) 02 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 03 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 04 - wangyu
-  - 🇭🇰 中国香港 (Hong Kong) 05 - wangyu
 rules:
 - MATCH,PROXIES
