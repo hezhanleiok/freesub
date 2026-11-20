@@ -12,17 +12,31 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
+- name: 🇻🇳 VN 02 - wangyu
+  type: vless
+  server: kir3.crackerbinam.org
+  port: 56026
+  uuid: a1f0cbb8-c74a-4c27-b881-7b14d96aece1
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  reality-opts:
+    public-key: gjOKbmRb5cGDPbdz3x8xkBFL43pn3xqL-I6sALHO7ls
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇻🇳 VN 01 - wangyu
+  - 🇻🇳 VN 02 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇻🇳 VN 01 - wangyu
+  - 🇻🇳 VN 02 - wangyu
 rules:
 - MATCH,PROXIES

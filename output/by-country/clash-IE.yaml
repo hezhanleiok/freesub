@@ -11,17 +11,44 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: FJRApmfuC3F14cFF
   udp: true
+- name: 🇮🇪 IE 02 - wangyu
+  type: ss
+  server: 20.223.233.64
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: wb1pAoZ9Q354JdSs
+  udp: true
+- name: 🇮🇪 IE 03 - wangyu
+  type: ss
+  server: 20.223.233.64
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: wb1pAoZ9Q354JdSs
+  udp: true
+- name: 🇮🇪 IE 04 - wangyu
+  type: ss
+  server: 20.238.32.201
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: FJRApmfuC3F14cFF
+  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇮🇪 IE 01 - wangyu
+  - 🇮🇪 IE 02 - wangyu
+  - 🇮🇪 IE 03 - wangyu
+  - 🇮🇪 IE 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇮🇪 IE 01 - wangyu
+  - 🇮🇪 IE 02 - wangyu
+  - 🇮🇪 IE 03 - wangyu
+  - 🇮🇪 IE 04 - wangyu
 rules:
 - MATCH,PROXIES
