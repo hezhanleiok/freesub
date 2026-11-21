@@ -18,13 +18,6 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: wb1pAoZ9Q354JdSs
   udp: true
-- name: 🇮🇪 IE 03 - wangyu
-  type: ss
-  server: 20.223.233.64
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: wb1pAoZ9Q354JdSs
-  udp: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -32,7 +25,6 @@ proxy-groups:
   - AUTO
   - 🇮🇪 IE 01 - wangyu
   - 🇮🇪 IE 02 - wangyu
-  - 🇮🇪 IE 03 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -40,6 +32,5 @@ proxy-groups:
   proxies:
   - 🇮🇪 IE 01 - wangyu
   - 🇮🇪 IE 02 - wangyu
-  - 🇮🇪 IE 03 - wangyu
 rules:
 - MATCH,PROXIES

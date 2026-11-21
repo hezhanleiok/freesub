@@ -13,18 +13,32 @@ proxies:
   udp: true
 - name: 🇪🇸 西班牙 (Spain) 02 - wangyu
   type: ss
-  server: 66.163.118.103
+  server: 167.17.71.167
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
 - name: 🇪🇸 西班牙 (Spain) 03 - wangyu
   type: ss
-  server: 167.17.71.167
+  server: 66.163.118.103
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
+- name: 🇪🇸 西班牙 (Spain) 04 - wangyu
+  type: vless
+  server: 194.76.168.133
+  port: 443
+  uuid: ef5a57c7-84d5-4f86-b99c-875a16da485f
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: nemicro487.gangtype.com
+  network: ws
+  ws-opts:
+    path: /realtime/client/connect
+    headers:
+      Host: nemicro487.gangtype.com
 proxy-groups:
 - name: PROXIES
   type: select
@@ -33,6 +47,7 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 01 - wangyu
   - 🇪🇸 西班牙 (Spain) 02 - wangyu
   - 🇪🇸 西班牙 (Spain) 03 - wangyu
+  - 🇪🇸 西班牙 (Spain) 04 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -41,5 +56,6 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 01 - wangyu
   - 🇪🇸 西班牙 (Spain) 02 - wangyu
   - 🇪🇸 西班牙 (Spain) 03 - wangyu
+  - 🇪🇸 西班牙 (Spain) 04 - wangyu
 rules:
 - MATCH,PROXIES
