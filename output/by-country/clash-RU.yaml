@@ -6,13 +6,18 @@ log-level: info
 proxies:
 - name: 🇷🇺 俄罗斯 (Russia) 01 - wangyu
   type: vless
-  server: 81.163.22.109
+  server: 194.87.131.9
   port: 443
-  uuid: f4f2c097-a7b2-0001-ba12-f0f89895c31a
+  uuid: 25ac78e7-6d1d-4c9a-a450-c01a4871769f
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: jissa-ru-wl-47sel.my-fade.cloud
+  servername: cinderbrook.elvano.website
+  network: ws
+  ws-opts:
+    path: api/de2/stream
+    headers:
+      Host: 194.87.131.9
 - name: 🇷🇺 俄罗斯 (Russia) 02 - wangyu
   type: vless
   server: 136.148.83.69
@@ -32,13 +37,6 @@ proxies:
   skip-cert-verify: true
   servername: szqbx-ru-77dc.my-fade.cloud
 - name: 🇷🇺 俄罗斯 (Russia) 04 - wangyu
-  type: ss
-  server: 130.49.189.158
-  port: 43558
-  cipher: chacha20-ietf-poly1305
-  password: LNc9h/4NA9Q6ZHNeYHoT5X/fR9aoE9KQR1SWhVDHBog=
-  udp: true
-- name: 🇷🇺 俄罗斯 (Russia) 05 - wangyu
   type: vless
   server: 136.148.83.69
   port: 443
@@ -47,6 +45,20 @@ proxies:
   tls: true
   skip-cert-verify: true
   servername: szqbx-ru-77dc.my-fade.cloud
+- name: 🇷🇺 俄罗斯 (Russia) 05 - wangyu
+  type: vless
+  server: 194.87.131.9
+  port: 443
+  uuid: 25ac78e7-6d1d-4c9a-a450-c01a4871769f
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: cinderbrook.elvano.website
+  network: ws
+  ws-opts:
+    path: /api/de2/stream
+    headers:
+      Host: 194.87.131.9
 - name: 🇷🇺 俄罗斯 (Russia) 06 - wangyu
   type: vless
   server: 147.45.175.81
@@ -61,6 +73,15 @@ proxies:
     path: /wsru
     headers:
       Host: xsru2.freeddns.org
+- name: 🇷🇺 俄罗斯 (Russia) 07 - wangyu
+  type: vless
+  server: 136.148.83.69
+  port: 443
+  uuid: 666821a2-5c3d-0001-a56f-5a3a562d7324
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: szqbx-ru-77dc.my-fade.cloud
 proxy-groups:
 - name: PROXIES
   type: select
@@ -72,6 +93,7 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 06 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 07 - wangyu
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
@@ -83,5 +105,6 @@ proxy-groups:
   - 🇷🇺 俄罗斯 (Russia) 04 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 05 - wangyu
   - 🇷🇺 俄罗斯 (Russia) 06 - wangyu
+  - 🇷🇺 俄罗斯 (Russia) 07 - wangyu
 rules:
 - MATCH,PROXIES
